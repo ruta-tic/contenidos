@@ -1,4 +1,11 @@
-.change { color: red; }
+.horizontal-menu > .chalkboard_content > .element h5 cite {
+    color: #fff;
+}
+
+.horizontal-menu > .chalkboard_content > .element h3,
+.horizontal-menu > .chalkboard_content > .element h4 {
+    color: #fff;
+}
 
 /********************************************************************************/
 /* SPECIFIC LAYER STYLES
@@ -191,7 +198,7 @@
 /********************************************************************************/
 
 #pag-contenidointeractivo-viewfirst .view-content { font-size: 12px; }
-#pag-contenidointeractivo-viewfirst .view-content h2 { color: #fff; border-bottom: dotted 2px #fff; }
+#pag-contenidointeractivo-viewfirst .view-content h2 { color: #fff; }
 #image_content .view-first { margin: 0 20px; float: left; }
 
 /********************************************************************************/
@@ -244,7 +251,6 @@
 }
 
 #arrastrar1.jpit-activities-droppable th {
-    color: #000;
     padding: 5px;
     text-align: right;
 }
@@ -265,6 +271,7 @@
     margin: 0 5px 5px 0;
     position: absolute;
     width: 80px;
+    color: #000;
 }
 
 #pag-actividades-arrastrar1 .item_1 {
@@ -287,6 +294,10 @@
      left: 450px;
 }
 
+.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+    background-color: #40bcc6;
+}
+
 /********************************************************************************/
 /* Actividad arrastrar y soltar - dialogo
 /********************************************************************************/
@@ -304,12 +315,13 @@
     margin-bottom: 5px;
     clear: both;
     height: 15px;
+    color: #000;
 }
 
 #arrastrar2.jpit-activities-droppable .droppable {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #fff;
     width: 100px;
     height: 25px;
 }
@@ -317,7 +329,7 @@
 #arrastrar2.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
     border: none;
     background-color: transparent;
-    color: #000;
+    color: #fff;
     width: 92px;
     height: 17px;
 }
@@ -340,7 +352,6 @@
 }
 
 #arrastrar3.jpit-activities-droppable th {
-    color: #000;
     padding: 5px;
     text-align: right;
     font-weight: normal;
@@ -357,12 +368,11 @@
     margin: 0 5px 5px 0;
     width: 180px;
     text-align: left;
+    color: #000;
 }
 
 #arrastrar3.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
-    background-color: #fbf9ea;
-    color: #000000;
-    border-color: #fbf9ea;
+    color: #333;
 }
 
 #arrastrar3.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped.draggable.wrong {
@@ -398,6 +408,7 @@
 #arrastrar4.jpit-activities-droppable .draggable {
     float: left;
     margin: 0 5px 5px 0;
+    color: #000;
 }
 
 #arrastrar4.jpit-activities-droppable .wrong {
@@ -420,6 +431,7 @@
 
 #arrastrar5 .draggable {
     display: inline-block;
+    color: #000;
 }
 
 /********************************************************************************/
@@ -437,7 +449,6 @@
 #arrastrargrupos h5 {
     text-align: center;
     font-size: 16px;
-    color: #000;
     border-bottom: 2px dotted #95B0CB;
 }
 
@@ -462,6 +473,7 @@
     width: 165px;
     float: left;
     margin: 0 1px 5px;
+    color: #333;
 }
 
 #arrastrargrupos table .draggable.disabled {
@@ -473,6 +485,7 @@
     padding: 5px 0;
     clear: both;
 }
+
 
 /********************************************************************************/
 /* Ordenamiento en matríz
@@ -492,20 +505,21 @@
 }
 
 .jpit-activities-sortable.matriz .sortable-item {
-    width: 44px;
-    height: 24px;
-    padding: 10px 0;
+    width: 43px;
+    height: 25px;
+    padding: 8px 0;
     margin: 2px;
     border: 1px solid #95B0CB;
     border-radius: 5px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     box-shadow: 2px 2px 2px #aaa;
     background-color: #ffffff;
+    color: #333;
 }
 
 .jpit-activities-sortable.matriz ul.sortable-horizontal .sortable-item:hover {
-    background-color: rgba(25, 56, 201, 0.1);
+    background-color: rgba(68, 197, 208, 0.5);
 }
 
 .jpit-activities-sortable.matriz ul.sortable-horizontal .sortable-item:hover:before {
@@ -525,11 +539,11 @@
 
 .jpit-activities-check .check_left .word_content {
     background: #ffffff none repeat scroll 0 0;
-    box-shadow: 3px 3px 3px #dadbdc;
     margin-bottom: 10px;
     padding: 20px 10px;
     text-align: center;
     font-size: 20px;
+    color: #333;
 }
 
 .jpit-activities-check .check_right {
@@ -553,7 +567,6 @@
 
 .jpit-activities-check .box_result > div {
     background-color: #ffffff;
-    box-shadow: 3px 3px 3px #cbcccc;
     padding: 10px;
     width: 110px;
     float: left;

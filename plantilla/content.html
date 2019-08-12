@@ -81,11 +81,22 @@
 
 </head>
 <body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
         <header>
-            <h1>Ejemplos de controles a soportar en el documento</h1>
             <h2>Plantilla de producción de contenidos interactivos</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
@@ -103,10 +114,11 @@
                     <menuitem label="Créditos" data-page="pag-creditos"></menuitem>
                 </menu>
             </nav>
-            <h2 class="page-title"></h2>
         </header>
 
         <main style="display: none;">
+
+            <h2 class="page-title"></h2>
 
             <section id="pag-inicio" ptitle="Presentación">
 
@@ -3837,12 +3849,8 @@
                         <cite>David Herney Bernal García</cite>
                     </div>
                     <div>
-                        <h3>Gestión de calidad</h3>
-                        <cite>Ana Yarenis Arango</cite>
-                    </div>
-                    <div>
                         <h3>Diseño gráfico</h3>
-                        <cite>Juliana Tobón Gaviria</cite>
+                        <cite>Elizabeth Hernandez Gonzalez</cite>
                     </div>
                     <div>
                         <h3>Integración de contenidos</h3>
@@ -3856,7 +3864,7 @@
                             <br />
                             <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
                             <br />
-                            <a href="http://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                            <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
                         </p>
                     </div>
 
@@ -3868,8 +3876,9 @@
                     </div>
                     <div>
                         <br />
-                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Obra publicada bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
-                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                        El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
                     </div>
 
                     <p>
@@ -3883,16 +3892,12 @@
         </main>
 
         <footer class="not_print">
-            <div class="measuring-progress"></div>
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
 
-            <nav label="Características globales" class="globals">
+            <nav label="General" class="globals2">
                 <menu>
-                    <menuitem data-global-id="results"><i title="Progreso" class="ion-clipboard tooltip" data-position-at="top"></i></menuitem>
-                    <menuitem data-global-id="return">
-                        <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
-                        <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
-                    </menuitem>
-                    <menuitem data-global-id="close_all"><i title="Regresar" class="ion-reply tooltip" data-position-at="top"></i></menuitem>
+                    <menuitem data-global-id="results"><span><i title="Progreso" class="ion-speedometer tooltip" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
                 </menu>
             </nav>
 
