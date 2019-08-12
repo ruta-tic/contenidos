@@ -2027,7 +2027,7 @@ dhbgApp.standard.load_operations = function() {
 
                     $box_score.find('.result').text(dhbgApp.s('result_to', { 'a': activity.getTotalResult(), 'b': words.length }));
 
-                    var weight = ((activity.getTotalResult()*100) / words.length);
+                    var weight = Math.round((activity.getTotalResult()*100) / words.length);
 
                     if (weight == 100) {
                         var msg = '<div class="correct">' + feedbacktrue + '</div>';

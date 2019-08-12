@@ -610,6 +610,7 @@ footer #labelprogress {
     padding: 8px 30px 8px 50px;
     min-width: 40%;
     position: relative;
+    text-align: left;
 }
 
 .box-text > .title:before {
@@ -729,6 +730,7 @@ footer #labelprogress {
 
 .box-text.connection .box_body {
     border: 2px solid #0d1b2a;
+    padding-top: 10px;
 }
 
 /********* box activity ********/
@@ -755,9 +757,9 @@ footer #labelprogress {
 .wf-content {
     position: absolute;
     padding: 10px 15px;
-    background: #ffffff;
-    border-radius: 10px;
+    background-color: #ffffff;
     box-shadow: 0 5px 5px #bbb;
+    border: 1px solid #44c5d0;
 }
 
 .wf-content.autox {
@@ -773,9 +775,8 @@ footer #labelprogress {
 .wf-content .close {
     position: absolute;
     padding: 3px;
-    background-color: #3778cc;
-    border-radius: 5px;
-    border-color: #819e52;
+    background-color: #44c5d0;
+    border-color: #44c5d0;
     line-height: 24px;
     font-size: 16px;
     text-align: center;
@@ -787,8 +788,8 @@ footer #labelprogress {
     right: 0;
 }
 
-.wf-content .close.active, .wf-content .close:hover {
-    background-color: #f6ae00;
+.wf-content .close:hover {
+    background-color: #003543;
 }
 
 /********************************************************************************/
@@ -1032,7 +1033,7 @@ sup.tooltip {
 
 .vertical-menu .chalkboard_vertical_items .chalkboard_vertical_item {
     padding: 8px;
-    margin: 0 0;
+    margin: 0;
     text-align: right;
     width: 155px;
     border: 1px solid #fff;
@@ -1859,7 +1860,8 @@ sup.tooltip {
     cursor: default;
 }
 
-.jpit-activities-multidroppable .draggable.wrong, .jpit-activities-multidroppable .droppable.wrong {
+.jpit-activities-multidroppable .draggable.wrong,
+.jpit-activities-multidroppable .droppable.wrong {
     background-color: #ffffff;
     border-color: #D60C1B;
     color: #D60C1B;
@@ -1980,7 +1982,6 @@ sup.tooltip {
     border: 2px dashed #e4e4e4;
     border-radius: 10px;
 }
-
 
 /********************************************************************************/
 /* SPECIFIC ACTIVITIES: MARK

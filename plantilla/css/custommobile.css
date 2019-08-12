@@ -1,4 +1,11 @@
-.change { color: red; }
+.horizontal-menu > .chalkboard_content > .element h5 cite {
+    color: #fff;
+}
+
+.horizontal-menu > .chalkboard_content > .element h3,
+.horizontal-menu > .chalkboard_content > .element h4 {
+    color: #fff;
+}
 
 /********************************************************************************/
 /* SPECIFIC LAYER STYLES
@@ -444,14 +451,14 @@
 }
 
 .jpit-activities-sortable.matriz .sortable-item {
-    width: 44px;
-    height: 24px;
+    width: 43px;
+    height: 23px;
     padding: 10px 0;
     margin: 2px;
     border: 1px solid #95B0CB;
     border-radius: 5px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     box-shadow: 2px 2px 2px #aaa;
     background-color: #ffffff;
 }
@@ -476,11 +483,11 @@
 
 .jpit-activities-check .check_left .word_content {
     background: #ffffff none repeat scroll 0 0;
-    box-shadow: 3px 3px 3px #dadbdc;
     margin-bottom: 10px;
     padding: 20px 10px;
     text-align: center;
     font-size: 20px;
+    color: #333;
 }
 
 .jpit-activities-check .buttons {
@@ -500,7 +507,6 @@
 
 .jpit-activities-check .box_result > div {
     background-color: #ffffff;
-    box-shadow: 3px 3px 3px #cbcccc;
     padding: 10px;
     width: 110px;
     float: left;

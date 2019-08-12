@@ -83,11 +83,11 @@ dhbgApp.mobile.start = function() {
 
     var $box_menu = $('<div id="main_menu"></div>');
 
-    var $close_menu = $('<div id="close_menu" class="button"><i></i></div>');
+    var $close_menu = $('<div id="close_menu" class="button"><i class="ion-close-round"></i></div>');
     $close_menu.on('click', function() { $box_menu.hide( { effect: 'slide', direction: 'right' } ); });
     $box_menu.append($close_menu);
 
-    var $open_menu = $('<div id="open_menu" class="button"><i></i></div>');
+    var $open_menu = $('<div id="open_menu" class="button"><i class="ion-navicon-round"></i></div>');
     $open_menu.on('click', function() { $box_menu.show( { effect: 'slide', direction: 'right' } ); });
 
     $('#body').append($open_menu);
@@ -2174,7 +2174,7 @@ dhbgApp.mobile.load_operations = function() {
 
                     $box_score.find('.result').text(dhbgApp.s('result_to', { 'a': activity.getTotalResult(), 'b': words.length }));
 
-                    var weight = ((activity.getTotalResult()*100) / words.length);
+                    var weight = Math.round((activity.getTotalResult()*100) / words.length);
 
                     if (weight == 100) {
                         var msg = '<div class="correct">' + feedbacktrue + '</div>';
