@@ -465,8 +465,9 @@ nav.globals2 li {
     margin: 0;
     font-weight: bold;
     cursor: pointer;
-    font-size: 40px;
+    font-size: 50px;
     line-height: 11px;
+    margin-top: -12px;
 }
 
 nav.globals li.active, nav.globals li.current {
@@ -562,11 +563,11 @@ footer {
 
 footer #labelmeasuringprogress {
     margin: 0 10px 0 -78px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 footer #labelprogress {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: normal;
     margin-top: -5px;
     display: block;
@@ -2107,11 +2108,16 @@ sup.tooltip {
 /********************************************************************************/
 /* RESULTS
 /********************************************************************************/
+#results_page h2 {
+    text-align: center;
+    padding: 10px;
+}
+
 #results_page .result_sco {
     margin: 0 5px 5px 0;
 }
 
-#results_page .result_sco.visited, #results_page .result_sco.active {
+#results_page .result_sco.visited {
     background-color: #7bb004;
 }
 
