@@ -13,33 +13,71 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    margin: 0;
+    margin: 0 0 30px 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(242, 242, 242, 0.7);
+    background: rgba(244, 244, 244, 0.7) url(../img/bg.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#body {
+    max-width: 968px;
+    margin: auto;
+    background: url(../img/logo_azul.png) no-repeat 50px 10px;
+    padding-top: 90px;
 }
 
 header {
-    background: #889693 url(../img/logo.png) no-repeat 50px 10px;
-    height: 100px;
+    background-color: #c0c0c0;
+    position: relative;
+    min-height: 200px;
+    padding: 20px 400px 20px 20px;
+    margin-bottom: 20px;
+}
+
+header img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 #content {
-    max-width: 968px;
-    margin: -20px auto;
     position: relative;
     padding: 15px;
+    padding-bottom: 80px;
     background-color: #fff;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 44px;
+    line-height: 40px;
+    color: #163d4e;
+    margin: 0;
+}
+
+h1 span {
+    font-weight: normal;
+}
+
+h1 span.level {
+    display: block;
+    font-size: 25px;
+    text-align: center;
 }
 
 h2 {
-    font-size: 20px;
-    font-weight: normal;
+    font-size: 30px;
+    margin: 20px 0 0;
+    color: #fff;
+}
+
+h3 {
+}
+
+h4 {
+    color: #8f9593;
 }
 
 pre {
@@ -53,20 +91,75 @@ em {
     color: #b24926;
 }
 
+ol li {
+    padding-bottom: 10px;
+}
+
 button.general {
-    background-color: #3778cc;
-    color: #fff;
-    font-weight:bold;
-    border: none;
-    padding: 5px 10px;
+    background-color: #dddddd;
+    color: #003543;
+    border: 1px solid #76c5d4;
+    padding: 15px 10px 15px 40px;
     box-shadow: 3px 4px 4px #c9c9c9;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 10px;
+    position: relative;
+    border-left: 13px solid #76c5d4;
+}
+
+button.general:before {
+    content: "\f10a";
+    font-family: "Ionicons";
+    position: absolute;
+    left: 0px;
+    font-size: 79px;
+    top: -19px;
+    color: #76c5d4;
+    padding: 0;
+}
+
+button.general:after {
+    content: "\f12e";
+    font-family: "Ionicons";
+    position: absolute;
+    left: -4px;
+    font-size: 29px;
+    top: 6px;
+    color: #fff;
 }
 
 button.general.active, button.general:hover {
-    background-color: #f6ae00;
+    background-color: #88d3d9;
+}
+
+#duration {
+    position: absolute;
+    left: -20px;
+    bottom: -20px;
+    background-color: #0f1c2c;
     color: #fff;
+    text-align: center;
+    padding: 10px 30px;
+    height: 80px;
+}
+
+#duration:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 0 0 80px;
+    border-color: transparent transparent transparent #0f1c2c;
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: 0;
+}
+
+#duration span {
+    font-size: 50px;
+    display: block;
+    font-weight: bold;
+    line-height: 43px;
 }
 
 #play_scorm {
