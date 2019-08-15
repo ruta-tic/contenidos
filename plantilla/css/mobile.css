@@ -62,6 +62,11 @@ h2 {
     margin: 2px 0;
 }
 
+.ui-dialog-content h2 {
+    text-align: center;
+    padding: 10px;
+}
+
 h3 {
     font-size: 18px;
     color: #0E1C2B;
@@ -496,6 +501,11 @@ nav.globals2 ul.menu > li {
 
 nav.globals2 li i {
     font-size: 30px;
+}
+
+nav.globals2 li[data-global=credits] i {
+    font-size: 37px;
+    line-height: 37px;
 }
 
 /*--------------------------*/
@@ -2089,11 +2099,6 @@ sup.tooltip {
 /********************************************************************************/
 /* RESULTS
 /********************************************************************************/
-#results_page h2 {
-    text-align: center;
-    padding: 10px;
-}
-
 #results_page .result_sco {
     margin: 0 5px 5px 0;
 }
@@ -2300,6 +2305,11 @@ sup.tooltip {
 /********************************************************************************/
 /* SIZE ADJUSTMENT
 /********************************************************************************/
+html.single .page-title,
+html.single nav.main {
+    display: none;
+}
+
 @media (max-width:800px) {
     .col-2 {
         width: 95%;

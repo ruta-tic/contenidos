@@ -712,6 +712,26 @@ dhbgApp.mobile.start = function() {
         $results_modal.dialog('open');
     });
 
+    // Credits control.
+    var $credits_modal = $('#pag-creditos').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 10,
+        height: dhbgApp.documentHeight - 10,
+        classes: {
+            "ui-dialog": "results_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="credits"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $credits_modal.dialog('open');
+    });
+
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================

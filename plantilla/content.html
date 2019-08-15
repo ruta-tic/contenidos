@@ -111,7 +111,6 @@
                         </menu>
                     </menuitem>
                     <menuitem label="Maquetación" data-page="pag-maquetacion"></menuitem>
-                    <menuitem label="Créditos" data-page="pag-creditos"></menuitem>
                 </menu>
             </nav>
         </header>
@@ -3793,6 +3792,12 @@
             <!--Maquetación-->
             <section id="pag-maquetacion" ptitle="Maquetación">
                 <div class="subpage">
+                    <div class="box-text important" label="Caso especial">
+                        <p>
+                            Esta plantilla dispone de una condición especial para reducir el espacio en caso de que se tengan actividades de una sola página. Para ello se debe agregar la clase <em>single</em> a la etiqueta <em>html</em> del contenido.
+                        </p>
+                    </div>
+
                     <p>
                         La maquetación es la manera en la que se distribuye el contenido del documento por defecto. Algunas partes de ellas hacen parte del comportamiento del documento y otras únicamente se utilizan como parte de la estructura gráfica. Las partes tenidas en cuenta para asociarlas con algún comportamiento, y que por ende deben respetar algunas consideraciones, son:
                     </p>
@@ -3820,75 +3825,6 @@
                 </div>
             </section>
 
-            <!--Créditos-->
-            <section id="pag-creditos" ptitle="Créditos">
-                <div class="subpage" id="credits_subpage">
-
-                    <p>
-                        Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
-                    </p>
-                    <div>
-                        <h3>Expertos temáticos</h3>
-                        <cite>David Herney Bernal García<br />
-                        Leidy Cristina Madrigal Arrieta</cite>
-                    </div>
-                    <div>
-                        <h3>Asesoría pedagógica</h3>
-                        <cite>David Herney Bernal García</cite>
-                    </div>
-                    <div>
-                        <h3>Corrección de estilo</h3>
-                        <cite>David Herney Bernal García</cite>
-                    </div>
-                    <div>
-                        <h3>Traducción de contenidos</h3>
-                        <cite>David Herney Bernal García</cite>
-                    </div>
-                    <div>
-                        <h3>Gestión Administrativa</h3>
-                        <cite>David Herney Bernal García</cite>
-                    </div>
-                    <div>
-                        <h3>Diseño gráfico</h3>
-                        <cite>Elizabeth Hernandez Gonzalez</cite>
-                    </div>
-                    <div>
-                        <h3>Integración de contenidos</h3>
-                        <cite>David Herney Bernal García</cite>
-                    </div>
-
-                    <div>
-                        <h3>Producción</h3>
-                        <p class="logos">
-                            <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
-                            <br />
-                            <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
-                            <br />
-                            <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
-                        </p>
-                    </div>
-
-                    <div class="editions">
-                        1ª edición: diciembre 2013<br />
-                        2ª edición: octubre 2015<br />
-                        3ª edición: febrero 2016<br />
-                        4ª edición: junio 2017
-                    </div>
-                    <div>
-                        <br />
-                        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
-                        <img src="img/cc.png" alt="Creative Commons" /></a><br />
-                        El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
-                    </div>
-
-                    <p>
-                        Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
-                    </p>
-                    <p>
-                        Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
-                    </p>
-                </div>
-            </section>
         </main>
 
         <footer class="not_print">
@@ -3897,7 +3833,8 @@
 
             <nav label="General" class="globals2">
                 <menu>
-                    <menuitem data-global-id="results"><span><i title="Progreso" class="ion-speedometer tooltip" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
                 </menu>
             </nav>
 
@@ -3920,6 +3857,77 @@
         <br class="clear" />
         <h3>Actividades de aprendizaje</h3>
         <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="pag-creditos" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>David Herney Bernal García<br />
+                Leidy Cristina Madrigal Arrieta</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Traducción de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br />
+                2ª edición: octubre 2015<br />
+                3ª edición: febrero 2016<br />
+                4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
     </div>
 
     <div id="printent_content" style="display:none;">

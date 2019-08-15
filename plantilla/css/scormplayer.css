@@ -32,8 +32,8 @@ body {
 header {
     background-color: #c0c0c0;
     position: relative;
-    min-height: 200px;
-    padding: 20px 400px 20px 20px;
+    min-height: 150px;
+    padding: 35px 340px 20px 20px;
     margin-bottom: 20px;
 }
 
@@ -51,8 +51,8 @@ header img {
 }
 
 h1 {
-    font-size: 44px;
-    line-height: 40px;
+    font-size: 33px;
+    line-height: 35px;
     color: #163d4e;
     margin: 0;
 }
@@ -63,14 +63,16 @@ h1 span {
 
 h1 span.level {
     display: block;
-    font-size: 25px;
-    text-align: center;
+    font-size: 20px;
+    text-align: left;
+    line-height: 20px;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 27px;
     margin: 20px 0 0;
     color: #fff;
+    font-weight: normal;
 }
 
 h3 {
@@ -111,7 +113,7 @@ button.general:before {
     content: "\f10a";
     font-family: "Ionicons";
     position: absolute;
-    left: 0px;
+    left: -2px;
     font-size: 79px;
     top: -19px;
     color: #76c5d4;
@@ -177,5 +179,20 @@ button.general.active, button.general:hover {
 
     #play_scorm {
         max-width: 100%;
+    }
+
+    header img {
+        position: unset;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    header {
+        padding: 20px 20px 0;
+        min-height: unset;
+    }
+
+    #content {
+        padding-bottom: 90px;
     }
 }
