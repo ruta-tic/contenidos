@@ -456,7 +456,8 @@
                         <li><strong>Botón general: </strong><button class="general">Aceptar</button>, usar &lt;button class="general"&gt;Aceptar&lt;/button&gt;</li>
                         <li><strong>Apuntador arriba-abajo: </strong><span class="icon_inline ui-icon ui-icon-arrowthick-2-n-s"></span>, usar &lt;span class="icon_inline ui-icon ui-icon-arrowthick-2-n-s"&gt;&lt;/span&gt;</li>
                         <li><strong>Apuntador izquierda-derecha: </strong><span class="icon_inline ui-icon ui-icon-arrowthick-2-e-w"></span>, usar &lt;span class="icon_inline ui-icon ui-icon-arrowthick-2-e-w"&gt;&lt;/span&gt;</li>
-                        <li><strong>Ver más: </strong><span class="iconmore button"></span>, usar &lt;span class="icon_more button"&gt;&lt;/span&gt;. Se adiciona la clase button si debe tener el evento "Sobre".</li>
+                        <li><strong>Ver más: </strong><span class="icon_more button"></span>, usar &lt;span class="icon_more button"&gt;&lt;/span&gt;. Se adiciona la clase button si debe tener el evento "Sobre".</li>
+                        <li><strong>Ver menos: </strong><span class="icon_less button"></span>, usar &lt;span class="icon_less button"&gt;&lt;/span&gt;. Se adiciona la clase button si debe tener el evento "Sobre".</li>
                         <li><strong>Apuntador izquierda: </strong><div class="note_pointer_left"></div>, usar &lt;div class="note_pointer_left"&gt;&lt;/div&gt;</li>
                         <li><strong>Apuntador derecha: </strong><div class="note_pointer_right"></div>, usar &lt;div class="note_pointer_right"&gt;&lt;/div&gt;</li>
                         <li><strong>Ícono de video: </strong> <button class="iconvideo button"></button></li>
@@ -822,7 +823,7 @@
 
                 <div class="subpage" id="pag-textos-mouseover2">
                     <h3>Mouse "sobre" un elemento</h3>
-                    <p>Para desplegar contenido pasando el mouse por un elemento, se utiliza la clase <em>mouse-over</em> en un elemento que debe tener el atributo <em>data-ref</em>, la cual debe contener la ruta CSS del elemento que se muestra al pasar el mouse. Al quitar el mouse el elemento se vuelve a ocultar.</p>
+                    <p>Para desplegar contenido pasando el mouse por un elemento, se utiliza la clase <em>mouse-over</em> en un elemento que debe tener el atributo <em>data-ref</em>, el cual debe contener la ruta CSS del elemento que se muestra al pasar el mouse. Al quitar el mouse el elemento se vuelve a ocultar.</p>
 
                     <div class="box-text important" label="Importante">
                         <p>No se controla la visualización inicial por lo que se debe ocultar explícitamente el elemento al inicio.</p>
@@ -835,6 +836,44 @@
                     <div class="contenido_sobre" style="display: none;">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper tincidunt sem, et placerat nunc venenatis sed. Fusce id leo a mi fringilla rhoncus quis in felis. In quis diam et ante sollicitudin venenatis vel id arcu. Donec aliquam dictum scelerisque. In sodales enim et nisl sagittis tempor. Cras ac volutpat nisi. Fusce at metus volutpat, sollicitudin lorem eu, tincidunt sapien. Cras nibh nulla, ornare eu nibh pharetra, faucibus pellentesque neque. Vivamus id augue tortor. Donec gravida dolor at ullamcorper venenatis. Ut consequat sapien libero, eget pretium magna ultrices ac.</p>
                     </div>
+                </div>
+
+                <div class="subpage" id="pag-textos-ocultarmostrar">
+                    <h3>Ocultar/Mostrar un elemento</h3>
+
+                    <p>Para mostrar u ocultar un elemento, se utiliza la clase <em>more-less</em> en un elemento que debe tener el atributo <em>data-ref</em>, el cual debe contener la ruta CSS del elemento que se muestra o se oculta.</p>
+
+                    <p>Para definir el efecto que se utiliza al momento de ocultar/mostrar se utiliza el atributo <em>data-effect</em> con uno de los siguientes posibles valores: <em>blind</em>, <em>bounce</em>, <em>clip</em>, <em>drop</em>, <em>explode</em>, <em>fade</em>, <em>fold</em>, <em>highlight</em>, <em>puff</em>, <em>pulsate</em>, <em>shake</em>, <em>slide</em>, <em>scale</em>, <em>size</em></p>
+
+                    <div class="box-text example" label="Ejemplo">
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> el <span class="icon_more button"></span> para ampliar la información</div>
+
+                        <div class="more-less" data-ref="#pag-textos-ocultarmostrar .contenido" data-effect="explode">
+                            <span class="icon_more button"></span><span class="icon_less button"></span> Ver código
+                        </div>
+
+                        <div class="contenido" style="display: none;">
+                            <p>
+                                Un ejemplo del código utilizado:
+                            </p>
+<pre>
+&lt;div class="more-less" data-ref="#ocultarmostrar" data-effect="explode"&gt;
+    &lt;span class="icon_more button"&gt;
+    &lt;/span&gt;&lt;span class="icon_less button"&gt;&lt;/span&gt;
+        Ver más
+&lt;/div&gt;
+
+&lt;div id="ocultarmostrar" style="display: none;"&gt;
+    &lt;p&gt;Lorem ipsum&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="box-text important" label="Importante">
+                        <p>La visualización inicial se puede definir directamente en el estilo del elemento destino. Si está oculto o visible ese será el estado inicial del control.</p>
+                    </div>
+
                 </div>
 
                 <div class="subpage">

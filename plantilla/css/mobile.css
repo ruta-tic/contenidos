@@ -652,13 +652,11 @@ footer #labelprogress {
     content: "\f10a";
     font-family: "Ionicons";
     position: absolute;
-    left: -7px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    left: -8px;
     font-size: 115px;
-    top: -41px;
+    top: -20px;
     color: #333;
+    line-height: 80px;
 }
 
 .box-text > .title:after {
@@ -871,14 +869,24 @@ footer #labelprogress {
     margin: 0 2px;
 }
 
-.iconmore {
+.icon_more {
     background: url(../img/sprite.png) no-repeat -666px -12px;
     padding: 8px 14px;
     font-size: 10px;
 }
 
-.iconmore.active {
+.icon_more.active {
     background-position: -666px -52px;
+}
+
+.icon_less {
+    background: url(../img/sprite.png) no-repeat -666px -83px;
+    padding: 8px 14px;
+    font-size: 10px;
+}
+
+.icon_less.active {
+    background-position: -666px -123px;
 }
 
 .note_pointer_left, .note_pointer_right {
@@ -1025,6 +1033,15 @@ sup.tooltip {
 /* SPECIAL CONTENT: MOUSE OVER
 /********************************************************************************/
 .mouse-over { cursor: pointer; }
+
+/********************************************************************************/
+/* SPECIAL CONTENT: MORE - LEST
+/********************************************************************************/
+.more-less { cursor: pointer; }
+
+.viewmore .icon_more { display: none; }
+
+.viewless .icon_less { display: none; }
 
 /********************************************************************************/
 /* TEXTO EN COLUMNAS
@@ -1400,7 +1417,6 @@ sup.tooltip {
 .box_end {
     text-align: center;
     padding: 10px;
-    background-color: #fff;
 }
 
 .box_end:before, .box_end:after {
@@ -1408,17 +1424,41 @@ sup.tooltip {
     display: inline-block;
 }
 
-.box_end .correct, .box_end .wrong {
-    padding: 10px;
-}
-
-.box_end .correct {
-    color: #207D7E;
-}
-
-
+.box_end .correct,
 .box_end .wrong {
-    color: #D60C1B;
+    text-align: center;
+    background-color: #ffffff;
+    position: relative;
+    margin: 0 auto 10px;
+    color: #002236;
+    background-color: #b9eaed;
+    border-radius: 10px;
+    padding: 20px 40px 20px 60px;
+    max-width: 400px;
+}
+
+.box_end .correct:after {
+    content: "";
+    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    position: absolute;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    top: calc(50% - 16px);
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.box_end .wrong:after {
+    content: "";
+    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
+    position: absolute;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    top: calc(50% - 16px);
+    z-index: 2;
+    border-radius: 50%;
 }
 
 .saving .activity_modal {
@@ -1540,43 +1580,46 @@ sup.tooltip {
     background-position: -144px -50px;
 }
 
-.jpit_activities_quiz_question_feedback_true, .jpit_activities_quiz_question_feedback_false {
-    padding: 10px;
+.jpit_activities_quiz_question_feedback {
+    position: relative;
+    display: flex;
+}
+
+.jpit_activities_quiz_question_feedback_true,
+.jpit_activities_quiz_question_feedback_false {
     text-align: center;
     background-color: #ffffff;
     position: relative;
-}
-
-.jpit_activities_quiz_question_feedback_true {
-    border: 1px solid #207D7E;
-    color: #207D7E;
-}
-
-.jpit_activities_quiz_question_feedback_false {
-    border: 1px solid #D60C1B;
-    color: #D60C1B;
+    margin: auto;
+    display: inline;
+    color: #002236;
+    background-color: #b9eaed;
+    border-radius: 10px;
+    padding: 20px 40px 20px 60px;
 }
 
 .jpit_activities_quiz_question_feedback_true:after {
-    background: url(../img/sprite.png) no-repeat -1280px 0;
-    position: absolute;
-    right: 0;
-    width: 40px;
-    height: 30px;
     content: "";
-    top: 0;
+    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    position: absolute;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    top: calc(50% - 16px);
     z-index: 2;
+    border-radius: 50%;
 }
 
 .jpit_activities_quiz_question_feedback_false:after {
     content: "";
-    background: url(../img/sprite.png) no-repeat -1280px -50px;
+    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
     position: absolute;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    top: 0;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    top: calc(50% - 16px);
     z-index: 2;
+    border-radius: 50%;
 }
 
 .jpit-activities-quiz .verify_box {

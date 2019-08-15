@@ -423,6 +423,42 @@ dhbgApp.standard.start = function() {
     });
 
     // ==============================================================================================
+    // "More - Less"
+    // ==============================================================================================
+    $('.more-less').each(function() {
+        var $this = $(this);
+        var selector = $this.attr('data-ref');
+
+        if ($(selector).is(":hidden")) {
+            $this.addClass('viewless');
+        }
+        else {
+            $this.addClass('viewmore');
+        }
+    });
+
+    $('.more-less').on('click', function() {
+        var $this = $(this);
+        var selector = $this.attr('data-ref');
+        var effect = $this.attr('data-effect');
+
+        if (!effect) {
+            effect = 'blind';
+        }
+
+        if ($this.hasClass('viewmore')) {
+            $(selector).hide(effect, {}, 500);
+            $this.removeClass('viewmore');
+            $this.addClass('viewless');
+        }
+        else {
+            $(selector).show(effect, {}, 500);
+            $this.removeClass('viewless');
+            $this.addClass('viewmore');
+        }
+    });
+
+    // ==============================================================================================
     // Image animations
     // ==============================================================================================
     var f_reloadanimation = function ($this) {
