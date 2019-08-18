@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Actividad 1. Evolución del concepto Salud / Enfermedad</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="0" data-activities-percentaje="100" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Actividad 1. Evolución del concepto Salud / Enfermedad</h2>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="Linea de tiempo">
+
+                <div class="subpage">
+
+                    <div class="box-text activity" label="Indicaciones:">
+                        <p>
+                        Ordene los sucesos propuestos teniendo en cuenta la secuencia lógica en la que se han producido. Para esto, debe arrastrar cada bloque de información en el orden que considere correcto y, finalmente, leer cuidadosamente cada una de las descripciones que aparecerán una vez sitúe los eventos, pues es allí donde podrá reconocer a profundidad cómo aporta cada suceso a esta evolución.
+                        </p>
+                    </div>
+
+                    <div id="act1" class="jpit-activities-droppable prevencion" data-act-id="1-prevencion" data-act-title="Línea de tiempo Prevención de la enfermedad">
+                        <div class="bloque1">
+                            <div class="introductorio">
+                                <h3>
+                                    <div class="more-less viewmore" data-ref="#ocultarmostrar" data-effect="explode">
+                                        <span class="icon_more button"></span>
+                                        <span class="icon_less button"></span>
+                                    Prevención de la enfermedad
+                                    </div>
+                                </h3>
+                                <div id="ocultarmostrar">
+                                    <p>Los conceptos de promoción de salud y prevención de la enfermedad integran aquellos elementos que son sometidos a la enseñanza por parte del profesor, y al aprendizaje por parte del estudiante. Constituyen, además, dos núcleos centrales del perfil que debe tener un profesional del área de salud egresado en Colombia y, por lo tanto, es necesario revisar cómo ha sido la evolución a través de la historia.</p>
+                                </div>
+                            </div>
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="1"></div>
+                                    </div>
+                                    <div class="ano ano1">1347</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="2"></div>
+                                    </div>
+                                    <div class="ano ano1">1480</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="3"></div>
+                                    </div>
+                                    <div class="ano ano1">1546</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="4"></div>
+                                    </div>
+                                    <div class="ano ano1">1590</div>
+                                </div>
+                            </div>
+                            <div class="linea2 izq">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="5"></div>
+                                    </div>
+                                    <div class="ano ano1">1794</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="6"></div>
+                                    </div>
+                                    <div class="ano ano1">1848</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="7"></div>
+                                    </div>
+                                    <div class="ano ano1">1941</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="8"></div>
+                                    </div>
+                                    <div class="ano ano1">1946</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opciones opciones1">
+                            <div data-group="1" class="item  w-content-controler general" data-content="#1347" data-property-width="400">Epidemia de la “Peste o Muerte Negra”</div>
+                            <div data-group="2" class="item  w-content-controler general" data-content="#1480" data-property-width="400">Se publica el libro Regimen SA</div>
+                            <div data-group="3" class="item  w-content-controler general" data-content="#1546" data-property-width="400">Primer epidemiólogo publica su obra De contagionibus</div>
+                            <div data-group="4" class="item  w-content-controler general" data-content="#1590" data-property-width="400">Invención del microscopio</div>
+                            <div data-group="5" class="item  w-content-controler general" data-content="#1794" data-property-width="400">Publicación de la obra Catecismo de la salud de Bernhard Christoph Faust</div>
+                            <div data-group="6" class="item  w-content-controler general" data-content="#1848" data-property-width="400">“El Estado debe ayudar a todos a vivir una vida sana” Rudolf Ludwig Karl Virchow</div>
+                            <div data-group="7" class="item  w-content-controler general" data-content="#1941" data-property-width="700">“La salud no es sencillamente la ausencia de enfermedad” Henry Ernest Sigerist</div>
+                            <div data-group="8" class="item  w-content-controler general" data-content="#1946" data-property-width="400">Las cuatro tareas principales de la medicina</div>
+                        </div>
+                    </div>
+
+                    <div id="act2" class="jpit-activities-droppable oms" data-act-id="2-oms" data-act-title="Línea de tiempo Organización Mundial de la Salud (OMS)" style="display: none;">
+                        <div class="bloque2">
+                            
+                            <div class="introductorio1">
+                                <h3>
+                                    <div class="more-less viewmore" data-ref="#mostraroms" data-effect="explode">
+                                        <span class="icon_more button"></span>
+                                        <span class="icon_less button"></span>
+                                    Organización Mundial de la Salud (OMS)
+                                    </div>
+                                </h3>
+                                <div id="mostraroms">
+                                    <p>
+                                        La Organización Mundial de la Salud (OMS) celebra su constitución el 7 de abril de 1948 en Ginebra, fecha que concuerda con la celebración del Día Mundial de la Salud. Actualmente, más de 7.000 personas trabajan en 150 oficinas en la sede de Ginebra y en otras sedes regionales. La OMS es un organismo que pertenece a la Organización de las Naciones Unidas (ONU), ente especializado en gestionar políticas de prevención, promoción e intervención en salud a nivel mundial. Esto marca un hito en la evolución del concepto, ya que la OMS colabora con todos los Estados Miembros para apoyar su desarrollo en el ámbito de la salud, incluso cuando no cuenta con una presencia física en ellos. El objetivo de la OMS es velar para que cada ser humano disfrute del mejor estado de salud posible, y cooperar con los gobiernos y otros asociados en la aplicación de las estrategias y planes nacionales de salud, así como en el cumplimiento de los compromisos colectivos asumidos por sus órganos deliberantes.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="9"></div>    
+                                    </div>
+                                    <div class="ano ano2">1948</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="10"></div>    
+                                    </div>
+                                    <div class="ano ano2">1974</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="11"></div>    
+                                    </div>
+                                    <div class="ano ano2">1978</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opciones opciones2">
+                            <div data-group="9" class="item  w-content-controler general" data-content="#1948" data-property-width="700">La OMS definió la salud como un estado de completo bienestar físico, mental y social</div>
+                            <div data-group="10" class="item  w-content-controler general" data-content="#1974" data-property-width="700">Surgimiento del concepto Campo de Salud</div>
+                            <div data-group="11" class="item  w-content-controler general" data-content="#1978" data-property-width="700">Declaración de Alma Ata</div>
+                        </div>
+                    </div>
+
+                    <div id="act3" class="jpit-activities-droppable promocion" data-act-id="3-promocion" data-act-title="Línea de tiempo Promoción de la salud" style="display: none;">
+
+                        <div class="bloque3">
+                            
+                            <div class="introductorio2">
+                                <h3>
+                                    <div class="more-less viewmore" data-ref="#mostrarprom" data-effect="explode">
+                                        <span class="icon_more button"></span>
+                                        <span class="icon_less button"></span>
+                                    Promoción de la salud
+                                    </div>
+                                </h3>
+                                <div id="mostrarprom">
+                                    <p>
+                                        En octubre de 1986 se celebró la Primera Conferencia Internacional de Promoción de la Salud. Hasta el momento, se han se han celebrado nueve conferencias en diferentes lugares del mundo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="linea2 izq">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="12"></div>    
+                                    </div>
+                                    <div class="ano ano3">1986</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="13"></div>    
+                                    </div>
+                                    <div class="ano ano3">1988</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="14"></div>    
+                                    </div>
+                                    <div class="ano ano3">1991</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="15"></div>    
+                                    </div>
+                                    <div class="ano ano3">1997</div>
+                                </div>
+                            </div>
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="16"></div>    
+                                    </div>
+                                    <div class="ano ano3">2000</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="17"></div>    
+                                    </div>
+                                    <div class="ano ano3">2005</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="18"></div>    
+                                    </div>
+                                    <div class="ano ano3">2009</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="19"></div>    
+                                    </div>
+                                    <div class="ano ano3">2013</div>
+                                </div>
+                            </div>
+                            <div class="linea2 izq">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="20"></div>    
+                                    </div>
+                                    <div class="ano ano3">2016</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="opciones opciones3">
+                            <div data-group="12" class="item  w-content-controler general" data-content="#1986" data-property-width="600">Comprensión holística de la salud en Ottawa, Canadá</div>
+                            <div data-group="13" class="item  w-content-controler general" data-content="#1988" data-property-width="400">Importancia de la política pública saludable en Adelaide, Australia</div>
+                            <div data-group="14" class="item  w-content-controler general" data-content="#1991" data-property-width="600">Ambientes favorables para la salud en Sundswal, Suecia</div>
+                            <div data-group="15" class="item  w-content-controler general" data-content="#1997" data-property-width="600">Nuevos actores para una nueva era: guiando la promoción de la salud hacia el Siglo XXI en Yakarta, Indonesia</div>
+                            <div data-group="16" class="item  w-content-controler general" data-content="#2000" data-property-width="400">Promoción de salud hacia una mayor equidad, en México</div>
+                            <div data-group="17" class="item scroll  w-content-controler general" data-content="#2005" data-property-width="600">Mayor coherencia en las políticas para la promoción de la salud y mayor colaboración entre gobiernos, organismos internacionales, sociedad civil y sector privado en Bangkok, Tailandia</div>
+                            <div data-group="18" class="item  w-content-controler general" data-content="#2009" data-property-width="500">La acción para cerrar la brecha de implementación en promoción de la salud en Nairobi, Kenia</div>
+                            <div data-group="19" class="item  w-content-controler general" data-content="#2013" data-property-width="600">Salud en todas las política en Helsinki, Finlandia</div>
+                            <div data-group="20" class="item  w-content-controler general" data-content="#2016" data-property-width="700">La promoción de la salud en los objetivos de desarrollo sostenible en Shanghai, China</div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- 
+*************************
+    Ventanas Modales 
+*************************-->
+
+<!-- Sección 1 -->
+
+                <div id="1347" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/01.png" />
+                        <strong>Imagen 1 </strong>
+                        <span>Peste negra</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1347</div>
+                        <p>
+                            Recordada por ser la más mortal en la historia de la humanidad.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1480" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/02.png" />
+                        <strong>Imagen 2 </strong>
+                        <span>Regimen Sanitatis Salernitanum cum expositione magistri Arnaldi de Villanova Cathellano noviter impressus [Imagen]. 1480. Recuperado de <a href="https://bit.ly/2SyXEZH" target="_blank">https://bit.ly/2SyXEZH</a> </span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1480</div>
+                        <p>
+                            Recopilación de 364 versos de Sanitatis Salernitatum que exponen las indicaciones de la Escuela de Salerno en relación con las normas higiénicas, la alimentación, las plantas medicinales y demás indicaciones terapéuticas. 
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1546" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/03.png" />
+                        <strong>Imagen 3 </strong>
+                        <span>Portrait of Girolamo Fracastoro [Imagen]. 2013. Recuperado de <a href="https://bit.ly/30Qatlm" target="_blank">https://bit.ly/30Qatlm</a> </span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1546</div>
+                        <p>
+                            Girolamo Fracastoro, médico italiano considerado como el primer epidemiólogo, publica su obra De contagionibus que documenta una naciente teoría sobre el contagio de enfermedades. Es el primer texto que aborda dicho tema en la historia de la medicina.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1590" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/04.png" />
+                        <strong>Imagen 4 </strong>
+                        <span>Portrait of Sacharias Jansen [Imagen]. 2005. Recuperado de <a href="https://bit.ly/2GmL4rC" target="_blank">https://bit.ly/2GmL4rC</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1590</div>
+                        <p>
+                            Fue inventado por Zacharias Janssen.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1794" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/05.png" />
+                        <strong>Imagen 5 </strong>
+                        <span>Porträt des Arztes Bernhard Christoph Faust [Imagen]. 2013. Recuperado de <a href="https://bit.ly/2Y3k3ok" target="_blank">https://bit.ly/2Y3k3ok</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1794</div>
+                        <p>
+                            Bernhard Christoph Faust, médico alemán quien dedicó su vida a promover la salud y el bienestar general de su pueblo, nos permite rastrear el origen de la promoción de la salud. Publicó la obra de Catecismo de la salud para maestros, padres y niños.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1848" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/06.png" />
+                        <strong>Imagen 6 </strong>
+                        <span>Rudolf Ludwig Karl Virchow [Imagen]. 2014. Recuperado de <a href="https://bit.ly/2XZsjFu" target="_blank">https://bit.ly/2XZsjFu</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1848</div>
+                        <p>
+                            Rudolf Ludwig Karl Virchow, médico alemán considerado el padre de la patología moderna, trabajó el concepto de la promoción de la salud. Virchow, en su texto en pro de la reforma de la medicina, expresó que “el Estado debe ayudar a todos a vivir una vida sana. Esto se desprende sencillamente de la concepción del Estado como la unidad moral de todas las personas que lo constituyen y de la obligación de solidaridad universal”<sup class="tooltip" title="Sigerist H. Medicine and Human Welfare. New Haven: Yale University Press; 1941.">[1]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1941" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/07.png" />
+                        <strong>Imagen 7 </strong>
+                        <span>H.E. Sigerist [Imagen]. 1929. Recuperado de <a href="https://bit.ly/2Z8MKN0" target="_blank">https://bit.ly/2Z8MKN0</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1941</div>
+                        <p>
+                            Henry Ernest Sigerist, nacido en París, gran historiador de la medicina, fue la primera persona en emplear el término promoción de la salud con un significado similar al moderno. Se refirió a la salud afirmando que “una persona sana es un ser humano con un buen equilibrio corporal y mental y bien adaptado a su medio físico y social, ejerce pleno control de sus facultades físicas y mentales, puede adaptarse a los cambios ambientales siempre y cuando no sobrepasen los límites normales, y contribuye al bienestar de la sociedad en la medida de sus posibilidades. Por lo tanto, la salud no es sencillamente la ausencia de enfermedad; es algo positivo, una actitud alegre hacia la vida y la aceptación entusiasta de las responsabilidades que la vida impone a la persona”<sup class="tooltip" title="Sigerist H. Medicine and Human Welfare. New Haven: Yale University Press; 1941.">[1]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1946" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/08.png" />
+                        <strong>Imagen 8 </strong>
+                        <span>Henry E. Sigerist [Imagen]. Recuperado de <a href="https://bit.ly/2ZgBZIg" target="_blank">https://bit.ly/2ZgBZIg</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1946</div>
+                        <p>
+                            Sigerist señaló que las cuatro tareas principales de la medicina eran la promoción de la salud, la prevención de la enfermedad, el restablecimiento de los enfermos y la rehabilitación.<sup class="tooltip" title="Terris M. Concepts of Health Promotion – Dualities in Public Health Theory. Washington, DC: Pan American Health Organization; 1992.">[2]</sup>
+                        </p>
+                    </div>
+                </div>
+
+<!-- Sección 2 -->
+
+                <div id="1948" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/09.png" />
+                        <strong>Imagen 9. </strong>
+                        <span>Organización Mundial de la Salud (OMS)</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano2 der">1948</div>
+                        <p>
+                            La OMS definió la salud como un estado de completo bienestar físico, mental y social, y no solamente la ausencia de enfermedad o dolencia. A partir de este concepto, la promoción de la salud ha sido considerada como un medio para llegar a esta, entendiéndose como recurso que permite a las personas llevar una vida individual, social y económicamente productiva. La salud es un recurso para la vida diaria, no el objetivo de la vida. Se trata, entonces, de un concepto positivo que acentúa los recursos sociales y personales, así como las aptitudes físicas.<sup class="tooltip" title="Tabima García D. Didácticas en la enseñanza de la promoción de la salud en la asignatura programas de salud del programa de medicina de la universidad tecnológica de Pereira. Tesis de Maestría. Pereira: Universidad Tecnológica de Pereira; 2010.">[3]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1974" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/10.png" />
+                        <strong>Imagen 10. </strong>
+                        <span>John Snow, Marc Lalonde y portada de su informe [Imagen]. 2011. Disponible en <a href="https://bit.ly/32OvWx5" target="_blank">https://bit.ly/32OvWx5</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano2 der">1974</div>
+                        <p>
+                            En 1974, con la publicación del informe de Marc Lalonde, A New Perspective on the Health of Canadians, se produjo un hecho decisivo en la forma de concebir la salud pública; surgió el concepto de Campo de Salud con cuatro componentes: características biológicas, ambiente, modo de vida y organización de la asistencia sanitaria. Este informe se basó en la principal estrategia del cambio de modo de vida dirigido al individuo. El autor reconoce a Canadá como el país con el abordaje más igualitario en los asuntos referentes a salud.<sup class="tooltip" title="Lalonde M. A new perspective of the health of canadians. Ottawa: Health and Welfare; 1974.">[4]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1978" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/11.png" />
+                        <strong>Imagen 11. </strong>
+                        <span>40 años de ALMA ATA: Logros y retos de la Atención Primaria [Imagen]. 2018. Recuperado de <a href="https://bit.ly/2CStSem" target="_blank">https://bit.ly/2CStSem</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano2 der">1978</div>
+                        <p>
+                            En 1974, con la publicación del informe de Marc Lalonde, A New Perspective on the Health of Canadians, se produjo un hecho decisivo en la forma de concebir la salud pública; surgió el concepto de Campo de Salud con cuatro componentes: características biológicas, ambiente, modo de vida y organización de la asistencia sanitaria. Este informe se basó en la principal estrategia del cambio de modo de vida dirigido al individuo. El autor reconoce a Canadá como el país con el abordaje más igualitario en los asuntos referentes a salud.
+                        </p>
+                    </div>
+                </div>
+
+<!-- Sección 3 -->
+
+                <div id="1986" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/12.png" />
+                        <strong>Imagen 12. </strong>
+                        <span>Carta de Ottawa, Canadá</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">1986</div>
+                        <p>
+                            Esta Carta destaca los prerrequisitos para la salud que incluyen la paz, los recursos económicos y alimenticios adecuados, la vivienda y un ecosistema estable, lo cual pone en manifiesto la estrecha relación que existe entre las condiciones sociales y económicas, el entorno físico, los estilos de vida individuales y la salud. A lo anterior, se suma la dimensión espiritual de esta como el reconocimiento a una extensión de la vida que se menciona pero no se aplica con la debida potencia.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1988" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/13.png" />
+                        <strong>Imagen 13. </strong>
+                        <span>Health Public Policy, Australia</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">1988</div>
+                        <p>
+                            Basándose en el reconocimiento de la salud como objetivo social fundamental, esta Declaración le otorgó un nuevo giro a la política sanitaria al insistir en que la participación social, la cooperación entre los distintos sectores de la sociedad y la atención sanitaria primaria constituyen sus pilares básicos<sup class="tooltip" title="Reventós A. Segunda conferencia internacional de la promoción en salud. Adelaida, Australia; 1968. Recuperado de <a href='https://bit.ly/2Y7Kwfu' target='_blank'>https://bit.ly/2Y7Kwfu</a>">[5]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1991" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/14.png" />
+                        <strong>Imagen 14. </strong>
+                        <span>Action for Public Health, Suecia</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">1991</div>
+                        <p>
+                            Esta Declaración insiste en la importancia del desarrollo sostenible y vela por la acción social a nivel de la comunidad con las personas como la fuerza motriz del desarrollo. Allí, se identifican numerosos ejemplos y planteamientos para crear ambientes favorables a la salud en donde los distintos responsables de la política, los encargados de las decisiones en las diversas esferas de los países, los activistas comunitarios en los sectores de salud y el medio ambiente serían quienes tendrían que velar por los medios favorables. Es así como cada persona tiene que desempeñar una función específica para que dichos ambientes puedan generarse.<sup class="tooltip" title="Tabima García D. Didácticas en la enseñanza de la promoción de la salud en la asignatura programas de salud del programa de medicina de la universidad tecnológica de Pereira. Tesis de Maestría. Pereira: Universidad Tecnológica de Pereira; 2010.">[3]</sup>
+                            <sup class="tooltip" title="Organización Mundial de la Salud. Declaración de Sundsvall sobre los ambientes favorables a la salud. Suecia; 1991. Recuperado de <a href='https://bit.ly/32ND7FG' target='_blank'>https://bit.ly/32ND7FG</a>">[6]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1997" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/15.png" />
+                        <strong>Imagen 15. </strong>
+                        <span>Declaración de Jakarta, Indonesia</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">1997</div>
+                        <p>
+                            Constituyó un paso más en el esfuerzo por volver entendible, y ante todo más operativo, el concepto de la promoción de la salud<sup class="tooltip" title="Tabima García D. Didácticas en la enseñanza de la promoción de la salud en la asignatura programas de salud del programa de medicina de la universidad tecnológica de Pereira. Tesis de Maestría. Pereira: Universidad Tecnológica de Pereira; 2010.">[3]</sup>. Esta Declaración identifica cinco prioridades de cara a la promoción de la salud en el Siglo XXI: 
+                            <ol>
+                                <li>Promover la responsabilidad social para la salud.</li>
+                                <li>Incrementar las inversiones para el desarrollo de la salud.</li>
+                                <li>Expandir la colaboración para la promoción de la salud.</li>
+                                <li>Incrementar la capacidad de la comunidad y el empoderamiento de los individuos.</li>
+                                <li>Garantizar una infraestructura para la promoción de la salud.</li>
+                            </ul>
+
+                        </p>
+                    </div>
+                </div>
+
+                <div id="2000" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/16.png" />
+                        <strong>Imagen 16. </strong>
+                        <span>Declaración de  México</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">2000</div>
+                        <p>
+                            Esta Declaración fue firmada por todos los ministros de salud del mundo. En esta se establecen ocho principios y seis acciones fundamentales para establecer la  promoción para la salud como prioridad fundamental en las políticas y programas de salud locales, regionales, nacionales e internacionales.<sup class="tooltip" title="Tabima García D. Didácticas en la enseñanza de la promoción de la salud en la asignatura programas de salud del programa de medicina de la universidad tecnológica de Pereira. Tesis de Maestría. Pereira: Universidad Tecnológica de Pereira; 2010.">[3]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="2005" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/17.png" />
+                        <strong>Imagen 17. </strong>
+                        <span>Declaración de Bangkok, Tailandia</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">2005</div>
+                        <p>
+                            Identifica los desafíos principales para abordar los determinantes de la salud en un mundo globalizado, y pide que un mayor número de interesados directos se comprometan con las iniciativas para lograr una salud para todos. Esta Carta documenta cuatro compromisos claves: la responsabilidad esencial de todos los gobiernos, los acuerdos intergubernamentales sólidos, el empoderamiento y la organización comunitaria y las buenas prácticas empresariales.<sup class="tooltip" title="Tabima García D. Didácticas en la enseñanza de la promoción de la salud en la asignatura programas de salud del programa de medicina de la universidad tecnológica de Pereira. Tesis de Maestría. Pereira: Universidad Tecnológica de Pereira; 2010.">[3]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="2009" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/18.png" />
+                        <strong>Imagen 18. </strong>
+                        <span>Declaración de Nairobi, Kenya </span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">2009</div>
+                        <p>
+                            Define las estrategias clave y los compromisos que deben cumplirse para subsanar las deficiencias en la ejecución en la esfera de la salud y el desarrollo, haciendo uso de la promoción de la salud para lograrlo. Es la única conferencia celebrada hasta el momento en un país en vía de desarrollo y establece más de 70 acciones encaminadas a subsanar las deficiencias en dicha promoción.<sup class="tooltip" title="Promoción de la Salud según las diferentes conferencias internacionales [recurso en línea]. Recuperado de <a href='https://bit.ly/30R7Y29' target='_blank'>https://bit.ly/30R7Y29</a>">[7]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="2013" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/19.png" />
+                        <strong>Imagen 19. </strong>
+                        <span>Declaración de Helsinki, Finlandia</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">2013</div>
+                        <p>
+                            Se hicieron siete pedidos a los Gobiernos: 
+                            <ol>
+                                <li>Comprometerse a la salud y la equidad en salud como una prioridad política.</li>
+                                <li>Asegurar estructuras, procesos y recursos eficaces.</li>
+                                <li>Fortalecer la capacidad de los Ministerios de Salud para comprometer a otros sectores del gobierno.</li>
+                                <li>Fortalecer la capacidad institucional y las competencias.</li>
+                                <li>Adoptar los mecanismos de auditoría y rendición de cuentas transparentes.</li>
+                                <li>Establecer medidas de conflicto de interés.</li>
+                                <li>Incluir comunidades, movimientos sociales y sociedad civil.</li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="2016" class="w-content" data-property-width="80%">
+                    <div>
+                        <img src="./content/20.png" />
+                        <strong>Imagen 20. </strong>
+                        <span>Declaración de Shangai, China (2016)</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano3 der">2016</div>
+                        <p>
+                            “Reconocemos que la salud es una opción política, y contrarrestamos los intereses perjudiciales para la salud y eliminaremos los obstáculos al empoderamiento, especialmente de las mujeres y las niñas. Instamos a los líderes políticos de diferentes sectores y niveles de gobernanza, del sector privado y de la sociedad civil, a unirse a nosotros en nuestra determinación de promover la salud y el bienestar en todos los Objetivos de Desarrollo Sostenible de las Naciones Unidas (ODS). La promoción de la salud requiere una acción coordinada por todas las partes interesadas; es una responsabilidad compartida. Con la presente Declaración de Shanghai, nosotros, los participantes, nos comprometemos a acelerar la aplicación de los ODS mediante un mayor compromiso político y la inversión financiera en la promoción de la salud”.<sup class="tooltip" title="Promoción de la Salud según las diferentes conferencias internacionales [recurso en línea]. Recuperado de <a href='https://bit.ly/30R7Y29' target='_blank'>https://bit.ly/30R7Y29</a>">[7]</sup>
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+        <!--Créditos-->
+    <div id="pag-creditos" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: agosto 2019<br />
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
