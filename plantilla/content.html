@@ -848,7 +848,7 @@
                     <div class="box-text example" label="Ejemplo">
                         <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> el <span class="icon_more button"></span> para ampliar la información</div>
 
-                        <div class="more-less" data-ref="#pag-textos-ocultarmostrar .contenido" data-effect="explode">
+                        <div class="more-less viewless" data-ref="#pag-textos-ocultarmostrar .contenido" data-effect="explode">
                             <span class="icon_more button"></span><span class="icon_less button"></span> Ver código
                         </div>
 
@@ -857,7 +857,7 @@
                                 Un ejemplo del código utilizado:
                             </p>
 <pre>
-&lt;div class="more-less" data-ref="#ocultarmostrar" data-effect="explode"&gt;
+&lt;div class="more-less viewless" data-ref="#ocultarmostrar" data-effect="explode"&gt;
     &lt;span class="icon_more button"&gt;
     &lt;/span&gt;&lt;span class="icon_less button"&gt;&lt;/span&gt;
         Ver más
@@ -871,7 +871,7 @@
                     </div>
 
                     <div class="box-text important" label="Importante">
-                        <p>La visualización inicial se puede definir directamente en el estilo del elemento destino. Si está oculto o visible ese será el estado inicial del control.</p>
+                        <p>La visualización inicial se debe definir directamente en el estilo del elemento destino. Además, el estado inicial del controlador se puede definir con las clases <em>viewmore</em> cuando inicia desplegado o <em>viewless</em> cuando incia contraido.</p>
                     </div>
 
                 </div>

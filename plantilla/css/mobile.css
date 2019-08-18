@@ -2128,8 +2128,17 @@ sup.tooltip {
     text-align: center;
 }
 
+#credits_subpage cite {
+    color: #5A5B5D;
+    font-style: normal;
+}
+
 #credits_subpage .editions {
     font-size: 11px;
+}
+
+#credits_subpage .logos img {
+    max-width: 100%;
 }
 
 /********************************************************************************/

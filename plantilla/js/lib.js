@@ -425,18 +425,6 @@ dhbgApp.standard.start = function() {
     // ==============================================================================================
     // "More - Less"
     // ==============================================================================================
-    $('.more-less').each(function() {
-        var $this = $(this);
-        var selector = $this.attr('data-ref');
-
-        if ($(selector).is(":hidden")) {
-            $this.addClass('viewless');
-        }
-        else {
-            $this.addClass('viewmore');
-        }
-    });
-
     $('.more-less').on('click', function() {
         var $this = $(this);
         var selector = $this.attr('data-ref');

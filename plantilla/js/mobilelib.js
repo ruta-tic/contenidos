@@ -357,24 +357,32 @@ dhbgApp.mobile.start = function() {
         if ($this.attr('data-property-width')) {
             properties.width = $this.attr('data-property-width');
 
+            var window_w = $(window).width();
             if (properties.width.indexOf('%') >= 0) {
-                var window_w = $(window).width();
                 var tmp_w = Number(properties.width.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     properties.width = tmp_w * window_w / 100;
                 }
+            }
+
+            if (properties.width > window_w) {
+                properties.width = window_w;
             }
         }
 
         if ($this.attr('data-property-height')) {
             properties.height = $this.attr('data-property-height');
 
+            var window_h = $(window).height();
             if (properties.height.indexOf('%') >= 0) {
-                var window_h = $(window).height();
                 var tmp_h = Number(properties.height.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     properties.height = tmp_h * window_h / 100;
                 }
+            }
+
+            if (properties.height > window_h) {
+                properties.height = window_h;
             }
         }
 
@@ -391,24 +399,32 @@ dhbgApp.mobile.start = function() {
         var h = $this.attr('data-property-height');
 
         if (w) {
+            var window_w = $(window).width();
             if (w.indexOf('%') >= 0) {
-                var window_w = $(window).width();
                 var tmp_w = Number(w.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     w = tmp_w * window_w / 100;
                 }
             }
 
+            if (w > window_w) {
+                w = window_w;
+            }
+
             $($this.attr('data-content')).dialog('option', 'width', w);
         }
 
         if (h) {
+            var window_h = $(window).height();
             if (h.indexOf('%') >= 0) {
-                var window_h = $(window).height();
                 var tmp_h = Number(h.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     h = tmp_h * window_h / 100;
                 }
+            }
+
+            if (h > window_h) {
+                h = window_h;
             }
 
             $($this.attr('data-content')).dialog('option', 'height', h);
@@ -499,18 +515,6 @@ dhbgApp.mobile.start = function() {
     // ==============================================================================================
     // "More - Less"
     // ==============================================================================================
-    $('.more-less').each(function() {
-        var $this = $(this);
-        var selector = $this.attr('data-ref');
-
-        if ($(selector).is(":hidden")) {
-            $this.addClass('viewless');
-        }
-        else {
-            $this.addClass('viewmore');
-        }
-    });
-
     $('.more-less').on('click', function() {
         var $this = $(this);
         var selector = $this.attr('data-ref');
