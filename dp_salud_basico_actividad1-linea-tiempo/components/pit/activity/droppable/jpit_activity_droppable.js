@@ -12,46 +12,45 @@
     * dragEndListener
     */
     function dragEndListener(event) {
-        $(event.target).removeClass('jpit_activities_jpitdroppable_dragstart');
+        var $target = $(event.target);
+        $target.removeClass('jpit_activities_jpitdroppable_dragstart');
+        if (!event.relatedTarget) {
+            resetPosition($target);
+        }
     }
 
     /**
     * dragMoveListener
     */
     function dragMoveListener(event) {
-        var target = event.target;
-        var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-        var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-        if (transformProp) {
-            target.style[transformProp] = `translate(${x}px, ${y}px)`;
-        }
-        else {
-            target.style.left = x;
-            target.style.right = y;
-        }
-        target.setAttribute('data-x', x);
-        target.setAttribute('data-y', y);
+        var $target = $(event.target),
+            pos = $target.data('_dragpos') || { x: 0, y: 0 };
+
+        pos.x += event.dx;
+        pos.y += event.dy;  
+        $target.css(transformProp, `translate(${pos.x}px, ${pos.y}px)`);
+        $target.data('_dragpos', pos);
     }
     /**
     * resetPosition
     */
-    function resetPosition($el, position) {
+    function resetPosition($el) {
+        var position = $el.data('_iposition');
         $el.css({
-            position: position._position,
-            top: position._top,
-            left: position._left
+            position: position.position,
+            top: position.top,
+            left: position.left
         })
         .css(transformProp, 'translate(0px, 0px)')
-        .removeAttr('data-x')
-        .removeAttr('data-y');
+        .removeData('_dragpos');
         return $el;
     }
     /**
     * resetPositions
     */
-    function resetPositions(initialPositions){
-        $.each(initialPositions, function(key, ip){
-            resetPosition($("#"+ip._id).removeClass("jpit_activities_jpitdroppable_dropped"));
+    function resetPositions(elements){
+        $.each(elements, function(key, el){
+            resetPosition($(el).removeClass("jpit_activities_jpitdroppable_dropped"));
         });
     }
     /**
@@ -95,7 +94,7 @@
                 origin: '',
                 intertia: true,
                 restrict: {
-                    restriction: ".jpit_activities_jpitdroppable",
+                    restriction: ".jpit-activities-droppable",
                     endOnly: false,
                     elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
                 },
@@ -105,108 +104,142 @@
                 onmove: dragMoveListener,
                 onend: dragEndListener,
             }));
+            $el.data('_parent', $el.parent());
         });
     }
 
+    /**
+    * moveDraggableTo
+    */
+    function moveDraggableTo($dragEl, $dropzone) {
+        $dragEl.appendTo($dropzone);
+        $dragEl.css(transformProp, 'translate(0, 0)');
+        $dragEl.removeData('_dragpos');
+    }
+
+    /**
+    * moveDraggableTo
+    */
+    function moveDraggableOut($dragEl, $dropzone) {
+        $parent = $dragEl.data('_parent');
+        var epos = $dragEl.position();
+        var pos = $dragEl.data('_dragpos');
+        $dragEl.appendTo($parent);
+        var newpos = $dragEl.position();
+        pos.x += epos.left - newpos.left;
+        pos.y += epos.top - newpos.top; 
+        $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
+        $dragEl.data('_dragpos', pos);
+    }
+
+    /**
+    * onDropListener
+    */
+    function onDropListener(event, pairs, autoResolve, autoAlignNodes, multiTarget, dropCallback) {
+        var $dropzone = $(event.target),
+            $dragEl = $(event.relatedTarget),
+            dropzoneId = $dropzone.attr('id'),
+            dragId = event.relatedTarget.id;
+
+        if (autoResolve){
+            var matched = false;
+
+            $.each(pairs, function(idx, pair) {
+                return !(matched = (pair.target.attr('id') == dropzoneId && pair.origin.attr('id') == dragId)); //if a match is found stop the loop
+            });
+
+            if (!matched) {
+                resetPosition($dragEl);
+                return;
+            }
+        }
+
+        //Move object into dropzone
+        moveDraggableTo($dragEl, $dropzone);
+
+        if(multiTarget == 0 || $dropzone.data('droppedElements').length < multiTarget){
+            if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
+                if(autoAlignNodes){
+                    $dragEl.position({ of: $dropzone });
+                }
+                return;
+            }
+            // Some dropp in ? -> check pairs and update match value 
+            $.each(pairs, function (idx, pair) {
+                if (dragId == pair.origin.attr('id')) {
+                    pair.match = ($dropzone.attr('id') == pair.target.attr('id'));
+                    return false; //stop loop
+                }
+            });
+            if(autoAlignNodes){
+                $dragEl.position({ of: $dropzone });
+            }
+            $dragEl.addClass("jpit_activities_jpitdroppable_dropped");
+            $dropzone.data('droppedElements').push(dragId);
+        }
+        else{
+            if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
+                if(autoAlignNodes){
+                    $dragEl.position({ of: $dropzone });
+                }
+                return;
+            }
+            resetPosition($dragEl);
+        }
+        if (dropCallback) {
+            dropCallback.call($dropzone, $dragEl);
+        }
+    }
+
+    /**
+    * onDropListener
+    */
+    function onDragLeaveListener(event, pairs, dropCallback) {
+        // Some dropp out? -> check pairs and update match value 
+        var $dropzone = $(event.target),
+            $dragEl = $(event.relatedTarget),
+            dragId = $dragEl.attr('id');
+
+        if (!$dragEl.hasClass("jpit_activities_jpitdroppable_dropped")) return;
+
+        moveDraggableOut($dragEl, $dropzone);
+
+        $.each(pairs, function (idx, pair) {
+            if (dragId == pair.origin.attr('id') && $dropzone.attr('id') == pair.target.attr('id')) {
+                pair.match = false;
+                return false; //Stop the loop
+            }
+        });
+        $dragEl.removeClass("jpit_activities_jpitdroppable_dropped");
+        $dropzone.data('droppedElements', $.grep($dropzone.data('droppedElements'), function(val) {
+            return val != dragId;
+        }));
+
+        if (dropCallback) {
+            dropCallback.call($dropzone, $dragEl);
+        }
+    }
+
+    /**
+    * createDropZones
+    */
     function createDropZones(droppable) {
         var autoResolve = droppable.properties.autoResolve,
             targets = droppable.targets,
             pairs = droppable.pairs,
-            initialPositions = droppable.properties.initialPositions,
             multiTarget = droppable.properties.multiTarget,
             autoAlignNodes = droppable.properties.autoAlignNodes,
-            onDrop = droppable.properties.onDrop
+            dropCallback = droppable.properties.onDrop
             ;
 
         $.each(targets, function(index, $target) {
             $target.data('droppedElements', new Array());
             $target.data('_interact', interact($target[0]).dropzone({
                 ondrop: function(event) {
-                    var $dropzone = $(event.target),
-                        $dragEl = $(event.relatedTarget),
-                        dropzoneId = $target.attr('id'),
-                        dragId = event.relatedTarget.id;
-
-                    if (autoResolve){
-                        var matched = false;
-
-                        $.each(pairs, function(idx, pair) {
-                            return !(matched = (pair.target.attr('id') == dropzoneId && pair.origin.attr('id') == dragId)); //if a match is found stop the loop
-                        });
-
-                        if (!matched) {
-                            $.each(initialPositions, function (idx, it) {
-                                if (dragId != it._id) return true; //Continue
-                                resetPosition($dragEl, it);
-                                return false; //Stop the loop
-                            });
-                            return;
-                        }
-                    }
-
-                    if(multiTarget == 0 || $dropzone.data('droppedElements').length < multiTarget){
-                        if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                            if(autoAlignNodes){
-                                $dragEl.position({
-                                    of: $dropzone
-                                });
-                            }
-                            return;
-                        }
-                        // Some dropp in ? -> check pairs and update match value 
-                        $.each(pairs, function (idx, pair) {
-                            if (dragId == pair.origin.attr('id')) {
-                                pair.match = ($target.attr('id') == pair.target.attr('id'));
-                            }
-                        });
-                        if(autoAlignNodes){
-                            $dragEl.position({
-                                of: $dropzone
-                            });
-                        }
-                        $dragEl.addClass("jpit_activities_jpitdroppable_dropped");
-                        $dropzone.data('droppedElements').push(dragId);
-                    }
-                    else{
-                        if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                            if(autoAlignNodes){
-                                $dragEl.position({
-                                    of: $dropzone
-                                });
-                            }
-                            return;
-                        }
-                        $.each(initialPositions,function(key, ip){
-                            if(dragId != ip._id) return true; //Continue
-                            resetPosition($dragEl, ip);
-                            return false; //stop the loop
-                        });
-                    }
-                    if (onDrop) {
-                        onDrop.call($(event.target), $dragEl);
-                    }
+                    onDropListener(event, pairs, autoResolve, autoAlignNodes, multiTarget, dropCallback);
                 },
                 ondragleave: function(event) {
-                    // Some dropp out? -> check pairs and update match value 
-                    var $dragEl = $(event.relatedTarget),
-                        dragId = $dragEl.attr('id');
-
-                    if (!$dragEl.hasClass("jpit_activities_jpitdroppable_dropped")) return;
-
-                    $.each(pairs, function (idx, pair) {
-                        if (dragId == pair.origin.attr('id') && $target.attr('id') == pair.target.attr('id')) {
-                            pair.match = false;
-                            return false; //Stop the loop
-                        }
-                    });
-                    $dragEl.removeClass("jpit_activities_jpitdroppable_dropped");
-                    $target.data('droppedElements', $.grep($target.data('droppedElements'), function(val) {
-                        return val != dragId;
-                    }));
-
-                    if (onDrop) {
-                        onDrop.call($dropzone, $dragEl);
-                    }
+                    onDragLeaveListener(event, pairs, dropCallback);
                 }
             }));
         });
@@ -228,7 +261,6 @@
                 var parent = this;
                 var continueResolve = false;
                 var holdCorrects = false;
-                var initialPositions = new Array();
                 /*Properties*/
                 continueResolve = obj.properties.continueResolve;
                 holdCorrects = obj.properties.holdCorrects;
@@ -237,18 +269,14 @@
                     pairs[ind].match = false;
                 });
                 /*Save Original Origins Position Coords*/
-                var auxIndex = 0;
-                $.each( obj.origins, function (ind,val) {
+                $.each(obj.origins, function (ind,val) {
                     var $val = $(this);
-                    initialPositions[auxIndex] = {
-                        _id : $val.attr('id'),
-                        _left : $val.css("left"),
-                        _top : $val.css("top"),
-                        _position:$val.css("position")
-                    }
-                    auxIndex++;
+                    $val.data('_iposition', {
+                        left : $val.css("left"),
+                        top : $val.css("top"),
+                        position:$val.css("position")
+                    });
                 });
-                obj.properties.initialPositions = initialPositions;
                 /* Origins Draggables*/
                 createDraggables(obj.origins);
                 /* Targets Droppables */
@@ -368,7 +396,7 @@
             /*Stage Methods*/
             "resetStage" : function() {
                 //Reset Positions
-                resetPositions(obj.properties.initialPositions);
+                resetPositions(obj.properties.origins);
 
                 /*Destroy the dragable elements*/
                 $.each(obj.origins, function (index, $val) {
@@ -500,7 +528,6 @@
             autoResolve : false,
             continueResolve : false,
             holdCorrects : false,
-            initialPositions: null,
             originDroppedClass: null,
             targetDroppedClass: null,
             autoAlignNodes: false,
