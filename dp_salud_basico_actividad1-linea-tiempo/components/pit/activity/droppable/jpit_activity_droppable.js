@@ -1,6 +1,8 @@
 
 (function(jpit){
     var transformProp;
+    var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";    
+    var CONTAINERSELECTOR = ".jpit-activities-droppable";
     /**
     * dragStartListener
     */
@@ -50,7 +52,7 @@
     */
     function resetPositions(elements){
         $.each(elements, function(key, el){
-            resetPosition($(el).removeClass("jpit_activities_jpitdroppable_dropped"));
+            resetPosition($(el).removeClass(DROPPEDCLASS));
         });
     }
     /**
@@ -94,7 +96,7 @@
                 origin: '',
                 intertia: true,
                 restrict: {
-                    restriction: ".jpit-activities-droppable",
+                    restriction: CONTAINERSELECTOR,
                     endOnly: false,
                     elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
                 },
@@ -174,7 +176,7 @@
             if(autoAlignNodes){
                 $dragEl.position({ of: $dropzone });
             }
-            $dragEl.addClass("jpit_activities_jpitdroppable_dropped");
+            $dragEl.addClass(DROPPEDCLASS);
             $dropzone.data('droppedElements').push(dragId);
         }
         else{
@@ -200,7 +202,7 @@
             $dragEl = $(event.relatedTarget),
             dragId = $dragEl.attr('id');
 
-        if (!$dragEl.hasClass("jpit_activities_jpitdroppable_dropped")) return;
+        if (!$dragEl.hasClass(DROPPEDCLASS)) return;
 
         moveDraggableOut($dragEl, $dropzone);
 
@@ -210,7 +212,7 @@
                 return false; //Stop the loop
             }
         });
-        $dragEl.removeClass("jpit_activities_jpitdroppable_dropped");
+        $dragEl.removeClass(DROPPEDCLASS);
         $dropzone.data('droppedElements', $.grep($dropzone.data('droppedElements'), function(val) {
             return val != dragId;
         }));
@@ -218,6 +220,14 @@
         if (dropCallback) {
             dropCallback.call($dropzone, $dragEl);
         }
+    }
+
+    function validateOverlap(overlap, defaultValue) {
+        if (overlap != 'pointer' && overlap != 'center') {
+            overlap = parseFloat(overlap);
+            if (isNaN(overlap) || overlap < 0 || overlap > 1) overlap = defaultValue;
+        }
+        return overlap;
     }
 
     /**
@@ -229,12 +239,15 @@
             pairs = droppable.pairs,
             multiTarget = droppable.properties.multiTarget,
             autoAlignNodes = droppable.properties.autoAlignNodes,
-            dropCallback = droppable.properties.onDrop
+            dropCallback = droppable.properties.onDrop,
+            overlap = validateOverlap(droppable.properties.overlap, 0.25)
             ;
+
 
         $.each(targets, function(index, $target) {
             $target.data('droppedElements', new Array());
             $target.data('_interact', interact($target[0]).dropzone({
+                overlap: validateOverlap($target.attr('data-dragoverlap'), overlap),
                 ondrop: function(event) {
                     onDropListener(event, pairs, autoResolve, autoAlignNodes, multiTarget, dropCallback);
                 },
@@ -261,6 +274,8 @@
                 var parent = this;
                 var continueResolve = false;
                 var holdCorrects = false;
+                var container = null;
+                var overlap;
                 /*Properties*/
                 continueResolve = obj.properties.continueResolve;
                 holdCorrects = obj.properties.holdCorrects;
@@ -276,10 +291,12 @@
                         top : $val.css("top"),
                         position:$val.css("position")
                     });
+                    container = container || $val.closest(CONTAINERSELECTOR);
                 });
                 /* Origins Draggables*/
                 createDraggables(obj.origins);
                 /* Targets Droppables */
+                obj.properties.overlap = container && container.attr('data-dragoverlap');
                 createDropZones(obj);
                 return this;
             },
