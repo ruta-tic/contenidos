@@ -1888,8 +1888,8 @@ sup.tooltip {
 }
 
 .jpit-activities-droppable:after {
-    content: "";
-    display: inline-block;
+    /*content: "";
+    display: inline-block;*/
 }
 
 /********************************************************************************/

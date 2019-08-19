@@ -16,6 +16,7 @@
 'use strict';
 var dhbgApp = {};
 
+dhbgApp.SHOWNOTSCORMMSG = true;
 dhbgApp.DEBUG_MODE = true;
 dhbgApp.MODE = 'standard'; // standard or mobile
 dhbgApp.FULL_PAGES = true;

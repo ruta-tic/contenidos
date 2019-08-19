@@ -1431,7 +1431,7 @@ dhbgApp.standard.start = function() {
     });
 
 
-    if (!dhbgApp.scorm || !dhbgApp.scorm.lms) {
+    if ((!dhbgApp.scorm || !dhbgApp.scorm.lms) && dhbgApp.SHOWNOTSCORMMSG) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -2350,6 +2350,7 @@ dhbgApp.standard.load_operations = function() {
                 dragEl.hide();
                 this.html(dragEl.html());
             }
+            dragEl.trigger('click');
 
             var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
             if (!end) return;
@@ -2370,7 +2371,26 @@ dhbgApp.standard.load_operations = function() {
                 msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
 
-            $box_end.append(msg).show();
+            var $close = $('<span class="icon_more button"></span>').on('click', function() {
+                $box_end.empty().hide();
+            });
+
+            var $msg = $(msg);
+            $msg.append($close);
+
+            var continueWith = $this.attr('data-continue-with');
+            if (continueWith) {
+                var $continue = $('<button class="general">Continuar</button>').on('click', function() {
+                    $(continueWith).show(200);
+                    $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
+                    $box_end.empty().hide();
+                });
+                $close.remove();
+                $msg.append($continue);
+            }
+
+            $box_end.append($msg).show();
+            $this.addClass('completed');
 
             if (weight < 99) {
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
@@ -2383,6 +2403,7 @@ dhbgApp.standard.load_operations = function() {
                         $this.find('.droppable').html(helper);
                     }
 
+                    $this.removeClass('completed');
                     activity.resetStage();
                 });
 
