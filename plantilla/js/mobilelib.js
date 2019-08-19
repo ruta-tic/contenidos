@@ -753,7 +753,7 @@ dhbgApp.mobile.start = function() {
     });
 
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
         width: dhbgApp.documentWidth - 10,
@@ -770,6 +770,26 @@ dhbgApp.mobile.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 10,
+        height: dhbgApp.documentHeight - 10,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================

@@ -662,11 +662,13 @@ dhbgApp.standard.start = function() {
         $results_modal.dialog('open');
     });
 
+    var w_global_modal = dhbgApp.documentWidth > 900 ? 900 : dhbgApp.documentWidth - 50;
+
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 50,
+        width: w_global_modal,
         height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "results_page_dialog"
@@ -680,6 +682,26 @@ dhbgApp.standard.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: w_global_modal,
+        height: dhbgApp.documentHeight - 50,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================
