@@ -2,6 +2,10 @@
     min-width: 200px;
 }
 
+.jpit-activities-droppable {
+    padding-bottom: 0;
+}
+
 .jpit-activities-droppable .linea1 {
     border-bottom: 2px solid #70B1BC;
     margin: 0 auto;
@@ -201,11 +205,14 @@
 .w-content .imagen img {
     display: block;
     margin: auto;
+    max-width: 100%;
 }
 
 .w-content .imagen {
     text-align: center;
     font-size: 12px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .w-content .completo {
@@ -243,7 +250,8 @@
 .jpit-activities-droppable .box_end {
     position: absolute;
     bottom: 180px;
-    left: calc(50% - 250px);
+    left: 0;
+    border: none;
 }
 
 .jpit-activities-droppable .box_end .icon_more {
@@ -252,4 +260,10 @@
     right: 0;
     height: 20px;
     transform: rotate(45deg);
+}
+
+.jpit-activities-droppable .box_end:before,
+.jpit-activities-droppable .box_end:after,
+.jpit-activities-droppable:after {
+    display: unset;
 }

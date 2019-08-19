@@ -673,7 +673,7 @@ dhbgApp.standard.start = function() {
         width: dhbgApp.documentWidth - 50,
         height: dhbgApp.documentHeight - 50,
         classes: {
-            "ui-dialog": "results_page_dialog"
+            "ui-dialog": "about_page_dialog"
         },
         close: function() {
             $('body').removeClass('dhbgapp_fullview');
@@ -684,6 +684,26 @@ dhbgApp.standard.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 50,
+        height: dhbgApp.documentHeight - 50,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================
