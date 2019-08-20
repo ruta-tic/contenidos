@@ -1,5 +1,7 @@
-.text_tooltip {
+.text_tooltip p {
     min-width: 200px;
+    margin: 0;
+    padding: 0;
 }
 
 .jpit-activities-droppable {

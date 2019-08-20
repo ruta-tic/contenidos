@@ -1021,8 +1021,9 @@ sup.tooltip {
 }
 
 .text_tooltip {
-    padding: 10px;
-    line-height: 10px;
+    padding: 3px;
+    line-height: 16px;
+    font-size: 13px;
 }
 
 .ui-tooltip-content {
