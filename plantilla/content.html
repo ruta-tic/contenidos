@@ -199,6 +199,8 @@
                         <li><strong>data-approve-limit="[<em>número</em>]"</strong>: Un valor numérico que indica el porcentaje correspondiente al límite inferior con el cual se aprueba una actividad. Esta información determina como se muestran algunos mensajes de retroalimentación y como se comportan algunas actividades. El valor por defecto es <strong>100</strong>, es decir, una actividad debe estar correcta en un 100% para considerarse completada.</li>
 
                         <li><strong>data-activities-percentaje="[<em>número</em>]"</strong>: Un valor numérico que indica el porcentaje que se le asigna como peso a la calificación obtenida en las actividades, el porcentaje restante se asigna a la revisión/visita de las páginas y subpáginas del documento. Es de considerar que solamente se computa la calificación más alta obtenida en la realización de una actividad, independiente de los demás intentos. Si el documento se encuentra como SCORM, para que se considere completado se debe aprobar el 100%. El valor por defecto es <strong>60</strong>, es decir, el computo de los resultados obtenidos en las actividades aporta el 60% del progreso y la navegación por los contenidos aporta el 40% restante.</li>
+
+                        <li><strong> data-model="[<em>scorm</em> | page]"</strong>: Define el tipo de modelo elegido para ejecutar el paquete. Por defecto se utiliza un modelo SCORM lo que indica que se intenta la conexión con el LMS.</li>
                     </ul>
                 </div>
             </section>
@@ -767,12 +769,12 @@
                     <h3>Notas emergentes - Tooltips</h3>
 
                     <p>Para las notas emergentes se utiliza la clase <em>tooltip</em>, normalmente en un elemento <em>sup</em> y el texto a mostrar en el tooltip se define en el atributo <em>label</em>. El contenido puede ser texto plano o HTML. Un uso frecuente de los tooltip es reemplazar las "notas al pie" de los documentos tradicionales.</p>
-                    <div class="box-text example" label="Ejemplo de tooltip">
+                    <div class="box-text example" label="Ejemplo de tooltip ">
 <pre>
 &lt;sup class="tooltip" title="Mensaje a &lt;em&gt;desplegar&lt;/em&gt; en el tooltip"&gt;[1]&lt;/sup&gt;
 </pre>
                         <p>
-                            El anterior ejemplo se vería así:<sup class="tooltip" title="Mensaje a <em>desplegar</em> en el tooltip">[1]</sup>. Notese que en el tooltip la palabra <cite>desplegar</cite> está enriquezida con una etiqueta HTML.
+                            El anterior ejemplo se vería así:<sup class="tooltip" title="Mensaje a <em>desplegar</em> en el tooltip o plano o HTML. Un uso frecuente de los tooltip es reemplaza">[1]</sup>. Notese que en el tooltip la palabra <cite>desplegar</cite> está enriquezida con una etiqueta HTML.
                         </p>
                     </div>
                     <p>
