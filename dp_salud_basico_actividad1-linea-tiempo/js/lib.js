@@ -1451,7 +1451,7 @@ dhbgApp.standard.start = function() {
     });
 
 
-    if ((!dhbgApp.scorm || !dhbgApp.scorm.lms) && dhbgApp.SHOWNOTSCORMMSG) {
+    if (dhbgApp.MODEL == 'scorm' && (!dhbgApp.scorm || !dhbgApp.scorm.lms)) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -1460,7 +1460,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.scorm.activities = dhbgApp.sortObjectByProperty(dhbgApp.scorm.activities);
     }
 
-    if (dhbgApp.scorm && dhbgApp.scorm.change_sco) {
+    if (dhbgApp.MODEL == 'scorm' && dhbgApp.scorm && dhbgApp.scorm.change_sco) {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
