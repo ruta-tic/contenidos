@@ -2422,11 +2422,6 @@ dhbgApp.mobile.load_operations = function() {
         var feedbacktrue = '', feedbackfalse = '';
         var html_body = $this.html();
 
-        var helper = '';
-        if ($this.attr('data-droppable-content-inner') && $this.attr('data-droppable-content-helper')) {
-            helper = $this.attr('data-droppable-content-helper');
-        }
-
         var $box_end = $this.find('.box_end');
         $box_end.hide();
 
@@ -2490,12 +2485,6 @@ dhbgApp.mobile.load_operations = function() {
 
         activityOptions.onDrop = function(dragEl) {
             var dropzone = this;
-            if ($this.attr('data-droppable-content-inner')) {
-                //ToDo: Need to improve so it can be dragged out
-                dragEl.hide();
-                dropzone.html(dragEl.html());
-            }
-
             dragEl.trigger('click');
 
             var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
@@ -2517,36 +2506,34 @@ dhbgApp.mobile.load_operations = function() {
                 msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
 
-            var $close = $('<span class="icon_more button"></span>').on('click', function() {
-                $box_end.empty().hide();
-            });
-            var $msg = $(msg);
-            $msg.append($close);
+                var $msg = $(msg);
+                var $close;
+                if ($box_end.attr('data-enable-close-button')) {
+                    $close = $('<span class="icon_more button"></span>').on('click', function() {
+                        $box_end.empty().hide();
+                    });
+                    $msg.append($close);
+                }
 
-            var continueWith = $this.attr('data-continue-with');
-            if (continueWith) {
-                var $continue = $('<button class="general">Continuar</button>').on('click', function() {
-                    $(continueWith).show(200);
-                    $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
-                    $box_end.empty().hide();
-                });
-                $close.remove();
-                $msg.append($continue);
-            }
+                var continueWith = $this.attr('data-continue-with');
+                if (continueWith) {
+                    var $continue = $('<button class="general">Continuar</button>').on('click', function() {
+                        $(continueWith).show(200);
+                        $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
+                        $box_end.empty().hide();
+                    });
+                    $close && $close.remove();
+                    $msg.append($continue);
+                }
 
-            $box_end.append($msg).show();
-            $this.addClass('completed');
+                $box_end.append($msg).show();
+                $this.addClass('completed');
 
-            if (weight < 99) {
-                var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                $button_again.on('click', function(){
-                    $box_end.empty().hide();
-                    $this.find('.draggable,.droppable').removeClass('wrong correct');
-
-                    if ($this.attr('data-droppable-content-inner')) {
-                        $this.find('.draggable').show();
-                        $this.find('.droppable').html(helper);
-                    }
+                if (weight < 99) {
+                    var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+                    $button_again.on('click', function(){
+                        $box_end.empty().hide();
+                        $this.find('.draggable,.droppable').removeClass('wrong correct');
 
                     $this.removeClass('completed');
                     activity.resetStage();

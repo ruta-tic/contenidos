@@ -2345,11 +2345,6 @@ dhbgApp.standard.load_operations = function() {
         });
 
         activityOptions.onDrop = function(dragEl) {
-            if ($this.attr('data-droppable-content-inner')) {
-                //ToDo: Need to improve so it can be dragged out
-                dragEl.hide();
-                this.html(dragEl.html());
-            }
             dragEl.trigger('click');
 
             var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
@@ -2371,12 +2366,14 @@ dhbgApp.standard.load_operations = function() {
                 msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
 
-            var $close = $('<span class="icon_more button"></span>').on('click', function() {
-                $box_end.empty().hide();
-            });
-
             var $msg = $(msg);
-            $msg.append($close);
+            var $close;
+            if ($box_end.attr('data-enable-close-button')) {
+                $close = $('<span class="icon_more button"></span>').on('click', function() {
+                    $box_end.empty().hide();
+                });
+                $msg.append($close);
+            }
 
             var continueWith = $this.attr('data-continue-with');
             if (continueWith) {
@@ -2385,7 +2382,7 @@ dhbgApp.standard.load_operations = function() {
                     $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
                     $box_end.empty().hide();
                 });
-                $close.remove();
+                $close && $close.remove();
                 $msg.append($continue);
             }
 
@@ -2397,20 +2394,14 @@ dhbgApp.standard.load_operations = function() {
                 $button_again.on('click', function(){
                     $box_end.empty().hide();
                     $this.find('.draggable,.droppable').removeClass('wrong correct');
-
-                    if ($this.attr('data-droppable-content-inner')) {
-                        $this.find('.draggable').show();
-                        $this.find('.droppable').html(helper);
-                    }
-
                     $this.removeClass('completed');
                     activity.resetStage();
                 });
-
                 $box_end.append($button_again);
             }
 
             $this.find('.draggable,.droppable').addClass('wrong');
+
             var corrects = activity.getCorrects();
 
             if (corrects.length > 0) {
