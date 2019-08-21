@@ -772,6 +772,26 @@ dhbgApp.mobile.start = function() {
         $credits_modal.dialog('open');
     });
 
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 10,
+        height: dhbgApp.documentHeight - 10,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
+    });
+
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================

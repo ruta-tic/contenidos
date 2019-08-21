@@ -753,7 +753,7 @@ dhbgApp.mobile.start = function() {
     });
 
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
         width: dhbgApp.documentWidth - 10,
@@ -770,6 +770,26 @@ dhbgApp.mobile.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 10,
+        height: dhbgApp.documentHeight - 10,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================
@@ -1560,7 +1580,7 @@ dhbgApp.mobile.start = function() {
     });
 
 
-    if (!dhbgApp.scorm || !dhbgApp.scorm.lms) {
+    if (dhbgApp.MODEL == 'scorm' && (!dhbgApp.scorm || !dhbgApp.scorm.lms)) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -1569,7 +1589,7 @@ dhbgApp.mobile.start = function() {
         dhbgApp.scorm.activities = dhbgApp.sortObjectByProperty(dhbgApp.scorm.activities);
     }
 
-    if (dhbgApp.scorm && dhbgApp.scorm.change_sco) {
+    if (dhbgApp.MODEL == 'scorm' && dhbgApp.scorm && dhbgApp.scorm.change_sco) {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {

@@ -29,9 +29,6 @@ dhbgApp.standard.start = function() {
     if (dhbgApp.scorm) {
         dhbgApp.scorm.initialization({activities_percentage: dhbgApp.evaluation.activities_percentage});
     }
-    else {
-        $('[data-global-id="results"]').remove();
-    }
 
     // ==============================================================================================
     // Build menus.
@@ -662,11 +659,13 @@ dhbgApp.standard.start = function() {
         $results_modal.dialog('open');
     });
 
+    var w_global_modal = dhbgApp.documentWidth > 900 ? 900 : dhbgApp.documentWidth - 50;
+
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 50,
+        width: w_global_modal,
         height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "results_page_dialog"
@@ -680,6 +679,26 @@ dhbgApp.standard.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: w_global_modal,
+        height: dhbgApp.documentHeight - 50,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================
@@ -1427,7 +1446,7 @@ dhbgApp.standard.start = function() {
     });
 
 
-    if (!dhbgApp.scorm || !dhbgApp.scorm.lms) {
+    if (dhbgApp.MODEL == 'scorm' && (!dhbgApp.scorm || !dhbgApp.scorm.lms)) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -1436,7 +1455,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.scorm.activities = dhbgApp.sortObjectByProperty(dhbgApp.scorm.activities);
     }
 
-    if (dhbgApp.scorm && dhbgApp.scorm.change_sco) {
+    if (dhbgApp.MODEL == 'scorm' && dhbgApp.scorm && dhbgApp.scorm.change_sco) {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
