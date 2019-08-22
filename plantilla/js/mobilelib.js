@@ -2587,10 +2587,9 @@ dhbgApp.mobile.load_operations = function() {
                         correct.t.removeClass('wrong').addClass('correct');
                     });
                 }
-                
-                activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
-                $this.data('loaded', true);
             };
+            activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
+            $this.data('loaded', true);
         }
         dhbgApp.mobile.fullContent.content.append($this);
         dhbgApp.showFullContent($this);

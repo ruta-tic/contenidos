@@ -106,6 +106,7 @@
     */
     function createDraggables(elements) {
         //console.log(obj.properties.draggableContainer);
+        console.log(elements);
         ////zIndex: 3,
         $.each(elements, function(index, $el) {
             $el.data('_interact', interact($el[0]).draggable({
