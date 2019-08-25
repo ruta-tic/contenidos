@@ -1051,8 +1051,8 @@ dhbgApp.mobile.start = function() {
                     return;
                 }
 
-                $items.hide();
-                $($items.get(new_item_index)).show();
+                var prevpage = $items.get(new_item_index);
+                showPage(prevpage, false);
                 $items.data('current', new_item_index);
                 $position_index_label.text(dhbgApp.s('pagination_label', { 'a': (new_item_index + 1), 'b': $items.length } ));
 
@@ -1063,6 +1063,7 @@ dhbgApp.mobile.start = function() {
                 if (new_item_index == 0) {
                     $back_button.css('visibility', 'hidden');
                 }
+                $this.trigger('jpit:pagination:changed', prevpage);
             });
 
             $list_buttons.append($back_button);
@@ -1079,6 +1080,11 @@ dhbgApp.mobile.start = function() {
 
             // Next button event.
             $next_button.on('click', function() {
+                var $self = $(this);
+                if ($self.has('.button.next[disabled]').length > 0) {
+                    return;
+                }
+
                 if (dhbgApp.DB.loadSound) {
                     dhbgApp.DB.loadSound.pause();
                     dhbgApp.DB.loadSound.currentTime = 0;
@@ -1089,8 +1095,8 @@ dhbgApp.mobile.start = function() {
                     return;
                 }
 
-                $items.hide();
-                $($items.get(new_item_index)).show();
+                var nextpage = $items.get(new_item_index);
+                showPage(nextpage, true);
                 $items.data('current', new_item_index);
                 $position_index_label.text(dhbgApp.s('pagination_label', { 'a': (new_item_index + 1), 'b': $items.length } ));
 
@@ -1101,16 +1107,53 @@ dhbgApp.mobile.start = function() {
                 if (new_item_index > 0) {
                     $back_button.css('visibility', 'visible');
                 }
+                $this.trigger('jpit:pagination:changed', nextpage);
             });
 
             $list_buttons.append($next_button);
             // End Next button.
 
         }
-
+        $this.data('pagination', {
+            moveNext: function () { 
+                $next_button.find('.button.next').removeAttr('disabled');
+                $next_button.trigger('click'); 
+            },
+            moveBack: function () { $back_button.trigger('click'); },
+            setButtonEnable: function (button, enabled) {
+                if (enabled) {
+                    $this.find('.button.'+button).removeAttr('disabled');
+                }
+                else {
+                    $this.find('.button.'+button).attr('disabled', true);
+                }                
+            }           
+        });
         $this.append($list);
         $this.append($list_buttons);
         $this.append('<div class="clear"></div>');
+        var animation = $this.attr('data-animation') || 'none';
+        var duration = $this.attr('data-animation-duration') || 3000;
+
+        function showPage(page, isnext) {
+            var $page = $(page),
+                $prev = isnext ? $page.prev() : $page.next();
+
+            if (animation == 'none') {
+                $prev.hide();
+                $page.show();
+                return;
+            }
+
+            slide($page, $prev, isnext ? 'right' : 'left');
+        }
+
+        function slide($page, $prev, dir, duration) {
+            $prev.hide();
+            $page.show("slide", { direction: dir }, duration, function () {
+                //$prev.hide().css('visibility', 'hidden');
+            });
+        }
     });
 
     // ==============================================================================================
@@ -1556,7 +1599,7 @@ dhbgApp.mobile.start = function() {
     });
 
 
-    if (!dhbgApp.scorm || !dhbgApp.scorm.lms) {
+    if (dhbgApp.MODEL == 'scorm' && (!dhbgApp.scorm || !dhbgApp.scorm.lms)) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -1565,7 +1608,7 @@ dhbgApp.mobile.start = function() {
         dhbgApp.scorm.activities = dhbgApp.sortObjectByProperty(dhbgApp.scorm.activities);
     }
 
-    if (dhbgApp.scorm && dhbgApp.scorm.change_sco) {
+    if (dhbgApp.MODEL == 'scorm' && dhbgApp.scorm && dhbgApp.scorm.change_sco) {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
@@ -3064,6 +3107,10 @@ dhbgApp.mobile.load_operations = function() {
         // It can be: single or multi.
         var mode = $this.attr('data-mode') ? $this.attr('data-mode') : 'multi';
 
+        var $paginator = $this.find('.ctrl-pagination');
+        var hasPagination = $paginator.length > 0;
+        var pagination = $paginator.data('pagination');
+
         var groups = [];
         var groups_by_index = [];
         $this.find('[data-group]').each(function (k, element) {
@@ -3107,8 +3154,24 @@ dhbgApp.mobile.load_operations = function() {
                 else {
                     $e.toggleClass('selected');
                 }
+
+                if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
+                    pagination.moveNext();
+                }
             });
         });
+
+        if (hasPagination && $this.attr('data-next-page-selection-required') == 'true') {
+            $paginator.on('jpit:pagination:changed', function(event, page) {
+                if ($(page).find('[data-group].selected').length > 0) {
+                    pagination.setButtonEnable('next', true);
+                }
+                else {
+                    pagination.setButtonEnable('next', false);
+                }
+            });
+            pagination.setButtonEnable('next', false);
+        }
 
         var definition_error = false;
         $.each(groups, function(i, g) {

@@ -29,9 +29,6 @@ dhbgApp.standard.start = function() {
     if (dhbgApp.scorm) {
         dhbgApp.scorm.initialization({activities_percentage: dhbgApp.evaluation.activities_percentage});
     }
-    else {
-        $('[data-global-id="results"]').remove();
-    }
 
     // ==============================================================================================
     // Build menus.
@@ -425,18 +422,6 @@ dhbgApp.standard.start = function() {
     // ==============================================================================================
     // "More - Less"
     // ==============================================================================================
-    $('.more-less').each(function() {
-        var $this = $(this);
-        var selector = $this.attr('data-ref');
-
-        if ($(selector).is(":hidden")) {
-            $this.addClass('viewless');
-        }
-        else {
-            $this.addClass('viewmore');
-        }
-    });
-
     $('.more-less').on('click', function() {
         var $this = $(this);
         var selector = $this.attr('data-ref');
@@ -674,11 +659,13 @@ dhbgApp.standard.start = function() {
         $results_modal.dialog('open');
     });
 
+    var w_global_modal = dhbgApp.documentWidth > 900 ? 900 : dhbgApp.documentWidth - 50;
+
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 50,
+        width: w_global_modal,
         height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "results_page_dialog"
@@ -692,6 +679,26 @@ dhbgApp.standard.start = function() {
 
         $('body').addClass('dhbgapp_fullview');
         $credits_modal.dialog('open');
+    });
+
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: w_global_modal,
+        height: dhbgApp.documentHeight - 50,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
     });
 
     // ==============================================================================================
@@ -988,8 +995,8 @@ dhbgApp.standard.start = function() {
                     return;
                 }
 
-                $items.hide();
-                $($items.get(new_item_index)).show();
+                var prevpage = $items.get(new_item_index);
+                showPage(prevpage, false);
                 $items.data('current', new_item_index);
                 $position_index_label.text(dhbgApp.s('pagination_label', { 'a': (new_item_index + 1), 'b': $items.length } ));
 
@@ -1000,6 +1007,7 @@ dhbgApp.standard.start = function() {
                 if (new_item_index == 0) {
                     $back_button.css('visibility', 'hidden');
                 }
+                $this.trigger('jpit:pagination:changed', prevpage);
             });
 
             $list_buttons.append($back_button);
@@ -1016,18 +1024,23 @@ dhbgApp.standard.start = function() {
 
             // Next button event.
             $next_button.on('click', function() {
+                var $self = $(this);
+                if ($self.has('.button.next[disabled]').length > 0) {
+                    return;
+                }
+
                 if (dhbgApp.DB.loadSound) {
                     dhbgApp.DB.loadSound.pause();
                     dhbgApp.DB.loadSound.currentTime = 0;
                 }
-                var new_item_index = $items.data('current') + 1;
 
+                var new_item_index = $items.data('current') + 1;
                 if (new_item_index >= $items.length) {
                     return;
                 }
 
-                $items.hide();
-                $($items.get(new_item_index)).show();
+                var nextpage = $items.get(new_item_index);
+                showPage(nextpage, true);
                 $items.data('current', new_item_index);
                 $position_index_label.text(dhbgApp.s('pagination_label', { 'a': (new_item_index + 1), 'b': $items.length } ));
 
@@ -1038,16 +1051,56 @@ dhbgApp.standard.start = function() {
                 if (new_item_index > 0) {
                     $back_button.css('visibility', 'visible');
                 }
+                $this.trigger('jpit:pagination:changed', nextpage);
             });
 
             $list_buttons.append($next_button);
             // End Next button.
 
         }
-
+        $this.data('pagination', {
+            moveNext: function () { 
+                $next_button.find('.button.next').removeAttr('disabled');
+                $next_button.trigger('click'); 
+            },
+            moveBack: function () { $back_button.trigger('click'); },
+            setButtonEnable: function (button, enabled) {
+                if (enabled) {
+                    $this.find('.button.'+button).removeAttr('disabled');
+                }
+                else {
+                    $this.find('.button.'+button).attr('disabled', true);
+                }                
+            }           
+        });
         $this.append($list);
         $this.append($list_buttons);
         $this.append('<div class="clear"></div>');
+        var animation = $this.attr('data-animation') || 'none';
+        var duration = $this.attr('data-animation-duration') || 3000;
+        var ontransitionhidden = ".label_current," + $this.attr('data-pagination-transition-hidden') || '';
+
+        function showPage(page, isnext) {
+            var $page = $(page),
+                $prev = isnext ? $page.prev() : $page.next();
+
+            if (animation == 'none') {
+                $prev.hide();
+                $page.show();
+                return;
+            }
+
+            slide($page, $prev, isnext ? 'right' : 'left');
+        }
+
+        function slide($page, $prev, dir, duration) {
+            $prev.hide();
+            var $hidden = $page.find(ontransitionhidden).hide();
+            $page.show("slide", { direction: dir }, duration, function () {
+                //$prev.hide().css('visibility', 'hidden');
+                $hidden.show();
+            });
+        }
     });
 
     // ==============================================================================================
@@ -1439,7 +1492,7 @@ dhbgApp.standard.start = function() {
     });
 
 
-    if (!dhbgApp.scorm || !dhbgApp.scorm.lms) {
+    if (dhbgApp.MODEL == 'scorm' && (!dhbgApp.scorm || !dhbgApp.scorm.lms)) {
         $('#not_scorm_msg').html(dhbgApp.s('scorm_not'));
         $('#not_scorm_msg').dialog( { modal: true } );
     }
@@ -1448,7 +1501,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.scorm.activities = dhbgApp.sortObjectByProperty(dhbgApp.scorm.activities);
     }
 
-    if (dhbgApp.scorm && dhbgApp.scorm.change_sco) {
+    if (dhbgApp.MODEL == 'scorm' && dhbgApp.scorm && dhbgApp.scorm.change_sco) {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
@@ -2352,76 +2405,75 @@ dhbgApp.standard.load_operations = function() {
             $item.removeAttr('data-target-group');
         });
 
-        activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
+        activityOptions.onDrop = function($dragEl) {
+            $dragEl.trigger('click');
 
-        $.each(origins, function(index, origin){
-            origin.on('dragstop', function(event, ui){
+            var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+            if (!end) return;
 
-                var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+            var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+            activity.disable();
 
-                if (end) {
-                    var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
-                    activity.disable();
+            if (dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(scorm_id, weight)
+            }
+            dhbgApp.printProgress();
 
-                    if (dhbgApp.scorm) {
-                        dhbgApp.scorm.activityAttempt(scorm_id, weight)
-                    }
-                    dhbgApp.printProgress();
+            var msg;
+            if (weight >= dhbgApp.evaluation.approve_limit) {
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
+            }
+            else {
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
+            }
 
-                    var msg;
-                    if (weight >= dhbgApp.evaluation.approve_limit) {
-                        msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
-                    }
-                    else {
-                        msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
-                    }
-
-                    $box_end.append(msg).show();
-
-                    if (weight < 99) {
-                        var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                        $button_again.on('click', function(){
-                            $box_end.empty().hide();
-                            $this.find('.draggable').removeClass('wrong');
-                            $this.find('.draggable').removeClass('correct');
-                            $this.find('.droppable').removeClass('wrong');
-                            $this.find('.droppable').removeClass('correct');
-
-                            if ($this.attr('data-droppable-content-inner')) {
-                                $this.find('.draggable').show();
-                                $this.find('.droppable').html(helper);
-                            }
-
-                            activity.resetStage();
-                        });
-
-                        $box_end.append($button_again);
-                    }
-
-                    $this.find('.draggable').addClass('wrong');
-                    $this.find('.droppable').addClass('wrong');
-                    var corrects = activity.getCorrects();
-
-                    if (corrects.length > 0) {
-                        $.each(corrects, function(index, correct){
-                            correct.o.removeClass('wrong');
-                            correct.o.addClass('correct');
-                            correct.t.removeClass('wrong');
-                            correct.t.addClass('correct');
-                        });
-                    }
-                }
-            });
-        });
-
-        if ($this.attr('data-droppable-content-inner')) {
-            $.each(targets, function(index, target){
-                target.on('drop', function(event, ui){
-                    ui.draggable.hide();
-                    target.html(ui.draggable.html());
+            var $msg = $(msg);
+            var $close;
+            if ($box_end.attr('data-enable-close-button')) {
+                $close = $('<span class="icon_more button"></span>').on('click', function() {
+                    $box_end.empty().hide();
                 });
-            });
-        }
+                $msg.append($close);
+            }
+
+            var continueWith = $this.attr('data-continue-with');
+            if (continueWith) {
+                var $continue = $('<button class="general">Continuar</button>').on('click', function() {
+                    $(continueWith).show(200);
+                    $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
+                    $box_end.empty().hide();
+                });
+                $close && $close.remove();
+                $msg.append($continue);
+            }
+
+            $box_end.append($msg).show();
+            $this.addClass('completed');
+
+            if (weight < 99) {
+                var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+                $button_again.on('click', function(){
+                    $box_end.empty().hide();
+                    $this.find('.draggable,.droppable').removeClass('wrong correct');
+                    $this.removeClass('completed');
+                    activity.resetStage();
+                });
+                $box_end.append($button_again);
+            }
+
+            $this.find('.draggable,.droppable').addClass('wrong');
+
+            var corrects = activity.getCorrects();
+
+            if (corrects.length > 0) {
+                $.each(corrects, function(index, correct){
+                    correct.o.removeClass('wrong').addClass('correct');
+                    correct.t.removeClass('wrong').addClass('correct');
+                });
+            }
+        };
+
+        activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
     };
 
     dhbgApp.actions.activityMultidroppable = function ($this) {
@@ -2907,6 +2959,10 @@ dhbgApp.standard.load_operations = function() {
         // It can be: single or multi.
         var mode = $this.attr('data-mode') ? $this.attr('data-mode') : 'multi';
 
+        var $paginator = $this.find('.ctrl-pagination');
+        var hasPagination = $paginator.length > 0;
+        var pagination = $paginator.data('pagination');
+
         var groups = [];
         var groups_by_index = [];
         $this.find('[data-group]').each(function (k, element) {
@@ -2950,8 +3006,24 @@ dhbgApp.standard.load_operations = function() {
                 else {
                     $e.toggleClass('selected');
                 }
+
+                if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
+                    pagination.moveNext();
+                }
             });
         });
+
+        if (hasPagination && $this.attr('data-next-page-selection-required') == 'true') {
+            $paginator.on('jpit:pagination:changed', function(event, page) {
+                if ($(page).find('[data-group].selected').length > 0) {
+                    pagination.setButtonEnable('next', true);
+                }
+                else {
+                    pagination.setButtonEnable('next', false);
+                }
+            });
+            pagination.setButtonEnable('next', false);
+        }
 
         var definition_error = false;
         $.each(groups, function(i, g) {

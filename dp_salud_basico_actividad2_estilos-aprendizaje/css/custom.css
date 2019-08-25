@@ -1,63 +1,221 @@
+.text_tooltip {
+    line-height: 20px;
+}
 
 /********************************************************************************/
 /* Pointers with text
 /********************************************************************************/
-#pag-contenidointeractivo-pointers .modelo_herrmann { background: url(../content/imagen_1.png) no-repeat center top; margin: auto; width: 279px; height: 173px; position: relative;}
-#pag-contenidointeractivo-pointers .herrmann_1 { left: 22px; top: 13px; }
-#pag-contenidointeractivo-pointers .herrmann_2 { left: 199px; top: 13px; }
-#pag-contenidointeractivo-pointers .herrmann_3 { left: 19px; top: 105px; }
-#pag-contenidointeractivo-pointers .herrmann_4 { left: 199px; top: 105px; }
+#pag-contenidointeractivo-pointers .modelo_herrmann { 
+    margin: auto; 
+    width: 333px; 
+    height: 405px; 
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+}
+#pag-contenidointeractivo-pointers .modelo_herrmann > div {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 48.4%;
+}
+#pag-contenidointeractivo-pointers .herrmann_1 {
+    background-image: url(../content/dp_salud_basico_actividad2-13.png);
+}
+#pag-contenidointeractivo-pointers .herrmann_1:hover {
+    background-image: url(../content/dp_salud_basico_actividad2-15.png);
+}
+#pag-contenidointeractivo-pointers .herrmann_2 {
+    background-image: url(../content/dp_salud_basico_actividad2-14.png);
+}
+#pag-contenidointeractivo-pointers .herrmann_2:hover {
+    background-image: url(../content/dp_salud_basico_actividad2-16.png);
+}
+#pag-contenidointeractivo-pointers .herrmann_3 {
+    background-image: url(../content/dp_salud_basico_actividad2-18.png);
+    margin-top: -50px;
+    height: 51.6%!important;
+}
+#pag-contenidointeractivo-pointers .herrmann_3:hover {
+    background-image: url(../content/dp_salud_basico_actividad2-12.png);
+}
+#pag-contenidointeractivo-pointers .herrmann_4 {
+    background-image: url(../content/dp_salud_basico_actividad2-19.png);
+    margin-top: -50px;
+    height: 51.6%!important;
+}
+#pag-contenidointeractivo-pointers .herrmann_4:hover {
+    background-image: url(../content/dp_salud_basico_actividad2-17.png);
+}
 
+#pag-contenidointeractivo-pointers .modelo_felder_silverman {
+    background: url(../content/dp_salud_basico_actividad2-01.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+#pag-contenidointeractivo-pointers .modelo_felder_silverman .tooltip {
+    position: absolute;
+    border-radius: 66px;
+    height: 132px;
+    width: 132px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+#pag-contenidointeractivo-pointers .modelo_felder_silverman .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
 
-#pag-contenidointeractivo-pointers .modelo_felder_silverman { background: url(../content/imagen_2.png) no-repeat center top; margin: auto; width: 255px; height: 247px; position: relative; }
-#pag-contenidointeractivo-pointers .felder_1 { left: 105px; top: -35px; }
-#pag-contenidointeractivo-pointers .felder_2 { left: 250px; top: 88px; }
-#pag-contenidointeractivo-pointers .felder_3 { left: 219px; top: 195px; }
-#pag-contenidointeractivo-pointers .felder_4 { left: -45px; top: 88px; }
-#pag-contenidointeractivo-pointers .felder_5 { left: -20px; top: 195px; }
+#pag-contenidointeractivo-pointers .felder_1 { left: 186px; top:   8px; }
+#pag-contenidointeractivo-pointers .felder_2 { left:  40px; top: 106px; }
+#pag-contenidointeractivo-pointers .felder_3 { left:  99px; top: 263px; }
+#pag-contenidointeractivo-pointers .felder_4 { left: 274px; top: 261px; }
+#pag-contenidointeractivo-pointers .felder_5 { left: 328px; top: 106px; }
 
-#pag-contenidointeractivo-pointers .modelo_balnder_grinder { background: url(../content/imagen_3.png) no-repeat center top; margin: auto; width: 243px; height: 209px; position: relative; }
-#pag-contenidointeractivo-pointers .balnder_1 { left: 95px; top: -50px; }
-#pag-contenidointeractivo-pointers .balnder_2 { left: 237px; top: 161px; }
-#pag-contenidointeractivo-pointers .balnder_3 { left: -49px; top: 161px; }
+#pag-contenidointeractivo-pointers .modelo_balnder_grinder { 
+    background: url(../content/dp_salud_basico_actividad2-02.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+#pag-contenidointeractivo-pointers .modelo_balnder_grinder .tooltip {
+    position: absolute;
+    border-radius: 58px;
+    height: 116px;
+    width: 116px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+#pag-contenidointeractivo-pointers .modelo_balnder_grinder .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
 
-#pag-contenidointeractivo-pointers .modelo_hemisferios { background: url(../content/imagen_4.png) no-repeat center top; margin: auto; width: 165px; height: 250px; position: relative; }
-#pag-contenidointeractivo-pointers .hemisferios_1 { left: -40px; top: 13px; }
-#pag-contenidointeractivo-pointers .hemisferios_2 { left: 152px; top: 13px; }
+#pag-contenidointeractivo-pointers .balnder_1 { left: 193px; top:  17px; }
+#pag-contenidointeractivo-pointers .balnder_2 { left:  59px; top: 274px; }
+#pag-contenidointeractivo-pointers .balnder_3 { left: 328px; top: 272px; }
 
-#pag-contenidointeractivo-pointers .modelo_gardner { background: url(../content/imagen_5.png) no-repeat center top; margin: auto; width: 204px; height: 196px; position: relative; }
-#pag-contenidointeractivo-pointers .gardner_1 { left: 80px; top: -32px; }
-#pag-contenidointeractivo-pointers .gardner_2 { left: 170px; top: 10px; }
-#pag-contenidointeractivo-pointers .gardner_3 { left: 195px; top: 80px; }
-#pag-contenidointeractivo-pointers .gardner_4 { left: 175px; top: 150px; }
-#pag-contenidointeractivo-pointers .gardner_5 { left: 75px; top: 190px; }
-#pag-contenidointeractivo-pointers .gardner_6 { left: -25px; top: 150px; }
-#pag-contenidointeractivo-pointers .gardner_7 { left: -35px; top: 75px; }
-#pag-contenidointeractivo-pointers .gardner_8 { left: -25px; top: 15px; }
+#pag-contenidointeractivo-pointers .modelo_hemisferios {
+    background: url(../content/dp_salud_basico_actividad2-03.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+#pag-contenidointeractivo-pointers .modelo_hemisferios .tooltip {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+#pag-contenidointeractivo-pointers .modelo_hemisferios .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
 
-#pag-contenidointeractivo-pointers .modelo_kolb { background: url(../content/imagen_6.png) no-repeat center top; margin: auto; width: 197px; height: 183px; position: relative; }
-#pag-contenidointeractivo-pointers .kolb_1 { left: -15px; top: 13px; }
-#pag-contenidointeractivo-pointers .kolb_2 { left: 179px; top: 13px; }
-#pag-contenidointeractivo-pointers .kolb_3 { left: -25px; top: 105px; }
-#pag-contenidointeractivo-pointers .kolb_4 { left: 179px; top: 105px; }
+#pag-contenidointeractivo-pointers .hemisferios_1 { left: 0px; top: 0px; }
+#pag-contenidointeractivo-pointers .hemisferios_2 { left: 50%; top: 0px; }
+
+#pag-contenidointeractivo-pointers .modelo_gardner { 
+    background: url(../content/dp_salud_basico_actividad2-04.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+#pag-contenidointeractivo-pointers .modelo_gardner .tooltip {
+    position: absolute;
+    border-radius: 54px;
+    height: 108px;
+    width: 108px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+#pag-contenidointeractivo-pointers .modelo_gardner .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
+#pag-contenidointeractivo-pointers .gardner_1 { left: 140px; top:  14px; }
+#pag-contenidointeractivo-pointers .gardner_2 { left:  60px; top:  94px; }
+#pag-contenidointeractivo-pointers .gardner_3 { left:  57px; top: 210px; }
+#pag-contenidointeractivo-pointers .gardner_4 { left: 140px; top: 285px; }
+#pag-contenidointeractivo-pointers .gardner_5 { left: 252px; top: 285px; }
+#pag-contenidointeractivo-pointers .gardner_6 { left: 335px; top: 208px; }
+#pag-contenidointeractivo-pointers .gardner_7 { left: 335px; top:  94px; }
+#pag-contenidointeractivo-pointers .gardner_8 { left: 252px; top:  15px; }
+
+#pag-contenidointeractivo-pointers .modelo_kolb { 
+    background: url(../content/dp_salud_basico_actividad2-05.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+#pag-contenidointeractivo-pointers .modelo_kolb .tooltip {
+    position: absolute;
+    border-radius: 45px;
+    height: 90px;
+    width: 90px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+#pag-contenidointeractivo-pointers .modelo_kolb .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
+#pag-contenidointeractivo-pointers .kolb_1 { left: 208px; top:  64px; }
+#pag-contenidointeractivo-pointers .kolb_2 { left:  98px; top: 160px; }
+#pag-contenidointeractivo-pointers .kolb_3 { left: 208px; top: 255px; }
+#pag-contenidointeractivo-pointers .kolb_4 { left: 317px; top: 161px; }
 
 /********************************************************************************/
 /* Cuestionario Descubra su estilo de aprendizaje
 /********************************************************************************/
-.jpit-activities-selection li {
-    margin-bottom: 5px;
-    cursor: pointer;
-    padding: 2px 5px;
+.jpit-activities-selection {
+    position: relative;
 }
-
-.jpit-activities-selection .left .radio {
-    float: right;
-    margin-left: 5px;
+.ctrl-pagination {
 }
+.ctrl-pagination ul.layers {
+    margin-top: 40px;
 
-.jpit-activities-selection .right .radio {
-    float: left;
-    margin-right: 5px;
+}
+.ctrl-pagination .label_current {
+    top: 0;
+    left: 20px;
+    border-radius: 0;
+    background-color: #4397CE;
+}
+.ctrl-pagination p {
+    margin-right: 200px;
+}
+.jpit-activities-selection .option-group {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    border: solid 1px #4276A7;
+    border-radius: 5px;
+    display: flex;
+    border-right: none;
+}
+.jpit-activities-selection .ctrl-pagination .option-group [data-group] {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #4397CE;
+    color: #FFFFFF;
+    border-radius: 0;
+    border:none;
+    border-left: solid 1px #FFFFFF;
+}
+.jpit-activities-selection .ctrl-pagination .option-group [data-group]:first-child {
+    border-left: none;
+}
+.jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
+    background-color: #003543; /* #003543;*/
+    color: #FFFFFF;
 }
 
 /********************************************************************************/
