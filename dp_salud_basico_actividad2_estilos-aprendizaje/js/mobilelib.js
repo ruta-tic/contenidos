@@ -768,6 +768,26 @@ dhbgApp.mobile.start = function() {
         $credits_modal.dialog('open');
     });
 
+    // Library control.
+    var $library_modal = $('#library-page').dialog({
+        modal: true,
+        autoOpen: false,
+        width: dhbgApp.documentWidth - 10,
+        height: dhbgApp.documentHeight - 10,
+        classes: {
+            "ui-dialog": "library_page_dialog"
+        },
+        close: function() {
+            $('body').removeClass('dhbgapp_fullview');
+        }
+    });
+
+    $('[data-global="library"]').on('click', function () {
+
+        $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('open');
+    });
+
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================
@@ -961,6 +981,7 @@ dhbgApp.mobile.start = function() {
         var $this = $(this);
         var $items = $this.find('>li');
         var $list = $('<ul class="layers"></ul>');
+        var total_pages = $items.length;
 
         if ($this.attr('data-layer-height')) {
             $list.height($this.attr('data-layer-height'));
@@ -1089,8 +1110,8 @@ dhbgApp.mobile.start = function() {
                     dhbgApp.DB.loadSound.pause();
                     dhbgApp.DB.loadSound.currentTime = 0;
                 }
-                var new_item_index = $items.data('current') + 1;
 
+                var new_item_index = $items.data('current') + 1;
                 if (new_item_index >= $items.length) {
                     return;
                 }
@@ -1112,7 +1133,6 @@ dhbgApp.mobile.start = function() {
 
             $list_buttons.append($next_button);
             // End Next button.
-
         }
         $this.data('pagination', {
             moveNext: function () { 
@@ -1127,13 +1147,17 @@ dhbgApp.mobile.start = function() {
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
                 }                
-            }           
+            },
+            isLastPage: function () {
+                return ($items.data('current') + 1) == total_pages;
+            }
         });
         $this.append($list);
         $this.append($list_buttons);
         $this.append('<div class="clear"></div>');
         var animation = $this.attr('data-animation') || 'none';
-        var duration = $this.attr('data-animation-duration') || 3000;
+        var duration = $this.attr('data-animation-duration') || 400;
+        var ontransitionhidden = ".label_current," + $this.attr('data-pagination-transition-hidden') || '';
 
         function showPage(page, isnext) {
             var $page = $(page),
@@ -1150,8 +1174,10 @@ dhbgApp.mobile.start = function() {
 
         function slide($page, $prev, dir, duration) {
             $prev.hide();
+            var $hidden = $page.find(ontransitionhidden).hide();
             $page.show("slide", { direction: dir }, duration, function () {
                 //$prev.hide().css('visibility', 'hidden');
+                $hidden.show();
             });
         }
     });
@@ -2471,11 +2497,6 @@ dhbgApp.mobile.load_operations = function() {
             var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
             var html_body = $this.html();
 
-            var helper = '';
-            if ($this.attr('data-droppable-content-inner') && $this.attr('data-droppable-content-helper')) {
-                helper = $this.attr('data-droppable-content-helper');
-            }
-
             var $box_end = $this.find('.box_end');
             $box_end.hide();
 
@@ -2538,88 +2559,83 @@ dhbgApp.mobile.load_operations = function() {
                 $item.removeAttr('data-target-group');
             });
 
+            activityOptions.onDrop = function($dragEl) {
+                var $dropzone = this;
+                if ($this.attr('data-adjust-size') && $this.attr('data-adjust-size') == 'true') {
+                    $dragEl.width($dropzone.width());
+                    $dragEl.height($dropzone.height());
+                }
+
+                $dragEl.trigger('click');
+
+                var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+                if (!end) return;
+
+                var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+                activity.disable();
+
+                if (dhbgApp.scorm) {
+                    dhbgApp.scorm.activityAttempt(scorm_id, weight)
+                }
+                dhbgApp.printProgress();
+
+                var msg;
+                if (weight >= dhbgApp.evaluation.approve_limit) {
+                    msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
+                }
+                else {
+                    msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
+                }
+
+                var $msg = $(msg);
+                var $close;
+                if ($box_end.attr('data-enable-close-button')) {
+                    $close = $('<span class="icon_more button"></span>').on('click', function() {
+                        $box_end.empty().hide();
+                    });
+                    $msg.append($close);
+                }
+
+                var continueWith = $this.attr('data-continue-with');
+                if (continueWith) {
+                    var $continue = $('<button class="general">Continuar</button>').on('click', function() {
+                        $(continueWith).show(200);
+                        $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
+                        $box_end.empty().hide();
+                    });
+                    $close && $close.remove();
+                    $msg.append($continue);
+                }
+
+                $box_end.append($msg).show();
+                $this.addClass('completed');
+
+                if (weight < 99) {
+                    var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+                    $button_again.on('click', function(){
+                        $box_end.empty().hide();
+                        $this.find('.draggable,.droppable').removeClass('wrong correct');
+
+                        $this.removeClass('completed');
+                        activity.resetStage();
+                    });
+
+                    $box_end.append($button_again);
+                }
+
+                $this.find('.draggable,.droppable').addClass('wrong');
+                var corrects = activity.getCorrects();
+
+                if (corrects.length > 0) {
+                    $.each(corrects, function(index, correct){
+                        correct.o.removeClass('wrong').addClass('correct');
+                        correct.t.removeClass('wrong').addClass('correct');
+                    });
+                }
+            };
             activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
-
-            $.each(origins, function(index, origin){
-                origin.on('dragstop', function(event, ui){
-
-                    var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
-
-                    if (end) {
-                        var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
-                        activity.disable();
-
-                        if (dhbgApp.scorm) {
-                            dhbgApp.scorm.activityAttempt(scorm_id, weight)
-                        }
-                        dhbgApp.printProgress();
-
-                        var msg;
-                        if (weight >= dhbgApp.evaluation.approve_limit) {
-                            msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
-                        }
-                        else {
-                            msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
-                        }
-
-                        $box_end.append(msg).show();
-
-                        if (weight < 99) {
-                            var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                            $button_again.on('click', function(){
-                                $box_end.empty().hide();
-                                $this.find('.draggable').removeClass('wrong');
-                                $this.find('.draggable').removeClass('correct');
-                                $this.find('.droppable').removeClass('wrong');
-                                $this.find('.droppable').removeClass('correct');
-
-                                if ($this.attr('data-droppable-content-inner')) {
-                                    $this.find('.draggable').show();
-                                    $this.find('.droppable').html(helper);
-                                }
-
-                                activity.resetStage();
-                            });
-
-                            $box_end.append($button_again);
-                        }
-
-                        $this.find('.draggable').addClass('wrong');
-                        $this.find('.droppable').addClass('wrong');
-                        var corrects = activity.getCorrects();
-
-                        if (corrects.length > 0) {
-                            $.each(corrects, function(index, correct){
-                                correct.o.removeClass('wrong');
-                                correct.o.addClass('correct');
-                                correct.t.removeClass('wrong');
-                                correct.t.addClass('correct');
-                            });
-                        }
-                    }
-                });
-            });
-
-            if ($this.attr('data-droppable-content-inner')) {
-                $.each(targets, function(index, target){
-                    target.on('drop', function(event, ui){
-                        ui.draggable.hide();
-                        target.html(ui.draggable.html());
-                    });
-                });
-            }
-            else if ($this.attr('data-adjust-size') && $this.attr('data-adjust-size') == 'true') {
-                $.each(targets, function(index, target){
-                    target.on('drop', function(event, ui){
-                        ui.draggable.width(target.width());
-                        ui.draggable.height(target.height());
-                    });
-                });
-            }
-
             $this.data('loaded', true);
         }
-
         dhbgApp.mobile.fullContent.content.append($this);
         dhbgApp.showFullContent($this);
     };
@@ -3110,6 +3126,7 @@ dhbgApp.mobile.load_operations = function() {
         var $paginator = $this.find('.ctrl-pagination');
         var hasPagination = $paginator.length > 0;
         var pagination = $paginator.data('pagination');
+        var nextPageSelectionRequired = $this.attr('data-next-page-selection-required') == 'true';
 
         var groups = [];
         var groups_by_index = [];
@@ -3156,12 +3173,18 @@ dhbgApp.mobile.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    pagination.moveNext();
+                    
+                    if (nextPageSelectionRequired && pagination.isLastPage()) {
+                        $button_check.trigger('click');
+                    }
+                    else {
+                        pagination.moveNext();
+                    }
                 }
             });
         });
 
-        if (hasPagination && $this.attr('data-next-page-selection-required') == 'true') {
+        if (hasPagination && nextPageSelectionRequired) {
             $paginator.on('jpit:pagination:changed', function(event, page) {
                 if ($(page).find('[data-group].selected').length > 0) {
                     pagination.setButtonEnable('next', true);
@@ -3183,6 +3206,7 @@ dhbgApp.mobile.load_operations = function() {
         });
 
         if (definition_error) {
+            $(dhbgApp).trigger('jpit:activity:definitionerror', [$this, { id: scorm_id }]);
             return;
         }
 
@@ -3322,6 +3346,10 @@ dhbgApp.mobile.load_operations = function() {
                 $button_again.show();
             }
 
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
         });
 
         $button_again.on('click', function() {
@@ -3334,6 +3362,7 @@ dhbgApp.mobile.load_operations = function() {
             $button_again.hide();
             $button_check.show();
         });
+        $(dhbgApp).trigger('jpit:activity:rendered', [$this, { id: scorm_id }]);
     };
 
     dhbgApp.actions.activityForm = function ($this) {

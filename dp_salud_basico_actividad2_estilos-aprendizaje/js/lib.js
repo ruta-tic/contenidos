@@ -3045,6 +3045,7 @@ dhbgApp.standard.load_operations = function() {
         });
 
         if (definition_error) {
+            $(dhbgApp).trigger('jpit:activity:definitionerror', [$this, { id: scorm_id }]);
             return;
         }
 
@@ -3188,7 +3189,6 @@ dhbgApp.standard.load_operations = function() {
                 id: scorm_id,
                 weight: weight
             }]);
-
         });
 
         $button_again.on('click', function() {
@@ -3201,6 +3201,7 @@ dhbgApp.standard.load_operations = function() {
             $button_again.hide();
             $button_check.show();
         });
+        $(dhbgApp).trigger('jpit:activity:rendered', [$this, { id: scorm_id }]);
     };
 
     dhbgApp.actions.activityForm = function ($this) {

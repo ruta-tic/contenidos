@@ -216,11 +216,11 @@
     background-color: #4397CE;
 }
 .ctrl-pagination p {
-    margin-right: 200px;
+    margin-right: 10px;
 }
 .jpit-activities-selection .option-group {
     position: absolute;
-    top: 30%;
+    top: 10%;
     right: 0;
     border: solid 1px #4276A7;
     border-radius: 5px;
@@ -244,7 +244,33 @@
     border-left: none;
 }
 .jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
-    background-color: #003543; /* #003543;*/
+    background-color: #003543;
+    color: #FFFFFF;
+}
+.jpit-activities-selection.actividad1 .box_end .correct {
+    max-width: inherit;
+    text-align: justify;
+    padding: 20px 10px 20px 10px;
+}
+.jpit-activities-selection.actividad1 .box_end .correct:after {
+    background: none;
+}
+.estilos-aprendizaje-resultado h3 {
+    font-size: 16px;
+}
+
+.estilos-aprendizaje-grafica {
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    font-size: 12px;
+    border: solid 1px #6BC3CE;
+}
+.estilos-aprendizaje-grafica .score_bar {
+    margin: 0 5px;
+    padding: 2px;
+    background-color: #6BC3CE;
     color: #FFFFFF;
 }
 
