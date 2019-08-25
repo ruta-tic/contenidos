@@ -53,6 +53,7 @@
     <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
 
     <style type='text/css'>
 
@@ -323,11 +324,11 @@
                                 1. Trato de resolver los problemas metódicamente. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="1" data-correct="true" class="radio" tooltip="Siempre">s</div>
-                                    <div data-group="1" data-correct="true" class="radio" tooltip="Casi siempre">cs</div>
-                                    <div data-group="1" data-correct="true" class="radio" tooltip="Muchas veces">mv</div>
-                                    <div data-group="1" data-correct="true" class="radio" tooltip="Algunas veces">av</div>
-                                    <div data-group="1" data-correct="true" class="radio" tooltip="Nunca">n</div>
+                                    <div data-group="1" data-group-value="s"  data-correct="true" class="radio" tooltip="Siempre">s</div>
+                                    <div data-group="1" data-group-value="cs" data-correct="true" class="radio" tooltip="Casi siempre">cs</div>
+                                    <div data-group="1" data-group-value="mv" data-correct="true" class="radio" tooltip="Muchas veces">mv</div>
+                                    <div data-group="1" data-group-value="av" data-correct="true" class="radio" tooltip="Algunas veces">av</div>
+                                    <div data-group="1" data-group-value="n"  data-correct="true" class="radio" tooltip="Nunca">n</div>
                                 </div>
                             </li>
                             <li>
@@ -335,11 +336,11 @@
                                 2. Actúo sin mirar las consecuencias, saltando las normas establecidas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="2" data-correct="true" class="radio">s</div>
-                                    <div data-group="2" data-correct="true" class="radio">cs</div>
-                                    <div data-group="2" data-correct="true" class="radio">mv</div>
-                                    <div data-group="2" data-correct="true" class="radio">av</div>
-                                    <div data-group="2" data-correct="true" class="radio">n</div>
+                                    <div data-group="2" data-group-value="s"  data-correct="true" class="radio">s</div>
+                                    <div data-group="2" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="2" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="2" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="2" data-group-value="n"  data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -347,11 +348,11 @@
                                 3. Creo que lo más importante es que las cosas funcionen. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="3" data-correct="true" class="radio">s</div>
-                                    <div data-group="3" data-correct="true" class="radio">cs</div>
-                                    <div data-group="3" data-correct="true" class="radio">mv</div>
-                                    <div data-group="3" data-correct="true" class="radio">av</div>
-                                    <div data-group="3" data-correct="true" class="radio">n</div>
+                                    <div data-group="3" data-group-value="s"  data-correct="true" class="radio">s</div>
+                                    <div data-group="3" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="3" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="3" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="3" data-group-value="n"  data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -359,11 +360,11 @@
                                 4. Me tomo el tiempo necesario para realizar mi trabajo a conciencia. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="4" data-correct="true" class="radio">s</div>
-                                    <div data-group="4" data-correct="true" class="radio">cs</div>
-                                    <div data-group="4" data-correct="true" class="radio">mv</div>
-                                    <div data-group="4" data-correct="true" class="radio">av</div>
-                                    <div data-group="4" data-correct="true" class="radio">n</div>
+                                    <div data-group="4" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="4" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="4" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="4" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="4" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -371,11 +372,11 @@
                                 5. Estoy a gusto siguiendo un orden en las comidas, en el estudio y haciendo ejercicio. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="5" data-correct="true" class="radio">s</div>
-                                    <div data-group="5" data-correct="true" class="radio">cs</div>
-                                    <div data-group="5" data-correct="true" class="radio">mv</div>
-                                    <div data-group="5" data-correct="true" class="radio">av</div>
-                                    <div data-group="5" data-correct="true" class="radio">n</div>
+                                    <div data-group="5" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="5" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="5" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="5" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="5" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -383,11 +384,11 @@
                                 6. Cuando escucho una nueva idea, inmediatamente pienso en cómo ponerla en práctica. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="6" data-correct="true" class="radio">s</div>
-                                    <div data-group="6" data-correct="true" class="radio">cs</div>
-                                    <div data-group="6" data-correct="true" class="radio">mv</div>
-                                    <div data-group="6" data-correct="true" class="radio">av</div>
-                                    <div data-group="6" data-correct="true" class="radio">n</div>
+                                    <div data-group="6" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="6" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="6" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="6" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="6" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -395,11 +396,11 @@
                                 7. Prefiero las ideas originales y novedosas aunque no sean prácticas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="7" data-correct="true" class="radio">s</div>
-                                    <div data-group="7" data-correct="true" class="radio">cs</div>
-                                    <div data-group="7" data-correct="true" class="radio">mv</div>
-                                    <div data-group="7" data-correct="true" class="radio">av</div>
-                                    <div data-group="7" data-correct="true" class="radio">n</div>
+                                    <div data-group="7" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="7" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="7" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="7" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="7" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -407,11 +408,11 @@
                                 8. Admito y me ajusto a las normas solo si me sirven para lograr mis objetivos. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="8" data-correct="true" class="radio">s</div>
-                                    <div data-group="8" data-correct="true" class="radio">cs</div>
-                                    <div data-group="8" data-correct="true" class="radio">mv</div>
-                                    <div data-group="8" data-correct="true" class="radio">av</div>
-                                    <div data-group="8" data-correct="true" class="radio">n</div>
+                                    <div data-group="8" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="8" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="8" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="8" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="8" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -419,11 +420,11 @@
                                 9. Cuando hay una discusión, me gusta ser directo/a. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="9" data-correct="true" class="radio">s</div>
-                                    <div data-group="9" data-correct="true" class="radio">cs</div>
-                                    <div data-group="9" data-correct="true" class="radio">mv</div>
-                                    <div data-group="9" data-correct="true" class="radio">av</div>
-                                    <div data-group="9" data-correct="true" class="radio">n</div>
+                                    <div data-group="9" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="9" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="9" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="9" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="9" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -431,11 +432,11 @@
                                 10. Puedo separar mi trabajo de lo afectivo en las tareas que realizo. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="10" data-correct="true" class="radio">s</div>
-                                    <div data-group="10" data-correct="true" class="radio">cs</div>
-                                    <div data-group="10" data-correct="true" class="radio">mv</div>
-                                    <div data-group="10" data-correct="true" class="radio">av</div>
-                                    <div data-group="10" data-correct="true" class="radio">n</div>
+                                    <div data-group="10" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="10" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="10" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="10" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="10" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -443,11 +444,11 @@
                                 11. Me cuesta ser creativo/a y romper con las estructuras. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="11" data-correct="true" class="radio">s</div>
-                                    <div data-group="11" data-correct="true" class="radio">cs</div>
-                                    <div data-group="11" data-correct="true" class="radio">mv</div>
-                                    <div data-group="11" data-correct="true" class="radio">av</div>
-                                    <div data-group="11" data-correct="true" class="radio">n</div>
+                                    <div data-group="11" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="11" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="11" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="11" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="11" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -455,11 +456,11 @@
                                 12. Expreso abiertamente cómo me siento. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="12" data-correct="true" class="radio">s</div>
-                                    <div data-group="12" data-correct="true" class="radio">cs</div>
-                                    <div data-group="12" data-correct="true" class="radio">mv</div>
-                                    <div data-group="12" data-correct="true" class="radio">av</div>
-                                    <div data-group="12" data-correct="true" class="radio">n</div>
+                                    <div data-group="12" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="12" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="12" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="12" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="12" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -467,11 +468,11 @@
                                 13. Prefiero contar con el mayor número de fuentes de información; cuantos más datos reúna para reflexionar, mejor. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="13" data-correct="true" class="radio">s</div>
-                                    <div data-group="13" data-correct="true" class="radio">cs</div>
-                                    <div data-group="13" data-correct="true" class="radio">mv</div>
-                                    <div data-group="13" data-correct="true" class="radio">av</div>
-                                    <div data-group="13" data-correct="true" class="radio">n</div>
+                                    <div data-group="13" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="13" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="13" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="13" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="13" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -479,11 +480,11 @@
                                 14. Prefiero oír las opiniones de los demás antes de exponer la mía.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="14" data-correct="true" class="radio">s</div>
-                                    <div data-group="14" data-correct="true" class="radio">cs</div>
-                                    <div data-group="14" data-correct="true" class="radio">mv</div>
-                                    <div data-group="14" data-correct="true" class="radio">av</div>
-                                    <div data-group="14" data-correct="true" class="radio">n</div>
+                                    <div data-group="14" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="14" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="14" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="14" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="14" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -491,11 +492,11 @@
                                 15. Me gusta afrontar la vida espontáneamente y no tener que planificar todo previamente. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="15" data-correct="true" class="radio">s</div>
-                                    <div data-group="15" data-correct="true" class="radio">cs</div>
-                                    <div data-group="15" data-correct="true" class="radio">mv</div>
-                                    <div data-group="15" data-correct="true" class="radio">av</div>
-                                    <div data-group="15" data-correct="true" class="radio">n</div>
+                                    <div data-group="15" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="15" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="15" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="15" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="15" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -503,11 +504,11 @@
                                 16. Me siento incómodo/a con las personas calladas o demasiado analíticas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="16" data-correct="true" class="radio">s</div>
-                                    <div data-group="16" data-correct="true" class="radio">cs</div>
-                                    <div data-group="16" data-correct="true" class="radio">mv</div>
-                                    <div data-group="16" data-correct="true" class="radio">av</div>
-                                    <div data-group="16" data-correct="true" class="radio">n</div>
+                                    <div data-group="16" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="16" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="16" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="16" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="16" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -515,11 +516,11 @@
                                 17. Juzgo, con frecuencia, las ideas de los demás por su valor práctico. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="17" data-correct="true" class="radio">s</div>
-                                    <div data-group="17" data-correct="true" class="radio">cs</div>
-                                    <div data-group="17" data-correct="true" class="radio">mv</div>
-                                    <div data-group="17" data-correct="true" class="radio">av</div>
-                                    <div data-group="17" data-correct="true" class="radio">n</div>
+                                    <div data-group="17" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="17" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="17" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="17" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="17" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -527,11 +528,11 @@
                                 18. Me molestan las personas que siempre desean apresurar las cosas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="18" data-correct="true" class="radio">s</div>
-                                    <div data-group="18" data-correct="true" class="radio">cs</div>
-                                    <div data-group="18" data-correct="true" class="radio">mv</div>
-                                    <div data-group="18" data-correct="true" class="radio">av</div>
-                                    <div data-group="18" data-correct="true" class="radio">n</div>
+                                    <div data-group="18" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="18" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="18" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="18" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="18" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -539,11 +540,11 @@
                                 19. Aporto ideas nuevas y espontáneas en los grupos de discusión.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="19" data-correct="true" class="radio">s</div>
-                                    <div data-group="19" data-correct="true" class="radio">cs</div>
-                                    <div data-group="19" data-correct="true" class="radio">mv</div>
-                                    <div data-group="19" data-correct="true" class="radio">av</div>
-                                    <div data-group="19" data-correct="true" class="radio">n</div>
+                                    <div data-group="19" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="19" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="19" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="19" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="19" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -551,11 +552,11 @@
                                 20. Pienso que son más sólidas las decisiones basadas en un minucioso análisis que las poco razonadas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="20" data-correct="true" class="radio">s</div>
-                                    <div data-group="20" data-correct="true" class="radio">cs</div>
-                                    <div data-group="20" data-correct="true" class="radio">mv</div>
-                                    <div data-group="20" data-correct="true" class="radio">av</div>
-                                    <div data-group="20" data-correct="true" class="radio">n</div>
+                                    <div data-group="20" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="20" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="20" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="20" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="20" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -563,11 +564,11 @@
                                 21. Detecto la inconsistencia y los puntos débiles en las argumentaciones de los demás.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="21" data-correct="true" class="radio">s</div>
-                                    <div data-group="21" data-correct="true" class="radio">cs</div>
-                                    <div data-group="21" data-correct="true" class="radio">mv</div>
-                                    <div data-group="21" data-correct="true" class="radio">av</div>
-                                    <div data-group="21" data-correct="true" class="radio">n</div>
+                                    <div data-group="21" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="21" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="21" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="21" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="21" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -575,11 +576,11 @@
                                 22. Generalmente, hablo más de lo que escucho. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="22" data-correct="true" class="radio">s</div>
-                                    <div data-group="22" data-correct="true" class="radio">cs</div>
-                                    <div data-group="22" data-correct="true" class="radio">mv</div>
-                                    <div data-group="22" data-correct="true" class="radio">av</div>
-                                    <div data-group="22" data-correct="true" class="radio">n</div>
+                                    <div data-group="22" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="22" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="22" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="22" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="22" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -587,11 +588,11 @@
                                 23. Prefiero distanciarme de los hechos y observarlos desde otras perspectivas. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="23" data-correct="true" class="radio">s</div>
-                                    <div data-group="23" data-correct="true" class="radio">cs</div>
-                                    <div data-group="23" data-correct="true" class="radio">mv</div>
-                                    <div data-group="23" data-correct="true" class="radio">av</div>
-                                    <div data-group="23" data-correct="true" class="radio">n</div>
+                                    <div data-group="23" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="23" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="23" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="23" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="23" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -599,11 +600,11 @@
                                 24. Estoy convencido/a de que debe imponerse la lógica y el razonamiento. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="24" data-correct="true" class="radio">s</div>
-                                    <div data-group="24" data-correct="true" class="radio">cs</div>
-                                    <div data-group="24" data-correct="true" class="radio">mv</div>
-                                    <div data-group="24" data-correct="true" class="radio">av</div>
-                                    <div data-group="24" data-correct="true" class="radio">n</div>
+                                    <div data-group="24" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="24" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="24" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="24" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="24" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -611,11 +612,11 @@
                                 25. Me gusta buscar nuevas experiencias. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="25" data-correct="true" class="radio">s</div>
-                                    <div data-group="25" data-correct="true" class="radio">cs</div>
-                                    <div data-group="25" data-correct="true" class="radio">mv</div>
-                                    <div data-group="25" data-correct="true" class="radio">av</div>
-                                    <div data-group="25" data-correct="true" class="radio">n</div>
+                                    <div data-group="25" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="25" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="25" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="25" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="25" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -623,11 +624,11 @@
                                 26. Me atrae el experimentar y practicar con las últimas novedades. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="26" data-correct="true" class="radio">s</div>
-                                    <div data-group="26" data-correct="true" class="radio">cs</div>
-                                    <div data-group="26" data-correct="true" class="radio">mv</div>
-                                    <div data-group="26" data-correct="true" class="radio">av</div>
-                                    <div data-group="26" data-correct="true" class="radio">n</div>
+                                    <div data-group="26" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="26" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="26" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="26" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="26" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -635,11 +636,11 @@
                                 27. Prefiero discutir cuestiones concretas y no perder el tiempo con charlas vacías.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="27" data-correct="true" class="radio">s</div>
-                                    <div data-group="27" data-correct="true" class="radio">cs</div>
-                                    <div data-group="27" data-correct="true" class="radio">mv</div>
-                                    <div data-group="27" data-correct="true" class="radio">av</div>
-                                    <div data-group="27" data-correct="true" class="radio">n</div>
+                                    <div data-group="27" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="27" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="27" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="27" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="27" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -647,11 +648,11 @@
                                 28. Compruebo antes si las cosas funcionan realmente. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="28" data-correct="true" class="radio">s</div>
-                                    <div data-group="28" data-correct="true" class="radio">cs</div>
-                                    <div data-group="28" data-correct="true" class="radio">mv</div>
-                                    <div data-group="28" data-correct="true" class="radio">av</div>
-                                    <div data-group="28" data-correct="true" class="radio">n</div>
+                                    <div data-group="28" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="28" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="28" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="28" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="28" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -659,11 +660,11 @@
                                 29. Hago varios borradores antes de la redacción definitiva de un trabajo. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="29" data-correct="true" class="radio">s</div>
-                                    <div data-group="29" data-correct="true" class="radio">cs</div>
-                                    <div data-group="29" data-correct="true" class="radio">mv</div>
-                                    <div data-group="29" data-correct="true" class="radio">av</div>
-                                    <div data-group="29" data-correct="true" class="radio">n</div>
+                                    <div data-group="29" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="29" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="29" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="29" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="29" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -671,11 +672,11 @@
                                 30. Observo si puedo mantener la independencia y la calma en las discusiones. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="30" data-correct="true" class="radio">s</div>
-                                    <div data-group="30" data-correct="true" class="radio">cs</div>
-                                    <div data-group="30" data-correct="true" class="radio">mv</div>
-                                    <div data-group="30" data-correct="true" class="radio">av</div>
-                                    <div data-group="30" data-correct="true" class="radio">n</div>
+                                    <div data-group="30" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="30" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="30" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="30" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="30" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -683,11 +684,11 @@
                                 31. Planifico las cosas pensando en el futuro. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="31" data-correct="true" class="radio">s</div>
-                                    <div data-group="31" data-correct="true" class="radio">cs</div>
-                                    <div data-group="31" data-correct="true" class="radio">mv</div>
-                                    <div data-group="31" data-correct="true" class="radio">av</div>
-                                    <div data-group="31" data-correct="true" class="radio">n</div>
+                                    <div data-group="31" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="31" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="31" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="31" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="31" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -695,11 +696,11 @@
                                 32. En los debates y discusiones, prefiero desempeñar un papel secundario antes que ser el/la líder o el/la que más participa. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="32" data-correct="true" class="radio">s</div>
-                                    <div data-group="32" data-correct="true" class="radio">cs</div>
-                                    <div data-group="32" data-correct="true" class="radio">mv</div>
-                                    <div data-group="32" data-correct="true" class="radio">av</div>
-                                    <div data-group="32" data-correct="true" class="radio">n</div>
+                                    <div data-group="32" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="32" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="32" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="32" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="32" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -707,11 +708,11 @@
                                 33. Me molestan las personas que no actúan con lógica.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="33" data-correct="true" class="radio">s</div>
-                                    <div data-group="33" data-correct="true" class="radio">cs</div>
-                                    <div data-group="33" data-correct="true" class="radio">mv</div>
-                                    <div data-group="33" data-correct="true" class="radio">av</div>
-                                    <div data-group="33" data-correct="true" class="radio">n</div>
+                                    <div data-group="33" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="33" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="33" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="33" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="33" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -719,11 +720,11 @@
                                 34. Me resulta incómodo tener que planificar las cosas.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="34" data-correct="true" class="radio">s</div>
-                                    <div data-group="34" data-correct="true" class="radio">cs</div>
-                                    <div data-group="34" data-correct="true" class="radio">mv</div>
-                                    <div data-group="34" data-correct="true" class="radio">av</div>
-                                    <div data-group="34" data-correct="true" class="radio">n</div>
+                                    <div data-group="34" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="34" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="34" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="34" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="34" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -731,11 +732,11 @@
                                 35. Creo que el fin justifica los medios. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="35" data-correct="true" class="radio">s</div>
-                                    <div data-group="35" data-correct="true" class="radio">cs</div>
-                                    <div data-group="35" data-correct="true" class="radio">mv</div>
-                                    <div data-group="35" data-correct="true" class="radio">av</div>
-                                    <div data-group="35" data-correct="true" class="radio">n</div>
+                                    <div data-group="35" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="35" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="35" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="35" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="35" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -743,11 +744,11 @@
                                 36. Ante los acontecimientos, trato de descubrir en qué principios y teorías se basan. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="36" data-correct="true" class="radio">s</div>
-                                    <div data-group="36" data-correct="true" class="radio">cs</div>
-                                    <div data-group="36" data-correct="true" class="radio">mv</div>
-                                    <div data-group="36" data-correct="true" class="radio">av</div>
-                                    <div data-group="36" data-correct="true" class="radio">n</div>
+                                    <div data-group="36" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="36" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="36" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="36" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="36" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -755,11 +756,11 @@
                                 37. Con tal de conseguir el objetivo que pretendo, soy capaz de herir sentimientos ajenos.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="37" data-correct="true" class="radio">s</div>
-                                    <div data-group="37" data-correct="true" class="radio">cs</div>
-                                    <div data-group="37" data-correct="true" class="radio">mv</div>
-                                    <div data-group="37" data-correct="true" class="radio">av</div>
-                                    <div data-group="37" data-correct="true" class="radio">n</div>
+                                    <div data-group="37" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="37" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="37" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="37" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="37" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -767,11 +768,11 @@
                                 38. No me importa hacer todo lo necesario para que sea efectivo mi trabajo. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="38" data-correct="true" class="radio">s</div>
-                                    <div data-group="38" data-correct="true" class="radio">cs</div>
-                                    <div data-group="38" data-correct="true" class="radio">mv</div>
-                                    <div data-group="38" data-correct="true" class="radio">av</div>
-                                    <div data-group="38" data-correct="true" class="radio">n</div>
+                                    <div data-group="38" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="38" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="38" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="38" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="38" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -779,11 +780,11 @@
                                 39. Soy una de las personas que más anima las fiestas.
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="39" data-correct="true" class="radio">s</div>
-                                    <div data-group="39" data-correct="true" class="radio">cs</div>
-                                    <div data-group="39" data-correct="true" class="radio">mv</div>
-                                    <div data-group="39" data-correct="true" class="radio">av</div>
-                                    <div data-group="39" data-correct="true" class="radio">n</div>
+                                    <div data-group="39" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="39" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="39" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="39" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="39" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                             <li>
@@ -791,11 +792,11 @@
                                 40. Me interesa averiguar lo que piensa la gente. 
                                 </p>
                                 <div class="option-group">
-                                    <div data-group="40" data-correct="true" class="radio">s</div>
-                                    <div data-group="40" data-correct="true" class="radio">cs</div>
-                                    <div data-group="40" data-correct="true" class="radio">mv</div>
-                                    <div data-group="40" data-correct="true" class="radio">av</div>
-                                    <div data-group="40" data-correct="true" class="radio">n</div>
+                                    <div data-group="40" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="40" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="40" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="40" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="40" data-group-value="n" data-correct="true" class="radio">n</div>
                                 </div>
                             </li>
                         </ul>

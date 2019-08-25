@@ -905,6 +905,7 @@ dhbgApp.standard.start = function() {
         var $this = $(this);
         var $items = $this.find('>li');
         var $list = $('<ul class="layers"></ul>');
+        var total_pages = $items.length;
 
         if ($this.attr('data-layer-height')) {
             $list.height($this.attr('data-layer-height'));
@@ -1056,7 +1057,6 @@ dhbgApp.standard.start = function() {
 
             $list_buttons.append($next_button);
             // End Next button.
-
         }
         $this.data('pagination', {
             moveNext: function () { 
@@ -1071,13 +1071,16 @@ dhbgApp.standard.start = function() {
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
                 }                
-            }           
+            },
+            isLastPage: function () {
+                return ($items.data('current') + 1) == total_pages;
+            }
         });
         $this.append($list);
         $this.append($list_buttons);
         $this.append('<div class="clear"></div>');
         var animation = $this.attr('data-animation') || 'none';
-        var duration = $this.attr('data-animation-duration') || 3000;
+        var duration = $this.attr('data-animation-duration') || 400;
         var ontransitionhidden = ".label_current," + $this.attr('data-pagination-transition-hidden') || '';
 
         function showPage(page, isnext) {
@@ -2962,6 +2965,7 @@ dhbgApp.standard.load_operations = function() {
         var $paginator = $this.find('.ctrl-pagination');
         var hasPagination = $paginator.length > 0;
         var pagination = $paginator.data('pagination');
+        var nextPageSelectionRequired = $this.attr('data-next-page-selection-required') == 'true';
 
         var groups = [];
         var groups_by_index = [];
@@ -3008,12 +3012,18 @@ dhbgApp.standard.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    pagination.moveNext();
+                    
+                    if (nextPageSelectionRequired && pagination.isLastPage()) {
+                        $button_check.trigger('click');
+                    }
+                    else {
+                        pagination.moveNext();
+                    }
                 }
             });
         });
 
-        if (hasPagination && $this.attr('data-next-page-selection-required') == 'true') {
+        if (hasPagination && nextPageSelectionRequired) {
             $paginator.on('jpit:pagination:changed', function(event, page) {
                 if ($(page).find('[data-group].selected').length > 0) {
                     pagination.setButtonEnable('next', true);
@@ -3173,6 +3183,11 @@ dhbgApp.standard.load_operations = function() {
             if (weight < 100) {
                 $button_again.show();
             }
+
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
 
         });
 
