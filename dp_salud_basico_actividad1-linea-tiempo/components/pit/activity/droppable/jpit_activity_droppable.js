@@ -1,4 +1,3 @@
-
 (function(jpit){
     var transformProp;
     var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";    

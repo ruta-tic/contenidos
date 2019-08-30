@@ -224,10 +224,6 @@
 .jpit-activities-selection.actividad1 .box_end .correct:after {
     background: none;
 }
-.estilos-aprendizaje-resultado h3 {
-    font-size: 16px;
-}
-
 .estilos-aprendizaje-grafica {
     width: 300px;
     padding: 20px;
@@ -242,79 +238,96 @@
     background-color: #6BC3CE;
     color: #FFFFFF;
 }
+.estilos-aprendizaje-resultado h3 {
+    font-size: 16px;
+}
+.estilos-aprendizaje-resultado .box_media img {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}
 
 /********************************************************************************/
 /* Actividad de repaso 1 - Modelo de Kolb (arrastrar y soltar)
 /********************************************************************************/
 
 #act-1-kolb{
-    min-height: 800px;
     overflow: auto;
 }
 
 #act-1 {
     max-width: 100%;
     background: no-repeat center;
-    height: 690px;
-}
-
-#act-1 .sources {
-    margin: auto;
-    width: 88%;
+    /*height: 690px;*/
 }
 
 #act-1 .board_img {
-    background: url(../content/act_repaso_img1.png) no-repeat center;
-    height: 690px;
-    width: 647px;
-    left: 391px;
     position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #act-1 .board {
     margin: auto;
-    position: relative;
+    width: 500px;
 }
 
 #act-1 .fillable {
-    background: transparent;
-    position: absolute;
-    border: 1px solid #4233cc;
-    width: 200px;
-    height: 180px;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    align-items: center;
+    border: 1px dashed #4233cc;
+    border-radius: 5px;
+    width: 225px;
+    height: 187px;
+    margin: 5px;
+}
+
+#act-1 .sources {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+#act-1.jpit-activities-droppable .draggable {
+    background: url(../content/dp_salud_basico_actividad2-10.png) no-repeat center;
+    background-size: 490.5px 400.5px;
+    display: inline-block;
+    width: 225px;
+    height: 187px;
+    padding: 0px;
+    margin: 5px;
+    border: none;
+}
+
+#act-1.jpit-activities-droppable .fillable .draggable {
+    margin: 0;
+}
+
+#act-1.jpit-activities-droppable .comic_1 {
+    background-position: -15px -9px;
+}
+
+#act-1.jpit-activities-droppable .comic_2 {
+    background-position: -250px -9px;
+}
+
+#act-1.jpit-activities-droppable .comic_3 {
+    background-position: -15px -205px;
+}
+
+#act-1.jpit-activities-droppable .comic_4 {
+    background-position: -250px -205px;
 }
 
 #act-1.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
-    background: #FF931E;
     border: transparent !important;
-}
-
-#act-1 .f1 {
-    left: 93px;
-    top: 97px;
-}
-
-#act-1 .f2 {
-	left: 356px;
-	top: 97px;
-}
-
-#act-1 .f3 {
-    left: 93px;
-    top: 337px;
-}
-
-#act-1 .f4 {
-	left: 356px;
-	top: 337px;
-}
-
-#act-1.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped.wrong{
-    background: #F15A24;
-}
-
-#act-1.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped.correct{
-    background: #72BE44;
 }
 
 #act-1 .fillable.correct {
@@ -327,31 +340,30 @@
     border: transparent !important;
 }
 
-#act-1 .sources div {
-    font-family: 'bold';
-    font-style: italic;
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    color: white;
-    background: #7C8F8C;
-    padding: 0px 10px;
-    display: inline-block;
-    margin: 5px 10px;
-    border: none;
-    width: 190px;
-}
-
-#act-1 .sources div:hover {
-    background: #44C5D0;
-}
-
 #act-1 .box_end {
     position: absolute;
     left: 0;
     right: 0;
     top: 60%;
     background: #fff;
+}
+
+.jpit-timer {
+    font-family: 'Courier', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+    background: #ffffff;
+    position: fixed;
+    bottom: 12px;
+    right: 180px;
+    z-index: 5;
+    padding: 2px;
+    border: solid 2px #dadada;
+}
+
+.subpage_1 .box_end .button.general {
+    margin: 0 5px;
 }
 
 /********************************************************************************/

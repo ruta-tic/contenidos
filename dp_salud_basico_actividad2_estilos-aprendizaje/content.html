@@ -29,6 +29,7 @@
     <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
 <!--End jQuery components -->
 
+    <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
@@ -101,9 +102,9 @@
             <h2>Actividad 2. Conozca su estilo de aprendizaje</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
-                    <menuitem label="Introducción a los estilos de aprendizaje" data-page="pag-intro-estilos"></menuitem>
-                    <menuitem label="Descubra su estilo de aprendizaje" data-page="pag-descubra-estilos"></menuitem>
-                    <menuitem label="Actividad de repaso sobre los estilo de aprendizaje" data-page="pag-act-repaso"></menuitem>
+                    <menuitem label="Estilos de aprendizaje" data-page="pag-intro-estilos"></menuitem>
+                    <menuitem label="Descubra su estilo" data-page="pag-descubra-estilos"></menuitem>
+                    <menuitem label="Ejercicio de repaso" data-page="pag-act-repaso"></menuitem>
                 </menu>
             </nav>
         </header>
@@ -832,18 +833,42 @@
                                     <div data-learning-style="active" data-learning-style-score="0">
                                         <h3>Activo</h3>
                                         <p>Quienes poseen este estilo de aprendizaje se caracterizan por su ímpetu para la experimentación sin temores, ya que suelen ser arriesgados y espontáneos en el momento en que deben improvisar. Son líderes y personas muy activas que buscan ejercicios y trabajos con aplicaciones prácticas para resolver. También es usual que tengan una actitud entusiasta, con lo que logran ser muy buenos descubridores. Además, son creativos en la generación de nuevas ideas; esto les da una tendencia a la innovación.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-06.png" alt="Imagen 7. Activo"/>
+                                            <div class="about">
+                                                <strong>Imagen 7.</strong> Activo
+                                            </div>
+                                        </div>
                                     </div>
                                     <div data-learning-style="reflexive" data-learning-style-score="0">
                                         <h3>Reflexivo</h3>
                                         <p>Cuando es predominante el estilo reflexivo de aprendizaje, la característica principal suele ser la prudencia que parte del análisis exhaustivo y consciente, en donde cada dato se analiza detenidamente y solo se concluye o se toman decisiones cuando se ha reunido la información necesaria que permite contrastar diferentes puntos de vista. Por lo tanto, quienes poseen este estilo de aprendizaje son muy detallistas, mesurados, receptivos, profundos y atentos a los comportamientos e ideas de los demás y, usualmente, hacen todo bien. Están ávidos de preguntas que despierten su interés y curiosidad, y si bien logran aprender de las nuevas experiencias, prefieren no estar implicados de manera directa en ellas.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-07.png" alt="Imagen 8. Reflexivo"/>
+                                            <div class="about">
+                                                <strong>Imagen 8.</strong> Reflexivo
+                                            </div>
+                                        </div>
                                     </div>
                                     <div data-learning-style="theorist" data-learning-style-score="0">
                                         <h3>Teórico</h3>
                                         <p>Las personas que se enmarcan en este estilo de aprendizaje suelen ser racionales, metódicas e integran las observaciones en los preceptos de la lógica. Emplean el método científico en la generación de teorías coherentes y son perfeccionistas en su quehacer, por lo que se empeñan en contrastar la realidad hasta obtener una verdad irrefutable. Orientan su aprendizaje a lo objetivo, palpable o medible, buscando la objetividad y desarrollando un pensamiento crítico que logre detectar ambigüedades o debilidades. Suelen ser personas independientes y organizadas que siguen las reglas e inventan procedimientos para resolver el porqué de las cosas.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-08.png" alt="Imagen 9. Teórico"/>
+                                            <div class="about">
+                                                <strong>Imagen 9.</strong> Teórico
+                                            </div>
+                                        </div>
                                     </div>
                                     <div data-learning-style="pragmatic" data-learning-style-score="0">
                                         <h3>Pragmático</h3>
                                         <p>Para quienes poseen este estilo de aprendizaje es útil trabajar con lo concreto y la experiencia. Se caracterizan por utilizar su conocimiento en función de materializar las ideas, por lo que llevan todo a la práctica y a lo que tenga utilidad o aplicabilidad. Son eficientes con el tiempo: planifican y actúan con rapidez y seguridad a la hora de tomar decisiones, sin embargo, pueden ser impacientes. Son personas que se preocupan menos por la perfección que por la funcionalidad de las cosas; todo esto los hace realistas y prácticos.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-09.png" alt="Imagen 10. Pragmático"/>
+                                            <div class="about">
+                                                <strong>Imagen 10.</strong> Pragmático
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </correct>
@@ -867,12 +892,13 @@
                 <div class="subpage">
                     <div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true">
                         <li>
-                            <!-- Pendiente en recibir insumos gráficos para la actividad, solo se tiene la estructura base-->
-                            <p>
-                                Según el modelo propuesto por Kolb, analice las siguientes viñetas y organice en orden la secuencia del cómic. 
-                            </p>
                             <div id="act-1-kolb">
-                                <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" data-act-id="1-drop" data-act-title="Comic modelo de Kolb">
+                                <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" 
+                                    data-act-id="1-drop" data-act-title="Comic modelo de Kolb"
+                                    data-timer="60" data-reveal-response="true">
+                                    <p>
+                                        Según el modelo propuesto por Kolb, analice las siguientes viñetas y organice en orden la secuencia del cómic. 
+                                    </p>
                                     <div class="board">
                                         <div class="board_img">
                                             <div class="fillable f1" data-target-group="1"></div>
@@ -881,23 +907,14 @@
                                             <div class="fillable f4" data-target-group="4"></div>
                                         </div>
                                         <div class="sources">
-                                            <div data-group="1">
-                                                <img src="content/imagen_1.png">
-                                            </div>
-                                            <div data-group="2">
-                                                <img src="content/imagen_2.png">
-                                            </div>
-                                            <div data-group="3">
-                                                <img src="content/imagen_3.png">
-                                            </div>
-                                            <div data-group="4">
-                                                <img src="content/imagen_4.png">
-                                            </div>
+                                            <div data-group="1" class="comic_1"></div>
+                                            <div data-group="2" class="comic_2"></div>
+                                            <div data-group="3" class="comic_3"></div>
+                                            <div data-group="4" class="comic_4"></div>
                                         </div>
                                         <div class="box_end"></div>
                                         <feedback>
-                                            <correct>Su respuesta es correcta, ¡Felicitaciones!</correct>
-                                            <wrong>Su respuesta es incorrecta, por favor intente de nuevo.</wrong>
+                                            <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
                                         </feedback>
                                     </div>
                                 </div>
@@ -905,7 +922,10 @@
                         </li>
 
                         <li>
-                            <div class="jpit-activities-quiz" data-act-title="Modelo de los cuadrantes cerebrales de Herrmann" data-act-id="Preguntas modelo de Herrmann">
+                            <div class="jpit-activities-quiz" 
+                                data-act-title="Modelo de los cuadrantes cerebrales de Herrmann"
+                                data-act-id="Preguntas modelo de Herrmann"
+                                data-timer="60" data-reveal-response="true">
                                 <question type="simplechoice">
                                     <description>
                                         <p>
@@ -918,13 +938,16 @@
                                         <li>Derecho</li>
                                     </ul>
                                     <feedback>
-                                        <correct>Es correcto</correct>
+                                        <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
                                     </feedback>
                                 </question>
                             </div>
                         </li>
                         <li>
-                            <div class="jpit-activities-quiz" data-act-title="Modelo de Felder y Silverman" data-act-id="Preguntas modelo de Felder">
+                            <div class="jpit-activities-quiz"
+                                data-act-title="Modelo de Felder y Silverman"
+                                data-act-id="Preguntas modelo de Felder"
+                                data-timer="60" data-reveal-response="true">
                                 <question type="simplechoice">
                                     <description>
                                         <p>
@@ -940,7 +963,7 @@
                                         <li>Inductivo-Deductivo</li>
                                     </ul>
                                     <feedback>
-                                        <correct>Es correcto</correct>
+                                        <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
                                     </feedback>
                                 </question>
                             </div>
@@ -984,7 +1007,7 @@
     </div>
 
     <!--Créditos-->
-    <div id="pag-creditos" style="display:none;">
+    <div id="credits-page" style="display:none;">
         <div id="credits_subpage">
             <h2>Créditos</h2>
 
@@ -1015,7 +1038,8 @@
             </div>
             <div>
                 <h3>Integración de contenidos</h3>
-                <cite>Alejandro Morales Gallo</cite>
+                <cite>Alejandro Morales Gallo</cite><br/>
+                <cite>Jesus María Otero Vega</cite>
             </div>
             <!--
             <div>
@@ -1031,10 +1055,11 @@
             <div>
                 <h3>Producción</h3>
                 <div class="logos">
-                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
                     <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
                     <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
                     <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
                 </div>
             </div>
 

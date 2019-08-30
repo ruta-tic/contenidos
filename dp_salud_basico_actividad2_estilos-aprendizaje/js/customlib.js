@@ -1,4 +1,14 @@
+/**
+ * Custom library to add custom functionality to activities in this learning object.
+ *
+ * @author: Jesus Otero
+ */
 (function(app) {
+    /**
+     * To calculate CAMEA 40 results.
+     * @param {jQuery object} $el Selection activity container for the Camea 40 questionaire.
+     * @param {object} $result Activity results.
+     */
     function calculateCameaResults($el, result) {
         var weights = { s: 5, cs: 4, mv: 3, av: 2, n: 1 };
             active = /^(2|7|12|15|16|19|22|25|34|39)$/,
@@ -53,12 +63,21 @@
         }).sort(sortByScoreDesc).appendTo('.estilos-aprendizaje-resultado');
     }
 
+    /**
+     * To sort two html elements based on the data-learning-style-score value.
+     * @param {element} a.
+     * @param {element} b.
+     */
     function sortByScoreDesc(a, b) {
         var scoreA = parseInt(a.getAttribute('data-learning-style-score'))
             , scoreB = parseInt(b.getAttribute('data-learning-style-score'));
         return scoreB - scoreA;
     }
 
+    /**
+     * To translate the Camea qualitative result(muybajo|bajo|moderado|alto|muyalto) to spanish.
+     * @param {number} score.
+     */
     function translate(text) {
         switch(text) {
             case 'muybajo':
@@ -75,34 +94,50 @@
         return text;
     }
 
-    function getCameaQualitative(value) {
-        if (value < 19) {
+    /**
+     * To calculate the Camea qualitative result(muybajo|bajo|moderado|alto|muyalto) based on the score.
+     * @param {number} score.
+     */
+    function getCameaQualitative(score) {
+        if (score < 19) {
             return 'muybajo';
         }
-        if (value < 27) {
+        if (score < 27) {
             return 'bajo';
         }
-        if (value < 35) {
+        if (score < 35) {
             return 'moderado';
         }
-        if (value < 43) {
+        if (score < 43) {
             return 'alto';
         }
         return 'muyalto';
     }
-
+    /**
+     * To handle when an activity has been completed. It will fire the camea results calculation.
+     * @param {event} event
+     * @param {JQuery object} $el
+     * @param {object} args
+     */
     function onActivityCompleted(event, $el, args) {
         if (/CAMEA 40/.test(args.id)) {
             calculateCameaResults($el, args);
+            return;
         }
     }
-
+    /**
+     * To handle when an activity has been rendered. It will hide verify button on CAMEA 40 form.
+     * @param {event} event
+     * @param {JQuery object} $el
+     * @param {object} args
+     */
     function onActivityRendered(event, $el, args) {
         if (/CAMEA 40/.test(args.id)) {
             $el.find('button.general').hide();
         }
     }
-
+    
+    //Register application event handlers
     $(app).on('jpit:activity:rendered', onActivityRendered);
     $(app).on('jpit:activity:completed', onActivityCompleted);
 })(dhbgApp);

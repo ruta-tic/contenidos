@@ -1287,11 +1287,95 @@ dhbgApp.mobile.start = function() {
     }
 
     //Activities
-    dhbgApp.mobile.load_operations();
+    dhbgApp.standard.load_operations();
+    dhbgApp.actions.startTimer = function($container, seconds) {
+        var format = function (s) {
+            var h = Math.floor(s / 3600);
+            s = s % 3600;
+            var m = Math.floor(s / 60);
+            s = s % 60;
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+                ('0'+m).slice(-2) + ':' +
+                ('0'+s).slice(-2);
+        };
+
+        var $timer = $('<span class="jpit-timer">');
+        var interval;
+        var start = function () {
+            $timer.html(format(seconds)).appendTo($container)
+            var sec = seconds;
+            interval = setInterval(function () {
+                sec--;
+                $timer.html(format(sec));
+                if (sec == 0) {
+                    clearInterval(interval);
+                    interval = undefined;
+                    $container.trigger('jpit:timer:elapsed', clock);
+                }
+            }, 1000);
+        }
+        var clock = {
+            stop: function () { interval && clearInterval(interval); },
+            restart: function () { start(); },
+            hide: function() { $timer.hide() },
+            show: function() { $timer.show() }
+        };
+        start();
+        $container.data('clock', clock);
+    };
+
+    dhbgApp.actions.loadActivity = function($container, type, loader) {
+        var scorm_id = $container.attr('data-act-id') ? $container.attr('data-act-id') : type;
+
+        if (dhbgApp.scorm) {
+            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
+        }
+
+        var el = $container.get(0);
+        var ondemand = false;
+        var timer = 0;
+        var options = { scorm_id: scorm_id };
+
+        if (el.hasAttribute('data-timer')) {
+            timer = parseInt(el.getAttribute('data-timer'));
+            timer = isNaN(timer) ? 0 : timer;
+            el.removeAttribute('data-timer');
+        }
+
+        if (el.hasAttribute('data-reveal-response')) {
+            options.allow_reveal = el.getAttribute('data-reveal-response') == 'true';
+            el.removeAttribute('data-reveal-response');
+        }
+
+        if (el.hasAttribute('data-on-demand')) {
+            ondemand = /^(any|mobile)$/.test(el.getAttribute('data-on-demand'));
+        }
+
+        if (!ondemand && timer == 0) {
+            loader.call(loader, $container, options);
+            return;
+        }
+
+        var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
+        $container.before($start);
+        var parent_class = $container.parent().attr('id');
+        $container.addClass(parent_class);
+        $container.hide();
+        $start.on('click', function() {
+            dhbgApp.mobile.fullContent.back.data('offset_return', $start.offset().top - 50);
+            $container.show();
+            loader.call(loader, $container, options);
+            if (timer > 0) {
+                dhbgApp.actions.startTimer($container, timer);
+            }
+            $start.hide();
+        });
+
+    };
 
     $('.jpit-activities-quiz').each(function(){
         var $this = $(this);
-        dhbgApp.actions.activityQuiz($this);
+        dhbgApp.actions.loadActivity($this, 'quiz', dhbgApp.actions.activityQuiz);
     });
 
     $('.jpit-activities-wordpuzzle').each(function(){
@@ -1306,22 +1390,10 @@ dhbgApp.mobile.start = function() {
 
     $('.jpit-activities-droppable').each(function(){
         var $this = $(this);
-
-        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'droppable';
-
-        if (dhbgApp.scorm) {
-            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
+        if (!this.hasAttribute('data-on-demand')) {
+            this.setAttribute('data-on-demand', 'mobile');
         }
-
-        var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
-        $this.before($start);
-        var parent_class = $this.parent().attr('id');
-        $this.addClass(parent_class);
-        $this.hide();
-        $start.on('click', function() {
-            dhbgApp.mobile.fullContent.back.data('offset_return', $start.offset().top - 50);
-            dhbgApp.actions.activityDroppable($this, scorm_id);
-        });
+        dhbgApp.actions.loadActivity($this, 'droppable', dhbgApp.actions.activityDroppable);
     });
 
     $('.jpit-activities-multidroppable').each(function(){
@@ -1967,14 +2039,9 @@ dhbgApp.mobile.load_operations = function() {
         });
     };
 
-    dhbgApp.actions.activityQuiz = function ($this) {
+    dhbgApp.actions.activityQuiz = function ($this, options) {
+        var scorm_id = options.scorm_id;
         var questions = [], activityOptions = {};
-        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'quiz';
-
-        if (dhbgApp.scorm) {
-            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
-        }
-
         var feedbacktrue = dhbgApp.s('answer_corrent'), feedbackfalse = dhbgApp.s('answer_wrong');
         var html_body = $this.html();
 
@@ -2125,8 +2192,31 @@ dhbgApp.mobile.load_operations = function() {
         var $box_questions = $('<div class="box_content"></div>');
         var $box_end = $('<div class="box_end" style="display:none"></div>');
 
-        var activity = new jpit.activities.quiz.activity($box_questions, questions, activityOptions);
+        var add_restart_button = function () {
+            var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+            $button_again.on('click', function(){
+                $this.empty();
+                $this.html(html_body);
+                dhbgApp.actions.activityQuiz($this, options);
+                dhbgApp.actions.autoLoadSounds($this);
+                $this.data('clock') && $this.data('clock').restart();
+            });
+            $box_end.append($button_again);
+        }
 
+        var add_end_button = function () {
+            var $button_end = $('<button class="button general">' + dhbgApp.s('end_activity') + '</button>');
+            $button_end.on('click', function(){
+                $box_end.empty().hide();
+                $.each(questions, function(idx, q) {
+                    q.resolve && q.resolve();
+                });
+                $this.data('clock') && $this.data('clock').hide();
+            });
+            $box_end.append($button_end);
+        }
+
+        var activity = new jpit.activities.quiz.activity($box_questions, questions, activityOptions);
         activity.verified = [];
 
         var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
@@ -2150,9 +2240,10 @@ dhbgApp.mobile.load_operations = function() {
 
                 $(this).hide();
 
-                // If all questions was answered.
+                // If all questions were answered.
                 if(activity.isFullAnswered()){
 
+                    $this.data('clock') && $this.data('clock').stop(); //Stop timer if any
                     for(var i = 0; i < activity.finalQuestionList.length; i++){
                         if(activity.finalQuestionList[i] != undefined && activity.finalQuestionList[i].isQualifiable()) {
                             activity.finalQuestionList[i].showFeedback();
@@ -2185,15 +2276,7 @@ dhbgApp.mobile.load_operations = function() {
                     }
 
                     if (weight < 100) {
-                        var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                        $button_again.on('click', function(){
-                            $this.empty();
-                            $this.html(html_body);
-                            dhbgApp.actions.activityQuiz($this);
-                            dhbgApp.actions.autoLoadSounds($this);
-                        });
-
-                        $box_end.append($button_again);
+                        add_restart_button();
                     }
                 }
             }
@@ -2229,6 +2312,18 @@ dhbgApp.mobile.load_operations = function() {
         $this.append($box_questions);
         $this.append($box_end);
         verify_display_function();
+
+        $this.on('jpit:timer:elapsed', function(){
+            $.each(questions, function(idx, q) { q.disableQuestion(); });
+            $verify_box.hide();
+            add_restart_button();
+            options.allow_reveal && add_end_button();
+            $box_end.show();
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: 0
+            }]);
+        });
     };
 
     dhbgApp.actions.activityWordpuzzle = function ($this) {
@@ -2489,13 +2584,14 @@ dhbgApp.mobile.load_operations = function() {
 
     };
 
-    dhbgApp.actions.activityDroppable = function ($this, scorm_id) {
+    dhbgApp.actions.activityDroppable = function ($this, options) {
 
         if (!$this.data('loaded')) {
             var activity;
             var unique_id = 'activity_droppable_' + dhbgApp.rangerand(0, 1000, true);
             var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
             var html_body = $this.html();
+            var scorm_id = options.scorm_id;
 
             var $box_end = $this.find('.box_end');
             $box_end.hide();
@@ -2559,6 +2655,31 @@ dhbgApp.mobile.load_operations = function() {
                 $item.removeAttr('data-target-group');
             });
 
+            var add_restart_button = function() {
+                var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+                $button_again.on('click', function(){
+                    $box_end.empty().hide();
+                    $this.find('.draggable,.droppable').removeClass('wrong correct');
+                    $this.removeClass('completed');
+                    activity.resetStage();
+                    $this.data('clock') && $this.data('clock').restart();
+                });
+                $box_end.append($button_again);
+            };
+
+            var add_end_button = function () {
+                var $button_end = $('<button class="button general">' + dhbgApp.s('end_activity') + '</button>');
+                $button_end.on('click', function(){
+                    $box_end.empty().hide();
+                    $this.find('.draggable,.droppable').removeClass('wrong correct');
+                    $.each(pairs, function(idx, pair) {
+                        pair.origin.addClass('dropped').appendTo(pair.target);
+                    });
+                    $this.data('clock') && $this.data('clock').hide();
+                });
+                $box_end.append($button_end);
+            }
+
             activityOptions.onDrop = function($dragEl) {
                 var $dropzone = this;
                 if ($this.attr('data-adjust-size') && $this.attr('data-adjust-size') == 'true') {
@@ -2570,6 +2691,8 @@ dhbgApp.mobile.load_operations = function() {
 
                 var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
                 if (!end) return;
+
+                $this.data('clock') && $this.data('clock').stop();
 
                 var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
                 activity.disable();
@@ -2611,16 +2734,7 @@ dhbgApp.mobile.load_operations = function() {
                 $this.addClass('completed');
 
                 if (weight < 99) {
-                    var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                    $button_again.on('click', function(){
-                        $box_end.empty().hide();
-                        $this.find('.draggable,.droppable').removeClass('wrong correct');
-
-                        $this.removeClass('completed');
-                        activity.resetStage();
-                    });
-
-                    $box_end.append($button_again);
+                    add_restart_button();
                 }
 
                 $this.find('.draggable,.droppable').addClass('wrong');
@@ -2632,10 +2746,26 @@ dhbgApp.mobile.load_operations = function() {
                         correct.t.removeClass('wrong').addClass('correct');
                     });
                 }
+
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             };
             activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
+
+            $this.on('jpit:timer:elapsed', function(){
+                activity.disable();
+                add_restart_button();
+                options.allow_reveal && add_end_button();
+                $box_end.show();
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: 0
+                }]);
+            });
             $this.data('loaded', true);
-        }
+        };
         dhbgApp.mobile.fullContent.content.append($this);
         dhbgApp.showFullContent($this);
     };
