@@ -749,7 +749,7 @@ dhbgApp.mobile.start = function() {
     });
 
     // Credits control.
-    var $credits_modal = $('#pag-creditos').dialog({
+    var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
         width: dhbgApp.documentWidth - 10,
