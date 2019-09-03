@@ -1,0 +1,115 @@
+/********************************************************************************/
+
+
+/* Actividad arrastrar y soltar multiple
+/********************************************************************************/
+
+.actividad1 {
+    height: 100%;
+    background-color: #f3f3f3;
+    border: 3px solid #40bcc6
+}
+
+#arrastrargrupos {
+    height: 100%;
+}
+
+#pag-actividades-arrastrargrupos .chalkboard_content {
+    height: auto;
+}
+
+#arrastrargrupos table {
+    margin: auto;
+    max-width: 590px;
+}
+
+#arrastrargrupos h5 {
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 2px dotted #95B0CB;
+}
+
+#arrastrargrupos td {
+    height: 150px;
+    vertical-align: top;
+}
+
+#arrastrargrupos td .target {
+    min-height: 150px;
+    width: 190px;
+    overflow: auto;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .sources {
+    width: 100%;
+    height: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .draggable {
+    width: 165px;
+    float: left;
+    margin: 0 1px 5px;
+    color: #333;
+}
+
+#arrastrargrupos table .draggable.disabled {
+    cursor: default;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+
+/********************************************************************************/
+
+
+/* Actividad arrastrar y soltar - insertar
+/********************************************************************************/
+
+#pag-actividades-arrastrar4 .chalkboard_content {
+    height: auto;
+}
+
+#arrastrar4.jpit-activities-droppable table {
+    empty-cells: show;
+    border-spacing: 0 5px;
+}
+
+#arrastrar4.jpit-activities-droppable th {
+    padding: 5px;
+    text-align: right;
+    border-right: none;
+}
+
+#arrastrar4.jpit-activities-droppable td {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px dashed #777777;
+    text-align: left;
+    width: 200px;
+}
+
+#arrastrar4.jpit-activities-droppable .draggable {
+    float: left;
+    margin: 0 5px 5px 0;
+    color: #000;
+}
+
+#arrastrar4.jpit-activities-droppable .wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+    background-color: transparent;
+}
+
+.align1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>¿Cómo cambia la comunicación en los entornos digitales?</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>ì
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<!-- En el body está la calificación de la actividad-->
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>¿Cómo cambia la comunicación en los entornos digitales?</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Cambia comunicación" data-page="pag-cambia"></menuitem>
+                    <menuitem label="Medios" data-page="pag-medios"></menuitem>
+                    <menuitem label="Comunicación sincrónica" data-page="pag-sincronica">
+                    <menu>
+                        <menuitem label="Herramientas de comunicación sincrónica" data-page="pag-her-sincronica"></menuitem>
+                    </menu>
+                    </menuitem>
+                    <menuitem label="Comunicación asincrónica" data-page="pag-asincronica">
+                    <menu>
+                        <menuitem label="Herramientas de comunicación asincrónica" data-page="pag-her-asincronica"></menuitem>
+                    </menu>
+                    </menuitem>
+                    <menuitem label="Ayuda al profesor" data-page="pag-ayuda"></menuitem>
+
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-cambia" ptitle="¿Cambia nuestra comunicación en un entorno digital?">
+
+                <div class="subpage">
+                    <h3>Introducción</h3>
+                    <p>
+                        Este objeto virtual de aprendizaje consta de dos partes: en la primera, debe realizar una lectura del gráfico interactivo para acercarse a la información que se presenta en cada nodo de información, con el fin de identificar las principales diferencias
+                        entre los medios de comunicación tradicionales y los cibermedios, y entre comunicación masiva y comunicación interpersonal. Posteriormente, se presenta un gráfico con cuatro categorías y una lista de opciones que deberá clasificar
+                        teniendo en cuenta que, en un solo contenedor, puede haber más de un concepto. En cada categoría es necesario realizar correctamente la asociación concepto-definición para pasar a la siguiente. La actividad se cumple cuando se
+                        completen las asociaciones propuestas.
+                    </p>
+                    <p>
+                        En la segunda parte de la actividad se presenta un infográfico interactivo con accesos a la información de varios casos sobre el uso de herramientas de comunicación sincrónica y asincrónica. Deberá leerlos y resolverlos con una lista de herramientas de
+                        comunicación que tendrá disponible y arrastrar las herramientas útiles para resolver cada caso.
+                    </p>
+                </div>
+
+
+                <div class="subpage">
+                    <h3>¿Cambia nuestra comunicación en un entorno digital?</h3>
+                    <p>
+                        Una de las principales transformaciones en el mundo digital está relacionada con las formas de comunicación. A continuación, encontrará cuatro nodos de información que le ayudarán a reflexionar sobre las transformaciones más significativas que se han
+                        generado en nuestro proceso comunicativo.
+                    </p>
+
+                    <br>
+                    <br>
+
+                    <div class="interactive-buttons-container-1">
+                        <div class="interactive-button button-1 wf-content-controler general" data-content="#transformaciones-1">
+                            <div>De los medios masivos de comunicación tradicionales a los cibermedios</div>
+                        </div>
+                        <div class="interactive-button button-2 wf-content-controler general" data-content="#transformaciones-2">
+                            <div>De una comunicación de "uno a muchos" al modelo "muchos a muchos"</div>
+                        </div>
+                        <div class="interactive-button button-3 wf-content-controler general" data-content="#transformaciones-3">
+                            <div>De audiencias a usuarios y nichos de contenido</div>
+                        </div>
+                        <div class="interactive-button button-4 wf-content-controler general" data-content="#transformaciones-4">
+                            <div>Comunicación interpersonal o "uno a uno"</div>
+                        </div>
+                        <div class="content">
+                            <div>Transformaciones en la comunicación</div>
+                        </div>
+                    </div>
+                    <div id="transformaciones-1" class="wf-content autox autoy">
+                        <div id="content_wrapper">
+                            <h4>De los medios masivos de comunicación tradicionales a los cibermedios</h4>
+                            <p>
+                                Constantemente, en los ambientes presenciales, somos consumidores de medios masivos de comunicación, en donde se propone un único emisor o fuente de información que se dirige hacia un amplio público o audiencia de receptores, lo cual es conocido como
+                                Broadcasting, y caracteriza a medios masivos como la prensa, la radio, el cine y la televisión.
+                            </p>
+
+                            <p>
+                                En estos medios, también llamados mass media o medios de comunicación de masas, el mensaje es lanzado a un público numeroso o masivo, denominado audiencia. Allí, la transmisión es unidireccional; un emisor que se dirige a sus receptores pero la retroalimentación
+                                o feedback no es tan constante. Si bien los lectores, radioescuchas o televidentes tienen la posibilidad de interactuar con mensajes dirigidos a los canales, periódicos, revistas o llamadas telefónicas a la radio, la participación
+                                suele verse más limitada que en los medios digitales.
+                            </p>
+                            <p>
+                                La migración y reconfiguración de estos medios de comunicación al mundo digital, especialmente en el ámbito periodístico, se denomina <strong>cibermedios</strong>, término que hace referencia a los medios de comunicación que
+                                aprovechan las plataformas y soportes digitales que ofrece la tecnología para la divulgación de información relevante, amplia y de interés para el público, por ejemplo, en el ciberperiodismo, la radio digital, los weblogs,
+                                las plataformas de distribución de contenidos en audio, en video o multimedia como CBS Broadcasting Inc., NBC-National Broadcasting Company, BBC News, Seven Networks, etc.
+                            </p>
+                            <p>
+                                Finalmente, si bien no son características exclusivas de los medios digitales en contraposición a los analógicos, diversos autores como López García, Salaverría y Orihuela, entre otros, coinciden en que sí se puede afirmar que los cibermedios presentan
+                                un mayor nivel de aprovechamiento de las posibilidades de la hipertextualidad, la multimedialidad y la interactividad de la Web.
+                            </p>
+
+                            <h4>Características de la comunicación digital</h4>
+                            <p>
+                                Conoce aquí tres características de la comunicación digital:
+                            </p>
+
+                            <div class="interactive-buttons-container-2">
+                                <div class="background-zone"></div>
+                                <div class="interactive-button button-1 wf-content-controler general" data-content="#caracteristicas-1">
+                                    <div>Multimedialidad</div>
+                                </div>
+                                <div class="interactive-button button-2 wf-content-controler general" data-content="#caracteristicas-2">
+                                    <div>Interactividad</div>
+                                </div>
+                                <div class="interactive-button button-3 wf-content-controler general" data-content="#caracteristicas-3">
+                                    <div>Hipertextualidad</div>
+                                </div>
+                                <div class="content">
+                                    <div>Comunicación digital</div>
+                                </div>
+                            </div>
+                            <div id="caracteristicas-1" class="w-content autox autoy">
+                                <h5>Multimedialidad</h5>
+                                <!--Falta video -->
+                            </div>
+                            <div id="caracteristicas-2" data-property-width="80%" data-property-height="80%" class="w-content">
+                                <h5>Interactividad</h5>
+                                <!--Falta video -->
+                            </div>
+                            <div id="caracteristicas-3" data-property-width="80%" data-property-height="80%" class="w-content">
+                                <h5>Hipertexto</h5>
+                                <!--Falta video -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="transformaciones-2" class="wf-content autox autoy">
+                        <div id="content_wrapper">
+                            <h4>De una comunicación de “uno a muchos” al modelo “muchos a muchos”</h4>
+                            <p>
+                                En la actualidad, la comunicación digital y los cibermedios promueven las conversaciones múltiples, de muchos a muchos, ya que existe gran diversidad y participación en quién produce y en quién consume el contenido.
+                            </p>
+                            <p>
+                                Autores como Scolari y Ohijuela lo plantean como la transición de un modelo de uno a muchos tal como en el broadcasting y la radiodifusión (por ejemplo en la prensa, la radio, el cine, la televisión) a una conversación de muchos a muchos. Esto significa
+                                que en Internet se difuminan los papeles de los emisores y los receptores, ya que no hay un lugar fijo para quienes consumen el contenido y los mensajes, y otro para quienes los crean, sino que de alguna forma todos somos
+                                <strong>prosumidores</strong>; consumidores y productores de mensajes. Todos cumplimos constantemente ambas funciones, derivando en entornos de escucha participativos, inclusivos y bidireccionales, y multidireccionales.
+                            </p>
+                            <p>
+                                Esto además, se ha visto exacerbado por la posterior llegada de otros componentes como las <strong>redes sociales</strong>, que hacen que vivamos constantemente en una explosión de contenidos digitales, conversaciones,
+                                y otras formas de comunicar que desafían a los modelos de comunicación tradicionales. Así mismo, las plataformas de distribución de contenidos, por ejemplo Netflix, Spotify, YouTube, entre otros, enriquecen este modo de
+                                comunicación, ya que se les suma sistemas de valoración, calificación y opiniones como las cajas de comentarios, puntuación por estrellas, los me gusta, la mano arriba o abajo, y otras herramientas de comunicación interpersonal
+                                como la mensajería instantánea, los chats, los mensajes de voz y el correo electrónico.
+
+                            </p>
+                            <h5>
+                                ¿Cómo podemos aprovechar las transformaciones más significativas en las aulas virtuales?
+                            </h5>
+                            <p>
+                                Estas transformaciones en los procesos de comunicación en la educación en línea hacen que la posición del docente se convierta en la de un facilitador y co-aprendiz. Reevaluar la hegemonía de la voz del docente en el aula hace que se pase de una pedagogía
+                                de la enunciación, a las pedagogías de la participación (Educared, 2014).
+                            </p>
+                        </div>
+                    </div>
+                    <div id="transformaciones-3" class="wf-content autox autoy">
+                        <div id="content_wrapper">
+                            <h4>
+                                De audiencias a usuarios y nichos de contenido
+                            </h4>
+                            <p>
+                                Otro transformación interesante en la comunicación digital es el cambio en el público. Ahora, hablamos más de usuarios y nichos de contenidos o de audiencias. En parte, esto se debe a que las personas tienen mayor control sobre lo que ven y consumen,
+                                y los mercados se han ido organizando en grupos específicos ordenados por demografía y otras características. Esta ha sido una tendencia muy relacionada con el marketing digital, ya que en la medida en que los emisores
+                                generan retroalimentación más enfocada, el acercamiento a los usuarios es mucho más fácil.
+                            </p>
+                            <p>
+                                La Web, fragmentó las audiencias en pequeños grupos de consumidores que tienen unos intereses y unas características específicas; los contenidos digitales no se producen para audiencias masificadas sino para pequeños nichos de usuarios, y estos distan
+                                de tener las mismas lógicas de los medios masivos convencionales.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="transformaciones-4" class="wf-content autox autoy">
+                        <div id="content_wrapper">
+                            <h4>
+                                ¿Y qué ocurre con la comunicación interpersonal o “uno a uno”?
+                            </h4>
+                            <p>
+                                “Estamos evolucionando hacia medios de masas 2.0, de la mano de los teléfonos inteligentes. La clave ya no es la plataforma de distribución, sino el usuario conectado.” (Orihuela, 2016, p. 82).
+                            </p>
+                            <p>
+                                De la misma manera en que los medios interpersonales que acostumbramos a usar para comunicarnos cotidianamente, medios sincrónicos como el teléfono y otros asincrónicos como el fax y el correo postal, todas las transformaciones del mundo digital (el surgimiento
+                                de los smartphones, las apps y la incorporación de nuevas tecnologías), promueven el surgimiento de un ecosistema de aplicaciones y herramientas que modifican nuestras formas de comunicarnos. Por ejemplo, en la comunicación
+                                en línea encontramos otras herramientas como el correo electrónico, los chats, los foros de debate, los wikis y la mensajería instantánea, que gozan de los atributos del lenguaje multimedia y de las características de la
+                                hipertextualidad y la interactividad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Medios-->
+            <section id="pag-medios" ptitle="Medios análogos y digitales">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>Arrastre los medios que corresponden a cada categoría.</p>
+                        <p>
+                            En cada categoría es necesario realizar correctamente la asociación concepto-definición para pasar a la siguiente. La actividad se cumple cuando se completen las asociaciones propuestas.
+                        </p>
+                    </div>
+                    <p>
+                    </p>
+                    <div class="actividad1">
+                        <div id="arrastrargrupos" class="jpit-activities-droppable" data-act-title="Medios análogos y digitales" data-act-id="1-medios" data-target-multi="0" data-autoalign="false">
+                            <div class="draggable_board">
+                                <div class="colum_dropzones">
+                                    <div class="dropzone">
+                                        <h5>Medios masivos de comunicación tradicionales</h5>
+                                        <div data-target-group="1" class="target"></div>
+                                    </div>
+                                    <div class="dropzone">
+                                        <h5>Cibermedios</h5>
+                                        <div data-target-group="2" class="target"></div>
+                                    </div>
+                                    <div class="dropzone">
+                                        <h5>Medios interpersonales de comunicación</h5>
+                                        <div data-target-group="3" class="target"></div>
+                                    </div>
+                                    <div class="dropzone">
+                                        <h5>Herramientas de comunicación interpersonal en línea</h5>
+                                        <div data-target-group="4" class="target"></div>
+                                    </div>
+                                </div>
+                                <div class="column_draggables">
+                                    <div data-group="1">Cine</div>
+                                    <div data-group="1">Radio</div>
+                                    <div data-group="1">Televisión</div>
+                                    <div data-group="1">Prensa</div>
+                                    <div data-group="1">Revistas</div>
+                                    <div data-group="1">Diarios</div>
+                                    <div data-group="2">Diarios electrónicos</div>
+                                    <div data-group="2">Emisoras de radio en línea</div>
+                                    <div data-group="2">Plataformas en línea de distribución de contenidos audiovisuales </div>
+                                    <div data-group="2">Periódico en red</div>
+                                    <div data-group="2">Plataformas en línea de distribución de Podcast</div>
+                                    <div data-group="3">Llamadas telefónicas</div>
+                                    <div data-group="4">Mensajería instantánea</div>
+                                    <div data-group="4">Mensajes de voz</div>
+                                    <div data-group="4">Redes Sociales</div>
+                                    <div data-group="4">Videoconferencia</div>
+                                    <div data-group="4">Videostreaming</div>
+                                    <div data-group="4">Chat</div>
+                                    <div data-group="4">Foro</div>
+                                    <div data-group="4">Wiki</div>
+                                </div>
+                            </div>
+                            <feedback>
+                                <correct>¡Muy bien! Ha seleccionado correctamente los medios que corresponden a cada categoría y ha aprobado la actividad.</correct>
+                                <wrong>Revise nuevamente y, si lo desea, puede volver a revisar el material</wrong>
+                            </feedback>
+                            <div class="box_end"></div>
+                            <!--table class="box_targets">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5>Medios masivos de comunicación tradicionales</h5>
+                                            <div data-target-group="1" class="target"></div>
+                                        </td>
+                                        <td>
+                                            <h5>Cibermedios</h5>
+                                            <div data-target-group="2" class="target"></div>
+                                        </td>
+                                        <td>
+                                            <h5>Medios interpersonales de comunicación</h5>
+                                            <div data-target-group="3" class="target"></div>
+                                        </td>
+                                        <td>
+                                            <h5>Herramientas de comunicación interpersonal en línea</h5>
+                                            <div data-target-group="4" class="target"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="buttons">
+                                <button class="general verify">Verificar</button>
+                                <button class="general continue" style="display: none;">Volver a intentar</button>
+                            </div>
+                            <div class="box_end"></div>
+                            <div class="sources">
+                                <div data-group="1">Cine</div>
+                                <div data-group="1">Radio</div>
+                                <div data-group="1">Televisión</div>
+                                <div data-group="1">Prensa</div>
+                                <div data-group="1">Revistas</div>
+                                <div data-group="1">Diarios</div>
+                                <div data-group="2">Diarios electrónicos</div>
+                                <div data-group="2">Emisoras de radio en línea</div>
+                                <div data-group="2">Plataformas en línea de distribución de contenidos audiovisuales </div>
+                                <div data-group="2">Periódico en red</div>
+                                <div data-group="2">Plataformas en línea de distribución de Podcast</div>
+                                <div data-group="3">Llamadas telefónicas</div>
+                                <div data-group="4">Mensajería instantánea</div>
+                                <div data-group="4">Mensajes de voz</div>
+                                <div data-group="4">Redes Sociales</div>
+                                <div data-group="4">Videoconferencia</div>
+                                <div data-group="4">Videostreaming</div>
+                                <div data-group="4">Chat</div>
+                                <div data-group="4">Foro</div>
+                                <div data-group="4">Wiki</div>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Sincronica-->
+            <section id="pag-sincronica" ptitle="¿Qué es la comunicación sincrónica?">
+                <div class="subpage">
+                    <p>
+                        O’Rourke (2017) define la comunicación sincrónica como aquella comunicación dialógica que se desarrolla en condiciones de presencia simultánea en un espacio comunicativo compartido que puede ser físico o virtual. Esta actividad está enfocada en la comunicación
+                        sincrónica que se da a través de plataformas digitales, las cuales ofrecen diferentes herramientas de comunicación, permitiendo a los usuarios escoger entre diversos lenguajes de comunicación (escrito, sonoro, audiovisual, visual,
+                        etc.), y modos en que se desea (compartir privado o público), entre otras funcionalidades.
+                    </p>
+                    <p>
+                        Algunas ventajas de la comunicación sincrónica son:
+                    </p>
+                    <ul class="data_list">
+                        <li>
+                            Propicia respuestas a las contribuciones de los interlocutores de manera oportuna .
+                        </li>
+                        <li>
+                            Fomenta una estructura de participación según el turno de las intervenciones.
+                        </li>
+                        <li>
+                            Promueve vías de comunicación abiertas con el receptor, dada la obligación de mantener la conversación en movimiento y mantener la conexión social.
+                        </li>
+                    </ul>
+            </section>
+            <section id="pag-her-sincronica" ptitle="Herramientas de comunicación sincrónica">
+                <div class="subpage">
+                    <p>
+                        Las herramientas sincrónicas ayudan a realizar diferentes tipos de actividades en el quehacer docente. A continuación, se presentan algunas de ellas.
+                    </p>
+                    <div class="align1">
+
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante3">
+                            <img src="./content/herr-comuni-sincronica-streaming.png" alt="">
+                            <div class="about">Videostreaming</div>
+                        </div>
+                        <div id="ventana_textos_flotante3" class="wf-content">
+                            <p>
+                                Es una herramienta de transmisión de video en tiempo real, la cual se realiza de manera unidireccional, es decir, desde un único punto se transmite el video y audio, y cualquier usuario (según la configuración realizada previamente) accede a esta información
+                                desde su navegador web o por medio de aplicación móvil, convirtiéndose en un espectador con posibilidad de realizar preguntas.
+                            </p>
+                            <p>
+                                Algunos ejemplos de plataformas para realizar videostreaming son Facebook Live o Live YouTube, para las cuales es necesario contar con una cuenta de usuario.
+                            </p>
+                            <p>
+                                Entre algunos usos educativos del videostreaming se encuentran las conferencias o charlas que se pueden ofrecer sobre una temática determinada a un grupo de personas, o el diseño de estrategias didácticas encaminadas en un antes, durante y después de
+                                la transmisión del video.
+                            </p>
+                        </div>
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante4">
+                            <img src="./content/herr-comuni-sincronica-mensajeria.png" alt="">
+                            <div class="about">Mensajería instantánea</div>
+                        </div>
+                        <div id="ventana_textos_flotante4" class="wf-content">
+                            <p>
+                                Esta herramienta permite enviar mensajes en tiempo real a otras personas que se encuentran en diferentes lugares geográficos, quienes los pueden leer y responder inmediatamente, de acuerdo con la disponibilidad del receptor para atender el mensaje. Los
+                                avances tecnológicos han permitido enriquecer este tipo de herramientas y que los mensajes intercambiados estén acompañados de diferentes elementos multimediales (audio, video, imágenes), sin embargo, esto dependerá de
+                                las funcionalidades que ofrezca el software que se esté utilizando.
+                            </p>
+                            <p>
+                                Para usar la mensajería instantánea, el usuario requiere de un software especializado que le permita comunicarse con otras personas en tiempo real, de forma individual (uno a uno) o con un grupo de personas que también tengan instalado el mismo software
+                                (Mann y Stewart, 2000). Entre los software de mensajería instantánea más populares, se encuentra Google Hangout, Whatsapp, Messenger y Telegram, las cuales pueden ser accedidos a través de un navegador web o instalando
+                                la aplicación en un dispositivo móvil.
+                            </p>
+                            <p>
+                                Esta herramienta puede ser incorporada en los procesos de formación para la comunicación entre estudiantes y profesor fuera del aula, bien sea para mantener un canal de comunicación permanente, o como un estrategia didáctica del curso. Entre algunos ejemplos
+                                de uso se encuentran: resolver alguna duda, recordatorio de compromisos académicos o fechas significativas dentro del curso.
+                            </p>
+                            <p>
+                                Quann-Haase (2008) menciona que la mensajería instantánea es utilizada por los estudiantes para:
+                            </p>
+                            <ul class="data_list">
+                                <li>
+                                    Mantener y fortalecer sus redes sociales.
+                                </li>
+                                <li>
+                                    Conocer nuevas personas.
+                                </li>
+                                <li>
+                                    Intercambiar conocimiento y resolver dudas de forma colaborativa cuando están cursando una asignatura.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante5">
+                            <img src="./content/herr-comuni-sincronica-videconferencia.png" alt="">
+                            <div class="about">Videoconferencia</div>
+                        </div>
+                        <div id="ventana_textos_flotante5" class="wf-content">
+                            <p>
+                                Esta herramienta permite la comunicación simultánea y bidireccional entre un grupo de personas que se encuentran en diferentes lugares geográficos; brinda funcionalidades que posibilitan la transmisión de video y audio en tiempo en real, compartir la
+                                pantalla de los equipos, chatear y enviar o recibir archivos.
+                            </p>
+                            <p>
+                                Entre las ventajas que ofrecen las videoconferencias se encuentra el aumentar las posibilidades de interacción y comunicación al crear un sentido de presencia del otro, quien está físicamente distante.
+                            </p>
+                            <p>
+                                Para utilizar esta herramienta es necesario que todos los participantes tengan conectividad a internet, un equipo de cómputo o un dispositivo móvil, micrófono y diadema. Entre los software de videoconferencia se encuentran Google Hangout, Zoom, Big Blue
+                                Button, Webex y Skype, los cuales pueden ser accedidos a través de un navegador web o instalando la aplicación en un dispositivo móvil.
+                            </p>
+                            <p>
+                                La videoconferencia ayuda a realizar diferentes tipos de actividades como:
+                            </p>
+                            <ul class="data_list">
+                                <li>
+                                    Propiciar espacios de formación en los cuales los participantes no pueden estar reunidos presencialmente.
+                                </li>
+                                <li>
+                                    Tener expertos de un tema determinado en las clases, ubicados en otros lugares geográficos,
+                                </li>
+                                <li>
+                                    Efectuar actividades para promover el aprendizaje colaborativo entre los mismos estudiantes del curso, o con personas de otras instituciones.
+                                </li>
+                                <li>
+                                    Realizar tutorías con los estudiantes.
+                                </li>
+                                <li>
+                                    Hacer uso de la grabación del video (en caso de que el software utilizado lo permita), como recurso de información para que sea consultado cuando los participantes lo requieran.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--asincronica-->
+            <section id="pag-asincronica" ptitle="¿Qué es la comunicación asincrónica?">
+                <div class="subpage">
+                    <p>
+                        Rodríguez del Rey y Pérez Fleites (2016) plantean que la comunicación asincrónica se establece entre dos o más personas de manera diferida en el tiempo, es decir, cuando no existe coincidencia temporal. Algunas ventajas de la comunicación asincrónica
+                        son:
+                    </p>
+                    <ul class="data_list">
+                        <li>
+                            Permite facilidad de conexión en diferentes espacios para participar en la actividad.
+                        </li>
+                        <li>
+                            Proporcionan tiempo al estudiante para que reflexione sobre el tema y pueda dar aportes, ideas o abrir nuevas discusiones.
+                        </li>
+                        <li>
+                            Promueven el aprendizaje colaborativo.
+                        </li>
+                        <li>
+                            Potencian la construcción de conocimiento compartido.
+                        </li>
+                    </ul>
+                    <p>
+                        A continuación, se exponen algunas de las herramientas asincrónicas.
+                    </p>
+                </div>
+            </section>
+            <section id="pag-her-asincronica" ptitle="Herramientas de la comunicación asincrónicas">
+                <div class="subpage">
+                    <div class="align1">
+
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante6">
+                            <img src="./content/herr_comuni_asincronica_redes-sociales.png" alt="">
+                            <div class="about">Redes sociales</div>
+                        </div>
+                        <div id="ventana_textos_flotante6" class="wf-content">
+                            <p>
+                                Camarero (2015) define las redes sociales como los lazos que se crean entre las personas que comparten intereses comunes cuando interactúan en un espacio de comunicación y conectividad abierto, horizontal y bidireccional. La conformación de redes sociales
+                                es una característica de los seres humanos, dado que somos seres sociales por naturaleza. Las redes sociales pueden ser analógicas (cara a cara) o digitales (utilizan algún tipo de tecnología digital).
+                            </p>
+                            <p>
+                                Algunas redes sociales que se pueden usar son <a href="http://clipit.es/landing/" target="_blank">Clipit</a>, <a href="https://new.edmodo.com/" target="_blank">Edmodo</a>, <a href="https://twitter.com/?lang=es" target="_blank">Twitter</a>                                y <a href="https://www.facebook.com/" target="_blank">Facebook</a>, las cuales tienen como ventajas:
+                            </p>
+                            <ul class="data_list">
+                                <li>
+                                    Ofrecen al estudiante un entorno con múltiples herramientas y materiales.
+                                </li>
+                                <li>
+                                    Facilitan el contacto entre estudiantes y docentes.
+                                </li>
+                                <li>
+                                    Evitan problemas como la coincidencia en el mismo espacio y tiempo.
+                                </li>
+                                <li>
+                                    Promueven la creación de comunidades de aprendizaje o práctica sobre un tema de interés común
+                                </li>
+                                <li>
+                                    Fomentan el aprendizaje autónomo.
+                                </li>
+                                <li>
+                                    Facilitan la comunicación y la socialización.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante7">
+                            <img src="./content/herr_comuni_foro.png" alt="">
+                            <div class="about">Foro</div>
+                        </div>
+                        <div id="ventana_textos_flotante7" class="wf-content">
+                            <p>
+                                Martínez Vela y Gallego Córcoles (2014) plantean que un foro es un lugar de comunicación asíncrono que se basa en conversaciones formadas por mensajes. En este espacio, los participantes pueden realizar aportes que permitan aclarar o completar las afirmaciones
+                                y argumentos contenidos en los mensajes que ya hayan incorporado otros participantes, o debatir sus posiciones.
+                            </p>
+                            <p>
+                                El foro es especialmente indicado para el trabajo en equipo y colaborativo, pero también para fomentar el trabajo individual y el sentido crítico y reflexivo.
+                            </p>
+                            <p>
+                                En la web se pueden encontrar sitios gratuitos para crear foros, además, la mayoría de las plataformas educativas cuentan con esta herramienta, aunque quizá la más utilizada sea <strong>Groups</strong>.
+                            </p>
+                            <p>
+                                A través de la adecuada gestión de un foro se puede:
+                            </p>
+                        </div>
+                        <div class="box_media wf-content-controler general" data-content="#ventana_textos_flotante8">
+                            <img src="./content/herr_comuni_asincronica_computador.png" alt="">
+                            <div class="about">Blog</div>
+                        </div>
+                        <div id="ventana_textos_flotante8" class="wf-content">
+                            <p>
+                                García (2009) plantea que un blog es un sitio web que facilita la publicación instantánea de entradas (posts) y permite a sus lectores dar retroalimentación al autor en forma de comentarios. Las entradas quedan organizadas cronológicamente, iniciando
+                                con la más reciente.
+                            </p>
+                            <p>
+                                Muchos sitios de uso libre permiten crear y alojar blogs. Algunos de los más populares son <a href="https://es.wordpress.com/">WordPress</a>, <a href="https://www.blogger.com/">Blogger, <a href="http://xanga.com/">Xanga, <a href="https://edublogs.org/">Edublogs</a>                                y <a href="https://medium.com/">Medium</a>.
+                            </p>
+                            <p>
+                                El blog fomenta en los estudiantes la escritura, el intercambio de ideas, el trabajo colaborativo, la argumentación y la síntesis, y puede ser utilizado como el portafolio de la clase, es decir, como el lugar en donde se recopilan las evidencias o reflexiones
+                                de las temáticas abordadas.
+                            </p>
+                            <p>
+                                A través de la adecuada gestión de un foro se puede:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Ayuda-->
+            <section id="pag-ayuda" ptitle="Ayuda al profesor a resolver su caso">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Con el propósito de que ponga a prueba los conocimientos aprendidos y se enfrente a situaciones que los profesores tienen en su quehacer docente, al hacer clic en el siguiente infográfico encontrará una serie de casos en los cuales debes indicar la herramienta
+                            de comunicación que el profesor debe utilizar para resolver su situación. Para ello debe arrastrar, desde la lista de herramientas al infográfico, la herramienta que considere que le ayudará a resolver el caso presentado.
+                        </p>
+                        <p>
+                            La actividad se aprueba cuando asocie correctamente las herramientas con cada uno de los casos.
+                        </p>
+                    </div>
+                    <div id="act_herramientas" class="jpit-activities-droppable" data-act-id="2-herramientas"  data-target-multi="1" data-autoalign="false">
+                        <div class="cases_droppables_board">
+                            <div class="cases_label_outer"></div>
+                            <div class="cases_label_inner">Casos</div>
+                            <div class="case_box case_1">
+                                <div class="case_box_wrapper">
+                                    <div class="dropzone" data-target-group="1"></div>
+                                    <div class="w-content-controler general case_img" data-content="#case_1"></div>
+                                    <div class="case_pointer"></div>
+                                </div>
+                            </div>
+                            <div class="case_box case_2">
+                                <div class="case_box_wrapper">
+                                    <div class="dropzone" data-target-group="2"></div>
+                                    <div class="w-content-controler general case_img" data-content="#case_2"></div>
+                                    <div class="case_pointer"></div>
+                                </div>
+                            </div>
+                            <div class="case_box case_3">
+                                <div class="case_box_wrapper">
+                                    <div class="dropzone" data-target-group="3"></div>
+                                    <div class="w-content-controler general case_img" data-content="#case_3"></div>
+                                    <div class="case_pointer"></div>
+                                </div>
+                            </div>
+                            <div class="case_box case_4">
+                                <div class="case_box_wrapper">
+                                    <div class="dropzone" data-target-group="4"></div>
+                                    <div class="w-content-controler general case_img" data-content="#case_4"></div>
+                                    <div class="case_pointer"></div>
+                                </div>
+                            </div>
+                            <div class="case_box case_5">
+                                <div class="case_box_wrapper">
+                                    <div class="dropzone" data-target-group="5"></div>
+                                    <div class="w-content-controler general case_img" data-content="#case_5"></div>
+                                    <div class="case_pointer"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cases_draggables_board">
+                            <div data-group="5">Foro</div>
+                            <div data-group="1">Blog</div>
+                            <div data-group="2">Mensajería instantánea</div>
+                            <div data-group="4">Videostreaming</div>
+                            <div data-group="3">Videoconferencia</div>
+                            <div data-group="">Redes sociales</div>
+                        </div>
+                        <div class="box_end">
+                            <feedback>
+                                <wrong>Revise nuevamente y, si lo desea, puede volver a revisar el material sobre herramientas de comunicación sincrónica y asincrónica.</wrong>
+                                <correct>¡Muy bien! Ha seleccionado las herramientas de comunicación pertinentes para cada uno de los casos y ha aprobado la actividad.</correct>
+                            </feedback>
+                        </div>
+                    </div>
+                    <!-- Falta organnizar esta actividad, los siguientes textos son en ventana modal pero también tiene una actividad para arrastrar y soltar-->
+                    <div id="case_1" class="w-content" title="Caso Patricia">
+                        <div class="avatar case_1"></div>
+                        <p>
+                            Patricia es profesora de Lengua Castellana y sus estudiantes son cada vez más jóvenes, por lo que la embarga una preocupación: es evidente que no les gusta escribir, no hacen el esfuerzo y lo evitan a toda costa. Para mejorar esta habilidad comunicativa,
+                            Patricia está pensando en el uso de una herramienta que le permita, a cada estudiante, escribir una historia o una reflexión sobre el tema de la clase y que sus compañeros puedan comentar.
+                        </p>
+                        <p>
+                            ¿Qué herramienta es la adecuada para cumplir con el propósito de la profesora Patricia?
+                        </p>
+                    </div>
+                    <div id="case_2" class="w-content" title="Caso Jhon">
+                        <div class="avatar case_2"></div>
+                        <p>
+                            John, el profesor de Cibercultura, está convencido de que el aprendizaje colaborativo es indispensable y debe promoverse en todo proceso de formación dentro y fuera del aula. Para este semestre, él desea contar con una herramienta que le permita mantener
+                            conectados a todos los estudiantes de su curso, con el fin de que manifiesten las dudas que surjan en su proceso de aprendizaje y que estas puedan ser resueltas o discutidas entre los mismos compañeros o con él en cualquier momento.
+                        </p>
+                        <p>
+                            ¿Qué herramienta es la adecuada para cumplir con el propósito del profesor Jhon?
+                        </p>
+                    </div>
+                    <div id="case_3" class="w-content" title="Caso Juan">
+                        <div class="avatar case_3"></div>
+                        <p>
+                            Juan es profesor e investigador, y actualmente está trabajando con otros profesores de la Universidad de Harvard en un proyecto de investigación sobre Blockchain. A Juan le gustaría que uno de sus colegas se reuniera con sus estudiantes y pudiera discutir
+                            sobre la temática.
+                        </p>
+                        <p>
+                            ¿Qué herramienta es la adecuada para cumplir con el propósito del profesor Juan?
+                        </p>
+                    </div>
+                    <div id="case_4" class="w-content" title="Caso Mariana">
+                        <div class="avatar case_4"></div>
+                        <p>
+                            Mariana es profesora de Finanzas, le encanta compartir su conocimiento con otros, pues está convencida de que en la medida que interactuemos e intercambiemos nuestros saberes con personas que tienen nuestros mismos intereses, aportamos a la creación de
+                            un mundo mejor. Mariana tiene una cuenta en una red social y le gustaría dar una charla virtual corta sobre finanzas personales, en donde pueda contarle a los participantes cómo pueden manejar su dinero.
+                        </p>
+                        <p>
+                            ¿Qué herramienta es la adecuada para cumplir con el propósito de la profesora Mariana?
+                        </p>
+                    </div>
+                    <div id="case_5" class="w-content" title="Caso Mateo">
+                        <div class="avatar case_5"></div>
+                        <p>
+                            Mateo es docente de Ciencias Sociales y Humanas, interesado por promover en sus estudiantes el trabajo colaborativo, el análisis y la argumentación. Para el inicio de semestre, el profesor quiere proponer una discusión o diálogo sobre varias temáticas
+                            de una misma unidad, en donde los estudiantes puedan conversar sobre las conclusiones de estos temas y se genere debate.
+                        </p>
+                        <p>
+                            ¿Qué herramienta es la adecuada para cumplir con el propósito del profesor Mateo?
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+        <!--Créditos-->
+        <div id="credits-page" style="display:none;">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+
+                <p>
+                    Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
+                    a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                </p>
+                <div>
+                    <h3>Investigación y desarrollo de contenidos</h3>
+                    <cite>Lina María González Duque<br />
+                            Mónica Deossa Quintero<br/>
+                            Cristina Quintero Londoño <br/>
+                        </cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Marcela Palacio Ortíz</cite>
+                </div>
+                <div>
+                    <h3>Guionización</h3>
+                    <cite>Laura Pérez González</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite>Elizabeth Hernández González</cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite>Felipe Quintana</cite>
+                </div>
+
+                <div>
+                    <h3>Realizador Audiovidual</h3>
+                    <cite>Alexis Giraldo Velásquez</cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>Mariana Múnera Manco</cite>
+                    <cite>Jesús Maria Otero Vega</cite>
+                </div>
+                <div>
+                    <h3>Revisión de calidad</h3>
+                    <cite>Mauricio Arboleda</cite>
+                </div>
+                <div>
+                    <h3>Gestión técnica y administrativa</h3>
+                    <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada </cite>
+                </div>
+
+                <div>
+                    <h3>Producción</h3>
+                    <div class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a><br/>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a><br/>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a><br/>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a><br/>
+                    </div>
+                </div>
+
+                <div class="editions">
+                    1ª edición: agosto 2019<br />
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <ul class="data_list">
+                    <li>
+                        Camarero-Cano, L. (2015). Comunidades tecnosociales. Evolución de la comunicación analógica hacia la interacción analógico-digital. Revista Mediterránea de Comunicación, 6(1), 187-195.
+                    </li>
+                    <li>
+                        García, J. (2009). Uso educativo de los Blogs. Disponible en <a href="https://bit.ly/2csnStk">https://bit.ly/2csnStk</a>
+                    </li>
+
+                    <li>
+                        Landow, G. (2005) Hipertexto 3.0.Teoría crítica y nuevos medios en la era de la globalización. Barcelona: Paidós.
+                    </li>
+                    <li>
+                        Mann, C. y Stewart, F. (2000). Internet Communication and Qualitative Research: A Handbook for Researching Online. Londres: Sage Publications.
+                    </li>
+                    <li>
+                        Martínez Vela, J., y Gallego Córcoles, I. (2014). Repositorio Institucional de la Universidad de Alicante. Disponible en <a hred="">https://bit.ly/2Zmc7uG</a>
+                    </li>
+                    <li>
+                        Mayer, R. E. (2014). Incorporating motivation into multimedia learning. Learning and Instruction, 29, 171–173. <a href="">https://doi.org/10.1016/j.learninstruc.2013.04.003</a>
+                    </li>
+                    <li>
+                        Orihuela, J.L (2002). Nuevos paradigmas de la comunicación. Chasqui, (77). Disponible en <a href="https://bit.ly/319Nmmd">https://bit.ly/319Nmmd</a>
+                    </li>
+                    <li>
+                        Orihuela, J. L. (2016). Entender la comunicación que viene. Nuestro Tiempo, (692), 82. Disponible en <a href="https://bit.ly/2Mr0hvM">https://bit.ly/2Mr0hvM </a>
+                    </li>
+                    <li>
+                        O’Rourke, B. y Stickler, U. (2017). Synchronous communication technologies for language learning: Promise and challenges in research and pedagogy. Language Learning in Higher Education. Journal of the European Confederation of Language Centres in Higher
+                        Education (CercleS), 7(1) pp. 1–20.
+                    </li>
+                    <li>
+                        Quan-Haase, A. (2008). Instant Messaging on Campus: Use and Integration in University Students’ Everyday Communication. The Information Society, 24, 105-115.
+                    </li>
+                    <li>
+                        Rodríguez del Rey, L. E. y Pérez Fleites, M. G. (2016). Las herramientas de comunicación sincrónica y asincrónica en la clase presencial. Revista Conrado [seriada en línea], 12(56), 84-89.
+                    </li>
+                    <li>
+                        Salaverría, R. (2017). Typology of Digital News Media: Theoretical Bases for their Classification. Revista Mediterránea de Comunicación, (1), 19. <a href="https://doi.org/10.14198/MEDCOM2017.8.1.2">https://doi.org/10.14198/MEDCOM2017.8.1.2</a>
+                    </li>
+                    <li>
+                        Scolari, C. (2008). Hipermediaciones. Elementos para una Teoría de la Comunicación Digital Interactiva. Barcelona: Gedisa.
+                    </li>
+                    <li>
+                        Solano Fernández, I. (2004). La videoconferencia como recurso didáctico en la enseñanza superior. Disponible en <a href="">https://bit.ly/2Zlcs0L</a>
+                    </li>
+                    <li>
+                        Solanilla, L. (2002). ¿Qué queremos decir cuando hablamos de interactividad? El caso de los webs de los museos de historia y arqueología. Digithum, (4). Disponible en <a href="http://doi.org/10.7238/d.v0i4.574">http://doi.org/10.7238/d.v0i4.574</a>
+                    </li>
+                    <li>
+                        Vidal Martínez, A. A. y Camarena Gómez, B. O. (2015). Evolución y análisis de una experiencia de utilización de videoconferencia de sala y de escritorio. Pixel-Bit. Revista de Medios y Educación, (47), 59-71. Disponible en <a href="">https://bit.ly/2K4nsdU</a>
+                    </li>
+                </ul>
+                <div class="box-text link" label="Materiales complementarios">
+
+                    <p>Video: ¿Cómo diseñar clases transmediales?</p>
+                    <p>Duración: 30’43’’</p>
+                    <p>EducaRed (2014). ¿Cómo diseñar clases transmediales? Fundación Telefónica Perú [Recurso en línea]. Recuperado de <a href="https://bit.ly/2Osuqxw">https://bit.ly/2Osuqxw</a></p>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
