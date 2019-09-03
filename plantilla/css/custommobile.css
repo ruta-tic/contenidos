@@ -257,7 +257,7 @@
 #arrastrar1.jpit-activities-droppable .draggable {
     float: left;
     margin: 0 5px 5px 0;
-    position: absolute;
+    /*position: absolute;*/
     width: 80px;
 }
 

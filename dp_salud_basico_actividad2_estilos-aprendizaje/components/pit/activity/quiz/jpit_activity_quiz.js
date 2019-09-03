@@ -498,9 +498,9 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
                 option.append($('<div class="jpit_activities_quiz_question_option_answer"></div>').html(prefix + this.possibleAnswers[position]));
 
                 option.find('input').bind('change',function(){
+                    console.log('on change');
                     var $ul = $(this).parent().parent();
                     $ul.find('>li').removeClass("jpit_activities_quiz_question_option_answer_selected");
-
                     var checked = $(this).is(":checked");
                     if(checked)  {
                         $(this).parent("li").addClass("jpit_activities_quiz_question_option_answer_selected");
@@ -557,6 +557,12 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
                 }
             }
             return this.correctAnswer == userAnswer;
+        },
+
+        "resolve": function () {
+            var $correct = $('.' + this.getUniqueId() + '[value='+this.correctAnswer+']');
+            $correct.removeAttr('disabled').trigger('click');
+            obj.disableQuestion();
         },
 
         "answered" : function () {
@@ -774,6 +780,15 @@ jpit.activities.quiz.question.multichoice = function (statement, possibles, corr
                 }
             }
             return $.compare(this.userAnswerArray,this.correctAnswer);
+        },
+
+        "resolve": function () {
+            var options = $('.' + this.getUniqueId());
+            for(var i = 0; i < this.correctAnswer.length; i++){
+                var $correct = options.find('[value='+this.correctAnswer[i]+']');
+                $correct.removeAttr('disabled').trigger('click');
+            }            
+            obj.disableQuestion();
         },
 
         "answered" : function () {
@@ -995,6 +1010,12 @@ jpit.activities.quiz.question.trueorfalse = function (statement, correct, option
             }
 
             return this.correctAnswer == this.userAnswer;
+        },
+
+        "resolve": function () {
+            var $correct = $('.'+this.getUniqueId()+'[value='+this.correctAnswer+']');
+            $correct.removeAttr('disabled').trigger('click');
+            obj.disableQuestion();
         },
 
         "answered" : function () {
@@ -1232,6 +1253,11 @@ jpit.activities.quiz.question.defineterm = function (statement, statements, corr
             });
             return response;
         },
+        "resolve": function () {
+            var $correct = $('.'+this.getUniqueId()+'[value='+this.correctAnswer+']');
+            $correct.removeAttr('disabled').trigger('click');
+            obj.disableQuestion();
+        },
         "disableQuestion" : function(){
             obj.control.find("input").attr('disabled', 'disabled');
         },
@@ -1464,6 +1490,12 @@ jpit.activities.quiz.question.multisetchoice = function (statement, possibles, c
                 }
             });
             return response;
+        },
+
+        "resolve": function () {
+            var $correct = $('.'+this.getUniqueId()+'[value='+this.correctAnswer+']');
+            $correct.removeAttr('disabled').trigger('click');
+            obj.disableQuestion();
         },
 
         "answered" : function () {

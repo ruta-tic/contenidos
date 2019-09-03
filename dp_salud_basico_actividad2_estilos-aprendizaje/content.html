@@ -8,51 +8,28 @@
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
-
+    <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
     <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
 
     <style type='text/css'>
 
@@ -100,9 +77,9 @@
             <h2>Actividad 2. Conozca su estilo de aprendizaje</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
-                    <menuitem label="Introducción a los estilos de aprendizaje" data-page="pag-intro-estilos"></menuitem>
-                    <menuitem label="Descubra su estilo de aprendizaje" data-page="pag-descubra-estilos"></menuitem>
-                    <menuitem label="Actividad de repaso sobre los estilo de aprendizaje" data-page="pag-act-repaso"></menuitem>
+                    <menuitem label="Estilos de aprendizaje" data-page="pag-intro-estilos"></menuitem>
+                    <menuitem label="Descubra su estilo" data-page="pag-descubra-estilos"></menuitem>
+                    <menuitem label="Ejercicio de repaso" data-page="pag-act-repaso"></menuitem>
                 </menu>
             </nav>
         </header>
@@ -124,13 +101,21 @@
                             Se inspira en el funcionamiento cerebral y representa una esfera dividida en cuatro cuadrantes:
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
-                        <br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada cuadrante para obtener más información</div>
+                        <br />
                             <div class="modelo_herrmann">
-                                <div class="note_pointer_right herrmann_1"><div class="tooltip" title="<strong>Superior izquierdo:</strong> privilegia el análisis, la abstracción, el razonamiento matemático y la lógica. Es cuantitativo, riguroso y crítico, le gustan los modelos, las teorías y la  técnica.">1</div></div>
-                                <div class="note_pointer_left herrmann_2"><div class="tooltip" title="<strong>Inferior izquierdo:</strong> formaliza, organiza, controla, estructura y realiza. Define los procedimientos, le gustan las fórmulas, la planificación y la administración. Es secuencial y minucioso.">2</div></div>
-                                <div class="note_pointer_right herrmann_3"><div class="tooltip" title="<strong>Superior derecho:</strong> tiende a la originalidad, la conceptualización, la creación artística, el humor, la síntesis, la intuición y la innovación. Tiene gusto por el riesgo, imaginar, investigar y visualizar.">3</div></div>
-                                <div class="note_pointer_left herrmann_4"><div class="tooltip" title="<strong>Inferior derecho:</strong> integra a través de la experiencia. Le gustan las relaciones interpersonales, el trabajo en equipo, la enseñanza, y la expresión oral y escrita. Se implica afectivamente, trabaja con sentimientos, es idealista y espiritual.">4</div></div>
+                                <div class="herrmann_1 tooltip" title="<strong>Superior izquierdo:</strong> privilegia el análisis, la abstracción, el razonamiento matemático y la lógica. Es cuantitativo, riguroso y crítico, le gustan los modelos, las teorías y la  técnica."></div>
+                                <div class="herrmann_2 tooltip" title="<strong>Superior derecho:</strong> tiende a la originalidad, 
+la conceptualización, la creación artística, el humor, la síntesis, la intuición y la innovación. Tiene gusto por el riesgo, 
+imaginar, investigar y visualizar."></div>
+                                <div class="herrmann_3 tooltip" title="<strong>Inferior izquierdo:</strong> formaliza, organiza, 
+controla, estructura y realiza. Define los procedimientos, le gustan las fórmulas, la planificación y la administración. Es 
+secuencial y minucioso."></div>
+                                <div class="herrmann_4 tooltip" title="<strong>Inferior derecho:</strong> integra a través de la 
+experiencia. Le gustan las relaciones interpersonales, el trabajo en equipo, la enseñanza, y la expresión oral y escrita. Se implica 
+afectivamente, trabaja con sentimientos, es idealista y espiritual."></div>
                             </div>
                             <div class="about"><strong>Imagen 1.</strong> Cuadrantes cerebrales de Herrmann</div>
                     </div>
@@ -145,14 +130,16 @@
                             Clasifica los estilos de aprendizaje a partir de cinco dimensiones
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
-                        <br><br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br /><br />
                         <div class="modelo_felder_silverman">
-                            <div class="note_pointer_right felder_1"><div class="tooltip" title="<strong>Sensitivos-Intuitivos</strong>">A</div></div>
-                            <div class="note_pointer_left felder_2"><div class="tooltip" title="<strong>Visuales-Verbales</strong>">B</div></div>
-                            <div class="note_pointer_right felder_3"><div class="tooltip" title="<strong>Activos-Reflexivos</strong>">C</div></div>
-                            <div class="note_pointer_left felder_4"><div class="tooltip" title="<strong>Secuenciales-Globales</strong>">D</div></div>
-                            <div class="note_pointer_left felder_5"><div class="tooltip" title="<strong>Inductivo-Deductivo</strong>">E</div></div>
+                            <div class="felder_1 tooltip" title="<strong>Sensitivos-Intuitivos</strong>"></div>
+                            <div class="felder_2 tooltip" title="<strong>Visuales-Verbales</strong>"></div>
+                            <div class="felder_3 tooltip" title="<strong>Activos-Reflexivos</strong>"></div>
+                            <div class="felder_4 tooltip" title="<strong>Secuenciales-Globales</strong>"></div>
+                            <div class="felder_5 tooltip" title="<strong>Inductivo-Deductivo</strong>"></div>
                         </div>
                         <div class="about"><strong>Imagen 2.</strong> Modelo de Felder y Silverman</div>
                     </div>
@@ -167,12 +154,14 @@
                             El estilo de aprendizaje VAK se vale de las formas en las que se representa mentalmente la información con el fin de determinar el estilo dominante de aprendizaje. Para esto, utiliza los tres receptores sensoriales principales: visual, auditivo y kinestésico.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
-                        <br><br><br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br /><br /><br />
                         <div class="modelo_balnder_grinder">
-                            <div class="note_pointer_right balnder_1"><div class="tooltip" title="<strong>Visual</strong>">1</div></div>
-                            <div class="note_pointer_left balnder_2"><div class="tooltip" title="<strong>Auditivo</strong>">2</div></div>
-                            <div class="note_pointer_right balnder_3"><div class="tooltip" title="<strong>Kinestésico</strong>">3</div></div>
+                            <div class="balnder_1 tooltip" title="<strong>Visual</strong>"></div>
+                            <div class="balnder_2 tooltip" title="<strong>Auditivo</strong>"></div>
+                            <div class="balnder_3 tooltip" title="<strong>Kinestésico</strong>"></div>
                         </div>
                         <div class="about"><strong>Imagen 3.</strong> Modelo de Programación Neurolingüística de Bandler y Grinder</div>
                     </div>
@@ -186,10 +175,12 @@
                             Cada hemisferio presenta especializaciones para determinadas tareas: el hemisferio izquierdo es más analítico y lineal, y procede de forma lógica; el hemisferio derecho es más efectivo, imaginativo y emocional.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada lado para obtener más información</div>
                         <div class="modelo_hemisferios">
-                            <div class="note_pointer_right hemisferios_1"><div class="tooltip" title="<strong>Hemisferio izquierdo</strong>">1</div></div>
-                            <div class="note_pointer_left hemisferios_2"><div class="tooltip" title="<strong>Hemisferio derecho</strong>">2</div></div>
+                            <div class="hemisferios_1 tooltip" title="<strong>Hemisferio izquierdo</strong>"></div>
+                            <div class="hemisferios_2 tooltip" title="<strong>Hemisferio derecho</strong>"></div>
                         </div>
                         <div class="about"><strong>Imagen 4.</strong> Modelo de Programación Neurolingüística de Bandler y Grinder</div>
                     </div>
@@ -203,17 +194,19 @@
                             Define ocho tipos de inteligencia: lingüística, lógico-matemática, naturalista, corporal-cinestésica, espacial, musical, interpersonal y la intrapersonal.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
-                        <br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br />
                         <div class="modelo_gardner">
-                            <div class="note_pointer_right gardner_1"><div class="tooltip" title="<strong>Lingüística</strong>">1</div></div>
-                            <div class="note_pointer_left gardner_2"><div class="tooltip" title="<strong>Lógico-matemática</strong>">2</div></div>
-                            <div class="note_pointer_left gardner_3"><div class="tooltip" title="<strong>Naturalista</strong>">3</div></div>
-                            <div class="note_pointer_left gardner_4"><div class="tooltip" title="<strong>Corporal-cinestésica</strong>">4</div></div>
-                            <div class="note_pointer_right gardner_5"><div class="tooltip" title="<strong>Espacial</strong>">5</div></div>
-                            <div class="note_pointer_right gardner_6"><div class="tooltip" title="<strong>Musical</strong>">6</div></div>
-                            <div class="note_pointer_right gardner_7"><div class="tooltip" title="<strong>Interpersonal</strong>">7</div></div>
-                            <div class="note_pointer_right gardner_8"><div class="tooltip" title="<strong>Intrapersonal</strong>">8</div></div>
+                            <div class="gardner_1 tooltip" title="<strong>Lingüística</strong>"></div>
+                            <div class="gardner_2 tooltip" title="<strong>Lógico-matemática</strong>"></div>
+                            <div class="gardner_3 tooltip" title="<strong>Naturalista</strong>"></div>
+                            <div class="gardner_4 tooltip" title="<strong>Corporal-cinestésica</strong>"></div>
+                            <div class="gardner_5 tooltip" title="<strong>Espacial</strong>"></div>
+                            <div class="gardner_6 tooltip" title="<strong>Musical</strong>"></div>
+                            <div class="gardner_7 tooltip" title="<strong>Interpersonal</strong>"></div>
+                            <div class="gardner_8 tooltip" title="<strong>Intrapersonal</strong>"></div>
                         </div>
                         <div class="about"><strong>Imagen 5.</strong> Inteligencias Múltiples de Gardner</div>
                     </div>
@@ -227,12 +220,14 @@
                             Supone que un aprendizaje óptimo es el resultado de trabajar la información en cuatro fases: se inicia viviendo la experiencia, luego se reflexiona o se repasa la experiencia, y se reflexiona sobre ella, para posteriormente generalizar o hipotetizar y, finalmente, hacer una aplicación. 
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los números para obtener más información</div>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
                         <div class="modelo_kolb">
-                            <div class="note_pointer_right kolb_1"><div class="tooltip" title="<strong>Experiencia</strong>">1</div></div>
-                            <div class="note_pointer_left kolb_2"><div class="tooltip" title="<strong>Reflexión</strong>">2</div></div>
-                            <div class="note_pointer_right kolb_3"><div class="tooltip" title="<strong>Hipótesis</strong>">3</div></div>
-                            <div class="note_pointer_left kolb_4"><div class="tooltip" title="<strong>Aplicación</strong>">4</div></div>
+                            <div class="kolb_1 tooltip" title="<strong>Experiencia</strong>"></div>
+                            <div class="kolb_2 tooltip" title="<strong>Reflexión</strong>"></div>
+                            <div class="kolb_3 tooltip" title="<strong>Hipótesis</strong>"></div>
+                            <div class="kolb_4 tooltip" title="<strong>Aplicación</strong>"></div>
                         </div>
                         <div class="about"><strong>Imagen 6.</strong> Modelo de Kolb</div>
                     </div>
@@ -240,13 +235,16 @@
 
                 <div class="subpage">
                     <div class="box-text link" label="Para ampliar esta información se sugiere leer:">
-                      <p>
-                        Alonso CM, Gallego DJ y Honey P. Los estilos de aprendizaje. Procedimientos de diagnóstico y mejora. (7th ed.). Bilbao: Ediciones Mensajero. 2007. Disponible en <a href= "https://bit.ly/2KCi9R3" target="_blank"> https://bit.ly/2KCi9R3</a>
-                      </p>
-                        Madrigal Gil A y Trujillo Torres JM. Adaptación Del Cuestionario Honey-Alonso Estilos de Aprendizaje para Estudiantes de una Institución Universitaria de Medellín - Colombia. Revista Estilos Aprendizajes. 2014, 7:13;155–181. Disponible en <a href="https://bit.ly/32K2KqM" target="_blank"> https://bit.ly/32K2KqM</a>
-                      <p>
-                        Cazau, P. (2004). Estilos de aprendizaje: Generalidades. Consultado el, 11(11), 2005. Disponible en <a href="https://bit.ly/2TqsQxq" target="_blank"> https://bit.ly/2TqsQxq</a>
-                      </p>
+                        <p>
+                            Alonso CM, Gallego DJ y Honey P. Los estilos de aprendizaje. Procedimientos de diagnóstico y mejora. 
+                            (7th ed.). Bilbao: Ediciones Mensajero. 2007. Disponible en <a href="https://bit.ly/2KCi9R3" target="_blank"> https://bit.ly/2KCi9R3</a>
+                        </p>
+                        <p>
+                            Madrigal Gil A y Trujillo Torres JM. Adaptación Del Cuestionario Honey-Alonso Estilos de Aprendizaje para Estudiantes de una Institución Universitaria de Medellín - Colombia. Revista Estilos Aprendizajes. 2014, 7:13;155–181. Disponible en <a href="https://bit.ly/32K2KqM" target="_blank"> https://bit.ly/32K2KqM</a>
+                        </p>
+                        <p>
+                            Cazau, P. (2004). Estilos de aprendizaje: Generalidades. Consultado el, 11(11), 2005. Disponible en <a href="https://bit.ly/2TqsQxq" target="_blank"> https://bit.ly/2TqsQxq</a>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -305,676 +303,669 @@
                     </table>
                 </div>
 
-				<!-- 
-					Pendiente configurar actividad de acuerdo a los requerimientos de la guionista. Ver comentarios en https://docs.google.com/document/d/1t9vGLRv4gs8I_QpYhbnNUXp8lEDVb6Gg9zRYo0Zy-sI/edit 
+                <!-- 
+                    Pendiente configurar actividad de acuerdo a los requerimientos de la guionista. Ver comentarios en https://docs.google.com/document/d/1t9vGLRv4gs8I_QpYhbnNUXp8lEDVb6Gg9zRYo0Zy-sI/edit 
 
-					Por el momento, se configuró el cuestionario para que se muestre pregunta por página, de acuerdo a lo indicado por David Bernal. Todas las opciones de respuesta están configuradas como correctas, se debe revisar las orientaciones de la guionista  en el drive para configurar la retroalimentación y los pesos de cada opción.
-				-->
+                    Por el momento, se configuró el cuestionario para que se muestre pregunta por página, de acuerdo a lo indicado por David Bernal. Todas las opciones de respuesta están configuradas como correctas, se debe revisar las orientaciones de la guionista  en el drive para configurar la retroalimentación y los pesos de cada opción.
+                -->
 
-				<div class="subpage">
-					<p>
-						Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40.
-					</p>
+                <div class="subpage">
+                    <p>
+                        Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40.
+                    </p>
 
-					<div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true">
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								1. Trato de resolver los problemas metódicamente. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								2. Actúo sin mirar las consecuencias, saltando las normas establecidas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								3. Creo que lo más importante es que las cosas funcionen. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								4. Me tomo el tiempo necesario para realizar mi trabajo a conciencia. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								5. Estoy a gusto siguiendo un orden en las comidas, en el estudio y haciendo ejercicio. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								6. Cuando escucho una nueva idea, inmediatamente pienso en cómo ponerla en práctica. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								7. Prefiero las ideas originales y novedosas aunque no sean prácticas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								8. Admito y me ajusto a las normas solo si me sirven para lograr mis objetivos. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								9. Cuando hay una discusión, me gusta ser directo/a. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								10. Puedo separar mi trabajo de lo afectivo en las tareas que realizo. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								11. Me cuesta ser creativo/a y romper con las estructuras. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								12. Expreso abiertamente cómo me siento. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								13. Prefiero contar con el mayor número de fuentes de información; cuantos más datos reúna para reflexionar, mejor. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								14. Prefiero oír las opiniones de los demás antes de exponer la mía.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								15. Me gusta afrontar la vida espontáneamente y no tener que planificar todo previamente. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								16. Me siento incómodo/a con las personas calladas o demasiado analíticas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								17. Juzgo, con frecuencia, las ideas de los demás por su valor práctico. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								18. Me molestan las personas que siempre desean apresurar las cosas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								19. Aporto ideas nuevas y espontáneas en los grupos de discusión.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								20. Pienso que son más sólidas las decisiones basadas en un minucioso análisis que las poco razonadas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								21. Detecto la inconsistencia y los puntos débiles en las argumentaciones de los demás.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								22. Generalmente, hablo más de lo que escucho. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								23. Prefiero distanciarme de los hechos y observarlos desde otras perspectivas. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								24. Estoy convencido/a de que debe imponerse la lógica y el razonamiento. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								25. Me gusta buscar nuevas experiencias. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								26. Me atrae el experimentar y practicar con las últimas novedades. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								27. Prefiero discutir cuestiones concretas y no perder el tiempo con charlas vacías.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								28. Compruebo antes si las cosas funcionan realmente. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								29. Hago varios borradores antes de la redacción definitiva de un trabajo. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								30. Observo si puedo mantener la independencia y la calma en las discusiones. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								31. Planifico las cosas pensando en el futuro. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								32. En los debates y discusiones, prefiero desempeñar un papel secundario antes que ser el/la líder o el/la que más participa. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								33. Me molestan las personas que no actúan con lógica.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								34. Me resulta incómodo tener que planificar las cosas.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								35. Creo que el fin justifica los medios. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								36. Ante los acontecimientos, trato de descubrir en qué principios y teorías se basan. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								37. Con tal de conseguir el objetivo que pretendo, soy capaz de herir sentimientos ajenos.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								38. No me importa hacer todo lo necesario para que sea efectivo mi trabajo. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								39. Soy una de las personas que más anima las fiestas.
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-
-						<li>
-							<div class="jpit-activities-selection" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="cuest_est_aprend" data-parent-mark-selector="false" data-mode="single">
-								<p>
-								40. Me interesa averiguar lo que piensa la gente. 
-								</p>
-								<div data-group="1" data-correct="true"><div class="radio"></div> s</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> cs</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> mv</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> av</div>
-								<div data-group="1" data-correct="true"><div class="radio"></div> n</div>
-								<div class="box_end"></div>
-							</div>
-						</li>
-					</div>
-	            </div>
+                    <div class="jpit-activities-selection actividad1" data-act-id="1-camea" data-act-title="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-parent-mark-selector="false" data-mode="single" data-pagination="true" data-next-page-on-selection="true" data-next-page-selection-required="true" data-auto-resolve="true">
+                        <ul class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" data-animation="slide" data-pagination-transition-hidden=".option-group">
+                            <li>
+                                <p>
+                                1. Trato de resolver los problemas metódicamente. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="1" data-group-value="s"  data-correct="true" class="radio" tooltip="Siempre">s</div>
+                                    <div data-group="1" data-group-value="cs" data-correct="true" class="radio" tooltip="Casi siempre">cs</div>
+                                    <div data-group="1" data-group-value="mv" data-correct="true" class="radio" tooltip="Muchas veces">mv</div>
+                                    <div data-group="1" data-group-value="av" data-correct="true" class="radio" tooltip="Algunas veces">av</div>
+                                    <div data-group="1" data-group-value="n"  data-correct="true" class="radio" tooltip="Nunca">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                2. Actúo sin mirar las consecuencias, saltando las normas establecidas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="2" data-group-value="s"  data-correct="true" class="radio">s</div>
+                                    <div data-group="2" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="2" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="2" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="2" data-group-value="n"  data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                3. Creo que lo más importante es que las cosas funcionen. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="3" data-group-value="s"  data-correct="true" class="radio">s</div>
+                                    <div data-group="3" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="3" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="3" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="3" data-group-value="n"  data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                4. Me tomo el tiempo necesario para realizar mi trabajo a conciencia. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="4" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="4" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="4" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="4" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="4" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                5. Estoy a gusto siguiendo un orden en las comidas, en el estudio y haciendo ejercicio. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="5" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="5" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="5" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="5" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="5" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                6. Cuando escucho una nueva idea, inmediatamente pienso en cómo ponerla en práctica. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="6" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="6" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="6" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="6" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="6" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                7. Prefiero las ideas originales y novedosas aunque no sean prácticas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="7" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="7" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="7" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="7" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="7" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                8. Admito y me ajusto a las normas solo si me sirven para lograr mis objetivos. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="8" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="8" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="8" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="8" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="8" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                9. Cuando hay una discusión, me gusta ser directo/a. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="9" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="9" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="9" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="9" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="9" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                10. Puedo separar mi trabajo de lo afectivo en las tareas que realizo. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="10" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="10" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="10" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="10" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="10" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                11. Me cuesta ser creativo/a y romper con las estructuras. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="11" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="11" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="11" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="11" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="11" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                12. Expreso abiertamente cómo me siento. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="12" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="12" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="12" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="12" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="12" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                13. Prefiero contar con el mayor número de fuentes de información; cuantos más datos reúna para reflexionar, mejor. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="13" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="13" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="13" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="13" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="13" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                14. Prefiero oír las opiniones de los demás antes de exponer la mía.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="14" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="14" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="14" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="14" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="14" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                15. Me gusta afrontar la vida espontáneamente y no tener que planificar todo previamente. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="15" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="15" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="15" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="15" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="15" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                16. Me siento incómodo/a con las personas calladas o demasiado analíticas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="16" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="16" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="16" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="16" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="16" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                17. Juzgo, con frecuencia, las ideas de los demás por su valor práctico. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="17" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="17" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="17" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="17" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="17" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                18. Me molestan las personas que siempre desean apresurar las cosas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="18" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="18" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="18" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="18" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="18" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                19. Aporto ideas nuevas y espontáneas en los grupos de discusión.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="19" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="19" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="19" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="19" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="19" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                20. Pienso que son más sólidas las decisiones basadas en un minucioso análisis que las poco razonadas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="20" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="20" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="20" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="20" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="20" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                21. Detecto la inconsistencia y los puntos débiles en las argumentaciones de los demás.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="21" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="21" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="21" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="21" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="21" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                22. Generalmente, hablo más de lo que escucho. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="22" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="22" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="22" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="22" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="22" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                23. Prefiero distanciarme de los hechos y observarlos desde otras perspectivas. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="23" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="23" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="23" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="23" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="23" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                24. Estoy convencido/a de que debe imponerse la lógica y el razonamiento. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="24" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="24" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="24" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="24" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="24" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                25. Me gusta buscar nuevas experiencias. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="25" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="25" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="25" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="25" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="25" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                26. Me atrae el experimentar y practicar con las últimas novedades. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="26" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="26" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="26" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="26" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="26" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                27. Prefiero discutir cuestiones concretas y no perder el tiempo con charlas vacías.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="27" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="27" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="27" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="27" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="27" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                28. Compruebo antes si las cosas funcionan realmente. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="28" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="28" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="28" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="28" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="28" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                29. Hago varios borradores antes de la redacción definitiva de un trabajo. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="29" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="29" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="29" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="29" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="29" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                30. Observo si puedo mantener la independencia y la calma en las discusiones. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="30" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="30" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="30" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="30" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="30" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                31. Planifico las cosas pensando en el futuro. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="31" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="31" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="31" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="31" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="31" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                32. En los debates y discusiones, prefiero desempeñar un papel secundario antes que ser el/la líder o el/la que más participa. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="32" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="32" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="32" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="32" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="32" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                33. Me molestan las personas que no actúan con lógica.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="33" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="33" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="33" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="33" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="33" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                34. Me resulta incómodo tener que planificar las cosas.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="34" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="34" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="34" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="34" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="34" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                35. Creo que el fin justifica los medios. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="35" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="35" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="35" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="35" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="35" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                36. Ante los acontecimientos, trato de descubrir en qué principios y teorías se basan. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="36" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="36" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="36" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="36" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="36" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                37. Con tal de conseguir el objetivo que pretendo, soy capaz de herir sentimientos ajenos.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="37" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="37" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="37" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="37" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="37" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                38. No me importa hacer todo lo necesario para que sea efectivo mi trabajo. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="38" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="38" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="38" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="38" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="38" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                39. Soy una de las personas que más anima las fiestas.
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="39" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="39" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="39" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="39" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="39" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                40. Me interesa averiguar lo que piensa la gente. 
+                                </p>
+                                <div class="option-group">
+                                    <div data-group="40" data-group-value="s" data-correct="true" class="radio">s</div>
+                                    <div data-group="40" data-group-value="cs" data-correct="true" class="radio">cs</div>
+                                    <div data-group="40" data-group-value="mv" data-correct="true" class="radio">mv</div>
+                                    <div data-group="40" data-group-value="av" data-correct="true" class="radio">av</div>
+                                    <div data-group="40" data-group-value="n" data-correct="true" class="radio">n</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>
+                                <table class="estilos-aprendizaje-grafica">
+                                    <caption></caption>
+                                    <tr data-learning-style="active" data-learning-style-score="0">
+                                        <td>Activo</td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr data-learning-style="reflexive" data-learning-style-score="0">
+                                        <td>Reflexivo</td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr data-learning-style="theorist" data-learning-style-score="0">
+                                        <td>Teórico</td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr data-learning-style="pragmatic" data-learning-style-score="0">
+                                        <td>Pragmático</td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <h3>Resultado</h3>
+                                <p>Su estilo de aprendizaje predominante es:</p>
+                                <div class="estilos-aprendizaje-resultado">
+                                    <div data-learning-style="active" data-learning-style-score="0">
+                                        <h3>Activo</h3>
+                                        <p>Quienes poseen este estilo de aprendizaje se caracterizan por su ímpetu para la experimentación sin temores, ya que suelen ser arriesgados y espontáneos en el momento en que deben improvisar. Son líderes y personas muy activas que buscan ejercicios y trabajos con aplicaciones prácticas para resolver. También es usual que tengan una actitud entusiasta, con lo que logran ser muy buenos descubridores. Además, son creativos en la generación de nuevas ideas; esto les da una tendencia a la innovación.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-06.png" alt="Imagen 7. Activo"/>
+                                            <div class="about">
+                                                <strong>Imagen 7.</strong> Activo
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-learning-style="reflexive" data-learning-style-score="0">
+                                        <h3>Reflexivo</h3>
+                                        <p>Cuando es predominante el estilo reflexivo de aprendizaje, la característica principal suele ser la prudencia que parte del análisis exhaustivo y consciente, en donde cada dato se analiza detenidamente y solo se concluye o se toman decisiones cuando se ha reunido la información necesaria que permite contrastar diferentes puntos de vista. Por lo tanto, quienes poseen este estilo de aprendizaje son muy detallistas, mesurados, receptivos, profundos y atentos a los comportamientos e ideas de los demás y, usualmente, hacen todo bien. Están ávidos de preguntas que despierten su interés y curiosidad, y si bien logran aprender de las nuevas experiencias, prefieren no estar implicados de manera directa en ellas.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-07.png" alt="Imagen 8. Reflexivo"/>
+                                            <div class="about">
+                                                <strong>Imagen 8.</strong> Reflexivo
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-learning-style="theorist" data-learning-style-score="0">
+                                        <h3>Teórico</h3>
+                                        <p>Las personas que se enmarcan en este estilo de aprendizaje suelen ser racionales, metódicas e integran las observaciones en los preceptos de la lógica. Emplean el método científico en la generación de teorías coherentes y son perfeccionistas en su quehacer, por lo que se empeñan en contrastar la realidad hasta obtener una verdad irrefutable. Orientan su aprendizaje a lo objetivo, palpable o medible, buscando la objetividad y desarrollando un pensamiento crítico que logre detectar ambigüedades o debilidades. Suelen ser personas independientes y organizadas que siguen las reglas e inventan procedimientos para resolver el porqué de las cosas.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-08.png" alt="Imagen 9. Teórico"/>
+                                            <div class="about">
+                                                <strong>Imagen 9.</strong> Teórico
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-learning-style="pragmatic" data-learning-style-score="0">
+                                        <h3>Pragmático</h3>
+                                        <p>Para quienes poseen este estilo de aprendizaje es útil trabajar con lo concreto y la experiencia. Se caracterizan por utilizar su conocimiento en función de materializar las ideas, por lo que llevan todo a la práctica y a lo que tenga utilidad o aplicabilidad. Son eficientes con el tiempo: planifican y actúan con rapidez y seguridad a la hora de tomar decisiones, sin embargo, pueden ser impacientes. Son personas que se preocupan menos por la perfección que por la funcionalidad de las cosas; todo esto los hace realistas y prácticos.</p>
+                                        <div class="box_media">
+                                            <img src="content/dp_salud_basico_actividad2-09.png" alt="Imagen 10. Pragmático"/>
+                                            <div class="about">
+                                                <strong>Imagen 10.</strong> Pragmático
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </correct>
+                        </feedback>
+                    </div>
+                </div>
             </section>
 
             <section id="pag-act-repaso" ptitle="Actividad de repaso sobre los estilos de aprendizaje">
-            	<div class="subpage">
-					<div class="box-text activity" label="Indicaciones">
-						<p>
-							Con el fin de comprobar cuánto recuerda respecto a los anteriores modelos de aprendizaje, se presentan tres puntos para ser resueltos, cada uno, en un minuto. Cuando termine, haga clic en la opción <strong>Validar</strong> para conocer los resultados y la retroalimentación. 
-						</p>
-						<p>
-							Haga clic en <strong>Comenzar</strong> cuando esté listo. ¡No deje que se le acabe el tiempo!
-						</p>
-					</div>
-				</div>
-
-				<div class="subpage">
-					<div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true">
-						<li>
-							<!-- Pendiente en recibir insumos gráficos para la actividad, solo se tiene la estructura base-->
-							<p>
-								Según el modelo propuesto por Kolb, analice las siguientes viñetas y organice en orden la secuencia del cómic. 
-							</p>
-		                    <div id="act-1-kolb">
-		                        <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" data-act-id="1-drop" data-act-title="Comic modelo de Kolb">
-		                            <div class="board">
-		                                <div class="board_img">
-		                                    <div class="fillable f1" data-target-group="1"></div>
-		                                    <div class="fillable f2" data-target-group="2"></div>
-		                                    <div class="fillable f3" data-target-group="3"></div>
-		                                    <div class="fillable f4" data-target-group="4"></div>
-		                                </div>
-		                                <div class="sources">
-		                                    <div data-group="1">
-		                                    	<img src="content/imagen_1.png">
-		                                    </div>
-		                                    <div data-group="2">
-		                                    	<img src="content/imagen_2.png">
-		                                    </div>
-		                                    <div data-group="3">
-		                                    	<img src="content/imagen_3.png">
-		                                    </div>
-		                                    <div data-group="4">
-		                                    	<img src="content/imagen_4.png">
-		                                    </div>
-		                                </div>
-		                                <div class="box_end"></div>
-		                                <feedback>
-		                                    <correct>Su respuesta es correcta, ¡Felicitaciones!</correct>
-		                                    <wrong>Su respuesta es incorrecta, por favor intente de nuevo.</wrong>
-		                                </feedback>
-		                            </div>
-		                        </div>
-	                    	</div>
-	                    </li>
-
-	                    <li>
-	                    	<div class="jpit-activities-quiz" data-act-title="Modelo de los cuadrantes cerebrales de Herrmann" data-act-id="Preguntas modelo de Herrmann">
-							    <question type="simplechoice">
-							        <description>
-							        	<p>
-							        		Desde la perspectiva del modelo de los cuadrantes cerebrales de Herrmann y el modelo de los hemisferios cerebrales, señale cuál de los hemisferios se privilegia con el ejercicio que acaba de realizar:
-							        	</p>
-							        </description>
-
-							        <ul>
-							            <li data-response="true">Izquierdo</li>
-							            <li>Derecho</li>
-							        </ul>
-							        <feedback>
-							            <correct>Es correcto</correct>
-							        </feedback>
-							    </question>
-							</div>
-	                    </li>
-	                    <li>
-	                    	<div class="jpit-activities-quiz" data-act-title="Modelo de Felder y Silverman" data-act-id="Preguntas modelo de Felder">
-	                    		<question type="simplechoice">
-							        <description>
-							        	<p>
-							        		Desde la perspectiva del modelo de Felder y Silverman, la pregunta anterior, qué estilo de aprendizaje privilegia:
-							        	</p>
-							        </description>
-
-							        <ul>
-							            <li>Sensitivos-Intuitivos</li>
-										<li>Visuales-Verbales</li>
-										<li data-response="true">Activos-Reflexivos</li>
-										<li>Secuenciales-Globales</li>
-										<li>Inductivo-Deductivo</li>
-							        </ul>
-							        <feedback>
-							            <correct>Es correcto</correct>
-							        </feedback>
-							    </question>
-							</div>
-	                    </li>
+                <div class="subpage">
+                    <div class="box-text activity" label="Indicaciones">
+                        <p>
+                            Con el fin de comprobar cuánto recuerda respecto a los anteriores modelos de aprendizaje, se presentan tres puntos para ser resueltos, cada uno, en un minuto. Cuando termine, haga clic en la opción <strong>Validar</strong> para conocer los resultados y la retroalimentación. 
+                        </p>
+                        <p>
+                            Haga clic en <strong>Comenzar</strong> cuando esté listo. ¡No deje que se le acabe el tiempo!
+                        </p>
                     </div>
-				</div>
+                </div>
+
+                <div class="subpage">
+                    <div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true">
+                        <li>
+                            <div id="act-1-kolb">
+                                <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" 
+                                    data-act-id="2-comic" data-act-title="Comic modelo de Kolb"
+                                    data-timer="60" data-reveal-response="true">
+                                    <p>
+                                        Según el modelo propuesto por Kolb, analice las siguientes viñetas y organice en orden la secuencia del cómic. 
+                                    </p>
+                                    <div class="board">
+                                        <div class="board_img">
+                                            <div class="fillable f1" data-target-group="1"></div>
+                                            <div class="fillable f2" data-target-group="2"></div>
+                                            <div class="fillable f3" data-target-group="3"></div>
+                                            <div class="fillable f4" data-target-group="4"></div>
+                                        </div>
+                                        <div class="sources">
+                                            <div data-group="2" class="comic_2"></div>
+                                            <div data-group="4" class="comic_4"></div>
+                                            <div data-group="3" class="comic_3"></div>
+                                            <div data-group="1" class="comic_1"></div>
+                                        </div>
+                                        <div class="box_end"></div>
+                                        <feedback>
+                                            <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
+                                        </feedback>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="jpit-activities-quiz" 
+                                data-act-title="Modelo de los cuadrantes cerebrales de Herrmann"
+                                data-act-id="3-herrmann"
+                                data-timer="60" data-reveal-response="true">
+                                <question type="simplechoice">
+                                    <description>
+                                        <p>
+                                            Desde la perspectiva del modelo de los cuadrantes cerebrales de Herrmann y el modelo de los hemisferios cerebrales, señale cuál de los hemisferios se privilegia con el ejercicio que acaba de realizar:
+                                        </p>
+                                    </description>
+
+                                    <ul>
+                                        <li data-response="true">Izquierdo</li>
+                                        <li>Derecho</li>
+                                    </ul>
+                                    <feedback>
+                                        <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
+                                    </feedback>
+                                </question>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="jpit-activities-quiz"
+                                data-act-title="Modelo de Felder y Silverman"
+                                data-act-id="4-felder"
+                                data-timer="60" data-reveal-response="true">
+                                <question type="simplechoice">
+                                    <description>
+                                        <p>
+                                            Desde la perspectiva del modelo de Felder y Silverman, la pregunta anterior, qué estilo de aprendizaje privilegia:
+                                        </p>
+                                    </description>
+
+                                    <ul>
+                                        <li>Sensitivos-Intuitivos</li>
+                                        <li>Visuales-Verbales</li>
+                                        <li data-response="true">Activos-Reflexivos</li>
+                                        <li>Secuenciales-Globales</li>
+                                        <li>Inductivo-Deductivo</li>
+                                    </ul>
+                                    <feedback>
+                                        <correct>Este es un buen punto de partida para reconocer su estilo de aprendizaje y su papel docente al planificar las actividades en función de las necesidades de los estudiantes, según sus fortalezas y debilidades</correct>
+                                    </feedback>
+                                </question>
+                            </div>
+                        </li>
+                    </div>
+                </div>
             </section>
         </main>
 
@@ -1012,7 +1003,7 @@
     </div>
 
     <!--Créditos-->
-    <div id="pag-creditos" style="display:none;">
+    <div id="credits-page" style="display:none;">
         <div id="credits_subpage">
             <h2>Créditos</h2>
 
@@ -1043,14 +1034,15 @@
             </div>
             <div>
                 <h3>Integración de contenidos</h3>
-                <cite>Alejandro Morales Gallo</cite>
+                <cite>Alejandro Morales Gallo</cite><br/>
+                <cite>Jesus María Otero Vega</cite>
             </div>
             <!--
             <div>
                 <h3>Revisión de calidad</h3>
                 <cite>Pendiente</cite>
             </div>
-        	-->
+            -->
             <div>
                 <h3>Gestión técnica y administrativa</h3>
                 <cite>David Herney Bernal García <br />
@@ -1059,10 +1051,11 @@
             <div>
                 <h3>Producción</h3>
                 <div class="logos">
-                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
                     <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
                     <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
                     <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
                 </div>
             </div>
 

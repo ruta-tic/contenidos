@@ -1,4 +1,3 @@
-
 (function(jpit){
     var transformProp;
     var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";    
@@ -7,7 +6,11 @@
     * dragStartListener
     */
     function dragStartListener(event) {
-        $(event.target).addClass('jpit_activities_jpitdroppable_dragstart');
+        var $dragEl = $(event.target);
+        $dragEl.addClass('jpit_activities_jpitdroppable_dragstart');
+        if ($dragEl.data('_useInner')) {
+            $dragEl.css({ opacity: '' });
+        }
     }
 
     /**
@@ -36,7 +39,7 @@
     /**
     * resetPosition
     */
-    function resetPosition($el) {
+    function resetPosition($el, hard=false) {
         var position = $el.data('_iposition');
         $el.css({
             position: position.position,
@@ -45,6 +48,18 @@
         })
         .css(transformProp, 'translate(0px, 0px)')
         .removeData('_dragpos');
+        if (hard) {
+            var $parent = $el.parent();
+            $el.appendTo($el.data('_parent'));
+            if ($el.data('_useInner')) {
+                $el.removeData('_useInner');
+                $el.css({ width: '', height: '', opacity: '' });
+                var phtml = $parent.data('_html');
+                if (phtml) {
+                    $parent.empty().html(phtml);
+                }
+            }
+        }
         return $el;
     }
     /**
@@ -52,7 +67,7 @@
     */
     function resetPositions(elements){
         $.each(elements, function(key, el){
-            resetPosition($(el).removeClass(DROPPEDCLASS));
+            resetPosition($(el).removeClass(DROPPEDCLASS), true);
         });
     }
     /**
@@ -113,40 +128,62 @@
     /**
     * moveDraggableTo
     */
-    function moveDraggableTo($dragEl, $dropzone) {
+    function moveDraggableTo($dragEl, $dropzone, useInnerContent) {
+        var dropzoneSize = {};
+        if (useInnerContent) {
+            $dropzone.data('_html', $dropzone.html());
+            $dropzone.empty();
+            $dropzone.html($dragEl.html());
+            dropzoneSize.width = $dropzone.width();
+            dropzoneSize.height = $dropzone.height();
+        }
         $dragEl.appendTo($dropzone);
         $dragEl.css(transformProp, 'translate(0, 0)');
         $dragEl.removeData('_dragpos');
+        if (useInnerContent) {
+            $dragEl.data('_useInner', true);
+            $dragEl.css({
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: dropzoneSize.width,
+                height: dropzoneSize.height,
+                opacity: 0
+            });
+        }
     }
 
     /**
     * moveDraggableTo
     */
-    function moveDraggableOut($dragEl, $dropzone) {
+    function moveDraggableOut($dragEl, $dropzone, useInnerContent) {
         $parent = $dragEl.data('_parent');
         var epos = $dragEl.position();
         var pos = $dragEl.data('_dragpos');
         $dragEl.appendTo($parent);
         var newpos = $dragEl.position();
         pos.x += epos.left - newpos.left;
-        pos.y += epos.top - newpos.top; 
+        pos.y += epos.top - newpos.top;
         $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
         $dragEl.data('_dragpos', pos);
+        if ($dragEl.data('_useInner')) {
+            $dropzone.empty().html($dropzone.data('_html'));
+        }
     }
 
     /**
     * onDropListener
     */
-    function onDropListener(event, pairs, autoResolve, autoAlignNodes, multiTarget, dropCallback) {
+    function onDropListener(event, options) {
         var $dropzone = $(event.target),
             $dragEl = $(event.relatedTarget),
             dropzoneId = $dropzone.attr('id'),
             dragId = event.relatedTarget.id;
 
-        if (autoResolve){
+        if (options.autoResolve){
             var matched = false;
 
-            $.each(pairs, function(idx, pair) {
+            $.each(options.pairs, function(idx, pair) {
                 return !(matched = (pair.target.attr('id') == dropzoneId && pair.origin.attr('id') == dragId)); //if a match is found stop the loop
             });
 
@@ -157,23 +194,23 @@
         }
 
         //Move object into dropzone
-        moveDraggableTo($dragEl, $dropzone);
+        moveDraggableTo($dragEl, $dropzone, options.dropInnerContent);
 
-        if(multiTarget == 0 || $dropzone.data('droppedElements').length < multiTarget){
+        if(options.multiTarget == 0 || $dropzone.data('droppedElements').length < options.multiTarget){
             if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                if(autoAlignNodes){
+                if(options.autoAlignNodes){
                     $dragEl.position({ of: $dropzone });
                 }
                 return;
             }
-            // Some dropp in ? -> check pairs and update match value 
-            $.each(pairs, function (idx, pair) {
+            // Some dropp in ? -> check pairs and update match value
+            $.each(options.pairs, function (idx, pair) {
                 if (dragId == pair.origin.attr('id')) {
                     pair.match = ($dropzone.attr('id') == pair.target.attr('id'));
                     return false; //stop loop
                 }
             });
-            if(autoAlignNodes){
+            if(options.autoAlignNodes){
                 $dragEl.position({ of: $dropzone });
             }
             $dragEl.addClass(DROPPEDCLASS);
@@ -181,23 +218,23 @@
         }
         else{
             if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                if(autoAlignNodes){
+                if(options.autoAlignNodes){
                     $dragEl.position({ of: $dropzone });
                 }
                 return;
             }
             resetPosition($dragEl);
         }
-        if (dropCallback) {
-            dropCallback.call($dropzone, $dragEl);
+        if (options.dropCallback) {
+            options.dropCallback.call($dropzone, $dragEl);
         }
     }
 
     /**
-    * onDropListener
+    * onDragLeaveListener
     */
-    function onDragLeaveListener(event, pairs, dropCallback) {
-        // Some dropp out? -> check pairs and update match value 
+    function onDragLeaveListener(event, options) {
+        // Some dropp out? -> check pairs and update match value
         var $dropzone = $(event.target),
             $dragEl = $(event.relatedTarget),
             dragId = $dragEl.attr('id');
@@ -206,7 +243,7 @@
 
         moveDraggableOut($dragEl, $dropzone);
 
-        $.each(pairs, function (idx, pair) {
+        $.each(options.pairs, function (idx, pair) {
             if (dragId == pair.origin.attr('id') && $dropzone.attr('id') == pair.target.attr('id')) {
                 pair.match = false;
                 return false; //Stop the loop
@@ -217,8 +254,8 @@
             return val != dragId;
         }));
 
-        if (dropCallback) {
-            dropCallback.call($dropzone, $dragEl);
+        if (options.dropCallback) {
+            options.dropCallback.call($dropzone, $dragEl);
         }
     }
 
@@ -234,27 +271,33 @@
     * createDropZones
     */
     function createDropZones(droppable) {
-        var autoResolve = droppable.properties.autoResolve,
-            targets = droppable.targets,
-            pairs = droppable.pairs,
-            multiTarget = droppable.properties.multiTarget,
-            autoAlignNodes = droppable.properties.autoAlignNodes,
-            dropCallback = droppable.properties.onDrop,
-            overlap = validateOverlap(droppable.properties.overlap, 0.25)
-            ;
-
+        var targets = droppable.targets,
+            options = {
+                autoResolve: droppable.properties.autoResolve,
+                pairs: droppable.pairs,
+                multiTarget: droppable.properties.multiTarget,
+                autoAlignNodes: droppable.properties.autoAlignNodes,
+                dropCallback: droppable.properties.onDrop,
+                overlap: validateOverlap(droppable.properties.overlap, 0.25),
+                dropInnerContent: droppable.properties.dropInnerContent,
+                innerContentHelper: droppable.properties.innerContentHelper
+            };
 
         $.each(targets, function(index, $target) {
             $target.data('droppedElements', new Array());
             $target.data('_interact', interact($target[0]).dropzone({
-                overlap: validateOverlap($target.attr('data-dragoverlap'), overlap),
+                overlap: validateOverlap($target.attr('data-dragoverlap'), options.overlap),
                 ondrop: function(event) {
-                    onDropListener(event, pairs, autoResolve, autoAlignNodes, multiTarget, dropCallback);
+                    onDropListener(event, options);
                 },
                 ondragleave: function(event) {
-                    onDragLeaveListener(event, pairs, dropCallback);
+                    onDragLeaveListener(event, options);
                 }
             }));
+
+            if (options.dropInnerContent && options.innerContentHelper) {
+                $target.html(options.innerContentHelper);
+            }
         });
     }
 
@@ -297,6 +340,8 @@
                 createDraggables(obj.origins);
                 /* Targets Droppables */
                 obj.properties.overlap = container && container.attr('data-dragoverlap');
+                obj.properties.dropInnerContent = container && container.attr('data-droppable-content-inner');
+                obj.properties.innerContentHelper = container && container.attr('data-droppable-content-helper');
                 createDropZones(obj);
                 return this;
             },
@@ -413,7 +458,7 @@
             /*Stage Methods*/
             "resetStage" : function() {
                 //Reset Positions
-                resetPositions(obj.properties.origins);
+                resetPositions(obj.origins);
 
                 /*Destroy the dragable elements*/
                 $.each(obj.origins, function (index, $val) {
