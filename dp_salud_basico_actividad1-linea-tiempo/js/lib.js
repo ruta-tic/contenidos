@@ -666,11 +666,13 @@ dhbgApp.standard.start = function() {
         $results_modal.dialog('open');
     });
 
+    var w_global_modal = dhbgApp.documentWidth > 900 ? 900 : dhbgApp.documentWidth - 50;
+
     // Credits control.
     var $credits_modal = $('#pag-creditos').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 50,
+        width: w_global_modal,
         height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "about_page_dialog"
@@ -690,7 +692,7 @@ dhbgApp.standard.start = function() {
     var $library_modal = $('#library-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 50,
+        width: w_global_modal,
         height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "library_page_dialog"
@@ -1928,7 +1930,7 @@ dhbgApp.standard.load_operations = function() {
         var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             // If it is not answered.
             if(!activity.showPartialFeedback(activity.currentPagination)){
                 $dialog_answer_required.dialog('open');
@@ -2609,7 +2611,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
@@ -2824,7 +2826,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
