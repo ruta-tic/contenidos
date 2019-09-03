@@ -43,8 +43,6 @@ $(function () {
         dhbgApp.MODEL = 'scorm';
     }
 
-    console.log(dhbgApp.MODEL);
-
     // If mobile mode is enabled or disabled and the window width to define the mobile mode
     if ($body.attr('data-mobile-mode')) {
         if ($body.attr('data-mobile-mode') == 'false' || isNaN(Number($body.attr('data-mobile-mode')))) {
