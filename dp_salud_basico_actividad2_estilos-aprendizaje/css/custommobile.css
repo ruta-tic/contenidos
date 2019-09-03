@@ -264,11 +264,18 @@
     border: solid 1px #6BC3CE;
 }
 .estilos-aprendizaje-grafica .score_bar {
-    margin: 0 5px;
+    margin: 0;
     padding: 2px;
     background-color: #6BC3CE;
-    color: #FFFFFF;
+    color: #000;
+    text-align: center;
 }
+
+.estilos-aprendizaje-grafica td.score_bar_box {
+    border: 1px solid #333;
+    min-width: 100px;
+}
+
 .estilos-aprendizaje-resultado h3 {
     font-size: 16px;
 }
@@ -284,6 +291,7 @@
 
 #act-1-kolb{
     overflow: auto;
+    text-align: center;
 }
 
 #act-1 {
