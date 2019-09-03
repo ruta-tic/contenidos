@@ -170,19 +170,22 @@
     /**
     * moveDraggableTo
     */
-    function moveDraggableOut($dragEl, $dropzone, useInnerContent) {
+    function moveDraggableOut($dragEl, $dropzone, event) {
         $parent = $dragEl.data('_parent');
         var epos = $dragEl.position();
         var pos = $dragEl.data('_dragpos');
+        var rect = $dragEl[0].getBoundingClientRect();
         $dragEl.appendTo($parent);
-        var newpos = $dragEl.position();
-        pos.x += epos.left - newpos.left;
-        pos.y += epos.top - newpos.top;
-        $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
-        $dragEl.data('_dragpos', pos);
-        if ($dragEl.data('_useInner')) {
-            $dropzone.empty().html($dropzone.data('_html'));
-        }
+        setTimeout(function() {
+            var rect1 = $dragEl[0].getBoundingClientRect();
+            pos.x += rect.x - rect1.x;
+            pos.y += rect.y - rect1.y;
+            $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
+            $dragEl.data('_dragpos', pos);
+            if ($dragEl.data('_useInner')) {
+                $dropzone.empty().html($dropzone.data('_html'));
+            }
+        }, 10);
     }
 
     /**
@@ -249,7 +252,7 @@
 
         if (!$dragEl.hasClass(DROPPEDCLASS)) return;
 
-        moveDraggableOut($dragEl, $dropzone);
+        moveDraggableOut($dragEl, $dropzone, event);
 
         $.each(options.pairs, function (idx, pair) {
             if (dragId == pair.origin.attr('id') && $dropzone.attr('id') == pair.target.attr('id')) {
