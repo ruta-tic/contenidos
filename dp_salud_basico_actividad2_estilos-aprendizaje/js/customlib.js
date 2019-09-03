@@ -5,7 +5,7 @@
  */
 (function(app) {
     /**
-     * To calculate CAMEA 40 results.
+     * To calculate 1-camea results.
      * @param {jQuery object} $el Selection activity container for the Camea 40 questionaire.
      * @param {object} $result Activity results.
      */
@@ -49,11 +49,15 @@
         $el.find('.estilos-aprendizaje-grafica [data-learning-style]').each(function(idx, el){
             var style = el.getAttribute('data-learning-style');
             var score = Math.max(Math.min(styles_results[style], 50), 10);
+            var percent = Math.round((score - 10) * 100 / 40);
             el.setAttribute('data-learning-style-score', score);
             el.setAttribute('data-learning-style-measure', qualitative_results[style]);
-            $(el).find('.score_bar').css({width: (score * 2)+'px'})
-                .html(score).parent()
+            $(el).find('.score_bar').css({width: percent + 'px'})
+            .html(percent + '%').parent()
                 .next().html(translate(qualitative_results[style]));
+
+            $('[data-learning-style="' + style + '"]').find('h3').append(' (' + percent + '%)');
+
         }).sort(sortByScoreDesc).appendTo('.estilos-aprendizaje-grafica');
 
         $el.find('.estilos-aprendizaje-resultado [data-learning-style]').each(function(idx, el){
@@ -120,19 +124,19 @@
      * @param {object} args
      */
     function onActivityCompleted(event, $el, args) {
-        if (/CAMEA 40/.test(args.id)) {
+        if (/1-camea/.test(args.id)) {
             calculateCameaResults($el, args);
             return;
         }
     }
     /**
-     * To handle when an activity has been rendered. It will hide verify button on CAMEA 40 form.
+     * To handle when an activity has been rendered. It will hide verify button on 1-camea form.
      * @param {event} event
      * @param {JQuery object} $el
      * @param {object} args
      */
     function onActivityRendered(event, $el, args) {
-        if (/CAMEA 40/.test(args.id)) {
+        if (/1-camea/.test(args.id)) {
             $el.find('button.general').hide();
         }
     }

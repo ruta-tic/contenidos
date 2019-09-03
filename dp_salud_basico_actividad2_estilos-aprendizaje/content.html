@@ -8,26 +8,11 @@
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
@@ -35,23 +20,13 @@
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
     <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
     <script src="js/customlib.js"></script>
@@ -126,13 +101,21 @@
                             Se inspira en el funcionamiento cerebral y representa una esfera dividida en cuatro cuadrantes:
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada cuadrante para obtener más información</div>
-                        <br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada cuadrante para obtener más información</div>
+                        <br />
                             <div class="modelo_herrmann">
                                 <div class="herrmann_1 tooltip" title="<strong>Superior izquierdo:</strong> privilegia el análisis, la abstracción, el razonamiento matemático y la lógica. Es cuantitativo, riguroso y crítico, le gustan los modelos, las teorías y la  técnica."></div>
-                                <div class="herrmann_2 tooltip" title="<strong>Inferior izquierdo:</strong> formaliza, organiza, controla, estructura y realiza. Define los procedimientos, le gustan las fórmulas, la planificación y la administración. Es secuencial y minucioso."></div>
-                                <div class="herrmann_3 tooltip" title="<strong>Superior derecho:</strong> tiende a la originalidad, la conceptualización, la creación artística, el humor, la síntesis, la intuición y la innovación. Tiene gusto por el riesgo, imaginar, investigar y visualizar."></div>
-                                <div class="herrmann_4 tooltip" title="<strong>Inferior derecho:</strong> integra a través de la experiencia. Le gustan las relaciones interpersonales, el trabajo en equipo, la enseñanza, y la expresión oral y escrita. Se implica afectivamente, trabaja con sentimientos, es idealista y espiritual."></div>
+                                <div class="herrmann_2 tooltip" title="<strong>Superior derecho:</strong> tiende a la originalidad, 
+la conceptualización, la creación artística, el humor, la síntesis, la intuición y la innovación. Tiene gusto por el riesgo, 
+imaginar, investigar y visualizar."></div>
+                                <div class="herrmann_3 tooltip" title="<strong>Inferior izquierdo:</strong> formaliza, organiza, 
+controla, estructura y realiza. Define los procedimientos, le gustan las fórmulas, la planificación y la administración. Es 
+secuencial y minucioso."></div>
+                                <div class="herrmann_4 tooltip" title="<strong>Inferior derecho:</strong> integra a través de la 
+experiencia. Le gustan las relaciones interpersonales, el trabajo en equipo, la enseñanza, y la expresión oral y escrita. Se implica 
+afectivamente, trabaja con sentimientos, es idealista y espiritual."></div>
                             </div>
                             <div class="about"><strong>Imagen 1.</strong> Cuadrantes cerebrales de Herrmann</div>
                     </div>
@@ -147,8 +130,10 @@
                             Clasifica los estilos de aprendizaje a partir de cinco dimensiones
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los círculos para obtener más información</div>
-                        <br><br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br /><br />
                         <div class="modelo_felder_silverman">
                             <div class="felder_1 tooltip" title="<strong>Sensitivos-Intuitivos</strong>"></div>
                             <div class="felder_2 tooltip" title="<strong>Visuales-Verbales</strong>"></div>
@@ -169,8 +154,10 @@
                             El estilo de aprendizaje VAK se vale de las formas en las que se representa mentalmente la información con el fin de determinar el estilo dominante de aprendizaje. Para esto, utiliza los tres receptores sensoriales principales: visual, auditivo y kinestésico.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los círculos para obtener más información</div>
-                        <br><br><br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br /><br /><br />
                         <div class="modelo_balnder_grinder">
                             <div class="balnder_1 tooltip" title="<strong>Visual</strong>"></div>
                             <div class="balnder_2 tooltip" title="<strong>Auditivo</strong>"></div>
@@ -188,7 +175,9 @@
                             Cada hemisferio presenta especializaciones para determinadas tareas: el hemisferio izquierdo es más analítico y lineal, y procede de forma lógica; el hemisferio derecho es más efectivo, imaginativo y emocional.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada lado para obtener más información</div>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada lado para obtener más información</div>
                         <div class="modelo_hemisferios">
                             <div class="hemisferios_1 tooltip" title="<strong>Hemisferio izquierdo</strong>"></div>
                             <div class="hemisferios_2 tooltip" title="<strong>Hemisferio derecho</strong>"></div>
@@ -205,8 +194,10 @@
                             Define ocho tipos de inteligencia: lingüística, lógico-matemática, naturalista, corporal-cinestésica, espacial, musical, interpersonal y la intrapersonal.
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los círculos para obtener más información</div>
-                        <br><br>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
+                        <br /><br />
                         <div class="modelo_gardner">
                             <div class="gardner_1 tooltip" title="<strong>Lingüística</strong>"></div>
                             <div class="gardner_2 tooltip" title="<strong>Lógico-matemática</strong>"></div>
@@ -229,7 +220,9 @@
                             Supone que un aprendizaje óptimo es el resultado de trabajar la información en cuatro fases: se inicia viviendo la experiencia, luego se reflexiona o se repasa la experiencia, y se reflexiona sobre ella, para posteriormente generalizar o hipotetizar y, finalmente, hacer una aplicación. 
                         </p>
 
-                        <div class="instruction">Pase el mouse por cada uno de los círculos para obtener más información</div>
+                        <div class="instruction">
+                            <span class="onlymobile">Toca</span>
+                            <span class="notmobile">Pase el mouse por</span> cada uno de los círculos para obtener más información</div>
                         <div class="modelo_kolb">
                             <div class="kolb_1 tooltip" title="<strong>Experiencia</strong>"></div>
                             <div class="kolb_2 tooltip" title="<strong>Reflexión</strong>"></div>
@@ -242,13 +235,16 @@
 
                 <div class="subpage">
                     <div class="box-text link" label="Para ampliar esta información se sugiere leer:">
-                      <p>
-                        Alonso CM, Gallego DJ y Honey P. Los estilos de aprendizaje. Procedimientos de diagnóstico y mejora. (7th ed.). Bilbao: Ediciones Mensajero. 2007. Disponible en <a href= "https://bit.ly/2KCi9R3" target="_blank"> https://bit.ly/2KCi9R3</a>
-                      </p>
-                        Madrigal Gil A y Trujillo Torres JM. Adaptación Del Cuestionario Honey-Alonso Estilos de Aprendizaje para Estudiantes de una Institución Universitaria de Medellín - Colombia. Revista Estilos Aprendizajes. 2014, 7:13;155–181. Disponible en <a href="https://bit.ly/32K2KqM" target="_blank"> https://bit.ly/32K2KqM</a>
-                      <p>
-                        Cazau, P. (2004). Estilos de aprendizaje: Generalidades. Consultado el, 11(11), 2005. Disponible en <a href="https://bit.ly/2TqsQxq" target="_blank"> https://bit.ly/2TqsQxq</a>
-                      </p>
+                        <p>
+                            Alonso CM, Gallego DJ y Honey P. Los estilos de aprendizaje. Procedimientos de diagnóstico y mejora. 
+                            (7th ed.). Bilbao: Ediciones Mensajero. 2007. Disponible en <a href="https://bit.ly/2KCi9R3" target="_blank"> https://bit.ly/2KCi9R3</a>
+                        </p>
+                        <p>
+                            Madrigal Gil A y Trujillo Torres JM. Adaptación Del Cuestionario Honey-Alonso Estilos de Aprendizaje para Estudiantes de una Institución Universitaria de Medellín - Colombia. Revista Estilos Aprendizajes. 2014, 7:13;155–181. Disponible en <a href="https://bit.ly/32K2KqM" target="_blank"> https://bit.ly/32K2KqM</a>
+                        </p>
+                        <p>
+                            Cazau, P. (2004). Estilos de aprendizaje: Generalidades. Consultado el, 11(11), 2005. Disponible en <a href="https://bit.ly/2TqsQxq" target="_blank"> https://bit.ly/2TqsQxq</a>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -318,7 +314,7 @@
                         Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40.
                     </p>
 
-                    <div class="jpit-activities-selection actividad1" data-act-id="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-act-title="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-parent-mark-selector="false" data-mode="single" data-pagination="true" data-next-page-on-selection="true" data-next-page-selection-required="true" data-auto-resolve="true">
+                    <div class="jpit-activities-selection actividad1" data-act-id="1-camea" data-act-title="Cuestionario adaptado para identificar estilos de aprendizaje CAMEA 40" data-parent-mark-selector="false" data-mode="single" data-pagination="true" data-next-page-on-selection="true" data-next-page-selection-required="true" data-auto-resolve="true">
                         <ul class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" data-animation="slide" data-pagination-transition-hidden=".option-group">
                             <li>
                                 <p>
@@ -808,22 +804,22 @@
                                     <caption></caption>
                                     <tr data-learning-style="active" data-learning-style-score="0">
                                         <td>Activo</td>
-                                        <td><div class="score_bar"><div></td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
                                         <td></td>
                                     </tr>
                                     <tr data-learning-style="reflexive" data-learning-style-score="0">
                                         <td>Reflexivo</td>
-                                        <td><div class="score_bar"><div></td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
                                         <td></td>
                                     </tr>
                                     <tr data-learning-style="theorist" data-learning-style-score="0">
                                         <td>Teórico</td>
-                                        <td><div class="score_bar"><div></td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
                                         <td></td>
                                     </tr>
                                     <tr data-learning-style="pragmatic" data-learning-style-score="0">
                                         <td>Pragmático</td>
-                                        <td><div class="score_bar"><div></td>
+                                        <td class="score_bar_box"><div class="score_bar"><div></td>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -894,7 +890,7 @@
                         <li>
                             <div id="act-1-kolb">
                                 <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" 
-                                    data-act-id="1-drop" data-act-title="Comic modelo de Kolb"
+                                    data-act-id="2-comic" data-act-title="Comic modelo de Kolb"
                                     data-timer="60" data-reveal-response="true">
                                     <p>
                                         Según el modelo propuesto por Kolb, analice las siguientes viñetas y organice en orden la secuencia del cómic. 
@@ -907,10 +903,10 @@
                                             <div class="fillable f4" data-target-group="4"></div>
                                         </div>
                                         <div class="sources">
-                                            <div data-group="1" class="comic_1"></div>
                                             <div data-group="2" class="comic_2"></div>
-                                            <div data-group="3" class="comic_3"></div>
                                             <div data-group="4" class="comic_4"></div>
+                                            <div data-group="3" class="comic_3"></div>
+                                            <div data-group="1" class="comic_1"></div>
                                         </div>
                                         <div class="box_end"></div>
                                         <feedback>
@@ -924,7 +920,7 @@
                         <li>
                             <div class="jpit-activities-quiz" 
                                 data-act-title="Modelo de los cuadrantes cerebrales de Herrmann"
-                                data-act-id="Preguntas modelo de Herrmann"
+                                data-act-id="3-herrmann"
                                 data-timer="60" data-reveal-response="true">
                                 <question type="simplechoice">
                                     <description>
@@ -946,7 +942,7 @@
                         <li>
                             <div class="jpit-activities-quiz"
                                 data-act-title="Modelo de Felder y Silverman"
-                                data-act-id="Preguntas modelo de Felder"
+                                data-act-id="4-felder"
                                 data-timer="60" data-reveal-response="true">
                                 <question type="simplechoice">
                                     <description>
