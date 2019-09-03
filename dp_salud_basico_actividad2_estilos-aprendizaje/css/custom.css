@@ -217,8 +217,10 @@
 .jpit-activities-selection .ctrl-pagination .option-group [data-group]:first-child {
     border-left: none;
 }
+
+.jpit-activities-selection .ctrl-pagination .option-group [data-group]:hover,
 .jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
-    background-color: #003543;
+        background-color: #003543;
     color: #FFFFFF;
 }
 .jpit-activities-selection.actividad1 .box_end .correct {
