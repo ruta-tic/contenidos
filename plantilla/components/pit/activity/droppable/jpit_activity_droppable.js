@@ -50,7 +50,7 @@
         .removeData('_dragpos');
         if (hard) {
             var $parent = $el.parent();
-            $el.appendTo($el.data('_parent'));
+            $el.removeClass(DROPPEDCLASS).appendTo($el.data('_parent'));
             if ($el.data('_useInner')) {
                 $el.removeData('_useInner');
                 $el.css({ width: '', height: '', opacity: '' });
@@ -156,19 +156,22 @@
     /**
     * moveDraggableTo
     */
-    function moveDraggableOut($dragEl, $dropzone, useInnerContent) {
+    function moveDraggableOut($dragEl, $dropzone, event) {
         $parent = $dragEl.data('_parent');
         var epos = $dragEl.position();
-        var pos = $dragEl.data('_dragpos');
+        var pos = $dragEl.data('_dragpos') || { x: 0, y: 0 };
+        var rect = $dragEl[0].getBoundingClientRect();
         $dragEl.appendTo($parent);
-        var newpos = $dragEl.position();
-        pos.x += epos.left - newpos.left;
-        pos.y += epos.top - newpos.top;
-        $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
-        $dragEl.data('_dragpos', pos);
-        if ($dragEl.data('_useInner')) {
-            $dropzone.empty().html($dropzone.data('_html'));
-        }
+        setTimeout(function() {
+            var rect1 = $dragEl[0].getBoundingClientRect();
+            pos.x += rect.x - rect1.x;
+            pos.y += rect.y - rect1.y;
+            $dragEl.css(transformProp, `translate(${pos.x}, ${pos.y})`);
+            $dragEl.data('_dragpos', pos);
+            if ($dragEl.data('_useInner')) {
+                $dropzone.empty().html($dropzone.data('_html'));
+            }
+        }, 10);
     }
 
     /**
@@ -179,6 +182,12 @@
             $dragEl = $(event.relatedTarget),
             dropzoneId = $dropzone.attr('id'),
             dragId = event.relatedTarget.id;
+
+        //Check if the dropzone can accept more elements
+        if(options.multiTarget > 0 && !$dropzone.data('droppedElements').length < options.multiTarget) {
+            resetPosition($dragEl);
+            return; //Do not allow more elements
+        }
 
         if (options.autoResolve){
             var matched = false;
@@ -192,39 +201,27 @@
                 return;
             }
         }
-
         //Move object into dropzone
         moveDraggableTo($dragEl, $dropzone, options.dropInnerContent);
-
-        if(options.multiTarget == 0 || $dropzone.data('droppedElements').length < options.multiTarget){
-            if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                if(options.autoAlignNodes){
-                    $dragEl.position({ of: $dropzone });
-                }
-                return;
-            }
-            // Some dropp in ? -> check pairs and update match value
-            $.each(options.pairs, function (idx, pair) {
-                if (dragId == pair.origin.attr('id')) {
-                    pair.match = ($dropzone.attr('id') == pair.target.attr('id'));
-                    return false; //stop loop
-                }
-            });
+        if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
             if(options.autoAlignNodes){
                 $dragEl.position({ of: $dropzone });
             }
-            $dragEl.addClass(DROPPEDCLASS);
-            $dropzone.data('droppedElements').push(dragId);
+            return;
         }
-        else{
-            if($.inArray(dragId ,$dropzone.data('droppedElements'))>-1) {
-                if(options.autoAlignNodes){
-                    $dragEl.position({ of: $dropzone });
-                }
-                return;
+        // Some dropp in ? -> check pairs and update match value
+        $.each(options.pairs, function (idx, pair) {
+            if (dragId == pair.origin.attr('id')) {
+                pair.match = ($dropzone.attr('id') == pair.target.attr('id'));
+                return false; //stop loop
             }
-            resetPosition($dragEl);
+        });
+        if(options.autoAlignNodes){
+            $dragEl.position({ of: $dropzone });
         }
+        $dragEl.addClass(DROPPEDCLASS);
+        $dropzone.data('droppedElements').push(dragId);
+
         if (options.dropCallback) {
             options.dropCallback.call($dropzone, $dragEl);
         }
@@ -241,7 +238,7 @@
 
         if (!$dragEl.hasClass(DROPPEDCLASS)) return;
 
-        moveDraggableOut($dragEl, $dropzone);
+        moveDraggableOut($dragEl, $dropzone, event);
 
         $.each(options.pairs, function (idx, pair) {
             if (dragId == pair.origin.attr('id') && $dropzone.attr('id') == pair.target.attr('id')) {
@@ -249,6 +246,7 @@
                 return false; //Stop the loop
             }
         });
+
         $dragEl.removeClass(DROPPEDCLASS);
         $dropzone.data('droppedElements', $.grep($dropzone.data('droppedElements'), function(val) {
             return val != dragId;
@@ -293,12 +291,128 @@
                 ondragleave: function(event) {
                     onDragLeaveListener(event, options);
                 }
+            })
+            .on('hold', function(event){
+                droppable.$container.data('selectable').show(event);
             }));
 
             if (options.dropInnerContent && options.innerContentHelper) {
                 $target.html(options.innerContentHelper);
             }
         });
+    }
+    /**
+    * createSelectable
+    */
+    function createSelectable(droppable) {
+        var template = [
+            '<div class="jpitdroppable_select">',
+            '<div class="jpitdroppable_select_list"></div>',
+            '<div class="jpitdroppable_select_buttons"></div>',
+            '</div>'
+        ].join('');
+        $list = $(template);
+        var $list_options = $list.find('.jpitdroppable_select_list');
+        $.each(droppable.origins, function(idx, $origin){
+            var $item = $('<div class="jpitdroppable_select_list_item"></div>');
+            $item.append($origin.clone()).appendTo($list_options);
+            $item.data('origin', $origin);
+        });
+        $list_options.on('click', '.jpitdroppable_select_list_item', function () {
+            var $item = $(this);
+            var is_selected = $item.is('.selected');
+            var selected = $list_options.children('.selected');
+            if (!is_selected && droppable.multiTarget > 1 && selected >= droppable.multiTarget) return; //Cannot be selected
+            if (!is_selected && droppable.multiTarget == 1) {
+                $list_options.children().removeClass('selected');
+            }
+            $item.toggleClass('selected');
+        })
+        var selectable = Selectable($list_options, droppable);
+        droppable.$container.data('selectable', selectable);
+    }
+
+    /**
+    * Selectable
+    */
+    function Selectable($list, droppable) {
+        var $dropzone;
+        var options = {
+                autoResolve: droppable.properties.autoResolve,
+                pairs: droppable.pairs,
+                multiTarget: droppable.properties.multiTarget,
+                autoAlignNodes: droppable.properties.autoAlignNodes,
+                dropCallback: droppable.properties.onDrop,
+                overlap: validateOverlap(droppable.properties.overlap, 0.25),
+                dropInnerContent: droppable.properties.dropInnerContent,
+                innerContentHelper: droppable.properties.innerContentHelper
+            };
+        console.log(droppable);
+        $list.appendTo(droppable.$container).dialog({
+            modal: true,
+            autoOpen: false,
+            dialogClass: 'jpitdroppable_select_dialog ' + (droppable.$container.attr('id') || ''),
+            resizable: false,
+            buttons: [{
+                    text: 'Cancelar',
+                    click: function() {
+                        $(this).dialog('close');
+                    }
+                }, {
+                    text: 'Aceptar',
+                    click: function() {
+                        acceptChanges();
+                        $(this).dialog('close');
+                    }
+                }
+            ]
+        });
+
+        var dialog = $list.dialog('instance');
+        var show = function(event){
+            if (droppable.disabled) return; //Activity is disabled
+
+            $dropzone = $(event.target);
+            //Mark the selected items
+            $list.children('.jpitdroppable_select_list_item').removeClass('selected dropped').each(function(idx, it) {
+                var $item = $(it);
+                var $origin = $item.data('origin');
+                if ($dropzone.has($origin.get(0)).length) $item.addClass('selected');
+                else if ($origin.is('.'+DROPPEDCLASS)) $item.addClass('dropped');
+            });
+            //Open the dialog
+            dialog.open();
+        };
+
+        var acceptChanges = function () {
+            //Remove current items in the $dropzone
+            $dropzone.find('.'+DROPPEDCLASS).each(function(idx, it) {
+                onDragLeaveListener({
+                    target: $dropzone.get(0),
+                    relatedTarget: it
+                }, options);
+                //resetPosition($(it), true);
+            })
+            //Get Items selected
+            $list.children('.jpitdroppable_select_list_item.selected').each(function(idx, it) {
+                var $item = $(it);
+                var $origin = $item.data('origin');
+                if ($item.is('.dropped')) {
+                    onDragLeaveListener({
+                        target: $origin.closest('.droppable').get(0),
+                        relatedTarget: $origin.get(0)
+                    }, options);
+                }
+                onDropListener({
+                    target: $dropzone.get(0),
+                    relatedTarget: $origin.get(0)
+                }, options);
+            });
+        }
+        
+        return {
+            show: show
+        };
     }
 
     function Droppable(properties, origins, targets, pairs) {
@@ -307,6 +421,7 @@
             "origins" : null,
             "targets" : null,
             "pairs" : null,
+            "$container": null,
             "getLocalId" : function () {
                 return "jpit_activities_jpitdroppable_" + this.id;
             },
@@ -317,7 +432,7 @@
                 var parent = this;
                 var continueResolve = false;
                 var holdCorrects = false;
-                var container = null;
+                var $container = null;
                 var overlap;
                 /*Properties*/
                 continueResolve = obj.properties.continueResolve;
@@ -334,15 +449,17 @@
                         top : $val.css("top"),
                         position:$val.css("position")
                     });
-                    container = container || $val.closest(CONTAINERSELECTOR);
+                    $container = $container || $val.closest(CONTAINERSELECTOR);
                 });
                 /* Origins Draggables*/
                 createDraggables(obj.origins);
                 /* Targets Droppables */
-                obj.properties.overlap = container && container.attr('data-dragoverlap');
-                obj.properties.dropInnerContent = container && container.attr('data-droppable-content-inner');
-                obj.properties.innerContentHelper = container && container.attr('data-droppable-content-helper');
+                obj.properties.overlap = $container && $container.attr('data-dragoverlap');
+                obj.properties.dropInnerContent = $container && $container.attr('data-droppable-content-inner');
+                obj.properties.innerContentHelper = $container && $container.attr('data-droppable-content-helper');
+                obj.$container = $container;
                 createDropZones(obj);
+                createSelectable(obj);
                 return this;
             },
             /*Getters & Counts Methods*/
@@ -401,12 +518,14 @@
                     setDraggableEnabled($val, false);
                     $val.addClass('disabled');
                 });
+                obj.disabled = true;
             },
             "enable" : function (){
                 $.each( obj.origins, function (ind, $val) {
                     setDraggableEnabled($val, true);
                     $val.removeClass('disabled');
                 });
+                delete obj.disabled;
             },
             "getCorrects" : function (){
                 return obj.getObjects(true);
