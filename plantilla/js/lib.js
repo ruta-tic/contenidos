@@ -827,7 +827,7 @@ dhbgApp.standard.start = function() {
 
         $this.find('left').each(function(){
             var $left = $(this);
-            $left.find('dl').each(function() {
+            $left.find('>dl').each(function() {
                 var $dl = $(this);
 
                 var $dd= $('<div class="element rule_1 tab_content"></div>');
@@ -857,7 +857,7 @@ dhbgApp.standard.start = function() {
         $this.find('right').each(function(){
 
             var $right = $(this);
-            $right.find('dl').each(function() {
+            $right.find('>dl').each(function() {
                 var $dl = $(this);
 
                 var $dd= $('<div class="element rule_1 tab_content"> ' + $dl.find('dd').html() + ' </div>');

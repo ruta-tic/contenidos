@@ -1849,6 +1849,7 @@ sup.tooltip {
     border: 1px solid #7c8f8c;
     text-align: left;
     padding: 5px;
+    padding-bottom: 30px;
 }
 
 .jpit-activities-droppable .draggable {
@@ -1883,6 +1884,48 @@ sup.tooltip {
     display: inline-block;
 }
 
+.jpitdroppable_select_dialog {
+
+}
+.jpitdroppable_select_dialog.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+.jpitdroppable_select_dialog .ui-dialog-titlebar {
+    display: none;
+}
+
+.jpitdroppable_select_list {
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+}
+
+.jpitdroppable_select_list_item {
+    position: relative;
+    flex: 1;
+    border: solid 1px #cccccc;
+    margin: 1px 0;
+    padding: 10px;
+    user-select: none;
+}
+.jpitdroppable_select_list_item.selected {
+    background-color: #dedede;
+    border-color: #bcbcbc
+}
+
+.jpitdroppable_select_list_item.dropped:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 20px solid #22c1c9;
+    border-bottom: 20px solid transparent;
+    clear: both;
+}
 /********************************************************************************/
 /* SPECIFIC ACTIVITIES: MULTIDROPPABLE
 /********************************************************************************/

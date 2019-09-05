@@ -3,11 +3,20 @@ dd {
     list-style: circle inside;
 }
 
+button.general.w-content-controler {
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
 /********************************************************************************/
 
 
 /* Actividad arrastrar y soltar - apareamiento
 /********************************************************************************/
+
+.vertical-menu-both-sides .chalkboard_both_content {
+    height: auto;
+}
 
 .w-content.modal-feedback {
     max-width: 500px;
@@ -40,7 +49,7 @@ dd {
 }
 
 .dropzone_container .dropzone {
-    min-height: 300px;
+    min-height: 200px;
     margin: 0 10px;
     display: flex;
     flex-flow: column;

@@ -318,12 +318,13 @@
             $item.append($origin.clone()).appendTo($list_options);
             $item.data('origin', $origin);
         });
+        var multiTarget = droppable.properties.multiTarget;
         $list_options.on('click', '.jpitdroppable_select_list_item', function () {
             var $item = $(this);
             var is_selected = $item.is('.selected');
             var selected = $list_options.children('.selected');
-            if (!is_selected && droppable.multiTarget > 1 && selected >= droppable.multiTarget) return; //Cannot be selected
-            if (!is_selected && droppable.multiTarget == 1) {
+            if (!is_selected && multiTarget > 1 && selected >= multiTarget) return; //Cannot be selected
+            if (!is_selected && multiTarget == 1) {
                 $list_options.children().removeClass('selected');
             }
             $item.toggleClass('selected');

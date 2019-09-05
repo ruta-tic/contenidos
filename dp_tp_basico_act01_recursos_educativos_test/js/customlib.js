@@ -10,10 +10,9 @@
      * @param {JQuery object} $el
      * @param {object} args
      */
-    function onActivityCompleted(event, $el, args) {
-
-        console.log(args);
+    //Create scorm hook getActivityWeight
+    app.scorm.getActivityWeight = function (activity_id) {
+        var number = parseInt(activity_id.match(/(\d+)/));
+        return (number  < 1 && number > 14 ? 0 : number > 10 ? 15.78 : 5.26);
     }
-    //Register application event handlers
-    $(app).on('jpit:activity:completed', onActivityCompleted);
 })(dhbgApp);

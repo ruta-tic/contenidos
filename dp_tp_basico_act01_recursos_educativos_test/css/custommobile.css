@@ -3,6 +3,11 @@ dd {
     list-style: circle inside;
 }
 
+button.general.w-content-controler {
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
 /********************************************************************************/
 
 
@@ -40,7 +45,7 @@ dd {
 }
 
 .dropzone_container .dropzone {
-    min-height: 300px;
+    min-height: 200px;
     margin: 0 10px;
     display: flex;
     flex-flow: column;
