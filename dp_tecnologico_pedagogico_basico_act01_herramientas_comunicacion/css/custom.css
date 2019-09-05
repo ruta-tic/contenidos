@@ -245,7 +245,7 @@
     justify-content: center;
 }
 
-.draggable_board .column_dropzones {
+.draggable_board .colum_dropzones {
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
@@ -267,10 +267,10 @@
     cursor: default;
 }
 
-.draggable_board .column_dropzones .dropzone {
+.draggable_board .colum_dropzones .dropzone {
     width: 200px;
 }
-.draggable_board .column_dropzones .dropzone h5 {
+.draggable_board .colum_dropzones .dropzone h5 {
     background-color: #FBE4A2;
     border: solid 2px #E0AA49;
     border-radius: 5px;
@@ -278,7 +278,7 @@
     padding: 2px;
     margin: 0 0 5px 0;
 }
-.draggable_board .column_dropzones .dropzone .target.droppable {
+.draggable_board .colum_dropzones .dropzone .target.droppable {
     min-height: 150px;
     overflow: auto;
     display: flex;
@@ -289,11 +289,11 @@
     border: dashed 2px #DEDEDE;
     border-radius: 5px;
 }
-.draggable_board .column_dropzones .dropzone .target.droppable.correct,
+.draggable_board .colum_dropzones .dropzone .target.droppable.correct,
 .jpit-activities-droppable .draggable_board .draggable.correct {
     border-color: #7bb004;
 }
-.draggable_board .column_dropzones .dropzone .target.droppable.wrong,
+.draggable_board .colum_dropzones .dropzone .target.droppable.wrong,
 .jpit-activities-droppable .draggable_board .draggable.wrong {
     border-color: #D60C1B;
 }
