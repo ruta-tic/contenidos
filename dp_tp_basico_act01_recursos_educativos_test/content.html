@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html class="single">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Recursos educativos: Test</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="100" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Recursos educativos: TEST</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+
+                    <menuitem label="TEST" data-page="pag-reda"></menuitem>
+
+                </menu>
+            </nav>
+        </header>
+        <!-- REDA-->
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+            <section id="pag-reda" ptitle="Test. Recursos educativos digitales ">
+
+                <div class="subpage">
+                    <div class="box-text activity" label="Evaluación de conocimiento">
+                        <p>
+                            A continuación, se presentan una serie de preguntas que le permitirán reconocer sus conocimientos sobre los recursos educativos digitales. Si en la puntuación alcanza el 70% o más, aprobará automáticamente la actividad, de lo contrario, deberá realizar
+                            la Actividad 2 correspondiente.
+                        </p>
+                    </div>
+                    <div class="vertical-menu">
+                        <dl>
+                            <dt>Características de los REDA</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="Características de los REDA" data-act-id="1_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Es una características exclusiva de los REDA:</p>
+                                        </description>
+                                        <ul>
+                                            <li>Portable</li>
+                                            <li>Granular</li>
+                                            <li data-response="true">Abierto</li>
+                                            <li>Reusable</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#1_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="1_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    La respuesta es correcta. El término hace referencia a la posibilidad para accederlo, compartirlo, copiarlo, distribuirlo y, en algunas ocasiones, adaptarlo, representarlo, modificarlo y mezclarlo.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#1_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="1_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta correcta es Abierto, ya que hace referencia a la posibilidad de accederlo, compartirlo, copiarlo, distribuirlo y, en algunas ocasiones, adaptarlo, representarlo, modificarlo y mezclarlo
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Clasificación de los REDA según el MEN</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="2_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="multichoice">
+                                        <description>
+                                            <p>El Ministerio de Educación Nacional clasifica los REDA desde lo educativo en:</p>
+                                        </description>
+                                        <ul>
+                                            <li data-response="true">Curso virtual</li>
+                                            <li data-response="true">Objeto de aprendizaje</li>
+                                            <li data-response="true">Aplicaciones para la educación</li>
+                                            <li>Video</li>
+                                            <li>Audio</li>
+
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#2_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="2_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    El Ministerio de Educación Nacional clasifica los REDA como Objetos de aprendizaje, Cursos virtuales o Aplicaciones para la educación, basándose en características comunes como son objetivos
+                                                    de aprendizaje, intencionalidad de uso, complejidad y estructura, entre otras.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#2_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="2_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    Las respuestas correctas son Objetos de aprendizaje, Cursos virtuales o Aplicaciones para la educación, basadas en características comunes como son objetivos de aprendizaje, intencionalidad de uso, complejidad y estructura, entre otras.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Formatos y lenguajes de los REDA</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="3_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="multichoice">
+                                        <description>
+                                            <p>Los formatos y lenguajes más comunes en los que los recursos educativos representados digitalmente son:</p>
+                                        </description>
+                                        <ul>
+                                            <li data-response="true">Textuales</li>
+                                            <li data-response="true">Sonoros</li>
+                                            <li data-response="true">Visuales</li>
+                                            <li data-response="true">Audiovisuales</li>
+                                            <li data-response="true">Multimediales</li>
+                                            <li>MOOC</li>
+                                            <li>Objeto de aprendizaje</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#3_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="3_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    La respuesta es correcta. La información digital utiliza distintos formatos y el MEN clasifica los RED desde los los formatos más comunes, como son textuales, sonoros, visuales, audiovisuales y multimediales.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#3_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="3_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    Las respuestas correctas son textuales, sonoros, visuales, audiovisuales, multimediales ya que, aunque la información digital utiliza distintos formatos, el MEN clasifica los RED desde los los formatos más comunes mencionados anteriormente.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Convergencia en los REDA</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="4_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>A la producción informativa o recurso educativo en el cual hay convergencia de múltiples formatos como imagen, audio, video, texto, se le denomina:</p>
+                                        </description>
+                                        <ul>
+                                            <li>Lenguaje audiovisual</li>
+                                            <li>Transmedia</li>
+                                            <li>Hipermedia</li>
+                                            <li data-response="true">Multimedia</li>
+                                            <li>Storytelling</li>
+                                            <li>MOOC</li>
+                                            <li>Objeto de aprendizaje</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#4_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="4_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    La respuesta es correcta. Los contenidos multimedia son una convergencia de formatos y lenguajes que incorporan la hipertextualidad y se suman a las posibilidades expresivas de la narrativa transmedia para enriquecer los procesos de enseñanza y aprendizaje.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#4_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="4_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta correcta es Multimedia, ya que este tipo de contenidos permiten una convergencia de formatos y lenguajes, los cuales incorporan la hipertextualidad y se suman a las posibilidades expresivas de la narrativa transmedia para enriquecer los procesos de enseñanza y aprendizaje.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt>Características lenguaje audiovisual</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="5_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>A la producción informativa o recurso educativo en el cual hay convergencia de múltiples formatos como imagen, audio, video, texto, se le denomina:</p>
+                                        </description>
+                                        <ul>
+                                            <li>Verdadero</li>
+                                            <li data-response="true">Falso</li>
+
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#5_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="5_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    La palabra, la música, las pistas musicales, los efectos y el silencio corresponden a los cuatro componentes del lenguaje radiofónico o sonoro
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#5_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="5_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    Esta afirmación es falsa debido a que la palabra, la música, las pistas musicales, los efectos y el silencio corresponden a los cuatro componentes del lenguaje radiofónico o sonoro.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt>Bondades de los RED</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="6_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>Dos de las beneficios del uso de recursos educativos digitales en formato audiovisual son:</p>
+                                            <dl>
+                                                <dd>Aumenta la sensación de realismo, mejorando la autenticidad y credibilidad.</dd>
+                                                <dd>Sintetiza los contenidos aprovechando diferentes vías perceptivas.</dd>
+                                            </dl>
+                                        </description>
+                                        <ul>
+                                            <li data-response="true">Verdadero</li>
+                                            <li>Falso</li>
+
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#6_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="6_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    Efectivamente, el aumento de la sensación de realismo y la síntesis de contenidos aprovechando diferentes vías perceptivas son dos características de los recursos digitales en formato audiovisual.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#6_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="6_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    Estas afirmaciones son verdaderas, debido a que el aumento de la sensación de realismo y la síntesis de contenidos aprovechando diferentes vías perceptivas son dos características de los recursos digitales en formato audiovisual.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt>Producción y reuso de los RED</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="7_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>¿Es lo mismo producir que reusar un recurso educativo digital?</p>
+                                        </description>
+                                        <ul>
+                                            <li>Verdadero</li>
+                                            <li data-response="true">Falso</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#7_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="7_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    Efectivamente, existen diferencias significativas entre reusar o producir un RED. Algunas de estas son: los recursos económicos disponibles, el tiempo de producción, la profundidad en el desarrollo del contenido y su licencia de uso.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#7_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="7_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta es falsa debido a que existen diferencias significativas entre reusar o producir un RED. Algunas de estas son: los recursos económicos disponibles, el tiempo de producción, la profundidad en el desarrollo del contenido y su licencia de uso.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Intencionalidad pedagógica del RED</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="8_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>La intencionalidad pedagógica de los RED está directamente relacionada con el objetivo de enseñanza aprendizaje:</p>
+                                        </description>
+                                        <ul>
+                                            <li data-response="true">Verdadero</li>
+                                            <li>Falso</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#8_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="8_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    En la creación de un RED el objetivo de enseñanza-aprendizaje estará estrechamente relacionado con la intencionalidad pedagógica.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#8_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="8_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta es verdadera, debido a que en la creación de un RED el objetivo de enseñanza-aprendizaje estará estrechamente relacionado con la intencionalidad pedagógica.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt> Relación entre currículo y RED</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="9_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>No es significativo tener claridad curricular a la hora de usar un RED en el proceso de enseñanza-aprendizaje:</p>
+                                        </description>
+                                        <ul>
+                                            <li>Verdadero</li>
+                                            <li data-response="true">Falso</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#9_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="9_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    Efectivamente, se debe tener claridad sobre currículo para saber qué RED usar.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#9_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="9_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta es falsa ya que se debe tener claridad sobre currículo para saber qué RED usar.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Características de los estudiantes y uso de los RED</dt>
+                            <dd>
+                                <div class="jpit-activities-quiz" data-act-title="El cuestionario" data-act-id="10_cuestionario" data-modal-feedback data-allow-retry="false">
+                                    <question type="simplechoice">
+                                        <description>
+                                            <p>Indique si la siguiente afirmación es verdadera o falsa</p>
+                                            <p>Los RED ayudan a aclarar la intención y pertinencia de su uso, las características de los estudiantes, su contexto sociocultural y sus saberes sobre la temática:</p>
+                                        </description>
+                                        <ul>
+                                            <li data-response="true">Verdadero</li>
+                                            <li>Falso</li>
+                                        </ul>
+                                        <feedback>
+                                            <correct>
+                                                <div class="w-content-controler general" data-content="#10_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                                <div id="10_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                    Efectivamente, al momento de tomar la decisión de usar un RED es importante tener claridad sobre la características de los estudiantes, su contexto sociocultural y los saberes previos que tienen sobre la temática a abordar.
+                                                </div>
+                                            </correct>
+                                            <wrong>
+                                                <div class="w-content-controler general" data-content="#10_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                                <div id="10_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                    La respuesta es verdadera, ya que al momento de usar un RED es importante tener claridad sobre la características de los estudiantes, su contexto sociocultural y los saberes previos que tienen sobre la temática a abordar.
+                                                </div>
+                                            </wrong>
+                                        </feedback>
+                                    </question>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Formatos, lenguajes y RED</dt>
+                            <dd>
+                                <div id="arrastrar1" class="jpit-activities-droppable" data-verify-type="target" data-act-id="11_cuestionario"data-on-demand="false" data-modal-feedback data-allow-retry="false">
+                                    <p>Para cada formato presentado, arrastra a la columna correspondiente el lenguaje que utiliza y su respectivo ejemplo:
+                                    </p>
+                                    <table class="datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Formato</th>
+                                                <th>Lenguaje</th>
+                                                <th>Recursos digitales</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Texto</th>
+                                                <td data-target-group="1"></td>
+                                                <td data-target-group="2"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <td data-target-group="3"></td>
+                                                <td data-target-group="4"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Audio</th>
+                                                <td data-target-group="5"></td>
+                                                <td data-target-group="6"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Video</th>
+                                                <td data-target-group="7"></td>
+                                                <td data-target-group="8"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Multimedia / Hipermedia</th>
+                                                <td data-target-group="9"></td>
+                                                <td data-target-group="10"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h4>Opciones:</h4>
+                                    <div class="draggable_container">
+                                        <div data-group="1" class="item_1">Escrito</div>
+                                        <div data-group="3" class="item_2">Visual</div>
+                                        <div data-group="5" class="item_3">Sonoro / Radiofónico</div>
+                                        <div data-group="7" class="item_4">Audiovisual</div>
+                                        <div data-group="9" class="item_5">Hipermedia</div>
+                                        <div data-group="2" class="item_6">Artículos de revista</div>
+                                        <div data-group="4" class="item_7">Infográficos</div>
+                                        <div data-group="6" class="item_8">Podcast</div>
+                                        <div data-group="8" class="item_9">Videoclases</div>
+                                        <div data-group="10" class="item_10">Animaciones</div>
+                                    </div>
+                                    <br class="clear" />
+
+                                    <div class="box_end"></div>
+                                    <feedback>
+                                        <correct>
+                                            <div class="w-content-controler general" data-content="#11_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                            <div id="11_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Formato</th>
+                                                            <th>Lenguaje</th>
+                                                            <th>Recursos digitales</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Texto</th>
+                                                            <td>Escrito</td>
+                                                            <td>Artículos de revista</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Imagen</th>
+                                                            <td>Visual</td>
+                                                            <td>Infográfico</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Audio</th>
+                                                            <td>Sonoro / Rodiofónico</td>
+                                                            <td>Podcast</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Video</th>
+                                                            <td>Audiovisual</td>
+                                                            <td>Videoclases</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Multimedia / Hipermedia</th>
+                                                            <td>Hipermedia</td>
+                                                            <td>Animaciones</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </correct>
+                                        <wrong>
+                                            <div class="w-content-controler general" data-content="#11_cuestionario_wrong"data-property-width="auto">Incorrecto</div>
+                                            <div id="11_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Formato</th>
+                                                            <th>Lenguaje</th>
+                                                            <th>Recursos digitales</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Texto</th>
+                                                            <td>Escrito</td>
+                                                            <td>Artículos de revista</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Imagen</th>
+                                                            <td>Visual</td>
+                                                            <td>Infográfico</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Audio</th>
+                                                            <td>Sonoro / Rodiofónico</td>
+                                                            <td>Podcast</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Video</th>
+                                                            <td>Audiovisual</td>
+                                                            <td>Videoclases</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Multimedia / Hipermedia</th>
+                                                            <td>Hipermedia</td>
+                                                            <td>Animaciones</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </wrong>
+                                    </feedback>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Reusar o producir un RED</dt>
+                            <dd>
+                                <div id="arrastrar2" class="jpit-activities-droppable" data-act-id="12_cuestionario" data-target-multi="0" data-on-demand="false" data-autoalign="false" data-modal-feedback data-allow-retry="false">
+                                    <p>En algunas ocasiones, los profesores deben decidir entre reusar o producir un RED, lo cual dependerá de la intencionalidad formativa que se tenga y los recursos disponibles, entre otros factores.</p>
+                                    <p>Asocia cada afirmación con la opción correspondiente:</p>
+                                    <div class="dropzone_container">
+                                        <div class="column">
+                                            <h5>Reusar un RED</h5>
+                                            <div class="dropzone" data-target-group="1"></div>
+                                        </div>
+                                        <div class="column">
+                                            <h5>Producir un RED</h5>
+                                            <div class="dropzone" data-target-group="2"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Opciones:</h4>
+                                    <div class="draggable_container">
+                                        <div data-group="1" class="item_1">El recurso existe y responde a la necesidad pedagógica que se tiene.</div>
+                                        <div data-group="2" class="item_2">No existe un RED que responda al objetivo de aprendizaje planteado, o existe, pero no se puedo usar.</div>
+                                        <div data-group="1" class="item_3">No se tiene experiencia o conocimiento en la producción de un RED.</div>
+                                        <div data-group="2" class="item_4">Se tiene a disposición un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</div>
+                                        <div data-group="1" class="item_5">No se tienen los recursos económicos para su producción.</div>
+                                        <div data-group="2" class="item_6">Se tienen los recursos económicos para hacerlo.</div>
+                                        <div data-group="1" class="item_7">No se tiene tiempo para su producción.</div>
+                                        <div data-group="2" class="item_8">Realizarlo tendrá un alto impacto, esto se refleja en el número de personas beneficiadas y la novedad del recurso, entre otros.</div>
+                                        <div data-group="2" class="item_10">Se tiene conocimiento y experiencia en la producción de RED y se cuenta con tiempo para su realización.</div>
+                                    </div>
+                                    <br class="clear" />
+
+                                    <div class="box_end"></div>
+                                    <feedback>
+                                        <correct>
+                                            <div class="w-content-controler general" data-content="#12_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                            <div id="12_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Reusar un RED</th>
+                                                            <th>Producir un RED</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>El recurso existe y responde a la necesidad pedagógica que se tiene.</td>
+                                                            <td>No existe un RED que responda al objetivo de aprendizaje planteado, o existe, pero no se puedo usar.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tiene experiencia o conocimiento en la producción de un RED.</td>
+                                                            <td>Se tiene a disposición un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tienen los recursos económicos para su producción.</td>
+                                                            <td>Se tienen los recursos económicos para hacerlo.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tiene tiempo para su producción.</td>
+                                                            <td>Realizarlo tendrá un alto impacto, esto se refleja en el número de personas beneficiadas y la novedad del recurso, entre otros.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>Se tiene conocimiento y experiencia en la producción de RED y se cuenta con tiempo para su realización.</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </correct>
+                                        <wrong>
+                                            <div class="w-content-controler general" data-content="#12_cuestionario_wrong" data-property-width="auto">Incorrecto</div>
+                                            <div id="12_cuestionario_wrong" class="w-content modal-feedback" title="¡Incorrecto!">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Reusar un RED</th>
+                                                            <th>Producir un RED</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>El recurso existe y responde a la necesidad pedagógica que se tiene.</td>
+                                                            <td>No existe un RED que responda al objetivo de aprendizaje planteado, o existe, pero no se puedo usar.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tiene experiencia o conocimiento en la producción de un RED.</td>
+                                                            <td>Se tiene a disposición un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tienen los recursos económicos para su producción.</td>
+                                                            <td>Se tienen los recursos económicos para hacerlo.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No se tiene tiempo para su producción.</td>
+                                                            <td>Realizarlo tendrá un alto impacto, esto se refleja en el número de personas beneficiadas y la novedad del recurso, entre otros.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>Se tiene conocimiento y experiencia en la producción de RED y se cuenta con tiempo para su realización.</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </wrong>
+                                    </feedback>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Reusar o producir un RED</dt>
+                            <dd>
+                                <div id="arrastrar3" class="jpit-activities-droppable" data-act-id="13_cuestionario" data-target-multi="0" data-autoalign="false" data-on-demand="false" data-modal-feedback data-allow-retry="false">
+                                    <p>Reusar o producir un RED tiene sus beneficios y limitaciones</p>
+                                    <p>Indica a qué proceso corresponde cada limitación:</p>
+                                    <div class="dropzone_container">
+                                        <div class="column">
+                                            <h5>Reusar un RED</h5>
+                                            <div class="dropzone" data-target-group="1"></div>
+                                        </div>
+                                        <div class="column">
+                                            <h5>Producir un RED</h5>
+                                            <div class="dropzone" data-target-group="2"></div>
+                                        </div>
+                                    </div>
+
+                                    <h4>Opciones:</h4>
+                                    <div class="draggable_container">
+                                        <div data-group="1" class="item_1">El RED puede no tener la granularidad que se requiere.</div>
+                                        <div data-group="2" class="item_2">Necesita una alta inversión en la producción.</div>
+                                        <div data-group="1" class="item_3">La arquitectura tecnológica con la que fue construido el RED no facilita la portabilidad y, por tanto, no puede ser llevado a otro sitio o plataforma.</div>
+                                        <div data-group="2" class="item_4">Requiere de un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</div>
+                                        <div data-group="1" class="item_5">El contexto de uso del RED no corresponde al que se requiere.</div>
+                                    </div>
+                                    <br class="clear" />
+
+                                    <div class="box_end"></div>
+                                    <feedback>
+                                        <correct>
+                                            <div class="w-content-controler general" data-content="#13_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                            <div id="13_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Reusar un RED</th>
+                                                            <th>Producir un RED</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>El RED puede no tener la granularidad que se requiere.</td>
+                                                            <td>Necesita una alta inversión en la producción.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>La arquitectura tecnológica con la que fue construido el RED no facilita la portabilidad y, por tanto, no puede ser llevado a otro sitio o plataforma.</td>
+                                                            <td>Requiere de un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>El contexto de uso del RED no corresponde al que se requiere.</td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </correct>
+                                        <wrong>
+                                            <div class="w-content-controler general" data-content="#13_cuestionario_correct" data-property-width="auto">Correcto</div>
+                                            <div id="13_cuestionario_correct" class="w-content modal-feedback" title="¡Felicitaciones!">
+                                            <table class="datatable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Reusar un RED</th>
+                                                        <th>Producir un RED</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>El RED puede no tener la granularidad que se requiere.</td>
+                                                        <td>Necesita una alta inversión en la producción.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>La arquitectura tecnológica con la que fue construido el RED no facilita la portabilidad y, por tanto, no puede ser llevado a otro sitio o plataforma.</td>
+                                                        <td>Requiere de un equipo de trabajo interdisciplinario con experiencia en la producción de RED.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>El contexto de uso del RED no corresponde al que se requiere.</td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </wrong>
+                                    </feedback>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
+                a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>Ángela María Valderrama Muñoz<br />
+                        Cristina Quintero Londoño<br />
+                        Mónica Deossa Quintero</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>Laura Pérez González</cite>
+            </div>
+            <div>
+                <h3>Traducción de contenidos</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Mariana Múnera Manco</cite>
+                <cite>Jesús María Otero Vega</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br/>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a> <br />
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a> <br />
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="BambuColectivo" /></a><br/>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: Agosto 2019<br />
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br /> El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por
+                favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla.
+                Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+dd {
+    display: list-item;
+    list-style: circle inside;
+}
+
+/********************************************************************************/
+
+
+/* Actividad arrastrar y soltar - apareamiento
+/********************************************************************************/
+
+.w-content.modal-feedback {
+    max-width: 500px;
+}
+.draggable_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 5px;
+    justify-content: center;
+}
+.jpit-activities-droppable .draggable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropzone_container {
+    display: flex;
+    flex-flow: row;
+}
+.dropzone_container h5 {
+    padding: 10px;
+    display: block;
+    background-color: #003543;
+    color: #FFFFFF;
+    margin: 2px 0;
+}
+.dropzone_container .column {
+    flex: 1;    
+}
+
+.dropzone_container .dropzone {
+    min-height: 300px;
+    margin: 0 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+#arrastrar2.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+    width: auto;
+    margin: 2px;
+}
+
+#arrastrar2 .draggable_container,
+#arrastrar3 .draggable_container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: unset;
+}
+
+#arrastrar2 .draggable_container .draggable {
+    max-width: 300px;
+    margin: 5px;
+}
