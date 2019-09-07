@@ -37,9 +37,6 @@ dhbgApp.mobile.start = function() {
     if (dhbgApp.scorm) {
         dhbgApp.scorm.initialization({activities_percentage: dhbgApp.evaluation.activities_percentage});
     }
-    else {
-        $('[data-global-id="results"]').remove();
-    }
 
     // ==============================================================================================
     // Full content to Mobile view
@@ -946,7 +943,7 @@ dhbgApp.mobile.start = function() {
 
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_both_content elements"></div>');
-        $this.find('>dl').each(function() {
+        $this.find('left >dl, right>dl').each(function() {
             var $dl = $(this);
 
             var $element_container = $('<div class="element"></div>');

@@ -369,15 +369,17 @@ dhbgApp.scorm.activityAttempt = function(activity_key, value, index, txt){
     dhbgApp.scorm.activitiesCurrent++;
 
     dhbgApp.scorm.activities[activity_key][position] = value;
-    doLMSSetValue(sub_key + '.result', value);
-
     dhbgApp.scorm.saveProgress();
-    doLMSSetValue(sub_key + '.id', activity_key);
 
-    if (txt) {
-        doLMSSetValue(sub_key + '.student_response', txt);
+
+    if (dhbgApp.scorm.lms) {
+        doLMSSetValue(sub_key + '.result', value);
+        doLMSSetValue(sub_key + '.id', activity_key);
+        if (txt) {
+            doLMSSetValue(sub_key + '.student_response', txt);
+        }
+        doLMSCommit();
     }
-    doLMSCommit();
 
 };
 
@@ -385,7 +387,9 @@ dhbgApp.scorm.setActivityValue = function(key, value){
     try {
         dhbgApp.scorm.activitiesValues[key] = value;
         dhbgApp.scorm.saveProgress();
-        doLMSCommit();
+        if (dhbgApp.scorm.lms) {
+            doLMSCommit();
+        }
         return true;
     }
     catch (e) {

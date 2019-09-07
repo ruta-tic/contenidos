@@ -9,14 +9,13 @@ button.general.w-content-controler {
 }
 
 /********************************************************************************/
-
-
 /* Actividad arrastrar y soltar - apareamiento
 /********************************************************************************/
 
 .w-content.modal-feedback {
     max-width: 500px;
 }
+
 .draggable_container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -39,14 +38,17 @@ button.general.w-content-controler {
     background-color: #003543;
     color: #FFFFFF;
     margin: 2px 0;
+    min-height: 40px;
 }
+
 .dropzone_container .column {
-    flex: 1;    
+    flex: 1;
+    width: 50%;
 }
 
 .dropzone_container .dropzone {
     min-height: 200px;
-    margin: 0 10px;
+    margin: 0 2px;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
