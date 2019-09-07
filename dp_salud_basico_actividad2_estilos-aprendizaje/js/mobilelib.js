@@ -3453,7 +3453,14 @@ dhbgApp.mobile.load_operations = function() {
             var weight = Math.round(count_corrects * 100 / groups.length);
 
             if (dhbgApp.scorm) {
-                dhbgApp.scorm.activityAttempt(scorm_id, weight);
+                var student_response = [];
+                $this.find('[data-group].selected').each(function(idx, el) {
+                    student_response[student_response.length] = $(el).attr('data-group-value');
+                });
+
+                student_response = student_response.join('|');
+
+                dhbgApp.scorm.activityAttempt(scorm_id, weight, null, student_response);
             }
             dhbgApp.printProgress();
 
