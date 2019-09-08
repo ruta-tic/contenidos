@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="./img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>¿Cómo elegir el recurso educativo digital más pertinente?</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>¿Cómo elegir el recurso educativo digital más pertinente? </h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Recurso educativo digital" data-page="pag-inicio">
+                    <menu>
+                        <menuitem label="Reusar o producir un RED" data-page="pag-re-proRed">
+                        <menu>
+                            <menuitem label="Reusar un RED existente" data-page="pag-reusar-red"></menuitem>
+                            <menuitem label="Producir un RED" data-page="pag-producir-red"></menuitem>
+                        </menu>
+                        </menuitem>
+                    </menu>
+                    </menuitem>
+                    <menuitem label="¿El RED ya existe?" data-page="pag-redex">
+                    <menu>
+                        <menuitem label="Repositorios de recursos educativos digitales" data-page="pag-repositorio"></menuitem>
+                        <menuitem label="Plataformas en línea de distribución de contenidos" data-page="page-distribucion"></menuitem>
+                    </menu>
+                    </menuitem>
+                    <menuitem label="Criterios de búsqueda" data-page="pag-criteriosBusqueda"></menuitem>
+                    <menuitem label="Resultados de búsqueda" data-page="pag-resultados"></menuitem>
+                    <menuitem label="Criterios de evaluación " data-page="pag-criteriosEvaluacion">
+                    <menu>
+                        <menuitem label="Evaluación de un RED" data-page="page-evolucion"></menuitem>
+                    </menu>
+                    </menuitem>
+
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+            <!-- 1. Recurso educativo digital  -->
+            <section id="pag-inicio" ptitle="Presentación">
+
+                <div class="subpage">
+                    <h3>Introducción</h3>
+                    <p>
+                        Este objeto virtual de aprendizaje expone el caso de la profesora Juliana quien requiere de un material como apoyo para su clase, por lo tanto, varios momentos serán presentados para dar solución a su necesidad. A medida en que avance el caso obtendrá
+                        la información necesaria que le permitirá dar solución a la necesidad de la profesora y, de igual forma, deberá realizar algunos ejercicios para poner en práctica lo visto.
+                    </p>
+                    <p>
+                        Al finalizar, deberá realizar una actividad para buscar un recurso que aporte al caso de la profesora y deberá compartirlo con sus compañeros a través de un foro. La actividad estará completada cuando responda correctamente las preguntas acerca de reusar
+                        o producir un recurso educativo digital, participe en el foro respondiendo las preguntas orientadoras y haga un comentario a uno de sus compañeros.
+                    </p>
+                </div>
+
+                <div class="subpage">
+                    <h3>¿Cómo elegir el recurso educativo digital más pertinente?</h3>
+                    <p>
+                        Conoce a la profesora Juliana, quien constantemente evalúa sus cursos por medio de trabajos escritos como informes, resúmenes, reportes y ensayos. Sus estudiantes, un poco preocupados, le han pedido que les explique qué es un ensayo, por lo que ahora Juliana cree que la mejor opción de llevar a cabo la explicación es a través de un recurso educativo digital y se debate entre reusar uno o producirlo.
+                    </p>
+
+                </div>
+
+                <div class="subpage">
+                    <h3>¿Cómo tomar la decisión?</h3>
+                    <p>Ayúdele a la profesora Juliana a tomar la decisión: ¿Debe ponerse manos a la obra y producir su propio material o comenzar a indagar por un recurso educativo digital ya existente?.</p>
+
+                </div>
+
+            </section>
+
+            <!--1.1 Reusar o producir un RED-->
+            <section id="pag-re-proRed" ptitle="Reusar o producir un RED">
+                <div class="subpage">
+                    <p><img src="./content/Reusar_un_RED_existente-01.png" alt="" style="float: left;margin: 20px;">
+                        <h3> Reusar o producir un RED</h3>
+
+                        <p>Antes de tomar una decisión sobre reusar o producir, se recomienda tener en cuenta algunas preguntas orientadoras para entender lo que realmente se requiere y su relación con el proceso de formación que se lidera, por ejemplo:
+                        </p>
+
+
+                        <ul class="data_list">
+                            <li>¿Qué papel jugará el recurso educativo en el objetivo de aprendizaje propuesto? </li>
+                            <li>¿Qué características debe tener este recurso? </li>
+                            <li>¿Cuáles son las expectativas alrededor del tema? </li>
+                            <li>¿Existe algún material educativo con las características que se requieren?</li>
+                            <li>¿Con qué recursos (talento humano, tiempo, herramientas de software, dinero, etc.) se cuenta para producirlo?</li>
+                        </ul>
+                    </p>
+                    <p>Es importante reconocer que uno de los fundamentos de la producción de un RED es la <strong>reutilización</strong>, por ello, antes de tomar una decisión se sugiere realizar una búsqueda en la web que permita tener un panorama sobre los recursos que
+                        se han realizado y licenciado con el fin de que otros puedan accederlo, compartirlo, copiarlo, distribuirlo y en algunas ocasiones adaptarlo, representarlo, modificarlo o mezclarlo. </p>
+
+                    <div class="box-text note" label="Nota">
+                        <p>
+                            Si se contempla la opción de producir se deben evaluar los recursos (talento humano, tiempo, herramientas de software, dinero, etc) con los que se cuenta.
+                        </p>
+                    </div>
+
+
+                    <p>Las opciones de reusar producir no son en sí mismas buenas o malas, la ruta a seguir la determinará el objetivo, la intencionalidad que se tenga y los recursos disponibles para su producción. En ambos casos, el rol del profesor en
+                        la producción deberá estar enfocada en los aspectos pedagógicos y didácticos que permitan establecer una coherencia con el proceso de aprendizaje en términos cognitivos y procedimentales que se deseen potenciar con el recurso educativo.</p>
+                </div>
+            </section>
+
+            <!-- 1.1.1Reusar o producir un RED-->
+            <section id="pag-reusar-red" ptitle="Reusar un RED existente">
+                <div class="subpage">
+                    <h3>Reusar un RED existente</h3>
+                    <p>En este contexto entendemos reusar como la posibilidad que tiene una persona de referenciar (redireccionar a un sitio web) o modificar, si la <a class="w-content-controler general" data-content="#licencia">licencia</a> lo permite,
+                        un recurso educativo digital creado por otro autor. </p>
+                    <div id="licencia" class="w-content">
+                        Si desea ampliar la información respecto a los tipos de licencia existentes puede hacer clic en los siguientes enlaces:<a target="_blank" href="https://co.creativecommons.org/?page_id=13">Creative Commons Colombia</a> y <a target="_blank"
+                            href="http://aprendeenlinea.udea.edu.co/boa/contenidos.php/56c1d0e258f520396be4b3e190be9070/304/1/contenido/"> Ministerio de Educación Nacional</a>
+                    </div>
+                    <div class="box-text important" label="Importante">
+                        <p>
+                            Si decides reusar un recurso ya existe para apoyar el proceso de formación, no olvides citarlo utilizando el sistema de citación correspondiente al área de conocimiento (APA, Vancouver, IEEE, etc.)
+
+                        </p>
+                    </div>
+
+                    <p>
+                        A continuación, se presentan algunos criterios que se deben tener presentes a la hora de reusar un RED existente.
+                    </p>
+
+
+                    <div class="vertical-menu">
+                        <dl>
+                            <dt>Identificar las posibilidades pedagógicas y didácticas</dt>
+                            <dd>
+                                <h5>Identificar las posibilidades pedagógicas y didácticas</h5>
+                                <p>La búsqueda de un RED parte de una necesidad en el proceso de enseñanza, por lo tanto, es importante validar la coherencia entre el objetivo que tiene el RED encontrado y el uso que se le dará dentro del proceso de formación.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Verificar los contenidos</dt>
+                            <dd>
+                                <h5>Verificar los contenidos</h5>
+                                <p>También es necesario reconocer el tipo de licencia que tiene con el fin de tener claridad sobre las posibilidades de referenciarlo o modificarlo según la intencionalidad que se tenga.
+                                </p>
+                                <div class="box-text note" label="Nota">
+                                    <p>
+                                        También es necesario reconocer el tipo de licencia que tiene con el fin de tener claridad sobre las posibilidades de referenciarlo o modificarlo según la intencionalidad que se tenga.
+                                    </p>
+                                </div>
+                                <p>Esto permitirá definir la forma en que se puede difundir con los estudiantes, es decir, si el recurso puede ser publicado en otro sitio, plataforma o repositorio diferente de donde se encontró, o si por el contrario se
+                                    debe redireccionar a su fuente principal.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Evaluar la herramienta tecnológica y digital</dt>
+                            <dd>
+                                <h5>Evaluar la herramienta tecnológica y digital</h5>
+                                <p>Es importante valorar la tecnología requerida para usar el RED con el fin de identificar los requerimientos técnicos que exige su uso, por ejemplo, capacidad de memoria o procesamiento, instalación de un software, entre
+                                    otros.
+                                    <br> <br> Otros criterios a tener en cuenta en la selección son la temporalidad (fecha de elaboración del recurso), confiabilidad de la fuente de información e idioma.</p>
+                            </dd>
+                        </dl>
+                    </div>
+
+
+                </div>
+            </section>
+            <!-- 1.1.2 Producir un RED-->
+            <section id="pag-producir-red" ptitle="Producir un RED">
+                <div class="subpage">
+                    <h3>Producir un RED</h3>
+                    <div class="box-text note" label="Nota">
+
+                        <p>
+                            La producción de un recurso educativo digital puede realizarse de una forma artesanal, esto es, con las herramientas y recursos que no generan ningún costo.
+                        </p>
+                    </div>
+                    <img src="./content/producir_un_RED-01.png" style="float: right ;margin: 0 20px 20px 0;;" alt="">
+                    <br><br>
+                    <p>En este tipo de creación el profesor es el responsable de toda la producción y es quien desarrollará los diferentes roles (diseñador gráfico, realizador audiovisual, experto temático, etc.). Algunos profesores eligen este camino porque
+                        los recursos son limitados o porque les gusta la producción de contenidos educativos.
+                    </p>
+                    <p>A continuación, se enuncian algunos aspectos para tener presentes en la producción.</p>
+                    <div class="clear"></div>
+                    <div class="vertical-menu-both-sides">
+                        <left>
+                        <dl>
+                            <dt>Establecer las posibilidades didácticas y pedagógicas</dt>
+                            <dd>
+                                <h5>Establecer las posibilidades didácticas y pedagógicas</h5>
+                                <p>La producción de un RED debe enfocarse en la intencionalidad pedagógica y didáctica que se tenga, y no en el uso de la herramienta tecnológica. Por ello debe estar orientada a promover el aprendizaje de una área disciplinar
+                                    específica.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Reconocer la utilidad de cada uno de los lenguajes de representación del conocimiento</dt>
+                            <dd>
+                                <h5>Reconocer la utilidad de cada uno de los lenguajes de representación del conocimiento</h5>
+                                <p>Es importante conocer las características y las posibilidades que tienen los diferentes lenguajes (visual, sonoro, audiovisual, etc.) para enseñar un objeto de aprendizaje.</p>
+
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Estimar los recursos necesarios para su producción</dt>
+                            <dd>
+                                <h5>Estimar los recursos necesarios para su producción</h5>
+                                <p>Es importante tener claridad de lo que se requiere para la producción, esto incluye roles que se necesitan, tiempo o costo de las personas que participarán en el proceso de producción, y equipos o programas de software
+                                    requeridos, entre otros. En esta estimación debe quedar claro quién asumirá todos estos costos.</p>
+                            </dd>
+                        </dl>
+                    </left>
+                    <right>
+                        <dl>
+                            <dt>Identificar las herramientas necesarias para su construcción</dt>
+                            <dd>
+                                <h5>Identificar las herramientas necesarias para su construcción</h5>
+                                <p>Para la producción se requerirán herramientas de hardware y/o software, por lo tanto, es indispensable definir con qué herramientas se va a trabajar y si es necesario capacitarse en su uso.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Planear, ejecutar y hacer seguimiento a la producción</dt>
+                            <dd>
+                                <h5>Planear, ejecutar y hacer seguimiento a la producción</h5>
+                                <p>Establecer la metodología que se utilizará para producir el recurso facilitará establecer las actividades a realizar y la forma en que se hará el seguimiento, por ejemplo, el modelo ADDIE debe incluir el análisis, diseño,
+                                    desarrollo, implementación y evaluación.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Definir la licencia del recurso</dt>
+                            <dd>
+                                <h5>Definir la licencia del recurso</h5>
+                                <p>Establecer el tipo de licencia facilitará que quien encuentre el recurso pueda identificar sus posibilidades de uso y respetar los derechos de autor.</p>
+                            </dd>
+                        </dl>
+                    </right>
+                    </div>
+                    <h3>¿Producir o reusar? </h3>
+                    <div style="
+                    height: 100%;
+                    margin-bottom: 77px;">
+                        <p>
+                            <img src="./content/producir_o_reusar-01.png" style="float: right ;margin: 0 20px 50px 0;" alt="" />
+                            Con la información que se acaba de exponer ya cuenta con elementos para tomar una decisión: ¿Debe la profesora Juliana realizar
+                            el recurso educativo digital en formato video acerca de “Cómo elaborar un ensayo” o debería reusar un material existente? Antes de continuar con el caso de la profesora, debe aplicar los conocimientos aprendidos indicando los
+                            aspectos a tener en cuenta para reusar o producir un RED. Al momento de planear una clase, desarrollar un tema o querer complementar los procesos de enseñanza y de aprendizaje que se llevan dentro del aula, una de las tareas
+                            más imprescindibles es la selección de materiales que permita alcanzar los objetivos de aprendizaje propuestos. En esta selección, el profesor puede encontrarse con el dilema: ¿Reuso o produzco el recurso?.
+                        </p>
+                    </div>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            De acuerdo con su conocimiento y experiencia determine los aspectos que se deben tener en cuenta para usar o producir un recurso. Ubique cada una de las acciones según el proceso al que correspondan y, al finalizar, valide sus respuestas.
+                        </p>
+                    </div>
+                    <br>
+
+                    <div id="actividad1">
+                        <div id="arrastrargrupos" class="jpit-activities-droppable" data-act-title="¿Qué aspectos debo tener en cuenta al momento de...?" data-act-id="1-reda" data-target-multi="0">
+
+                            <center>
+                                <h3>¿Qué aspectos debo tener en cuenta al momento de...?</h3>
+                            </center>
+                            <div class="dropzone_container">
+                                <div class="column">
+                                    <h5>Reusar un REDA</h5>
+                                    <div class="dropzone" data-target-group="1"></div>
+                                </div>
+                                <div class="column">
+                                    <h5>Producir un REDA</h5>
+                                    <div class="dropzone" data-target-group="2"></div>
+                                </div>
+                            </div>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <wrong>
+                                    Valide nuevamente. Si lo desea, puede volver a revisar el material sobre reusar o producir un RED.
+                                </wrong>
+                                <correct>
+                                    ¡Muy bien! Reconoce los aspectos a tener en cuenta al momento de reusar o producir un RED.
+                                </correct>
+                            </feedback>
+
+                            <div class="sources">
+                                <div data-group="1">Reconocer el tipo de licencia del recurso</div>
+                                <div data-group="1">Identificar posibilidades didácticas y pedagógicas</div>
+                                <div data-group="1">Reconocer la forma en que puede ser divulgado</div>
+                                <div data-group="1">Identificar los requerimientos técnicos</div>
+                                <div data-group="2">Definir la licencia del recurso</div>
+                                <div data-group="2">Planear, ejecutar y hacer seguimiento al proceso de construcción</div>
+                                <div data-group="2">Estimar los recursos necesario para su elaboración</div>
+                                <div data-group="2">Establecer las posibilidades didácticas y pedagógicas</div>
+                                <div data-group="2">Identificar el software y hardware necesario para su construcción</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </section>
+
+            <!-- 2. ¿Realmente el RED ya existe? -->
+            <section id="pag-redex" ptitle="¿Realmente el RED ya existe?">
+                <div class="subpage">
+                    <p>Además de buscar ayuda, la profesora estuvo conversando con colegas y otras personas de su Facultad sobre la necesidad de un material que explique cómo se elabora un ensayo para compartirlo con los estudiantes del curso. Muchos coinciden
+                        en que la escritura académica es una competencia transversal en el ámbito académico y son conscientes de la importancia del recurso educativo, lo que motivó a Juliana a indagar más.</p>
+                    <p>Finalmente, tomó la decisión de buscarlo en la Web.</p>
+                    <div class="box-text note " label="Nota" style="
+                    text-align: center;">
+                        <h5>¿Conoces las fuentes de información a las que podrías recurrir? </h5>
+                        <p>
+                            YouTube, Flicker y Merlot.
+                        </p>
+                        <h5>¿Sabes qué son los repositorios especializados?</h5>
+                    </div>
+                    <img src="./content/repositorios-02.png" style="float: left;margin: 20px;" alt="">
+                    <p>
+                        Ante la producción de recursos educativos digitales se evidencia la necesidad de desarrollar herramientas que los almacenen, cataloguen, publiquen y validen información, facilitando su búsqueda, administración y recuperación. Las herramientas que permiten
+                        esto son llamados repositorios.
+                    </p>
+                    <p>
+                        <img src="./content/repositorios_Mesa de trabajo 1.png" style="float: right;margin: 20px;" alt=""> Los repositorios nacen como iniciativas institucionales para almacenar, recuperar y compartir los recursos educativos digitales.
+                        En este sentido, se definen como “un sistema de información digital, definido, gestado, implementado y operado por una Institución de Educación Superior, cuya principal función es recopilar, almacenar, ordenar, localizar, preservar
+                        y redistribuir los RED creados y producidos por la institución y los miembros de su comunidad, con la finalidad de disponerlos en un entorno web, de Acceso Público, en el cual pueden ser compartidos según los permisos legales del
+                        recurso, para su uso y apropiación en los procesos educativos a través de un conjunto de servicios orientados a la administración y gestión de estos recursos.” (Ministerio de Educación Nacional, 2014, p. 110).
+
+                    </p>
+                    <p>
+                        Además de los repositorios existen plataformas en línea de distribución de contenido que permiten buscar recursos como imágenes, videos, documentos y demás contenido para la creación de un RED.
+                    </p>
+                    <br><br>
+
+                </div>
+            </section>
+            <!-- 2.1 Repositorios de recursos educativos digitales-->
+            <section id="pag-repositorio" ptitle="Repositorios de recursos educativos digitales">
+                <div class="subpage">
+                    <h3>¿Dónde buscar?</h3>
+                    <h5>Repositorios de recursos educativos digitales</h5>
+                    <div class="vertical-menu">
+                        <dl>
+                            <dt>Repositorios institucionales</dt>
+                            <dd>
+
+                                <p>Ante la necesidad de almacenar, buscar y compartir los RED, las instituciones crean sus propios repositorios. Un ejemplo de ello es el Repositorio de la Universidad de Antioquia.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Repositorios internacionales</dt>
+                            <dd>
+                                <p>Entre los repositorios internacionales más reconocidos están:
+                                </p>
+
+                                <ul class="data_list">
+                                    <li> <a href="http://info.merlot.org/merlothelp/index.htm">
+                                                Merlot:
+                                                </a>Permite la búsqueda avanzada en el repositorio (miembros registrados, ISBN, disciplina) y otras fuentes externas.</li>
+
+                                    <li><a href="http://agrega.educacion.es/visualizadorcontenidos2/Portada/Portada.do">Agrega:</a>Es una plataforma que cuenta con nodos en todas las Consejerías de Educación de las Comunidades Autónomas de España. Los contenidos
+                                        educativos que se pueden encontrar allí están organizados de acuerdo con los niveles de educación media.
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <!-- 2.2  Plataformas en línea de distribución de contenidos-->
+            <section id="page-distribucion" ptitle="Plataformas en línea de distribución de contenidos">
+                <div class="subpage">
+                    <h5>Plataformas en línea de distribución de contenidos</h5>
+                    <p>Permiten buscar contenido que pueden ser parte de un recurso educativo digital.</p>
+                    <div class="vertical-menu">
+                        <dl>
+                            <dt>Videos</dt>
+                            <dd>
+                                <ul class="data_list">
+                                    <li><a target="_blank" href="https://vimeo.com/creativecommons">Vimeo</a></li>
+                                    <li><a target="_blank" href="https://www.youtube.com/">YouTube</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Imágenes</dt>
+                            <dd>
+                                <li><a target="_blank" href="https://www.flickr.com/creativecommons/">Flickr</a></li>
+                                <li><a target="_blank" href="https://commons.wikimedia.org/wiki/Main_Page">Wikimediacommons</a></li>
+                                <li><a target="_blank" href="https://pixabay.com/es/">Pixabay</a></li>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Música</dt>
+                            <dd>
+                                <li><a target="_blank" href="https://www.jamendo.com/?language=es">Jamendo</a></li>
+                                <li><a target="_blank" href="http://dig.ccmixter.org/free">Digmixter</a></li>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Metabuscadores</dt>
+                            <dd>
+                                <li><a target="_blank" href="https://oldsearch.creativecommons.org/">Creative Commons</a></li>
+
+                            </dd>
+                        </dl>
+                    </div>
+            </section>
+
+
+            <!-- 3. Criterios para realizar la búsqueda -->
+            <section id="pag-criteriosBusqueda" ptitle="Criterios para realizar la búsqueda">
+                <div class="subpage">
+                    <img src="./content/Criterios_para_realizar_ búsqueda-01.png" style="float: left;margin: 20px;" alt="">
+                    <p>La profesora Juliana se dio cuenta de que encontrar un material educativo que responda a su propósito puede ser complicado si utiliza buscadores como Google, Ask o DuckDuckgo, los cuales arrojan cientos de resultados y muchos de ellos
+                        no están relacionados con su búsqueda. Por ello, necesita aplicar algunos criterios que le reduzcan los resultados
+                    </p>
+                    <p>Antes de realizar una búsqueda:</p>
+                    <ul class="data_list">
+                        <li>Defina una pregunta que desee responder</li>
+                        <li>Establezca las palabras clave y/o descriptores de su búsqueda </li>
+                        <li>Analice si desea incluir o excluir algunos resultados</li>
+                        <li>Determine el tipo de formato que desea encontrar</li>
+                        <li>Identifique, de acuerdo con su interés, la fuente de información apropiada. </li>
+                    </ul>
+                    <p>Para buscar qué recursos existen sobre un tema de específico, se recomienda seguir los siguientes pasos:</p>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>Paso 1</dt>
+                            <dd>
+                                <h5>Definir la pregunta que se desea resolver</h5>
+                                <p>Antes de iniciar el proceso de búsqueda es necesario identificar la pregunta sobre el dominio de conocimiento que se desea resolver. Según Hurtado de Barrera (2008), para la formulación de la pregunta se debe tener en cuenta
+                                    lo siguiente:
+                                </p>
+                                <ul class="data_list">
+                                    <li>Objetivo (qué se quiere saber)</li>
+                                    <li>Evento (acerca de qué)</li>
+                                    <li>Unidad (en quiénes)</li>
+                                    <li>Temporalidad (cuándo)</li>
+                                    <li>Contexto (dónde)</li>
+                                </ul>
+                                <p>La pregunta proporcionará algunos aspectos que se deberán tener cuenta en la búsqueda y que ayudarán en la precisión y depuración de la búsqueda de información.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Paso 2</dt>
+                            <dd>
+                                <h5>Selección de la(s) fuente(s) de información</h5>
+                                <p>Las fuentes de información hacen referencia a los recursos y herramientas que se encuentran a nuestro alcance para buscar, ubicar e identificar los contenidos que se requieren, independiente del formato o soporte en el
+                                    que se encuentren. Algunos ejemplos de fuentes de información digital son:</p>
+                                <ul class="data_list">
+                                    <li>Repositorios especializados que ofrecen el servicio de monitoreo de la calidad de las fuentes de información. </li>
+                                    <li>Bases datos.</li>
+                                    <li>Buscadores o motores de búsqueda.</li>
+                                </ul>
+                                <p>Identificar las fuentes de información pertinentes propician la disminución de la incertidumbre y facilitan la recuperación de información confiable que pueda responder a la pregunta.
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Paso 3</dt>
+                            <dd>
+                                <h5>Diseño de estrategias de búsqueda (enunciado de la búsqueda)
+                                </h5>
+                                <p>A partir de la pregunta a resolver se diseñan las posibles estrategias de búsqueda para introducirlas en los motores de búsqueda y recuperar la información de mayor pertinencia. En la elaboración del enunciado de la búsqueda
+                                    se recomienda tener en cuenta lo siguiente:
+                                </p>
+                                <div class="box-text important" label="Importante">
+                                    <h5>Operadores booleanos</h5>
+                                    <p>
+                                        Retomados de la básica teoría de conjuntos, sirven para definir las conexiones entre cada término o concepto, y establecer la relación entre ellos. Los más utilizados son:
+                                    </p>
+                                    <table class="datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Operador</th>
+                                                <th>Descripción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>AND</td>
+                                                <td>Incluye todos los términos indicados en la estrategia de búsqueda.</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>OR</td>
+                                                <td>Incluye algunos de los términos indicados en la estrategia de búsqueda. </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>NOT</td>
+                                                <td>Extrae uno de los términos indicados en la estrategia de búsqueda.</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Truncamiento Los signos más comunes son *,? o $. Estos pueden variar en cada base de datos.
+                                                </td>
+                                                <td>Permite buscar términos sustituyendo una parte de éstos con un signo. Los operadores de truncamiento son útiles cuando en el enunciado de la estrategia:
+                                                    <ul class="data_list">
+                                                        <li>Existen múltiples términos que provienen de la misma raíz.
+                                                        </li>
+                                                        <li>Hay dudas sobre cómo se escribe una palabra o existen variantes para escribirla. </li>
+                                                        <li>Es necesario buscar todas las variantes de una palabra y sus formas en singular o plural.</li>
+                                                    </ul>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Proximidad</td>
+                                                <td>Son útiles para especificar la ubicación relativa de los términos clave dentro de los resultados, ya sea que se encuentre en la misma frase, párrafo o línea.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="box-text important" label="Importante">
+                                    <h5>Palabras clave y descriptores</h5>
+                                    <p>La obtención de resultados pertinentes en la búsqueda dependerá, en gran medida, de los términos clave seleccionados para dar respuesta a la pregunta planteada. Estos deben precisos y describir el contenido del recurso
+                                        que se desea encontrar en lenguaje natural, el mismo que se utiliza en la comunicación humana.
+
+                                    </p>
+                                    <p>De igual forma, es importante usar descriptores y emplear un vocabulario controlado y dinámico, compuesto por términos que tienen entre ellos relaciones semánticas y genéricas, y que se aplica a un dominio particular
+                                        del conocimiento. Esto puede ser de gran utilidad para realizar búsquedas en repositorios o bases de datos especializadas.</p>
+                                </div>
+                                <div class="box-text important" label="Importante">
+                                    <h5>Determinar el tipo de formato</h5>
+                                    <p>Establecer el tipo de formato que esperamos obtener en los resultados de búsqueda permitirá limitar los resultados y, por ende, que estos se aproximen a lo que se está buscando. Según la fuente de información utilizada,
+                                        se podrá realizar el filtro de la búsqueda por video, audio, imágenes, entre otros.
+                                    </p>
+                                </div>
+                            </dd>
+
+
+                        </dl>
+                        <dl>
+                            <dt>Paso 4</dt>
+                            <dd>
+                                <h5>Refinar la búsqueda</h5>
+                                <p>Cuando los resultados de la búsqueda no dan respuesta a la pregunta inicialmente planteada o no contemplan el nivel de especificidad que se requiere, en algunos casos será necesario redefinir la estrategia de búsqueda,
+                                    limitarla o ampliarla.
+                                </p>
+                                <p>Algunos consejos para refinar la búsqueda:
+                                </p>
+
+                                <ul class="data_list">
+                                    <li>Identifique términos o sinónimos relevantes que haya encontrado en búsquedas preliminares.</li>
+                                    <li>Elimine los términos vagos o muy generales para que la búsqueda sea lo más precisa (específica) posible.</li>
+                                    <li>Evite la ambigüedad, es decir, aquello que puede interpretarse de maneras diferentes y cuyos significados son opuestos o lejanos.</li>
+                                </ul>
+                                <br>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 4. Resultados de búsqueda -->
+            <section id="pag-resultados" ptitle="Resultados de búsqueda">
+                <div class="subpage">
+                    <p>A continuación, encontrarás los RED encontrados por la profesora y el porqué los seleccionó:</p>
+                    <div class="section-4Content ">
+                        <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-1">
+                            <h5>Recurso 1</h5>
+                            <div>
+                                <div id="recurso-1"></div>
+                            </div>
+                        </div>
+                        <div id="ventana_textos_modal-recurso-1" class="w-content" data-property-width="55%" title="Recurso 1">
+                            <div class="modal-recurso">
+                                <div><img src="./content/recurso_1.png" alt=""></div>
+                                <div>
+                                    <p>Para ver el recurso haga clic <a target="_blank" href="https://youtu.be/xn68YiQw5I0">aquí.</a> </p>
+                                    <p>
+                                        La profesora utilizó criterios relacionados con los contenidos y la tecnología. Ella seleccionó este recurso por la exactitud y la claridad del contenido, además de presentar las ideas en una secuencia lógica. Otra razón es el formato en video y la duración;
+                                        ella considera que el lenguaje audiovisual puede ser novedoso y llamativo para sus estudiantes. Este recurso resuelve la pregunta sobre qué es un ensayo, pero la explicación sobre cómo se realizar un ensayo le parece
+                                        limitada. No obstante, le parece un recurso muy aproximado a lo deseado.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-2">
+                            <h5>Recurso 2</h5>
+                            <div>
+                                <div id="recurso-2"></div>
+                            </div>
+                        </div>
+                        <div id="ventana_textos_modal-recurso-2" class="w-content" data-property-width="55%" title="Recurso 2">
+                            <div class="modal-recurso">
+                                <div><img src="./content/recurso_2.png" alt=""></div>
+                                <div>
+                                    <p>Para ver el recurso haga clic <a target="_blank" href="https://bit.ly/2HlL63v">aquí.</a></p>
+                                    <p>Juliana encontró que el contenido del recurso “El ensayo académico” se aproxima a las respuestas que estaba buscando resolver; es coherente con la intencionalidad pedagógica y didáctica que tiene y presenta una secuencia
+                                        clara y lógica. Además, está publicado en un repositorio institucional confiable y cuenta con una licencia creative commons, la cual le permite crear una obra a partir de ésta, en caso de que desee complementarlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-3">
+                            <h5>Recurso 3</h5>
+                            <div>
+                                <div id="recurso-3"></div>
+                            </div>
+                        </div>
+                        <div id="ventana_textos_modal-recurso-3" class="w-content" data-property-width="55%" title="Recurso 3">
+                            <div class="modal-recurso">
+                                <div><img src="./content/recurso_3.png" alt=""></div>
+                                <div>
+                                    <p>Para ver el recurso haga clic <a target="_blank" href="https://www.youtube.com/watch?v=sk7pP91KC4c">aquí.</a></p>
+                                    <p>En el recurso “¿Cómo escribir un ensayo?” Juliana encontró la respuesta a las preguntas relacionadas con las características y la estructura. Además, es una videoclase que cumple con la intencionalidad pedagógica y
+                                        es una fuente académica, realizada por una universidad reconocida. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- 5. Criterios de evaluación de un RED -->
+            <section id="pag-criteriosEvaluacion" ptitle="Criterios de evaluación de un RED">
+                <div class="subpage">
+                    <div style="
+                    margin-bottom: 161px;
+                ">
+                        <img src="./content/Criterios_de_evaluación_RED-01.png" style="float: left;margin: 0 20px 0 0;" alt="">
+                        <p>De acuerdo con el plan que llevó a cabo la profesora Juliana, realizar las búsquedas en un repositorio de contenidos digitales puede ser muy útil, al igual que aplicar estrategias con los operadores booleanos para generar resultados
+                            pertinentes.
+                        </p>
+                        <p>Enfrentarse a esta selección implica tener criterios para la valoración y evaluación de los recursos encontrados.</p>
+                    </div>
+                    <div class="box-text important" label="Importante">
+                        <h5>¿Cómo identificar el recurso educativo más apropiado para este caso?</h5>
+                        <p>
+                            Conozca aquí los criterios que se pueden aplicar para evaluar los recursos encontrados y, con ello, tomar la decisión sobre cuál es el más apropiado para el caso de la profesora Juliana:
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- 5.1 Evaluación de un RED -->
+            <section id="page-evolucion" ptitle="Evaluación de un RED">
+                <div class="subpage">
+
+                    <p>
+                        Cuando se plantea una estrategia didáctica para la educación virtual, los criterios que se pueden tener en cuenta para tomar una decisión frente a un recurso educativo digital <strong> son la intencionalidad de uso, el formato, si se espera que el estudiante use
+                            el recurso por su cuenta, si es un recurso que el mismo docente utilizará para la enseñanza, los costos y las licencias.</strong>
+                    </p>
+
+                    <p>Los criterios mencionados anteriormente sirven para plantear estrategias didácticas y evaluar el posible uso de los RED como apoyo para el aprendizaje de los estudiantes. Sin embargo, autores como Xie, Di Tosto, Chen, y Vongkulluksn
+                        (2018, p. 92-93), plantean un marco teórico para la evaluación de recursos educativos digitales donde destacan cuatro dominios fundamentales: contenido, pedagogía, estándares y tecnología.</p>
+                    <p>A continuación, se presentan cada uno de ellos:</p>
+                </div>
+                <div class="section-5Content">
+                    <div class="view-first">
+                        <div id="Contenido"></div>
+                        <div class="view-content">
+                            <h5>Contenido</h5>
+                            <p>Si el RED complementa los esfuerzos de los profesores en el proceso de enseñanza a sus estudiantes. <strong> El docente debe revisar que este contenga los contenidos pertinentes.</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="view-first">
+                        <div id="Pedagogia"></div>
+                        <div class="view-content">
+                            <h5>Pedagogía</h5>
+                            <p>Si el RED complementa las prácticas pedagógicas de los profesores. <strong> El docente debe revisar si esa es la mejor manera de enseñar el contenido dentro de su entorno de clase específico.</strong></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="view-first">
+                        <div id="Estandares"></div>
+                        <div class="view-content">
+                            <h5>Estándares</h5>
+                            <p>Si existe una coincidencia entre los recursos educativos digitales y los objetivos curriculares específicos, es decir, cómo los contenidos se alinean con los estándares específicos de la materia.</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="view-first">
+                        <div id="Tecnologia"></div>
+                        <div class="view-content">
+                            <h5>Tecnología</h5>
+                            <p>Si en el recurso educativo se aprovechan los recursos tecnológicos para el aprendizaje de los estudiantes, es decir, cómo las herramientas tecnológicas y digitales pueden contribuir de manera productiva con los objetivos de
+                                enseñanza.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-text note" label="Nota">
+                    <h5>Con respecto a la calidad del contenido del recurso educativo, se revisa:
+                    </h5>
+                    <ul class="data_list">
+                        <li>Su exactitud: ¿El contenido contiene los conocimientos actualmente aceptados y está libre de errores?</li>
+                        <li>Su claridad: ¿El contenido se expresa en un lenguaje claro y conciso apropiado para la disciplina y el nivel de desarrollo del estudiante? </li>
+                        <li>¿Transmite efectivamente un sentido general de propósito y la dirección del profesor?</li>
+                        <li>¿Presenta las ideas en una secuencia lógica?</li>
+                        <li>¿El contenido está alineado con las actividades de evaluación y los objetivos de aprendizaje?</li>
+                    </ul>
+                </div>
+                <div class="box-text note" label="Nota">
+                    <h5>
+                        Con respecto a los aspectos pedagógicos, se revisa si el recurso educativo:
+
+                    </h5>
+                    <ul class="data_list">
+
+                        <li> las ideas de los estudiantes y los involucra: da oportunidades para conectarse con los conocimientos y habilidades previos</li>
+                        <li>Promueve el pensamiento de los estudiantes</li>
+                        <li>Desarrolla procesos y prácticas basados ​​en la disciplina</li>
+                        <li>Mejora el ambiente de aprendizaje apoyando a todos los estudiantes al establecer altas expectativas, alentar la curiosidad y las preguntas</li>
+                        <li>Atiende a la diversidad: es culturalmente preciso, actual y libre de sesgos</li>
+
+                    </ul>
+                </div>
+                <div class="box-text note" label="Nota">
+                    <h5>
+                        Con respecto a los aspectos tecnológicos, se revisa si el recurso educativo:
+
+                    </h5>
+                    <ul class="data_list">
+
+                        <li>Busca mejorar las habilidades de los estudiantes en creatividad e innovación</li>
+                        <li>Promueve la comunicación y la colaboración</li>
+                        <li>Ayuda al pensamiento crítico, la resolución de problemas y la toma de decisiones</li>
+                        <li>Tiene un buen diseño y/o navegación que apoye los objetivos de aprendizaje</li>
+                    </ul>
+                </div>
+
+
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+        <!--Créditos-->
+        <div id="credits-page" style="display: none">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+                <div>
+                    <h3>Investigación y desarrollo de contenidos</h3>
+                    <cite>Ángela María Valderrama Muñoz<br />
+                        Mónica Deossa Quintero <br>Cristina Quintero Londoño</cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Marcela Palacio Ortíz </cite>
+                </div>
+                <div>
+                    <h3>Guión</h3>
+                    <cite>Laura Pérez González</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite>Elizabeth Hernández González</cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite>Felipe Quintana</cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>Juan Pablo Romero Laverde</cite>
+                    <cite>Jesús María Otero Vega</cite>
+                </div>
+                <div>
+                    <h3>Revisión de calidad</h3>
+                </div>
+                <div>
+                    <h3>Gestión técnica y administrativa</h3>
+                    <cite>David Herney Bernal García <br>
+                            Maribel Salazar Estrada
+                            </cite></div>
+
+
+                <div>
+                    <h3>Producción</h3>
+                    <p class="logos">
+                        <a href="https://www.perceptio.co" target="_blank"><img src="./img/logoperceptio.png" alt="UdeA" /></a>
+                        <br />
+                        <a href="http://www.udea.edu.co" target="_blank"><img src="./img/logo-udea.png" alt="UdeM" /></a>
+                        <br />
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="BambuColectivo" /></a>
+                        <br />
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="./img/logoberna.png" alt="BambuColectivo" /></a>
+
+                    </p>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+
+                <div class="editions">
+                    1ª edición: Agosto 2019
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br /> El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+                </div>
+
+                <p>
+                    Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por
+                    favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                </p>
+                <p>
+                    Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla.
+                    Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
+
+                <ul class="data_list">
+                    <li>Hurtado de Barrera, J. (2008). El proyecto de investigación. Comprensión holística de la metodología de la investigación. Ediciones Quirón.
+                    </li>
+                    <li>Ministerio de Educación Nacional. (2014). Manual de producción y gestión de contenidos educativos digitales para docentes. Bogotá. Disponible en <a target="_blank" href="https://bit.ly/2Mgl2fg"> https://bit.ly/2Mgl2fg </a></li>
+                    <li>Xie, K., Di Tosto, G., Chen, S.B., y Vongkulluksn, V. W. (2018). A systematic review of design and technology components of educational digital resources. Computers & Education, 127, 90–106. Disponible en
+                        <a target="_blank" href="https://bit.ly/2MzpVPL">https://bit.ly/2MzpVPL </a>
+                    </li>
+                    <li>Xie, K., Kim, M., Cheng, S. L., y Luthy, N. (2017). Teacher professional development through digital content evaluation. Educational Technology Research & Development, 65(4), 1067–1103. Disponible en <a href="https://bit.ly/2KSTJ81"> https://bit.ly/2KSTJ81 </a>                        </li>
+                </ul>
+
+                <div class="box-text link" label="Materiales complementarios">
+                    <p>
+                        <p>Uso de recursos educativos digitales:</p>
+                        <ul class="data_list">
+                            <li>Rúbricas de evaluación de recursos educativos digitales Xie, K., Kim, M., Cheng, S. L., y Luthy, N. (2017). Teacher professional development through digital content evaluation. Educational Technology Research & Development,
+                                65(4), 1067–1103. Disponible en
+                                <a target="_blank" href="https://bit.ly/2KSTJ81"> https://bit.ly/2KSTJ81</a>
+                            </li>
+                            <li>Gestión de contenidos de educación superior de calidad Ministerio de Educación Nacional. Objetos de aprendizaje. Disponible en
+                                <a target="_blank" href="https://bit.ly/2zmQLBX"> https://bit.ly/2zmQLBX</a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
