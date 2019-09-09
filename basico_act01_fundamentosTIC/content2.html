@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Actividad 1. Reconociendo la relación entre educación y TIC</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Plantilla de producción de contenidos interactivos</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+    
+            <menu>
+                <menuitem label="Categorías">
+                    <menu>
+                        <menuitem label="1. Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa" data-page="pag-reconociendo"></menuitem>
+                        <menuitem label="2. Uso de redes en la educación virtual" data-page="pag-uso"></menuitem>
+                        <menuitem label="3. Competencias TIC para el desarrollo profesional docente" data-page="pag-competencias"></menuitem>
+                        <menuitem label="4. Rol del profesor y el estudiante en la educación virtual" data-page="pag-rol"></menuitem>
+                        <menuitem label="5. Componentes de una plataforma educativa" data-page="pag-componentes"></menuitem>
+                        <menuitem label="6. Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)" data-page="pag-diferencias"></menuitem>
+                    </menu>
+                </menuitem>
+                <menuitem label="¿Cuánto se aprendió?" data-page="pag-aprendido"></menuitem>
+            </menu>
+    
+            </nav>
+        </header>
+
+        <main style="display: none;">
+            <h2 class="page-title"></h2>
+
+            <section id="pag-reconociendo" ptitle="Reconociendo la relación entre educación y TIC">
+
+                <div class="subpage">
+                    <div id="act1" class="jpit-activities-droppable categorias" data-act-id="categorias" data-act-title="Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa">
+                        <h3>Categoría 1. Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa</h3>
+                        <p>
+                            La educación virtual requiere espacios en los que se dinamicen las relaciones entre el profesor y el estudiante, se fortalezcan las capacidades didácticas en torno al proceso de enseñanza-aprendizaje y se dispongan de herramientas tecnológicas que favorezcan el proceso de formación.                         
+                        </p>
+
+                        <div class="box-text activity" label="Indicaciones">
+                            <p>
+                            Demuestre qué tanto conoce sobre los conceptos que aparecen en la gráfica, arrastrando la definición al concepto respectivo.
+                            </p>
+                        </div>
+
+                        <div class="bloque1">
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Educación virtual</h5>
+                                    <div class="cajon" data-target-group="1"></div>    
+                                </div>                                    
+                            </div>                            
+                            <div class="contenedor">                                
+                                <div class="sombra">
+                                    <h5>Ambiente virtual de aprendizaje</h5>
+                                    <div class="cajon" data-target-group="2"></div>    
+                                </div>                                    
+                            </div>
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Plataforma educativa</h5><div class="cajon" data-target-group="3"></div>    
+                                </div>                                    
+                            </div>  
+                           
+                             <div class="box_end"></div>
+                        </div>       
+                        <div class="opciones opciones1">
+                            <div data-group="1" class="item item1">
+                                <p>
+                                    “desarrollo de un proceso educativo en un lugar distinto al salón de clases: en el ciberespacio; en una temporalidad que puede ser síncrona o asíncrona y sin la necesidad de que los cuerpos de maestros y estudiantes estén presentes” (MinTIC, 2015).
+                                </p>
+                            </div>
+                            <div data-group="2" class="item item2">
+                                <p>
+                                    Entorno que propicia la generación y transferencia de conocimiento a través del uso de tecnologías digitales, ofreciendo herramientas que posibilitan las interacciones entre los sujetos y median la relación de estos con el conocimiento, con sus colegas y consigo mismos.
+                                </p>
+                            </div>
+                            <div data-group="3" class="item item3">
+                                <p>
+                                    Aplicación web que brinda herramientas para la gestión de procesos de formación en línea. <!--Entre las características principales se encuentran:
+                                    <ul>   
+                                        <li>Posibilidad de publicar contenidos en diversos formatos.</li>
+                                        <li>Ofrecer recursos que permitan plantear actividades para la valoración de los aprendizajes.</li>
+                                        <li>Brindar herramientas para propiciar la comunicación e interacción entre profesores y estudiantes.</li>
+                                        <li>Posibilidad de hacer seguimiento a los participantes</li>
+                                        <li>Proporcionar herramientas para la gestión logística; respaldo de los contenidos, desarrollo de componentes de software para que pueda conectarse con otras aplicaciones y consulta de cursos publicados, entre otros.</li>
+                                    </ul>-->
+                                </p>                                
+                            </div>                             
+                         </div>      
+                    </div>
+                </div>
+            </section>
+            <section id="pag-uso" ptitle="Uso de redes en la educación virtual">
+                <div class="subpage">
+                    <div id="act2" class="jpit-activities-droppable uso-redes" data-act-id="redes" data-act-title="Uso de redes en la educación virtual">
+                        <h3> Categoría 2. Uso de redes en la educación virtual</h3>
+                        <p>
+                            Conocer las modalidades de educación no garantiza el éxito de la incorporación de TIC a la labor docente, pero sí garantiza el uso de la modalidad en el contexto adecuado respetando su fin. Arrastre la definición a la modalidad correspondiente.                        
+                        </p>
+                        <div class="bloque2">
+                            <img src="img/img_modalidades.png" />
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Presencial</h5>
+                                    <div class="cajon" data-target-group="4"></div>    
+                                </div>                                    
+                            </div>                            
+                            <div class="contenedor">                                
+                                <div class="sombra">
+                                    <h5>Distancia</h5>
+                                    <div class="cajon" data-target-group="5"></div>    
+                                </div>                                    
+                            </div>
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Virtual</h5><div class="cajon" data-target-group="6"></div>    
+                                </div>                                    
+                            </div>  
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Blended</h5><div class="cajon" data-target-group="7"></div>    
+                                </div>                                    
+                            </div>  
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <h5>Dual</h5><div class="cajon" data-target-group="8"></div>    
+                                </div>                                    
+                            </div>  
+                            <div class="box_end"></div>
+                        </div>       
+                        <div class="opciones opciones2">
+                            <div data-group="4" class="item item4">
+                                <p>
+                                   La interacción se da principalmente en el encuentro cara a cara, en donde los participantes confluyen en un mismo espacio físico y tiempo para el desarrollo de los procesos de enseñanza-aprendizaje.
+                                </p>
+                            </div>
+                            <div data-group="5" class="item item5">
+                                <p>
+                                   ELa interacción trasciende los espacios físicos para el desarrollo de los procesos de enseñanza-aprendizaje; esta puede ser sincrónica o asincrónica, y se caracteriza por la separación en el espacio entre los actores educativos. 
+                                </p>
+                            </div>
+                            <div data-group="6" class="item item6">
+                                <p>
+                                   La interacción trasciende la espacio-temporalidad; sucede en el ciberespacio mediante la configuración de entornos digitales para los procesos de enseñanza-aprendizaje.
+                                </p>
+                            </div> 
+                            <div data-group="7" class="item item7">
+                                <p>
+                                   Convergen elementos de las interacciones que ocurren en la modalidad presencial y virtual.
+                                </p>
+                            </div>
+                            <div data-group="8" class="item item8">
+                                <p>
+                                   Los procesos de enseñanza-aprendizaje cuentan con un tiempo de estudio institucional y otro tiempo de aplicación empresarial.
+                                </p>
+                            </div>                            
+                        </div>      
+                    </div>
+                </div>
+            </section>
+            <section id="pag-competencias" ptitle="Competencias TIC para el desarrollo profesional docente">
+                <div id="act3" class="jpit-activities-droppable competencias" data-act-id="competencias" data-act-title="Competencias TIC para el desarrollo profesional docente">
+                    <h3> Categoría 3. Competencias TIC para el desarrollo profesional docente</h3>
+                    <p>
+                        A continuación, se enuncian las cinco competencias TIC propuestas por el Ministerio de Educación Nacional (MEN) para favorecer el desarrollo profesional docente. Asocie cada definición con el concepto que corresponda.                       
+                    </p>
+                    <div class="bloque3">
+                        <img src="img/img_competencias.png" />
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Competencias TIC</h5>
+                                <div class="cajon" data-target-group="9"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Competencia tecnológica:</h5>
+                                <div class="cajon" data-target-group="10"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Competencia comunicativa:</h5><div class="cajon" data-target-group="11"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Competencia pedagógica:</h5><div class="cajon" data-target-group="12"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Competencia de gestión: </h5><div class="cajon" data-target-group="13"></div>    
+                            </div>                                    
+                        </div> 
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Competencia investigativa:</h5><div class="cajon" data-target-group="14"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="box_end"></div>
+                    </div>       
+                    <div class="opciones opciones3">
+                        <div data-group="9" class="item item9">
+                            <p>
+                              Conjunto de conocimientos, habilidades, actitudes, comprensiones y disposiciones cognitivas, socioafectivas y psicomotoras relacionadas entre sí para facilitar el desempeño flexible, eficaz y con sentido de una actividad en contextos que utilizan las TIC (MEN, 2013).
+
+                            </p>
+                        </div>
+                        <div data-group="10" class="item item10">
+                            <p>
+                               Capacidad para seleccionar y utilizar de forma pertinente, responsable y eficiente una variedad de herramientas tecnológicas, entendiendo los principios que las rigen, la forma de combinarlas y las licencias que las amparan (MEN, 2013). 
+                            </p>
+                        </div>
+                        <div data-group="11" class="item item11">
+                            <p>
+                               Capacidad para expresarse, establecer contacto y relacionarse en espacios virtuales y audiovisuales de manera sincrónica y asincrónica, a través de diversos medios y con el manejo de múltiples lenguajes (MEN, 2013). 
+                            </p>
+                        </div> 
+                        <div data-group="12" class="item item12">
+                            <p>
+                               Capacidad de utilizar las TIC para fortalecer los procesos de enseñanza-aprendizaje, reconociendo alcances y limitaciones de la incorporación de estas tecnologías en la formación integral de los estudiantes y en su propio desarrollo profesional (MEN, 2013). 
+
+                            </p>
+                        </div>
+                        <div data-group="13" class="item item13">
+                            <p>
+                              Capacidad para utilizar las TIC en la planeación, organización, administración y evaluación de los procesos educativos de manera efectiva, tanto a nivel de prácticas pedagógicas, como de desarrollo institucional (MEN, 2013). 
+
+                            </p>
+                        </div>
+                        <div data-group="14" class="item item14">
+                            <p>
+                                Capacidad de utilizar las TIC para la transformación del saber y la generación de nuevos conocimientos (MEN, 2013).
+                            </p>
+                        </div>                             
+                    </div> 
+                </div> 
+            </section>
+            <section id="pag-rol" ptitle="Rol del profesor y el estudiante en la educación virtual">
+                <div id="act4" class="jpit-activities-droppable roles" data-act-id="roles" data-act-title="Categoría 4. Rol del profesor y el estudiante en la educación virtual">
+                    <h3> Categoría 4. Rol del profesor y el estudiante en la educación virtual</h3>
+                    <p>
+                       En la educación virtual, los estudiantes y los profesores deben realizar acciones complementarias y diferentes a las que se presentan en la educación presencial. Determine cuáles son esas accion es:                      
+                    </p>
+                    <div class="bloque4">
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="15"></div>    
+                            </div>                                    
+                        </div>    
+                        <div class="contenedor-der">                                
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="21"></div>    
+                            </div>                                    
+                        </div>                      
+                        <div class="contenedor-izq">                                
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="16"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="20"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="17"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group=22"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="18"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="23"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="19"></div>    
+                            </div>                                    
+                        </div>   
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="24"></div>    
+                            </div>                                    
+                        </div> 
+                        <div class="box_end"></div>
+                    </div>       
+                    <div class="opciones opciones4">
+                        <div data-group="15" class="item-roles item15">
+                            <p>
+                             Desarrolla habilidades de comparación, análisis, síntesis y experimentación.
+                            </p>
+                        </div>
+                        <div data-group="16" class="item-roles item16">
+                            <p>
+                               Posee autonomía con el conocimiento, es decir, capacidad de generar aprendizaje a partir de la consulta de fuentes externas.
+
+                            </p>
+                        </div>
+                        <div data-group="17" class="item-roles item17">
+                            <p>
+                               Posee capacidad para el aprendizaje colaborativo. 
+                            </p>
+                        </div> 
+                        <div data-group="18" class="item-roles item18">
+                            <p>
+                               Es un actor principal de la metodología de estudio.
+                            </p>
+                        </div>
+                        <div data-group="19" class="item-roles item19">
+                            <p>
+                              Posee alta capacidad para el manejo de tiempo.
+                            </p>
+                        </div>
+                        <div data-group="20" class="item-roles item20">
+                            <p>
+                                Posee conocimiento general sobre tecnologías y medios existentes que favorecen la enseñanza en su saber disciplinar.
+                            </p>
+                        </div>
+                        <div data-group="21" class="item-roles item21">
+                            <p>
+                              Promueve la comunicación durante el curso.
+                            </p>
+                        </div>
+                        <div data-group="22" class="item-roles item22">
+                            <p>
+                              Utiliza de estrategias didácticas apoyadas con TIC.
+                            </p>
+                        </div>
+                        <div data-group="23" class="item-roles item23">
+                            <p>
+                               Diseña recursos educativos digitales.
+                            </p>
+                        </div> 
+                        <div data-group="24" class="item-roles item24">
+                            <p>
+                              Posee capacidad reflexiva y crítica del uso pedagógico de las tecnologías en su práctica docente.
+
+                            </p>
+                        </div>                                                       
+                    </div>
+                </div>
+            </section>
+            <section id="pag-componentes" ptitle="Componentes de una plataforma educativa">
+               <div id="act5" class="jpit-activities-droppable componentes" data-act-id="componentes" data-act-title="Categoría 5. Componentes de una plataforma educativa">
+                    <h3> Categoría 5.  Componentes de una plataforma educativa</h3>
+                    <p>
+                       Las plataformas educativas brindan herramientas para la gestión de procesos de formación en línea, posibilitando la publicación de contenidos digitale y el planteamiento de actividades y de herramientas de comunicación para la interacción entre los participantes. Ubique cada característica en el componente correspondiente de la plataforma educativa.                    
+                    </p>
+                    <div class="bloque5">
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="25"></div>    
+                            </div>                                    
+                        </div>    
+                        <div class="contenedor-med">                                
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="29"></div>    
+                            </div>                                    
+                        </div>                      
+                        <div class="contenedor-der">                                
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="33"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="26"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-med">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="30"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="34"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="27"></div>    
+                            </div>                                    
+                        </div>  
+                        <div class="contenedor-med">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="31"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor-der">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="35"></div>    
+                            </div>                                    
+                        </div>   
+                        <div class="contenedor-izq">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="28"></div>    
+                            </div>                                    
+                        </div> 
+                         <div class="contenedor-med">
+                            <div class="sombra-roles">
+                                <div class="cajon-roles" data-target-group="32"></div>    
+                            </div>                                    
+                        </div>   
+                         <div class="box_end"></div>
+                    </div>       
+                    <div class="opciones opciones5">
+                        <div data-group="25" class="item-roles item25">
+                            <p>
+                             Videoclases
+                            </p>
+                        </div>
+                        <div data-group="26" class="item-roles item26">
+                            <p>
+                               Audiolibros
+                            </p>
+                        </div>
+                        <div data-group="27" class="item-roles item27">
+                            <p>
+                               Artículos de revista
+                            </p>
+                        </div> 
+                        <div data-group="28" class="item-roles item28">
+                            <p>
+                               Libro electrónicos
+                            </p>
+                        </div>
+                        <div data-group="29" class="item-roles item29">
+                            <p>
+                             Favorecen el aprendizaje significativo.
+                            </p>
+                        </div>
+                        <div data-group="30" class="item-roles item30">
+                            <p>
+                               Pueden desarrollarse tanto de forma individual como en grupo.
+                            </p>
+                        </div>
+                        <div data-group="31" class="item-roles item31">
+                            <p>
+                              Promueven el aprendizaje colaborativo.
+                            </p>
+                        </div>
+                        <div data-group="32" class="item-roles item32">
+                            <p>
+                              En la mayoría de las veces se utilizan recursos multimodales para su desarrollo.
+                            </p>
+                        </div>
+                        <div data-group="33" class="item-roles item33">
+                            <p>
+                              Foros
+                            </p>
+                        </div> 
+                        <div data-group="34" class="item-roles item34">
+                            <p>
+                              Herramientas de videoconferencia
+                            </p>
+                        </div>     
+                        <div data-group="35" class="item-roles item35">
+                            <p>
+                              Chat
+                            </p>
+                        </div>                                                   
+                    </div>
+                </div>
+            </section>
+            <section id="pag-diferencias" ptitle="Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
+                <div id="act6" class="jpit-activities-droppable diferencias" data-act-id="diferencias" data-act-title="Categoría 6. Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
+                    <h3>Categoría 6. Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)</h3>
+                    <p>
+                        Dentro de los contenidos digitales que se publican en una plataforma educativa existen los Recursos Educativos Digitales (RED) que, en ocasiones, son confundidos con los Objetos Virtuales de Aprendizaje (OVA); en este esquema se presentan algunos de ellos. Arrastre la definición hacia el concepto correspondiente.
+                  
+                    </p>
+
+                    <div class="bloque6">
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Recurso educativo digital</h5>
+                                <div class="cajon" data-target-group="36"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Objeto virtual de aprendizaje</h5>
+                                <div class="cajon" data-target-group="37"></div>    
+                            </div>                                    
+                        </div>
+                         <div class="box_end"></div>
+                    </div>       
+                    <div class="opciones opciones6">
+                        <div data-group="36" class="item item36">
+                            <p>
+                               Material en formato digital que  tiene una intencionalidad educativa cuando apunta al logro de un objetivo de aprendizaje y cuando su diseño responde a unas características didácticas apropiadas para este. Están hechos para informar sobre un tema, ayudar en la adquisición de un conocimiento, reforzar un aprendizaje, remediar una situación desfavorable, favorecer el desarrollo de una determinada competencia y evaluar conocimientos (García, 2010).
+
+                            </p>
+                        </div>
+                        <div data-group="37" class="item item37">
+                            <p>
+                                Conjunto de recursos digitales (audio, video, imágenes, texto, etc.) autocontenibles (es decir, que no requieren de otro recurso para comprender el tema que se aborda), reutilizables con un propósito educativo y constituidos por tres componentes internos: contenidos, actividades de aprendizaje y elementos de contextualización. Deben tener una estructura de información externa (metadatos) que facilite su almacenamiento, identificación y recuperación en un repositorio (MEN, 2006).
+
+                            </p>
+                        </div>                          
+                    </div>      
+                </div>
+            </section>
+            <section id="pag-aprendido" ptitle="¿Cuánto se aprendió?">
+                <div id="act7" class="jpit-activities-droppable aprendido" data-act-id="aprendido" data-act-title="¿Cuánto se aprendió?">
+                    <h3> ¿Cuánto se aprendió?</h3>
+                    <p>
+                        A continuación, se muestra un esquema incompleto con una de las tantas relaciones que se pueden establecer entre las categorías vistas durante la actividad. Para completarlo, deberá arrastrar los conceptos a cada uno de los nodos vacíos según los conocimientos aprendidos. Una vez termine, haga clic en el botón validar para que verifique su respuesta.
+                    </p>
+
+                    <div class="bloque7">
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Modalidad de educación</h5>
+                                <div class="cajon" data-target-group="38"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Plataforma educativa</h5>
+                                <div class="cajon" data-target-group="39"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Ambiente Virtual de Aprendizaje</h5>
+                                <div class="cajon" data-target-group="40"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Estudiantes</h5>
+                                <div class="cajon" data-target-group="41"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Profesor</h5>
+                                <div class="cajon" data-target-group="42"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Aprendizaje autónomo</h5>
+                                <div class="cajon" data-target-group="43"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Aprendizaje colaborativo</h5>
+                                <div class="cajon" data-target-group="44"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Pedagógica</h5>
+                                <div class="cajon" data-target-group="45"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Comunicativa</h5>
+                                <div class="cajon" data-target-group="46"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Tecnológica</h5>
+                                <div class="cajon" data-target-group="47"></div>    
+                            </div>                                    
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra">
+                                <h5>Contenidos Digitales</h5>
+                                <div class="cajon" data-target-group="48"></div>    
+                            </div>                                    
+                        </div>                            
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Actividades</h5>
+                                <div class="cajon" data-target-group="49"></div>    
+                            </div>
+                        </div>                                         
+                        <div class="contenedor">                                
+                            <div class="sombra">
+                                <h5>Herramientas de comunicación</h5>
+                                <div class="cajon" data-target-group="50"></div>    
+                            </div>   
+                        </div>                                      
+                        <div class="box_end"></div>
+                    </div>       
+                    <div class="opciones opciones7">
+                        <div data-group="38" class="item item38">
+                            <p>
+                               Modalidad de educación
+                            </p>
+                        </div>
+                        <div data-group="39" class="item item39">
+                            <p>
+                                Plataforma educativa
+                            </p>
+                        </div> 
+                        <div data-group="40" class="item item40">
+                            <p>
+                               Ambiente Virtual de Aprendizaje
+                            </p>
+                        </div>
+                        <div data-group="41" class="item item41">
+                            <p>
+                                Estudiantes
+                            </p>
+                        </div> 
+                        <div data-group="42" class="item item42">
+                            <p>
+                               Profesor
+                            </p>
+                        </div>
+                        <div data-group="43" class="item item43">
+                            <p>
+                                Aprendizaje autónomo
+                            </p>
+                        </div> 
+                        <div data-group="44" class="item item44">
+                            <p>
+                               Aprendizaje colaborativo
+                            </p>
+                        </div>
+                        <div data-group="45" class="item item45">
+                            <p>
+                                Pedagógica
+                            </p>
+                        </div> 
+                        <div data-group="46" class="item item46">
+                            <p>
+                               Comunicativa
+                            </p>
+                        </div>
+                        <div data-group="47" class="item item47">
+                            <p>
+                             Tecnológica
+                            </p>
+                        </div>
+                        <div data-group="48" class="item item48">
+                            <p>
+                            Contenidos digitales
+                            </p>
+                        </div>  
+                        <div data-group="49" class="item item49">
+                            <p>
+                             Actividades
+                            </p>
+                        </div>  
+                        <div data-group="50" class="item item50">
+                            <p>
+                             Herramientas de comunicación
+                            </p>
+                        </div>                            
+                    </div>      
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="pag-creditos" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>David Herney Bernal García<br />
+                Leidy Cristina Madrigal Arrieta</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Traducción de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br />
+                2ª edición: octubre 2015<br />
+                3ª edición: febrero 2016<br />
+                4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
