@@ -352,9 +352,6 @@
     text-align: center;
 }
 
-#act5.jpit-activities-multidroppable .conector {
-
-}
 #act5.jpit-activities-multidroppable .titulo,
 #act5.jpit-activities-multidroppable .subtitulo {
     width: 240px;
@@ -427,4 +424,100 @@
     background-color: #e2f3f4;
     color: #000;
     margin: 5px;
+}
+
+/********************************************************************************/
+/* Actividad 6 - Diferencia entre OVA y RED*/
+/********************************************************************************/
+
+
+#act6.jpit-activities-droppable .titulo {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+#act6.jpit-activities-droppable .izq {
+    width: 50%;
+    text-align: center;
+}
+
+#act6.jpit-activities-droppable .izq p {
+    text-align: center;
+    font-size: 12px;   
+}
+
+#act6.jpit-activities-droppable .contenedor {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#act6.jpit-activities-droppable .target {
+    width: 180px;
+    min-height: 200px;
+    height: 97%;
+    border: 1px dashed #859390;
+    border-radius: 10px; 
+    background-color: #f1f0ef;
+}
+
+#act6.jpit-activities-droppable .sombra {
+    border-radius: 10px;
+    background-color: #f1f0ef;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+#act6.jpit-activities-droppable .sub1 {
+    background-color: #dcdcdd;
+    border: 2px solid #859390;
+}
+
+#act6.jpit-activities-droppable .sub2 {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#act6.jpit-activities-droppable .sub3 {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
+}
+
+#act6.jpit-activities-droppable .subtitulo {
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#act6.jpit-activities-droppable .conector {
+    margin-top: 20px;
+}
+
+#act6.jpit-activities-droppable .item {
+    width: 190px;
+    max-height: 200px;
+    border-radius: 10px;
+    border: 2px solid #17809d;
+    background-color: #e2f3f4;
+    color: #000;
+    margin: 5px;
+    overflow: auto;
+}
+
+#act6.jpit-activities-droppable .opciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
