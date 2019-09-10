@@ -521,3 +521,30 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/********************************************************************************/
+/* Actividad 7 - ¿Cuánto se aprendió?*/
+/********************************************************************************/
+
+#act7.jpit-activities-droppable .item {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #e2f3f4;
+    color: #000;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#act7.jpit-activities-droppable .opciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#act7.jpit-activities-droppable .draggable {
+    border: 0;
+}
