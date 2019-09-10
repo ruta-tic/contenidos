@@ -11,7 +11,7 @@
     right: 10px;
     z-index: 10;
 }
-.wf-content #content_wrapper {
+.wf-content .content_wrapper {
     position: absolute;
     top: 0;
     bottom: 0;
