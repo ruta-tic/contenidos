@@ -98,7 +98,7 @@ dhbgApp.strings = {
 
     'start_activity': 'Comenzar',
 
-    'verify': 'Verificar',
+    'verify': 'Validar',
 
     'vertical': 'Vertical',
 
