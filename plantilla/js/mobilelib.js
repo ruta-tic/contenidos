@@ -2629,7 +2629,7 @@ dhbgApp.mobile.load_operations = function() {
                 'continueResolve': false,
                 'holdCorrects': false,
                 'multiTarget': 1,
-                'autoAlignNodes': true,
+                'autoAlignNodes': false,
                 'requiredAll': false,
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
@@ -2646,7 +2646,7 @@ dhbgApp.mobile.load_operations = function() {
 
             var autoalign;
             if (autoalign = $this.attr('data-autoalign')) {
-                activityOptions.autoAlignNodes = !(autoalign == 'false');
+                activityOptions.autoAlignNodes = autoalign === 'true';
             }
 
             // Build the board.

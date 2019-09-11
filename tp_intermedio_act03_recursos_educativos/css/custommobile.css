@@ -1,0 +1,166 @@
+.page-title {
+    padding-right: 35px;
+}
+
+.videobox video,
+.videobox > div {
+    box-shadow: unset;
+}
+
+/********************************************************************************/
+/* Actividad arrastrar y soltar multiple
+/********************************************************************************/
+#arrastrargrupos {
+    background-color: #f3f3f3;
+    border: 3px solid #40bcc6;
+}
+
+.dropzone_container h5 {
+    padding: 10px;
+    display: block;
+    background-color: #003543;
+    color: #FFFFFF;
+    margin: 2px 0;
+}
+
+#arrastrargrupos .dropzone.droppable {
+    width: 90%;
+    margin: 0 auto 10px;
+}
+
+#arrastrargrupos h5 {
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 2px dotted #95B0CB;
+}
+
+#arrastrargrupos .sources {
+    width: 100%;
+    height: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#arrastrargrupos .draggable {
+    width: 90%;
+    margin: 0 auto 5px;
+    color: #333;
+    border-radius: 14px;
+    border: solid 0.5px #21a2ac;
+    background-color: #deeff5;
+}
+
+#arrastrargrupos .draggable.jpit_activities_jpitdroppable_dropped {
+    width: auto;
+}
+
+#arrastrargrupos table .draggable.disabled {
+    cursor: default;
+}
+
+#arrastrargrupos .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+#arrastrargrupos .draggable.wrong {
+    color: #D60C1B;
+}
+
+.view-first {
+    cursor: default;
+    border-radius: 10px;
+}
+
+/*********Recursos***********/
+
+#recurso-1 {
+    background-image: url(../content/recurso_1.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#recurso-2 {
+    background-image: url(../content/recurso_2.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#recurso-3 {
+    background-image: url(../content/recurso_3.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#recurso-1:hover {
+    background-image: url(../content/recurso1_hover.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#recurso-2:hover {
+    background-image: url(../content/recurso_2_hover.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#recurso-3:hover {
+    background-image: url(../content/recurso3_hover.png);
+    background-size: cover;
+    height: 248px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
+#Contenido {
+    background-image: url(../content/evaluacion_de_un_red_0.png    );
+    background-size: cover;
+    height: 242px;
+    background-repeat: no-repeat;
+    width: 242px;
+    text-align: center;
+    margin: auto;
+}
+
+#Pedagogia {
+    background-image: url(../content/evaluacion_de_un_red_1.png);
+    background-size: cover;
+    height: 242px;
+    background-repeat: no-repeat;
+    width: 242px;
+    text-align: center;
+    margin: auto;
+}
+
+#Estandares {
+    background-image: url(../content/evaluacion_de_un_red_2.png);
+    background-size: cover;
+    height: 242px;
+    background-repeat: no-repeat;
+    width: 242px;
+    text-align: center;
+    margin: auto;
+}
+
+#Tecnologia {
+    background-image: url(../content/evaluacion_de_un_red_3.png);
+    background-size: cover;
+    height: 242px;
+    background-repeat: no-repeat;
+    width: 242px;
+    text-align: center;
+    margin: auto;
+}
