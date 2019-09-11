@@ -1,6 +1,8 @@
+.page-title {
+    padding-right: 35px;
+}
+
 /********************************************************************************/
-
-
 /* Actividad arrastrar y soltar multiple
 /********************************************************************************/
 .wf-content, .wf-content.autoy {
@@ -266,7 +268,7 @@
     margin: 0 0 5px 0;
 }
 .draggable_board .column_dropzones .dropzone .target.droppable {
-    min-height: 170px;
+    min-height: 70px;
     overflow: auto;
     display: flex;
     justify-content: flex-start;
@@ -352,7 +354,7 @@
         border: solid 1px #C9D5C7;
         border-radius: 5px;
         align-content: center;
-        flex: 1; 
+        flex: 1;
     }
     .draggable_board .column_dropzones .dropzone {
         width: 170px;

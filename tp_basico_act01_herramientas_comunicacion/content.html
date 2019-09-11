@@ -8,64 +8,36 @@
     <title>Herramientas de comunicación ¿Cómo cambia la comunicación en los entornos digitales?</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
-    <!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-    <!--End jQuery components -->
-
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="components/scorm/SCORM_12_APIWrapper.js">
-    </script>
-    <script src="components/scorm/scorm_api.js">
-    </script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
 
     <style type='text/css'>
         body {
             background-color: rgba(242, 242, 242, 0.7);
         }
-        
+
         body.loading {
             text-align: center;
         }
-        
+
         body.loading:after {
             content: "";
             background: url(img/loading.gif) no-repeat bottom center;
@@ -75,7 +47,7 @@
             margin: auto;
             padding-bottom: 20px;
         }
-        
+
         body.loading #body {
             display: none;
         }
@@ -83,9 +55,7 @@
 
 </head>
 
-<!-- En el body está la calificación de la actividad-->
-
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -102,23 +72,19 @@
         </nav>
 
         <header>
-            <h2>Herramientas de comunicación ¿Cómo cambia la comunicación en los entornos digitales?</h2>
+            <h2>¿Cómo cambia la comunicación en los entornos digitales?</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
-                    <menuitem label="Cambia comunicación" data-page="pag-cambia"></menuitem>
-                    <menuitem label="Medios" data-page="pag-medios"></menuitem>
-                    <menuitem label="Comunicación sincrónica" data-page="pag-sincronica">
-                    <menu>
-                        <menuitem label="Herramientas de comunicación sincrónica" data-page="pag-her-sincronica"></menuitem>
-                    </menu>
-                    </menuitem>
-                    <menuitem label="Comunicación asincrónica" data-page="pag-asincronica">
-                    <menu>
-                        <menuitem label="Herramientas de comunicación asincrónica" data-page="pag-her-asincronica"></menuitem>
-                    </menu>
-                    </menuitem>
-                    <menuitem label="Ayuda al profesor" data-page="pag-ayuda"></menuitem>
+                    <menuitem label="Menú de navegación">
+                        <menu>
+                            <menuitem label="La comunicación en un entorno digital" data-page="pag-cambia"></menuitem>
+                            <menuitem label="Medios análogos y digitales" data-page="pag-medios"></menuitem>
+                            <menuitem label="La comunicación sincrónica" data-page="pag-sincronica"></menuitem>
+                            <menuitem label="La comunicación asincrónica" data-page="pag-asincronica"></menuitem>
+                            <menuitem label="Ayuda al profesor a resolver su caso " data-page="pag-ayuda"></menuitem>
 
+                        </menu>
+                    </menuitem>
                 </menu>
             </nav>
         </header>
@@ -155,163 +121,160 @@
                             <div>Transformaciones en la comunicación</div>
                         </div>
                     </div>
+                    <div class="instruction">
+                        <span class="onlymobile">Toca</span>
+                        <span class="notmobile">Haz clic</span>
+                        sobre cada elemento para ampliar la información
+                    </div>
                     <div id="transformaciones-1" class="wf-content autox autoy">
                         <div class="content_wrapper">
-                            <h4>De los medios masivos de comunicación tradicionales a los cibermedios</h4>
-                            <p>
-                                Constantemente, en los ambientes presenciales, somos consumidores de medios masivos de comunicación, en donde se propone un único emisor o fuente de información que se dirige hacia un amplio público o audiencia de receptores, lo cual es conocido como
-                                Broadcasting, y caracteriza a medios masivos como la prensa, la radio, el cine y la televisión.
-                            </p>
+                            <div>
+                                <h4>De los medios masivos de comunicación tradicionales a los cibermedios</h4>
+                                <p>
+                                    Constantemente, en los ambientes presenciales, somos consumidores de medios masivos de comunicación, en donde se propone un único emisor o fuente de información que se dirige hacia un amplio público o audiencia de receptores, lo cual es conocido como
+                                    Broadcasting, y caracteriza a medios masivos como la prensa, la radio, el cine y la televisión.
+                                </p>
 
-                            <p>
-                                En estos medios, también llamados mass media o medios de comunicación de masas, el mensaje es lanzado a un público numeroso o masivo, denominado audiencia. Allí, la transmisión es unidireccional; un emisor que se dirige a sus receptores pero la retroalimentación
-                                o feedback no es tan constante. Si bien los lectores, radioescuchas o televidentes tienen la posibilidad de interactuar con mensajes dirigidos a los canales, periódicos, revistas o llamadas telefónicas a la radio, la participación
-                                suele verse más limitada que en los medios digitales.
-                            </p>
-                            <p>
-                                La migración y reconfiguración de estos medios de comunicación al mundo digital, especialmente en el ámbito periodístico, se denomina <strong>cibermedios</strong>, término que hace referencia a los medios de comunicación que
-                                aprovechan las plataformas y soportes digitales que ofrece la tecnología para la divulgación de información relevante, amplia y de interés para el público, por ejemplo, en el ciberperiodismo, la radio digital, los weblogs,
-                                las plataformas de distribución de contenidos en audio, en video o multimedia como CBS Broadcasting Inc., NBC-National Broadcasting Company, BBC News, Seven Networks, etc.
-                            </p>
-                            <p>
-                                Finalmente, si bien no son características exclusivas de los medios digitales en contraposición a los analógicos, diversos autores como López García, Salaverría y Orihuela, entre otros, coinciden en que sí se puede afirmar que los cibermedios presentan
-                                un mayor nivel de aprovechamiento de las posibilidades de la hipertextualidad, la multimedialidad y la interactividad de la Web.
-                            </p>
+                                <p>
+                                    En estos medios, también llamados mass media o medios de comunicación de masas, el mensaje es lanzado a un público numeroso o masivo, denominado audiencia. Allí, la transmisión es unidireccional; un emisor que se dirige a sus receptores pero la retroalimentación
+                                    o feedback no es tan constante. Si bien los lectores, radioescuchas o televidentes tienen la posibilidad de interactuar con mensajes dirigidos a los canales, periódicos, revistas o llamadas telefónicas a la radio, la participación
+                                    suele verse más limitada que en los medios digitales.
+                                </p>
+                                <p>
+                                    La migración y reconfiguración de estos medios de comunicación al mundo digital, especialmente en el ámbito periodístico, se denomina <strong>cibermedios</strong>, término que hace referencia a los medios de comunicación que
+                                    aprovechan las plataformas y soportes digitales que ofrece la tecnología para la divulgación de información relevante, amplia y de interés para el público, por ejemplo, en el ciberperiodismo, la radio digital, los weblogs,
+                                    las plataformas de distribución de contenidos en audio, en video o multimedia como CBS Broadcasting Inc., NBC-National Broadcasting Company, BBC News, Seven Networks, etc.
+                                </p>
+                                <p>
+                                    Finalmente, si bien no son características exclusivas de los medios digitales en contraposición a los analógicos, diversos autores como López García, Salaverría y Orihuela, entre otros, coinciden en que sí se puede afirmar que los cibermedios presentan
+                                    un mayor nivel de aprovechamiento de las posibilidades de la hipertextualidad, la multimedialidad y la interactividad de la Web.
+                                </p>
 
-                            <h4>Características de la comunicación digital</h4>
-                            <p>
-                                Conoce aquí tres características de la comunicación digital:
-                            </p>
+                                <h4>Características de la comunicación digital</h4>
+                                <p>
+                                    Conoce aquí tres características de la comunicación digital:
+                                </p>
 
-                            <div class="interactive-buttons-container-2">
-                                <div class="background-zone"></div>
-                                <div class="interactive-button button-1 w-content-controler general" data-content="#caracteristicas-1">
-                                    <div>Multimedialidad</div>
+                                <div class="interactive-buttons-container-2">
+                                    <div class="background-zone"></div>
+                                    <div class="interactive-button button-1 w-content-controler general" data-content="#caracteristicas-1">
+                                        <div>Multimedialidad</div>
+                                    </div>
+                                    <div class="interactive-button button-2 w-content-controler general" data-content="#caracteristicas-2">
+                                        <div>Interactividad</div>
+                                    </div>
+                                    <div class="interactive-button button-3 w-content-controler general" data-content="#caracteristicas-3">
+                                        <div>Hipertextualidad</div>
+                                    </div>
+                                    <div class="content">
+                                        <div>Comunicación digital</div>
+                                    </div>
                                 </div>
-                                <div class="interactive-button button-2 w-content-controler general" data-content="#caracteristicas-2">
-                                    <div>Interactividad</div>
+                                <div class="instruction">
+                                    <span class="onlymobile">Toca</span>
+                                    <span class="notmobile">Haz clic</span>
+                                    sobre cada elemento para ampliar la información
                                 </div>
-                                <div class="interactive-button button-3 w-content-controler general" data-content="#caracteristicas-3">
-                                    <div>Hipertextualidad</div>
+                                <div id="caracteristicas-1" class="w-content" title="Multimedialidad" data-property-width="870" data-property-height="560">
+                                    <div class="videobox">
+                                    <video controls>
+                                        <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/multimedialidad_s.mp4" type="video/mp4">
+                                        El reproductor de video no es soportado por el navegador
+                                    </video>
+                                    </div>
+                                    <div class="instruction">
+                                        Si no carga el video, vealo dando <a href="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/multimedialidad_s.mp4" target="_blank">clic acá</a>.
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    <div>Comunicación digital</div>
+                                <div id="caracteristicas-2" class="w-content" title="Interactividad" data-property-width="870" data-property-height="560">
+                                    <div class="videobox">
+                                    <video controls>
+                                        <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/interactividad_s.mp4" type="video/mp4">
+                                        El reproductor de video no es soportado por el navegador
+                                    </video>
+                                    </div>
+                                    <div class="instruction">
+                                        Si no carga el video, vealo dando <a href="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/interactividad_s.mp4" target="_blank">clic acá</a>.
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="caracteristicas-1" class="w-content" title="Multimedialidad">
-                                <!--Falta video -->
-                                <div class="videobox">
-                                  <video controls>
-                                    <source src="http://multimedialidad.mp4" type="video/mp4">
-                                    <source src="http://multimedialidad.webm" type="video/webm">
-                                    <track label="Español" kind="subtitles" srclang="es"
-                                    src="data:text/vtt;base64,V0VCVlRUDQoNCjENCjAwOjAwOjAwLjIzNCAtLT4gMDA
-                                    6MDA6MDQuMDAwDQpFc3RlIHB1ZXJxdWl0byBzZSBmdWUgYWwuLi4NCg0KMg0KMDA6MDA6
-                                    MDQuMDA0IC0tPiAwMDowMDoxMC4wMDANCi4uLiBhY8OhIGRlYmVyw61hIGFwYXJlY2VyI
-                                    GxhIHRyYWR1Y2Npw7NuLA0KYSBtYW5lcmEgZGUgc3VidMOtdHVsb3MuDQoNCjMNCjAwOj
-                                    AwOjEwLjAwMiAtLT4gMDA6MDA6MjYuMDAwDQouLi4gbGEgcG9uZHLDrWEgc2kgc3VwaWV
-                                    yYSBxdWUgZGljZSA6JygNCihzdXB1ZXN0YW1lbnRlIGVzIGVzcGVyYW50by4uLiDCocKh
-                                    bmkgaWRlYSEhKQ0K" default>
-                                    El reproductor de video no es soportado por el navegador
-                                  </video>
-                                </div>
-                            </div>
-                            <div id="caracteristicas-2" class="w-content" title="Interactividad">
-                                <!--Falta video -->
-                                <div class="videobox">
-                                  <video controls>
-                                    <source src="http://multimedialidad.mp4" type="video/mp4">
-                                    <source src="http://multimedialidad.webm" type="video/webm">
-                                    <track label="Español" kind="subtitles" srclang="es"
-                                    src="data:text/vtt;base64,V0VCVlRUDQoNCjENCjAwOjAwOjAwLjIzNCAtLT4gMDA
-                                    6MDA6MDQuMDAwDQpFc3RlIHB1ZXJxdWl0byBzZSBmdWUgYWwuLi4NCg0KMg0KMDA6MDA6
-                                    MDQuMDA0IC0tPiAwMDowMDoxMC4wMDANCi4uLiBhY8OhIGRlYmVyw61hIGFwYXJlY2VyI
-                                    GxhIHRyYWR1Y2Npw7NuLA0KYSBtYW5lcmEgZGUgc3VidMOtdHVsb3MuDQoNCjMNCjAwOj
-                                    AwOjEwLjAwMiAtLT4gMDA6MDA6MjYuMDAwDQouLi4gbGEgcG9uZHLDrWEgc2kgc3VwaWV
-                                    yYSBxdWUgZGljZSA6JygNCihzdXB1ZXN0YW1lbnRlIGVzIGVzcGVyYW50by4uLiDCocKh
-                                    bmkgaWRlYSEhKQ0K" default>
-                                    El reproductor de video no es soportado por el navegador
-                                  </video>
-                                </div>
-                            </div>
-                            <div id="caracteristicas-3" class="w-content" title="Hipertexto">
-                                <!--Falta video -->
-                                <div class="videobox">
-                                  <video controls>
-                                    <source src="http://multimedialidad.mp4" type="video/mp4">
-                                    <source src="http://multimedialidad.webm" type="video/webm">
-                                    <track label="Español" kind="subtitles" srclang="es"
-                                    src="data:text/vtt;base64,V0VCVlRUDQoNCjENCjAwOjAwOjAwLjIzNCAtLT4gMDA
-                                    6MDA6MDQuMDAwDQpFc3RlIHB1ZXJxdWl0byBzZSBmdWUgYWwuLi4NCg0KMg0KMDA6MDA6
-                                    MDQuMDA0IC0tPiAwMDowMDoxMC4wMDANCi4uLiBhY8OhIGRlYmVyw61hIGFwYXJlY2VyI
-                                    GxhIHRyYWR1Y2Npw7NuLA0KYSBtYW5lcmEgZGUgc3VidMOtdHVsb3MuDQoNCjMNCjAwOj
-                                    AwOjEwLjAwMiAtLT4gMDA6MDA6MjYuMDAwDQouLi4gbGEgcG9uZHLDrWEgc2kgc3VwaWV
-                                    yYSBxdWUgZGljZSA6JygNCihzdXB1ZXN0YW1lbnRlIGVzIGVzcGVyYW50by4uLiDCocKh
-                                    bmkgaWRlYSEhKQ0K" default>
-                                    El reproductor de video no es soportado por el navegador
-                                  </video>
+                                <div id="caracteristicas-3" class="w-content" title="Hipertexto" data-property-width="870" data-property-height="560">
+                                    <div class="videobox">
+                                    <video controls>
+                                        <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/hipertexto_s.mp4" type="video/mp4">
+                                        El reproductor de video no es soportado por el navegador
+                                    </video>
+                                    </div>
+                                    <div class="instruction">
+                                        Si no carga el video, vealo dando <a href="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/hipertexto_s.mp4" target="_blank">clic acá</a>.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div id="transformaciones-2" class="wf-content autox autoy">
                         <div class="content_wrapper">
-                            <h4>De una comunicación de “uno a muchos” al modelo “muchos a muchos”</h4>
-                            <p>
-                                En la actualidad, la comunicación digital y los cibermedios promueven las conversaciones múltiples, de muchos a muchos, ya que existe gran diversidad y participación en quién produce y en quién consume el contenido.
-                            </p>
-                            <p>
-                                Autores como Scolari y Ohijuela lo plantean como la transición de un modelo de uno a muchos tal como en el broadcasting y la radiodifusión (por ejemplo en la prensa, la radio, el cine, la televisión) a una conversación de muchos a muchos. Esto significa
-                                que en Internet se difuminan los papeles de los emisores y los receptores, ya que no hay un lugar fijo para quienes consumen el contenido y los mensajes, y otro para quienes los crean, sino que de alguna forma todos somos
-                                <strong>prosumidores</strong>; consumidores y productores de mensajes. Todos cumplimos constantemente ambas funciones, derivando en entornos de escucha participativos, inclusivos y bidireccionales, y multidireccionales.
-                            </p>
-                            <p>
-                                Esto además, se ha visto exacerbado por la posterior llegada de otros componentes como las <strong>redes sociales</strong>, que hacen que vivamos constantemente en una explosión de contenidos digitales, conversaciones,
-                                y otras formas de comunicar que desafían a los modelos de comunicación tradicionales. Así mismo, las plataformas de distribución de contenidos, por ejemplo Netflix, Spotify, YouTube, entre otros, enriquecen este modo de
-                                comunicación, ya que se les suma sistemas de valoración, calificación y opiniones como las cajas de comentarios, puntuación por estrellas, los me gusta, la mano arriba o abajo, y otras herramientas de comunicación interpersonal
-                                como la mensajería instantánea, los chats, los mensajes de voz y el correo electrónico.
+                            <div>
+                                <h4>De una comunicación de “uno a muchos” al modelo “muchos a muchos”</h4>
+                                <p>
+                                    En la actualidad, la comunicación digital y los cibermedios promueven las conversaciones múltiples, de muchos a muchos, ya que existe gran diversidad y participación en quién produce y en quién consume el contenido.
+                                </p>
+                                <p>
+                                    Autores como Scolari y Ohijuela lo plantean como la transición de un modelo de uno a muchos tal como en el broadcasting y la radiodifusión (por ejemplo en la prensa, la radio, el cine, la televisión) a una conversación de muchos a muchos. Esto significa
+                                    que en Internet se difuminan los papeles de los emisores y los receptores, ya que no hay un lugar fijo para quienes consumen el contenido y los mensajes, y otro para quienes los crean, sino que de alguna forma todos somos
+                                    <strong>prosumidores</strong>; consumidores y productores de mensajes. Todos cumplimos constantemente ambas funciones, derivando en entornos de escucha participativos, inclusivos y bidireccionales, y multidireccionales.
+                                </p>
+                                <p>
+                                    Esto además, se ha visto exacerbado por la posterior llegada de otros componentes como las <strong>redes sociales</strong>, que hacen que vivamos constantemente en una explosión de contenidos digitales, conversaciones,
+                                    y otras formas de comunicar que desafían a los modelos de comunicación tradicionales. Así mismo, las plataformas de distribución de contenidos, por ejemplo Netflix, Spotify, YouTube, entre otros, enriquecen este modo de
+                                    comunicación, ya que se les suma sistemas de valoración, calificación y opiniones como las cajas de comentarios, puntuación por estrellas, los me gusta, la mano arriba o abajo, y otras herramientas de comunicación interpersonal
+                                    como la mensajería instantánea, los chats, los mensajes de voz y el correo electrónico.
 
-                            </p>
-                            <h5>
-                                ¿Cómo podemos aprovechar las transformaciones más significativas en las aulas virtuales?
-                            </h5>
-                            <p>
-                                Estas transformaciones en los procesos de comunicación en la educación en línea hacen que la posición del docente se convierta en la de un facilitador y co-aprendiz. Reevaluar la hegemonía de la voz del docente en el aula hace que se pase de una pedagogía
-                                de la enunciación, a las pedagogías de la participación (Educared, 2014).
-                            </p>
+                                </p>
+                                <h5>
+                                    ¿Cómo podemos aprovechar las transformaciones más significativas en las aulas virtuales?
+                                </h5>
+                                <p>
+                                    Estas transformaciones en los procesos de comunicación en la educación en línea hacen que la posición del docente se convierta en la de un facilitador y co-aprendiz. Reevaluar la hegemonía de la voz del docente en el aula hace que se pase de una pedagogía
+                                    de la enunciación, a las pedagogías de la participación (Educared, 2014).
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div id="transformaciones-3" class="wf-content autox autoy">
                         <div class="content_wrapper">
-                            <h4>
-                                De audiencias a usuarios y nichos de contenido
-                            </h4>
-                            <p>
-                                Otro transformación interesante en la comunicación digital es el cambio en el público. Ahora, hablamos más de usuarios y nichos de contenidos o de audiencias. En parte, esto se debe a que las personas tienen mayor control sobre lo que ven y consumen,
-                                y los mercados se han ido organizando en grupos específicos ordenados por demografía y otras características. Esta ha sido una tendencia muy relacionada con el marketing digital, ya que en la medida en que los emisores
-                                generan retroalimentación más enfocada, el acercamiento a los usuarios es mucho más fácil.
-                            </p>
-                            <p>
-                                La Web, fragmentó las audiencias en pequeños grupos de consumidores que tienen unos intereses y unas características específicas; los contenidos digitales no se producen para audiencias masificadas sino para pequeños nichos de usuarios, y estos distan
-                                de tener las mismas lógicas de los medios masivos convencionales.
-                            </p>
+                            <div>
+                                <h4>
+                                    De audiencias a usuarios y nichos de contenido
+                                </h4>
+                                <p>
+                                    Otro transformación interesante en la comunicación digital es el cambio en el público. Ahora, hablamos más de usuarios y nichos de contenidos o de audiencias. En parte, esto se debe a que las personas tienen mayor control sobre lo que ven y consumen,
+                                    y los mercados se han ido organizando en grupos específicos ordenados por demografía y otras características. Esta ha sido una tendencia muy relacionada con el marketing digital, ya que en la medida en que los emisores
+                                    generan retroalimentación más enfocada, el acercamiento a los usuarios es mucho más fácil.
+                                </p>
+                                <p>
+                                    La Web, fragmentó las audiencias en pequeños grupos de consumidores que tienen unos intereses y unas características específicas; los contenidos digitales no se producen para audiencias masificadas sino para pequeños nichos de usuarios, y estos distan
+                                    de tener las mismas lógicas de los medios masivos convencionales.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div id="transformaciones-4" class="wf-content autox autoy">
                         <div class="content_wrapper">
-                            <h4>
-                                ¿Y qué ocurre con la comunicación interpersonal o “uno a uno”?
-                            </h4>
-                            <blockquote>
-                                “Estamos evolucionando hacia medios de masas 2.0, de la mano de los teléfonos inteligentes. La clave ya no es la plataforma de distribución, sino el usuario conectado.”
-                                <label>(Orihuela, 2016, p. 82).</label>
-                            </blockquote>
-                            <p>
-                                De la misma manera en que los medios interpersonales que acostumbramos a usar para comunicarnos cotidianamente, medios sincrónicos como el teléfono y otros asincrónicos como el fax y el correo postal, todas las transformaciones del mundo digital (el surgimiento
-                                de los smartphones, las apps y la incorporación de nuevas tecnologías), promueven el surgimiento de un ecosistema de aplicaciones y herramientas que modifican nuestras formas de comunicarnos. Por ejemplo, en la comunicación
-                                en línea encontramos otras herramientas como el correo electrónico, los chats, los foros de debate, los wikis y la mensajería instantánea, que gozan de los atributos del lenguaje multimedia y de las características de la
-                                hipertextualidad y la interactividad.
-                            </p>
+                            <div>
+                                <h4>
+                                    ¿Y qué ocurre con la comunicación interpersonal o “uno a uno”?
+                                </h4>
+                                <blockquote>
+                                    “Estamos evolucionando hacia medios de masas 2.0, de la mano de los teléfonos inteligentes. La clave ya no es la plataforma de distribución, sino el usuario conectado.”
+                                    <label>(Orihuela, 2016, p. 82).</label>
+                                </blockquote>
+                                <p>
+                                    De la misma manera en que los medios interpersonales que acostumbramos a usar para comunicarnos cotidianamente, medios sincrónicos como el teléfono y otros asincrónicos como el fax y el correo postal, todas las transformaciones del mundo digital (el surgimiento
+                                    de los smartphones, las apps y la incorporación de nuevas tecnologías), promueven el surgimiento de un ecosistema de aplicaciones y herramientas que modifican nuestras formas de comunicarnos. Por ejemplo, en la comunicación
+                                    en línea encontramos otras herramientas como el correo electrónico, los chats, los foros de debate, los wikis y la mensajería instantánea, que gozan de los atributos del lenguaje multimedia y de las características de la
+                                    hipertextualidad y la interactividad.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -323,7 +286,7 @@
                     <div class="box-text activity" label="Actividad de aprendizaje">
                         <p>Arrastre los medios que corresponden a cada categoría.</p>
                         <p>
-                            En cada categoría es necesario realizar correctamente la asociación concepto-definición para pasar a la siguiente. La actividad se cumple cuando se completen las asociaciones propuestas.
+                            En cada categoría es necesario realizar correctamente la asociación concepto-definición. La actividad se cumple cuando se completen las asociaciones propuestas.
                         </p>
                     </div>
                     <p>
@@ -403,9 +366,7 @@
                             Promueve vías de comunicación abiertas con el receptor, dada la obligación de mantener la conversación en movimiento y mantener la conexión social.
                         </li>
                     </ul>
-            </section>
-            <section id="pag-her-sincronica" ptitle="Herramientas de comunicación sincrónica">
-                <div class="subpage">
+                    <h3>Herramientas de comunicación sincrónica</h3>
                     <p>
                         Las herramientas sincrónicas ayudan a realizar diferentes tipos de actividades en el quehacer docente. A continuación, se presentan algunas de ellas.
                     </p>
@@ -532,10 +493,8 @@
                     <p>
                         A continuación, se exponen algunas de las herramientas asincrónicas.
                     </p>
-                </div>
-            </section>
-            <section id="pag-her-asincronica" ptitle="Herramientas de la comunicación asincrónicas">
-                <div class="subpage">
+
+                    <h3>Herramientas de la comunicación asincrónicas</h3>
                     <div class="align1">
 
                         <div class="box_media wf-content-controler button general" data-content="#ventana_textos_flotante6">
@@ -702,7 +661,6 @@
                             </feedback>
                         </div>
                     </div>
-                    <!-- Falta organnizar esta actividad, los siguientes textos son en ventana modal pero también tiene una actividad para arrastrar y soltar-->
                     <div id="case_1" class="w-content" title="Caso Patricia">
                         <div class="avatar case_1"></div>
                         <p>
@@ -797,10 +755,20 @@
 
                 <div>
                     <h3>Investigación y desarrollo de contenidos</h3>
-                    <cite>Lina María González Duque<br />
-                            Mónica Deossa Quintero<br/>
-                            Cristina Quintero Londoño <br/>
-                        </cite>
+                    <cite>Ángela María Valderrama Muñoz</cite><br />
+                    Docente universitaria<br />
+                    Ingeniera de Sistemas<br />
+                    MBA con énfasis en Gestión de Proyectos<br /><br />
+
+                    <cite>Mónica Deossa Quintero</cite><br />
+                    Docente universitaria<br />
+                    Licenciada en Pedagogía Infantil<br />
+                    Magíster en Gestión en Ciencia Tecnología e Innovación<br /><br />
+
+                    <cite>Cristina Quintero Londoño</cite><br />
+                    Docente universitaria<br />
+                    Comunicadora social y Diseñadora visual<br />
+                    Magíster en Comunicación Digital
                 </div>
                 <div>
                     <h3>Asesoría pedagógica</h3>
@@ -829,8 +797,8 @@
                 </div>
                 <div>
                     <h3>Integración de contenidos</h3>
+                    <cite>Jesús Maria Otero Vega</cite><br />
                     <cite>Mariana Múnera Manco</cite>
-                    <cite>Jesús Maria Otero Vega</cite>
                 </div>
                 <div>
                     <h3>Revisión de calidad</h3>
@@ -845,10 +813,10 @@
                 <div>
                     <h3>Producción</h3>
                     <div class="logos">
-                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a><br/>
-                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a><br/>
-                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a><br/>
-                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a><br/>
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
                     </div>
                     <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
                 </div>
@@ -857,9 +825,13 @@
                     1ª edición: agosto 2019<br />
                 </div>
                 <div>
-                    <br />
-                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <p>
+                        <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
                         <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </p>
+                </div>
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
                 </div>
             </div>
         </div>
@@ -868,6 +840,7 @@
         <!-- Bibliografía -->
         <div id="library-page" style="display:none;">
             <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
                 <ul class="data_list">
                     <li>
                         Camarero-Cano, L. (2015). Comunidades tecnosociales. Evolución de la comunicación analógica hacia la interacción analógico-digital. Revista Mediterránea de Comunicación, 6(1), 187-195.
@@ -922,9 +895,9 @@
                 </ul>
                 <div class="box-text link" label="Materiales complementarios">
 
-                    <p>Video: ¿Cómo diseñar clases transmediales?</p>
-                    <p>Duración: 30’43’’</p>
-                    <p>EducaRed (2014). ¿Cómo diseñar clases transmediales? Fundación Telefónica Perú [Recurso en línea]. Recuperado de <a href="https://bit.ly/2Osuqxw target="_blank"">https://bit.ly/2Osuqxw</a></p>
+                    <p><strong>Video:</strong> ¿Cómo diseñar clases transmediales?</p>
+                    <p><strong>Duración:</strong> 30’43’’</p>
+                    <p>EducaRed (2014). ¿Cómo diseñar clases transmediales? Fundación Telefónica Perú [Recurso en línea]. Recuperado de <a href="https://bit.ly/2Osuqxw" target="_blank">https://bit.ly/2Osuqxw</a></p>
 
                 </div>
             </div>

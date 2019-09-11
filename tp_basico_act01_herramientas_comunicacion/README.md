@@ -1,5 +1,6 @@
-# Tepuy
-Template for interactive content editing
+# OVA: Herramientas de comunicación ¿Cómo cambia la comunicación en los entornos digitales?
 
-## Version: 1.1
-### Release: 20190107.1
+Producido en **Tepuy** - Template for interactive content editing
+https://github.com/davidherney/tepuy/
+**Version:** 1.1
+**Release:** 20190107.1

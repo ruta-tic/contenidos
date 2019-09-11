@@ -11,6 +11,13 @@
     top: 0;
     bottom: 0;
     overflow: auto;
+    left: 0;
+    right: 0;
+}
+
+#pag-cambia .wf-content.autox.autoy .content_wrapper > div {
+    max-width: 900px;
+    margin: auto;
 }
 
 .actividad1 {

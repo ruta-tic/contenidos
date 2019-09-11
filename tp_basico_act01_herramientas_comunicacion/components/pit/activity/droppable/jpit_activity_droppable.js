@@ -1,6 +1,6 @@
 (function(jpit){
     var transformProp;
-    var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";    
+    var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";
     var CONTAINERSELECTOR = ".jpit-activities-droppable";
     /**
     * dragStartListener
@@ -32,7 +32,7 @@
             pos = $target.data('_dragpos') || { x: 0, y: 0 };
 
         pos.x += event.dx;
-        pos.y += event.dy;  
+        pos.y += event.dy;
         $target.css(transformProp, `translate(${pos.x}px, ${pos.y}px)`);
         $target.data('_dragpos', pos);
     }
@@ -104,8 +104,6 @@
     * createDraggables
     */
     function createDraggables(elements) {
-        //console.log(obj.properties.draggableContainer);
-        ////zIndex: 3,
         $.each(elements, function(index, $el) {
             $el.data('_interact', interact($el[0]).draggable({
                 origin: '',
@@ -347,7 +345,7 @@
                 dropInnerContent: droppable.properties.dropInnerContent,
                 innerContentHelper: droppable.properties.innerContentHelper
             };
-        console.log(droppable);
+
         $list.appendTo(droppable.$container).dialog({
             modal: true,
             autoOpen: false,
@@ -409,7 +407,7 @@
                 }, options);
             });
         }
-        
+
         return {
             show: show
         };
