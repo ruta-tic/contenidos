@@ -393,7 +393,7 @@ dhbgApp.mobile.start = function() {
         $this.dialog(properties);
     });
 
-    $('.w-content-controler').on('click', function(){
+    $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
@@ -907,7 +907,7 @@ dhbgApp.mobile.start = function() {
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_vertical_content elements"></div>');
 
-        $this.find('dl').each(function() {
+        $this.find('>dl').each(function() {
             var $dl = $(this);
             var $element_container = $('<div class="element"></div>');
             var $dd = $dl.find('dd').children();
@@ -946,7 +946,7 @@ dhbgApp.mobile.start = function() {
 
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_both_content elements"></div>');
-        $this.find('dl').each(function() {
+        $this.find('>dl').each(function() {
             var $dl = $(this);
 
             var $element_container = $('<div class="element"></div>');
@@ -1355,6 +1355,7 @@ dhbgApp.mobile.start = function() {
             ondemand = /^(any|mobile)$/.test(el.getAttribute('data-on-demand'));
         }
 
+        options.ondemand = ondemand;
         if (!ondemand && timer == 0) {
             loader.call(loader, $container, options);
             return;
@@ -2061,6 +2062,8 @@ dhbgApp.mobile.load_operations = function() {
         activityOptions.prefixType       = $this.attr('data-prefixtype') ? $this.attr('data-prefixtype') : jpit.activities.quiz.prefixes.none;
         activityOptions.requiredAll      = $this.attr('data-requiredall') && $this.attr('data-requiredall') != 'true' ? false : true;
         activityOptions.paginationNumber = $this.attr('data-paginationnumber') ? parseInt($this.attr('data-paginationnumber')) : 1;
+        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var count_questions = $this.find('question[type!="label"]').length;
         var question_weight = 100 / count_questions;
@@ -2197,6 +2200,7 @@ dhbgApp.mobile.load_operations = function() {
         var $box_end = $('<div class="box_end" style="display:none"></div>');
 
         var add_restart_button = function () {
+            if (!allowRetry) return;
             var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
             $button_again.on('click', function(){
                 $this.empty();
@@ -2282,6 +2286,10 @@ dhbgApp.mobile.load_operations = function() {
                     if (weight < 100) {
                         add_restart_button();
                     }
+                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                        id: scorm_id,
+                        weight: weight
+                    }]);
                 }
             }
 
@@ -2462,6 +2470,8 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_crossword_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
+        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
 
@@ -2536,7 +2546,7 @@ dhbgApp.mobile.load_operations = function() {
             activity.stop();
             activity.highlight('correct', 'wrong');
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
                     $box_end.empty();
@@ -2549,6 +2559,10 @@ dhbgApp.mobile.load_operations = function() {
 
                 $this.find('.box_end').append($button_again)
             }
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
         });
 
         var $box_verify = $('<div class="verify_container"></div>');
@@ -2620,6 +2634,8 @@ dhbgApp.mobile.load_operations = function() {
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
             };
+            var allowRetry = !$this.attr('data-allow-retry') === 'false';
+            var modalFeedback = true && $this.attr('data-modal-feedback');
 
             var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
 
@@ -2660,6 +2676,7 @@ dhbgApp.mobile.load_operations = function() {
             });
 
             var add_restart_button = function() {
+                if (!allowRetry) return;
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
                     $box_end.empty().hide();
@@ -2770,8 +2787,11 @@ dhbgApp.mobile.load_operations = function() {
             });
             $this.data('loaded', true);
         }
-        dhbgApp.mobile.fullContent.content.append($this);
-        dhbgApp.showFullContent($this);
+        
+        if (options.ondemand) {
+            dhbgApp.mobile.fullContent.content.append($this);
+            dhbgApp.showFullContent($this);
+        }
     };
 
     dhbgApp.actions.activityMultidroppable = function ($this, scorm_id) {
@@ -2867,6 +2887,10 @@ dhbgApp.mobile.load_operations = function() {
                     if (weight < 100) {
                         $continue.show();
                     }
+                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                        id: scorm_id,
+                        weight: weight
+                    }]);
                 }
                 else {
                     var d_drop_buttons = {};
@@ -2911,6 +2935,8 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_cloze_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = '', feedbackfalse = '';
+        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
         var $box_end = $this.find('.box_end');
@@ -2971,7 +2997,7 @@ dhbgApp.mobile.load_operations = function() {
                     $this.find('.correct').parents(mark_parent).addClass('correct');
                 }
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3001,6 +3027,8 @@ dhbgApp.mobile.load_operations = function() {
             var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
             var html_body = $this.html();
             var $box_end = $this.find('.box_end');
+            var allowRetry = !$this.attr('data-allow-retry') === 'false';
+            var modalFeedback = true && $this.attr('data-modal-feedback');
             $box_end.hide();
 
             if ($this.find('feedback correct').text() != '') {
@@ -3046,7 +3074,7 @@ dhbgApp.mobile.load_operations = function() {
                 activity.disable();
                 activity.highlight('correct', 'wrong');
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3059,7 +3087,10 @@ dhbgApp.mobile.load_operations = function() {
 
                     $box_end.append($button_again);
                 }
-
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             });
 
             var $box_verify = $('<div class="verify_container"></div>');
@@ -3101,6 +3132,10 @@ dhbgApp.mobile.load_operations = function() {
                     dhbgApp.scorm.activityAttempt(scorm_id, weight);
                 }
                 dhbgApp.printProgress();
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             },
         };
 
@@ -3124,6 +3159,9 @@ dhbgApp.mobile.load_operations = function() {
         var html_body = $this.html();
         var $box_verify = $('<div class="verify_container"></div>');
         var $box_end = $('<div class="box_end"></div>');
+        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var modalFeedback = true && $this.attr('data-modal-feedback');
+
         $box_end.hide();
         $box_verify.append($box_end);
 
@@ -3198,7 +3236,7 @@ dhbgApp.mobile.load_operations = function() {
                 activity.disable();
                 activity.highlight('correct', 'wrong');
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3211,6 +3249,10 @@ dhbgApp.mobile.load_operations = function() {
 
                     $box_end.append($button_again);
                 }
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             }
         });
 
@@ -3237,6 +3279,8 @@ dhbgApp.mobile.load_operations = function() {
         var ok = dhbgApp.s('accept');
         d_answer_buttons[ok] = function() { $(this).dialog('close'); };
         var $dialog_answer_required = $('<div>' + dhbgApp.s('answer_required') + '</div>').dialog({modal: true, autoOpen: false, buttons: d_answer_buttons });
+        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         // Load custom feedback, if exists.
         var feedbacktrue = null, feedbackfalse = null;
@@ -3476,7 +3520,7 @@ dhbgApp.mobile.load_operations = function() {
 
             $button_check.hide();
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 $button_again.show();
             }
 
