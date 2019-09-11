@@ -1139,9 +1139,9 @@ dhbgApp.mobile.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1150,7 +1150,7 @@ dhbgApp.mobile.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1298,7 +1298,7 @@ dhbgApp.mobile.start = function() {
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -2634,7 +2634,7 @@ dhbgApp.mobile.load_operations = function() {
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
             };
-            var allowRetry = !$this.attr('data-allow-retry') === 'false';
+            var allowRetry = !($this.attr('data-allow-retry') === 'false');
             var modalFeedback = true && $this.attr('data-modal-feedback');
 
             var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
@@ -2787,7 +2787,7 @@ dhbgApp.mobile.load_operations = function() {
             });
             $this.data('loaded', true);
         }
-        
+
         if (options.ondemand) {
             dhbgApp.mobile.fullContent.content.append($this);
             dhbgApp.showFullContent($this);
@@ -3351,7 +3351,7 @@ dhbgApp.mobile.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }

@@ -1,6 +1,19 @@
+.img_decoration_left {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.img_decoration_right {
+    float: right;
+    margin: 0 20px 20px 0;
+}
+
+.videobox video,
+.videobox > div {
+        box-shadow: unset;
+}
+
 /********************************************************************************/
-
-
 /* Actividad arrastrar y soltar multiple
 /********************************************************************************/
 
@@ -24,6 +37,7 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
 .dropzone_container h5 {
     padding: 10px;
     display: block;
@@ -31,8 +45,9 @@
     color: #FFFFFF;
     margin: 2px 0;
 }
+
 .dropzone_container .column {
-    flex: 1;    
+    flex: 1;
 }
 
 .dropzone_container .dropzone {
@@ -66,7 +81,7 @@
     overflow: auto;
 }
 
-#arrastrargrupos.jpit-activities-droppable .sources {
+#arrastrargrupos .sources {
     width: 100%;
     height: 100%;
     margin: 10px auto 0;
@@ -75,7 +90,7 @@
     justify-content: center;
 }
 
-#arrastrargrupos.jpit-activities-droppable .draggable {
+#arrastrargrupos .draggable {
     width: 165px;
     float: left;
     margin: 0 1px 5px;
@@ -86,16 +101,23 @@
     background-color: #deeff5;
 }
 
+#arrastrargrupos .draggable.jpit_activities_jpitdroppable_dropped {
+    width: auto;
+}
+
 #arrastrargrupos table .draggable.disabled {
     cursor: default;
 }
 
-#arrastrargrupos.jpit-activities-droppable .buttons {
+#arrastrargrupos .buttons {
     text-align: center;
     padding: 5px 0;
     clear: both;
 }
 
+#arrastrargrupos .draggable.wrong {
+    color: #D60C1B;
+}
 
 /******Textos*****/
 
@@ -153,7 +175,7 @@
 }
 
 #recurso-2:hover {
-    background-image: url(../content/revurso_2_hover.png);
+    background-image: url(../content/recurso_2_hover.png);
     background-size: cover;
     height: 248px;
     background-repeat: no-repeat;
@@ -173,7 +195,7 @@
 }
 
 #Contenido {
-    background-image: url(../content/evaluacion_de_un_red_Mesa\ de\ trabajo\ 1.png    );
+    background-image: url(../content/evaluacion_de_un_red_0.png    );
     background-size: cover;
     height: 242px;
     background-repeat: no-repeat;
@@ -183,7 +205,7 @@
 }
 
 #Pedagogia {
-    background-image: url(../content/evaluacion_de_un_red_Mesa\ de\ trabajo\ 1\ copia.png);
+    background-image: url(../content/evaluacion_de_un_red_1.png);
     background-size: cover;
     height: 242px;
     background-repeat: no-repeat;
@@ -193,7 +215,7 @@
 }
 
 #Estandares {
-    background-image: url(../content/evaluacion_de_un_red_Mesa\ de\ trabajo\ 1\ copia\ 2.png);
+    background-image: url(../content/evaluacion_de_un_red_2.png);
     background-size: cover;
     height: 242px;
     background-repeat: no-repeat;
@@ -203,11 +225,27 @@
 }
 
 #Tecnologia {
-    background-image: url(../content/evaluacion_de_un_red_Mesa\ de\ trabajo\ 1\ copia\ 3.png);
+    background-image: url(../content/evaluacion_de_un_red_3.png);
     background-size: cover;
     height: 242px;
     background-repeat: no-repeat;
     width: 242px;
     text-align: center;
     margin: auto;
+}
+
+#pag-repositorio .horizontal-menu > .chalkboard_content,
+#pag-criteriosbusqueda .horizontal-menu > .chalkboard_content {
+    height: auto;
+}
+
+.section-5Content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.view-first {
+    cursor: default;
+    border-radius: 10px;
 }
