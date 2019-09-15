@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Análisis de casos. Formas de interacción y comunicación utilizando TIC</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Análisis de casos. Formas de interacción y comunicación utilizando TIC</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Analiza los siguientes casos" data-page="pag-casos"></menuitem>
+                    <menuitem label="Preguntas orientadoras" data-page="pag-preguntas"></menuitem>
+                    <menuitem label="Finaliza el análisis del caso" data-page="pag-fin-analisis">
+                    </menuitem>
+                    <menuitem label="Autoevaluación" data-page="pag-autoevaluacion"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-casos" ptitle="Analiza los siguientes casos">
+                <div class="subpage">
+                    <h5>Analice los siguientes casos</h5>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Lea detenidamente los siguientes casos y realice, de manera individual, el análisis correspondiente a partir de las preguntas orientadoras.
+                        </p>
+                    </div>
+                    <div class="subpage">
+                        <h5>Tenga en cuenta los siguientes tips para la lectura:</h5>
+                        <ul class="data_list">
+                            <li>
+                                Durante la lectura trate de identificar los problemas o dificultades que se presentan. Es útil subrayar los asuntos cruciales y tomar notas personales.
+                            </li>
+                            <li>
+                                Lea nuevamente la información para comprender mejor el caso y trate de generar preguntas que ayuden a clarificar el tema.
+
+                            </li>
+                        </ul>
+
+                        <div class="tabla-casos">
+
+                            <div class="wf-content-controler general" data-content="#caso1">
+                                <div><img src="content/iconos_casos-01.png" alt=""></div>
+                                <strong>Caso 1:</strong> Familiarización con el uso de la videoconferencia como espacio para el aprendizaje.</div>
+
+
+                            <div class="wf-content-controler general" data-content="#caso2">
+                                <div> <img src="content/iconos_casos-02.png" alt=""></div>
+                                <strong>Caso2: </strong>El foro como espacio de debate</div>
+
+
+                        </div>
+
+                        <div id="caso1" class="wf-content autox autoy">
+                            <div class="content_wrapper">
+                                <div>
+                                    <h5>Caso 1. Familiarización con el uso de la videoconferencia como espacio para el aprendizaje
+                                        <a href="" target="_blank"><img src="content/pdf_decargar.png" alt="" style="width: 5%; margin-left: 23px;"></a>
+                                </div>
+                                </h5>
+
+                                <div>
+                                    <img class="img-derecha" src="content/caso_1-02.png" alt="" style="width: 15%;">
+                                    <p>Fernando fue admitido al programa de Ingeniería de Sistemas en modalidad virtual y hoy tendrá su primera clase a las 10:00 a. m. llamada “Lógica y representación I”. Está un poco nervioso, pues es la primera vez que participará
+                                        en una videoconferencia y la única información que tiene para ingresar es que debe hacer clic en el botón “Encuentro sincrónico” que se encuentra en el aula virtual del curso a la hora indicada.
+                                    </p>
+                                </div>
+                                <p>Cuando el reloj marca la hora Fernando ingresa al aula virtual, hace clic en el botón correspondiente y se inicia la descarga de una aplicación luego de mostrar el mensaje “Como es la primera vez que utilizará este software
+                                    de videoconferencia es necesario que instale esta aplicación”. La descarga y la instalación le toman 10 minutos; pudo ingresar a la clase pero llegó tarde.</p>
+                                <div>
+                                    <img class="img-izquierda" src="content/caso_1-03.png" alt="" style="width: 15%">
+                                    <p>La clase ya está en marcha, el profesor nota la presencia de Fernando y le pide que se presente. Al hacerlo, sus compañeros de clase le dicen por el chat que no lo escuchan, que por el contrario, escuchan un ruido intermitente.
+                                        Molesto, Fernando cambia su micrófono y logra iniciar su presentación, sin embargo, mientras lo hace, su madre inocentemente está aspirando la habitación contigua, lo que provoca que no se le escuche muy bien y mejor
+                                        termina de hacerla por el chat.</p>
+                                </div>
+                                <p>
+                                    Durante el desarrollo de la clase, el profesor usa una presentación de apoyo pero los estudiantes le escriben por el chat, de forma constante, que no se ve bien, que lo amplié un poco y le señalan que no es muy claro lo que explica. También, se escucha
+                                    mucho ruido debido a que varios de los estudiantes tienen sus micrófonos abiertos
+                                </p>
+                                <div> <img class="img-derecha" src="content/caso_1-04.png" alt="" style="width: 15%;">
+                                    <p>Más adelante, le da el control de la pizarra a Juan para que le ayude con la elaboración de un ejercicio, pero este no sabe cómo hacerlo, pues no logra ubicarla ni sabe cómo funciona. </p>
+                                    <p>En el chat, los estudiantes comienzan a desconcentrarse y se salen del tema de la clase. Han conformado un grupo con la herramienta Whatsapp y han comenzado a hablar de asuntos diversos. El encuentro finaliza siendo las
+                                        11:50 a. m.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="caso2" class="wf-content autox autoy">
+                            <div class="content_wrapper">
+                                <h5>Caso 2. El foro como espacio de debate
+                                    <a href="" target="_blank"><img src="content/pdf_decargar.png" alt="" style="width: 5%; margin-left: 23px;"></a>
+                                </h5>
+
+                                <div> <img class="img-derecha" src="content/caso_2-01.png" alt="" style="width: 20%;">
+                                    <p>El sábado en la mañana, el profesor del curso “Derecho Penal General” propuso a sus estudiantes realizar un foro para generar un debate asincrónico y abordar algunos aspectos de la unidad “El delito como conducta antijurídica”,
+                                        ya que considera que los foros son una buena estrategia para resolver problemas, generar ideas, desarrollar buenas prácticas y distribuir conocimiento.
+                                    </p>
+                                </div>
+                                <p>El profesor indicó que todos los participantes deberían realizar, al menos, una intervención en el hilo general y retroalimentar, como mínimo, dos de las participaciones de sus compañeros. Les recomendó ser muy cuidadosos con
+                                    las normas de citación en caso de que quisieran referenciar materiales y fuentes de otros autores. No obstante, no fue explícito al indicar durante cuánto tiempo permanecería abierto este espacio de interacción e intercambio.
+                                </p>
+                                <div> <img class="img-izquierda" src="content/caso_2-02.png" alt="" style="width: 28%;">
+                                    <p>Durante la semana, el profesor recibió en su correo electrónico un par de mensajes de estudiantes a quienes les había llegado una copia del mensaje inicialmente enviado por el docente en el foro, decidieron responder a
+                                        través de ese canal y continuar el cruce de mensajes allí. Una de las razones para privilegiar el correo por encima del foro era el temor de que los compañeros de la clase leyeran y comentaran sus intervenciones.</p>
+                                </div>
+                                <p>Mientras tanto, en el foro algunos estudiantes comenzaron la discusión sobre el tema planteado haciendo intervenciones claras, realizando la lecturas de las entradas de otros participantes del curso y planteando nuevas preguntas
+                                    para el profesor y los compañeros. Sin embargo, no tuvieron la retroalimentación esperada y la expectativa de recibir respuesta a sus intervenciones fue decayendo.</p>
+
+                                <div> <img class="img-derecha" src="content/caso_2-03.png" alt="" style="width: 28%;">
+                                    <p>Sin embargo, no toda la clase estaba participando de manera activa. Una gran parte del grupo aprovechó el espacio para comentar, de manera muy informal, algunos asuntos relacionados con el avance del proyecto de econometría
+                                        que venían trabajando hace un par de semanas en la asignatura Teoría Económica. Estos mensajes tenían varios problemas de concordancia verbal, ortografía y de uso de signos lingüísticos.
+                                    </p>
+                                </div>
+                                <p>Otros usaron el espacio para realizar anuncios generales sobre aspectos administrativos del semestre, como las fechas de entrega de las notas finales.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <p></p>
+
+                </div>
+            </section>
+
+            <!-- 2. preguntas -->
+            <section id="pag-preguntas" ptitle="Preguntas orientadoras">
+                <div class="page">
+                    <p>Responda las siguientes preguntas para cada uno de los casos que acaba de leer. No tiene que realizar ningún envío, solo analice y reflexione en torno a las preguntas orientadoras que se plantean:</p>
+                    <ul class="data_list">
+                        <li>Si usted fuera el docente, ¿cómo actuaría ante esta situación?
+                        </li>
+                        <li>Si usted fuera el estudiante, ¿cómo actuaría ante esta situación?</li>
+                        <li>¿Las herramientas sincrónicas de comunicación fueron utilizadas adecuadamente?</li>
+                        <li>¿Cuáles son los posibles riesgos o dificultades de este tipo de comunicación?</li>
+                        <li>¿El espacio de interacción se empleó de manera adecuada? </li>
+                        <li>¿El objetivo del espacio de interacción propuesto se cumplió de acuerdo con las indicaciones del profesor? </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- 3. -->
+            <section id="pag-fin-analisis" ptitle="Finalice el análisis del caso con lo siguiente:">
+                <div class="page">
+                    <ul class="data_list">
+                        <li>Enuncie las posibles soluciones o alternativas para los distintos actores (estudiantes y profesores). Sea preciso al momento de hacer estas recomendaciones.</li>
+                        <li>Tome apuntes personales de sus recomendaciones, ya que serán el insumo para la siguiente actividad “Decálogo: 10 reglas de oro para la comunicación mediada por tecnologías digitales”. Para esto, se recomienda utilizar herramientas
+                            como Keep Note Google, los Block de Notas, Google Docs o Microsoft Docs. </li>
+
+                    </ul>
+                    <p>
+                        Cuando termine el análisis, deberá revisar las siguientes sugerencias para realización de una videoconferencia y de un foro, y la interacción que debe presentarse entre el profesor y el estudiante en dichos espacios.
+                    </p>
+                </div>
+
+                <div class="horizontal-menu">
+                    <dl>
+                        <dt>Sugerencias para una videoconferencia</dt>
+                        <dd>
+                            <div>
+                                <div> <img class="img-derecha" src="content/videoconferencia-01.png" alt="" style="width: 20%;">
+                                    <p>La <strong> videoconferencia</strong> es un espacio de comunicación que puede ser usado por el profesor para realizar encuentros sincrónicos con sus estudiantes, con el fin de resolver dudas, explicar un tema, interactuar
+                                        con los participantes, entre otros. En este tipo de interacción tanto el profesor, como el estudiante, deberán tener presente algunos aspectos antes, durante y después de la videoconferencia.
+                                    </p>
+                                </div>
+                                <br><br>
+
+
+                                <h5>Desde el rol del profesor</h5>
+
+                                <p>
+                                    A continuación, se presenta una serie de recomendaciones a tener en cuenta por parte del docente antes, durante y después de una videoconferencia, con el fin de garantizar el éxito del encuentro sincrónico.
+                                </p>
+
+                                <div class="videobox">
+                                    <video controls>
+                                        <source src="content/videos/sugerencias_participacion_en_videoconferencia.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+
+                                <br><br>
+
+                                <!--h5>Desde el rol del estudiante</h5-->
+                                <img class="imgtofit" src="content/3_1_2_decalogo-01.png" alt="">
+
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Sugerencias para la participación en un foro</dt>
+                        <dd>
+                            <p>El foro es un espacio para la discusión, transferencia y construcción de conocimiento. Si bien la intencionalidad del foro está dada por el profesor, el estudiante debe comprender que tendrá una interacción con sus pares y
+                                que para que esta cumpla con sus objetivos, se deberá disponer de algunas orientaciones.
+                            </p>
+
+                            <p>
+                                A continuación, se presenta una serie de recomendaciones a tener en cuenta para participar en un foro.
+                            </p>
+
+
+                            <div class="videobox">
+                                <video controls>
+                                      <source src="content/videos/sugerencias_participacion_en_foro.mp4" type="video/mp4">                                      
+                                    </video>
+                            </div>
+                        </dd>
+                    </dl>
+                    </div>
+            </section>
+
+
+            <!-- 4. -->
+            <section id="pag-autoevaluacion" ptitle="Autoevaluación ">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A continuación, compare su propuesta con las sugerencias dadas para cada caso, respondiendo sí o no:
+                        </p>
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-parent-mark-selector="false" data-mode="single">
+                            <table>
+                                <caption></caption>
+                                <colgroup>
+                                    <col width="70%"/>
+                                    <col width="15%"/>
+                                    <col width="15%"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>Caso 1</th>
+                                        <th>Caso 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="2">Encontré opciones que jamás hubiese tenido en cuenta en mi rol de profesor o estudiante</th>
+                                        <td data-group="1" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                        <td data-group="2" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-group="1" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                        <td data-group="2" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">Coincidí con la mayoría de las opciones</th>
+                                        <td data-group="3" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                        <td data-group="4" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-group="3" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                        <td data-group="4" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">No coincidí con ninguna opción</th>
+                                        <td data-group="5" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                        <td data-group="6" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-group="5" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                        <td data-group="6" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">No realicé la propuesta</th>
+                                        <td data-group="7" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                        <td data-group="8" data-correct="true"><div class="radio"></div>&nbsp;Sí</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-group="7" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                        <td data-group="8" data-correct="true"><div class="radio"></div>&nbsp;No</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <p>Los tipos y espacios de comunicación se caracterizan por diferentes tipos de interacciones, lo importante es tomar conciencia de ello para que en los procesos de formación en la modalidad  virtual sean tenidos en cuenta</p>
+                                </correct>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+        <!--Créditos-->
+        <div id="credits-page" style="display: none">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+
+                <p>
+                    Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
+                    a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                </p>
+                <div>
+                    <h3>Investigación y desarrollo de contenidos</h3>
+                    <cite>Ángela María Valderrama Muñoz<br />
+                        Mónica Deossa Quintero <br>Cristina Quintero Londoño</cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Marcela Palacio Ortíz </cite>
+                </div>
+                <div>
+                    <h3>Guión</h3>
+                    <cite>Laura Pérez González</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite>Elizabeth Hernández González</cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite>Felipe Quintana</cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>
+                        Juan Pablo Romero Laverde<br>
+                        Jesús María Otero Vega
+                    </cite>
+
+                </div>
+                <div>
+                    <h3>Revisión de calidad</h3>
+                </div>
+                <div>
+                    <h3>Gestión técnica y administrativa</h3>
+                    <cite>David Herney Bernal García <br>
+                            Maribel Salazar Estrada
+                            </cite></div>
+
+
+                <div>
+                    <h3>Producción</h3>
+                    <p class="logos">
+                        <a href="https://www.perceptio.co" target="_blank"><img src="./img/logoperceptio.png" alt="Perceptio S.A.S" /></a>
+                        <br />
+                        <a href="http://www.udea.edu.co" target="_blank"><img src="./img/logo-udea.png" alt="Universidad de Antioquia" /></a>
+                        <br />
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                        <br />
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="./img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    </p>
+                    <p>
+                        Financiado por el Fondo de CTeI del Sistema General de Regalías.
+                    </p>
+                </div>
+
+                <div class="editions">
+                    1ª edición: Agosto 2019
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br /> El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+                </div>
+
+                <p>
+                    Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por
+                    favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+                </p>
+                <p>
+                    Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla.
+                    Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
+                <div class="box-text link" label="Lecturas recomendadas">
+                    <ul class="data_list">
+                        <li>
+                            Iriarte, M. A. (2019). Derribar muros, tender puentes. Nuestro Tiempo: Revista cultural y de cuestiones de la Universidad de Navarra, 702. Disponible en <a href="https://bit.ly/32bdHAv" target="_blank">https://bit.ly/32bdHAv </a>
+                        </li>
+                        <li>Orihuela, J. L. (2017). The 10 new paradigms of communication in the digital age. Disponible en <a href="https://bit.ly/2schZHU " target="_blank">https://bit.ly/2schZHU </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
