@@ -3,6 +3,8 @@
     grid-template-columns: 50% 50%;
     padding: 0 20px 0 20px;
     text-align: center;
+    max-width: 600px;
+    margin: auto;
 }
 
 .img-derecha {
@@ -20,7 +22,17 @@
 }
 
 img.imgtofit {
-    width: 100%;
+    width: 200px;
+    height: 300px;
+    box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.2);
+}
+
+#expand_image_content {
+    display: block;
+}
+
+#expand_image_content img {
+    max-width: 100%;
 }
 
 .jpit-activities-selection table {
@@ -42,4 +54,8 @@ img.imgtofit {
 .jpit-activities-selection td[data-group] {
     text-align: left;
     padding-left: 10px;
+}
+
+.jpit-activities-selection table .odd {
+    background-color: #dde5f0;
 }

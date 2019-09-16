@@ -1056,9 +1056,9 @@ dhbgApp.standard.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1067,7 +1067,7 @@ dhbgApp.standard.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1215,7 +1215,7 @@ dhbgApp.standard.start = function() {
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -1288,7 +1288,7 @@ dhbgApp.standard.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide(); 
+            $start.hide();
         });
 
     };
@@ -2073,7 +2073,7 @@ dhbgApp.standard.load_operations = function() {
         var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             // If it is not answered.
             if(!activity.showPartialFeedback(activity.currentPagination)){
                 $dialog_answer_required.dialog('open');
@@ -2610,7 +2610,7 @@ dhbgApp.standard.load_operations = function() {
                     correct.t.removeClass('wrong').addClass('correct');
                 });
             }
-            
+
             $(dhbgApp).trigger('jpit:activity:completed', [$this, {
                 id: scorm_id,
                 weight: weight
@@ -2802,7 +2802,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
@@ -3030,7 +3030,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
@@ -3189,7 +3189,7 @@ dhbgApp.standard.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }
