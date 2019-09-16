@@ -28,10 +28,7 @@
             $map      = $('map[name="' + mapName + '"]');
 
         var resize = function () {
-            console.log('resizing...');
             scale = $img.width() / $img.data('o_width');
-            console.log($img.width());
-            console.log(scale);
             if (scale == $img.data('scale')) return;
 
             $map.find('area').each(function(i, area) {
@@ -53,9 +50,7 @@
 
         //Required because the image has no size if the div is not visible
         $(document).on('click', '.chalkboard_item.button,.element_left.button', function() {
-            console.log('on click');
             var $this = $(this);
-            console.log($this.index());
             if ($this.is('.chalkboard_item') && $this.index() == 1 || $this.is('.element_left') && $this.parent().index() == 1) {
                 setTimeout(resize, 100);
             }
@@ -77,7 +72,6 @@
         })
         .appendTo('.schema_container')
         .on('click', function () {
-            console.log('2222');
             //hide this so our new click event will hit the image map
             $(this).hide(); 
 

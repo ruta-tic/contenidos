@@ -463,7 +463,6 @@ dhbgApp.mobile.start = function() {
     });
 
     $('.wf-content-controler').on('click', function(){
-        console.log('here');
         var $this = $(this);
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
