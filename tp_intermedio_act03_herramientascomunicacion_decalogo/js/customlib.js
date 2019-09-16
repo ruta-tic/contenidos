@@ -55,33 +55,9 @@
                 setTimeout(resize, 100);
             }
         })
-
         resize();
     }
 
-    function adjustMapForMobile(img) {
-        if (app.MODE != 'mobile') return;
-
-        $('<div></div>').css({
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0,
-            backgroundColor: 'transparent'
-        })
-        .appendTo('.schema_container')
-        .on('click', function () {
-            //hide this so our new click event will hit the image map
-            $(this).hide(); 
-
-            //create a new click event at the same location that will hit the map
-            $(document.elementFromPoint(event.clientX,event.clientY)).trigger("click");
-
-            //show this again to handle any future clicks and swipes
-            $(this).show();
-        });
-    }
     /**
      * Register handler to show interactice decalog builder.
      */
@@ -102,7 +78,6 @@
         });
         //resize image map accordingly
         enableMapResize($('img[usemap]'));
-        adjustMapForMobile();
     });
 
 })(dhbgApp);
