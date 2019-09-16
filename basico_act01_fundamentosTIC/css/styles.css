@@ -272,6 +272,7 @@ header {
     background: url(../img/logo.png) no-repeat 50px 10px;
     padding-top: 70px;
     color: #fff;
+    min-height: 90px;
 }
 
 main {
@@ -1291,6 +1292,15 @@ sup.tooltip {
     background-position: -147px -50px;
 }
 
+.ctrl-pagination .next[disabled] {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.ctrl-pagination .next[disabled]:hover {
+    background-position: -147px 0px;
+}
+
 .ctrl-pagination ul.pagination.numeric li div {
     border: 1px solid #003543;
     border-radius: 20px;
@@ -1359,6 +1369,32 @@ sup.tooltip {
 }
 
 /* End Vertical pagination */
+
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
 
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
@@ -1838,8 +1874,6 @@ sup.tooltip {
 /********************************************************************************/
 .jpit-activities-droppable .droppable {
     border: 1px solid #7c8f8c;
-    text-align: left;
-    padding: 5px;
 }
 
 .jpit-activities-droppable .draggable {
@@ -1848,6 +1882,9 @@ sup.tooltip {
     text-align: center;
     cursor: move;
     padding: 5px;
+    -ms-touch-action: none;
+    touch-action: none;
+    user-select: none;
 }
 
 .jpit-activities-droppable .draggable.disabled {
@@ -1871,6 +1908,48 @@ sup.tooltip {
     display: inline-block;
 }
 
+.jpitdroppable_select_dialog {
+
+}
+.jpitdroppable_select_dialog.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+.jpitdroppable_select_dialog .ui-dialog-titlebar {
+    display: none;
+}
+
+.jpitdroppable_select_list {
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+}
+
+.jpitdroppable_select_list_item {
+    position: relative;
+    flex: 1;
+    border: solid 1px #cccccc;
+    margin: 1px 0;
+    padding: 10px;
+    user-select: none;
+}
+.jpitdroppable_select_list_item.selected {
+    background-color: #dedede;
+    border-color: #bcbcbc
+}
+
+.jpitdroppable_select_list_item.dropped:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 20px solid #22c1c9;
+    border-bottom: 20px solid transparent;
+    clear: both;
+}
 /********************************************************************************/
 /* SPECIFIC ACTIVITIES: MULTIDROPPABLE
 /********************************************************************************/

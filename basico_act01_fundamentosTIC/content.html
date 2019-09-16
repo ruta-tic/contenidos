@@ -24,6 +24,7 @@
     <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
 <!--End jQuery components -->
 
+    <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
@@ -48,6 +49,7 @@
     <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
 
     <style type='text/css'>
 
@@ -75,7 +77,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -92,9 +94,9 @@
         </nav>
 
         <header>
-            <h2>Plantilla de producción de contenidos interactivos</h2>
+            <h2>Reconociendo la relación entre educación y TIC</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
-    
+
             <menu>
                 <menuitem label="Categorías">
                     <menu>
@@ -108,7 +110,7 @@
                 </menuitem>
                 <menuitem label="¿Cuánto se aprendió?" data-page="pag-aprendido"></menuitem>
             </menu>
-    
+
             </nav>
         </header>
 
@@ -116,114 +118,121 @@
 
             <h2 class="page-title"></h2>
 
-            <section id="pag-reconociendo" ptitle="Reconociendo la relación entre educación y TIC">
+            <section id="pag-reconociendo" ptitle="Categoría 1. Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa">
 
                 <div class="subpage">
-                    <div id="act1" class="jpit-activities-droppable" data-act-id="categorias" data-act-title="Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa">
+                    <div class="box-text activity" label="Actividad">
                         <p>
-                            La educación virtual requiere espacios en los que se dinamicen las relaciones entre el profesor y el estudiante, se fortalezcan las capacidades didácticas en torno al proceso de enseñanza-aprendizaje y se dispongan de herramientas tecnológicas que favorezcan el proceso de formación.                         
+                            La educación virtual requiere espacios en los que se dinamicen las relaciones entre el profesor y el estudiante, se fortalezcan las capacidades didácticas en torno al proceso de enseñanza-aprendizaje y se dispongan de herramientas tecnológicas que favorezcan el proceso de formación.
                         </p>
+                        <p>
+                        Demuestre qué tanto conoce sobre los conceptos que aparecen en la gráfica, arrastrando la definición al concepto respectivo.
+                        </p>
+                    </div>
 
-                        <div class="box-text activity" label="Indicaciones">
-                            <p>
-                            Demuestre qué tanto conoce sobre los conceptos que aparecen en la gráfica, arrastrando la definición al concepto respectivo.
-                            </p>
-                        </div>
+                    <div id="act1" class="jpit-activities-droppable" data-act-id="1-categorias" data-act-title="Relación entre educación virtual, Ambiente Virtual de Aprendizaje (AVA) y plataforma educativa" data-shuffle="false">
 
                         <div class="bloque1">
                             <div class="opciones opciones1">
-                                <div data-group="1" class="item item1">
+                                <div class="item item1">
                                     <span>Educación virtual</span>
                                 </div>
-                                <div data-group="2" class="item item2">
+                                <div class="item item2">
                                     <span>Ambiente virtual de aprendizaje</span>
                                 </div>
-                                <div data-group="3" class="item item3">
+                                <div class="item item3">
                                     <span>Plataforma educativa</span>
-                                </div>                             
+                                </div>
+                                <div data-group="1" class="item item1" data-value="educacion">
+                                    <span>Educación virtual</span>
+                                </div>
+                                <div data-group="2" class="item item2" data-value="ambiente">
+                                    <span>Ambiente virtual de aprendizaje</span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="plataforma">
+                                    <span>Plataforma educativa</span>
+                                </div>
+                                <div class="enlace enlace1">
+                                    <button class="down_pointer"></button> <span>Requiere un</span>
+                                </div>
+                                <div class="enlace enlace2">
+                                    <button class="down_pointer"></button> <span>Requiere un</span>
+                                </div>
                             </div>
-                            <div class="cajones ctrl-pagination">
+                            <div class="cajones ctrl-pagination" data-orientation="sides">
                                 <li class="contenedor">
-                                    <div class="sombra">
-                                        <div class="cajon" data-target-group="1"></div>    
-                                        <p>Desarrollo de un proceso educativo en un lugar distinto al salón de clases: en el ciberespacio; en una temporalidad que puede ser sincrónica o asincrónica, y sin la necesidad de que los maestros y estudiantes estén presentes (MinTIC, 2015).</p>
-                                    </div>
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <p>
+                                        Entorno que propicia la generación y transferencia de conocimiento a través del uso de tecnologías digitales, ofreciendo herramientas que posibilitan las interacciones entre los sujetos y median la relación de estos con el conocimiento, con sus colegas y consigo mismos.
+                                    </p>
                                 </li>
                                 <li class="contenedor">
-                                    <div class="sombra">
-                                        <div class="cajon" data-target-group="2"></div>    
-                                        <p>
-                                            Entorno que propicia la generación y transferencia de conocimiento a través del uso de tecnologías digitales, ofreciendo herramientas que posibilitan las interacciones entre los sujetos y median la relación de estos con el conocimiento, con sus colegas y consigo mismos.
-                                        </p>
-                                    </div>
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <p>
+                                        Aplicación web que brinda herramientas para la gestión de procesos de formación en línea. Entre las características principales se encuentran:
+                                        <ul>
+                                            <li>Posibilidad de publicar contenidos en diversos formatos.</li>
+                                            <li>Ofrecer recursos que permitan plantear actividades para la valoración de los aprendizajes.</li>
+                                            <li>Brindar herramientas para propiciar la comunicación e interacción entre profesores y estudiantes.</li>
+                                            <li>Posibilidad de hacer seguimiento a los participantes</li>
+                                            <li>Proporcionar herramientas para la gestión logística; respaldo de los contenidos, desarrollo de componentes de software para que pueda conectarse con otras aplicaciones y consulta de cursos publicados, entre otros.</li>
+                                        </ul>
+                                    </p>
                                 </li>
                                 <li class="contenedor">
-                                        <div class="sombra">
-                                        <div class="cajon" data-target-group="3"></div>
-                                        <p>
-                                            Aplicación web que brinda herramientas para la gestión de procesos de formación en línea. Entre las características principales se encuentran:
-                                            <ul>   
-                                                <li>Posibilidad de publicar contenidos en diversos formatos.</li>
-                                                <li>Ofrecer recursos que permitan plantear actividades para la valoración de los aprendizajes.</li>
-                                                <li>Brindar herramientas para propiciar la comunicación e interacción entre profesores y estudiantes.</li>
-                                                <li>Posibilidad de hacer seguimiento a los participantes</li>
-                                                <li>Proporcionar herramientas para la gestión logística; respaldo de los contenidos, desarrollo de componentes de software para que pueda conectarse con otras aplicaciones y consulta de cursos publicados, entre otros.</li>
-                                            </ul>
-                                        </p>
-                                    </div>
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <p>Desarrollo de un proceso educativo en un lugar distinto al salón de clases: en el ciberespacio; en una temporalidad que puede ser sincrónica o asincrónica, y sin la necesidad de que los maestros y estudiantes estén presentes (MinTIC, 2015).</p>
                                 </li>
-                                <div class="box_end"></div>
                             </div>
-                        </div>       
+                            <div class="box_end"></div>
+                            <br class="clear" />
+                        </div>
+                        <feedback>
+                            <correct>¡Muy bien! Sus respuestas son correctas <br />¡Felicitaciones!</correct>
+                            <wrong>Intente nuevamente</wrong>
+                        </feedback>
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
                     </div>
                 </div>
             </section>
-            <section id="pag-uso" ptitle="Uso de redes en la educación virtual">
+            <section id="pag-uso" ptitle="Categoría 2. Uso de redes en la educación virtual">
                 <div class="subpage">
-                    <div id="act2" class="jpit-activities-droppable" data-act-id="redes" data-act-title="Uso de redes en la educación virtual">
+                    <div class="box-text activity" label="Actividad">
                         <p>
-                            Conocer las modalidades de educación no garantiza el éxito de la incorporación de TIC a la labor docente, pero sí garantiza el uso de la modalidad en el contexto adecuado respetando su fin. 
+                            Conocer las modalidades de educación no garantiza el éxito de la incorporación de TIC a la labor docente, pero sí garantiza el uso de la modalidad en el contexto adecuado respetando su fin.
                         </p>
-                        <div class="box-text activity" label="Indicaciones">
-                            <p>Arrastre la definición a la modalidad correspondiente.</p>
-                        </div>
+                        <p>Arrastre la definición a la modalidad correspondiente.</p>
+                    </div>
+
+                    <div id="act2" class="jpit-activities-droppable" data-act-id="2-redes" data-act-title="Uso de redes en la educación virtual">
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
                         <div>
                             <div class="titulo"><span><strong>Modalidades</strong></span></div>
                             <div class="contenedor">
                                 <div class="son"><strong>Son</strong></div>
                                 <div class="sombra">
                                     <div class="modalidad color1">Presencial</div>
-                                    <div class="cajon">
-                                        <div data-target-group="1"></div>
-                                    </div>
-                                </div>                                    
+                                    <div data-target-group="1"></div>
+                                </div>
                                 <div class="sombra">
                                     <div class="modalidad color2">Distancia</div>
-                                    <div class="cajon">
-                                        <div data-target-group="2"></div>
-                                    </div> 
+                                    <div data-target-group="2"></div>
                                 </div>
                                 <div class="sombra">
                                     <div class="modalidad color3">Virtual</div>
-                                    <div class="cajon">
-                                        <div data-target-group="3"></div>
-                                    </div>    
-                                </div>                                    
+                                    <div data-target-group="3"></div>
+                                </div>
                                 <div class="sombra">
                                     <div class="modalidad color1">Blended</div>
-                                    <div class="cajon">
-                                        <div data-target-group="4"></div>
-                                    </div>
-                                </div>                                    
+                                    <div data-target-group="4"></div>
+                                </div>
                                 <div class="sombra">
                                     <div class="modalidad color2">Dual</div>
-                                    <div class="cajon">
-                                        <div data-target-group="5"></div>
-                                    </div>
-                                </div>                                    
-                            </div>  
+                                    <div data-target-group="5"></div>
+                                </div>
+                            </div>
                             <div class="box_end"></div>
-                        </div>       
+                        </div>
                         <div class="opciones">
                             <div class="item" data-group="1">
                                 <p>
@@ -232,14 +241,14 @@
                             </div>
                             <div class="item" data-group="2">
                                 <p>
-                                   ELa interacción trasciende los espacios físicos para el desarrollo de los procesos de enseñanza-aprendizaje; esta puede ser sincrónica o asincrónica, y se caracteriza por la separación en el espacio entre los actores educativos. 
+                                   La interacción trasciende los espacios físicos para el desarrollo de los procesos de enseñanza-aprendizaje; esta puede ser sincrónica o asincrónica, y se caracteriza por la separación en el espacio entre los actores educativos.
                                 </p>
                             </div>
                             <div  class="item" data-group="3">
                                 <p>
                                    La interacción trasciende la espacio-temporalidad; sucede en el ciberespacio mediante la configuración de entornos digitales para los procesos de enseñanza-aprendizaje.
                                 </p>
-                            </div> 
+                            </div>
                             <div class="item" data-group="4">
                                 <p>
                                    Convergen elementos de las interacciones que ocurren en la modalidad presencial y virtual.
@@ -249,298 +258,325 @@
                                 <p>
                                    Los procesos de enseñanza-aprendizaje cuentan con un tiempo de estudio institucional y otro tiempo de aplicación empresarial.
                                 </p>
-                            </div>                            
-                        </div>      
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section id="pag-competencias" ptitle="Competencias TIC para el desarrollo profesional docente">
-                <div id="act3" class="jpit-activities-droppable" data-act-id="competencias" data-act-title="Competencias TIC para el desarrollo profesional docente">
-                    <p>
-                        A continuación, se enuncian las cinco competencias TIC propuestas por el Ministerio de Educación Nacional (MEN) para favorecer el desarrollo profesional docente.
-                    </p>
-                    <div class="box-text activity" label="Indicaciones">
+
+            <section id="pag-competencias" ptitle="Categoría 3. Competencias TIC para el desarrollo profesional docente">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad">
+                        <p>
+                            A continuación, se enuncian las cinco competencias TIC propuestas por el Ministerio de Educación Nacional (MEN) para favorecer el desarrollo profesional docente.
+                        </p>
                         <p>Asocie cada definición con el concepto que corresponda.</p>
                     </div>
-                    <div>
-                        <div class="titulo">
-                            <div class="izq">
-                                <div class="banner">
-                                    <strong>Competencias</strong>
-                                    <img src="content/tic.png" alt="TIC" />
+                    <div id="act3" class="jpit-activities-droppable" data-act-id="3-competencias" data-act-title="Competencias TIC para el desarrollo profesional docente">
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                        <div>
+                            <div class="titulo">
+                                <div class="izq">
+                                    <div class="banner">
+                                        <strong>Competencias</strong>
+                                        <img src="content/tic.png" alt="TIC" />
+                                    </div>
+                                    <p>El MEN propone cinco competencias TIC para el desarrollo profesional docente</p>
                                 </div>
-                                <p>El MEN propone cinco competencias TIC para el desarrollo profesional docente</p>
-                            </div>
-                            <div class="cajon">
-                                <div data-target-group="6"></div>
-                            </div>
-                        </div>
-                        <div class="contenedor">
-                            <div class="sombra">
-                                <div class="competencia">Competencia tecnológica:</div>
                                 <div class="cajon">
+                                    <div data-target-group="6"></div>
+                                </div>
+                            </div>
+                            <div class="contenedor">
+                                <div class="sombra">
+                                    <div class="competencia">Competencia tecnológica:</div>
                                     <div data-target-group="1"></div>
                                 </div>
-                            </div>
-                            <div class="sombra">
-                                <div class="competencia">Competencia comunicativa:</div>
-                                <div class="cajon">
+                                <div class="sombra">
+                                    <div class="competencia">Competencia comunicativa:</div>
                                     <div data-target-group="2"></div>
                                 </div>
-                            </div>
-                            <div class="sombra">
-                                <div class="competencia">Competencia pedagógica:</div>
-                                <div class="cajon">
+                                <div class="sombra">
+                                    <div class="competencia">Competencia pedagógica:</div>
                                     <div data-target-group="3"></div>
                                 </div>
-                            </div>
-                            <div class="sombra">
-                                <div class="competencia">Competencia de gestión:</div>
-                                <div class="cajon">
+                                <div class="sombra">
+                                    <div class="competencia">Competencia de gestión:</div>
                                     <div data-target-group="4"></div>
                                 </div>
-                            </div>
-                            <div class="sombra">
-                                <div class="competencia">Competencia investigativa:</div>
-                                <div class="cajon">
+                                <div class="sombra">
+                                    <div class="competencia">Competencia investigativa:</div>
                                     <div data-target-group="5"></div>
                                 </div>
                             </div>
+                            <div class="box_end"></div>
                         </div>
-                        <div class="box_end"></div>
-                    </div>       
-                    <div class="opciones opciones3">
-                        <div data-group="6" class="item">
-                            <p>
-                              Conjunto de conocimientos, habilidades, actitudes, comprensiones y disposiciones cognitivas, socioafectivas y psicomotoras relacionadas entre sí para facilitar el desempeño flexible, eficaz y con sentido de una actividad en contextos que utilizan las TIC (MEN, 2013).
+                        <div class="opciones opciones3">
+                            <div data-group="6" class="item">
+                                <p>
+                                Conjunto de conocimientos, habilidades, actitudes, comprensiones y disposiciones cognitivas, socioafectivas y psicomotoras relacionadas entre sí para facilitar el desempeño flexible, eficaz y con sentido de una actividad en contextos que utilizan las TIC (MEN, 2013).
 
-                            </p>
-                        </div>
-                        <div data-group="1" class="item">
-                            <p>
-                               Capacidad para seleccionar y utilizar de forma pertinente, responsable y eficiente una variedad de herramientas tecnológicas, entendiendo los principios que las rigen, la forma de combinarlas y las licencias que las amparan (MEN, 2013). 
-                            </p>
-                        </div>
-                        <div data-group="2" class="item">
-                            <p>
-                               Capacidad para expresarse, establecer contacto y relacionarse en espacios virtuales y audiovisuales de manera sincrónica y asincrónica, a través de diversos medios y con el manejo de múltiples lenguajes (MEN, 2013). 
-                            </p>
-                        </div> 
-                        <div data-group="3" class="item">
-                            <p>
-                               Capacidad de utilizar las TIC para fortalecer los procesos de enseñanza-aprendizaje, reconociendo alcances y limitaciones de la incorporación de estas tecnologías en la formación integral de los estudiantes y en su propio desarrollo profesional (MEN, 2013). 
+                                </p>
+                            </div>
+                            <div data-group="1" class="item">
+                                <p>
+                                Capacidad para seleccionar y utilizar de forma pertinente, responsable y eficiente una variedad de herramientas tecnológicas, entendiendo los principios que las rigen, la forma de combinarlas y las licencias que las amparan (MEN, 2013).
+                                </p>
+                            </div>
+                            <div data-group="2" class="item">
+                                <p>
+                                Capacidad para expresarse, establecer contacto y relacionarse en espacios virtuales y audiovisuales de manera sincrónica y asincrónica, a través de diversos medios y con el manejo de múltiples lenguajes (MEN, 2013).
+                                </p>
+                            </div>
+                            <div data-group="3" class="item">
+                                <p>
+                                Capacidad de utilizar las TIC para fortalecer los procesos de enseñanza-aprendizaje, reconociendo alcances y limitaciones de la incorporación de estas tecnologías en la formación integral de los estudiantes y en su propio desarrollo profesional (MEN, 2013).
 
-                            </p>
-                        </div>
-                        <div data-group="4" class="item">
-                            <p>
-                                Capacidad para utilizar las TIC en la planeación, organización, administración y evaluación de los procesos educativos de manera efectiva, tanto a nivel de prácticas pedagógicas, como de desarrollo institucional (MEN, 2013). 
+                                </p>
+                            </div>
+                            <div data-group="4" class="item">
+                                <p>
+                                    Capacidad para utilizar las TIC en la planeación, organización, administración y evaluación de los procesos educativos de manera efectiva, tanto a nivel de prácticas pedagógicas, como de desarrollo institucional (MEN, 2013).
 
-                            </p>
+                                </p>
+                            </div>
+                            <div data-group="5" class="item">
+                                <p>
+                                    Capacidad de utilizar las TIC para la transformación del saber y la generación de nuevos conocimientos (MEN, 2013).
+                                </p>
+                            </div>
                         </div>
-                        <div data-group="5" class="item">
-                            <p>
-                                Capacidad de utilizar las TIC para la transformación del saber y la generación de nuevos conocimientos (MEN, 2013).
-                            </p>
-                        </div>                             
-                    </div> 
-                </div> 
-            </section>
-            <section id="pag-rol" ptitle="Rol del profesor y el estudiante en la educación virtual">
-                <div id="act4" class="jpit-activities-multidroppable" data-act-id="roles" data-act-title="Rol del profesor y el estudiante en la educación virtual">
-                    <p>
-                       En la educación virtual, los estudiantes y los profesores deben realizar acciones complementarias y diferentes a las que se presentan en la educación presencial.
-                    </p>
-                    <div class="box-text activity" label="Indicaciones">
-                        <p>Determine cuáles son esas accion es:</p>
-                    </div>
-                    <div class="box_targets">
-                        <div class="sombra">
-                            <div class="target" data-target-group="2"></div>
-                        </div>
-                        <img src="content/roles.png" alt="Roles">
-                        <div class="sombra">
-                            <div class="target" data-target-group="1"></div>
-                        </div>
-                    </div>
-                    <div class="buttons">
-                        <button class="general verify">Verificar</button>
-                        <button class="general continue" style="display: none;">Continuar intentando</button>
-                    </div>
-                    <div class="box_end"></div>
-                    <div class="sources">
-                        <div class="rol" data-group="1">Desarrolla habilidades de comparación, análisis, síntesis y experimentación.</div>
-                        <div class="rol" data-group="1">Posee autonomía con el conocimiento, es decir, capacidad de generar aprendizaje a partir de la consulta de fuentes externas.</div>
-                        <div class="rol" data-group="1">Posee capacidad para el aprendizaje colaborativo.</div>
-                        <div class="rol" data-group="1">Es un actor principal de la metodología de estudio.</div>
-                        <div class="rol" data-group="1">Posee alta capacidad para el manejo de tiempo.</div>
-                        <div class="rol" data-group="2">Posee conocimiento general sobre tecnologías y medios existentes que favorecen la enseñanza en su saber disciplinar.</div>
-                        <div class="rol" data-group="2">Promueve la comunicación durante el curso.</div>
-                        <div class="rol" data-group="2">Utiliza de estrategias didácticas apoyadas con TIC.</div>
-                        <div class="rol" data-group="2">Diseña recursos educativos digitales.</div> 
-                        <div class="rol" data-group="2">Posee capacidad reflexiva y crítica del uso pedagógico de las tecnologías en su práctica docente.</div>                                                       
                     </div>
                 </div>
             </section>
-            <section id="pag-componentes" ptitle="Componentes de una plataforma educativa">
-               <div id="act5" class="jpit-activities-multidroppable" data-act-id="componentes" data-act-title="Componentes de una plataforma educativa">
-                    <p>
-                       Las plataformas educativas brindan herramientas para la gestión de procesos de formación en línea, posibilitando la publicación de contenidos digitale y el planteamiento de actividades y de herramientas de comunicación para la interacción entre los participantes.
-                    </p>
-                    <div class="box-text activity" label="Indicaciones">
-                        <p>Ubique cada característica en el componente correspondiente de la plataforma educativa.</p>
+            <section id="pag-rol" ptitle="Categoría 4. Rol del profesor y el estudiante en la educación virtual">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad">
+                        <p>
+                            En la educación virtual, los estudiantes y los profesores deben realizar acciones complementarias y diferentes a las que se presentan en la educación presencial.
+                        </p>
+                        <p> Determine cuáles son esas acciones, arrastrandola al rol correspondiente. Una vez termine, haga clic en el botón <strong>Validar</strong> para que verifique su respuesta.</p>
                     </div>
-                    <div class="titulo">Plataforma educativa</div>
-                    <div class="box_targets">
-                        <div class="caracteristicas">
-                            <div class="conector">Permite la publicación de</div>
-                            <div class="subtitulo sub1">Contenidos digitales</div>
+                    <div id="act4" class="jpit-activities-multidroppable" data-act-id="4-roles" data-act-title="Rol del profesor y el estudiante en la educación virtual">
+                        <div class="box_targets">
+                            <div class="sombra">
+                                <div class="target" data-target-group="2"></div>
+                            </div>
+                            <img src="content/roles.png" alt="Roles">
                             <div class="sombra">
                                 <div class="target" data-target-group="1"></div>
                             </div>
                         </div>
-                        <div class="caracteristicas">
-                            <div class="conector">Ofrece recursos para plantear</div>
-                            <div class="subtitulo sub2">Actividades</div>
-                            <div class="sombra">
-                                <div class="target" data-target-group="2"></div>
-                            </div>
+                        <div class="box_end"></div>
+                        <div class="buttons">
+                            <button class="general verify">Validar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
                         </div>
-                        <div class="caracteristicas">
-                            <div class="conector">Ofrece</div>
-                            <div class="subtitulo sub3">Herramientas de comunicación</div>
-                            <div class="sombra">
-                                <div class="target" data-target-group="3"></div>
-                            </div>
+                        <div class="sources">
+                            <div class="rol" data-group="2">Promueve la comunicación durante el curso.</div>
+                            <div class="rol" data-group="2">Utiliza de estrategias didácticas apoyadas con TIC.</div>
+                            <div class="rol" data-group="1">Desarrolla habilidades de comparación, análisis, síntesis y experimentación.</div>
+                            <div class="rol" data-group="1">Posee autonomía con el conocimiento, es decir, capacidad de generar aprendizaje a partir de la consulta de fuentes externas.</div>
+                            <div class="rol" data-group="1">Es un actor principal de la metodología de estudio.</div>
+                            <div class="rol" data-group="1">Posee alta capacidad para el manejo de tiempo.</div>
+                            <div class="rol" data-group="2">Posee conocimiento general sobre tecnologías y medios existentes que favorecen la enseñanza en su saber disciplinar.</div>
+                            <div class="rol" data-group="2">Diseña recursos educativos digitales.</div>
+                            <div class="rol" data-group="2">Posee capacidad reflexiva y crítica del uso pedagógico de las tecnologías en su práctica docente.</div>
+                            <div class="rol" data-group="1">Posee capacidad para el aprendizaje colaborativo.</div>
                         </div>
-                    </div>
-                    <div class="buttons">
-                        <button class="general verify">Verificar</button>
-                        <button class="general continue" style="display: none;">Continuar intentando</button>
-                    </div>
-                    <div class="box_end"></div>
-                    <div class="sources">
-                        <div class="caracteristica" data-group="1">Videoclases</div>
-                        <div class="caracteristica" data-group="1">Audiolibros</div>
-                        <div class="caracteristica" data-group="1">Artículos de revista</div>
-                        <div class="caracteristica" data-group="1">Libro electrónicos</div>
-                        <div class="caracteristica" data-group="2">Favorecen el aprendizaje significativo.</div>
-                        <div class="caracteristica" data-group="2">Pueden desarrollarse tanto de forma individual como en grupo.</div>
-                        <div class="caracteristica" data-group="2">Promueven el aprendizaje colaborativo.</div>
-                        <div class="caracteristica" data-group="2">En la mayoría de las veces se utilizan recursos multimodales para su desarrollo.</div>
-                        <div class="caracteristica" data-group="3">Foros</div>
-                        <div class="caracteristica" data-group="3">Herramientas de videoconferencia</div>
-                        <div class="caracteristica" data-group="3">Chat</div>
                     </div>
                 </div>
             </section>
-            <section id="pag-diferencias" ptitle="Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
-                <div id="act6" class="jpit-activities-droppable diferencias" data-act-id="diferencias" data-act-title="Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
-                    <p>
-                        Dentro de los contenidos digitales que se publican en una plataforma educativa existen los Recursos Educativos Digitales (RED) que, en ocasiones, son confundidos con los Objetos Virtuales de Aprendizaje (OVA); en este esquema se presentan algunos de ellos.
-                    </p>
-                    <div class="box-text activity" label="Indicaciones">
-                        <p>Arrastre la definición hacia el concepto correspondiente.</p>
+            <section id="pag-componentes" ptitle="Categoría 5.  Componentes de una plataforma educativa">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad">
+                        <p>
+                        Las plataformas educativas brindan herramientas para la gestión de procesos de formación en línea, posibilitando la publicación de contenidos digitale y el planteamiento de actividades y de herramientas de comunicación para la interacción entre los participantes.
+                        </p>
+                        <p>Ubique cada característica en el componente correspondiente de la plataforma educativa. Una vez termine, haga clic en el botón <strong>Validar</strong> para que verifique su respuesta.</p>
                     </div>
-
-                    <div>
-                        <div class="titulo">
-                            <div class="izq">
-                                <div class="subtitulo sub1">
-                                    <strong>Recurso educativo digital</strong>
-                                </div>
-                                <div class="conector">Puede ser</div>
-                            </div>
-                            <div class="recurso">
+                    <div id="act5" class="jpit-activities-multidroppable" data-act-id="5-componentes" data-act-title="Componentes de una plataforma educativa">
+                        <div class="titulo">Plataforma educativa</div>
+                        <div class="conectores"></div>
+                        <div class="box_targets">
+                            <div class="caracteristicas">
+                                <div class="conector">Permite la publicación de</div>
+                                <div class="subtitulo sub1">Contenidos digitales</div>
                                 <div class="sombra">
                                     <div class="target" data-target-group="1"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="contenedor">
-                            <div class="recurso">
-                                <div class="subtitulo sub2">Objeto virtual de aprendizaje</div>
+                            <div class="caracteristicas">
+                                <div class="conector">Ofrece recursos para plantear</div>
+                                <div class="subtitulo sub2">Actividades</div>
                                 <div class="sombra">
                                     <div class="target" data-target-group="2"></div>
                                 </div>
                             </div>
-                            <div class="recurso">
-                                <div class="subtitulo sub1">Videos</div>
-                                <div class="conector">
-                                    Videoclases<br />
-                                    Videotutoriales
-                                </div>
-                            </div>
-                            <div class="recurso">
-                                <div class="subtitulo sub3">Imágenes</div>
-                                <div class="conector">
-                                    Infográficos<br />
-                                    Fotografías<br />
-                                    Ilustraciones
-                                </div>
-                            </div>
-                            <div class="recurso">
-                                <div class="subtitulo sub2">Audio</div>
-                                <div class="conector">
-                                    Audiolibros<br />
-                                    Historias narradas
-                                </div>
-                            </div>
-                            <div class="recurso">
-                                <div class="subtitulo sub1">Texto</div>
-                                <div class="conector">
-                                    Libros electrónicos<br />
-                                    Artículos de revistas<br />
-                                    Entradas en Blogs
+                            <div class="caracteristicas">
+                                <div class="conector">Ofrece</div>
+                                <div class="subtitulo sub3">Herramientas de comunicación</div>
+                                <div class="sombra">
+                                    <div class="target" data-target-group="3"></div>
                                 </div>
                             </div>
                         </div>
-                         <div class="box_end"></div>
-                    </div>       
-                    <div class="opciones">
-                        <div  class="item" data-group="1">
-                            <p>
-                               Material en formato digital que  tiene una intencionalidad educativa cuando apunta al logro de un objetivo de aprendizaje y cuando su diseño responde a unas características didácticas apropiadas para este. Están hechos para informar sobre un tema, ayudar en la adquisición de un conocimiento, reforzar un aprendizaje, remediar una situación desfavorable, favorecer el desarrollo de una determinada competencia y evaluar conocimientos (García, 2010).
+                        <div class="box_end"></div>
+                        <div class="buttons">
+                            <button class="general verify">Validar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="sources">
+                            <div class="caracteristica" data-group="3">Chat</div>
+                            <div class="caracteristica" data-group="1">Artículos de revista</div>
+                            <div class="caracteristica" data-group="1">Libro electrónicos</div>
+                            <div class="caracteristica" data-group="2">Promueven el aprendizaje colaborativo.</div>
+                            <div class="caracteristica" data-group="3">Foros</div>
+                            <div class="caracteristica" data-group="1">Videoclases</div>
+                            <div class="caracteristica" data-group="1">Audiolibros</div>
+                            <div class="caracteristica" data-group="3">Herramientas de videoconferencia</div>
+                            <div class="caracteristica" data-group="2">Favorecen el aprendizaje significativo.</div>
+                            <div class="caracteristica" data-group="2">Pueden desarrollarse tanto de forma individual como en grupo.</div>
+                            <div class="caracteristica" data-group="2">En la mayoría de las veces se utilizan recursos multimodales para su desarrollo.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                            </p>
+            <section id="pag-diferencias" ptitle="Categoría 6. Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad">
+                        <p>
+                            Dentro de los contenidos digitales que se publican en una plataforma educativa existen los Recursos Educativos Digitales (RED) que, en ocasiones, son confundidos con los Objetos Virtuales de Aprendizaje (OVA); en este esquema se presentan algunos de ellos.
+                        </p>
+                        <p>Arrastre la definición hacia el concepto correspondiente.</p>
+                    </div>
+
+                    <div id="act6" class="jpit-activities-droppable diferencias" data-act-id="6-diferencias" data-act-title="Diferencia entre Objeto Virtual de Aprendizaje (OVA) y Recurso Educativo Digital (RED)">
+
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                        <div>
+                            <div class="titulo">
+                                <div class="izq">
+                                    <div class="subtitulo sub1">
+                                        <strong>Recurso educativo digital</strong>
+                                    </div>
+                                    <div class="conector">Puede ser</div>
+                                </div>
+                                <div class="recurso">
+                                    <div class="target" data-target-group="1"></div>
+                                </div>
+                            </div>
+                            <div class="conectores">
+                                <div></div><div></div><div></div><div></div><div></div>
+                            </div>
+                            <div class="contenedor">
+                                <div class="recurso">
+                                    <div class="subtitulo sub2">Objeto virtual de aprendizaje</div>
+                                    <div class="target" data-target-group="2"></div>
+                                </div>
+                                <div class="recurso">
+                                    <div class="subtitulo sub1">Videos</div>
+                                    <div class="conector">
+                                        Videoclases<br />
+                                        Videotutoriales
+                                    </div>
+                                </div>
+                                <div class="recurso">
+                                    <div class="subtitulo sub3">Imágenes</div>
+                                    <div class="conector">
+                                        Infográficos<br />
+                                        Fotografías<br />
+                                        Ilustraciones
+                                    </div>
+                                </div>
+                                <div class="recurso">
+                                    <div class="subtitulo sub2">Audio</div>
+                                    <div class="conector">
+                                        Audiolibros<br />
+                                        Historias narradas
+                                    </div>
+                                </div>
+                                <div class="recurso">
+                                    <div class="subtitulo sub1">Texto</div>
+                                    <div class="conector">
+                                        Libros electrónicos<br />
+                                        Artículos de revistas<br />
+                                        Entradas en Blogs
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>¡Muy bien! Sus respuestas son correctas <br />¡Felicitaciones!</correct>
+                                <wrong>Intente nuevamente</wrong>
+                            </feedback>
                         </div>
-                        <div class="item" data-group="2">
-                            <p>
-                                Conjunto de recursos digitales (audio, video, imágenes, texto, etc.) autocontenibles (es decir, que no requieren de otro recurso para comprender el tema que se aborda), reutilizables con un propósito educativo y constituidos por tres componentes internos: contenidos, actividades de aprendizaje y elementos de contextualización. Deben tener una estructura de información externa (metadatos) que facilite su almacenamiento, identificación y recuperación en un repositorio (MEN, 2006).
-                            </p>
-                        </div>                          
-                    </div>      
+                        <div class="opciones">
+                            <div  class="item" data-group="1">
+                                <p>
+                                Material en formato digital que  tiene una intencionalidad educativa cuando apunta al logro de un objetivo de aprendizaje y cuando su diseño responde a unas características didácticas apropiadas para este. Están hechos para informar sobre un tema, ayudar en la adquisición de un conocimiento, reforzar un aprendizaje, remediar una situación desfavorable, favorecer el desarrollo de una determinada competencia y evaluar conocimientos (García, 2010).
+
+                                </p>
+                            </div>
+                            <div class="item" data-group="2">
+                                <p>
+                                    Conjunto de recursos digitales (audio, video, imágenes, texto, etc.) autocontenibles (es decir, que no requieren de otro recurso para comprender el tema que se aborda), reutilizables con un propósito educativo y constituidos por tres componentes internos: contenidos, actividades de aprendizaje y elementos de contextualización. Deben tener una estructura de información externa (metadatos) que facilite su almacenamiento, identificación y recuperación en un repositorio (MEN, 2006).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="pag-aprendido" ptitle="¿Cuánto se aprendió?">
-                <div id="act7" class="jpit-activities-droppable aprendido" data-act-id="aprendido" data-act-title="¿Cuánto se aprendió?">
-                    <div class="box-text activity" label="Indicaciones">
-                        <p>A continuación, se muestra un esquema incompleto con una de las tantas relaciones que se pueden establecer entre las categorías vistas durante la actividad. Para completarlo, deberá arrastrar los conceptos a cada uno de los nodos vacíos según los conocimientos aprendidos. Una vez termine, haga clic en el botón <strong>validar</strong> para que verifique su respuesta.</p>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad">
+                        <p>A continuación, se muestra un esquema incompleto con una de las tantas relaciones que se pueden establecer entre las categorías vistas durante la actividad. Para completarlo, deberá arrastrar los conceptos a cada uno de los nodos vacíos según los conocimientos aprendidos.</p>
                     </div>
 
-                    <div>
-                        <div></div>
+                    <div id="act7" class="jpit-activities-droppable aprendido" data-act-id="7-aprendido" data-act-title="¿Cuánto se aprendió?" data-verify-type="target">
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                        <div class="board">
+                            <div data-target-group="1" class="item tipo1 d1"></div>
+                            <div data-target-group="2" class="item tipo1 d2"></div>
+                            <div data-target-group="3" class="item tipo1 d3"></div>
+                            <div data-target-group="4" class="item tipo1 d4"></div>
+                            <div data-target-group="5" class="item tipo1 d5"></div>
+                            <div data-target-group="6" class="item tipo2 d6"></div>
+                            <div data-target-group="6" class="item tipo2 d7"></div>
+                            <div data-target-group="8" class="item tipo2 d8"></div>
+                            <div data-target-group="8" class="item tipo2 d9"></div>
+                            <div data-target-group="8" class="item tipo2 d10"></div>
+                            <div data-target-group="11" class="item tipo2 d11"></div>
+                            <div data-target-group="12" class="item tipo2 d12"></div>
+                            <div data-target-group="13" class="item tipo2 d13"></div>
+                        </div>
                         <div class="box_end"></div>
-                    </div>       
-                    <div class="opciones">
-                        <div data-group="1" class="item">Modalidad de educación</div>
-                        <div data-group="2" class="item">Plataforma educativa</div>
-                        <div data-group="3" class="item">Ambiente Virtual de Aprendizaje</div>
-                        <div data-group="4" class="item">Estudiantes</div>
-                        <div data-group="5" class="item">Profesor</div>
-                        <div data-group="6" class="item">Aprendizaje autónomo</div>
-                        <div data-group="7" class="item">Aprendizaje colaborativo</div>
-                        <div data-group="8" class="item">Pedagógica</div>
-                        <div data-group="9" class="item">Comunicativa</div>
-                        <div data-group="10" class="item">Tecnológica</div>
-                        <div data-group="11" class="item">Contenidos digitales</div>
-                        <div data-group="12" class="item">Actividades</div>
-                        <div data-group="13" class="item">Herramientas de comunicación</div>                            
-                    </div>      
+                        <div class="opciones">
+                            <div data-group="1" class="item tipo1">Modalidad de educación</div>
+                            <div data-group="2" class="item tipo1">Plataforma educativa</div>
+                            <div data-group="3" class="item tipo1">Ambiente Virtual de Aprendizaje</div>
+                            <div data-group="4" class="item tipo1">Estudiantes</div>
+                            <div data-group="5" class="item tipo1">Profesor</div>
+                            <div data-group="6" class="item tipo2">Aprendizaje autónomo</div>
+                            <div data-group="6" class="item tipo2">Aprendizaje colaborativo</div>
+                            <div data-group="8" class="item tipo2">Pedagógica</div>
+                            <div data-group="8" class="item tipo2">Comunicativa</div>
+                            <div data-group="8" class="item tipo2">Tecnológica</div>
+                            <div data-group="11" class="item tipo2">Contenidos digitales</div>
+                            <div data-group="12" class="item tipo2">Actividades</div>
+                            <div data-group="13" class="item tipo2">Herramientas de comunicación</div>
+                        </div>
+
+                        <feedback>
+                            <correct>¡Felicitaciones! Ha terminado la actividad “Reconociendo la relación entre educación y TIC”. Ahora, puede continuar con el reconocimiento de las tendencias clave que enmarcan la adopción de tecnologías en la educación superior y sus posibilidades de uso en la práctica docente.</correct>
+                            <wrong>Intente nuevamente.</wrong>
+                        </feedback>
+                    </div>
                 </div>
             </section>
 
-            
+
         </main>
 
         <footer class="not_print">
@@ -627,33 +663,27 @@
 
             <div>
                 <h3>Producción</h3>
-                <div class="logos">
-                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
-                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
-                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
-                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
-                </div>
+                <p class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                </p>
+                <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
             </div>
 
             <div class="editions">
-                1ª edición: diciembre 2013<br />
-                2ª edición: octubre 2015<br />
-                3ª edición: febrero 2016<br />
-                4ª edición: junio 2017
+                1ª edición: Agosto 2019<br />
             </div>
             <div>
-                <br />
-                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
-                <img src="img/cc.png" alt="Creative Commons" /></a><br />
-                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
             </div>
-
-            <p>
-                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
-            </p>
-            <p>
-                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
-            </p>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
         </div>
     </div>
 

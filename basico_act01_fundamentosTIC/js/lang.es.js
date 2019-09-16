@@ -79,6 +79,7 @@ dhbgApp.strings = {
     'repeat_animation': 'Clic para repetir la animación',
 
     'restart_activity': 'Reiniciar la actividad',
+    'end_activity': 'Terminar',
 
     'result_to': '{a} de {b}',
 
@@ -96,7 +97,7 @@ dhbgApp.strings = {
 
     'start_activity': 'Iniciar la actividad',
 
-    'verify': 'Verificar',
+    'verify': 'Validar',
 
     'vertical': 'Vertical',
 
