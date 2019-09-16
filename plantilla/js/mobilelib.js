@@ -2062,7 +2062,7 @@ dhbgApp.mobile.load_operations = function() {
         activityOptions.prefixType       = $this.attr('data-prefixtype') ? $this.attr('data-prefixtype') : jpit.activities.quiz.prefixes.none;
         activityOptions.requiredAll      = $this.attr('data-requiredall') && $this.attr('data-requiredall') != 'true' ? false : true;
         activityOptions.paginationNumber = $this.attr('data-paginationnumber') ? parseInt($this.attr('data-paginationnumber')) : 1;
-        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var count_questions = $this.find('question[type!="label"]').length;
@@ -2470,7 +2470,7 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_crossword_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
-        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
@@ -2634,7 +2634,7 @@ dhbgApp.mobile.load_operations = function() {
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
             };
-            var allowRetry = !$this.attr('data-allow-retry') === 'false';
+            var allowRetry = !($this.attr('data-allow-retry') === 'false');
             var modalFeedback = true && $this.attr('data-modal-feedback');
 
             var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
@@ -2935,7 +2935,7 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_cloze_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = '', feedbackfalse = '';
-        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
@@ -3027,7 +3027,7 @@ dhbgApp.mobile.load_operations = function() {
             var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
             var html_body = $this.html();
             var $box_end = $this.find('.box_end');
-            var allowRetry = !$this.attr('data-allow-retry') === 'false';
+            var allowRetry = !($this.attr('data-allow-retry') === 'false');
             var modalFeedback = true && $this.attr('data-modal-feedback');
             $box_end.hide();
 
@@ -3159,7 +3159,7 @@ dhbgApp.mobile.load_operations = function() {
         var html_body = $this.html();
         var $box_verify = $('<div class="verify_container"></div>');
         var $box_end = $('<div class="box_end"></div>');
-        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         $box_end.hide();
@@ -3279,7 +3279,7 @@ dhbgApp.mobile.load_operations = function() {
         var ok = dhbgApp.s('accept');
         d_answer_buttons[ok] = function() { $(this).dialog('close'); };
         var $dialog_answer_required = $('<div>' + dhbgApp.s('answer_required') + '</div>').dialog({modal: true, autoOpen: false, buttons: d_answer_buttons });
-        var allowRetry = !$this.attr('data-allow-retry') === 'false';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         // Load custom feedback, if exists.

@@ -8,9 +8,11 @@ button.general.w-content-controler {
     margin: 10px auto 0 auto;
 }
 
+.jpit-activities-quiz .instruction {
+    text-align: left;
+}
+
 /********************************************************************************/
-
-
 /* Actividad arrastrar y soltar - apareamiento
 /********************************************************************************/
 
@@ -45,7 +47,7 @@ button.general.w-content-controler {
     margin: 2px 0;
 }
 .dropzone_container .column {
-    flex: 1;    
+    flex: 1;
 }
 
 .dropzone_container .dropzone {

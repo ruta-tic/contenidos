@@ -242,13 +242,13 @@
 }
 
 #arrastrar1.jpit-activities-droppable th {
-    padding: 5px;
     text-align: right;
 }
 
 #arrastrar1.jpit-activities-droppable td.droppable {
     width: 80px;
     height: 16px;
+    padding: 0;
 }
 
 #arrastrar1.jpit-activities-droppable td.conection {
@@ -260,33 +260,14 @@
 #arrastrar1.jpit-activities-droppable .draggable {
     float: left;
     margin: 0 5px 5px 0;
-    position: absolute;
+    /*position: absolute;*/
     width: 80px;
     color: #000;
 }
 
-#pag-actividades-arrastrar1 .item_1 {
-     left: 50px;
-}
-
-#pag-actividades-arrastrar1 .item_2 {
-     left: 150px;
-}
-
-#pag-actividades-arrastrar1 .item_3 {
-     left: 250px;
-}
-
-#pag-actividades-arrastrar1 .item_4 {
-     left: 350px;
-}
-
-#pag-actividades-arrastrar1 .item_5 {
-     left: 450px;
-}
-
-.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+#arrastrar1.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
     background-color: #40bcc6;
+    margin: 0;
 }
 
 /********************************************************************************/
@@ -315,6 +296,7 @@
     border-bottom: 1px solid #333;
     width: 100px;
     height: 25px;
+    padding: 0;
 }
 
 #arrastrar2.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
@@ -322,6 +304,7 @@
     background-color: transparent;
     width: 92px;
     height: 17px;
+    margin: -5px;
 }
 
 #arrastrar2.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped.draggable.wrong {
@@ -347,7 +330,7 @@
 }
 
 #arrastrar3.jpit-activities-droppable td {
-    padding: 5px;
+    padding: 0px;
     border: 1px dashed #777777;
     text-align: left;
     width: 180px;
@@ -360,8 +343,9 @@
     color: #000;
 }
 
-#arrastrar3.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
-    color: #333;
+#arrastrar3.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
+    background-color: #40bcc6;
+    margin: 0;
 }
 
 #arrastrar3.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped.draggable.wrong {
@@ -392,12 +376,19 @@
     border-bottom: 1px dashed #777777;
     text-align: left;
     width: 200px;
+    position: relative;
 }
 
 #arrastrar4.jpit-activities-droppable .draggable {
     float: left;
     margin: 0 5px 5px 0;
     color: #000;
+}
+
+#arrastrar4.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
+    background-color: #FFFFFF;
+    border: 1px solid #7c8f8c;
+    margin: 0;
 }
 
 #arrastrar4.jpit-activities-droppable .wrong {
@@ -421,6 +412,16 @@
 #arrastrar5 .draggable {
     display: inline-block;
     color: #000;
+    margin: 5px;
+}
+
+#arrastrar5.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
+    background-color: #40bcc6;
+    border: 1px solid #7c8f8c;
+}
+
+#arrastrar5.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped.wrong {
+    border-color: #D60C1B;
 }
 
 /********************************************************************************/

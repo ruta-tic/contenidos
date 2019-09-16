@@ -220,7 +220,7 @@
             dragId = event.relatedTarget.id;
 
         //Check if the dropzone can accept more elements
-        if(options.multiTarget > 0 && !$dropzone.data('droppedElements').length < options.multiTarget) {
+        if(options.multiTarget > 0 && !($dropzone.data('droppedElements').length < options.multiTarget)) {
             resetPosition($dragEl);
             return; //Do not allow more elements
         }
