@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Decálogo: 10 reglas de oro para la comunicación mediada por tecnologías digitales</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/mapresizer/imageMapResizer.min.js"></script>
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Decálogo: 10 reglas de oro para la comunicación mediada por tecnologías digitales</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="¿Cómo construir las 10 reglas?" data-page="pag-inicio"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="¿Cómo construir las 10 reglas?">
+
+                <div class="subpage">
+                    <p>Conoce la secuencia de pasos que se deben llevar a cabo para completar esta actividad:</p>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>Paso 1</dt>
+                            <dd>
+                                <h5>Paso 1 – Conforme un equipo</h5>
+                                <div>
+                                    <p>Este objeto virtual de aprendizaje tiene como propósito central generar un reglamento denominado <strong>"Decálogo: 10 reglas de oro para la comunicación
+                                            mediada por tecnologías digitales".</strong> Para ello, debe conformar un equipo de trabajo con personas que le ayuden a completar el reto, dado que es una actividad colaborativa.
+                                    </p>
+                                    <p>
+                                        Durante el avance en esta ruta de formación, ya se han construido diversos equipos para la realización de otras actividades. En esta ocasión, se puede continuar con los mismos o conformar equipos nuevos.
+                                    </p>
+                                    
+                                    <h5>¿Cómo conformar el equipo?</h5>
+                                    <p>El trabajo colaborativo es una estrategia que parte del trabajo en grupos pequeños y heterogéneos con niveles de conocimientos similares y con una meta en común. En este caso, esa meta conjunta será la construcción del decálogo.
+                                    </p>
+                                    <img class="img-left" src="content/como_comformar_un_equipo_01.png" alt="">
+                                    <p> Para la conformación del equipo, debe identificar aquellos participantes con los que pueda establecer una comunicación asertiva. Una vez estén en contacto, la recomendación es dividir las tareas en roles complementarios y ser muy explícitos, claros y empáticos al momento de compartir el conocimiento. Tenga en cuenta que en esta actividad será fundamental el diálogo para todos puedan participar de las decisiones que se tomen, además, todos deberán compartir la responsabilidad de su aprendizaje y el de los compañeros del equipo.
+                                    </p>
+                                    <p>Algunas ideas de roles complementarios podrían ser: <strong> un relator</strong> que consolide la información y los aportes de todos los participantes;<strong> un comunicador</strong> que se encargue de entablar la comunicación entre todos y garantice que todos participen; y<strong> un publicador</strong> que se encargue de divulgar la participación en el foro.
+                                    </p>
+
+                                    <h5>Recomendaciones</h5>
+                                    <p>
+                                        Realice una sesión sincrónica, puede ser una <strong>videoconferencia</strong>, en la que pueda debatir con sus compañeros de equipo. También podría continuar la conversación haciendo uso de herramientas de <strong>mensajería instantánea</strong>. Pueden utilizar un editor de texto en línea para la construcción colectiva del decálogo, por ejemplo, <strong>Google Docs</strong> o <strong>Microsoft Docs</strong>.
+                                    </p>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt class="map_container">Paso 2</dt>
+                            <dd>
+                                <h5>Paso 2 - Elegir qué decálogo quieren construir</h5>
+                                <div class="box-text activity" label="Actividad de aprendizaje">
+                                    <p>
+                                        A partir de las opciones disponibles que se muestran a continuación, seleccionen para qué público construirán el <strong>reglamento</strong>. Posteriormente, elijan si se centrarán en <strong>comunicación sincrónica o asincrónica</strong> y, finalmente, indiquen en qué <strong>espacio o herramienta específica</strong> se centrarán.
+                                    </p>
+                                    <p>
+                                        Cada equipo podrá seleccionar los tres aspectos según sus intereses para construir un <strong>Decálogo</strong> que combine las tres elecciones, por ejemplo, un equipo podría construir <strong>10 Reglas de oro para la comunicación asincrónica
+                                        entre el profesor y el estudiante utilizando las redes sociales</strong>, mientras que un segundo equipo construiría <strong>10 Reglas de oro para la comunicación sincrónica entre estudiantes utilizando la mensajería instantánea</strong>.
+                                    </p>
+                                    <div class="decalog_builder">
+                                        <div class="column">
+                                            <h5>Entre quiénes ocurre la interacción</h5>
+                                            <label><input type="radio" name="interaction_who" value="profesor - estudiante" /> Para interacción profesor - estudiante</label>
+                                            <label><input type="radio" name="interaction_who" value="estudiante - estudiante" /> Para interacción estudiante - estudiante</label>
+                                        </div>
+                                        <div class="column">
+                                            <h5>Tipo de comunicación</h5>
+                                            <label><input type="radio" name="interaction_type" value="comunicación sincrónica" /> Para comunicación sincrónica</label>
+                                            <label><input type="radio" name="interaction_type" value="comunicación asincrónica" /> Para comunicación asincrónica</label>
+                                        </div>
+                                        <div class="column">
+                                            <h5>Espacio en dónde se da la interacción</h5>
+                                            <label><input type="radio" name="interaction_where" value="mensajería instantánea" /> Mensajería instantánea</label>
+                                            <label><input type="radio" name="interaction_where" value="videoconferencia" /> Videoconferencia</label>
+                                            <label><input type="radio" name="interaction_where" value="videostreaming" /> Videostreaming</label>
+                                            <label><input type="radio" name="interaction_where" value="correo electrónico" /> Correo electrónico</label>
+                                            <label><input type="radio" name="interaction_where" value="foro" /> Foro</label>
+                                            <label><input type="radio" name="interaction_where" value="redes sociales" /> Redes sociales</label>
+                                        </div>
+                                    </div>
+                                    <button class="w-content-controler general decalogo" data-content="#ventana_decalogo"></button>
+                                    <div id="ventana_decalogo" class="w-content" title="Decálogo a construir">
+                                        El decálogo que has decidido contruir es para <span id="interaction_type"></span> usando <span id="interaction_where"></span> entre <span id="interaction_who"></span>
+                                    </div>
+                                </div>
+
+                                <h5>¿Cómo tomar la decisión?</h5>
+
+                                <div class="box-text activity" label="Actividad de aprendizaje">
+                                    <p>
+                                        Para tomar esta decisión, de manera informada y con mayores elementos, estudien y analicen el recurso educativo digital “Comunicación interpersonal e interacciones mediadas por tecnologías digitales” que se encuentra a continuación:
+                                    </p>
+                                </div>
+
+                                <div class="schema_container centered">
+                                    <img src="content/esquema_como_tomar_la_decision.png" alt="Esquema como tomar la decisión" usemap="#schema-map" width="90%" />
+                                    <map id="schema-map" name="schema-map">
+                                        <area class="wf-content-controler general" data-content="#ventana_1" alt="Comunicación interpersonal e interacciones mediadas por tecnologías digitales" title="Comunicación interpersonal e interacciones mediadas por tecnologías digitales" coords="321,110,574,24" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_1_1" alt="Comunicación, interacción y aprendizaje" title="Comunicación, interacción y aprendizaje" coords="316,199,576,336" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_2" alt="Comunicación interpersonal" title="Comunicación interpersonal" coords="51,232,262,305" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_2_1" alt="Sincrónica" title="Sincrónica" coords="19,400,143,458" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_2_2" alt="Asincrónica" title="Asincrónica" coords="171,400,295,459" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_2_2_1" alt="Comunicación escrita" title="Comunicación escrita" coords="92,556,216,615" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_2_1_1" alt="Comunicación oral" title="Comunicación oral" coords="93,639,216,698" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_3" alt="Interacción" title="Interacción" coords="631,229,842,303" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_3_1" alt="Espacios de interacción" title="Espacios de interacción" coords="599,431,723,490" shape="rect">
+                                        <area class="wf-content-controler general" data-content="#ventana_3_2" alt="Tipos de interacción" title="Tipos de interacción" coords="750,432,875,490" shape="rect">
+                                    </map>
+                                </div>
+
+
+                                <div id="ventana_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación interpersonal e interacciones mediadas por tecnologías digitales</h5>
+                                        <img class="img-left" src="content/comunicacion_interpersonal_e_interacciones01.png" alt="" style="
+                                        width: 15%;">
+                                        <p>El internet ha propiciado un cambio de paradigma en las formas de comunicación; con la llegada de los teléfonos inteligentes (smartphones), esta se ha vuelto más personal y ahora los estudiantes son usuarios cada vez
+                                            más conectados, los cuales presentan una suerte de ubicuidad que está en correspondencia con la conectividad. Esto hace que participen constantemente de procesos de comunicación sin barreras de tiempo o espacio.
+                                        </p>
+                                        <img class="img-right" src="content/comunicacion_interpersonal_e_interacciones02.png" alt="" style="
+                                        width: 15%;">
+                                        <p>La comunicación interpersonal comprende interacciones en las que los individuos ejercen influencia recíproca sobre sus respectivos comportamientos. Según Rizo (2006) “el término interacción al de comunicación interpersonal,
+                                            a las relaciones de comunicación en situación de copresencia” (p. 47). Sin embargo, vale la pena preguntarse si esa copresencia de la comunicación interpersonal es indispensablemente física, aunque sea usualmente
+                                            entendida como una situación de presencia física simultánea.</p>
+                                        <p>En el contexto tecnológico, las interacciones sociales pueden prescindir del espacio físico para ocurrir; las posibilidades que brindan hoy en día las
+                                            <strong>tecnologías digitales</strong> nos convierten, sin darnos cuenta, en emisores y/o receptores de información en un espacio determinado que tiene una características distintivas, y que dan paso a la comunicación
+                                            digital.
+                                        </p>
+                                        <p>Estos espacios hacen que la comunicación escrita se adapte a las nuevas condiciones y exigencias que traen consigo los dispositivos móviles y demás tecnologías.
+                                        </p>
+
+                                        <p style="text-align: center;"> <img style="width: 50%" src="content/comunicacion_interpersonal_e_interacciones03.png" alt=""></p>
+
+                                        <p>En un contexto no presencial, los profesores y estudiantes desarrollan la interacción y la comunicación de diferente manera, empleando una serie de recursos y estrategias que les ayuda a relacionarse y a suplir el relacionamiento
+                                            cara a cara con símbolos, palabras e imágenes que expresen sus emociones.
+                                            <br><br> Es así como en internet se da un intercambio de mensajes que pueden tener distintos formatos y lenguajes ( <img style="width: 4%;" src="content/comunicacion_interpersonal_e_interacciones05.png" alt="">                                        audios, <img style="width: 4%;" src="content/comunicacion_interpersonal_e_interacciones06.png" alt=""> textos, <img style="width: 4%;" src="content/comunicacion_interpersonal_e_interacciones04.png" alt="">videos,
+                                            <img style="width: 4%;" src="content/comunicacion_interpersonal_e_interacciones07.png" alt=""> multimedia) y presentarse de manera simultánea, o de manera sincrónica o asincrónica. Como explica Alcalá (2009):
+                                            “Las interacciones se han estudiado en la educación presencial como procesos que ocurren en el salón de clases; ahora se estudian asincrónicamente, ya que se ha incorporado el concepto de mediación a partir del
+                                            uso de medios educativos” (p. 11).
+                                            <br><br> Por otra parte, Kiss y Castro (2004) explican, para la comunicación sincrónica, que en el chat la estructura de la interacción “es análoga a la conversación cara a cara y a la comunicación telefónica, es
+                                            decir, de un modo dialógico; mientras que en el correo electrónico (asincrónico), los conjuntos textuales son más extensos y el intercambio no necesariamente obtiene una respuesta inmediata” (p. 281).
+                                            <br><br> <img style="width: 15%;" class="img-left" src="content/comunicacion_interpersonal_e_interacciones08.png" alt=""> En ambos ámbitos se aprovechan las posibilidades ofrecen las tecnologías digitales y el surgimiento de nuevos modos,
+                                            palabras y formas de expresarse. La versatilidad y el desarrollo continuo de estas tecnologías ponen a disposición de los usuarios un conjunto de funcionalidades que pueden aprovechar para comunicar e interactuar,
+                                            y para enriquecer o facilitar la comprensión del mensaje que se desea transmitir, por ejemplo, la grabación de un video, un audio, o la toma de fotografías, entre otros.
+                                        </p>
+                                        <br/>
+                                        <h5>Nuevas formas de leer</h5>
+                                        <p>
+                                            Los soportes en que leemos han cambiado, en la actualidad recibimos y enviamos información en dispositivos que emiten luz cuando antes lo hacíamos a través del papel que la refleja. El dispositivo en el que leemos necesita del sentido de la vista, pero a diferencia de lo que sucede con el libro de papel, estos pueden ser útiles al tacto, al oído, al ojo, e incluso a la capacidad de movimiento, de acuerdo con el tipo de tecnología
+                                            en el cual esté publicado el contenido.
+                                        </p>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div id="ventana_1_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación, interacción y aprendizaje</h5>
+                                        <img class="img-right" style="width: 15%;" src="content/comunicacion_interpersonal_e_interacciones09.png" alt="">
+                                        <p>
+                                            El profesor, como organizador de la dinámica de la clase, tendrá un rol destacado en marcar el tono y las formas de comunicación, así como el tipo de relaciones que se establecerán en el aula. <strong>La comunicación y la interacción</strong> son procesos fundamentales en los entornos virtuales de aprendizaje, pues a partir de estos procesos se propicia <strong>la construcción colectiva de conocimiento</strong> y el proceso aprendizaje. <br><br>
+                                            La motivación y la retroalimentación son dos de la grandes ventajas de la interacción con los estudiantes. Si bien, en ocasiones la comunicación e interacción constante con los estudiantes puede ser percibida por parte del profesor como una labor que demanda tiempo excesivo, es necesario mencionar que la interacción estudiante-profesor depende del diseño y selección de la instrucción y de las actividades de aprendizaje desarrolladas.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_2" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación interpersonal</h5>
+                                        <img src="content/comunicacion_interpersonal_02.png" alt="" class="img-right" style="width: 15%;">
+                                        <p>
+                                            La comunicación interpersonal es la base de todas las comunicaciones humanas. Es el proceso de intercambio de información y significados a través de mensajes que son expresados de manera <strong>verbal</strong> (oral o escrita) o<strong></strong> no verbal. </strong> En el proceso de enseñanza-aprendizaje, este tipo de comunicación puede ocurrir en la presencialidad o en entornos en línea a través del uso de tecnologías digitales y medios educativos para la mediación entre sujetos. En la comunicación no verbal, algunos aspectos que adquieren significados para el receptor pueden ser el tono de la voz, la mirada, la gesticulación, las expresiones del rostro y el lenguaje corporal en general.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_2_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación sincrónica</h5>
+                                        <p>
+                                            El <strong>videostreaming</strong>, la <strong>mensajería instantánea</strong>, los <strong>chats</strong>, los sistemas de <strong>videoconferencia</strong> y las <strong>videollamadas</strong> son algunos de los espacios y herramientas para la comunicación sincrónica de presencia simultánea o copresencia más utilizadas en la virtualidad. Este tipo de comunicación interpersonal es la interacción entre dos o más personas de forma simultánea, que se puede concretar en un espacio físico o virtual dado que, si está mediada por tecnologías, los participantes pueden estar conectados en tiempo sincrónico sin importar la distancia física que se medie entre ellos. <br><br>
+                                            <img class="img-right" src="content/comunicacion_sincronica_01.png" style="width: 15%;" alt=""> Este tipo de comunicación es la más similar a la interacción cara a cara que ofrece la presencialidad. Su aporte a la dimensión cognitiva del aprendizaje tiene un gran impacto en el componente afectivo-social, ya que en estos espacios el docente propicia el desarrollo de relaciones humanas, establece contacto continuo con los estudiantes, y apoya la integración y formación de comunidades virtuales. <img class="img-left" src="content/comunicacion_sincronica_02.png" style="width: 15%;" alt=""> <br><br> Dado que en este tipo de comunicación hay mayor presencia de las emociones, la motivación y el proceso de retroalimentación se ven favorecidos. En la actualidad, la disponibilidad de equipos de bajo costo dotados con cámaras de video y micrófonos, posibilitan y facilitan las conversaciones sincrónicas entre docentes, estudiantes y compañeros en los ambientes virtuales de aprendizaje. <br><br> Si bien, es muy usual que la comunicación sincrónica sea verbal y oral por medio de herramientas como el video y el audio, también puede darse por medio de la escritura, como en el caso de los chats.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_2_1_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación oral</h5>
+                                        <p>
+                                            El escenario y tiempo de la comunicación oral caracteriza la formalidad de la interacción con los otros. Por ejemplo, no es lo mismo conversar con un amigo que realizar una charla o explicar un tema en un entorno académico.
+                                            <br><br> En la comunicación oral, la voz es el factor y el mensaje puede ser entendido de diferentes maneras por el público, si no se transmite con claridad y asertividad. A continuación, se enuncian algunos aspectos
+                                            a tener en cuenta:
+                                        </p>
+
+                                        <p style="text-align: center"><img src="content/comunicacion_oral_01.png" style="width: 80%" alt=""></p>
+                                    </div>
+                                </div>
+                                <div id="ventana_2_2" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación asincróna</h5>
+                                        <p>Este tipo de comunicación es aquella que no se produce a tiempo real, es decir, en la que los participantes no están conectados en el mismo espacio de tiempo. Puede ser dada a través de texto, audio, video, o sus combinaciones,
+                                            sin embargo, la comunicación escrita es la más usual.
+                                            <br><br>
+                                            <img class="img-left" src="content/comunicacion_asincronica_01.png" style="width: 15%;" alt=""> En internet, algunas de las herramientas y espacios más usados para este tipo de comunicación
+                                            son las redes sociales, los foros, los blogs, las comunidades virtuales y el correo electrónico.
+                                            <br><br> Se debe tener en cuenta, que en este caso, la respuesta del receptor no será inmediata. La decisión sobre los canales, herramientas y los espacios para la comunicación serán determinados por el diseño educativo
+                                            propuesto, de tal manera que la comunicación promueva una experiencia positiva y aporte para alcanzar resultados de aprendizaje medibles.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_2_2_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Comunicación escrita</h5>
+                                        <p>La forma en que escribimos en los espacios mediados por tecnologías digitales difiere en algunos aspectos sobre cómo lo hacemos en los espacios analógicos. A continuación, se dan algunas indicaciones con respecto a la escritura en la comunicación digital:
+                                        </p>
+                                        <ul class="data-list">
+                                            <li class="item_02">
+                                                <img class="img-right" src="content/comunicacion_escrita-02.png" style="width: 10%;" alt="">
+                                                <strong> Normas lingüísticas: </strong> al igual que en la comunicación a través de medios analógicos, en la comunicación digital se deben respetar las normas lingüísticas generales, tanto ortográficas como
+                                                gramaticales. Es evidente que, por su carácter relajado y espontáneo, algunas de las manifestaciones de la escritura digital se asemejan más a una conversación informal, sin embargo, esto no implica que se deba
+                                                emplear la lengua de una manera descuidada, o que se puedan crear nuevos códigos, salvo que estemos seguros que pueden ser comprendidos por los destinatarios, o que resuelvan nuevos retos comunicativos.
+                                                <div class="clear" />
+                                            </li>
+                                            <li class="item_01">
+                                                <img class="img-right" src="content/comunicacion_escrita-01.png" style="width: 10%;" alt="">
+                                                <strong> Mensaje legible:</strong> independiente del dispositivo, tipo de formato o canal que utilicemos para generar una comunicación, este debe ser legible. Es importante tener presente que un mismo mensaje puede ser leído en distintos dispositivos que poseen pantallas con diferentes características (tamaño, brillo e interactividad) por lo que los mensajes deben ser legibles en cualquiera de los posibles canales. Se recomienda tener cuidado en aspectos como el formato (colores, tamaño y tipo de letra, elementos ortotipográficos), longitud y escritura de contenidos.
+                                                <div class="clear" />
+                                            </li>
+                                            <li class="item_03">
+                                                <img class="img-right" src="content/comunicacion_escrita-03.png" style="width: 10%;" alt="">
+                                                <strong> La mayor parte de la escritura es pública:</strong> antes de publicar o enviar información por algún canal, es importante siempre revisar el uso correcto de la lengua y si realmente refleja lo que se
+                                                desea comunicar, dado que cualquier persona, desde cualquier lugar, podría acceder a ella.
+                                                <div class="clear" />
+                                            </li>
+                                            <li class="item_04">
+                                                <img class="img-right" src="content/comunicacion_escrita-04.png" style="width: 10%;" alt="">
+                                                <strong> Adaptar la escritura si se quiere llegar a un público variado:
+                                                </strong>si el mensaje que se desea comunicar tiene como objetivo permear a un número significativo de personas y con diferentes características, se debe evitar o
+                                                reducir el uso de neologismos, regionalismos o creaciones particulares, no porque sean incorrectos, sino porque el público los puede malinterpretar o no ser entendidos por parte de los lectores de otras zonas
+                                                o contextos.
+                                                <div class="clear" />
+                                            </li>
+                                            <li class="item_05">
+                                                <img class="img-right" src="content/comunicacion_escrita-05.png" style="width: 10%;" alt="">
+                                                <strong> Orden, coherencia y cohesión:</strong> escribir en un entorno digital no implica que nos olvidemos del orden, la coherencia y la cohesión. Aunque, la síntesis y la claridad son fundamentales, estas
+                                                no deben primar sobre el buen uso de la lengua. Así mismo, la estructura de los textos puede adecuarse a las necesidades de una plataforma específica, pero no en detrimento de estas características.
+                                                <div class="clear" />
+                                            </li>
+                                        </ul>
+
+                                        <p style="text-align: center">
+                                            <img src="content/comunicacion_escrita-06.png" alt="" sytle="width: 100%;">
+                                        </p>
+
+                                        <p>
+                                            Tenga presente que, aunque las anteriores estrategias se pueden considerar admisibles, deben usarse con mesura y responsabilidad; la búsqueda de la sencillez no debe llevar a la pobreza léxica y gramatical. Por lo tanto, se deben considerar:
+                                        </p>
+                                        <ul class="data_list">
+                                            <li>
+                                                <strong> Referencias temporales:</strong> aquellos contenidos que son creados con la intención de que sigan siendo usados en el futuro, se deben cuidar especialmente de las referencias temporales, de tal forma que
+                                                no pierdan validez con el paso del tiempo.
+                                            </li>
+                                            <li>
+                                                <strong> Íconos, emoticonos y emojis:</strong> en la comunicación digital es posible hacer uso de íconos para transmitir una idea o enviar un mensaje. En contextos donde es restringido el número de caracteres, se
+                                                recomienda usarlos en situaciones complejas de transmitir por medio de las palabras. Debido a su naturaleza y carácter expresivo, es mejor reservar el uso de los emoticonos y emojis para la escritura informal;
+                                                es importante no abusar de ellos y debe procurarse que su empleo no empobrezca el uso de la lengua.
+                                            </li>
+                                        </ul>
+
+                                        <div class="box-text important" label="Diferencia entre emoticonos y emojis ">
+                                            <p>
+                                                Un emoticono es una combinación de signos y letras que intentan expresar emociones de forma rápida en los mensajes, mientras, los emojis son imágenes o íconos digitales que cumplen la misma función que los emoticonos.
+                                            </p>
+                                        </div>
+
+                                        <ul class="data_list">
+                                            <li>
+                                                <strong> Escritura secuencial y no secuencial:</strong> los contenidos en los medios digitales pueden estar preparados para una lectura secuencial, seguida de principio a fin, en donde la información se presenta
+                                                sin ningún tipo de interrupción o de forma no secuencial, y en el cual se van presentando nodos de información. Recordemos que los contenidos pueden presentarse en diferentes lenguajes: sonoro, audiovisual y
+                                                textual, entre otros.
+
+                                                <p style="text-align: center">
+                                                    <img src="content/gif-emoticon.gif" alt="" style="width: 40%">
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_3" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Interacción</h5>
+                                        En términos generales, la interacción se entiende como el intercambio dinámico o influencia recíproca entre dos o más personas o cosas.
+                                        <br> La comunicación es fundamental en el proceso de enseñanza-aprendizaje; es el mecanismo que propicia la interacción entre los agentes que intervienen en un proceso de formación (profesor, contenido, estudiante).
+                                        Román (2017) define la interacción como una acción recíproca e intencionada entre dos o más agentes cuyo resultado puede transformar el estado de los participantes.
+
+                                        <p style="text-align: center"> <img src="content/interaccion-01.png" alt=""></p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_3_1" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Espacios de interacción</h5>
+                                        <p>Al usar tecnologías digitales existen diversos espacios en los que se generan varios tipos de interacciones, estos pueden ser foros, mensajerías instantáneas, correos electrónicos y videoconferencias, entre otros recursos
+                                            que están a disposición de estudiantes y profesores en los ambientes virtuales de aprendizaje, y que funcionan como espacios de encuentro.
+                                            <br> A continuación, se exponen algunas recomendaciones para el uso de estas herramientas:
+                                            <ol class="data_list">
+                                                <li>
+                                                    <p>
+                                                        <strong>Correo electrónico:</strong> el grado de formalidad puede variar y es el usuario quien debe considerar qué expresiones y elementos de la escritura informal puede usar o no en función del destinatario y su relación con él:
+                                                        <ul class="data_list">
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_adecuacion_al_trato.png" style="width: 20%;" alt="">
+                                                                <strong>Adecuación al trato:</strong>
+                                                                 el uso del lenguaje estará en concordancia con la relación que tenga el emisor con el destinatario. La estructura general tiene un saludo, desarrollo del mensaje y despedida. El uso del lenguaje, formal o informal, dependerá de la relación que tenga el emisor con el destinatario. Pueden evitarse expresiones que hacen referencia al momento del día, pues el correo puede ser leído en cualquier momento.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_coherencia.png" style="width: 20%;" alt="">
+                                                                <strong>Coherencia en las referencias del destinatario:</strong> debe mantenerse la referencia al destinatario e incluirla en el saludo. Por ejemplo, si el mensaje está dirigido a varias personas, deberá mantenerse la referencia en plural o referenciar adecuadamente a una persona en cuestión si solo se desea indicar uno de ellos en un lugar específico del mensaje. Si se pone copia a una persona, es recomendable advertir su existencia en alguna parte del correo.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_extension.png" style="width: 20%;" alt="">
+                                                                <strong>Extensión y contenido:</strong> aunque no hay una extensión en el número de caracteres que puede contener un correo electrónico, es recomendable ser breves y que la información se presente en párrafos no muy extensos.
+                                                                <div class="clear" />
+                                                            </li>
+                                                        </ul>
+                                                        En las cadenas de correo, es válido responder a los diferentes temas de un correo intercalando las respuestas entre las preguntas del correo anterior y, preferiblemente, con un color de fuente que permita diferenciar las respuestas.<br/>
+                                                        <ul class="data_list">
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_asunto.png" style="width: 20%;" alt="">
+                                                                <strong>Asunto:</strong> debe ser claro, de tal forma que el destinatario tenga una idea general de lo que trata el mensaje. Debe iniciar con mayúscula.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_archivos_adjuntos.png" style="width: 20%;" alt="">
+                                                                <strong>Archivos adjuntos:</strong> si el mensaje tiene archivos adjuntos debe indicarse en algún punto del contenido.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_constestaciones.png" style="width: 20%;" alt="">
+                                                                <strong>Contestaciones rápidas:</strong> algunos sistemas de correo asistidos por una sistema de inteligencia artificial analizan el mensaje y sugieren respuestas rápidas recogidas en botones alternativos. Si lo desea, puede hacer uso de estos, lo que genera que se envíe un mensaje al remitente con dicha respuesta.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_firma.png" style="width: 20%;" alt="">
+                                                                <strong>Firma:</strong> se ubica al final del mensaje y suele incluir el nombre, cargo, empresa u organismos.
+                                                                <div class="clear" />
+                                                            </li>
+                                                            <li>
+                                                                <img class="img-right" src="content/infografia_espacios_de_interaccion/a_emoji.png" style="width: 20%;" alt="">
+                                                                <strong>Uso de emoticonos y emojis:</strong> el uso de estos elementos es habitual entre personas cercanas, aunque ha llegado a incorporarse en correos de ámbito profesional.
+                                                                <div class="clear" />
+                                                            </li>
+                                                        </ul>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <img class="img-right" src="content/infografia_espacios_de_interaccion/b_mensajeri_instantanea.png" style="width: 20%;" alt="">
+                                                        <strong>Mensajería instantánea:</strong> la rapidez e inmediatez que caracteriza este tipo de herramientas hace que los mensajes que se transmiten en estos canales se acerquen a la lengua hablada y menos cuidada. De ahí que tiendan a relacionarse con lo coloquial, lo breve y lo gestual. No obstante, debe prestarse cuidado de no hacer uso incorrecto de las reglas lingüísticas, tanto gramaticales como ortográficas.
+                                                    </p>
+                                                    <p>
+                                                        En este tipo de herramientas es importante destacar el uso de emoticonos y emojis que son válidos siempre y cuando contribuyan a enriquecer el contenido lingüístico de los mensajes, así como a aclarar su significado emocional. 
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <strong>Redes sociales:</strong> la informalidad con que se asocian estos medios no justifican el uso incorrecto de la lengua. Estos son algunos consejos a tener en cuenta:
+                                                    </p>
+                                                    <ul class="data_list">
+                                                        <li>
+                                                            <img class="img-right" src="content/infografia_espacios_de_interaccion/c_extension.png" style="width: 20%;" alt="">
+                                                            <strong>Extensión:</strong> sin importar el límite que puede tener la plataforma digital que se utilice, es preferible optar por publicaciones breves que puedan verse sin dificultad en las pantallas. En caso de existir un límite de caracteres y que esto ocasione que el mensaje no pueda ser transmitido totalmente, es posible repartirlo en varias publicaciones e irlas numerando, o utilizar puntos suspensivos al final y principio de cada publicación.
+                                                            <div class="clear" />
+                                                        </li>
+                                                        <li>
+                                                            <img class="img-right" src="content/infografia_espacios_de_interaccion/c_contextualizacion.png" style="width: 20%;" alt="">
+                                                            <strong>Contextualización:</strong> es importante que los mensajes presenten información completa y suficiente, ya que están dirigidos a un público numeroso.
+                                                            <div class="clear" />
+                                                        </li>
+                                                        <li>
+                                                            <img class="img-right" src="content/infografia_espacios_de_interaccion/c_imagenes.png" style="width: 20%;" alt="">
+                                                            <strong>Imágenes o videos como mensajes:</strong> algunas redes sociales se basan más en el uso de imágenes y/o videos, que en el texto. En estos casos se sugiere siempre acompañar el mensaje con un pie de foto y etiquetas correspondientes, para que el lector pueda situar ubicar los diferentes contenidos.</strong>
+                                                            <div class="clear" />
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="ventana_3_2" class="wf-content scrollable">
+                                    <div class="content_wrapper">
+                                        <h5>Tipos de interacción</h5>
+                                        <p>
+                                            Anderson (2003) define seis tipos de interacción en los procesos de formación mediados por las tecnologías:
+                                        </p>
+                                        <ul class="data_list">
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-01.png" style="width: 15%;" alt="">
+                                                <strong> Estudiante - profesor:</strong> este tipo de interacción propicia el diálogo entre tutor y estudiante, a través de actividades y de herramientas de comunicación dispuestos en el entorno de aprendizaje.
+                                                En este sentido, las actividades deberán ser realimentadas con el fin de contribuir a que el estudiante reconozca sus fortalezas, aquello que debe mejorar y las herramientas de comunicación atendidas según los
+                                                lineamientos establecidos.
+                                                <div class="clear" />
+                                            </li>
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-02.png" style="width: 15%;" alt="">
+                                                <strong> Estudiante - estudiante: </strong> es aquella interacción que se da entre los estudiantes y propicia el aprendizaje colaborativo entre pares, fomentando un espacio para la transferencia y creación de
+                                                conocimiento</li>
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-03.png" style="width: 15%;" alt="">
+                                                <strong> Estudiante - contenido: </strong> aquí, el contenido juega un papel fundamental, ya que a partir de este se establecerá un diálogo cognitivo entre sus saberes y nuevos aprendizajes. En este tipo de
+                                                interacción se utilizan diferentes contenidos (con diversos lenguajes) que realizan funciones formativas que antes solo eran posibles por la interacción entre el estudiante y el profesor, y que permiten responder
+                                                a los diversos estilos de aprendizaje que pueden encontrarse en un espacio de formación.
+                                                <div class="clear" />
+                                            </li>
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-03.png" style="width: 15%;" alt="">
+                                                <strong> Profesor - contenido: </strong> el rol del docente en esta interacción se enfoca, principalmente, en el proceso de diseño educativo o de diseño instruccional, la selección y preparación de los contenidos
+                                                disciplinares y la adaptación de los contenidos para su manejo en línea. Una vez iniciado el curso, esta interacción puede continuar a lo largo de la secuencia de aprendizaje por medio de actualizaciones correspondientes.
+                                                La interacción del docente con los contenidos se da, en primer lugar, con la creación de recursos educativos digitales y de objetos de aprendizaje, en los cuales figura como autor o experto temático. Estos recursos,
+                                                posteriormente, serán localizados y usados por los estudiantes en una interacción estudiante-contenido. Además, una vez estos recursos sean catalogados en internet y los procesos de búsqueda y recuperación sean
+                                                automatizados, la interacción se convertirá en una de contenido - contenido.
+                                                <div class="clear" />
+                                            </li>
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-04.png" style="width: 15%;" alt="">
+                                                <strong> Profesor - profesor:</strong> los docentes forman la base de la comunidad de aprendizaje, por esta razón es necesario que puedan articularse en redes y sistemas de gestión del conocimiento. Este tipo
+                                                de interacción reconoce que la primera y más importante fuente de apoyo a los desafíos técnicos y pedagógicos que puede tener un profesor en su quehacer, no proviene de un experto sino de colegas cercanos. De
+                                                esta manera, promueve la creación de redes o comunidades en donde se socialicen las experiencias y se planteen soluciones a los retos que puedan tener en su proceso de enseñanza.
+                                                <div class="clear" />
+                                            </li>
+                                            <li>
+                                                <img class="img-right" src="content/tipos_de_interaccion-05.png" style="width: 15%;" alt="">
+                                                <strong> Contenido - contenido: </strong> la interacción contenido - contenido puede darse en el contexto de la Inteligencia artificial con el desarrollo de "agentes inteligentes" que sean cada vez más semiautónomos,
+                                                proactivos y adaptativos, para mejorar el proceso de aprendizaje de los estudiantes. Un agente inteligente es una entidad capaz de percibir su entorno, procesar tales percepciones y responder (o actuar) en su
+                                                entorno de manera racional. En el contexto educativo, la manera en que esto podría ser funcional es con sistemas que, por ejemplo, analicen los informes y actividades desarrolladas por un estudiante y automáticamente
+                                                puedan recomendar lecturas o ejercicios acordes al nivel y desempeño del mismo.
+                                                <div class="clear" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>Paso 3</dt>
+                            <dd>
+                                <h5>
+                                    Paso 3 – Construir colaborativamente las reglas, consejos y recomendaciones.
+                                </h5>
+                                <p>
+                                    Generen espacios de diálogo y debatan en equipo para que puedan acordar y consolidar
+                                    esas 10 reglas que regirán la comunicación de profesor y estudiantes en los entornos
+                                    digitales de aprendizaje.
+                                </p>
+                                <h1 style="text-align: center">¿Cuáles son imprescindibles?</h1>
+                                <p>Organicen la forma de trabajo, los roles que cada uno tendrá y recuerden que existen
+                                    diversas herramientas de comunicación sincrónica y asincrónica que pueden utilizar.
+                                    A continuación, se presenta un ejemplo de una posible organización: </p>
+                                <p style="text-align: center">
+                                    <img src="content/ejemplo_de_organizacion_decalogo_01.png" alt="">
+                                </p>
+                            </dd>
+                        </dl>
+
+
+                        <dl>
+                            <dt>Paso 4</dt>
+                            <dd>
+                                <h5>
+                                    Paso 4 - Participación en el foro y autoevaluación.
+                                </h5>
+                                <p>
+                                    Este paso se desarrolla por fuera del OVA.
+                                </p>
+
+                                <h5>Publicación</h5>
+                                <p>
+                                    Una vez tengan finalizado el Decálogo, deben realizar la publicación de este en el
+                                    foro <strong> <a href=""> “Comunicación efectiva y asertiva en entornos digitales”.</a></strong> Para ello, pueden hacer uso de los diversos
+                                    lenguajes y formatos que los entornos digitales ofrecen. Recuerden los aspectos
+                                    sobre los que se han relfexionado en otros recursos educativos digitales; el
+                                    lenguaje sonoro (audio), el lenguaje verbal (escrito), el lenguaje audiovisual
+                                    (video) e incluso el lenguaje multimedia, son posibles opciones para realizar la
+                                    entrega.
+
+                                </p>
+
+                                <h5>Retroalimentación</h5>
+                                <p>
+                                    Lea las intervenciones de otros equipos y retroalimente, por los menos, dos de los
+                                    decálogos o reglamentos publicados.
+                                </p>
+
+                                <h5>Autoevaluación</h5>
+                                <p>
+                                    Una vez haya terminado su participación en el foro, realice la autoevaluación “Evalúe su participación en el foro Comunicación efectiva y asertiva”
+                                </p>
+
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer"
+                            data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span>
+                    </menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled"
+                            data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span>
+                    </menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i>
+                        <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display: none">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que
+                se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo
+                la licencia GNU/GPL v3, la cual debe estar adjunta
+                a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías
+                particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons
+                como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Ángela María Valderrama Muñoz<br />
+                    Mónica Deossa Quintero <br>Cristina Quintero Londoño</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz </cite>
+            </div>
+            <div>
+                <h3>Guión</h3>
+                <cite>Laura Pérez González</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Juan Pablo Romero Laverde</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br>
+                    Maribel Salazar Estrada
+                </cite>
+            </div>
+
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="https://www.perceptio.co" target="_blank"><img src="./img/logoperceptio.png"
+                            alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udea.edu.co" target="_blank"><img src="./img/logo-udea.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png"
+                            alt="BambuColectivo" /></a>
+                    <br />
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="./img/logoberna.png"
+                            alt="BambuColectivo" /></a>
+
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: Agosto 2019
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo
+                    licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a><br /> El software está regido por licencias
+                específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado
+                en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que
+                representa y que no desea que sea utilizado, por
+                favor indicarlo en la página del proyecto o al correo <a
+                    href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de
+                que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de
+                contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera
+                de los agradecimientos que se otorgan en esta plantilla.
+                Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se
+                hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su
+                utilización.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Alcalá, M. (2009). La comunicación y la interacción en contextos virtuales de aprendizaje. Apertura,
+                    1(1), 11. Recuperado de <a href="https://bit.ly/2knNMW4" target="_blank"> https://bit.ly/2knNMW4</a>
+                </li>
+                <li>Anderson, T. (2003). Modes of interaction in distance education: Recent developments and research
+                    questions. Handbook of distance education, 129-144. Recuperado de https://bit.ly/2yxu1ii </li>
+                <li>Kiss de A. D., y Castro R. E. (2004). Comunicación Interpersonal en Internet. Convergencia. Revista
+                    de Ciencias Sociales, 11(36), 277-301. Recuperado de <a target="_blank" href="https://bit.ly/2lUuR5N">https://bit.ly/2lUuR5N</a> 
+                </li>
+                <li>Orihuela, J. L. (2002). Nuevos paradigmas de la comunicación.Chasqui. Revista Latinoamericana de
+                    Comunicación, (77). Recuperado de <a target="_blank" href="https://bit.ly/2kp5Hfc">https://bit.ly/2kp5Hfc</a> 
+                </li>
+                <li>Real Academia Española. (2018). Libro de estilo de la lengua española. Barcelona, España: Editorial
+                    Planeta.
+                    Rizo García, M. (2006). La interacción y la comunicación desde los enfoques de la psicología social
+                    y la sociología fenomenológica. Breve exploración teórica. Academia de Comunicación y Cultura
+                    Universidad Autónoma de la Ciudad de México. Recuperado de <a target="_blank" href="https://bit.ly/2sk3owm"> https://bit.ly/2sk3owm</a>
+                </li>
+                <li>Román Tárraga, F. R. (2018). Ventajas y desventajas pedagógicas en torno a la irrupción de las
+                    NTICXS en los procesos de enseñanza aprendizaje derivados de su triple y simultánea función
+                    educativa, de ocio y de relaciones interpersonales. Recuperado de <a target="_blank" href=" https://bit.ly/2kfdSL9"> https://bit.ly/2kfdSL9</a>
+                </li>
+                <li>Valverde Berrocoso, J. y Garrido Arroyo, M. D. C. (2005). La función tutorial en entornos virtuales
+                    de aprendizaje: comunicación y comunidad. RELATEC. Recuperado de <a target="_blank" href="https://bit.ly/2jUFTqX"> https://bit.ly/2jUFTqX</a>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

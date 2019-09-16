@@ -1,0 +1,114 @@
+/**
+ * Custom library to add custom functionality to activities in this learning object.
+ *
+ * @author: Jesus Otero
+ */
+(function(app) {
+    function initializeResize($img) {
+        var newImg = new Image();
+        newImg.onload = function() {
+            $img.data('o_width', newImg.width);
+            scaleMap($img);
+        }
+        newImg.src = $img.attr('src'); // this must be done AFTER setting onload
+    }
+
+    function enableMapResize($images) {
+        $('area').each(function(i, area) {
+            $(area).data('coords', $(area).attr('coords'));
+        });
+
+        $images.each(function(i, img) {
+            initializeResize($(img));
+        });
+    }
+
+    function scaleMap($img) {
+        var mapName  = $img.attr('usemap').replace('#', ''),
+            $map      = $('map[name="' + mapName + '"]');
+
+        var resize = function () {
+            console.log('resizing...');
+            scale = $img.width() / $img.data('o_width');
+            console.log($img.width());
+            console.log(scale);
+            if (scale == $img.data('scale')) return;
+
+            $map.find('area').each(function(i, area) {
+                var $area = $(area),
+                 coords = $area.data('coords').split(','),
+                 newCoords = [];
+                 $.each(coords, function(k, coord) {
+                     newCoords.push(coord * scale);
+                 })
+                 $area.attr('coords', newCoords.join(','));
+            });
+
+            $img.data('scale', scale);
+        }
+
+        window.onresize = function () {
+            setTimeout(resize, 100);
+        }
+
+        //Required because the image has no size if the div is not visible
+        $(document).on('click', '.chalkboard_item.button,.element_left.button', function() {
+            console.log('on click');
+            var $this = $(this);
+            console.log($this.index());
+            if ($this.is('.chalkboard_item') && $this.index() == 1 || $this.is('.element_left') && $this.parent().index() == 1) {
+                setTimeout(resize, 100);
+            }
+        })
+
+        resize();
+    }
+
+    function adjustMapForMobile(img) {
+        if (app.MODE != 'mobile') return;
+
+        $('<div></div>').css({
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
+            backgroundColor: 'transparent'
+        })
+        .appendTo('.schema_container')
+        .on('click', function () {
+            console.log('2222');
+            //hide this so our new click event will hit the image map
+            $(this).hide(); 
+
+            //create a new click event at the same location that will hit the map
+            $(document.elementFromPoint(event.clientX,event.clientY)).trigger("click");
+
+            //show this again to handle any future clicks and swipes
+            $(this).show();
+        });
+    }
+    /**
+     * Register handler to show interactice decalog builder.
+     */
+    $(document).ready(function(){
+        $(".decalog_builder").on('click', 'input', function() {
+            var $builder = $(".decalog_builder"),
+                $who = $builder.find("input[name='interaction_who']:checked"),
+                $type = $builder.find("input[name='interaction_type']:checked"),
+                $where = $builder.find("input[name='interaction_where']:checked");
+
+            if (!$who.length || !$type.length || !$where.length) return;
+
+            var $dialog = $('#ventana_decalogo');
+            $dialog.find("#interaction_who").html($who.val());
+            $dialog.find("#interaction_type").html($type.val());
+            $dialog.find("#interaction_where").html($where.val());
+            $builder.next('button.decalogo').trigger('click');
+        });
+        //resize image map accordingly
+        enableMapResize($('img[usemap]'));
+        adjustMapForMobile();
+    });
+
+})(dhbgApp);
