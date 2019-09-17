@@ -1,0 +1,171 @@
+   <div id="act1" class="jpit-activities-droppable implantacion" data-act-id="implantacion" data-act-title="Línea de tiempo Prevención de la enfermedad" data-continue-with="#act2">
+                        <div class="tiempo">
+                            <div class="row">
+                                <div class="col-2">
+                                    <strong>Tiempo de <br> implantación</strong>
+                                </div>
+                                <div class="col-2">
+                                    <strong>1 año (o menos)</strong>
+                                </div>
+                                <div class="col-2">
+                                    <strong>De 2 a 3 años</strong>
+                                </div>
+                                <div class="col-2">
+                                    <strong>De 4 a 5 años</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenedor">
+                            <div class="sombra cajoncitos">
+                                <div class="texto-avances"><strong>Avances importantes en la tecnología educativa para la educación superior</strong></div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="1"></div>
+                                    </div>
+                                </div>
+                                <div class="cajon cajon2 " data-target-group="2"></div>
+                                <div class="cajon cajon3" data-target-group="3"></div>
+                                <div class="cajon cajon4" data-target-group="4"></div>
+                                <div class="cajon cajon5" data-target-group="5"></div>
+                                <div class="cajon cajon6" data-target-group="6"></div>
+                            </div>
+                        </div>
+                        <div class="opciones opciones1">
+                            <div data-group="1" class="item w-content-controler general" data-content="#1234" data-property-width="200">Aprendizaje móvil</div>
+                            <div data-group="2" class="item w-content-controler general" data-content="#1ano" data-property-width="400">Tecnologías analíticas</div>
+                            <div data-group="3" class="item w-content-controler general" data-content="#2a3anos" data-property-width="400">realidad mixta</div>
+                            <div data-group="4" class="item w-content-controler  general" data-content="#2a3anos" data-property-width="400">Inteligencia artificial</div>
+                            <div data-group="5" class="item w-content-controler  general" data-content="#5anos" data-property-width="400">Blockchain</div>
+                            <div data-group="6" class="item w-content-controler general" data-content="#5anos" data-property-width="400">Asistentes virtuales</div>
+                        </div>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>
+                                <p>¡Muy bien!</p>
+                            </correct>
+                        </feedback>
+                    </div>
+                </div>
+
+                <!-- 
+*************************
+Ventanas Modales 
+*************************-->
+
+                <!-- Sección 1 -->
+
+                <div id="#1234" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/01.png" />
+                        <strong>Imagen 1 </strong>
+                        <span>Peste negra</span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1347</div>
+                        <p>
+                            Recordada por ser la más mortal en la historia de la humanidad.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1480" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/02.png" />
+                        <strong>Imagen 2 </strong>
+                        <span>Regimen Sanitatis Salernitanum cum expositione magistri Arnaldi de Villanova Cathellano noviter impressus [Imagen]. 1480. Recuperado de <a href="https://bit.ly/2SyXEZH" target="_blank">https://bit.ly/2SyXEZH</a> </span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1480</div>
+                        <p>
+                            Recopilación de 364 versos de Sanitatis Salernitatum que exponen las indicaciones de la Escuela de Salerno en relación con las normas higiénicas, la alimentación, las plantas medicinales y demás indicaciones terapéuticas.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1546" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/03.png" />
+                        <strong>Imagen 3 </strong>
+                        <span>Portrait of Girolamo Fracastoro [Imagen]. 2013. Recuperado de <a href="https://bit.ly/30Qatlm" target="_blank">https://bit.ly/30Qatlm</a> </span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1546</div>
+                        <p>
+                            Girolamo Fracastoro, médico italiano considerado como el primer epidemiólogo, publica su obra De contagionibus que documenta una naciente teoría sobre el contagio de enfermedades. Es el primer texto que aborda dicho tema en la historia de la medicina.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1590" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/04.png" />
+                        <strong>Imagen 4 </strong>
+                        <span>Portrait of Sacharias Jansen [Imagen]. 2005. Recuperado de <a href="https://bit.ly/2GmL4rC" target="_blank">https://bit.ly/2GmL4rC</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1590</div>
+                        <p>
+                            Fue inventado por Zacharias Janssen.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1794" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/05.png" />
+                        <strong>Imagen 5 </strong>
+                        <span>Porträt des Arztes Bernhard Christoph Faust [Imagen]. 2013. Recuperado de <a href="https://bit.ly/2Y3k3ok" target="_blank">https://bit.ly/2Y3k3ok</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1794</div>
+                        <p>
+                            Bernhard Christoph Faust, médico alemán quien dedicó su vida a promover la salud y el bienestar general de su pueblo, nos permite rastrear el origen de la promoción de la salud. Publicó la obra de Catecismo de la salud para maestros, padres y niños.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1848" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/06.png" />
+                        <strong>Imagen 6 </strong>
+                        <span>Rudolf Ludwig Karl Virchow [Imagen]. 2014. Recuperado de <a href="https://bit.ly/2XZsjFu" target="_blank">https://bit.ly/2XZsjFu</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1848</div>
+                        <p>
+                            Rudolf Ludwig Karl Virchow, médico alemán considerado el padre de la patología moderna, trabajó el concepto de la promoción de la salud. Virchow, en su texto en pro de la reforma de la medicina, expresó que “el Estado debe ayudar a todos a vivir una vida
+                            sana. Esto se desprende sencillamente de la concepción del Estado como la unidad moral de todas las personas que lo constituyen y de la obligación de solidaridad universal”<sup class="tooltip" title="<p>Sigerist H. Medicine and Human Welfare. New Haven: Yale University Press; 1941.</p>">[1]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1941" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/07.png" />
+                        <strong>Imagen 7 </strong>
+                        <span>H.E. Sigerist [Imagen]. 1929. Recuperado de <a href="https://bit.ly/2Z8MKN0" target="_blank">https://bit.ly/2Z8MKN0</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1941</div>
+                        <p>
+                            Henry Ernest Sigerist, nacido en París, gran historiador de la medicina, fue la primera persona en emplear el término promoción de la salud con un significado similar al moderno. Se refirió a la salud afirmando que “una persona sana es un ser humano con
+                            un buen equilibrio corporal y mental y bien adaptado a su medio físico y social, ejerce pleno control de sus facultades físicas y mentales, puede adaptarse a los cambios ambientales siempre y cuando no sobrepasen los límites
+                            normales, y contribuye al bienestar de la sociedad en la medida de sus posibilidades. Por lo tanto, la salud no es sencillamente la ausencia de enfermedad; es algo positivo, una actitud alegre hacia la vida y la aceptación
+                            entusiasta de las responsabilidades que la vida impone a la persona”<sup class="tooltip" title="<p>Sigerist H. Medicine and Human Welfare. New Haven: Yale University Press; 1941.</p>">[1]</sup>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="1946" class="w-content">
+                    <div class="imagen">
+                        <img src="./content/08.png" />
+                        <strong>Imagen 8 </strong>
+                        <span>Henry E. Sigerist [Imagen]. Recuperado de <a href="https://bit.ly/2ZgBZIg" target="_blank">https://bit.ly/2ZgBZIg</a></span>
+                    </div>
+                    <div class="completo">
+                        <div class="ano ano1 der">1946</div>
+                        <p>
+                            Sigerist señaló que las cuatro tareas principales de la medicina eran la promoción de la salud, la prevención de la enfermedad, el restablecimiento de los enfermos y la rehabilitación.<sup class="tooltip" title="<p>Terris M. Concepts of Health Promotion – Dualities in Public Health Theory. Washington, DC: Pan American Health Organization; 1992.</p>">[2]</sup>
+                        </p>
+                    </div>
+                </div>
