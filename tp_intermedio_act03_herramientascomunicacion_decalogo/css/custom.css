@@ -1,3 +1,63 @@
+#pasos-opciones {
+    display: flex;
+    justify-content: center;
+}
+
+#pasos-opciones > div {
+    width: 100px;
+    height: 100px;
+    border: #e2e0e4 7px solid;
+    color: #fff;
+    font-size: 50px;
+    background-color: #a2b6c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 20px;
+    position: relative;
+}
+
+#pasos-opciones > div.b1 {
+    background-color: #a2b6c4;
+}
+
+#pasos-opciones > div.b2 {
+    background-color: #65818f;
+}
+
+#pasos-opciones > div.b3 {
+    background-color: #46616c;
+}
+
+#pasos-opciones > div.b4 {
+    background-color: #5996cd;
+}
+
+#pasos-opciones > div.current,
+#pasos-opciones > div:hover {
+    color: #a7eaee;
+    border-color: #95d7de;
+    background-color: #358993;
+}
+
+#pasos-opciones > div.current:after {
+    position: absolute;
+    content: "";
+    background: url(../img/sprite.png) no-repeat -550px -15px;
+    width: 34px;
+    height: 25px;
+    bottom: -40px;
+    left: calc(50% - 17px);
+}
+
+#pasos-contenido > .element {
+    border: #e2e0e4 4px solid;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
 .horizontal-menu > .chalkboard_content {
     height: auto;
 }
@@ -26,8 +86,13 @@
 }
 
 .decalog_builder div.column {
-    text-align: center;
+    text-align: left;
     width: 30%;
+}
+
+.decalog_builder div.column > div {
+    cursor: pointer;
+    padding: 5px 0;
 }
 
 .decalog_builder div.column h5 {
@@ -64,11 +129,114 @@
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;    
-    padding: 15px 5px;
+    right: 0;
+    padding: 15px;
     overflow: auto;
 }
 
 .centered {
     text-align: center;
+}
+
+.wf-content img {
+    max-width: 100%;
+}
+
+.ctrl-pagination .horizontal-menu > .chalkboard_content,
+.ctrl-pagination .horizontal-menu .chalkboard_items > .chalkboard_item {
+    background-color: #fff;
+}
+
+.schema_container {
+    position: relative;
+    max-width: 899px;
+    width: 100%;
+    margin: auto;
+}
+
+.schema_container img {
+    width: 100%;
+}
+
+.schema_container > div {
+    position: absolute;
+    cursor: pointer;
+}
+
+.schema_container > div:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.schema_container > div.o1 {
+    width: 28.4%;
+    height: 12%;
+    left: 35.5%;
+    top: 3.2%;
+}
+
+.schema_container > div.o2 {
+    width: 29%;
+    height: 19%;
+    left: 35%;
+    top: 27%;
+}
+
+.schema_container > div.o3 {
+    width: 23.8%;
+    height: 10%;
+    left: 5.6%;
+    top: 31.7%;
+}
+
+.schema_container > div.o4 {
+    width: 14%;
+    height: 8%;
+    left: 2%;
+    top: 54.7%;
+}
+
+.schema_container > div.o5 {
+    width: 13.8%;
+    height: 8%;
+    left: 19%;
+    top: 54.7%;
+}
+
+.schema_container > div.o6 {
+    width: 14%;
+    height: 8.3%;
+    left: 10%;
+    top: 76%;
+}
+
+.schema_container > div.o7 {
+    width: 14%;
+    height: 8.3%;
+    left: 10%;
+    top: 87%;
+}
+
+.schema_container > div.o8 {
+    width: 24%;
+    height: 10%;
+    left: 70%;
+    top: 31.3%;
+}
+
+.schema_container > div.o9 {
+    width: 14%;
+    height: 8%;
+    left: 66.5%;
+    top: 59.2%;
+}
+
+.schema_container > div.o10 {
+    width: 14%;
+    height: 8%;
+    left: 83.3%;
+    top: 59.2%;
+}
+
+.vertical-menu .chalkboard_vertical_items .chalkboard_vertical_item {
+    width: 170px;
 }
