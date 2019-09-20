@@ -1,0 +1,271 @@
+/********************************************************************************/
+/* MODELO SAMR
+/********************************************************************************/
+
+#pag-modelo .modelo {
+    margin: 40px;
+    text-align: center;
+}
+
+#pag-modelo .schema_container {
+    position: relative;
+    max-width: 899px;
+    width: 100%;
+    margin: auto;
+}
+
+#pag-modelo .schema_container img {
+    width: 100%;
+}
+
+#pag-modelo .schema_container > div {
+    position: absolute;
+    width: 59.4%;
+    height: 14.3%;
+    left: 24.3%;
+}
+
+.schema_container > div.o1 {
+    top: 7.5%;
+}
+
+.schema_container > div.o2 {
+    top: 26.8%;
+}
+
+.schema_container > div.o3 {
+    top: 50.6%;
+}
+
+.schema_container > div.o4 {
+    top: 69.8%;
+}
+
+#pag-modelo .titulo {
+    width: 300px;
+    height: 65px;
+    background-color: #d1dde9;
+    border-radius: 10px;
+    border: 2px solid #65a1d6;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+#pag-modelo .nodo {
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+#pag-modelo .nodo:hover {
+    background-color: rgba(240,227,174,0.2);
+    border: 2px solid #cf9a23;
+}
+
+#pag-modelo .permite {
+    display: flex;
+}
+
+#pag-modelo .permite .texto {
+    padding-right: 50px;
+    text-align: justify;
+}
+
+/********************************************************************************/
+/* Caso 1 - Profesor Pedro Luis
+/********************************************************************************/
+
+#act1 .bloque1 {
+    width: 800px;
+    height: 580px;
+    margin: auto;
+    position: relative;
+}
+
+#act1 .contenedor {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 2px solid #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    background-color: #f3f3f3;
+}
+
+#act1 .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 160px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #dcdcdd;
+    padding: 0;
+}
+
+#act1 .item {
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+#act1 .item1,
+#act1 .item4 {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#act1 .item2 {
+    background-color: #dcdcdd;
+    border: 2px solid #859390;
+}
+
+#act1 .item3 {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
+}
+
+#act1 .ctrl-pagination {
+    background-color: transparent;
+    border: none;
+    width: 500px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#act1 .opciones1 {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 0;
+    width: 280px;
+}
+
+#act1 .opciones1 .item {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+}
+
+#act1 .opciones1 .item1 {
+    top: 0;
+}
+
+#act1 .opciones1 .item2 {
+    top: 150px;
+}
+
+#act1 .opciones1 .item3 {
+    top: 300px;
+}
+
+#act1 .opciones1 .item4 {
+    top: 450px;
+}
+
+#act1 .opciones1 .item1:after {
+    position: absolute;
+    left: 50px;
+    top: calc(100% + 8px);
+    border: 1px solid #d79f21;
+    content: "";
+    height: 70px;
+}
+
+#act1 .opciones1 .item2:after {
+    position: absolute;
+    left: 50px;
+    top: calc(100% + 8px);
+    border: 1px solid #17809d;
+    content: "";
+    height: 70px;
+}
+
+#act1 .opciones1 .item.draggable {
+    z-index: 3;
+}
+
+#act1 .opciones1 .item.draggable:after {
+    content: unset;
+}
+
+#act1 .opciones1 .item.draggable:before {
+    content: "\f263";
+    font-family: "Ionicons";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#act1 .cajon .item {
+    position: unset !important;
+    margin: -1px 0 0 -1px;
+}
+
+#act1 .contenedor.educacion:after,
+#act1 .contenedor.ambiente:after,
+#act1 .contenedor.plataforma:after {
+    content: "";
+    position: absolute;
+    left: -128px;
+    width: 125px;
+    border: 1px solid #d79f21;
+}
+
+#act1 .contenedor.educacion {
+    border: 2px solid #d79f21;
+}
+
+#act1 .contenedor.ambiente {
+    border: 2px solid #859390;
+}
+
+#act1 .contenedor.plataforma {
+    border: 2px solid #17809d;
+}
+
+#act1 .contenedor.educacion:after {
+    top: 50px;
+    border: 1px solid #d79f21;
+}
+
+#act1 .contenedor.ambiente:after {
+    top: 200px;
+    border: 1px solid #859390;
+}
+
+#act1 .contenedor.plataforma:after {
+    top: 350px;
+    border: 1px solid #17809d;
+}
+
+#act1 .ctrl-pagination.sides .position {
+    z-index: 2;
+}
+
+#act1 .ctrl-pagination.sides .button.previous {
+    left: 10px;
+}
+
+#act1 .box_end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 3;
+}
+
+#act1 .draggable.wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+}

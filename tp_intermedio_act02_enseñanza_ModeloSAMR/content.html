@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Guía para integrar tecnología en los procesos de enseñanza y aprendizaje: Modelo SAMR</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Guía para integrar tecnología en los procesos de enseñanza y aprendizaje: Modelo SAMR</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Para tener en cuenta..." data-page="pag-en-cuenta"></menuitem>
+                    <menuitem label="Modelo SAMR" data-page="pag-modelo"></menuitem>
+                    <menuitem label="Caso 1 – Profesor Pedro Luis" data-page="pag-caso1"></menuitem>
+                    <menuitem label="Caso 2 – Profesora Ximena" data-page="pag-caso2"></menuitem>
+                    <menuitem label="Amplíe su conocimiento" data-page="pag-amplie"></menuitem>
+                    <menuitem label="Siguientes pasos" data-page="pag-siguientes"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-en-cuenta" ptitle="Para tener en cuenta...">
+
+                <div class="subpage">
+                    <p>
+                        Tener una postura reflexiva y crítica frente al uso de tecnologías en los procesos de enseñanza y aprendizaje permite identificar cuáles son las variables críticas que preceden a la incorporación de TIC, con el fin de que los docentes las tengan presente en distintos procesos de formación. Estas variables son:
+                    </p>
+                    <ul>
+                        <li>Rol del docente y del estudiante.</li>
+                        <li>Metodología.</li>
+                        <li>Actividades de aprendizaje y evaluación.</li>
+                        <li>Contenidos.</li>
+                        <li>Herramientas de comunicación.</li>
+                    </ul>
+                    <p>
+                        Así mismo, como docentes, llevamos a cabo nuestro quehacer en el marco de instituciones que deben garantizar ciertas condiciones o ejes fundamentales para la integración de TIC en los procesos educativos, tales como políticas, infraestructura tecnológica y procesos de formación de directivos, docentes y estudiantes.
+                    </p>
+                    <p>
+                        Con estos elementos en mente, ahora podemos preguntarnos:
+                    </p>
+                </div>
+
+                <div class="subpage">
+                    <h3>¿Cómo integrar tecnologías en los procesos de enseñanza y aprendizaje?</h3>
+                    <p>
+                        Tanto para los profesores que apenas comienzan a utilizar tecnología en su labor de enseñanza, como para aquellos que cuentan con más experiencia en este ámbito, la gran cantidad de opciones disponibles en aplicaciones y herramientas tecnológicas, en ocasiones, puede resultar abrumadora y paralizante. Sin embargo, la intención es superar ese posible bloqueo y encontrar maneras alentadoras de continuar en la ruta de integración de TIC.
+                    </p>
+
+                    <p>
+                        Existen distintos modelos relacionados con el uso de TIC que pueden hacer de esta tarea una actividad transformadora y enriquecedora, tanto para el docente, como para sus estudiantes.
+                    </p>
+
+                    <p>
+                        En esta actividad, descubriremos cómo podemos utilizar la tecnología para diseñar e implementar experiencias de aprendizaje con integración de TIC en nuestro día a día, proporcionando lineamientos que le permitan aplicarlas en su práctica docente y aprovecharlas para beneficio del aprendizaje de sus estudiantes.
+                    </p>
+                </div>
+
+                <div class="subpage">
+                    <h3>¿Qué pasos puedo seguir para integrar tecnologías en mi proceso de enseñanza?</h3>
+                    <p>Piensa en lo siguiente: </p>
+
+                    <h4>¿Cómo podemos sustituir algunos elementos usando las TIC?</h4>
+                    <p>
+                        Una vez hemos reflexionado sobre el marco general en el que se realiza el proceso de enseñanza y aprendizaje, podemos comenzar a pensar la forma de integrar la tecnología al proceso de aprendizaje de nuestros estudiantes.
+                    </p>
+                    <p>
+                        Para ello, es necesario que conozca cómo la profesora Carmen encontró un modelo que ayuda a los profesores a diseñar, desarrollar e integrar tecnologías de educación para favorecer el aprendizaje de sus estudiantes:
+                    </p>
+                    <p>
+                        Un grupo de estudiantes del curso <i>Introducción a la Geología en Antioquia</i> se encuentra realizando salidas de campo en compañía de la profesora Carmen. Ella tiene como objetivo que los estudiantes reconozcan el Oriente antioqueño como una de las 9 subregiones en las que está dividido el departamento colombiano de Antioquia, a través de la caracterización de elementos de su origen, su evolución, sus recursos y la interacción entre procesos ambientales y biológicos que ha vivido la subregión.
+                    </p>
+                    <p>
+                        En una de esas salidas de campo, un estudiante de la clase, le hizo notar a la profesora que durante sus recorridos en las mañanas, él usa una app que le permite conocer direcciones, reportes de tráfico y vías de la ciudad, y que esta quizás podría servir para las actividades de clase. De esta manera, la profesora consideró que para la clase con sus estudiantes ella podría usar <strong>Google Maps</strong> en lugar de usar mapas y atlas geográficos impresos. En este primer escenario, ella estaría realizando una <strong>sustitución de tecnología</strong>.
+                    </p>
+                    <p><i>¿Existe alguna herramienta tecnológica que podrías utilizar para sustituir de manera directa uno de los componente de su clase?</i></p>
+                    <p>
+                        Es muy común que ahora utilicémos un editor de texto u hoja de cálculo para escribir un texto, realizar algún cálculo o trabajar con tablas dinámicas, en lugar de usar una hoja papel.
+                    </p>
+
+                    <h4>Aumentando tecnologías</h4>
+                    <p>
+                        En un segundo momento, cuando estaban analizando las georutas entre el Valle de Aburrá y el Valle de San Nicolás, Andrea, la profesora auxiliar del curso y Bibiana, una de las estudiantes, conversaron con la profesora Carmen sobre otra posibilidad que ofrece Google Maps; medir la distancia entre un punto y otro. En ese caso, podrían visualizar la distancia total en diferentes unidades de longitud, por ejemplo, en millas (mi) y en kilómetros (km), además de indicar si el recorrido se realiza a pie, en automóvil, en bus, en tren, etc.
+                    </p>
+                    <p>
+                        En este caso específico, los docentes y estudiantes no estaban realizando sustitución de tecnología sino <strong>aumentando las posibilidades de una tecnología existente</strong> para complementar o apoyar el aprendizaje sobre una temática determinada.
+                    </p>
+
+                    <h4>Modificando y redefiniendo con el uso de tecnologías</h4>
+                    <p>
+                        A partir de esta experiencia, Carmen encontró que habían otros usos de esta herramienta tecnológica que no solo le permitían mejorar, sino también transformar la experiencia de sus estudiantes. Por ejemplo, ella encontró otras posibilidades de  Google Maps, como son:
+                    </p>
+                    <ul>
+                        <li>Permite la creación de mapas propios.</li>
+                        <li>Permite marcar los mapas con punteros, textos, imágenes o vídeos.</li>
+                        <li>Permite diseñar recorridos que requieren de conocimiento geográfico, histórico o social. Para ello, se puede partir de referencias sencillas como lugares que se tiene pensado visitar, indicando los más relevantes, así como publicar fotografías y vídeos, con el fin de registrar los hallazgos de una salida pedagógica o visita a un espacio cultural.</li>
+                    </ul>
+                    <p>
+                        A partir de estos hallazgos, la profesora Carmen decidió:
+                    </p>
+                    <ol>
+                        <li>Rediseñar significativamente las actividades de aprendizaje del curso Introducción a la Geología, elaborando las salidas de campo mediante recorridos virtuales generados con la funcionalidad “Street View” de Google Maps.</li>
+                        <li>También identificó que podía proponer actividades de aprendizaje que no hubieran sido posibles sin la existencia de la tecnología, como la creación de rutas y recorridos alternativos por parte de los estudiantes del curso para luego ser compartidos en un foro virtual. Adicional a esto, en una salida de campo, los estudiantes pudieran crear un mapa geológico del Oriente Antioqueño utilizando fotos, textos y videos que dieron cuenta de la evolución de las características geológicas de la región. De esta forma, logró proponer un rol activo por parte de los estudiantes.</li>
+                    </ol>
+                    <p>
+                        Observe que en estos últimos dos hallazgos, Carmen estaría llevando a sus estudiantes desde un nivel de <strong>mejora</strong> hacia uno de <strong>transformación</strong>, de acuerdo con lo que plantea el <strong>Modelo SAMR</strong>.
+                    </p>
+                </div>
+
+            </section>
+
+            <section id="pag-modelo" ptitle="Modelo SAMR">
+                <div class="subpage">
+                    <h3>Diseñar, desarrollar e integrar tecnologías de educación para alcanzar niveles altos de aprendizaje</h3>
+                    <p>
+                        La profesora Carmen encontró que ella podía llevar a sus estudiantes a alcanzar niveles de aprendizaje de orden superior, en donde pudieran realizar actividades relacionadas con la capacidad de análisis, evaluación, síntesis y creación. Todo esto, si lograba redefinir el uso de la tecnología dentro de sus clases.
+                    </p>
+                    <p>
+                        El Modelo SAMR tiene como propósito ayudar a docentes, asesores pedagógicos y otros profesionales, a determinar el nivel de integración de la tecnología en un entorno de aprendizaje, y a reconocer si la tecnología está mejorando o transformando el aprendizaje. De esta manera, se logra el propósito de introducir, en el ambiente de aprendizaje, herramientas tecnológicas para lograr reemplazar y/o mejorar los métodos de enseñanza tradicionales.
+                    </p>
+                    <p>Algunas preguntas que puede plantearse son:</p>
+                    <ul>
+                        <li>¿Qué quiero hacer?</li>
+                        <li>¿Deseo sustituir un proceso por otro o mejorarlo?</li>
+                        <li>¿Voy a modificar completamente el diseño del curso para usar la tecnología?</li>
+                    </ul>
+                    <div class="modelo">
+                        <div class="titulo"><strong>Modelo SAMR</strong></div>
+                        <div class="schema_container">
+                            <img src="content/02.png" alt="Modelo SAMR" />
+                            <div class="nodo w-content-controler general o1" data-content="#redefinir" alt="redefinir" title="Redefinir" href="#redefinir">
+                            </div>
+                            <div class="nodo w-content-controler general o2" data-content="#modificar">
+                            </div>
+                            <div class="nodo w-content-controler general o3" data-content="#aumentar">
+                            </div>
+                            <div class="nodo w-content-controler general o4" data-content="#sustituir">
+                            </div>
+
+                            <div id="redefinir" class="w-content">
+                                <span><strong>Redefinir</strong></span>
+                                <p>
+                                    La tecnología permite la creación de nuevas tareas. En este nivel, el docente plantea una nueva actividad con el uso de TIC, la cual favorece el aprendizaje colaborativo.
+                                </p>
+                                <p>Estas son las preguntas que se deben atender:</p>
+                                <ul>
+                                    <li>¿Cuál es la nueva tarea?</li>
+                                    <li>¿Reemplazará o complementará las tareas anteriores?</li>
+                                    <li>¿Solamente es posible realizarla gracias a la nueva tecnología?</li>
+                                    <li>¿Cómo contribuye a mi diseño?</li>
+                                </ul>
+                            </div>
+
+                            <div id="modificar" class="w-content">
+                                <span><strong>Modificar</strong></span>
+                                <p>
+                                    La tecnología permite un importante rediseño de tareas. En este nivel, el profesor reformula las actividades de aprendizaje que lleva a cabo regularmente sin el uso de estas. Dicha reformulación permite adaptar las actividades a las herramientas tecnológicas disponibles en la institución (Martí, 2013), lo cual depende, esencialmente, del uso pedagógico y didáctico que se le quiera dar a las TIC.
+                                </p>
+                                <p>Están son algunas de las reflexiones que podría hacerse en este nivel:</p>
+                                <ul>
+                                    <li>¿Cómo se modifica la tarea original?</li>
+                                    <li>¿Ésta modificación depende de la nueva tecnología?</li>
+                                    <li>¿Cómo contribuye esta modificación a mi diseño?</li>
+                                </ul>
+                            </div>
+
+                            <div id="aumentar" class="w-content">
+                                <span><strong>Aumentar</strong></span>
+                                <p>
+                                    La tecnología actúa como un sustituto directo de la herramienta y con mejoras funcionales. Es decir, las TIC le aportan progreso a una experiencia de aprendizaje que se ha venido implementando sin uso de estas, la actividad y la metodología no sufre cambios significativos en su diseño. En este segundo nivel del Modelo SAMR, el uso de las TIC pasa a manos de los estudiantes de una forma más activa que en el nivel de sustitución, realizando las tareas propuestas.
+                                </p>
+                                <p>Algunas de las preguntas que puede hacerse son:</p>
+                                <ul>
+                                    <li>¿He agregado una característica al proceso de tarea que no podría hacerse con la tecnología anterior en un nivel fundamental?</li>
+                                    <li>¿Esta característica cómo contribuye a mi diseño?</li>
+                                </ul>
+                            </div>
+
+                            <div id="sustituir" class="w-content">
+                                <span><strong>Sustituir</strong></span>
+                                <p>
+                                    La tecnología actúa como un sustituto directo de la herramienta, sin que esto implique un cambio funcional. Los docentes usan las TIC en sus actividades de enseñanza-aprendizaje pero no existe un cambio metodológico. Esto conlleva a que los estudiantes realicen las mismas acciones que antes hacían sin utilizar tecnología.
+                                </p>
+                                <p>En este nivel es importante preguntarse: </p>
+                                <ul><li>¿Qué ganaré reemplazando la tecnología antigua con la nueva?</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>¿Qué permite este modelo?</h3>
+                    <div class="permite">
+                        <img src="content/01.png" alt="Modelo SAMR">
+                        <div class="texto">
+                            <p>
+                                Si bien, no existe en la actualidad un modelo único de integración efectiva de la tecnología a los procesos de enseñanza y aprendizaje, se sigue avanzando desde la investigación y existen grandes progresos en la generación de conocimiento en esta materia.
+                            </p>
+                            <p>
+                                El Modelo SAMR se entiende, entonces, como una guía útil para clasificar las actividades que emplean tecnologías. Es un modelo jerárquico que presenta cuatro niveles y que permite evaluar la forma en que las tecnologías son usadas por los docentes y estudiantes en las clases.
+                            </p>
+                            <p>
+                                En los primeros niveles de sustitución y aumento, los estudiantes consumen conocimiento. En los niveles superiores de modificación y redefinición, los estudiantes analizan y crean sus propios conocimientos y productos.
+                            </p>
+                            <p>
+                                Para García, Figueroa y Esquivel (2014), el Modelo SAMR está situado en el ámbito tecnológico; por lo tanto, es necesario que el docente primero logre los objetivos de aprendizaje de su disciplina y la metodología que utilizará para, posteriormente, seleccionar las tecnologías a emplear como herramienta en su actividad pedagógica.
+                            </p>
+                            <p>
+                                SAMR (por sus siglas en inglés <i>Substitution, Augmentation, Modification, Redefinition</i>) fue introducido por Rubén Puentadura (2006, 2008, 2013) quién comenzó a proponerlo al final de la década de los ochenta, pero se no se hizo popular hasta el año 2006.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-caso1" ptitle="Caso 1">
+
+                <div class="subpage">
+                    <h3>Caso del profesor Pedro Luis realizando una actividad evaluativa tipo quiz</h3>
+                    <p>
+                        El profesor Pedro Luis utiliza preguntas de evaluación cerrada (selección única, selección múltiple, falso o verdadero, etc.) para evaluar a sus estudiantes al final de la segunda unidad del curso.
+                    </p>
+                    <p>
+                        Durante este semestre ha realizado distintas propuestas de integración de tecnologías en su asignatura.
+                    </p>
+                    <div class="box-text activity" label="Actividad">
+                        <p>
+                            Identifique a qué nivel del Modelo SAMR pertenecen cada una de las acciones realizadas por el profesor y arrástrelas al nivel del modelo SAMR correspondiente:
+                        </p>
+                    </div>
+
+                    <div id="act1" class="jpit-activities-droppable" data-act-id="1-caso1" data-act-title="Caso 1" data-shuffle="false">
+
+                        <div class="bloque1">
+                            <div class="opciones opciones1">
+                                <div class="item item1">
+                                    <span>Aumentar</span>
+                                </div>
+                                <div class="item item2">
+                                    <span>Sustituir</span>
+                                </div>
+                                <div class="item item3">
+                                    <span>Redefinir</span>
+                                </div>
+                                <div class="item item4">
+                                    <span>Modificar</span>
+                                </div>
+                                <div data-group="1" class="item item1" data-value="aumentar">
+                                    <span>Aumentar</span>
+                                </div>
+                                <div data-group="2" class="item item2" data-value="sustituir">
+                                    <span>Sustituir</span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="redefinir">
+                                    <span>Redefinir</span>
+                                </div>
+                                <div data-group="4" class="item item4" data-value="modificar">
+                                    <span>Modificar</span>
+                                </div>
+
+                            </div>
+                            <div class="cajones ctrl-pagination" data-orientation="sides">
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <p>
+                                        El profesor realiza un rediseño de la actividad evaluativa y usa la herramienta Kahoot para crear un concurso entre los estudiantes. Ellos realizan un trabajo colaborativo por medio de la conformación de equipos. Al final, la herramienta realiza el promedio de los puntajes y crea un podio con los primeros lugares
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="4"></div>
+                                    <p>
+                                        El profesor usa el LMS institucional (Learning Management System) para  crear un banco con un sistema aleatorio de 50 preguntas que permiten que cada estudiante reciba un formulario con 10 preguntas distintas en cada intento. 
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <p>
+                                        La programación del formulario permite que cada estudiante reciba una retroalimentación inmediata. El profesor crea mensajes que explican la razón por la cual es una respuesta está acertada o no, y el estudiante visualiza esta respuesta de manera inmediata.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <p>
+                                        El profesor Pedro Luis utiliza la herramienta <strong>Google Forms</strong> que le permite crear encuestas con preguntas de opción múltiple, falso o verdadero, con fechas, clasificaciones y preguntas abiertas, entre otras.
+                                    </p>
+                                </li>
+                            </div>
+                            <div class="box_end"></div>
+                            <br class="clear" />
+                        </div>
+                        <feedback>
+                            <correct>¡Muy bien! Sus respuestas son correctas <br />¡Felicitaciones!</correct>
+                            <wrong>Intente nuevamente</wrong>
+                        </feedback>
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Ángela María Valderrama Muñoz <br />
+                    Cristina Quintero Londoño <br />
+                    Mónica Deossa Quintero
+                </cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Laura Pérez González</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo <br />
+                    Jesús María Otero<br />
+                    Juan Pablo Romero Laverde
+                </cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: agosto 2019<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Alexander, B. y otros. (2019). EDUCAUSE Horizon Report: 2019 <em>Edición de Educación Superior</em>. Louisville, CO: EDUCAUSE. Disponible en https://bit.ly/2GQZv86 </li>
+                <li>Cabero Almenara, J., y Fernández Robles, B. (2018). Las tecnologías digitales emergentes entran en la Universidad: RA y RV. <em>RIED: Revista Iberoamericana de Educación a Distancia, 21</em>(2), 119–138. Disponible en https://bit.ly/2N5GBh9
+                </li>
+                <li>Chin-Leung, C. y Ma, W.K.W (2017). Do We Really Know What People are Using Their Smartphone for? <em>International Symposium on Educational Technology (ISET), Hong Kong,</em> pp. 34-38. Disponible en https://bit.ly/2N8Mqe5 </li>
+                <li>Marston, S., Blankenship, R. J., y Atkinson, J. K. (2014). How are Smartphones Used in Higher Education? <em>Academy of Business Research Journal, 3</em>, 10–27. Disponible en https://bit.ly/2OVFALv </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
