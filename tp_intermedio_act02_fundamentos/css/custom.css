@@ -1,0 +1,333 @@
+/*******************************************
+Actividad inicial - Respuesta abierta
+********************************************/
+
+.uso-tecnologias .sheet {
+    background: url(../img/bg_papel.png) repeat-x left top;
+    width: 610px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+.uso-tecnologias .sheet_body {
+    background-color: #f6f5f2;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 0px #cbcccc;
+}
+
+.uso-tecnologias input[type=text] {
+    border: 2px dotted #aaaaaa;
+    width: 94%;
+    margin-bottom: 10px;
+    padding: 5px 3%;
+}
+
+.uso-tecnologias textarea {
+    width: 94%;
+    height: 80px;
+    padding: 3%;
+    border: 2px dotted #aaaaaa;
+}
+
+/********************************************************************************/
+/* Arrastrar y soltar Modelo horizon
+/********************************************************************************/
+
+.text_tooltip p {
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.jpit-activities-droppable .contenedor {
+    width: 100px;
+    display: initial;
+}
+
+.jpit-activities-droppable .sombra,
+.jpit-activities-droppable .encabezado {
+    background-color: #F1F1F0;
+    position: relative;
+    margin: 20px auto;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    max-width: 550px;
+}
+
+.jpit-activities-droppable .sombra .col-1,
+.jpit-activities-droppable .encabezado > div {
+    padding: 14px;
+}
+
+.jpit-activities-droppable .encabezado .col-1 {
+    border-right: 2px solid #EAA000;
+}
+
+.jpit-activities-droppable .droppable {
+    padding: 0;
+}
+
+.jpit-activities-droppable .droppable .draggable {
+    margin: 0;
+}
+
+.jpit-activities-droppable .encabezado {
+    background-color: #FAE8AD;
+    border: 2px solid #EAA000;
+    color: #000;
+}
+
+.tiempo {
+    width: 860px;
+    height: 60px;
+    position: relative;
+    margin: 20px auto;
+    border-radius: 15px;
+    border: 2px solid #EAA000;
+    text-align: center;
+    bottom: -10px;
+    color: #000;
+    background-color: #FAE8AD;
+    padding: 10px;
+}
+
+.der .tiempo:after {
+    border: 10px solid transparent;
+    position: absolute;
+    right: -20px;
+    content: "";
+}
+
+.jpit-activities-droppable {
+    position: relative;
+}
+
+.texto-avances {
+    border: 0px transparent;
+    border-radius: 15px;
+    width: 140px;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    left: 23px;
+    top: 30px;
+}
+
+.jpit-activities-droppable .dropzones .row > div:not(.col-1) {
+    height: 60px;
+    width: 160px;
+    border-radius: 14px;
+    border-style: dashed;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jpit-activities-droppable .cajon1 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.jpit-activities-droppable .cajon2 {
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.jpit-activities-droppable .cajon3 {
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.jpit-activities-droppable .cajon4 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.jpit-activities-droppable .cajon5 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+.jpit-activities-droppable .cajon6 {
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.texto-avances {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 1;
+}
+
+.jpit-activities-droppable .introductorio {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+.jpit-activities-droppable .introductorio1 {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+.jpit-activities-droppable .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.jpit-activities-droppable .opciones.opciones1 {
+    max-width: 550px;
+}
+
+
+.jpit-activities-droppable.completed .opciones {
+    margin-top: 0;
+}
+
+.jpit-activities-droppable .item {
+    border: 1px solid #73C8D1;
+    border-radius: 15px;
+    width: 140px;
+    height: 40px;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.jpit-activities-droppable .opciones .item {
+    margin: 10px;
+}
+
+#act1.jpit-activities-droppable .item {
+    background-color: #DFE9EF;
+}
+
+#act2.jpit-activities-droppable .item {
+    background-color: #DCE0DF;
+}
+
+#act2 .item i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#act2 .item i:hover {
+    color: #EAA000;
+}
+
+#act3.jpit-activities-droppable .item {
+    background-color: #F7C490;
+}
+
+.jpit-activities-droppable .scroll {
+    display: block;
+    overflow: auto;
+    width: 145px;
+}
+
+.w-content {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center;
+}
+
+.w-content .imagen img {
+    display: block;
+    margin: auto;
+}
+
+.w-content .imagen {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.w-content .completo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+
+.completo .ano {
+    margin-left: 0;
+    left: 0;
+}
+
+.completo .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    left: 60px;
+    content: "";
+}
+
+.imagen .ano1:after {
+    border-left-color: #73C8D1;
+}
+
+.completo .ano2:after {
+    border-left-color: #879592;
+}
+
+.completo .ano3:after {
+    border-left-color: #FF8000;
+}
+
+.box_end .icon_more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    transform: rotate(45deg);
+}
+
+.jpit-activities-droppable .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+}
+
+.cajoncitos {
+    display: grid;
+    grid-template-columns: 30% 80%;
+    /* grid-template-rows: 50% 50%; */
+    grid-gap: 10px;
+}
+
+.encabezado {
+    display: flex;
+}
+
+.dropzones {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.col-1 {
+    width: 135px;
+    display: flex;
+    align-items: center;
+}
+
+.encabezado .col-2 {
+    flex: 2;
+}
+
+#pag-compara .box-text.note .box_body {
+    padding: 10px;
+}

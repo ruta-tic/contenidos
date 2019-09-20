@@ -1,0 +1,77 @@
+.horizontal-menu > .chalkboard_content {
+    height: auto;
+}
+
+#id_subpagina .horizontal-menu .chalkboard_content {
+    height: 300px;
+}
+
+.img-left {
+    float: left;
+    width: 19%;
+    margin: 0 10px 0 0;
+}
+
+.img-right {
+    float: right;
+    width: 19%;
+    margin: 0 10px 0 0;
+}
+
+
+.decalog_builder {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+
+.decalog_builder div.column {
+    text-align: center;
+}
+
+.decalog_builder div.column h5 {
+    background-color: #dedede;
+    margin: 0px;
+    padding: 15px 10px;
+}
+
+.decalog_builder div.column label {
+    display: block;
+    text-align: left;
+}
+
+.w-content-controler.general.decalogo {
+    display: none;
+}
+
+#ventana_decalogo span{
+    font-weight: bold;
+}
+
+.wf-content h5 {
+    font-size: 16px;
+}
+.wf-content.scrollable {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.wf-content.scrollable .content_wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    padding: 15px 5px;
+    overflow: auto;
+}
+
+.centered {
+    text-align: center;
+}
+
+.schema_container {
+    position: relative;
+}

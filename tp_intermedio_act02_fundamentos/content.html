@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Haciendo una predicción de adopción y uso de tecnologías en las aulas universitarias</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Haciendo una predicción de adopción y uso de tecnologías en las aulas universitarias</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Teléfonos inteligentes" data-page="pag-telefonos"></menuitem>
+                    <menuitem label="Informe Horizon" data-page="pag-info-horizon"></menuitem>
+                    <menuitem label="Compara" data-page="pag-compara"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-telefonos" ptitle="Teléfonos inteligentes">
+
+                <div class="subpage">
+                    <p><em>¿Hace 25 años hubiera pronosticado que los teléfonos llegarían a ser “inteligentes” y serían una herramienta de uso cotidiano en la educación superior?</em>
+                    </p>
+                    <p>
+                        Actualmente, los teléfonos móviles son equiparados a minicomputadores debido a funciones avanzadas como reproducción de fotos, audios, vídeos y navegación en Internet (correo electrónico, redes sociales), etc., además de las comunicativas tradicionales,
+                        como son las llamadas telefónicas y los mensajes de texto.
+                    </p>
+                    <p>
+                        Si bien, hace un par de décadas, para muchos de nosotros, hubiera sido impensable su existencia y menos aún, sus posibilidades de uso en educación superior, hoy en día, el aprendizaje móvil es conocido como el proceso de aprendizaje a través de las interacciones
+                        sociales y de contenido por medio del uso de este dispositivo, que de acuerdo con Marston, Blankenship y Atkinson (2014), hace que los educadores también se involucren con la tecnología.
+                    </p>
+                    <p>
+                        <em>¿Qué otras tecnologías se implementarán en el corto plazo en educación superior?</em>
+                    </p>
+                </div>
+
+                <div class="subpage">
+                    <h3>¡Vamos a probar!</h3>
+                    <p>
+                        Desde su punto de vista, ¿qué ocurrirá en los próximos cinco años con el uso de tecnología en la educación superior?
+                    </p>
+                    <div class="jpit-activities-form uso-tecnologias" data-act-id="1-opinion" data-save="true" data-print="true" data-require-all="true" data-act-title="Punto de vista">
+                        <div class="sheet">
+                            <div class="sheet_body">
+                                <p>
+                                    Escriba su respuesta a continuación:
+                                    <textarea id="uso-tecnologia" name="Punto de vista"></textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-info-horizon" ptitle="Informe Horizon">
+                <div class="sub-page">
+                    <p>
+                        El <strong>Informe Horizon</strong> es conocido como el pronóstico de tendencias tecnológicas que se implementarán a corto, mediano y largo plazo en la educación superior, además de las tendencias clave que acelerarán su adopción (Alexander y otros, 2019). También existen
+                        otros reportes e informes que intentan predecir estas tendencias y la manera en la que la relación educación-tecnología ocurrirá en el futuro.
+                    </p>
+
+
+                    <div class="box-text activity" label="Indicaciones">
+                        <p>
+                            A continuación, encontrará una lista con seis tecnologías, lea detenidamente sus títulos y trate de predecir qué tan rápida será su adopción en el mundo educativo. Atrévase a arrastrarlas para realizar su pronóstico clasificándolas en tiempos de implantación
+                            de 1 a 3 años y de 4 a 5 años. Solo dos tecnologías corresponden a cada categoría. Así mismo, se encuentra invitado(a) a explorar el significado de cada tecnología y a ubicarlas en el espacio que corresponda según el tiempo
+                            de implantación.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sub-page">
+                    <div id="act2" class="jpit-activities-droppable prevencion" data-act-id="2-avances" data-act-title="Avances importantes en la tecnología educativa" data-verify-type="target">
+                        <div class="bloque1">
+                            <div class="encabezado">
+                                <div class="col-1">
+                                    <strong>Tiempo de <br /> implantación</strong>
+                                </div>
+                                <div class="col-2">
+                                    <strong>Avances importantes en la tecnología educativa para la educación superior</strong>
+                                </div>
+                            </div>
+
+                            <div class="sombra cajoncitos">
+                                <div class="dropzones">
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <strong>1 año (o menos)</strong>
+                                        </div>
+                                        <div class="cajon1" data-target-group="1"></div>
+                                        <div class="cajon2" data-target-group="1"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <strong>De 2 a 3 años</strong>
+                                        </div>
+                                        <div class="cajon3" data-target-group="3"></div>
+                                        <div class="cajon4" data-target-group="3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <strong>De 4 a 5 años</strong>
+                                        </div>
+                                        <div class="cajon5" data-target-group="5"></div>
+                                        <div class="cajon6" data-target-group="5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="instruction" type="none"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada ícono <i title="ion-information-circled" class="ion-information-circled"></i> para ampliar la información.</div>
+                        <div class="opciones opciones1">
+                            <div data-group="1" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#1" data-property-width="600"></i>
+                                Aprendizaje móvil
+                            </div>
+                            <div data-group="3" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#2" data-property-width="600"></i>
+                                Tecnologías analíticas
+                            </div>
+                            <div data-group="1" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#3" data-property-width="600"></i>
+                                Realidad mixta
+                            </div>
+                            <div data-group="5" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#4" data-property-width="600"></i>
+                                Inteligencia artificial
+                            </div>
+                            <div data-group="3" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#5" data-property-width="600"></i>
+                                Blockchain
+                            </div>
+                            <div data-group="5" class="item">
+                                <i title="ion-information-circled" class="ion-information-circled w-content-controler" data-content="#6" data-property-width="600"></i>
+                                Asistentes virtuales
+                            </div>
+                        </div>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>
+                                <p>
+                                    Esta guía de referencia y de planificación tecnológica para educadores también presenta las tendencias clave que enmarcan los usos de estas tecnologías y que acelerarán su adopción en la educación superior, tales como el rediseño de espacios de aprendizaje,
+                                    los diseños de aprendizaje híbrido, el enfoque creciente en la medición del aprendizaje y los grados modularizados y desagregados.
+                                </p>
+                                <p>
+                                    Hablaremos de algunos de ellos más adelante.
+                                </p>
+                            </correct>
+                            <wrong>La adopción de algunas tecnologías puede tomar mayor o menor tiempo, específicamente en el entorno educativo. Intenta nuevamente.</wrong>
+                        </feedback>
+                    </div>
+                    <!--
+                        *************************
+                            Ventanas Modales
+                        *************************-->
+
+                    <div id="1" class="w-content" title="Aprendizaje móvil">
+                        <div class="imagen">
+                            <img src="./content/01.png" />
+                            <strong>Imagen 1 </strong>
+                            <span>Aprendizaje móvil</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Hace referencia a la posibilidad de conexión a Internet y acceso a experiencias de aprendizaje que ofrezcan contenidos amigables, permitan la sincronización con dispositivos múltiples y el acceso a la información en cualquier momento y lugar.
+                            </p>
+                            <p>
+                                Según estudios recientes, cada vez los estudiantes usan más sus dispositivos móviles para acceder al contenido de los cursos en línea. Esto es posible gracias al responsive design y a la funcionalidad de los LMS (Learning Management System) en distintas
+                                plataformas, ya que los docentes y diseñadores instruccionales tienen en cuenta este tipo de dispositivos al momento de crear experiencia de aprendizaje más universales para todos los usuarios, independientemente de plataforma
+                                o dispositivo que utilicen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="2" class="w-content" title="Tecnologías analíticas">
+                        <div class="imagen">
+                            <img src="./content/02.png" />
+                            <strong>Imagen 2 </strong>
+                            <span>Tecnologías analíticas</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Son aquellas que facilitan a las instituciones, líderes educativos y docentes acceder a sistemas interconectados y grandes recursos de datos que, una vez analizados, permiten comprender, predecir y personalizar las experiencias de aprendizaje de los estudiantes
+                                para mejorar la planificación y la toma de decisiones estratégicas.
+                            </p>
+                            <p>
+                                Estas nuevas capacidades computacionales superan el análisis tradicional del proceso de aprendizaje de los alumnos, mediante sus calificaciones y comportamientos para crear experiencias altamente personalizadas que apuntan a las necesidades individuales
+                                de cada estudiante durante su proceso de formación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="3" class="w-content" title="Realidad Mixta (RM)">
+                        <div class="imagen">
+                            <img src="./content/03.png" />
+                            <strong>Imagen 3</strong>
+                            <span>Realidad Mixta (RM)</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Se define como un rango de tecnologías que se encuentran en el punto de intersección entre el mundo en línea y fuera de línea o físico. Es el espacio híbrido que integra la Realidad virtual (RV) y la Realidad aumentada (RA), y tiene como una característica
+                                clave la interactividad. En esencia, la realidad mixta es la coexistencia de objetos físicos y digitales en un mismo espacio.
+                            </p>
+                            <p>
+                                Mientras la realidad virtual sumerge al usuario en una simulación o un video 360° para acceder a una realidad inexistente por medio del uso de hardware, como unos lentes que permitan recrear la experiencia de viajar a través del sistema digestivo o estar
+                                en Marte, en la realidad aumentada los usuarios pueden interactuar con contenidos virtuales superpuestos en espacios físicos, es decir, la realidad física enriquecida con información adicional. Un ejemplo de ellos podría ser la
+                                interacción con personajes históricos durante una visita a un museo, o probarse ropa de manera virtual en el probador de una tienda.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="4" class="w-content" title="Inteligencia artificial">
+                        <div class="imagen">
+                            <img src="./content/04.png" />
+                            <strong>Imagen 4 </strong>
+                            <span>Inteligencia artificial</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Hace referencia a la simulación de funciones cognitivas humanos por parte de un sistema, el cual tiene la capacidad de interpretar datos externos, aprenderlos y usar el conocimiento generado para realizar tareas y metas concretas a través de la adaptación
+                                flexible.
+                            </p>
+                            <p>
+                                Una de las ramas de la inteligencia artificial son las máquinas de aprendizaje (Machine Learning). Entre algunos ejemplos de uso de estas, en el ámbito educativo se tiene su aplicación en el área de mercadeo para predecir las preferencias y tendencias
+                                de los consumidores y, en e-Learning, permite procesar los datos que son registrados por los diferentes usuarios en una plataforma educativa para identificar quienes están en riesgo de desertar para tomar acciones que prevengan
+                                o mitiguen este riesgo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="5" class="w-content" title="Blockchain">
+                        <div class="imagen">
+                            <img src="./content/05.png" />
+                            <strong>Imagen 5 </strong>
+                            <span>Blockchain</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Funciona como un libro digital descentralizado. Esta tecnología emplea una estructura de datos distribuida en la que los registros al libro principal se replica en varias ubicaciones, eliminando así el papel de la autoridad central sobre dicho libro y
+                                creando un modelo altamente seguro en donde la integridad se basa en la confianza de todos los participantes. Este tipo de tecnología es reconocida por uso para soportar las criptomonedas, pero poco a poco, se está expandiendo
+                                a otros sectores como el educativo.
+                            </p>
+                            <p>
+                                Actualmente, en el ámbito de la educación superior se están investigando formas en que el blockchain podría ser utilizado para la protección y seguridad de archivos alojados en la nube (certificados escolares, resultados previos de un investigación en
+                                curso, etc.). Sin embargo, sus posibilidades de uso siguen siendo inciertas dada la novedad y complejidad de esta tecnología.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="6" class="w-content" title="Asistentes virtuales">
+                        <div class="imagen">
+                            <img src="./content/06.png" />
+                            <strong>Imagen 6 </strong>
+                            <span>Asistentes virtuales</span>
+                        </div>
+                        <div class="completo">
+                            <p>
+                                Es un programa o aplicación de software que reconoce el lenguaje natural usado por el usuario y permite establecer una conversación para responder preguntas, hacer recomendaciones o realizar acciones solicitadas, aprovechando la capacidad de almacenamiento
+                                y procesamiento que disponen los ordenadores y los demás dispositivos electrónicos. Esta tecnología es utilizada actualmente en sitios web para guiar a los usuarios a través de la página o en aplicaciones que brindan ayuda al usuario
+                                según la finalidad para la cual fueron hechas, por ejemplo Duolingo, en la enseñanza de Idiomas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-compara" ptitle="Compara">
+                <div class="subpage">
+                    <div class="box-text activity" label="Compara">
+                        <p>
+                            Lea detenidamente su respuesta sobre la predicción, adopción y uso de tecnologías en las aulas universitarias. A continuación, observe el pronóstico del Informe Horizon y trate de encontrar los elementos o ideas comunes y las diferencias.
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-2">
+                            <h3>Su predicción</h3>
+                            <div class="box-text note" label="">
+                                <p class="form-value-display" data-element="#uso-tecnologia"></p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <h3>Informe Horizon</h3>
+                            <table class="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Tiempo de implantación</th>
+                                        <th>1 año o menos</th>
+                                        <th>2 a 3 años</th>
+                                        <th>4 a 5 años</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="2">Avances importantes en la tecnología educativa para la educación superior</th>
+                                        <td>Aprendizaje móvil</td>
+                                        <td>Realidad mixta</td>
+                                        <td>Blockchain</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>Tecnologías analíticas</td>
+                                        <td>Inteligencia artificial</td>
+                                        <td>Asistentes virtuales</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box-text important" label="Tenga en cuenta">
+                        <p>
+                            Es muy importante reconocer la existencia de tendencias clave que enmarcan la adopción de tecnologías en la educación superior y reflexionar acerca de sus posibles usos en la práctica docente.
+                        </p>
+                    </div>
+
+                    <div class="box-text link" label="Otros pronósticos">
+                        <h3>Stanford 2025</h3>
+                        <p>
+                            Este proyecto de investigación de diseño e investigación de campo comparativa tuvo como finalidad imaginar el futuro de la educación superior en Stanford, especialmente el los pregrados. Contó con la participación de estudiantes, profesores y administradores.
+                        </p>
+                        <p>
+                            Para más información, haga clic <a href="http://www.stanford2025.com" target="_blank">aquí.</a>
+                        </p>
+
+
+                        <h3>Cuadrante mágico de Gartner</h3>
+                        <p>
+                            El grupo Gartner es una empresa de consultoría e investigación del mercado de las nuevas tecnologías que se dedica exclusivamente a realizar análisis e investigación de las tendencias del mercado. A partir de esto, elabora un ranking de los fabricantes
+                            con mejores soluciones y productos. Los resultados son presentados cada año bajo el nombre de “Cuadrante mágico de Gartner.
+                        </p>
+                        <p>
+                            Para más información, haga clic <a href="https://www.gartner.com/en/industries/education" target="_blank">aquí.</a>
+                        </p>
+
+                        <h3>Google por la educación</h3>
+                        <p>
+                            Hallazgos completos del reporte de “Google for Education. Future of the Classroom Emerging Trends in K-12 Education Global Edition” <a href="http://services.google.com/fh/files/misc/future_of_the_classroom_emerging_trends_in_k12_education.pdf?utm_source=social&utm_campaign=FY19-Q2-global-demandgen-website-other-futureoftheclassroom"
+                                target="_blank">aquí.</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Ángela María Valderrama Muñoz <br />
+                    Cristina Quintero Londoño <br />
+                    Mónica Deossa Quintero
+                </cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Laura Pérez González</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo <br />
+                    Jesús María Otero<br />
+                    Juan Pablo Romero Laverde
+                </cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: agosto 2019<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Alexander, B. y otros. (2019). EDUCAUSE Horizon Report: 2019 <em>Edición de Educación Superior</em>. Louisville, CO: EDUCAUSE. Disponible en https://bit.ly/2GQZv86 </li>
+                <li>Cabero Almenara, J., y Fernández Robles, B. (2018). Las tecnologías digitales emergentes entran en la Universidad: RA y RV. <em>RIED: Revista Iberoamericana de Educación a Distancia, 21</em>(2), 119–138. Disponible en https://bit.ly/2N5GBh9
+                </li>
+                <li>Chin-Leung, C. y Ma, W.K.W (2017). Do We Really Know What People are Using Their Smartphone for? <em>International Symposium on Educational Technology (ISET), Hong Kong,</em> pp. 34-38. Disponible en https://bit.ly/2N8Mqe5 </li>
+                <li>Marston, S., Blankenship, R. J., y Atkinson, J. K. (2014). How are Smartphones Used in Higher Education? <em>Academy of Business Research Journal, 3</em>, 10–27. Disponible en https://bit.ly/2OVFALv </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

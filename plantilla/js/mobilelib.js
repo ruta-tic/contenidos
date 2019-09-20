@@ -44,7 +44,7 @@ dhbgApp.mobile.start = function() {
     // ==============================================================================================
     // Full content to Mobile view
     // ==============================================================================================
-    dhbgApp.mobile.fullContent.main = $('<div id="full_content" class="not_print"><div id="dialog_content"></div></div>');
+    dhbgApp.mobile.fullContent.main = $('<div id="full_content" class="not_print"></div>');
     dhbgApp.mobile.fullContent.back = $('<div class="back_label"><button class="backward_button button"></button></div>');
     dhbgApp.mobile.fullContent.content = $('<div id="dialog_content"></div>');
     dhbgApp.mobile.fullContent.main.append(dhbgApp.mobile.fullContent.back);
