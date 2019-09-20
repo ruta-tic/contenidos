@@ -2,37 +2,34 @@
 Actividad inicial - Respuesta abierta
 ********************************************/
 
-.jpit-activities-uso-tecnologias .sheet {
+.uso-tecnologias .sheet {
     background: url(../img/bg_papel.png) repeat-x left top;
-    width: 410px;
+    width: 610px;
     margin: auto;
     padding-top: 35px;
 }
 
-.jpit-activities-uso-tecnologias .sheet_body {
+.uso-tecnologias .sheet_body {
     background-color: #f6f5f2;
     padding: 10px 20px;
     box-shadow: 3px 3px 0px #cbcccc;
 }
 
-.jpit-activities-uso-tecnologias input[type=text] {
+.uso-tecnologias input[type=text] {
     border: 2px dotted #aaaaaa;
     width: 94%;
     margin-bottom: 10px;
     padding: 5px 3%;
 }
 
-.jpit-activities-uso-tecnologias textarea {
+.uso-tecnologias textarea {
     width: 94%;
-    height: 40px;
+    height: 80px;
     padding: 3%;
     border: 2px dotted #aaaaaa;
 }
 
-
 /********************************************************************************/
-
-
 /* Arrastrar y soltar Modelo horizon
 /********************************************************************************/
 
@@ -47,19 +44,32 @@ Actividad inicial - Respuesta abierta
     display: initial;
 }
 
-.jpit-activities-droppable .sombra, .jpit-activities-droppable .encabezado {
+.jpit-activities-droppable .sombra,
+.jpit-activities-droppable .encabezado {
     background-color: #F1F1F0;
     position: relative;
     margin: 20px auto;
     border-radius: 15px;
-    padding: 14px;
     text-align: center;
     display: flex;
     max-width: 550px;
 }
 
+.jpit-activities-droppable .sombra .col-1,
+.jpit-activities-droppable .encabezado > div {
+    padding: 14px;
+}
+
+.jpit-activities-droppable .encabezado .col-1 {
+    border-right: 2px solid #EAA000;
+}
+
 .jpit-activities-droppable .droppable {
-    padding: 5px;
+    padding: 0;
+}
+
+.jpit-activities-droppable .droppable .draggable {
+    margin: 0;
 }
 
 .jpit-activities-droppable .encabezado {
@@ -106,7 +116,7 @@ Actividad inicial - Respuesta abierta
 
 .jpit-activities-droppable .dropzones .row > div:not(.col-1) {
     height: 60px;
-    width: 170px;
+    width: 160px;
     border-radius: 14px;
     border-style: dashed;
     margin: 5px;
@@ -208,6 +218,15 @@ Actividad inicial - Respuesta abierta
     background-color: #DCE0DF;
 }
 
+#act2 .item i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#act2 .item i:hover {
+    color: #EAA000;
+}
+
 #act3.jpit-activities-droppable .item {
     background-color: #F7C490;
 }
@@ -222,6 +241,7 @@ Actividad inicial - Respuesta abierta
     display: flex;
     flex-direction: row;
     align-content: space-between;
+    align-items: center;
 }
 
 .w-content .imagen img {
@@ -255,7 +275,7 @@ Actividad inicial - Respuesta abierta
     content: "";
 }
 
-.completo .ano1:after {
+.imagen .ano1:after {
     border-left-color: #73C8D1;
 }
 
@@ -265,12 +285,6 @@ Actividad inicial - Respuesta abierta
 
 .completo .ano3:after {
     border-left-color: #FF8000;
-}
-
-.box_end {
-    position: absolute;
-    bottom: 52px;
-    left: calc(50% - 250px);
 }
 
 .box_end .icon_more {
@@ -305,11 +319,15 @@ Actividad inicial - Respuesta abierta
 }
 
 .col-1 {
-    width: 120px;
+    width: 135px;
     display: flex;
     align-items: center;
 }
 
 .encabezado .col-2 {
     flex: 2;
+}
+
+#pag-compara .box-text.note .box_body {
+    padding: 10px;
 }
