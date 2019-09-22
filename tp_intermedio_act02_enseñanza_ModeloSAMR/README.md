@@ -1,4 +1,4 @@
-# OVA - Haciendo una predicción de adopción y uso de tecnologías en las aulas universitarias
+# OVA - Guía para integrar tecnología en los procesos de enseñanza y aprendizaje: Modelo SAMR
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/

@@ -1,3 +1,16 @@
+.horizontal-menu > .chalkboard_content {
+    height: auto;
+}
+
+.row.pordecoracion {
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.chalkboard_content .ctrl-pagination {
+    background-color: #fff;
+}
 /********************************************************************************/
 /* MODELO SAMR
 /********************************************************************************/
@@ -9,7 +22,7 @@
 
 #pag-modelo .schema_container {
     position: relative;
-    max-width: 899px;
+    max-width: 665px;
     width: 100%;
     margin: auto;
 }
@@ -76,14 +89,14 @@
 /* Caso 1 - Profesor Pedro Luis
 /********************************************************************************/
 
-#act1 .bloque1 {
+.actrelacionar .bloque1 {
     width: 800px;
-    height: 580px;
+    height: 400px;
     margin: auto;
     position: relative;
 }
 
-#act1 .contenedor {
+.actrelacionar .contenedor {
     padding: 20px;
     position: absolute;
     top: 0;
@@ -94,7 +107,7 @@
     background-color: #f3f3f3;
 }
 
-#act1 .cajon {
+.actrelacionar .cajon {
     border: 1px dashed #0089A9;
     border-radius: 15px;
     width: 160px;
@@ -104,7 +117,7 @@
     padding: 0;
 }
 
-#act1 .item {
+.actrelacionar .item {
     border-radius: 15px;
     width: 150px;
     height: 50px;
@@ -115,23 +128,23 @@
     z-index: 1;
 }
 
-#act1 .item1,
-#act1 .item4 {
+.actrelacionar .item1,
+.actrelacionar .item4 {
     background-color: #f5e7ae;
     border: 2px solid #d79f21;
 }
 
-#act1 .item2 {
+.actrelacionar .item2 {
     background-color: #dcdcdd;
     border: 2px solid #859390;
 }
 
-#act1 .item3 {
+.actrelacionar .item3 {
     background-color: #e2f3f4;
     border: 2px solid #17809d;
 }
 
-#act1 .ctrl-pagination {
+.actrelacionar .ctrl-pagination {
     background-color: transparent;
     border: none;
     width: 500px;
@@ -141,7 +154,7 @@
     bottom: 0;
 }
 
-#act1 .opciones1 {
+.actrelacionar .opciones1 {
     position: absolute;
     left: 0;
     top: 20px;
@@ -149,55 +162,37 @@
     width: 280px;
 }
 
-#act1 .opciones1 .item {
+.actrelacionar .opciones1 .item {
     position: absolute;
     text-align: center;
     padding: 5px;
 }
 
-#act1 .opciones1 .item1 {
+.actrelacionar .opciones1 .item1 {
     top: 0;
 }
 
-#act1 .opciones1 .item2 {
-    top: 150px;
+.actrelacionar .opciones1 .item2 {
+    top: 100px;
 }
 
-#act1 .opciones1 .item3 {
+.actrelacionar .opciones1 .item3 {
+    top: 200px;
+}
+
+.actrelacionar .opciones1 .item4 {
     top: 300px;
 }
 
-#act1 .opciones1 .item4 {
-    top: 450px;
-}
-
-#act1 .opciones1 .item1:after {
-    position: absolute;
-    left: 50px;
-    top: calc(100% + 8px);
-    border: 1px solid #d79f21;
-    content: "";
-    height: 70px;
-}
-
-#act1 .opciones1 .item2:after {
-    position: absolute;
-    left: 50px;
-    top: calc(100% + 8px);
-    border: 1px solid #17809d;
-    content: "";
-    height: 70px;
-}
-
-#act1 .opciones1 .item.draggable {
+.actrelacionar .opciones1 .item.draggable {
     z-index: 3;
 }
 
-#act1 .opciones1 .item.draggable:after {
+.actrelacionar .opciones1 .item.draggable:after {
     content: unset;
 }
 
-#act1 .opciones1 .item.draggable:before {
+.actrelacionar .opciones1 .item.draggable:before {
     content: "\f263";
     font-family: "Ionicons";
     position: absolute;
@@ -205,14 +200,15 @@
     top: 0;
 }
 
-#act1 .cajon .item {
+.actrelacionar .cajon .item {
     position: unset !important;
     margin: -1px 0 0 -1px;
 }
 
-#act1 .contenedor.educacion:after,
-#act1 .contenedor.ambiente:after,
-#act1 .contenedor.plataforma:after {
+.actrelacionar .contenedor.aumentar:after,
+.actrelacionar .contenedor.sustituir:after,
+.actrelacionar .contenedor.redefinir:after,
+.actrelacionar .contenedor.modificar:after {
     content: "";
     position: absolute;
     left: -128px;
@@ -220,52 +216,70 @@
     border: 1px solid #d79f21;
 }
 
-#act1 .contenedor.educacion {
+.actrelacionar .contenedor.aumentar {
     border: 2px solid #d79f21;
 }
 
-#act1 .contenedor.ambiente {
+.actrelacionar .contenedor.sustituir {
     border: 2px solid #859390;
 }
 
-#act1 .contenedor.plataforma {
+.actrelacionar .contenedor.redefinir {
     border: 2px solid #17809d;
 }
 
-#act1 .contenedor.educacion:after {
+.actrelacionar .contenedor.modificar {
+    border: 2px solid #d79f21;
+}
+
+.actrelacionar .contenedor.aumentar:after {
     top: 50px;
     border: 1px solid #d79f21;
 }
 
-#act1 .contenedor.ambiente:after {
-    top: 200px;
+.actrelacionar .contenedor.sustituir:after {
+    top: 150px;
     border: 1px solid #859390;
 }
 
-#act1 .contenedor.plataforma:after {
-    top: 350px;
+.actrelacionar .contenedor.redefinir:after {
+    top: 250px;
     border: 1px solid #17809d;
 }
 
-#act1 .ctrl-pagination.sides .position {
+.actrelacionar .contenedor.modificar:after {
+    top: 350px;
+    border: 1px solid #d79f21;
+}
+
+.actrelacionar .ctrl-pagination.sides .position {
     z-index: 2;
 }
 
-#act1 .ctrl-pagination.sides .button.previous {
+.actrelacionar .ctrl-pagination.sides .button.previous {
     left: 10px;
 }
 
-#act1 .box_end {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 3;
+.actrelacionar .box_end {
 }
 
-#act1 .draggable.wrong {
+.actrelacionar .draggable.wrong {
     border-color: #D60C1B;
     color: #D60C1B;
+}
+
+.actrelacionar .ctrl-pagination li.layer {
+    padding: 5px 20px 0;
+}
+
+#pag-amplie .expand-image {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+#pag-amplie .expand-image .ion-arrow-expand {
+    color: #333;
+    right: 5px;
+    left: unset;
 }

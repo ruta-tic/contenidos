@@ -1011,7 +1011,7 @@ dhbgApp.standard.start = function() {
             $list_buttons.append($back_button);
             // End Back button.
 
-            if (orientation == 'vertical') {
+            if (orientation == 'vertical' || orientation == 'sides') {
                 $position_index_label = $('<div class="position">' + dhbgApp.s('pagination_label', { 'a': 1, 'b': $items.length } )  + '</div>');
                 $this.append($position_index_label);
             }
@@ -2537,6 +2537,9 @@ dhbgApp.standard.load_operations = function() {
             if (!allowRetry) return;
             var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
             $button_again.on('click', function(){
+                $(dhbgApp).trigger('jpit:activity:restart', [$this, {
+                    id: scorm_id
+                }]);
                 $box_end.empty().hide();
                 $this.find('.draggable,.droppable').removeClass('wrong correct');
                 $this.removeClass('completed');
@@ -2563,6 +2566,12 @@ dhbgApp.standard.load_operations = function() {
             $dragEl.trigger('click');
 
             var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+
+            $(dhbgApp).trigger('jpit:activity:drop', [$this, {
+                id: scorm_id,
+                dragEl: $dragEl
+            }]);
+
             if (!end) return;
 
             var timer = $this.data('clock');
