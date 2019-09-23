@@ -3366,9 +3366,9 @@ dhbgApp.standard.load_operations = function() {
             $type = $builder.find("div.selected[name='interaction_type']"),
             $where = $builder.find("div.selected[name='interaction_where']");
 
-            $msg_end.find("#interaction_who").html($who.attr('value'));
-            $msg_end.find("#interaction_type").html($type.attr('value'));
-            $msg_end.find("#interaction_where").html($where.attr('value'));
+            $msg_end.find("#interaction_who").html($who.attr('data-group-value'));
+            $msg_end.find("#interaction_type").html($type.attr('data-group-value'));
+            $msg_end.find("#interaction_where").html($where.attr('data-group-value'));
 
             $this.addClass('answered');
 
