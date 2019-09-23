@@ -72,7 +72,7 @@
 }
 
 #pag-modelo .nodo {
-    border-radius: 17px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -266,6 +266,7 @@
 }
 
 .actrelacionar .box_end {
+    z-index: 3;
 }
 
 .actrelacionar .draggable.wrong {
@@ -287,4 +288,8 @@
     color: #333;
     right: 5px;
     left: unset;
+}
+
+#expand_image_content {
+    display: unset;
 }

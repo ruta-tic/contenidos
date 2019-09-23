@@ -349,6 +349,9 @@ dhbgApp.mobile.start = function() {
         var properties = {
             modal: true,
             autoOpen: false,
+            resizable: true,
+            maxHeight: $(window).height() - 5,
+            maxWidth: $(window).width() - 5,
             close: function( event, ui ) {
                 $('body').removeClass('dhbgapp_fullview');
             }
@@ -395,6 +398,7 @@ dhbgApp.mobile.start = function() {
 
     $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
+        var $dialog = $($this.attr('data-content'));
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
@@ -411,7 +415,7 @@ dhbgApp.mobile.start = function() {
                 w = window_w;
             }
 
-            $($this.attr('data-content')).dialog('option', 'width', w);
+            $dialog.dialog('option', 'width', w);
         }
 
         if (h) {
@@ -427,10 +431,13 @@ dhbgApp.mobile.start = function() {
                 h = window_h;
             }
 
-            $($this.attr('data-content')).dialog('option', 'height', h);
+            $dialog.dialog('option', 'height', h);
         }
 
-        $($this.attr('data-content')).dialog('open');
+        $dialog.dialog('option', 'maxHeight', $(window).height() - 5);
+        $dialog.dialog('option', 'maxWidth', $(window).width() - 5);
+
+        $dialog.dialog('open');
         $('body').addClass('dhbgapp_fullview');
     });
 
@@ -652,8 +659,8 @@ dhbgApp.mobile.start = function() {
     var $results_modal = $('#results_page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -749,6 +756,8 @@ dhbgApp.mobile.start = function() {
         }
 
         $('body').addClass('dhbgapp_fullview');
+        $results_modal.dialog('option', 'height', $(window).height() - 10);
+        $results_modal.dialog('option', 'width', $(window).width() - 10);
         $results_modal.dialog('open');
     });
 
@@ -756,8 +765,9 @@ dhbgApp.mobile.start = function() {
     var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        resize: 'auto',
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -769,6 +779,8 @@ dhbgApp.mobile.start = function() {
     $('[data-global="credits"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $credits_modal.dialog('option', 'height', $(window).height() - 10);
+        $credits_modal.dialog('option', 'width', $(window).width() - 10);
         $credits_modal.dialog('open');
     });
 
@@ -776,8 +788,8 @@ dhbgApp.mobile.start = function() {
     var $library_modal = $('#library-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "library_page_dialog"
         },
@@ -789,6 +801,8 @@ dhbgApp.mobile.start = function() {
     $('[data-global="library"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('option', 'height', $(window).height() - 10);
+        $library_modal.dialog('option', 'width', $(window).width() - 10);
         $library_modal.dialog('open');
     });
 
@@ -1362,7 +1376,7 @@ dhbgApp.mobile.start = function() {
         }
 
         var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
-        console.log('will looad');
+
         $container.before($start);
         var parent_class = $container.parent().attr('id');
         $container.addClass(parent_class);
@@ -1581,8 +1595,8 @@ dhbgApp.mobile.start = function() {
     var $expand_image_modal = $('<div><div id="expand_image_content"></div></div>').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth,
-        height: dhbgApp.documentHeight,
+        width: $(window).width(),
+        height: $(window).height(),
         classes: {
             "ui-dialog": "expand_image_dialog"
         },
@@ -1608,6 +1622,8 @@ dhbgApp.mobile.start = function() {
             if (title) {
                 $expand_image_modal.dialog('option', 'title', title);
             }
+            $expand_image_modal.dialog('option', 'height', $(window).height());
+            $expand_image_modal.dialog('option', 'width', $(window).width());
             $expand_image_modal.dialog('open');
         };
 
