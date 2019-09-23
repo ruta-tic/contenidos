@@ -349,6 +349,9 @@ dhbgApp.mobile.start = function() {
         var properties = {
             modal: true,
             autoOpen: false,
+            resizable: true,
+            maxHeight: $(window).height() - 5,
+            maxWidth: $(window).width() - 5,
             close: function( event, ui ) {
                 $('body').removeClass('dhbgapp_fullview');
             }
@@ -395,6 +398,7 @@ dhbgApp.mobile.start = function() {
 
     $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
+        var $dialog = $($this.attr('data-content'));
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
@@ -411,7 +415,7 @@ dhbgApp.mobile.start = function() {
                 w = window_w;
             }
 
-            $($this.attr('data-content')).dialog('option', 'width', w);
+            $dialog.dialog('option', 'width', w);
         }
 
         if (h) {
@@ -427,10 +431,13 @@ dhbgApp.mobile.start = function() {
                 h = window_h;
             }
 
-            $($this.attr('data-content')).dialog('option', 'height', h);
+            $dialog.dialog('option', 'height', h);
         }
 
-        $($this.attr('data-content')).dialog('open');
+        $dialog.dialog('option', 'maxHeight', $(window).height() - 5);
+        $dialog.dialog('option', 'maxWidth', $(window).width() - 5);
+
+        $dialog.dialog('open');
         $('body').addClass('dhbgapp_fullview');
     });
 
@@ -652,8 +659,8 @@ dhbgApp.mobile.start = function() {
     var $results_modal = $('#results_page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -749,6 +756,8 @@ dhbgApp.mobile.start = function() {
         }
 
         $('body').addClass('dhbgapp_fullview');
+        $results_modal.dialog('option', 'height', $(window).height() - 10);
+        $results_modal.dialog('option', 'width', $(window).width() - 10);
         $results_modal.dialog('open');
     });
 
@@ -756,8 +765,9 @@ dhbgApp.mobile.start = function() {
     var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        resize: 'auto',
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -769,6 +779,8 @@ dhbgApp.mobile.start = function() {
     $('[data-global="credits"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $credits_modal.dialog('option', 'height', $(window).height() - 10);
+        $credits_modal.dialog('option', 'width', $(window).width() - 10);
         $credits_modal.dialog('open');
     });
 
@@ -776,8 +788,8 @@ dhbgApp.mobile.start = function() {
     var $library_modal = $('#library-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "library_page_dialog"
         },
@@ -789,6 +801,8 @@ dhbgApp.mobile.start = function() {
     $('[data-global="library"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('option', 'height', $(window).height() - 10);
+        $library_modal.dialog('option', 'width', $(window).width() - 10);
         $library_modal.dialog('open');
     });
 
@@ -1094,7 +1108,7 @@ dhbgApp.mobile.start = function() {
             $list_buttons.append($back_button);
             // End Back button.
 
-            if (orientation == 'vertical') {
+            if (orientation == 'vertical' || orientation == 'sides') {
                 $position_index_label = $('<div class="position">' + dhbgApp.s('pagination_label', { 'a': 1, 'b': $items.length } )  + '</div>');
                 $this.append($position_index_label);
             }
@@ -1139,9 +1153,9 @@ dhbgApp.mobile.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1150,7 +1164,7 @@ dhbgApp.mobile.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1298,7 +1312,7 @@ dhbgApp.mobile.start = function() {
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -1362,6 +1376,7 @@ dhbgApp.mobile.start = function() {
         }
 
         var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
+
         $container.before($start);
         var parent_class = $container.parent().attr('id');
         $container.addClass(parent_class);
@@ -1580,8 +1595,8 @@ dhbgApp.mobile.start = function() {
     var $expand_image_modal = $('<div><div id="expand_image_content"></div></div>').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth,
-        height: dhbgApp.documentHeight,
+        width: $(window).width(),
+        height: $(window).height(),
         classes: {
             "ui-dialog": "expand_image_dialog"
         },
@@ -1607,6 +1622,8 @@ dhbgApp.mobile.start = function() {
             if (title) {
                 $expand_image_modal.dialog('option', 'title', title);
             }
+            $expand_image_modal.dialog('option', 'height', $(window).height());
+            $expand_image_modal.dialog('option', 'width', $(window).width());
             $expand_image_modal.dialog('open');
         };
 
@@ -1634,6 +1651,19 @@ dhbgApp.mobile.start = function() {
             }, 100);
         }
     });
+
+    // ==============================================================================================
+    // Form element value in a target control
+    // ==============================================================================================
+    dhbgApp.actions.afterChangePage[dhbgApp.actions.afterChangePage.length] = function($current_subpage){
+        $current_subpage.find('.form-value-display').each(function(){
+            var $this = $(this);
+            var text = $($this.attr('data-element')).val();
+            text = text.replace(/\n/g, '<br />');
+            text = text.replace(/\t/g, '    ');
+            $this.html(text);
+        });
+    };
 
     // ==============================================================================================
     // Sounds
@@ -2679,6 +2709,9 @@ dhbgApp.mobile.load_operations = function() {
                 if (!allowRetry) return;
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
+                    $(dhbgApp).trigger('jpit:activity:restart', [$this, {
+                        id: scorm_id
+                    }]);
                     $box_end.empty().hide();
                     $this.find('.draggable,.droppable').removeClass('wrong correct');
                     $this.removeClass('completed');
@@ -2711,11 +2744,25 @@ dhbgApp.mobile.load_operations = function() {
                 $dragEl.trigger('click');
 
                 var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+
+                $(dhbgApp).trigger('jpit:activity:drop', [$this, {
+                    id: scorm_id,
+                    dragEl: $dragEl
+                }]);
+
                 if (!end) return;
 
                 $this.data('clock') && $this.data('clock').stop();
 
-                var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+                var weight;
+
+                if (type_verification == 'target') {
+                    weight = Math.round(activity.countCorrect() * 100 / targets.length);
+                }
+                else {
+                    weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+                }
+
                 activity.disable();
 
                 if (dhbgApp.scorm) {
@@ -2787,7 +2834,7 @@ dhbgApp.mobile.load_operations = function() {
             });
             $this.data('loaded', true);
         }
-        
+
         if (options.ondemand) {
             dhbgApp.mobile.fullContent.content.append($this);
             dhbgApp.showFullContent($this);
@@ -3351,7 +3398,7 @@ dhbgApp.mobile.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }
