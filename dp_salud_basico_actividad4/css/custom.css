@@ -1,0 +1,126 @@
+.text_tooltip {
+    line-height: 20px;
+}
+
+/********************************************************************************/
+
+/********************************************************************************/
+
+.timeline,
+.formacion {
+    text-align: center;
+}
+
+.formacion img {
+    max-width: 500px;
+}
+
+.tabla {
+    text-align: center;
+}
+
+.datatable {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.datatable td:first-child {
+    background-color: #003543;
+    color: #fff;
+    border-color: #fff;
+}
+
+
+/********************************************************************************/
+/* Actividad - enfoques
+/********************************************************************************/
+
+.jpit-activities-selection {
+    position: relative;
+}
+
+.jpit-activities-selection.actividad1 .ctrl-pagination {
+    max-width: 700px;
+    margin: auto;
+}
+
+.ctrl-pagination ul.layers {
+    margin-top: 40px;
+
+}
+.ctrl-pagination .label_current {
+    top: 0;
+    left: 20px;
+    border-radius: 0;
+    background-color: #4397CE;
+}
+.ctrl-pagination p {
+    margin-right: 200px;
+}
+.jpit-activities-selection .option-group {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    border: solid 1px #4276A7;
+    border-radius: 5px;
+    display: flex;
+    border-right: none;
+}
+.jpit-activities-selection .ctrl-pagination .option-group [data-group] {
+    display: inline-block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #4397CE;
+    color: #FFFFFF;
+    border-radius: 0;
+    border:none;
+    border-left: solid 1px #FFFFFF;
+}
+.jpit-activities-selection .ctrl-pagination .option-group [data-group]:first-child {
+    border-left: none;
+}
+
+.jpit-activities-selection .ctrl-pagination .option-group [data-group]:hover,
+.jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
+        background-color: #003543;
+    color: #FFFFFF;
+}
+.jpit-activities-selection.actividad1 .box_end .correct {
+    max-width: inherit;
+    text-align: justify;
+}
+.jpit-activities-selection.actividad1 .box_end .correct:after {
+    background: none;
+}
+.estilos-aprendizaje-grafica {
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    border: solid 1px #6BC3CE;
+}
+.estilos-aprendizaje-grafica .score_bar {
+    margin: 0;
+    padding: 2px;
+    background-color: #6BC3CE;
+    color: #000;
+    text-align: center;
+}
+
+.estilos-aprendizaje-grafica td.score_bar_box {
+    border: 1px solid #333;
+    min-width: 100px;
+}
+
+.estilos-aprendizaje-resultado h3 {
+    font-size: 16px;
+}
+.estilos-aprendizaje-resultado .box_media img {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}

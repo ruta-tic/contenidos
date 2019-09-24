@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA 4. Diga cómo evalúa y le diré qué docente es</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA 4. Diga cómo evalúa y le diré qué docente es</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Sobre la evaluación" data-page="pag-generalidades"></menuitem>
+                    <menuitem label="Evaluación en el área de la salud" data-page="pag-evaluacion"></menuitem>
+                    <menuitem label="¡Manos a la obra!" data-page="pag-obra"></menuitem>
+                    <menuitem label="Instrumento de evaluación" data-page="pag-instrumento"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">OVA 4. Diga cómo evalúa y le diré qué docente es</h2>
+
+            <section id="pag-generalidades" ptitle="Generalidades sobre la  evaluación">
+
+                <div class="subpage">
+                    <p>
+                        ¿Cuántas profesiones tiene? Se formó para ser técnico o profesional en el área de la salud pero, ¿ha recibido alguna formación para ser docente? ¿Qué papel juega la evaluación dentro de sus cursos? ¿Qué estrategia de evaluación utiliza?
+                    </p>
+                    <p>
+                        El proceso de evaluación depende del enfoque pedagógico y epistemológico del profesor, ¿sabe por qué? ¿Qué tanto sabe de evaluación a estudiantes de las áreas de la salud?
+                    </p>
+
+                    <div class="box-text connection">
+                        <p>
+                            Esta actividad cuenta con dos ejercicios y después de resolverlos, se le informará el porcentaje de respuestas correctas que obtuvo en cada uno. Si lo desea, puede volver a realizarlos.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="subpage">
+                    <h3>Inicios de la evaluación</h3>
+                    <p>
+                        La palabra <strong>evaluar</strong> puede definirse como ponerle un valor a algo, así mismo, se diría que toda evaluación se realiza desde un sistema de valores, ideas o creencias 
+                        <sup class="tooltip" title="Cabrales Salazar O.Contexto de la evaluación de los aprendizajes en la educación superior en Colombia: Sugerencias y alternativas para su democratización. Revista Educación y Desarrollo Social. 2008;II(1):141–165. Disponible en <a href='https://revistas.unimilitar.edu.co/index.php/reds/article/view/715' target='_blank'>https://revistas.unimilitar.edu.co/[...]</a>">[1]</sup>. 
+                        De acuerdo con Salinas Salazar y Rodríguez Gómez 
+                        <sup class="tooltip" title="Salinas Salazar ML, Rodríguez Gómez HM. Taller Evaluar para Aprender: una propuesta posible (Vol. 1). Medellín: Universidad EAFIT, 2014. Disponible en <a href='http://www.eafit.edu.co/proyecto50/especialesp50/especiales/Documents/Taller%20Evaluar%20para%20aprender(Oct%2014-2015).pdf' target='_blank'>http://www.eafit.edu.co/[...]</a>">[2]</sup>, 
+                        la evaluación se define como un conjunto de procesos no improvisados ni espontáneos para lo cual se debe estar formado.
+                    </p>
+                    <p>
+                        La evaluación se ha empleado desde tiempos remotos. Existen evidencias de que ha sido empleada desde el año 2000 antes de Cristo. Hacia el siglo V antes de Cristo, se empleó la  evaluación como metodología de aprendizaje y, de manera más cercana, hacia inicios del siglo XX, ya se usaba la evaluación con la finalidad de medir el aprendizaje de los estudiantes. Actualmente, el proceso de enseñanza-aprendizaje no se concibe sin su respectiva evaluación 
+                        <sup class="tooltip" title="Pinilla Roa, A. E. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53–70. Disponible en <a href='http://www.scielo.org.co/pdf/rfmun/v61n1/v61n1a08.pdf' target='_blank'>http://www.scielo.org.co/[...]</a>">[3]</sup>.
+                    </p>
+
+                    <div class="timeline"><img src="content/timeline.gif" alt="Timeline" /></div>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            A continuación, encontrará una serie de características correspondientes a dos grandes enfoques evaluativos: tradicional y constructivista. Seleccione el enfoque al cual  corresponde cada enunciado y tenga presente que no existe una distribución equitativa entre estos. 
+                        </p>
+                    </div>
+                    <div class="jpit-activities-selection actividad1" data-act-id="1-enfoques" data-parent-mark-selector="false" data-mode="single" data-pagination="true" data-next-page-on-selection="true" data-next-page-selection-required="true" data-auto-resolve="true">
+                        <ul class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" data-animation="slide" data-pagination-transition-hidden=".option-group">
+                            <li>
+                                <p>Pruebas memorísticas (selección múltiple)</p>
+                                <div class="option-group">
+                                    <div data-group="1" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="1" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Test de inteligencia</p>
+                                <div class="option-group">
+                                    <div data-group="2" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="2" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Medición cuantitativa</p>
+                                <div class="option-group">
+                                    <div data-group="3" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="3" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Estudiante como objeto de la evaluación</p>
+                                <div class="option-group">
+                                    <div data-group="4" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="4" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Pruebas basadas en objetivos de aprendizaje</p>
+                                <div class="option-group">
+                                    <div data-group="5" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="5" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Medición de logro de objetivos</p>
+                                <div class="option-group">
+                                    <div data-group="6" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="6" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Mejoramiento con base en aprendizaje medido y alcanzado</p>
+                                <div class="option-group">
+                                    <div data-group="7" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="7" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Evaluación como juicio</p>
+                                <div class="option-group">
+                                    <div data-group="8" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="8" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Evaluación realizada por el profesor</p>
+                                <div class="option-group">
+                                    <div data-group="9" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="9" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Evaluación objetiva</p>
+                                <div class="option-group">
+                                    <div data-group="10" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="10" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Paradigma científico positivista</p>
+                                <div class="option-group">
+                                    <div data-group="11" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="11" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>El rol del docente termina al entregar calificaciones</p>
+                                <div class="option-group">
+                                    <div data-group="12" data-group-value="tradicional"  data-correct="true" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="12" data-group-value="constructivista" data-correct="false" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Evaluación comprensiva</p>
+                                <div class="option-group">
+                                    <div data-group="13" data-group-value="tradicional"  data-correct="false" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="13" data-group-value="constructivista" data-correct="true" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Enfoque constructivista e interpretativo</p>
+                                <div class="option-group">
+                                    <div data-group="14" data-group-value="tradicional"  data-correct="false" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="14" data-group-value="constructivista" data-correct="true" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Proceso de negociación colectiva</p>
+                                <div class="option-group">
+                                    <div data-group="15" data-group-value="tradicional"  data-correct="false" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="15" data-group-value="constructivista" data-correct="true" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>El estudiante conoce con antelación la estrategia evaluativa</p>
+                                <div class="option-group">
+                                    <div data-group="16" data-group-value="tradicional"  data-correct="false" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="16" data-group-value="constructivista" data-correct="true" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>Recirculación de la evaluación</p>
+                                <div class="option-group">
+                                    <div data-group="17" data-group-value="tradicional"  data-correct="false" class="radio tooltip" title="tradicional">Tradicional</div>
+                                    <div data-group="17" data-group-value="constructivista" data-correct="true" class="radio tooltip" title="constructivista">Constructivista</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>
+                                <h3>Retroalimentación</h3>
+                                <p>Más allá de respuestas correctas o incorrectas, el objetivo es que reconozca que existen paradigmas epistemológicos que develan las características del enfoque pedagógico empleado o conocido por usted. Dicho paradigma, le permite tener mayor afinidad a determinado tipo de enfoque y de evaluación.</p>
+                            </correct>
+                        </feedback>
+                    </div>
+
+                    <p>
+                        Según Pinilla Roa 
+                        <sup class="tooltip" title="Pinilla Roa, A. E. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53–70. Disponible en <a href='http://www.scielo.org.co/pdf/rfmun/v61n1/v61n1a08.pdf' target='_blank'>http://www.scielo.org.co/[...]</a>">[3]</sup>, basándose en los postulados de Guba y Lincoln, la evaluación ha evolucionado a lo largo del tiempo y ahora contempla cuatro generaciones que se clasifican dentro de dos enfoques pedagógicos. El primer enfoque corresponde al tradicional o mecanicista, en el cual se encuentran la primera, segunda y tercera generación, mientras que la cuarta generación hace parte del enfoque constructivista.
+                    </p>
+                    <p>
+                        Para responder a las necesidades de formación del talento humano en el área de la salud se propone emplear el enfoque constructivista, debido a que este avanza de la forma tradicional de aprendizaje en términos de adquirir conocimientos, y expone la necesidad de permitir relaciones horizontales entre docentes y estudiantes potenciando así el análisis crítico de la formación mediante la autoevaluación y autorregulación.
+                    </p>
+                    <p>
+                        Del mismo modo, surge la necesidad de contemplar, dentro de la formación académica, la formación guiada por competencias donde se pone en una balanza los conocimientos adquiridos (cognoscitivo – <i>saber qué</i>) con las habilidades o destrezas del estudiante (procedimental – aplicación práctica de estos conocimientos – <i>saber hacer</i>) y con el aspecto actitudinal (desempeño del quehacer profesional – <i>saber ser</i>).
+                    </p>
+                    <div class="formacion"><img src="content/01.png" alt="Fomación guiada por competencias" /></div>
+                    <p>
+                        Vale la pena aclarar que se puede lograr una formación guiada por competencias mediante un enfoque tradicional y mediante un enfoque constructivista. El enfoque tradicional permite formar un perfil de profesional enfatizando en el producto, rendimiento o logro alcanzado con carácter inmediatista, mientras que el enfoque constructivista permite formar un perfil de profesional que se guíe por el análisis de procesos y con un carácter comprensivo analítico. Por lo tanto, la autoevaluación y la autorregulación se vuelven necesarias durante el proceso formativo dentro de las instituciones educativas y fuera de ellas <sup class="tooltip" title="Ruiz Iglesias M. Enfoque metodológico para la formación de competencias desde el ámbito educativo: cómo concretar una alternativa para la relevancia educativa. Enunciación. 2005;10(1):85-93. Disponible en <a href='https://dialnet.unirioja.es/servlet/articulo?codigo=4782185' target='_blank'>https://dialnet.unirioja.es/[...]</a>">[4]</sup>.
+                    </p>
+                    <div class="box-text connection">
+                        <p>
+                            Se pretende que con esta información usted reflexione acerca de su rol como docente y guíe su proceder según las necesidades requeridas para el talento humano en salud que está formando. En la siguientes tabla <strong>(Tabla 1)</strong> puede observar los aspectos más relevantes de los enfoques pedagógicos tradicional y constructivista. Adicionalmente, esta información le permitirá realizar un paralelo con las respuestas que dio a los interrogantes iniciales y contemplar la utilidad de redireccionar su práctica docente hacia un enfoque más constructivista. 
+                        </p>
+                    </div>
+                    <div class="tabla">
+                        <p>
+                            <strong>Tabla 1.</strong> Características asociadas a las generaciones de evaluación según Guba y Lincoln
+                        </p>
+                        <table class="datatable">
+                            <thead>
+                                <th>Aspectos</th>
+                                <th>Enfoque tradicional</th>
+                                <th>Enfoque constructivista por competencias</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Generaciones de la evaluación</td>
+                                    <td>Primera, segunda y tercera</td>
+                                    <td>Cuarta con evaluación negociada, comprensiva que responde al evaluado.</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Concepción del conocimiento científico</td>
+                                    <td>Como “verdad” acabada</td>
+                                    <td>Como proceso de construcción permanente.</td>
+                                </tr>
+                                <tr>
+                                    <td>Postura epistemológica</td>
+                                    <td>Positivista</td>
+                                    <td>Constructivista</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Relación profesor - estudiante</td>
+                                    <td>Vertical</td>
+                                    <td>Horizontal</td>
+                                </tr>
+                                <tr>
+                                    <td>Proceso de enseñanza</td>
+                                    <td>Tradicional, transmisionista de contenidos por asignaturas</td>
+                                    <td>Basado en el aprendizaje significativo para el desarrollo de competencias profesionales.</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Proceso de aprendizaje</td>
+                                    <td>Memorístico con transmisión-recepción</td>
+                                    <td>Construcción mediada por significados (personal, histórico, social, cultural).</td>
+                                </tr>
+                                <tr>
+                                    <td>Sujeto evaluado</td>
+                                    <td>Alumno</td>
+                                    <td>Alumno, profesor, programa, institución, administrativo</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>Evaluación</td>
+                                    <td>Cuantitativa del “rendimiento académico” de contenidos con énfasis en los resultados y productos</td>
+                                    <td>Holística e integral por competencias profesionales; cualitativa-cuantitativa por procesos.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Tomada de: Pinilla Roa, 2013.</p>
+                    </div>
+
+                    <div class="box-text link" label="Si desea saber más">
+                        <p>
+                            Pinilla Roa, A. E. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53–70. Disponible en <a href="http://www.scielo.org.co/pdf/rfmun/v61n1/v61n1a08.pdf" target="_blank">http://www.scielo.org.co/[...]</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>Componentes de la evaluación</h3>
+                    <p>
+                        Existen cinco interrogantes alrededor de los cuales es necesario reflexionar al momento de planear, preparar y ejecutar una evaluación para estudiantes de las áreas de la salud.
+                    </p>
+                
+                    <h4>¿Qué evalúa? ¿Quién evalúa? ¿Para qué evalúa? ¿Cómo evalúa? ¿Cuándo evalúa?</h4>
+                    
+                </div>
+                <div class="box-text activity" label="Actividad de aprendizaje">
+                    <p>
+                        Encontrará varios ítems relacionados con cada pregunta, léalos y seleccione el número de respuestas que considere necesario para realizar una práctica docente contextualizada y que responda a las necesidades actuales de formación de talento humano en salud en Colombia.
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo</cite><br/>
+                <cite>Jesus María Otero Vega</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: agosto 2019<br />
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
