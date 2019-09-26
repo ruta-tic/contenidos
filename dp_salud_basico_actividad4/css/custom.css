@@ -3,7 +3,7 @@
 }
 
 /********************************************************************************/
-
+/* generalidades
 /********************************************************************************/
 
 .timeline,
@@ -24,10 +24,15 @@
     margin: 0 auto;
 }
 
-.datatable td:first-child {
+.tabla1 .datatable td:first-child {
     background-color: #003543;
     color: #fff;
     border-color: #fff;
+}
+
+.jpit-activities-quiz {
+    width: 80%;
+    margin: 0 auto;
 }
 
 
@@ -123,4 +128,134 @@
     width: 300px;
     margin: 0 auto;
     display: block;
+}
+
+/********************************************************************************/
+/* Evaluacion
+/********************************************************************************/
+
+#pag-evaluacion .imagenes {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#pag-evaluacion .imagenes img {
+    width: 40%;
+    margin: 5px;
+}
+
+#pag-evaluacion .imagenes p {
+    width: 100%;
+}
+
+/********************************************************************************/
+/* Manos a la obra
+/********************************************************************************/
+
+#pag-obra .clasificacion {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#pag-obra .clasificacion .seccion {
+    position: absolute;
+    background: url(../content/sprite-01.png) top left no-repeat;
+}
+
+#pag-obra .clasificacion .escrita {
+    width: 350px;
+    height: 160px;
+    background-position: -19px -16px;
+}
+
+#pag-obra .clasificacion .oral {
+    width: 195px;
+    height: 314px;
+    background-position: -561px -22px;
+    bottom: 0;
+    left: 0;
+}
+
+#pag-obra .clasificacion .practica {
+    width: 194px;
+    height: 314px;
+    background-position: -368px -22px;
+    bottom: 0;
+    right: 0;
+}
+
+#pag-obra .clasificacion .fondo {
+    width: 321px;
+    height: 320px;
+    background-position: -800px -21px;
+    top: 60px;
+}
+
+#pag-obra .clasificacion .centro {
+    width: 161px;
+    height: 166px;
+    background-position: -1199px -20px;
+    top: 134px;
+}
+
+#pag-obra .medios{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #f2f1f0;
+    border-radius: 15px;
+    border: 2px solid #9bc2e2;
+    padding-top: 10px;
+
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(215,218,224,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(215,218,224,0.5);
+    box-shadow: 10px 10px 5px 0px rgba(215,218,224,0.5);
+}
+
+#pag-obra .medios .nombre_seccion {
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+#pag-obra .medios .nombre_seccion.escrita {
+    background-color: #0056b4;
+}
+
+#pag-obra .medios .nombre_seccion.oral {
+    background-color: #00a7e7;
+}
+
+#pag-obra .medios .nombre_seccion.practica {
+    background-color: #fe8804;
+}
+
+#pag-obra .medios .datatable {
+    max-width: 100%;
+    border: 0;
+}
+
+#pag-obra .medios .datatable td {
+    border: 0;
+    border-top: 1px solid #fff;
+}
+
+#pag-obra .medios .tabla {
+    max-height: 450px;
+    overflow: auto;
+}
+
+#pag-obra .nota {
+    text-align: center;
 }
