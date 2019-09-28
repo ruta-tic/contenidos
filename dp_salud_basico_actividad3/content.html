@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA 3. La didáctica en el área de la salud</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA 3. La didáctica en el área de la salud</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Pedagogía y didáctica" data-page="pag-pedagogia">
+                        <menu>
+                            <menuitem label="Modelos pedagógicos" data-page="pag-modelos"></menuitem>
+                            <menuitem label="Transposición didáctica" data-page="pag-didactica"></menuitem>
+                            <menuitem label="Preparación de clase" data-page="pag-preparacion"></menuitem>
+                        </menu>
+                    </menuitem>
+                    <menuitem label="Pedagogía en el área de la salud" data-page="pag-salud"></menuitem>
+                    <menuitem label="Actividad: Estrategias didácticas" data-page="pag-actividad"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">OVA 3. La didáctica en el área de la salud</h2>
+
+            <section id="pag-pedagogia" ptitle="Algunos aspectos sobre pedagogía y didáctica">
+
+                <div class="subpage">
+                    <p>
+                        ¿Ha recibido alguna formación para ser docente? ¿Reconoce los diferentes modelos pedagógicos? ¿Identifica los elementos que usa la transposición didáctica? ¿Qué estrategias didácticas utiliza en sus clases?
+                    </p>
+                    <p>
+                        Históricamente, se reconocen dos grandes tendencias pedagógicas, como se observa en la siguiente figura:
+                    </p>
+                    <img src="content/01.png" alt="Enfoques pedagógicos" />
+                    <span>Adaptado de: Flórez Ochoa, R. Evaluación, pedagogía y cognición. Editorial McGraw Hill: Bogotá. 1999.</span>
+                    <p>
+                        La didáctica es una rama de la pedagogía y es la disciplina que estudia el proceso docente educativo. Solo se dedica al proceso sistémico, organizado y eficiente que realizan los docentes sobre sus fundamentos teóricos.
+                    </p>
+                    <img src="content/02.png" alt="Didáctica" />
+
+                    <p>
+                        Con el fin de generar una familiarización con estos conceptos, se le invita a resolver tres ejercicios que no pretenden evaluarlo, sino ayudarlo/a a reconocer qué claridad tiene sobre:
+                    </p>
+                    <ol>
+                        <li>Modelos pedagógicos más conocidos en nuestro medio.</li>
+                        <li>Conceptos básicos de la transposición didáctica.</li>
+                        <li>Aspectos a tener en cuenta en la preparación de sus actividades académicas.</li>
+                    </ol>
+
+                    <h3>Modelos pedagógicos</h3>
+                    <p>
+                        Desde la perspectiva de Flórez Ochoa (1999), un modelo pedagógico responde básicamente a:
+                    </p>
+                    <ul>
+                        <li>¿Qué tipo de ser humano interesa formar?</li>
+                        <li>¿Cómo o con qué estrategias metodológicas y evaluativas?</li>
+                        <li>¿A través de qué estándares, contenidos, ejes temáticos y saberes?</li>
+                        <li>¿A qué ritmo de aprendizaje debe adelantarse el proceso de formación?</li>
+                        <li>¿Cuál es el tipo de relación entre maestro y estudiante?</li>
+                    </ul>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            A continuación, encontrará cuatro ambientes de aprendizaje que se irán formando en la medida en que ubique cada una de las ocho características que corresponden a cuatro modelos pedagógicos conocidos en nuestro medio.
+                        </p>
+                    </div>
+                    <div id="arrastrargrupos" class="jpit-activities-multidroppable" data-act-title="Arrastrar y soltar múltiple" data-act-id="act_modelos_pedagogicos">
+                        <table class="box_targets">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h5>Tradicional</h5>
+                                        <div data-target-group="1" class="target"></div>
+                                    </td>
+                                    <td>
+                                        <h5>Conductista</h5>
+                                        <div data-target-group="2" class="target"></div>
+                                    </td>
+                                    <td>
+                                        <h5>Desarrollista</h5>
+                                        <div data-target-group="3" class="target"></div>
+                                    </td>
+                                    <td>
+                                        <h5>Socialista</h5>
+                                        <div data-target-group="4" class="target"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="box_end"></div>
+                        <div class="sources">
+                            <div data-group="1">Los pilares son la razón y la moral.</div>
+                            <div data-group="1">Los contenidos son enciclopédicos.</div>
+                            <div data-group="1">El maestro es el protagonista, transmisor y severo castigador.</div>
+                            <div data-group="1">El estudiante es el receptor memorístico y se cree que llega con la cabeza vacía.</div>
+                            <div data-group="1">El método es transmisionista.</div>
+                            <div data-group="1">Los principales medios que se usan son el tablero y la tiza.</div>
+                            <div data-group="1">La evaluación es memorística y cuantitativa.</div>
+                            <div data-group="2">El eje es moldear la conducta del individuo según las necesidades productivas.</div>
+                            <div data-group="2">El trayecto es lineal, predecible y controlable.</div>
+                            <div data-group="2">El ser humano es el diestro; un técnico útil a los intereses del estado.</div>
+                            <div data-group="2">Los contenidos son enciclopédicos.</div>
+                            <div data-group="2">El método es transmisionista.</div>
+                            <div data-group="2">El estudiante va cobrando protagonismo.</div>
+                            <div data-group="2">Los medios se diversifican.</div>
+                            <div data-group="2">La evaluación se sistematiza con el test de selección múltiple pero, en esencia, de carácter memorístico.</div>
+                            <div data-group="3">Se fundamenta en el desarrollo cognitivo de los estudiantes desde sus intereses.</div>
+                            <div data-group="3">El método es por descubrimiento; los conocimientos se adquieren por contacto con la realidad.</div>
+                            <div data-group="3">El objetivo es desarrollar habilidades de pensamiento en los individuos para hacerlos partícipes del mundo actual.</div>
+                            <div data-group="3">En el método prima el aprendizaje sobre la enseñanza.</div>
+                            <div data-group="3">El estudiante es el centro del proceso.</div>
+                            <div data-group="3">El docente es un guía o un facilitador.</div>
+                            <div data-group="3">Los medios en este modelo se refieren a “hacer ciencia”.</div>
+                            <div data-group="3">La evaluación es por procesos, es decir, cualitativa.</div>
+                            <div data-group="4">Se fundamenta en la responsabilidad del estudiante ante su proceso de aprendizaje.</div>
+                            <div data-group="4">Busca formar agentes transformadores del entorno.</div>
+                            <div data-group="4">Las estrategias surgen a partir de las necesidades sociales.</div>
+                            <div data-group="4">El docente es un líder activo en este proceso.</div>
+                            <div data-group="4">Los medios son talleres y trabajos grupales, entre otros.</div>
+                            <div data-group="4">La evaluación puede ser individual o colectiva.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Transposición didáctica</h3>
+                    <p>
+                        En la didáctica, se habla del concepto de transposición didáctica como “el paso del saber sabio al saber enseñado”. Los saberes sabios son los que producen los sabios, genios, científicos y artistas. La transposición didáctica se refiere, a que la enseñanza universitaria se encarga de posibilitar que los saberes sabios se constituyan en saberes por enseñar, en saberes enseñados, en saberes por aprender y en saberes aprendidos .
+                    </p>
+                </div>
+            </section>
+
+    </main>
+
+    <footer class="not_print">
+        <span id="labelmeasuringprogress">Avance</span>
+        <div class="measuring-progress" data-type="circle"></div>
+
+        <nav label="General" class="globals2">
+            <menu>
+                <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+            </menu>
+        </nav>
+
+        <div id="subpages_menu">
+            <div class="button" previous-page></div>
+            <ul class="button" subpages-menu></ul>
+            <div class="button" next-page></div>
+        </div>
+
+        <div id="page_number"></div>
+    </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
+                a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>David Herney Bernal García<br />
+                Leidy Cristina Madrigal Arrieta</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Traducción de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>David Herney Bernal García</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br /> 2ª edición: octubre 2015<br /> 3ª edición: febrero 2016<br /> 4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br /> El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por
+                favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla.
+                Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
