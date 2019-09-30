@@ -9,6 +9,7 @@
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
@@ -22,6 +23,7 @@
     <script src="components/pit/resources/jpit_resource.js"></script>
     <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
@@ -200,33 +202,76 @@
                 <div class="subpage">
                     <h3>Transposición didáctica</h3>
                     <p>
-                        En la didáctica, se habla del concepto de transposición didáctica como “el paso del saber sabio al saber enseñado”. Los saberes sabios son los que producen los sabios, genios, científicos y artistas. La transposición didáctica se refiere, a que la enseñanza universitaria se encarga de posibilitar que los saberes sabios se constituyan en saberes por enseñar, en saberes enseñados, en saberes por aprender y en saberes aprendidos .
+                        En la didáctica, se habla del concepto de transposición didáctica como “el paso del saber sabio al saber enseñado”. Los saberes sabios son los que producen los sabios, genios, científicos y artistas. La transposición didáctica se refiere, a que la enseñanza universitaria se encarga de posibilitar que los saberes sabios se constituyan en saberes por enseñar, en saberes enseñados, en saberes por aprender y en saberes aprendidos 
+                        <sup class="tooltip" title="González Agudelo EM, Díaz Hernández DP. Desde el currículo hasta la didáctica o sobre la circulación de los saberes y sus controles en la universidad: un ejemplo en la enseñanza de la Medicina. Latreia. 2008;21(1):83-93. Disponible en <a href='https://www.redalyc.org/articulo.oa?id=180513861010' target='_blank'>https://www.redalyc.org/[...]</a>">[2]</sup>.
                     </p>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Realiza el siguiente crucigrama, en donde se describen algunos conceptos importantes de la educación y de la transposición didáctica.
+                        </p>
+                    </div>
+                    <div class="jpit-activities-crossword" data-act-title="Crucigarma" data-act-id="act_crucigrama">
+                        <horizontal>
+                            <li data-row="1" data-col="1" data-term="psicopedagogia">Estudia el desarrollo de los procesos cognitivos y la personalidad2 de los estudiantes.</li>
+                            <li data-row="3" data-col="1" data-term="didactica">Estudia el proceso docente educativo.</li>
+                            <li data-row="6" data-col="0" data-term="formacion">Es el proceso de construirse a sí mismo una imagen mediadora a través de la relación del individuo, no solo con las cosas, sino con los otros.</li>
+                            <li data-row="9" data-col="3" data-term="forma">Se refiere a la organización espacial y temporal del proceso docente educativo, es decir, se encarga de la distribución de los estudiantes en relación con el profesor y su asignación con los intervalos de tiempo correspondientes.</li>
+                            <li data-row="11" data-col="5" data-term="contenido">Es lo que va a ser enseñado y comprende tanto las habilidades, como los conocimientos que el estudiante asimilará en su proceso de aprendizaje. Este concepto puede ser de carácter laboral, académico e investigativo.</li>
+                            <li data-row="13" data-col="1" data-term="problema">Es el punto de partida para diseñar el proceso docente educativo y se convierte en el tipo de método fundamental de aprendizaje.</li>
+                            <li data-row="16" data-col="0" data-term="evaluacion">Se realiza para comprobar el grado de cumplimiento del objetivo y verificar si el problema fue solucionado. Puede ser de diagnóstico, formativa o de acreditación.</li>
+                            <li data-row="4" data-col="10" data-term="seminario">Pretende que el estudiante realice actividades previas de lectura y escritura para entrar a confrontar el conocimiento en un diálogo horizontal con el profesor.</li>
+                            <li data-row="8" data-col="8" data-term="metodo">Es el camino que construye el alumno para alcanzar su objetivo en la resolución de problemas. Existen varias clasificaciones de este concepto; la primera, se refiere al grado de participación de los estudiantes y se divide en expositivo, de elaboración conjunta y de trabajo independiente; la segunda, se refiere al grado de dominio que tengan los estudiantes sobre el contenido y en correspondencia con los niveles de asimilación, se segmenta en reproductivo, productivo y creativo; la tercera corresponde con la lógica del desarrollo del proceso docente educativo y se subdivide en introducción del nuevo contenido, desarrollo del contenido, dominio del contenido, sistematización del contenido y evaluación del aprendizaje; y la cuarta, corresponde a la forma en que estimula la actividad productiva y se divide en exposición problémica, búsqueda parcial, heurística, investigativa, juegos didácticos, mesas redondas, paneles, discusiones temáticas, estudios de casos y métodos sugestopédicos, entre otros.</li>
+                        </horizontal>
+                        <vertical>
+                            <li data-row="0" data-col="2" data-term="pedagogia">Estudia la formación, en general, de la personalidad de los hombres y de las mujeres que integran una sociedad.</li>
+                            <li data-row="5" data-col="6" data-term="curriculo">Es el registro de todas las acciones educativas dentro de la escuela.</li>
+                            <li data-row="0" data-col="12" data-term="objetivo">Es la aspiración, el propósito que se quiere formar en los estudiantes. Se clasifica de acuerdo al grado de transcendencia en la transformación que se espera lograr de los estudiantes, en instructivos desarrolladores y educativos.</li>
+                            <li data-row="12" data-col="8" data-term="medios">Son objetos didácticos hechos para el trabajo docente y van desde un lápiz hasta un computador, desde un espejo hasta un telescopio, desde un herbario hasta un zoológico, desde un balón hasta un libro. Se dividen en ayudas didácticas como pantallas, proyectores y tableros, y en medios auxiliares que son los que crean condiciones confortables para organizar el proceso docente educativo, como el salón de clases tradicional o las aulas inteligentes.</li>
+                            <li data-row="1" data-col="16" data-term="practica">Esta clase trata de afianzar el desarrollo de habilidades del estudiante mediante ejercicios de simulación como talleres, estudios de casos o laboratorios.</li>
+                            <li data-row="2" data-col="19" data-term="conferencia">Clase magistral que se desarrolla para informar conocimientos.</li>
+                        </vertical>
+                    </div>
+                    <div class="box-text link" label="Enlace">
+                        <p>
+                            Si le interesa conocer un poco más haga clic <a href="https://es.slideshare.net/aguty08/lecciones-de-didacticageneral" target="_blank">aquí</a>.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="subpage">
+                    <h3>Preparación de clase</h3>
+                    <p>Como guía para la preparación de sus actividades académicas se presenta, a continuación, el formato de transposición didáctica de la práctica docente. Puede descargarlo haciendo clic <a href="content/formato.doc" download="formato de transposición didáctica de práctica docente">aquí</a>.</p>
+                    <div class="box-text link" label="Para profundizar:">
+                        <p>
+                            Descargue y lea el artículo <a href="http://aprendeenlinea.udea.edu.co/revistas/index.php/iatreia/article/view/4438" target="_blank">"Desde el currículo hasta la didáctica o sobre la circulación de los saberes y sus controles en la universidad: un ejemplo en la enseñanza de la Medicina"</a>.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-    </main>
+        </main>
 
-    <footer class="not_print">
-        <span id="labelmeasuringprogress">Avance</span>
-        <div class="measuring-progress" data-type="circle"></div>
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
 
-        <nav label="General" class="globals2">
-            <menu>
-                <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
-                <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
-                <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
-            </menu>
-        </nav>
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
 
-        <div id="subpages_menu">
-            <div class="button" previous-page></div>
-            <ul class="button" subpages-menu></ul>
-            <div class="button" next-page></div>
-        </div>
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
 
-        <div id="page_number"></div>
-    </footer>
+            <div id="page_number"></div>
+        </footer>
 
     </div>
 
