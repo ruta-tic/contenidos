@@ -11,9 +11,10 @@
         CHATHISTORY: 'chathistory',
         GAMESTATE: 'gamestate',
         PLAYCARD: 'playcard',
-        UNPLAYCARD: 'playcard',
+        UNPLAYCARD: 'unplaycard',
         ENDCASE: 'endcase',
-        PLAYERCONNECTED: 'playerconnected'
+        PLAYERCONNECTED: 'playerconnected',
+        PLAYERDISCONNECTED: 'playerdisconnected'
     };
     var socket;
     var connectD;
@@ -23,8 +24,7 @@
     var sessionData;
     var socketUrl;
     var usr = new Date().getTime();
-    var cases = ['john', 'natalia', 'hermes', 'santiago', 'nairobi'];
-    var role = 'media';
+    //var cases = ['john', 'natalia', 'hermes', 'santiago', 'nairobi'];
     var currentCase;
     var playDeck;
     var deckViewer;
@@ -33,15 +33,28 @@
     var $deckCnr;    
     var $levelCnr;
     var $podioCnr;
+    var playedcards = [];
     var actionHandlers = {};
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTATE] = onGameState;
     actionHandlers[actions.PLAYCARD] = onPlayCard;
+    actionHandlers[actions.UNPLAYCARD] = onUnPlayCard;
     actionHandlers[actions.ENDCASE] = onEndCase;
+    actionHandlers[actions.PLAYERCONNECTED] = onPlayerConnected;
+    actionHandlers[actions.PLAYERDISCONNECTED] = onPlayerDisconnected;
 
     function getAuthUrl() {
-        return "content/json/fakeauth.json";
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+
+        return "content/json/fakeauth_"+(vars['id']||'3')+".json";
         //ToDo: implement prepare auth url string.
     }
     /**
@@ -122,6 +135,7 @@
             method && method.apply(this, [msg]);
         }
         catch(err) {
+            console.log(err);
         }
     }
 
@@ -171,11 +185,34 @@
     }
 
     function onPlayCard(msg) {
-        
+
+        if ($deckCnr.is(':visible')) {
+            dropCard(msg.data);
+        }
+        else {
+            playedcards.push(msg.data);
+        }
+    }
+
+    function onUnPlayCard(msg) {
+        if ($deckCnr.is(':visible')) {
+            unDropCard(msg.data);
+        }
+        else {
+            playedcards.splice(playedcards.indexOf(msg.data), 1);
+        }
     }
 
     function onEndCase(msg) {
-        
+
+    }
+
+    function onPlayerConnected(msg) {
+
+    }
+
+    function onPlayerDisconnected(msg) {
+
     }
 
     function socketSendMsg(msg) {
@@ -273,7 +310,7 @@
         }
 
         playDeck.removeAllSlides();
-        var selector = ".dropzone[data-target-group='case-"+name+"']";
+        var selector = ".dropzone[data-target-group='"+name+"']";
         $assets.find(selector).each(function(i, it) {
             playDeck.appendSlide(it.outerHTML);
         });
@@ -303,7 +340,7 @@
 
         selector = ".card."+role;
         if (role == 'master') {
-            selector += "[data-group='case-"+name+"']";
+            selector += "[data-group='"+name+"']";
         }
 
         $assets.find(selector).each(function(i, it) {
@@ -311,8 +348,11 @@
             deckViewer.addSlide(idx, it.outerHTML);
             deckViewer.update();
         });
-        /*if (currentCase < 5)
-            setTimeout(loadCase, 5000);*/
+
+        $.each(playedcards, function(i, it) {
+            dropCard(it);
+        });
+        playedcards = [];
     }
 
     function btnSendOnClick(event) {
@@ -327,7 +367,7 @@
 
         $card.find('.card-header,.card-play,.card-content').hide();
         var group = $card.data().group;
-        var card = { cardtype: role, cardcode: group.replace('case-', '') };
+        var card = { cardtype: role, cardcode: group };
         dropCard(card);
         socketSendMsg({
             action: actions.PLAYCARD,
@@ -339,7 +379,7 @@
         var $targetZone = $deckCnr.find('.dropzone.'+card.cardtype);
         if ($targetZone.hasClass('dropped')) return; //Should it replace the card?
 
-        var $content = $assets.find(".card."+card.cardtype+"[data-group='case-"+card.cardcode+"'] .card-content");
+        var $content = $assets.find(".card."+card.cardtype+"[data-group='"+card.cardcode+"'] .card-content");
         var $dzcontent = $targetZone.find('.dropzone-content');
         var $ncontent = $('<div class="card-content view-first"></div>').appendTo($targetZone).append($content.clone());
         $ncontent.data('card', card);
@@ -372,7 +412,7 @@
         $fromZone.removeClass('dropped').find('.card-content.view-first,.card-unplay').remove();
 
         if (card.cardtype == sessionData.user.role) {
-            var $card = $deckCnr.find(".card."+card.cardtype+"[data-group='case-"+card.cardcode+"']");
+            var $card = $deckCnr.find(".card."+card.cardtype+"[data-group='"+card.cardcode+"']");
             $card.find('.card-header,.card-play,.card-content').show();
         }
     }

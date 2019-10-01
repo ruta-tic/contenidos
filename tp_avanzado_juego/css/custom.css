@@ -522,15 +522,15 @@
     margin-top: 15px;
 }
 
-#deck-viewer:before {
+.deck-container:before {
     content: "";
-    width: 90%;
-    height: 30%;
+    width: calc(95% + 1px);
+    height: 15%;
     margin: 0 auto;
-    border-radius: 40px 40px 0 0;
+    border-radius: 40px 0 0 0;
     background-color: #61C7D0;
     position: absolute;
-    bottom: 0;
+    bottom: -11px;
     left: 5%;
 }
 
