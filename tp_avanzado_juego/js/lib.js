@@ -369,7 +369,7 @@ dhbgApp.standard.start = function() {
         $this.hide();
     });
 
-    $('.wf-content-controler').on('click', function(){
+    $(document).on('click', '.wf-content-controler', function(){
         var $this = $(this);
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');

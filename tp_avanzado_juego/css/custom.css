@@ -24,7 +24,25 @@
     background-image: url(../content/bg.png); 
     position: relative;
     display: flex;
-    flex-flow: row;    
+    flex-flow: row;
+    margin: 0 auto;
+}
+
+.game-container.loading:before, .game-container.loading:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.game-container.loading:before {
+    background: #FFFFFF;
+    opacity: 0.4;
+}
+.game-container.loading:after {
+    background: url(../img/loading.gif) no-repeat center center;
 }
 
 .gamezone-container {
@@ -44,7 +62,7 @@
     background-size: contain;
     align-items: flex-end;
     justify-content: space-evenly;
-    display: none;
+    /*display: none;*/
 }
 
 .case {
@@ -75,6 +93,7 @@
 .case.case-active {
     width: 70px;
     height: 96px;
+    cursor: pointer;
 }
 
 .case.case-active .case-number, .case.case-active .case-label{
@@ -95,31 +114,34 @@
 
 .podio-container {
     width: 306px;
-    display: none;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }
-.progress-container.podio_1 {
-    background-image: url(../content/podio_1.png),
+.podio-container.podio_1 {
+    background-image: url(../content/podio_1.png);
 }
-.progress-container.podio_2 {
-    background-image: url(../content/podio_2.png),
+.podio-container.podio_2 {
+    background-image: url(../content/podio_2.png);
 }
-.progress-container.podio_3 {
-    background-image: url(../content/podio_3.png),
+.podio-container.podio_3 {
+    background-image: url(../content/podio_3.png);
 }
 
 .current-case-box {
     position: absolute;
-    display: none;
+    /*display: none;*/
 }
 
-.rol-box {
+.role-box {
     position: absolute;
-    display: none;
+    /*display: none;*/
 }
 
 .clock-box {
     position: absolute;
-    display: none;
+    /*display: none;*/
 }
 
 .chat-container {
@@ -266,13 +288,35 @@
 
 .instructions-container {
     width: 400px;
-    height: 200px;
+    height: 25%;
     position: absolute;
     top: 10px;
     left: 10px;
     border: solid 4px;
     border-color: #61C7D0 #030F17 #030F17 #61C7D0;
     background-color: #313C51; 
+}
+
+
+#instructions {
+    font-size: 14px;
+    text-align: justify;
+    padding: 10px;
+    color: #BBBEC6;
+}
+.instructions-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#full-instructions {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
 }
 
 .swiper-container {
@@ -349,12 +393,13 @@
 
 
 .deck-container {
-    position: absolute;    
+    position: absolute;
     bottom: 10px;
     width: 100%;
-    height: 60%;
+    height: 70%;
     display: flex;
-    flex-flow: column;    
+    flex-flow: column;
+    /*display: none;*/
 }
 
 .card {
@@ -362,6 +407,28 @@
     height: 100%;
     background-color: #FFFFFF;
     padding: 0;
+}
+
+.dropzone {
+    width: 200px;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border: solid 2px #52A8B1;
+    background-color: transparent;
+}
+
+.dropzone .dropzone-content {
+    height: calc(100% - 40px);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropzone-content .content {
 }
 
 .card-header {
@@ -372,30 +439,29 @@
     justify-content: flex-end;
 }
 
-.card.media .card-header {
+.media .card-header {
     background-color: #013A6B;
     background-image: -webkit-linear-gradient(-15deg, #869694 50%, #92A09F 50%);
     background-image: linear-gradient(-15deg, #869694 50%, #92A09F 50%);
 }
 
-.card.network .card-header {
+.network .card-header {
     background-color: #2D4F5B;
     background-image: -webkit-linear-gradient(-15deg, #2D4F5B 50%, #173A46 50%);
     background-image: linear-gradient(-15deg, #2D4F5B 50%, #173A46 50%);
 }
 
-.card.master .card-header {
+.master .card-header {
     background-color: #EAAA3C;
     background-image: -webkit-linear-gradient(-15deg, #EAAA3C 50%, ##EBB145 50%);
     background-image: linear-gradient(-15deg, #EAAA3C 50%, #EBB145 50%);
 }
 
-.card.tech .card-header {
+.tech .card-header {
     background-color: #5DA9AA;
     background-image: -webkit-linear-gradient(-15deg, #5DA9AA 50%, #6EB6B7 50%);
     background-image: linear-gradient(-15deg, #5DA9AA 50%, #6EB6B7 50%);
 }
-
 
 .card-header span {
     flex: 1 1 0; 
@@ -412,9 +478,59 @@
 
 .card-content {
     padding: 5px;
+    box-sizing: border-box;
+    height: calc(100% - 40px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    background-color: #FFFFFF;
+    color: #BBBEC6;
+}
+
+.card-content .card-content {
+    height: 100%;
 }
 
 .card-content strong {
     color: #61C7D0;
+}
+
+.card h2 {
+    font-size: 16px;
+    background-color: transparent;
+    color: #000000;
+    font-weight: bold;
+}
+
+.card-play, .card-unplay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    color: #030F17;
+}
+
+.card-unplay {
+    transform: rotate(180deg);
+}
+
+.deck-container .swiper-container {
+    margin-top: 15px;
+}
+
+#deck-viewer:before {
+    content: "";
+    width: 90%;
+    height: 30%;
+    margin: 0 auto;
+    border-radius: 40px 40px 0 0;
+    background-color: #61C7D0;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
 }
 
