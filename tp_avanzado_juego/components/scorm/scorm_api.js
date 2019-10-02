@@ -210,7 +210,7 @@ dhbgApp.scorm.saveProgress = function() {
             progress_value = Math.round((scale_sco / max_sco_value)*(100 - dhbgApp.scorm.options.activities_percentage));
             // Activities scale is in percentage.
             if (use_weighted_progress) {
-                progress_value = Math.round(weighted_progress);
+                progress_value += Math.min(dhbgApp.scorm.options.activities_percentage, Math.round(weighted_progress));
             }
             else {
                 progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));
@@ -297,7 +297,7 @@ dhbgApp.scorm.getProgress = function() {
 
         // Activities scale is in percentage.
         if (use_weighted_progress) {
-            progress_value = Math.round(weighted_progress);
+            progress_value += Math.min(dhbgApp.scorm.options.activities_percentage, Math.round(weighted_progress));
         }
         else {
             progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));

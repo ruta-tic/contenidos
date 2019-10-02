@@ -6,6 +6,9 @@
 (function(app) {
     //var conn = new WebSocket('ws://rutatic.udea.edu.co:8080');
     var AUTH_URL = 'http://{URL_MOODLE}/local/tepuy/components/socket/index.php?uid={MANIFEST_ID}&courseid={COURSE_ID}';
+    var CHATPAGESIZE = 10;
+    var ERROR = 'error';
+    var INFO = 'info';
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
@@ -23,8 +26,10 @@
     var courseId;
     var sessionData;
     var socketUrl;
-    var usr = new Date().getTime();
-    //var cases = ['john', 'natalia', 'hermes', 'santiago', 'nairobi'];
+    var oldestChatId = '';
+    var activeRole = '';
+    var currentTeam = [];
+    var cases = ['john', 'natalia', 'hermes', 'santiago', 'nairobi'];
     var currentCase;
     var playDeck;
     var deckViewer;
@@ -35,6 +40,7 @@
     var $podioCnr;
     var playedcards = [];
     var actionHandlers = {};
+    var scorm_id_prefix;
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTATE] = onGameState;
@@ -54,6 +60,7 @@
             vars[hash[0]] = hash[1];
         }
 
+        //return 'https://rutatic.udea.edu.co/local/tepuy/components/socket/index.php?uid=MANIFEST-20190729000000000000000000010021&courseid=6';
         return "content/json/fakeauth_"+(vars['id']||'3')+".json";
         //ToDo: implement prepare auth url string.
     }
@@ -86,7 +93,7 @@
     }
 
     function openSocket() {
-        socketUrl = sessionData.serverurl + "?skey="+sessionData.skey;
+        socketUrl = 'ws://' + sessionData.serverurl + "?skey="+sessionData.skey;
         socket = new WebSocket(socketUrl);
         socket.onopen = function() {
             connected = true;
@@ -108,6 +115,7 @@
         openSocket();
         connectD.then(function(socket){
             bindSocket(socket);
+            $gameCnr.removeClass('loading');
         }, function (){
             setTimeout(reConnect, 1000);
         });
@@ -116,7 +124,7 @@
     function onSocketClose(e) {
         if (e.wasClean) return;
         connected = false;
-        //$game.addClass('loading');
+        $gameCnr.addClass('loading');
         //Attempt to reconnect
         setTimeout(reConnect, 1000);
     }
@@ -148,23 +156,16 @@
     }
 
     function onGameState(msg) {
-        //
-        var caseStarted = (msg.playedcards.length > 0);
-
-        hideAll();
-
-        $deckCnr.toggle(caseStarted);
-        $levelCnr.toggle(!caseStarted);
-        $podioCnr.toggle(!caseStarted);
-        $podioCnr.addClass('podio_1'); //ToDo: add the proper class
-
-        $.each(msg.team, function (i, it) { //ToDo: process the team as required
+        var data = msg.data;
+        //Set user info
+        $.each(data.team, function (i, it) { //ToDo: process the team as required
             if (it.id == sessionData.userid) {
                 sessionData.user = it;
             }
         });
 
-        $.each(msg.cases, function(i, it) {
+        //Load cases
+        $.each(data.cases, function(i, it) {
             $levelCnr.find('.case-0'+(i+1))
                 .removeClass(function (idx, className) { return (className.match (/(^|\s)case-(active|locked|failed|passed)+/g) || []).join(' ');})
                 .addClass('case-'+it.state);
@@ -175,44 +176,87 @@
             }
         });
 
-        if (!caseStarted) {
-            loadInstructionsFor('#instructions');
+        //Prepare played cards
+        playedcards = data.playedcards || [];
+        currentTeam = data.team;
+        if (!data.team.find(isMaster)) { //No master
+            playedcards.push({ cardtype: 'master', cardcode: currentCase.id });
         }
-        else {
-            loadCase();
+        //Update the scorm value if required
+        if (app.scorm && currentCase.ordinal > 1) {
+            var prevCase = data.cases[currentCase.ordinal - 1];
+            var key = `${scorm_id_prefix}-${prevCase.id}`;
+            var values = app.scorm.getActivityValue(key);
+            console.log(values);
+            if (values && values.length < prevCase.attempt) {
+                app.scorm.activityAttempt(key, getCaseValue(prevCase, prevCase.state == 'passed'));
+            }
         }
-        $gameCnr.removeClass('loading');
+        
+        loadHome();
+    }
+
+    function isMaster(user) {
+        return user.roles.indexOf('master') >= 0;
     }
 
     function onPlayCard(msg) {
-
+        playedcards.push(msg.data);
         if ($deckCnr.is(':visible')) {
             dropCard(msg.data);
-        }
-        else {
-            playedcards.push(msg.data);
         }
     }
 
     function onUnPlayCard(msg) {
+        playedcards.splice(playedcards.indexOf(msg.data), 1);
         if ($deckCnr.is(':visible')) {
             unDropCard(msg.data);
-        }
-        else {
-            playedcards.splice(playedcards.indexOf(msg.data), 1);
         }
     }
 
     function onEndCase(msg) {
+        try {
+        //Disable all actions
+        var correct = playedcards.length == cases.length &&
+            playedcards.find(function(it) { return it.cardcode != currentCase.id }) == undefined;
 
+        var weight = getCaseValue(currentCase, correct);
+        var state = {
+            team: $.map(currentTeam, function(it) { return { id: it.id, name: it.name, roles: it.roles }; }),
+            playedcards: playedcards,
+            case: currentCase
+        }
+
+        //report to scorm
+        if (app.scorm) {
+            var scorm_id = `${scorm_id_prefix}-${currentCase.id}`;
+            app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
+        }
+
+        } catch(err) {
+            console.log(err);
+        }
+
+        socketSendMsg({ action: actions.GAMESTATE });
     }
 
     function onPlayerConnected(msg) {
-
     }
 
     function onPlayerDisconnected(msg) {
 
+    }
+
+    function onPlayDeckSlideChange() {
+        var active = this.slides[this.activeIndex];
+        $deck = $(deckViewer.el).find('.swiper-slide').removeClass('can-play');
+        var $el = $(active);
+        activeRole = '';
+        var type = sessionData.user.roles.find(function(it){ return $el.hasClass(it) });
+        if (type && !$el.hasClass('dropped')) {
+            $deck.filter('.'+type).addClass('can-play');
+            activeRole = type;
+        }
     }
 
     function socketSendMsg(msg) {
@@ -248,6 +292,35 @@
         $mess.get(0).scrollIntoView();
     }
 
+    function getCaseValue(ocase, passed) {
+        if (passed) {
+            return (ocase.attempt == 1 ? 100 : (ocase.attempt == 2 ? 60 : 0));
+        }
+        return 0;
+    }
+
+    function getPodio() {
+        var progress = 0;
+        if (app.scorm) {
+            progress = app.scorm.getProgress();
+        }
+        else {
+            progress = Math.min(100, currentCase.ordinal * (100 / 3));
+        }
+
+        if (progress >= 100) {
+            return "podio_3";
+        }
+        else if (progress >= 66) {
+            return "podio_2";
+        }
+        else if (progress >= 33) {
+            return "podio_1";
+        }
+        return "podio_0";
+
+    }
+
     function setCaseNumber($el) {
         var text = '0'+currentCase.ordinal;
         $el.find('.case-number').html(text.substr(text.length - 2));
@@ -272,41 +345,58 @@
     function loadInstructionsFor(instructionId, callback) {
         var $inst = $(instructionId).clone().appendTo($('.instructions-container').empty());
 
-
         if (callback) {
             callback($inst);
         }
     }
 
-    function openCase() {
-        $levelCnr.toggle(false);
-        $podioCnr.toggle(false);
-        $deckCnr.toggle(true);
-        loadCase();
+    function loadHome() {
+        hideAll();
+
+        $deckCnr.toggle(false);
+        $levelCnr.toggle(true);
+        $podioCnr.toggle(true);
+        $podioCnr.addClass(getPodio()); //ToDo: add the proper class
+
+        loadInstructionsFor('#instructions');
+        $gameCnr.removeClass('loading');
+    }
+
+    function loadChatHistory() {
+        var msg = {
+            action: actions.CHATHISTORY,
+            data: {
+                n: CHATPAGESIZE,
+                s: oldestChatId
+            }
+        };
+        socketSendMsg(msg);
     }
 
     function loadCase() {
         var name = currentCase.id;
-        var role = sessionData.user.role;
+        var roles = sessionData.user.roles;
         loadInstructionsFor('#case-'+name, setCaseNumber);
 
         //prepare play deck
+        var swiperOptions = {
+            spaceBetween: 40,
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows : true,
+            },
+        };
         var $deck = $("#play-deck");
 
         if (!playDeck) {
-            playDeck = makeSwippable($deck.get(0), { 
-                spaceBetween: 40,
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                coverflowEffect: {
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows : true,
-                },
-            });
+            playDeck = makeSwippable($deck.get(0), swiperOptions);
+            playDeck.on('slideChange', onPlayDeckSlideChange)
         }
 
         playDeck.removeAllSlides();
@@ -320,55 +410,54 @@
         var $deck = $("#deck-viewer");
 
         if (!deckViewer) {
-            deckViewer = makeSwippable($deck.get(0), { 
-                spaceBetween: 40,
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                coverflowEffect: {
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows : true,
-                },
-            });
-            window.DV = deckViewer;
+            deckViewer = makeSwippable($deck.get(0), swiperOptions);
         }
 
         deckViewer.removeAllSlides();
 
-        selector = ".card."+role;
-        if (role == 'master') {
-            selector += "[data-group='"+name+"']";
-        }
+        var selectors = [];
+        $.each(roles, function(i, role) {
+            selectors.push(".card."+role);
+            if (role == 'master') {
+                selectors[i] += "[data-group='"+name+"']";
+            }
+        });
 
-        $assets.find(selector).each(function(i, it) {
-            var idx = Math.floor(Math.random() * 5);
+        $assets.find(selectors.join(',')).sort(sortByRol).each(function(i, it) {
+            var idx = i; //Math.floor(Math.random() * 5);
             deckViewer.addSlide(idx, it.outerHTML);
             deckViewer.update();
         });
 
+        onPlayDeckSlideChange.apply(playDeck);
+
         $.each(playedcards, function(i, it) {
             dropCard(it);
         });
-        playedcards = [];
+    }
+
+    function openCase() {
+        $levelCnr.toggle(false);
+        $podioCnr.toggle(false);
+        $deckCnr.toggle(true);
+        loadCase();
     }
 
     function btnSendOnClick(event) {
-        sendChatMsg();        
+        sendChatMsg();
     }
 
     function btnPlayCardOnClick(event) {
         var $card = $(event.target).closest('.card');
-        var role = sessionData.user.role;
 
-        if (!$card.hasClass(role)) return; //This should never happend, but just in case
+        if (!$card.hasClass(activeRole)) return; //This should never happend, but just in case
 
-        $card.find('.card-header,.card-play,.card-content').hide();
+        $card.find('.card-header,.card-content').hide();
         var group = $card.data().group;
-        var card = { cardtype: role, cardcode: group };
+        var card = { cardtype: activeRole, cardcode: group };
         dropCard(card);
+        playedcards.push(card);
+        $(deckViewer.el).find('.swiper-slide').removeClass('can-play');
         socketSendMsg({
             action: actions.PLAYCARD,
             data: card
@@ -377,18 +466,23 @@
 
     function dropCard(card) {
         var $targetZone = $deckCnr.find('.dropzone.'+card.cardtype);
-        if ($targetZone.hasClass('dropped')) return; //Should it replace the card?
+        if ($targetZone.hasClass('dropped')) return;
 
         var $content = $assets.find(".card."+card.cardtype+"[data-group='"+card.cardcode+"'] .card-content");
         var $dzcontent = $targetZone.find('.dropzone-content');
         var $ncontent = $('<div class="card-content view-first"></div>').appendTo($targetZone).append($content.clone());
         $ncontent.data('card', card);
-        //$card.find('.card-content').appendTo($ncontent);
-        var $mask = $('<div class="mask"></div>').appendTo($ncontent);
-        $dzcontent.addClass('view-content').appendTo($mask);
-        $targetZone.addClass('dropped');
-        if (card.cardtype == sessionData.user.role) {
-            $('<button class="card-unplay"><i class="ion-eject"></i></button>').appendTo($targetZone);
+
+        if (card.cardtype != 'master') {
+            var $mask = $('<div class="mask"></div>').appendTo($ncontent);
+            $dzcontent.addClass('view-content').appendTo($mask);
+            $targetZone.addClass('dropped');
+            if (sessionData.user.roles.indexOf(card.cardtype) >= 0) {
+                $('<button class="card-unplay" title="Remover"><i class="ion-close-circled"></i></button>').appendTo($targetZone.find('.card-header'));
+            }
+        }
+        else {
+            $dzcontent.hide();
         }
     }
 
@@ -397,6 +491,7 @@
         if (!$fromZone.hasClass('dropped')) return; //Should it replace the card?
         var card = $fromZone.find('.card-content.view-first').data().card;
         unDropCard(card);
+        $(deckViewer.el).find('.swiper-slide').addClass('can-play');
         socketSendMsg({
             action: actions.UNPLAYCARD,
             data: card
@@ -411,10 +506,14 @@
 
         $fromZone.removeClass('dropped').find('.card-content.view-first,.card-unplay').remove();
 
-        if (card.cardtype == sessionData.user.role) {
+        if (sessionData.user.roles.indexOf(card.cardtype) >= 0) {
             var $card = $deckCnr.find(".card."+card.cardtype+"[data-group='"+card.cardcode+"']");
-            $card.find('.card-header,.card-play,.card-content').show();
+            $card.find('.card-header,.card-content').show();
         }
+    }
+
+    function btnEndCaseOnClick(event) {
+        socketSendMsg({ action: actions.ENDCASE });
     }
 
     function chatInputOnEnter(event) {
@@ -423,22 +522,6 @@
             return false;
         }
     }
-
-    function shuffle(arr) {
-        var i = arr.length, k1, k2;
-        //Shuffled positions
-        while(i--) {
-            k1 = Math.floor(Math.random() * i);
-            k2 = arr[k1];
-            arr[k1] = arr[i];
-            arr[i] = k2;
-        }
-    }
-
-    function gameAreaOnResize() {
-
-    }
-
 
     /**
      * To handle when an activity has been rendered. It will hide verify button on 1-camea form.
@@ -462,29 +545,75 @@
         $gameCnr.on('click', '.case-active', openCase);
         $deckCnr.on('click', '.card-play', btnPlayCardOnClick);
         $deckCnr.on('click', '.card-unplay', btnUnplayCardOnClick);
+        $deckCnr.on('click', '.end-case', btnEndCaseOnClick);
+
+        //register for scorm
+        scorm_id_prefix = $gameCnr.data().actId || 'game-angi';
+        if (app.scorm) {
+            $.each(cases, function(i, it) {
+                var scorm_id = `${scorm_id_prefix}-${it}`;
+                if (!app.scorm.activities[scorm_id]) { app.scorm.activities[scorm_id] = []; }
+            });
+        }
 
         //request game state
-        socketSendMsg({
-            action: actions.GAMESTATE
-        });
-        //If, it is first time, shuffle cases, perhaps this should change to choose a case randomly when the current case is completed
-        //shuffle(cases);
-        //load current state
-        //loadInstructionsFor('#instructions');
-        //Load a case
-        //loadCase();
+        socketSendMsg({ action: actions.GAMESTATE });
+        loadChatHistory();
     }
     
+    function sortByRol(a, b) {
+        var roles = ["planner", "master", "media", "network", "tech"];
+        var scoreA = -1,
+            scoreB = -1,
+            $a = $(a),
+            $b = $(b);
+        for(var i = 0; i < roles.length; i++) {
+            if ($a.hasClass(roles[i])) scoreA = i;
+            if ($b.hasClass(roles[i])) scoreB = i;
+            if (scoreA >= 0 && scoreB >= 0) break;
+        }
+
+        return scoreA - scoreB;
+    }
+
+    function showMsg(type, msg) {
+        var title = type == ERROR ? "Error" : "Información";
+        var $dlg = $(`<div title="${title}"></div>`).html(msg);
+        $dlg.dialog({
+            modal: true,
+            autoOpen: true,
+            //width: w_global_modal,
+            //height: dhbgApp.documentHeight - 50,
+            classes: {
+                "ui-dialog": "game-message-dialog"
+            },
+            close: function() {
+                $dlg.dialog('destroy').remove();
+            }
+        });
+    }
+
     function hideAll() {
         $(".deck-container, .podio-container, .case-progress, .role-box, .clock-box").hide();
     }
 
+    /**
+     * Create scorm hook getActivityWeight
+     */
+    app.scorm.getActivityWeight = function (activity_id) {
+        return 100 / 3;
+    }
+
+    /**
+     * Runs when all dom objects have been rendered.
+     */
     $(document).ready(function() {
         hideAll();
         connect().then(function(socket) {
             console.log('connected');
             initialize(socket);
         }, function(err) {
+            showMsg(ERROR, "Hubo un error en la conexión. Por favor intente nuevamente");
             console.log('failed to connect');
             console.log(err);
         })
