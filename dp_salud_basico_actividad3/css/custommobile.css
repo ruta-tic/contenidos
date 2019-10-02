@@ -1,446 +1,157 @@
 .text_tooltip {
     line-height: 20px;
 }
-/********************************************************************************/
-/* Pointers with text
-/********************************************************************************/
-#pag-contenidointeractivo-pointers .modelo_herrmann { 
-    margin: auto; 
-    width: 333px; 
-    height: 405px; 
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-}
-#pag-contenidointeractivo-pointers .modelo_herrmann > div {
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 50%;
-    height: 48.4%;
-}
-#pag-contenidointeractivo-pointers .herrmann_1 {
-    background-image: url(../content/dp_salud_basico_actividad2-13.png);
-}
-#pag-contenidointeractivo-pointers .herrmann_1:hover {
-    background-image: url(../content/dp_salud_basico_actividad2-15.png);
-}
-#pag-contenidointeractivo-pointers .herrmann_2 {
-    background-image: url(../content/dp_salud_basico_actividad2-14.png);
-}
-#pag-contenidointeractivo-pointers .herrmann_2:hover {
-    background-image: url(../content/dp_salud_basico_actividad2-16.png);
-}
-#pag-contenidointeractivo-pointers .herrmann_3 {
-    background-image: url(../content/dp_salud_basico_actividad2-18.png);
-    margin-top: -50px;
-    height: 51.6%!important;
-}
-#pag-contenidointeractivo-pointers .herrmann_3:hover {
-    background-image: url(../content/dp_salud_basico_actividad2-12.png);
-}
-#pag-contenidointeractivo-pointers .herrmann_4 {
-    background-image: url(../content/dp_salud_basico_actividad2-19.png);
-    margin-top: -50px;
-    height: 51.6%!important;
-}
-#pag-contenidointeractivo-pointers .herrmann_4:hover {
-    background-image: url(../content/dp_salud_basico_actividad2-17.png);
-}
-
-#pag-contenidointeractivo-pointers .modelo_felder_silverman {
-    background: url(../content/dp_salud_basico_actividad2-01.png) no-repeat;
-    background-size: cover;
-    margin: auto;
-    width: 500px;
-    height: 408px;
-    position: relative;
-}
-#pag-contenidointeractivo-pointers .modelo_felder_silverman .tooltip {
-    position: absolute;
-    border-radius: 66px;
-    height: 132px;
-    width: 132px;
-    background-color: rgba(255, 255, 255, 0);
-    background-size: 100% 100%;
-    background-position: left bottom;
-}
-#pag-contenidointeractivo-pointers .modelo_felder_silverman .tooltip:hover { background-color: rgba(255, 255, 255, 0.3); }
-
-#pag-contenidointeractivo-pointers .felder_1 { left: 37.20%; top:  1.96%; }
-#pag-contenidointeractivo-pointers .felder_2 { left:  8.00%; top: 25.98%; }
-#pag-contenidointeractivo-pointers .felder_3 { left: 19.80%; top: 64.46%; }
-#pag-contenidointeractivo-pointers .felder_4 { left: 54.80%; top: 63.97%; }
-#pag-contenidointeractivo-pointers .felder_5 { left: 65.60%; top: 25.98%; }
-
-#pag-contenidointeractivo-pointers .modelo_balnder_grinder { 
-    background: url(../content/dp_salud_basico_actividad2-02.png) no-repeat;
-    background-size: cover;
-    margin: auto;
-    width: 500px;
-    height: 408px;
-    position: relative;
-}
-#pag-contenidointeractivo-pointers .modelo_balnder_grinder .tooltip {
-    position: absolute;
-    border-radius: 58px;
-    height: 116px;
-    width: 116px;
-    background-color: rgba(255, 255, 255, 0);
-    background-size: 100% 100%;
-    background-position: left bottom;
-}
-#pag-contenidointeractivo-pointers .modelo_balnder_grinder .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
-
-#pag-contenidointeractivo-pointers .balnder_1 { left: 38.60%; top:  4.17%; }
-#pag-contenidointeractivo-pointers .balnder_2 { left: 11.80%; top: 67.16%; }
-#pag-contenidointeractivo-pointers .balnder_3 { left: 65.60%; top: 66.67%; }
-
-#pag-contenidointeractivo-pointers .modelo_hemisferios {
-    background: url(../content/dp_salud_basico_actividad2-03.png) no-repeat;
-    background-size: cover;
-    margin: auto;
-    width: 500px;
-    height: 408px;
-    position: relative;
-}
-#pag-contenidointeractivo-pointers .modelo_hemisferios .tooltip {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    background-size: 100% 100%;
-    background-position: left bottom;
-}
-#pag-contenidointeractivo-pointers .modelo_hemisferios .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
-
-#pag-contenidointeractivo-pointers .hemisferios_1 { left: 0px; top: 0px; }
-#pag-contenidointeractivo-pointers .hemisferios_2 { left: 50%; top: 0px; }
-
-#pag-contenidointeractivo-pointers .modelo_gardner { 
-    background: url(../content/dp_salud_basico_actividad2-04.png) no-repeat;
-    background-size: cover;
-    margin: auto;
-    width: 500px;
-    height: 408px;
-    position: relative;
-}
-#pag-contenidointeractivo-pointers .modelo_gardner .tooltip {
-    position: absolute;
-    border-radius: 54px;
-    height: 108px;
-    width: 108px;
-    background-color: rgba(255, 255, 255, 0);
-    background-size: 100% 100%;
-    background-position: left bottom;
-}
-#pag-contenidointeractivo-pointers .modelo_gardner .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
-#pag-contenidointeractivo-pointers .gardner_1 { left: 28.00%; top:  3.43%; }
-#pag-contenidointeractivo-pointers .gardner_2 { left: 12.00%; top: 23.04%; }
-#pag-contenidointeractivo-pointers .gardner_3 { left: 11.40%; top: 51.47%; }
-#pag-contenidointeractivo-pointers .gardner_4 { left: 28.00%; top: 69.85%; }
-#pag-contenidointeractivo-pointers .gardner_5 { left: 50.40%; top: 69.85%; }
-#pag-contenidointeractivo-pointers .gardner_6 { left: 67.00%; top: 50.98%; }
-#pag-contenidointeractivo-pointers .gardner_7 { left: 67.00%; top: 23.04%; }
-#pag-contenidointeractivo-pointers .gardner_8 { left: 50.40%; top:  3.68%; }
-
-#pag-contenidointeractivo-pointers .modelo_kolb { 
-    background: url(../content/dp_salud_basico_actividad2-05.png) no-repeat;
-    background-size: cover;
-    margin: auto;
-    width: 500px;
-    height: 408px;
-    position: relative;
-}
-#pag-contenidointeractivo-pointers .modelo_kolb .tooltip {
-    position: absolute;
-    border-radius: 45px;
-    height: 90px;
-    width: 90px;
-    background-color: rgba(255, 255, 255, 0);
-    background-size: 100% 100%;
-    background-position: left bottom;
-}
-#pag-contenidointeractivo-pointers .modelo_kolb .tooltip:hover { background-color: rgba(192, 197, 208, 0.3); }
-#pag-contenidointeractivo-pointers .kolb_1 { left: 41.60%; top: 15.69%; }
-#pag-contenidointeractivo-pointers .kolb_2 { left: 19.60%; top: 39.22%; }
-#pag-contenidointeractivo-pointers .kolb_3 { left: 41.60%; top: 62.50%; }
-#pag-contenidointeractivo-pointers .kolb_4 { left: 63.40%; top: 39.46%; }
-
-@media only screen and (max-width: 520px) {
-    #pag-contenidointeractivo-pointers .modelo_felder_silverman,
-    #pag-contenidointeractivo-pointers .modelo_balnder_grinder,
-    #pag-contenidointeractivo-pointers .modelo_hemisferios,
-    #pag-contenidointeractivo-pointers .modelo_gardner,
-    #pag-contenidointeractivo-pointers .modelo_kolb {
-        width: 370px;
-        height: 302px;
-    }
-    #pag-contenidointeractivo-pointers .modelo_felder_silverman .tooltip {
-        border-radius: 49px;
-        height: 98px;
-        width:  98px;
-    }
-    #pag-contenidointeractivo-pointers .modelo_balnder_grinder .tooltip {
-        border-radius: 43px;
-        height: 86px;
-        width:  86px;
-    }
-    #pag-contenidointeractivo-pointers .modelo_gardner .tooltip {
-        border-radius: 40px;
-        height: 80px;
-        width:  80px;
-    }
-    #pag-contenidointeractivo-pointers .modelo_kolb .tooltip {
-        border-radius: 33px;
-        height: 66px;
-        width: 66px;
-    }
-}
-
-/********************************************************************************/
-/* Cuestionario Descubra su estilo de aprendizaje
-/********************************************************************************/
-.jpit-activities-selection {
-    position: relative;
-}
-.ctrl-pagination {
-}
-.ctrl-pagination ul.layers {
-    margin-top: 40px;
-
-}
-.ctrl-pagination .label_current {
-    top: 0;
-    left: 20px;
-    border-radius: 0;
-    background-color: #4397CE;
-}
-.ctrl-pagination p {
-    margin-right: 10px;
-}
-.jpit-activities-selection .option-group {
-    position: absolute;
-    top: 10%;
-    right: 0;
-    border: solid 1px #4276A7;
-    border-radius: 5px;
-    display: flex;
-    border-right: none;
-}
-.jpit-activities-selection .ctrl-pagination .option-group [data-group] {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: #4397CE;
-    color: #FFFFFF;
-    border-radius: 0;
-    border:none;
-    border-left: solid 1px #FFFFFF;
-}
-.jpit-activities-selection .ctrl-pagination .option-group [data-group]:first-child {
-    border-left: none;
-}
-.jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
-    background-color: #003543;
-    color: #FFFFFF;
-}
-.jpit-activities-selection.actividad1 .box_end .correct {
-    max-width: inherit;
-    text-align: justify;
-    padding: 20px 10px 20px 10px;
-}
-.jpit-activities-selection.actividad1 .box_end .correct:after {
-    background: none;
-}
-.estilos-aprendizaje-grafica {
-    width: 300px;
-    padding: 20px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-    font-size: 12px;
-    border: solid 1px #6BC3CE;
-}
-.estilos-aprendizaje-grafica .score_bar {
-    margin: 0;
-    padding: 2px;
-    background-color: #6BC3CE;
-    color: #000;
+#pag-pedagogia .imagen {
     text-align: center;
 }
 
-.estilos-aprendizaje-grafica td.score_bar_box {
-    border: 1px solid #333;
-    min-width: 100px;
-}
-
-.estilos-aprendizaje-resultado h3 {
-    font-size: 16px;
-}
-.estilos-aprendizaje-resultado .box_media img {
-    width: 300px;
-    margin: 0 auto;
-    display: block;
-}
-
-/********************************************************************************/
-/* Actividad de repaso 1 - Modelo de Kolb (arrastrar y soltar)
-/********************************************************************************/
-
-#act-1-kolb{
-    overflow: auto;
-    text-align: center;
-}
-
-#act-1 {
+#pag-pedagogia .imagen img {
     max-width: 100%;
-    background: no-repeat center;
-    position: relative;
 }
 
-#act-1 .board_img {
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-#act-1 .board {
-    margin: auto;
-    width: 500px;
-}
-
-#act-1 .fillable {
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap;
-    align-content: space-evenly;
-    align-items: center;
-    border: 1px dashed #4233cc;
-    border-radius: 5px;
-    width: 225px;
-    height: 187px;
-    margin: 5px;
-}
-
-#act-1 .sources {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: space-evenly;
-}
-
-#act-1.jpit-activities-droppable .draggable {
-    background: url(../content/dp_salud_basico_actividad2-10.png) no-repeat center;
-    background-size: 490.5px 400.5px;
-    display: inline-block;
-    width: 225px;
-    height: 187px;
-    padding: 0px;
-    margin: 5px;
-    border: none;
-}
-#act-1.jpit-activities-droppable .fillable .draggable {
-    margin: 0;
-}
-
-#act-1.jpit-activities-droppable .comic_1 {
-    background-position: -15px -9px;
-}
-
-#act-1.jpit-activities-droppable .comic_2 {
-    background-position: -250px -9px;
-}
-
-#act-1.jpit-activities-droppable .comic_3 {
-    background-position: -15px -205px;
-}
-
-#act-1.jpit-activities-droppable .comic_4 {
-    background-position: -250px -205px;
-}
-
-@media (max-width:550px) {
-    #act-1 .board {
-        width: 260px;
-    }
-    #act-1 .fillable {
-        width: 112.5px;
-        height: 93.5px;
-        margin: 2px;
-    }
-    #act-1.jpit-activities-droppable .draggable {
-        background-size: 245.25px 200.25px;
-        width: 112.5px;
-        height: 93.5px;
-    }
-    #act-1.jpit-activities-droppable .comic_1 {
-        background-position: -7.5px -4.5px;
-    }
-
-    #act-1.jpit-activities-droppable .comic_2 {
-        background-position: -125px -4.5px;
-    }
-
-    #act-1.jpit-activities-droppable .comic_3 {
-        background-position: -7.5px -102.5px;
-    }
-
-    #act-1.jpit-activities-droppable .comic_4 {
-        background-position: -125px -102.5px;
-    }
-}
-
-#act-1.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
-    border: transparent !important;
-}
-
-#act-1 .fillable.correct {
-    background: #72BE44 !important;
-    border: transparent !important;
-}
-
-#act-1 .fillable.wrong {
-    background: #F15A24 !important;
-    border: transparent !important;
-}
-
-#act-1 .box_end {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: auto;
-    top: 60%;
-    border: none;
-    padding: 5px;
-    background: #fff;
-}
-
-
-.jpit-timer {
-    font-family: 'Courier', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff0000;
-    background: #ffffff;
-    position: fixed;
-    bottom: 15px;
-    right: 140px;
-    z-index: 5;
-    padding: 2px;
-    border: solid 2px #dadada;
-}
-
-.subpage_1 .box_end .button.general {
-    margin: 0 5px;
-}
 /********************************************************************************/
-/* Actividad de repaso 2 y 3 - Modelo de los cuadrantes cerebrales (cuestionario)
+/* Actividad modelos pedagógicos
 /********************************************************************************/
 
-#id_subpagina .jpit_activities_quiz_question_answers { height: 150px; overflow: auto; }
-#id_subpagina .jpit_activities_quiz_board { height: 220px; }
+#arrastrargrupos table {
+    margin: auto;
+    max-width: 590px;
+}
+
+#arrastrargrupos h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 2px dotted #95B0CB;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#arrastrargrupos h5.tradicional {
+    background-color: #f5e7ae;
+    border: 1px solid #e1b95b;
+}
+
+#arrastrargrupos h5.conductista {
+    background-color: #dcdcdd;
+    border: 1px solid #899794;
+}
+
+#arrastrargrupos h5.desarrollista {
+    background-color: #e2f3f4;
+    border: 1px solid #4ea9c0;
+}
+
+#arrastrargrupos h5.socialista {
+    background-color: #f2af6b;
+    border: 1px solid #ee9747;
+}
+
+#arrastrargrupos td {
+    height: 150px;
+    vertical-align: top;
+}
+
+#arrastrargrupos td .target {
+    min-height: 350px;
+    width: 350px;
+    overflow: auto;
+    background-color: #f1f0ef;
+    border-radius: 10px;
+    border: 1px dashed #d8dbdc;
+
+    -webkit-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    -moz-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3); 
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .sources {
+    width: 100%;
+    height: 65px;
+    margin: 10px auto 0;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .draggable {
+    width: 165px;
+    float: left;
+    margin: 0 1px 5px;
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+}
+
+#arrastrargrupos table .draggable.disabled {
+    cursor: default;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+#arrastrargrupos .sources div {
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+}
+
+/********************************************************************************/
+/* Actividad crucigrama
+/********************************************************************************/
+
+.jpit-activities-crossword .word_content {
+    width: 90%;
+    text-align: justify;
+}
+
+.jpit-activities-crossword td {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+/********************************************************************************/
+/* Acordeón
+/********************************************************************************/
+
+#pag-salud .horizontal-menu .chalkboard_content {
+    height: 300px;
+    max-width: 800px;
+    background-color: #fff;
+    color: #000;
+    margin: auto;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .caracteristica {
+    margin: 4px 4px 4px -9px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .caracteristica div {
+    padding: 30px;
+    background-color: #f3f3f3;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .check {
+    padding: 30px;
+    margin-left: 4px;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .check div {
+    padding: 0;
+    width: 37px;
+    height: 38px;
+    background-image: url(../img/sprite.png);
+    background-position: -883px -112px;
+}
+
+/********************************************************************************/
+/* actividad
+/********************************************************************************/
+
+#pag-actividad .nota {
+    text-align: center;
+    font-size: 12px;
+}

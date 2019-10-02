@@ -2,6 +2,10 @@
     line-height: 20px;
 }
 
+#pag-pedagogia .imagen {
+    text-align: center;
+}
+
 /********************************************************************************/
 /* Actividad modelos pedagógicos
 /********************************************************************************/
@@ -16,6 +20,28 @@
     font-size: 16px;
     color: #000;
     border-bottom: 2px dotted #95B0CB;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#arrastrargrupos h5.tradicional {
+    background-color: #f5e7ae;
+    border: 1px solid #e1b95b;
+}
+
+#arrastrargrupos h5.conductista {
+    background-color: #dcdcdd;
+    border: 1px solid #899794;
+}
+
+#arrastrargrupos h5.desarrollista {
+    background-color: #e2f3f4;
+    border: 1px solid #4ea9c0;
+}
+
+#arrastrargrupos h5.socialista {
+    background-color: #f2af6b;
+    border: 1px solid #ee9747;
 }
 
 #arrastrargrupos td {
@@ -24,9 +50,16 @@
 }
 
 #arrastrargrupos td .target {
-    min-height: 150px;
-    width: 190px;
+    min-height: 350px;
+    width: 350px;
     overflow: auto;
+    background-color: #f1f0ef;
+    border-radius: 10px;
+    border: 1px dashed #d8dbdc;
+
+    -webkit-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    -moz-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3); 
 }
 
 #arrastrargrupos.jpit-activities-multidroppable .sources {
@@ -39,6 +72,9 @@
     width: 165px;
     float: left;
     margin: 0 1px 5px;
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
 }
 
 #arrastrargrupos table .draggable.disabled {
@@ -51,10 +87,68 @@
     clear: both;
 }
 
+#arrastrargrupos .sources div {
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+}
+
 /********************************************************************************/
 /* Actividad crucigrama
 /********************************************************************************/
 
 .jpit-activities-crossword .word_content {
-    width: 50%;
+    width: 90%;
+    text-align: justify;
+}
+
+.jpit-activities-crossword td {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+/********************************************************************************/
+/* Acordeón
+/********************************************************************************/
+
+#pag-salud .horizontal-menu .chalkboard_content {
+    height: 300px;
+    max-width: 800px;
+    background-color: #fff;
+    color: #000;
+    margin: auto;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .caracteristica {
+    margin: 4px 4px 4px -9px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .caracteristica div {
+    padding: 30px;
+    background-color: #f3f3f3;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .check {
+    padding: 30px;
+    margin-left: 4px;
+}
+
+#pag-salud .horizontal-menu .chalkboard_content .check div {
+    padding: 0;
+    width: 37px;
+    height: 38px;
+    background-image: url(../img/sprite.png);
+    background-position: -883px -112px;
+}
+
+/********************************************************************************/
+/* actividad
+/********************************************************************************/
+
+#pag-actividad .nota {
+    text-align: center;
+    font-size: 12px;
 }
