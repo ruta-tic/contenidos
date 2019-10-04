@@ -7,6 +7,7 @@
     //var conn = new WebSocket('ws://rutatic.udea.edu.co:8080');
     var AUTH_URL = 'http://{URL_MOODLE}/local/tepuy/components/socket/index.php?uid={MANIFEST_ID}&courseid={COURSE_ID}';
     var CHATPAGESIZE = 10;
+    var MINREQPLAYEDCARDS = 4;
     var ERROR = 'error';
     var INFO = 'info';
     var actions = {
@@ -38,6 +39,7 @@
     var $deckCnr;    
     var $levelCnr;
     var $podioCnr;
+    var $chatHist;
     var playedcards = [];
     var actionHandlers = {};
     var scorm_id_prefix;
@@ -51,6 +53,12 @@
     actionHandlers[actions.PLAYERDISCONNECTED] = onPlayerDisconnected;
 
     function getAuthUrl() {
+        var manifestId = $('body').data().manifestId || ''; // 'MANIFEST-20190729000000000000000000010021';
+        var courseId = parent && parent.window.scormplayerdata ? parent.window.scormplayerdata.courseid : '';
+        return `https://rutatic.udea.edu.co/local/tepuy/components/socket/index.php?uid=${manifestId}&courseid=${courseId}`;
+    }
+
+    function getAuthUrlFake() {
         var vars = [], hash;
         var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for(var i = 0; i < hashes.length; i++)
@@ -93,7 +101,7 @@
     }
 
     function openSocket() {
-        socketUrl = 'ws://' + sessionData.serverurl + "?skey="+sessionData.skey;
+        socketUrl = 'wss://' + sessionData.serverurl + "?skey="+sessionData.skey;
         socket = new WebSocket(socketUrl);
         socket.onopen = function() {
             connected = true;
@@ -148,11 +156,32 @@
     }
 
     function onChatMessage(msg) {
-        addChatLog(msg);
+        addChatLog(msg.data);
     }
 
     function onChatHistory(msg) {
-        
+        var msgs = msg.data;
+        var lastid;
+        $loader = $chatHist.find('.loader').remove();
+
+        $.each(msgs, function(i, chatmsg) {
+            chatmsg.prepend = true;
+            addChatLog(chatmsg);
+            lastid = chatmsg.id;
+        });
+
+        if (msg.data.length == CHATPAGESIZE) {
+            $loader = $('<div class="loader">Ver mas</div>');
+            $loader.on('click', function() {
+                socketSendMsg({
+                    action: actions.CHATHISTORY,
+                    data: { 
+                        n: CHATPAGESIZE,
+                        s: lastid
+                    }});
+            })
+            $loader.prependTo($chatHist);
+        }
     }
 
     function onGameState(msg) {
@@ -165,6 +194,7 @@
         });
 
         //Load cases
+        currentCase = undefined
         $.each(data.cases, function(i, it) {
             $levelCnr.find('.case-0'+(i+1))
                 .removeClass(function (idx, className) { return (className.match (/(^|\s)case-(active|locked|failed|passed)+/g) || []).join(' ');})
@@ -179,12 +209,13 @@
         //Prepare played cards
         playedcards = data.playedcards || [];
         currentTeam = data.team;
-        if (!data.team.find(isMaster)) { //No master
+        if (currentCase && !data.team.find(isMaster)) { //No master
             playedcards.push({ cardtype: 'master', cardcode: currentCase.id });
         }
         //Update the scorm value if required
-        if (app.scorm && currentCase.ordinal > 1) {
-            var prevCase = data.cases[currentCase.ordinal - 1];
+        var lastCase = currentCase ? currentCase.ordinal - 1 : cases.length;
+        if (app.scorm && lastCase > 0) {
+            var prevCase = data.cases[lastCase - 1];
             var key = `${scorm_id_prefix}-${prevCase.id}`;
             var values = app.scorm.getActivityValue(key);
             console.log(values);
@@ -208,16 +239,17 @@
     }
 
     function onUnPlayCard(msg) {
-        playedcards.splice(playedcards.indexOf(msg.data), 1);
+        playedcards.splice(playedcards.findIndex(function(it) { return it.cardtype == msg.data.cardtype && it.cardcode == msg.data.cardcode; }), 1);
         if ($deckCnr.is(':visible')) {
             unDropCard(msg.data);
         }
+        console.log(playedcards);
     }
 
     function onEndCase(msg) {
         try {
         //Disable all actions
-        var correct = playedcards.length == cases.length &&
+        var correct = playedcards.length == MINREQPLAYEDCARDS &&
             playedcards.find(function(it) { return it.cardcode != currentCase.id }) == undefined;
 
         var weight = getCaseValue(currentCase, correct);
@@ -226,6 +258,9 @@
             playedcards: playedcards,
             case: currentCase
         }
+
+        console.log(state);
+        console.log(weight);
 
         //report to scorm
         if (app.scorm) {
@@ -253,6 +288,7 @@
         var $el = $(active);
         activeRole = '';
         var type = sessionData.user.roles.find(function(it){ return $el.hasClass(it) });
+        console.log(type);
         if (type && !$el.hasClass('dropped')) {
             $deck.filter('.'+type).addClass('can-play');
             activeRole = type;
@@ -275,21 +311,28 @@
         };
 
         socketSendMsg(msg);
-        addChatLog(msg);
+        addChatLog({ user: sessionData.user, msg: msg.data });
         $('.chat-input').empty();
     }
 
     function addChatLog(message) {
         var $mess = $('<li class="message"></li>'),
-            $text = $('<p></p>').html(message.data),
+            $text = $('<p></p>').html(message.msg),
             $avatar = $('<div class="avatar"></div>');
-        $mess.append($avatar).append($text)
-            .appendTo($('.chat-history'));
+        $mess.append($avatar).append($text);
 
-        if (message.user == undefined || message.user.id == sessionData.userid) {
+        if (message.user == undefined || message.user.id == sessionData.user.id) {
             $mess.addClass('sent');
         }
-        $mess.get(0).scrollIntoView();
+
+        if (message.prepend) {
+            $mess.prependTo($('.chat-history'));
+        }
+        else {
+            $mess.appendTo($('.chat-history'));
+            $mess.get(0).scrollIntoView();
+        }
+
     }
 
     function getCaseValue(ocase, passed) {
@@ -431,7 +474,13 @@
 
         onPlayDeckSlideChange.apply(playDeck);
 
+        //$(deckViewer.el).find('.swiper-slide').removeClass('can-play');
+
         $.each(playedcards, function(i, it) {
+            if (sessionData.user.roles.indexOf(it.cardtype) >= 0) {
+                var $card = $deckCnr.find(`.card.${it.cardtype}[data-group='${it.cardcode}']`);
+                $card.find('.card-header,.card-content').hide();
+            }
             dropCard(it);
         });
     }
@@ -449,15 +498,15 @@
 
     function btnPlayCardOnClick(event) {
         var $card = $(event.target).closest('.card');
-
+        console.log(activeRole);
         if (!$card.hasClass(activeRole)) return; //This should never happend, but just in case
 
         $card.find('.card-header,.card-content').hide();
         var group = $card.data().group;
         var card = { cardtype: activeRole, cardcode: group };
         dropCard(card);
-        playedcards.push(card);
         $(deckViewer.el).find('.swiper-slide').removeClass('can-play');
+        playedcards.push(card);
         socketSendMsg({
             action: actions.PLAYCARD,
             data: card
@@ -492,6 +541,8 @@
         var card = $fromZone.find('.card-content.view-first').data().card;
         unDropCard(card);
         $(deckViewer.el).find('.swiper-slide').addClass('can-play');
+        activeRole = card.cardtype;
+        playedcards.splice(playedcards.findIndex(function (it) { return it.cardtype == card.cardtype && it.cardcode == card.cardcode; }), 1);
         socketSendMsg({
             action: actions.UNPLAYCARD,
             data: card
@@ -513,6 +564,10 @@
     }
 
     function btnEndCaseOnClick(event) {
+        console.log(playedcards);
+        if (playedcards.length < MINREQPLAYEDCARDS) return;
+
+        if (!confirm("¿Está seguro que desean finalizar la partidad?")) return;
         socketSendMsg({ action: actions.ENDCASE });
     }
 
@@ -521,6 +576,10 @@
             setTimeout(sendChatMsg, 0);
             return false;
         }
+    }
+
+    function onChatHistScroll(e) {
+        console.log(e);
     }
 
     /**
@@ -537,6 +596,7 @@
         $levelCnr = $('.case-progress');
         $podioCnr = $('.podio-container');
         $gameCnr = $('.game-container');
+        $chatHist = $(".chat-history");
 
         //bind event handlers
         $('.btn.send').on('click', btnSendOnClick);
@@ -546,6 +606,7 @@
         $deckCnr.on('click', '.card-play', btnPlayCardOnClick);
         $deckCnr.on('click', '.card-unplay', btnUnplayCardOnClick);
         $deckCnr.on('click', '.end-case', btnEndCaseOnClick);
+        $chatHist.on('scroll', onChatHistScroll);
 
         //register for scorm
         scorm_id_prefix = $gameCnr.data().actId || 'game-angi';

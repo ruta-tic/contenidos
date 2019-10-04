@@ -10,7 +10,8 @@
 .sprite { max-width: 100%; background-size: 100%; background-image: url('../content/sprite.png'); }
 .sprite.case-active { background-position: 0 0%; background-size: 100%; }
 .sprite.case-locked { background-position: 0 29.741379%; background-size: 104.494382%; }
-.sprite.case-completed { background-position: 0 54.310345%; background-size: 105.681818%; }
+.sprite.case-passed { background-position: 0 54.310345%; background-size: 105.681818%; }
+.sprite.case-failed { background-position: 0 54.310345%; background-size: 105.681818%; filter: invert(.8); }
 .sprite.master { background-position: 0 69.714286%; background-size: 166.071429%; }
 .sprite.tech { background-position: 0 79.809524%; background-size: 216.27907%; }
 .sprite.media { background-position: 0 89.904762%; background-size: 221.428571%; }
