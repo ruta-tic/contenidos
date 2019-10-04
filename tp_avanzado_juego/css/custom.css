@@ -19,11 +19,11 @@
 .sprite.planner { background-position: 0 200%; background-size: 221.428571%; }
 
 .podio-container { max-width: 100%; background-size: 100%; background-image: url('../content/podios.png'); }
- 
-.podio-container.podio-0 { background-position: 0 0%; background-size: 100%; }
-.podio-container.podio-1 { background-position: 0 33.333333%; background-size: 100%; }
-.podio-container.podio-2 { background-position: 0 66.666667%; background-size: 100%; }
-.podio-container.podio-3 { background-position: 0 100%; background-size: 100.269542%; }
+
+.podio-container.podio_0 { background-position: 0 0%; background-size: 100%; }
+.podio-container.podio_1 { background-position: 0 33.333333%; background-size: 100%; }
+.podio-container.podio_2 { background-position: 0 66.666667%; background-size: 100%; }
+.podio-container.podio_3 { background-position: 0 100%; background-size: 100.269542%; }
 
 
 .game-container {
@@ -31,7 +31,7 @@
     width: 960px;
     height: 580px;
     display: flex;
-    background: #161B29 url(../content/bg.png); 
+    background: #161B29 url(../content/bg.png);
     position: relative;
     display: flex;
     flex-flow: row;
@@ -129,15 +129,6 @@
     background-repeat: no-repeat;
     background-position: top;*/
 }
-.podio-container.podio_1 {
-    background-image: url(../content/podio_1.png);
-}
-.podio-container.podio_2 {
-    background-image: url(../content/podio_2.png);
-}
-.podio-container.podio_3 {
-    background-image: url(../content/podio_3.png);
-}
 
 .current-case-box {
     position: absolute;
@@ -216,6 +207,8 @@
     position: relative;
     margin: 0;
     margin-right: 10px;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .chat-history .message > p:before {
@@ -238,6 +231,8 @@
     margin-left: 10px;
     margin-right: auto;
     background-color: #FDFDFD;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .chat-history .message.sent > p:before {
@@ -304,7 +299,7 @@
     left: 10px;
     border: solid 4px;
     border-color: #61C7D0 #030F17 #030F17 #61C7D0;
-    background-color: #313C51; 
+    background-color: #313C51;
 }
 
 
@@ -337,7 +332,7 @@
 .swiper-slide {
     text-align: left;
     font-size: 14px;
-    color: #BBBEC6;
+    color: #fff;
     height: auto;
     padding: 30px;
     width: 100%;
@@ -522,7 +517,7 @@
 }
 
 .card-header span {
-    flex: 1 1 0; 
+    flex: 1 1 0;
     padding: 5px;
     color: #FFFFFF;
     font-weight: bold;
@@ -542,7 +537,7 @@
     overflow-y: auto;
     text-align: left;
     background-color: #FFFFFF;
-    color: #BBBEC6;
+    color: #333;
 }
 
 .card-content .card-content {

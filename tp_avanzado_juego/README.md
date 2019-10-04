@@ -1,4 +1,4 @@
-# OVA - Rúbrica: ¿Cómo elegir el recurso educativo digital más pertinente?
+# OVA: Juego de cartas
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/

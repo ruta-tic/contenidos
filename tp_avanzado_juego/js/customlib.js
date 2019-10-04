@@ -36,7 +36,7 @@
     var deckViewer;
     var $assets;
     var $gameCnr;
-    var $deckCnr;    
+    var $deckCnr;
     var $levelCnr;
     var $podioCnr;
     var $chatHist;
@@ -175,7 +175,7 @@
             $loader.on('click', function() {
                 socketSendMsg({
                     action: actions.CHATHISTORY,
-                    data: { 
+                    data: {
                         n: CHATPAGESIZE,
                         s: lastid
                     }});
@@ -223,7 +223,7 @@
                 app.scorm.activityAttempt(key, getCaseValue(prevCase, prevCase.state == 'passed'));
             }
         }
-        
+
         loadHome();
     }
 
@@ -330,8 +330,11 @@
         }
         else {
             $mess.appendTo($('.chat-history'));
-            $mess.get(0).scrollIntoView();
-        }
+            $('.chat-history').stop().animate({
+                    scrollTop: $('.chat-history')[0].scrollHeight
+                }, 400);
+            }
+            //.get(0).scrollIntoView();
 
     }
 
@@ -380,7 +383,7 @@
                 el: '.swiper-scrollbar',
             },
             mousewheel: false,
-            observer: true, 
+            observer: true,
             observeParents: true
         }, options || {}));
     }
@@ -621,7 +624,7 @@
         socketSendMsg({ action: actions.GAMESTATE });
         loadChatHistory();
     }
-    
+
     function sortByRol(a, b) {
         var roles = ["planner", "master", "media", "network", "tech"];
         var scoreA = -1,
