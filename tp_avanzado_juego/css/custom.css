@@ -19,7 +19,6 @@
 .sprite.planner { background-position: 0 200%; background-size: 221.428571%; }
 
 .podio-container { max-width: 100%; background-size: 100%; background-image: url('../content/podios.png'); }
-
 .podio-container.podio_0 { background-position: 0 0%; background-size: 100%; }
 .podio-container.podio_1 { background-position: 0 33.333333%; background-size: 100%; }
 .podio-container.podio_2 { background-position: 0 66.666667%; background-size: 100%; }
@@ -125,24 +124,14 @@
 .podio-container {
     width: 306px;
     height: 100%;
-    /*background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top;*/
 }
 
 .current-case-box {
     position: absolute;
-    /*display: none;*/
 }
 
 .role-box {
     position: absolute;
-    /*display: none;*/
-}
-
-.clock-box {
-    position: absolute;
-    /*display: none;*/
 }
 
 .chat-container {
@@ -171,6 +160,11 @@
     background-image: linear-gradient(to right, #CFD7DB, #61C7D0);
 }
 
+.chat-header .avatar img {
+    width: 100%;
+    border-radius: 50%;s
+}
+
 .chat-history {
     flex: 1 1 0;
     margin: 0;
@@ -179,10 +173,17 @@
     overflow-y: auto;
 }
 
+.chat-history .loader {
+    font-size: 10px;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
 .chat-history .message {
     list-style: none;
     padding: 0;
-    margin: 15px 5px 0 5px;
+    margin: 10px 5px 0 5px;
     box-sizing: border-box;
     position: relative;
     display: flex;
@@ -223,7 +224,6 @@
 }
 
 .chat-history .message.sent {
-    /*align-self: flex-end;*/
     flex-flow: row;
 }
 
@@ -234,12 +234,30 @@
     font-size: 13px;
     line-height: 16px;
 }
+.chat-history .message.system > p {
+    margin: 0 auto;
+    background-color: #FEF8DF;
+    text-align: center;
+}
+
+.chat-history .message.system > p:before {
+    content: none;
+}
 
 .chat-history .message.sent > p:before {
     left: -10px;
     right: auto;
     border-bottom-color: #FDFDFD;
 }
+
+.chat-history .message label.title {
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'Verdana';
+    display: block;
+    text-align: right;
+}
+
 .chat-box {
     flex: none;
     min-height: 62px;
@@ -288,7 +306,16 @@
 }
 
 .clock-box {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
     border: solid 1px gray;
+    background-color:#222;
+    text-align:center;
+    padding: 10px;
+    --ledWidth: 4px;
+    --ledHeight: 12px;
+    --ledOn: #ccc;
 }
 
 .instructions-container {

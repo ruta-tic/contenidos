@@ -1,0 +1,93 @@
+/*  
+ * Clock Leds identification
+ *  0
+ *  --
+ *1|  |2
+ *  -- 3
+ *4|  |5
+ *  --
+ *  6
+ */
+:root {
+    --ledWidth: 10px;
+    --ledHeight: 100px;
+    --ledOn: rgba(140,225,255,1);
+    --ledOff: rgba(90,225,255,0.025);
+    --ledOnShadow: rgba(90,225,255,0.025);
+    --ledInactive: rgba(90,225,255,0.025);
+}
+body {
+    background: rgb(44,44,55);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.led {
+  display: block;
+  background-color: var(--ledOff);
+  width: var(--ledWidth);
+  height: var(--ledHeight);
+}
+
+.led_0, .led_3, .led_6 {
+    width: var(--ledHeight);
+    height: var(--ledWidth);
+}
+
+.digit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100px;
+}
+
+/*Lighting up the correct leds to make the digits.*/
+.num_0 .led_0, .num_0 .led_1, .num_0 .led_2, .num_0 .led_4, .num_0 .led_5, .num_0 .led_6,
+.num_1 .led_2, .num_1 .led_5,
+.num_2 .led_0, .num_2 .led_2, .num_2 .led_3, .num_2 .led_4, .num_2 .led_6,
+.num_3 .led_0, .num_3 .led_2, .num_3 .led_3, .num_3 .led_5, .num_3 .led_6,
+.num_4 .led_1, .num_4 .led_2, .num_4 .led_3, .num_4 .led_5,
+.num_5 .led_0, .num_5 .led_1, .num_5 .led_3, .num_5 .led_5, .num_5 .led_6,
+.num_6 .led_0, .num_6 .led_1, .num_6 .led_3, .num_6 .led_4, .num_6 .led_5, .num_6 .led_6,
+.num_7 .led_0, .num_7 .led_2, .num_7 .led_5,
+.num_8 .led,
+.num_9 .led_0, .num_9 .led_1, .num_9 .led_2, .num_9 .led_3, .num_9 .led_5, .num_9 .led_6 {
+    background-color: var(--ledOn);
+    box-shadow: var(--ledOnshadow);
+}
+
+
+/*Make 0, 1, 4, and 7 use corners when lighting up too*/
+.num_0 .led_2::after, .num_0 .led_1::after, .num_1 .led_5::after, .num_1 .led_2::after, .num_4 .led_5::after, .num_4 .led_2::after, .num_4 .led_1::after, .num_7 .led_5::after, .num_7 .led_2::after {
+    content: '';
+    border-top: var(--ledWidth) solid var(--ledOn);
+    border-bottom: var(--ledWidth) solid var(--ledOn);
+    margin-top: calc(var(--ledWidth) * -1);
+    height: 100%;
+    display: block;
+  }
+
+.inactive .led {
+    background-color: var(--ledInactive);
+    box-shadow: none;
+}
+
+.inactive .led::after { border-color: transparent; }
+
+.number {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.colon {
+    font-size: 85pt;
+    color: var(--ledOn);
+}
+
+.clock .display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  

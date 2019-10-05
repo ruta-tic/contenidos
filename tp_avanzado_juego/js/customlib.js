@@ -39,10 +39,13 @@
     var $deckCnr;
     var $levelCnr;
     var $podioCnr;
+    var $chatCnr;
     var $chatHist;
     var playedcards = [];
     var actionHandlers = {};
     var scorm_id_prefix;
+    var serverTime;
+    var canOpenCase;
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTATE] = onGameState;
@@ -53,6 +56,7 @@
     actionHandlers[actions.PLAYERDISCONNECTED] = onPlayerDisconnected;
 
     function getAuthUrl() {
+        return getAuthUrlFake();
         var manifestId = $('body').data().manifestId || ''; // 'MANIFEST-20190729000000000000000000010021';
         var courseId = parent && parent.window.scormplayerdata ? parent.window.scormplayerdata.courseid : '';
         return `https://rutatic.udea.edu.co/local/tepuy/components/socket/index.php?uid=${manifestId}&courseid=${courseId}`;
@@ -101,7 +105,7 @@
     }
 
     function openSocket() {
-        socketUrl = 'wss://' + sessionData.serverurl + "?skey="+sessionData.skey;
+        socketUrl = 'ws://' + sessionData.serverurl + "?skey="+sessionData.skey;
         socket = new WebSocket(socketUrl);
         socket.onopen = function() {
             connected = true;
@@ -129,6 +133,10 @@
         });
     }
 
+    function updateClock() {
+        serverTime += 1000;
+    }
+
     function onSocketClose(e) {
         if (e.wasClean) return;
         connected = false;
@@ -145,8 +153,6 @@
     function onSocketMessage(e) {
         try {
             var msg = JSON.parse(e.data);
-            console.log('socket message received');
-            console.log(msg);
             var method = actionHandlers[msg.action];
             method && method.apply(this, [msg]);
         }
@@ -186,6 +192,8 @@
 
     function onGameState(msg) {
         var data = msg.data;
+        serverTime = data.currenttime;
+        setInterval(updateClock, 1000);
         //Set user info
         $.each(data.team, function (i, it) { //ToDo: process the team as required
             if (it.id == sessionData.userid) {
@@ -218,7 +226,6 @@
             var prevCase = data.cases[lastCase - 1];
             var key = `${scorm_id_prefix}-${prevCase.id}`;
             var values = app.scorm.getActivityValue(key);
-            console.log(values);
             if (values && values.length < prevCase.attempt) {
                 app.scorm.activityAttempt(key, getCaseValue(prevCase, prevCase.state == 'passed'));
             }
@@ -243,11 +250,9 @@
         if ($deckCnr.is(':visible')) {
             unDropCard(msg.data);
         }
-        console.log(playedcards);
     }
 
     function onEndCase(msg) {
-        try {
         //Disable all actions
         var correct = playedcards.length == MINREQPLAYEDCARDS &&
             playedcards.find(function(it) { return it.cardcode != currentCase.id }) == undefined;
@@ -259,17 +264,10 @@
             case: currentCase
         }
 
-        console.log(state);
-        console.log(weight);
-
         //report to scorm
         if (app.scorm) {
             var scorm_id = `${scorm_id_prefix}-${currentCase.id}`;
             app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
-        }
-
-        } catch(err) {
-            console.log(err);
         }
 
         socketSendMsg({ action: actions.GAMESTATE });
@@ -288,7 +286,6 @@
         var $el = $(active);
         activeRole = '';
         var type = sessionData.user.roles.find(function(it){ return $el.hasClass(it) });
-        console.log(type);
         if (type && !$el.hasClass('dropped')) {
             $deck.filter('.'+type).addClass('can-play');
             activeRole = type;
@@ -317,25 +314,29 @@
 
     function addChatLog(message) {
         var $mess = $('<li class="message"></li>'),
-            $text = $('<p></p>').html(message.msg),
-            $avatar = $('<div class="avatar"></div>');
-        $mess.append($avatar).append($text);
+            $text = $('<p></p>').html(message.msg),            
+            me = (message.user == undefined || message.user.id == sessionData.user.id);
 
-        if (message.user == undefined || message.user.id == sessionData.user.id) {
+        if (!me) {
+            $text.prepend($('<label class="title"></label>').html(message.user.name))
+        }        
+        $mess.append($text);
+
+        if (me) {
             $mess.addClass('sent');
         }
 
+        if (message.issystem === "1") {
+            $mess.addClass('system');
+        }
+
         if (message.prepend) {
-            $mess.prependTo($('.chat-history'));
+            $mess.prependTo($chatHist);
         }
         else {
-            $mess.appendTo($('.chat-history'));
-            $('.chat-history').stop().animate({
-                    scrollTop: $('.chat-history')[0].scrollHeight
-                }, 400);
-            }
-            //.get(0).scrollIntoView();
-
+            $mess.appendTo($chatHist);
+            $chatHist.stop().animate({ scrollTop: $chatHist[0].scrollHeight }, 400);
+        }
     }
 
     function getCaseValue(ocase, passed) {
@@ -403,9 +404,34 @@
         $levelCnr.toggle(true);
         $podioCnr.toggle(true);
         $podioCnr.addClass(getPodio()); //ToDo: add the proper class
-
+        showClock();
         loadInstructionsFor('#instructions');
         $gameCnr.removeClass('loading');
+    }
+
+    function showClock() {
+        canOpenCase = false;
+        if (!currentCase) return;
+
+        var elapsedTime = serverTime;
+        if (currentCase.lastattempt > 0) {
+            elapsedTime = serverTime - currentCase.lastattempt;
+        }
+        canOpenCase = elapsedTime > 30 * 60;
+        if (!canOpenCase) {
+            var clock = new Countdown(onCountDownComplete);
+            var $clock = $('.clock-box').show();
+            clock.init($clock.get(0), new Date(elapsedTime * 1000));
+        }
+    }
+
+    function onCountDownComplete() {
+        $('.clock-box').hide();
+        canOpenCase = true;
+    }
+
+    function updateCountDown() {
+
     }
 
     function loadChatHistory() {
@@ -489,6 +515,7 @@
     }
 
     function openCase() {
+        if (!canOpenCase) return;
         $levelCnr.toggle(false);
         $podioCnr.toggle(false);
         $deckCnr.toggle(true);
@@ -501,7 +528,6 @@
 
     function btnPlayCardOnClick(event) {
         var $card = $(event.target).closest('.card');
-        console.log(activeRole);
         if (!$card.hasClass(activeRole)) return; //This should never happend, but just in case
 
         $card.find('.card-header,.card-content').hide();
@@ -567,7 +593,6 @@
     }
 
     function btnEndCaseOnClick(event) {
-        console.log(playedcards);
         if (playedcards.length < MINREQPLAYEDCARDS) return;
 
         if (!confirm("¿Está seguro que desean finalizar la partidad?")) return;
@@ -582,7 +607,6 @@
     }
 
     function onChatHistScroll(e) {
-        console.log(e);
     }
 
     /**
@@ -599,6 +623,7 @@
         $levelCnr = $('.case-progress');
         $podioCnr = $('.podio-container');
         $gameCnr = $('.game-container');
+        $chatCnr = $(".chat-container");
         $chatHist = $(".chat-history");
 
         //bind event handlers
@@ -620,6 +645,9 @@
             });
         }
 
+        if (sessionData.userpicture) {
+            $(`<img src="${sessionData.userpicture}" alt="" />`).appendTo($chatCnr.find('.chat-header .avatar'));
+        }
         //request game state
         socketSendMsg({ action: actions.GAMESTATE });
         loadChatHistory();
@@ -681,6 +709,59 @@
             console.log('failed to connect');
             console.log(err);
         })
-    })
+    });
 
+    function Clock () {
+        this.digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+  
+        this.init = function () {
+            var $digit = $('.digit');
+            // Ugly....
+            this.hour = [$($digit[0]), $($digit[1])];
+            this.min  = [$($digit[2]), $($digit[3])];    
+            this.sec  = [$($digit[4]), $($digit[5])];
+            this.drawInterval(this.drawSecond, function(time){
+              return 1000 - time[3];
+            });
+            this.drawInterval(this.drawMinute, function(time){
+              return 60000 - time[2] * 1000 - time[3];
+            });
+           this.drawInterval(this.drawHour, function(time){
+              return (60 - time[1]) * 60000 - time[2] * 1000 - time[3];
+            });
+        };
+  
+        this.getTimeArray = function() {
+            var dat = new Date();
+            return [dat.getHours(), dat.getMinutes(), dat.getSeconds(), dat.getMilliseconds()];
+        };
+    
+        this.drawInterval = function (func, timeCallback){
+            var time = this.getTimeArray();
+            func.call(this, time);
+            var that = this;
+            setTimeout(function(){
+                that.drawInterval(func, timeCallback);
+            }, timeCallback(time));
+        };
+    
+        this.drawHour = function(time){
+            this.drawDigits(this.hour, time[0]);  
+        }
+  
+        this.drawMinute = function(time){
+            this.drawDigits(this.min,  time[1]);  
+        }
+  
+        this.drawSecond = function(time){  
+            this.drawDigits(this.sec,  time[2]);
+        }
+  
+        this.drawDigits = function(digits, digit){
+            var ten = Math.floor(digit / 10);
+            var one = Math.floor(digit % 10);
+            digits[0].attr('class', 'digit '+this.digits[ten]);
+            digits[1].attr('class', 'digit '+this.digits[one]);
+        };
+    }
 })(dhbgApp);
