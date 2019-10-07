@@ -88,6 +88,10 @@
                             <div class="chat-container-wrapper">
                                 <div class="chat-header">
                                     <div class="avatar"></div>
+                                    <div class="roles">
+                                        <strong>Roles en partida actual:</strong>
+                                        <div></div>
+                                    </div>
                                 </div>
                                 <ul class="chat-history">
                                 </ul>
@@ -97,10 +101,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="clock-box">
+                            <label>Podrá realizar un nuevo intento en:</lavel>
+                            <br />
+                            <div class="clock"></div>
+                        </div>
                         <div class="gamezone-container">
                             <div class="instructions-container"></div>
                             <div class="role-box"></div>
-                            <div class="clock-box"></div>
                             <div class="deck-container">
                                 <div id="play-deck" class="swiper-container">
                                     <div class="swiper-wrapper">
@@ -116,6 +124,7 @@
                                     <div class="swiper-button-next"></div>
                                     <div class="swiper-button-prev"></div>
                                 </div>
+                                <div id="gotohome" class="button"><i title="Regresar al mapa" class="ion-location"></i></div>
                             </div>
                             <div class="case-progress">
                                 <div class="case case-01 sprite case-locked">
@@ -143,93 +152,54 @@
                         <div class="podio-container"></div>
 
                         <div id="full-instructions" class="wf-content" title="Instrucciones">
-                            <div class="instructions-wrapper">
-                                <div class="instruction-step">
-                                    <h2>Objetivo del juego</h2>
-                                    <p>
-                                        Resolver, en equipo, casos que se le presentan a profesores y estudiantes universitarios al momento de integrar las TIC en sus procesos de enseñanza y aprendizaje. La resolución de estos casos contribuye con llevar a un grupo de estudiantes, quienes deben ascender a través de tres (3) escalones, a la meta de su proceso de aprendizaje.
-                                    </p>
-                                </div>
-                                <div class="instruction-step">
-                                    <h2>Inicio</h2>
-                                    <p>
-                                        John, Natalia, Santiago y Nairobi son solo algunos de los cientos y miles de profesores universitarios alrededor del mundo que están interesados en la aplicación de la tecnología en el ámbito educativo. Sin embargo, al momento de diseñar e implementar sus estrategias, tienen dudas acerca de cuáles son las opciones más acertadas para resolver sus necesidades. Ayúdelos a resolverlas y vea cómo sus estudiantes van avanzando en el proceso de aprendizaje.
-                                    </p>
-                                    <p>
-                                        Conforme un equipo y asuma el reto de convertirse en un dream team asesor de integración de tecnología en el proceso de enseñanza y aprendizaje. Ya está preparado para aplicar elementos pedagógicos, didácticos, comunicacionales y tecnológicos básicos para el diseño de estrategias en la modalidad virtual, así que suma puntos en este juego, y ponga a prueba sus habilidades para la selección de tecnologías para la comunicación, recursos educativos digitales y diseño de actividades y evaluaciones que apunten al cumplimiento de un resultado de aprendizaje específico.
-                                    </p>
-                                </div>
-                                <div class="instruction-step">
-                                    <h2>¿Cómo funciona?</h2>
-                                    <p>
-                                        Existe un equipo de profesores que, cuando se reúnen y trabajan colaborativamente, tienen el don de asesorar a otros en la integración de TIC a los procesos de enseñanza y aprendizaje. Cada uno tiene conocimientos y experiencias que pone a disposición de otros para que aprendan. No obstante, cuando se reúnen, a cada uno le corresponde un kit que les permite resolver las misiones relacionadas con el uso de las TIC.
-                                    </p>
-                                    <p>
-                                        En consecuencia, cada integrante del equipo tiene un rol diferente al momento de solucionar una situación:
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            <strong>Media</strong>: conoce las herramientas de comunicación e interacción, tanto sincrónicas como asincrónicas que puede utilizar para los procesos de formación según la intencionalidad.
-                                        </li>
-                                        <li>
-                                            <strong>Red</strong>: su experiencia en la enseñanza con el apoyo de recursos educativos digitales le ha permitido asesorar a otros para que hagan uso de estos en el proceso de enseñanza. Tiene a su disposición una serie de recursos en diferentes lenguajes y formatos que puede usar para cualquier área del saber.
-                                        </li>
-                                        <li>
-                                            <strong>Tech</strong>: es un gomoso por la tecnología y se mantiene al tanto de las herramientas tecnológicas que le son útiles a cualquier profesor para la enseñanza. De esta manera, es reconocido por los consejos que da acerca de cuál herramienta tecnológica usar para determinada actividad según los resultados que se deseen.
-                                        </li>
-                                        <li>
-                                            <strong>Máster</strong>: en cada caso que deben resolver como equipo, es el primero en saber las condiciones o requisitos que se deben tener presentes para su solución. Es quien inicia la solución, pues tiene como responsabilidad dar a conocer a sus compañeros estas condiciones para que cada uno, desde su experticia, aporte a la solución del caso.
-                                        </li>
-                                        <li>
-                                            <strong>Planner</strong>: es quien está atento a que cada uno de los integrantes del equipo brinden su asesoría en la solución del caso para cumplir con los tiempos establecidos. Es el encargado de llamar al orden y gestionar las herramientas de comunicación e interacción necesarias para, que como equipo, se reúnan y se pongan de acuerdo sobre la mejor forma de resolver el caso.
-                                        </li>
+                            <div class="instructions-wrapper accordion">
+                                <h3>Elementos del juego</h3>
+                                <ul class="data_list">
+                                    <li><strong>Anfitrión</strong> (sistema): responsable de hacer cumplir las reglas y asignar las cartas. Se hace automáticamente al inicio de cada caso.</li>
+                                    <li><strong>Kit de cartas</strong>: 5 cartas de dones para cada uno de los jugadores que asuma el rol <em>Tech</em>, <em>Red</em> o <em>Media</em>.</li>
+                                    <li><strong>Carta de reglas</strong>: una única carta disponible por cada caso y solamente la tendrá el <em>Master</em>.</li>
+                                    <li><strong>Botón de validación</strong>: permite terminar una partida. Solamente lo tiene disponible el <em>Planner</em> y estará habilitado únicamente cuando las cinco cartas estén en su lugar.</li>
+                                    <li><strong>Chat</strong>: espacio disponible durante la partida para que los jugadores discutan y tomen decisiones sobre el caso. Además, muestra información sobre las acciones de los jugadores, tales como: ingresar al juego, jugar una carta, finalizar una partida,
+                                        entre otros.</li>
+                                    <li><strong>Ágora</strong> (medio elegido por los participantes para comunicarse): espacio en donde se realizan los “Consejos de profesores”. Si no se desea utilizar una herramienta externa, se cuenta con el chat en el juego.</li>
+                                </ul>
+
+                                <h3>Reglas de la misión</h3>
+                                <ul class="data_list">
+                                    <li>El juego está conformado por cinco partidas. Una partida se entiende como la resolución de un caso por medio de la asesoría en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
+                                    <li>El número máximo de partidas a jugar son cinco y durante cada una habrá dos oportunidades para plantear una respuesta acertada.</li>
+                                    <li>Al fallar en una oportunidad, la partida se bloquea durante media hora. Los participantes deberán asistir al <strong>Ágora</strong> para reflexionar acerca de cómo mejorar el proceso de asesoría.</li>
+                                    <li>Los 100 TIC puntos se obtienen en la primera oportunidad cuando la estrategia didáctica planteada por el equipo es adecuada para cumplir con el objetivo de aprendizaje planteado en el caso. Si sucede en la segunda oportunidad, entonces la puntuación
+                                        será de 60 TIC puntos.</li>
+                                    <li>El equipo que obtenga 300 TIC puntos completa la misión y gana el juego. Sin embargo, si todavía le quedan partidas disponibles, pueden seguir poniendo a prueba sus habilidades como asesores.</li>
+                                    <li>Con cada 100 TIC puntos el grupo de estudiantes asciende uno de los tres niveles del juego.</li>
+                                </ul>
+
+                                <h3>Mecánica: ¿Cómo se desenvuelve el juego?</h3>
+                                <ul class="data_list">
+                                    <li>Al ingresar al juego, el <strong>Anfitrión</strong> recibe a los participantes y podrán leer y descargar las instrucciones del juego. El caso activo se ve como un indicador de ubicación amarillo. Al ingresar al caso el <strong>Anfitrión</strong> le asigna, aleatoriamente, uno de los roles posibles (<em>Máster</em>, <em>Tech</em>, <em>Media</em>, <em>Red</em> o <em>Planner</em>) a cada jugador.
+
+                                        <div class="box-text note" label="Nota">
+                                            <p>
+                                                Si son menos de 5 participantes, el <strong>Anfitrión</strong> asignará más de un rol por jugador.
+                                            </p>
+                                        </div>
+
+                                    </li>
+                                    <li>Según el rol asignado, cada participante recibe las tarjetas con los dones. El rol o roles asignados los podrá ver al lado de su avatar en la parte superior del chat.</li>
+                                    <li>Una vez todos los participantes del equipo tienen su rol y kit de cartas asignado, se convierten en un equipo asesor en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
+                                    <li>El rol <em>Máster</em> solo recibe una tarjeta en cada una de las partidas. Este es el iniciador de la partida, pues es quien conoce de primera mano las condiciones que deben cumplirse para solucionar el caso correctamente.</li>
+                                    <li>El rol <em>Planner</em> es el encargado de motivar a su equipo para que resuelvan el caso propuesto en cada partida. Dentro de sus funciones se encuentran:</li>
+                                    <ul class="data_list">
+                                        <li>Estar atento al cumplimiento de los tiempos establecidos para la partida.</li>
+                                        <li>Recordar al <em>Máster</em> que inicie el juego.</li>
+                                        <li>De ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso.</li>
+                                        <li>Finalizar la partida cuando todas las cartas hayan sido jugadas y considere completado el caso.</li>
                                     </ul>
-                                    <p>
-                                        Para esta misión, el equipo debe ayudar a un grupo de estudiantes a alcanzar la meta de su proceso de aprendizaje a través del ascenso de tres (3) niveles. Para ello, requieren 300 TIC puntos. Para llevarla a cabo, deben resolver una serie de casos y, por lo tanto, tienen dos oportunidades. Si en la primera oportunidad  lo solucionan correctamente, obtendrán 100 TIC puntos, si lo hacen a la segunda oportunidad, obtienen 60 TIC puntos.
-                                    </p>
-                                </div>
-                                <div class="instruction-step">
-                                    <h2>Elementos del juego</h2>
-                                    <ul>
-                                        <li>5 participantes</li>
-                                        <li>1 Anfitrión: responsable de hacer cumplir las reglas y asignar las cartas.</li>
-                                        <li>1 Ágora: espacio en donde se realizan los “Consejos de profesores”.</li>
-                                        <li>1 Kit: 5 cartas de dones para cada uno de los 5 participantes (20 cartas en total).</li>
-                                    </ul>
-                                </div>
-                                <div class="instruction-step">
-                                    <h2>Reglas de la misión</h2>
-                                    <ul>
-                                        <li>El juego está conformado por cinco partidas: una partida se entiende como la resolución de un caso por medio de la asesoría en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
-                                        <li>Se tienen cinco partidas disponibles: al fallar en una oportunidad, la partida se bloquea durante media hora. Los participantes deberán asistir al Ágora para reflexionar acerca de cómo mejorar el proceso de asesoría.</li>
-                                        <li>Los casos están siempre disponibles para el equipo, a no ser que estén bloqueados por tiempo o intentos fallidos.</li>
-                                        <li>El número máximo de partidas a jugar son cinco y durante cada una habrá dos oportunidades para plantear una respuesta acertada.</li>
-                                        <li>Los 100 TIC puntos se obtienen cuando la estrategia didáctica planteada por el equipo es adecuada para cumplir con el objetivo de aprendizaje planteado en el caso. Si sucede en la segunda oportunidad, entonces la puntuación será de 60 TIC puntos.</li>
-                                        <li>En cada partida se pueden obtener 100 TIC puntos y con cada 100 TIC puntos, el grupo de estudiantes que fueron asignados en la misión asciende un escalón.  Por lo tanto, el equipo debe alcanzar un mínimo de 300 (de los 500) TIC puntos posibles para llevar al grupo de estudiantes al logro de sus objetivos.</li>
-                                        <li>El equipo que obtenga 300 TIC puntos completa la misión y gana el juego. Sin embargo, si todavía le quedan partidas disponibles, pueden seguir poniendo a prueba sus habilidades como asesores.</li>
-                                    </ul>
-                                </div>
-                                <div class="instruction-step">
-                                    <h2>Mecánica: ¿Cómo se desenvuelve el juego?</h2>
-                                    <ul>
-                                        <li>Al ingresar al juego el Anfitrión recibe a los participantes. Cada participante oprime el botón “Recibir rol” y el Anfitrión le asigna, aleatoriamente, uno de los roles posibles (Máster, Tech, Media, Red o Planner).</li>
-                                        <li>Junto al rol, cada participante recibe 5 tarjetas con los dones, los cuales hacen referencia a aquellas herramientas y recursos propios de cada rol.</li>
-                                        <li>Los integrantes podrán asignar un nombre para el equipo asesor.</li>
-                                        <li>Una vez todos los participantes del equipo tienen su rol y kit asignado, se convierten en un equipo asesor en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
-                                        <li>El rol Máster solo recibe una tarjeta en cada una de las partidas. Este es el iniciador de la partida, pues es quien conoce de primera mano las condiciones que deben cumplirse para solucionar el caso correctamente.</li>
-                                        <li>El rol Planner es el encargado de motivar a su equipo para que resuelvan el caso propuesto en cada partida. Dentro de sus funciones se encuentran:
-                                            <ul>
-                                                <li>Estar atento en el cumplimiento de los tiempos establecidos para la partida.</li>
-                                                <li>Recordar al Máster que inicie el juego.</li>
-                                                <li>De ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso.</li>
-                                            </ul>
-                                        </li>
-                                        <li>El Anfitrión presenta un caso que debe ser resuelto por el equipo asesor por medio del uso de sus dones y de acuerdo con su rol específico.</li>
-                                        <li>Al hacer clic en “Comenzar”, los estudiantes aparecen al inicio del proceso. Con cada partida ganada, estos avanzan en el proceso de enseñanza y aprendizaje.</li>
-                                        <li>Cada participante selecciona, entre sus tarjetas, el don más adecuado para la solución del caso. Cuando todos los participantes hayan puesto su don, se activará el botón “Enviar”.</li>
-                                        <li>Una vez activado el botón, cualquiera de los roles podrá enviar la solución propuesta al Anfitrión.</li>
-                                    </ul>
-                                </div>
+                                    <li>Al entrar al juego se ve una caja azul en la parte inferior derecha. Cada que se avanza en un nivel verá en ese lugar a los estudiantes avanzando en su tarea.</li>
+                                    <li>Una vez terminada la partida, se mostrará un mensaje de acuerdo a la solución planteada y será redireccionado a la página principal del juego en donde el botón de ingreso al caso se pondrá de color verde si fue acertada la solución, en caso contrario
+                                        se pondrá de color rojo.</li>
+                                </ul>
                             </div>
                             <!-- Add Pagination -->
                             <!--div class="swiper-pagination"></div-->
@@ -249,7 +219,7 @@
                                 En equipo, deben ayudar a los profesores a resolver los casos, hay que conseguir 300 TIC puntos para ganar el juego. ¡Adelante!
                             </p>
                             <p>
-                                <a class="wf-content-controler general" data-content="#full-instructions">Ver instrucciones completas</a>
+                                <button class="wf-content-controler general button" data-content="#full-instructions">Ver instrucciones completas</button>
                             </p>
                         </div>
 
@@ -748,14 +718,14 @@
                         <!--Planner-->
 
                         <div class="card planner swiper-slide">
-                            <div class="card-header"><span>¡Recuerda!</span><i class="sprite planner"></i></div>
+                            <div class="card-header"><span>Eres el <strong>Planner</strong>, recuerda...</span><i class="sprite planner"></i></div>
                             <div class="card-content">
-                                <p>- Estar atento a cumplir los tiempos establecidos para la partida</p>
-                                <p>- Recordar al Máster que inicie el juego</p>
-                                <p>- Finalizar y validar la partida cuando todas las cartas hayan sido jugadas y consideren completado el caso</p>
-                                <p>- De ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso</p>
-                                <p>- Promover el trabajo colaborativo entre los miembros del equipo</p>
-                                <p>- Brindar apoyo a los participantes del equipo</p>
+                                <p>- Estar atento a cumplir los tiempos establecidos para la partida.</p>
+                                <p>- Recordar al <strong>Máster</strong> que inicie el juego.</p>
+                                <p>- <strong>Finalizar la partida</strong> cuando todas las cartas hayan sido jugadas y consideren completado el caso.</p>
+                                <p>- De ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso.</p>
+                                <p>- Promover el trabajo colaborativo entre los miembros del equipo.</p>
+                                <p>- Brindar apoyo a los participantes del equipo.</p>
                             </div>
                             <button class="end-case">Finalizar y validar partida &nbsp;<i class="ion-power"></i></button>
                         </div>

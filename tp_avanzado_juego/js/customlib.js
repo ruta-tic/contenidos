@@ -5,11 +5,12 @@
  */
 (function(app) {
     //var conn = new WebSocket('ws://rutatic.udea.edu.co:8080');
-    var AUTH_URL = 'http://{URL_MOODLE}/local/tepuy/components/socket/index.php?uid={MANIFEST_ID}&courseid={COURSE_ID}';
+    var AUTH_URL = 'https://{URL_MOODLE}/local/tepuy/components/socket/index.php?uid={MANIFEST_ID}&courseid={COURSE_ID}';
     var CHATPAGESIZE = 10;
     var MINREQPLAYEDCARDS = 4;
     var ERROR = 'error';
     var INFO = 'info';
+    var MODEDEBUG = true;
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
@@ -56,7 +57,11 @@
     actionHandlers[actions.PLAYERDISCONNECTED] = onPlayerDisconnected;
 
     function getAuthUrl() {
-        return getAuthUrlFake();
+
+        if (MODEDEBUG) {
+            return getAuthUrlFake();
+        }
+
         var manifestId = $('body').data().manifestId || ''; // 'MANIFEST-20190729000000000000000000010021';
         var courseId = parent && parent.window.scormplayerdata ? parent.window.scormplayerdata.courseid : '';
         return `https://rutatic.udea.edu.co/local/tepuy/components/socket/index.php?uid=${manifestId}&courseid=${courseId}`;
@@ -105,7 +110,14 @@
     }
 
     function openSocket() {
-        socketUrl = 'ws://' + sessionData.serverurl + "?skey="+sessionData.skey;
+        var socketUrl;
+        if (MODEDEBUG) {
+            socketUrl = 'ws://' + sessionData.serverurl + "?skey="+sessionData.skey;
+        }
+        else {
+            socketUrl = 'wss://' + sessionData.serverurl + "?skey="+sessionData.skey;
+        }
+
         socket = new WebSocket(socketUrl);
         socket.onopen = function() {
             connected = true;
@@ -217,6 +229,19 @@
         //Prepare played cards
         playedcards = data.playedcards || [];
         currentTeam = data.team;
+
+        var meRoles = [];
+        $.each(currentTeam, function(k, item) {
+
+            if (item.id == sessionData.userid) {
+                $.each(item.roles, function (m, role) {
+                    meRoles[meRoles.length] = roleName(role);
+                });
+            }
+        });
+
+        $('.chat-header .roles div').html(meRoles.join(', '));
+
         if (currentCase && !data.team.find(isMaster)) { //No master
             playedcards.push({ cardtype: 'master', cardcode: currentCase.id });
         }
@@ -264,7 +289,7 @@
             case: currentCase
         }
 
-        //report to scorm
+        // Report to scorm.
         if (app.scorm) {
             var scorm_id = `${scorm_id_prefix}-${currentCase.id}`;
             app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
@@ -314,20 +339,29 @@
 
     function addChatLog(message) {
         var $mess = $('<li class="message"></li>'),
-            $text = $('<p></p>').html(message.msg),            
+            $text = $('<p></p>'),
             me = (message.user == undefined || message.user.id == sessionData.user.id);
 
+        var txt = message.msg;
+        var date = new Date(message.timestamp * 1000).toLocaleString();
+
+        var usertxt = !me ? message.user.name : '';
+
+        if (message.issystem === "1" || message.issystem === 1) {
+            $mess.addClass('system');
+
+            usertxt = '<span>(' + date + ')</span> ' + usertxt;
+        }
+
+        $text.html(txt);
+
         if (!me) {
-            $text.prepend($('<label class="title"></label>').html(message.user.name))
-        }        
+            $text.prepend($('<label class="title"></label>').html(usertxt))
+        }
         $mess.append($text);
 
         if (me) {
             $mess.addClass('sent');
-        }
-
-        if (message.issystem === "1") {
-            $mess.addClass('system');
         }
 
         if (message.prepend) {
@@ -413,15 +447,17 @@
         canOpenCase = false;
         if (!currentCase) return;
 
-        var elapsedTime = serverTime;
+        var elapsedTime = 0;
         if (currentCase.lastattempt > 0) {
-            elapsedTime = serverTime - currentCase.lastattempt;
+            elapsedTime = 30 * 60 - (serverTime - currentCase.lastattempt);
         }
-        canOpenCase = elapsedTime > 30 * 60;
+
+        canOpenCase = elapsedTime <= 0;
+
         if (!canOpenCase) {
             var clock = new Countdown(onCountDownComplete);
             var $clock = $('.clock-box').show();
-            clock.init($clock.get(0), new Date(elapsedTime * 1000));
+            clock.init($clock.find('.clock').get(0), new Date(elapsedTime * 1000));
         }
     }
 
@@ -578,6 +614,10 @@
         });
     }
 
+    function btnGoToHomeOnClick(event) {
+        loadHome();
+    }
+
     function unDropCard(card) {
         var $fromZone = $deckCnr.find('.dropzone.'+card.cardtype);
 
@@ -593,7 +633,10 @@
     }
 
     function btnEndCaseOnClick(event) {
-        if (playedcards.length < MINREQPLAYEDCARDS) return;
+        if (playedcards.length < MINREQPLAYEDCARDS) {
+            alert('No se han jugado todavía todas las cartas.')
+            return;
+        }
 
         if (!confirm("¿Está seguro que desean finalizar la partidad?")) return;
         socketSendMsg({ action: actions.ENDCASE });
@@ -634,6 +677,7 @@
         $deckCnr.on('click', '.card-play', btnPlayCardOnClick);
         $deckCnr.on('click', '.card-unplay', btnUnplayCardOnClick);
         $deckCnr.on('click', '.end-case', btnEndCaseOnClick);
+        $('#gotohome').on('click', btnGoToHomeOnClick);
         $chatHist.on('scroll', onChatHistScroll);
 
         //register for scorm
@@ -666,6 +710,17 @@
         }
 
         return scoreA - scoreB;
+    }
+
+    function roleName(key) {
+        var roles = [];
+            roles["planner"] = 'Planner';
+            roles["master"] = 'Master';
+            roles["media"] = 'Media';
+            roles["network"] = 'Red';
+            roles["tech"] = 'Tech';
+
+            return roles[key];
     }
 
     function showMsg(type, msg) {
@@ -705,7 +760,7 @@
             console.log('connected');
             initialize(socket);
         }, function(err) {
-            showMsg(ERROR, "Hubo un error en la conexión. Por favor intente nuevamente");
+            showMsg(ERROR, "Hubo un error en la conexión. Por favor salga y vuelva a abrir el juego.");
             console.log('failed to connect');
             console.log(err);
         })
@@ -713,12 +768,12 @@
 
     function Clock () {
         this.digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-  
+
         this.init = function () {
             var $digit = $('.digit');
             // Ugly....
             this.hour = [$($digit[0]), $($digit[1])];
-            this.min  = [$($digit[2]), $($digit[3])];    
+            this.min  = [$($digit[2]), $($digit[3])];
             this.sec  = [$($digit[4]), $($digit[5])];
             this.drawInterval(this.drawSecond, function(time){
               return 1000 - time[3];
@@ -730,12 +785,12 @@
               return (60 - time[1]) * 60000 - time[2] * 1000 - time[3];
             });
         };
-  
+
         this.getTimeArray = function() {
             var dat = new Date();
             return [dat.getHours(), dat.getMinutes(), dat.getSeconds(), dat.getMilliseconds()];
         };
-    
+
         this.drawInterval = function (func, timeCallback){
             var time = this.getTimeArray();
             func.call(this, time);
@@ -744,19 +799,19 @@
                 that.drawInterval(func, timeCallback);
             }, timeCallback(time));
         };
-    
+
         this.drawHour = function(time){
-            this.drawDigits(this.hour, time[0]);  
+            this.drawDigits(this.hour, time[0]);
         }
-  
+
         this.drawMinute = function(time){
-            this.drawDigits(this.min,  time[1]);  
+            this.drawDigits(this.min,  time[1]);
         }
-  
-        this.drawSecond = function(time){  
+
+        this.drawSecond = function(time){
             this.drawDigits(this.sec,  time[2]);
         }
-  
+
         this.drawDigits = function(digits, digit){
             var ten = Math.floor(digit / 10);
             var one = Math.floor(digit % 10);
@@ -765,3 +820,4 @@
         };
     }
 })(dhbgApp);
+
