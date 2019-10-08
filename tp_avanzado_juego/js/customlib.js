@@ -1,7 +1,7 @@
 /**
  * Custom library to add custom functionality to activities in this learning object.
  *
- * @author: Jesus Otero
+ * @author: Jesus Otero, David Herney
  */
 (function(app) {
     //var conn = new WebSocket('ws://rutatic.udea.edu.co:8080');
@@ -10,7 +10,7 @@
     var MINREQPLAYEDCARDS = 4;
     var ERROR = 'error';
     var INFO = 'info';
-    var MODEDEBUG = true;
+    var MODEDEBUG = false;
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
@@ -46,7 +46,9 @@
     var actionHandlers = {};
     var scorm_id_prefix;
     var serverTime;
+    var currentServerPoints = null;
     var canOpenCase;
+    var gameState = 'active';
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTATE] = onGameState;
@@ -205,6 +207,8 @@
     function onGameState(msg) {
         var data = msg.data;
         serverTime = data.currenttime;
+        currentServerPoints = data.points;
+
         setInterval(updateClock, 1000);
         //Set user info
         $.each(data.team, function (i, it) { //ToDo: process the team as required
@@ -214,11 +218,12 @@
         });
 
         //Load cases
-        currentCase = undefined
+        currentCase = undefined;
         $.each(data.cases, function(i, it) {
             $levelCnr.find('.case-0'+(i+1))
                 .removeClass(function (idx, className) { return (className.match (/(^|\s)case-(active|locked|failed|passed)+/g) || []).join(' ');})
-                .addClass('case-'+it.state);
+                .addClass('case-'+it.state)
+                .on('click', { "id": it.id, "state": it.state, "attempt": it.attempt }, onCaseFeedback);
 
             if (it.state == 'active') {
                 currentCase = it;
@@ -256,6 +261,10 @@
             }
         }
 
+        if (currentCase == undefined || getTotalPoints() >= 300) {
+            gameState = 'ended';
+        }
+
         loadHome();
     }
 
@@ -287,6 +296,18 @@
             team: $.map(currentTeam, function(it) { return { id: it.id, name: it.name, roles: it.roles }; }),
             playedcards: playedcards,
             case: currentCase
+        };
+
+        if (weight > 0) {
+            $('[data-case="' + currentCase.id + '"][data-state="passed"]').dialog('open');
+        }
+        else {
+            if (currentCase.attempt == 1) {
+                $('#feedback-attempt1-failed').dialog('open');
+            }
+            else {
+                $('[data-case="' + currentCase.id + '"][data-state="failed"]').dialog('open');
+            }
         }
 
         // Report to scorm.
@@ -382,7 +403,10 @@
 
     function getPodio() {
         var progress = 0;
-        if (app.scorm) {
+        if (currentServerPoints || currentServerPoints == 0) {
+            progress = currentServerPoints / 3;
+        }
+        else if (app.scorm && app.scorm.lms) {
             progress = app.scorm.getProgress();
         }
         else {
@@ -439,7 +463,20 @@
         $podioCnr.toggle(true);
         $podioCnr.addClass(getPodio()); //ToDo: add the proper class
         showClock();
-        loadInstructionsFor('#instructions');
+
+        points = getTotalPoints();
+
+        if (gameState == 'ended') {
+            if (points >= 300) {
+                loadInstructionsFor('#feedback-game-passed');
+            } else {
+                loadInstructionsFor('#feedback-game-failed');
+            }
+        } else {
+            loadInstructionsFor('#instructions');
+        }
+
+        $('#ticpoints span').html(points);
         $gameCnr.removeClass('loading');
     }
 
@@ -742,6 +779,28 @@
 
     function hideAll() {
         $(".deck-container, .podio-container, .case-progress, .role-box, .clock-box").hide();
+    }
+
+    function getTotalPoints() {
+        var progress = 0;
+
+        if (currentServerPoints || currentServerPoints === 0) {
+            progress = currentServerPoints;
+        }
+        else if (app.scorm && app.scorm.lms) {
+            progress = app.scorm.getProgress() * 3;
+        }
+        else {
+            progress = Math.min(300, currentCase.ordinal * 100);
+        }
+
+        return progress;
+    }
+
+    function onCaseFeedback(event) {
+        if (event.data.state == 'passed' || event.data.state == 'failed') {
+            $('[data-case="' + event.data.id + '"][data-state="' + event.data.state + '"]').dialog('open');
+        }
     }
 
     /**

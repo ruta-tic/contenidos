@@ -305,6 +305,10 @@ dhbgApp.standard.start = function() {
             properties.dialogClass = $this.attr('data-cssclass');
         }
 
+        if ($this.attr('data-title')) {
+            properties.title = $this.attr('data-title');
+        }
+
         $this.dialog(properties);
     });
 
