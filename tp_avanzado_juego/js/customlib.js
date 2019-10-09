@@ -675,7 +675,7 @@
             return;
         }
 
-        if (!confirm("¿Está seguro que desean finalizar la partidad?")) return;
+        if (!confirm("¿Está seguro que desean finalizar la partida?")) return;
         socketSendMsg({ action: actions.ENDCASE });
     }
 
@@ -752,7 +752,7 @@
     function roleName(key) {
         var roles = [];
             roles["planner"] = 'Planner';
-            roles["master"] = 'Master';
+            roles["master"] = 'Máster';
             roles["media"] = 'Media';
             roles["network"] = 'Red';
             roles["tech"] = 'Tech';
