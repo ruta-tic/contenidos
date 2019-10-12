@@ -2623,7 +2623,7 @@ dhbgApp.mobile.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();

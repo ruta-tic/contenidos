@@ -1,4 +1,4 @@
-# OVA - Guía para integrar tecnología en los procesos de enseñanza y aprendizaje: Modelo SAMR
+# OVA - Conceptos clave de la iniciativa CDIO
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
