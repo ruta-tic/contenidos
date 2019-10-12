@@ -1,0 +1,60 @@
+.sigla {
+    display: flex;
+    justify-content: center;
+}
+
+.letra {
+    font-size: 100px;
+}
+
+/********************************************************************************/
+/* Actividad crucigrama
+/********************************************************************************/
+
+.jpit-activities-crossword .word_content {
+    width: 100%;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.jpit-activities-crossword td {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.jpit_activity_crossword_cell input {
+    width: 23px;
+    height: 21px;
+    box-shadow: 4px 5px 6px #888;
+}
+
+.jpit_activity_crossword_cell {
+    width: 26px;
+    height: 24px;
+}
+
+.jpit_activity_crossword_label {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    border-radius: 50%;
+}
+
+.jpit_activity_crossword_board {
+    margin-bottom: 20px;
+}
+
+.box_words li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.jpit_activity_crossword_board {
+    min-width: 340px;
+}
