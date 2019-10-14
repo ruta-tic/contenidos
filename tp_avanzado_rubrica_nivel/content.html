@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Rúbrica: Evaluación diagnóstica nivel Profundización</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Evaluación diagnóstica nivel Profundización" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-rubrica_profundizacion" ptitle="Evaluación diagnóstica nivel Profundización">
+                <div class="subpage">
+                    <div class="box-text activity" label="Evaluación diagnóstica nivel Profundización">
+                        <p>A continuación, encontrará una serie de enunciados que sirven de punto de partida para el desarrollo del nivel de <em>Profundización</em> de este componente. Por favor conteste de manera sincera de acuerdo con el conocimiento actual que tiene sobre los asuntos que se presentan:</p>
+                        <p>Categorías:</p>
+                        <ol>
+                            <li>No lo sé</li>
+                            <li>Lo sé un poco</li>
+                            <li>Lo sé bien</li>
+                            <li>Lo sé bastante bien</li>
+                            <li>Lo puedo explicar a un amigo/a o compañero/a</li>
+                        </ol>
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single">
+                            <table>
+                                <colgroup>
+                                    <col width="50%"/>
+                                    <col width="10%"/>
+                                    <col width="10%"/>
+                                    <col width="10%"/>
+                                    <col width="10%"/>
+                                    <col width="10%"/>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Sé diseñar una estrategia didáctica para enseñar un tema específico de mi área.</th>
+                                        <td class="button" data-group="1" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="3"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="4"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="5" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Identifico el nivel de complejidad que deberían tener los contenidos que enseño a través de una estrategia didáctica.</th>
+                                        <td class="button" data-group="2" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="3"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="4"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="5" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conozco acerca de cómo puedo integrar los conocimientos pedagógicos y del saber específico en una estrategia didáctica.</th>
+                                        <td class="button" data-group="3" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="3"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="4"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="5" data-correct="true"><div class="radio"></div></td>
+
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Estoy dispuesto/a a trabajar en equipo con otros colegas para la construcción de una estrategia didáctica.</th>
+                                        <td class="button" data-group="4" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="3"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="4"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="5" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <h5>¡Felicitaciones!</h5>
+                                    <p>Ha terminado la evaluación diagnóstica del nivel de Profundización de este componente. Ahora puede iniciar con su estudio.</p>
+                                </correct>
+                                <wrong>
+                                    <h5>¡Felicitaciones!</h5>
+                                    <p>Ha terminado la evaluación diagnóstica del nivel de Profundización de este componente. Ahora puede iniciar con su estudio.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
