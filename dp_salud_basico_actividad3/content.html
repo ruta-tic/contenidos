@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. La didáctica en el área de la salud</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. La didáctica en el área de la salud</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Pedagogía y didáctica" data-page="pag-pedagogia"></menuitem>
+                    <menuitem label="Pedagogía en el área de la salud" data-page="pag-salud"></menuitem>
+                    <menuitem label="Estrategias didácticas" data-page="pag-actividad"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">OVA. La didáctica en el área de la salud</h2>
+
+            <section id="pag-pedagogia" ptitle="Algunos aspectos sobre pedagogía y didáctica">
+
+                <div class="subpage">
+                    <p>
+                        ¿Ha recibido alguna formación para ser docente? ¿Reconoce los diferentes modelos pedagógicos? ¿Identifica los elementos que usa la transposición didáctica? ¿Qué estrategias didácticas utiliza en sus clases?
+                    </p>
+                    <p>
+                        Históricamente, se reconocen dos grandes tendencias pedagógicas, como se observa en la siguiente figura:
+                    </p>
+                    <div class="box_media">
+                        <img src="content/01.png" alt="Enfoques pedagógicos" />
+                        <div class="about">
+                            <strong>Adaptado de:</strong> Flórez Ochoa, R. Evaluación, pedagogía y cognición. Editorial McGraw Hill: Bogotá. 1999.
+                        </div>
+                    </div>
+                    <p>
+                        La didáctica es una rama de la pedagogía y es la disciplina que estudia el proceso docente educativo. Solo se dedica al proceso sistémico, organizado y eficiente que realizan los docentes sobre sus fundamentos teóricos.
+                    </p>
+
+                    <div class="box_media">
+                        <img src="content/02.png" alt="Didáctica" />
+                    </div>
+
+                    <p>
+                        Con el fin de generar una familiarización con estos conceptos, se le invita a resolver tres ejercicios que no pretenden evaluarlo, sino ayudarlo/a a reconocer qué claridad tiene sobre:
+                    </p>
+                    <ol class="ol_counter">
+                        <li>Modelos pedagógicos más conocidos en nuestro medio.</li>
+                        <li>Conceptos básicos de la transposición didáctica.</li>
+                        <li>Aspectos a tener en cuenta en la preparación de sus actividades académicas.</li>
+                    </ol>
+
+                    <div class="box-text connection center">
+                        <h5>
+                            ¡Comience!
+                        </h5>
+                    </div>
+
+                    <div class="horizontal-menu modelos">
+                        <dl>
+                            <dt>Modelos pedagógicos</dt>
+                            <dd>
+                                <h3>Modelos pedagógicos</h3>
+                                <p>
+                                    Desde la perspectiva de Flórez Ochoa (1999), un modelo pedagógico responde básicamente a:
+                                </p>
+                                <ul class="data_list">
+                                    <li>¿Qué tipo de ser humano interesa formar?</li>
+                                    <li>¿Cómo o con qué estrategias metodológicas y evaluativas?</li>
+                                    <li>¿A través de qué estándares, contenidos, ejes temáticos y saberes?</li>
+                                    <li>¿A qué ritmo de aprendizaje debe adelantarse el proceso de formación?</li>
+                                    <li>¿Cuál es el tipo de relación entre maestro y estudiante?</li>
+                                </ul>
+                                <div class="box-text activity" label="Actividad de aprendizaje">
+                                    <p>
+                                        A continuación, encontrará cuatro ambientes de aprendizaje que se irán formando en la medida en que ubique cada una de las ocho características que corresponden a cuatro modelos pedagógicos conocidos en nuestro medio.
+                                    </p>
+                                    <p>
+                                        Arrastre cada una de las características de la parte de abajo al espacio bajo el nombre del modelo correspondiente. Utilice las flechas a los lados para pasar entre cada uno de los modelos. Al verificar, verá tantas partes de la imagen como aciertos haya obtenido.
+                                    </p>
+                                </div>
+                                <div id="arrastrargrupos" class="jpit-activities-multidroppable" data-act-title="Modelos pedagógicos" data-act-id="1-modelos">
+                                    <div class="ctrl-pagination box_targets" data-orientation="sides">
+                                        <li>
+                                            <div class="imagefeedback" data-feedback="1">
+                                                <img src="content/tradicional/actividad_de_arrastre-08.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-09.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-10.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-11.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-12.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-13.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-14.png" />
+                                                <img src="content/tradicional/actividad_de_arrastre-15.png" />
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="tradicional">Tradicional</h5>
+                                                <div data-target-group="1" class="target"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="imagefeedback" data-feedback="2">
+                                                <img src="content/conductista/actividad_de_arrastre-16.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-17.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-18.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-19.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-20.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-21.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-22.png" />
+                                                <img src="content/conductista/actividad_de_arrastre-23.png" />
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="conductista">Conductista</h5>
+                                                <div data-target-group="2" class="target"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="imagefeedback" data-feedback="3">
+                                                <img src="content/desarrollista/actividad_de_arrastre-24.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-25.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-26.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-27.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-28.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-29.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-30.png" />
+                                                <img src="content/desarrollista/actividad_de_arrastre-31.png" />
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="desarrollista">Desarrollista</h5>
+                                                <div data-target-group="3" class="target"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="imagefeedback" data-feedback="4">
+                                                <img src="content/socialista/actividad_de_arrastre-34.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-35.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-36.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-37.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-38.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-39.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-40.png" />
+                                                <img src="content/socialista/actividad_de_arrastre-41.png" />
+                                            </div>
+                                            <div class="info">
+                                                <h5 class="socialista">Socialista</h5>
+                                                <div data-target-group="4" class="target"></div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <div class="box_end"></div>
+                                    <div class="buttons">
+                                        <button class="general verify">Verificar</button>
+                                        <button class="general continue" style="display: none;">Continuar intentando</button>
+                                        <button class="general resolve" style="display: none;">Ordenar y terminar</button>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="1">Los pilares son la razón y la moral.</div>
+                                        <div data-group="4">Estimula la capacidad reflexiva y crítica.</div>
+                                        <div data-group="1">Los contenidos son enciclopédicos.</div>
+                                        <div data-group="3">El estudiante es el centro del proceso.</div>
+                                        <div data-group="3">El docente es un guía o un facilitador.</div>
+                                        <div data-group="1">El método es transmisionista.</div>
+                                        <div data-group="1">La evaluación es memorística y cuantitativa.</div>
+                                        <div data-group="2">El método es transmisionista.</div>
+                                        <div data-group="2">El estudiante va cobrando protagonismo.</div>
+                                        <div data-group="2">Los medios se diversifican.</div>
+                                        <div data-group="2">Los contenidos son enciclopédicos.</div>
+                                        <div data-group="2">El trayecto es lineal, predecible y controlable.</div>
+                                        <div data-group="4">El docente es un líder activo en este proceso.</div>
+                                        <div data-group="4">La evaluación puede ser individual o colectiva.</div>
+                                        <div data-group="3">En el método prima el aprendizaje sobre la enseñanza.</div>
+                                        <div data-group="3">Los medios en este modelo se refieren a “hacer ciencia”.</div>
+                                        <div data-group="3">La evaluación es por procesos, es decir, cualitativa.</div>
+                                        <div data-group="1">El maestro es el protagonista, transmisor y severo castigador.</div>
+                                        <div data-group="4">Busca formar agentes transformadores del entorno.</div>
+                                        <div data-group="1">El estudiante es el receptor memorístico y se cree que llega con la cabeza vacía.</div>
+                                        <div data-group="1">Los principales medios que se usan son el tablero y la tiza.</div>
+                                        <div data-group="2">El eje es moldear la conducta del individuo según las necesidades productivas.</div>
+                                        <div data-group="2">El ser humano es el diestro; un técnico útil a los intereses del estado.</div>
+                                        <div data-group="2">La evaluación se sistematiza con el test de selección múltiple pero, en esencia, de carácter memorístico.</div>
+                                        <div data-group="3">Se fundamenta en el desarrollo cognitivo de los estudiantes desde sus intereses.</div>
+                                        <div data-group="3">El método es por descubrimiento; los conocimientos se adquieren por contacto con la realidad.</div>
+                                        <div data-group="3">El objetivo es desarrollar habilidades de pensamiento en los individuos para hacerlos partícipes del mundo actual.</div>
+                                        <div data-group="4">Se fundamenta en la responsabilidad del estudiante ante su proceso de aprendizaje.</div>
+                                        <div data-group="4">El currículo se modifica según las necesidades particulares.</div>
+                                        <div data-group="4">Las estrategias surgen a partir de las necesidades sociales.</div>
+                                        <div data-group="4">Los medios son talleres y trabajos grupales, entre otros.</div>
+                                        <div data-group="1">El ser humano se considera un erudito con conocimiento amplio de todas las ramas.</div>
+                                        <br class="clear" />
+                                    </div>
+                                    <feedback>
+                                        <correct>Revisa y compara las relaciones y diferencias entre los diferentes modelos. ¿Qué modelo impera en tu práctica docente?</correct>
+                                    </feedback>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Transposición didáctica</dt>
+                            <dd>
+                                <h3>Transposición didáctica</h3>
+                                <p>
+                                    En la didáctica, se habla del concepto de <em>transposición didáctica</em> como “el paso del saber sabio al saber enseñado”. Los <em>saberes sabios</em> son los que producen los sabios, genios, científicos y artistas. La transposición didáctica se refiere, a que la enseñanza universitaria se encarga de posibilitar que los <em>saberes sabios</em> se constituyan en <em>saberes por enseñar</em>, en <em>saberes enseñados</em>, en <em>saberes por aprender</em> y en <em>saberes aprendidos</em>
+                                    <sup class="tooltip" title="González Agudelo EM, Díaz Hernández DP. Desde el currículo hasta la didáctica o sobre la circulación de los saberes y sus controles en la universidad: un ejemplo en la enseñanza de la Medicina. Latreia. 2008;21(1):83-93. Disponible en <a href='https://www.redalyc.org/articulo.oa?id=180513861010' target='_blank'>https://www.redalyc.org/[...]</a>">[2]</sup>.
+                                </p>
+                                <div class="box-text activity" label="Actividad de aprendizaje">
+                                    <p>
+                                        Realiza el siguiente crucigrama, en donde se describen algunos conceptos importantes de la educación y de la transposición didáctica.
+                                    </p>
+                                </div>
+                                <div class="jpit-activities-crossword" data-act-title="Transposición didáctica" data-act-id="2-crucigrama">
+                                    <horizontal>
+                                        <li data-row="1" data-col="1" data-term="psicopedagogia">Estudia el desarrollo de los procesos cognitivos y la personalidad de los estudiantes.</li>
+                                        <li data-row="3" data-col="1" data-term="didactica">Estudia el proceso docente educativo.</li>
+                                        <li data-row="6" data-col="0" data-term="formacion">Es el proceso de construirse a sí mismo una imagen mediadora a través de la relación del individuo, no solo con las cosas, sino con los otros.</li>
+                                        <li data-row="9" data-col="3" data-term="forma">Se refiere a la organización espacial y temporal del proceso docente educativo, es decir, se encarga de la distribución de los estudiantes en relación con el profesor y su asignación con los intervalos de tiempo correspondientes.</li>
+                                        <li data-row="11" data-col="5" data-term="contenido">Es lo que va a ser enseñado y comprende tanto las habilidades, como los conocimientos que el estudiante asimilará en su proceso de aprendizaje. Este concepto puede ser de carácter laboral, académico e investigativo.</li>
+                                        <li data-row="13" data-col="1" data-term="problema">Es el punto de partida para diseñar el proceso docente educativo y se convierte en el tipo de método fundamental de aprendizaje.</li>
+                                        <li data-row="16" data-col="0" data-term="evaluacion">Se realiza para comprobar el grado de cumplimiento del objetivo y verificar si el problema fue solucionado. Puede ser de diagnóstico, formativa o de acreditación.</li>
+                                        <li data-row="4" data-col="10" data-term="seminario">Pretende que el estudiante realice actividades previas de lectura y escritura para entrar a confrontar el conocimiento en un diálogo horizontal con el profesor.</li>
+                                        <li data-row="8" data-col="8" data-term="metodo">Es el camino que construye el alumno para alcanzar su objetivo en la resolución de problemas. Existen varias clasificaciones de este concepto; la primera, se refiere al grado de participación de los estudiantes y se divide en expositivo, de elaboración conjunta y de trabajo independiente; la segunda, se refiere al grado de dominio que tengan los estudiantes sobre el contenido y en correspondencia con los niveles de asimilación, se segmenta en reproductivo, productivo y creativo; la tercera corresponde con la lógica del desarrollo del proceso docente educativo y se subdivide en introducción del nuevo contenido, desarrollo del contenido, dominio del contenido, sistematización del contenido y evaluación del aprendizaje; y la cuarta, corresponde a la forma en que estimula la actividad productiva y se divide en exposición problémica, búsqueda parcial, heurística, investigativa, juegos didácticos, mesas redondas, paneles, discusiones temáticas, estudios de casos y métodos sugestopédicos, entre otros.</li>
+                                    </horizontal>
+                                    <vertical>
+                                        <li data-row="0" data-col="2" data-term="pedagogia">Estudia la formación, en general, de la personalidad de los hombres y de las mujeres que integran una sociedad.</li>
+                                        <li data-row="5" data-col="6" data-term="curriculo">Es el registro de todas las acciones educativas dentro de la escuela.</li>
+                                        <li data-row="0" data-col="12" data-term="objetivo">Es la aspiración, el propósito que se quiere formar en los estudiantes. Se clasifica de acuerdo al grado de transcendencia en la transformación que se espera lograr de los estudiantes, en instructivos desarrolladores y educativos.</li>
+                                        <li data-row="12" data-col="8" data-term="medios">Son objetos didácticos hechos para el trabajo docente y van desde un lápiz hasta un computador, desde un espejo hasta un telescopio, desde un herbario hasta un zoológico, desde un balón hasta un libro. Se dividen en ayudas didácticas como pantallas, proyectores y tableros, y en medios auxiliares que son los que crean condiciones confortables para organizar el proceso docente educativo, como el salón de clases tradicional o las aulas inteligentes.</li>
+                                        <li data-row="1" data-col="16" data-term="practica">Esta clase trata de afianzar el desarrollo de habilidades del estudiante mediante ejercicios de simulación como talleres, estudios de casos o laboratorios.</li>
+                                        <li data-row="2" data-col="19" data-term="conferencia">Clase magistral que se desarrolla para informar conocimientos.</li>
+                                    </vertical>
+                                </div>
+                                <div class="box-text link" label="Enlace">
+                                    <p>
+                                        Si le interesa conocer un poco más haga clic <a href="https://es.slideshare.net/aguty08/lecciones-de-didacticageneral" target="_blank">aquí</a>.
+                                    </p>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Preparación de clase</dt>
+                            <dd>
+                                <h3>Preparación de clase</h3>
+                                <p>Como guía para la preparación de sus actividades académicas se presenta, a continuación, el formato de transposición didáctica de la práctica docente. Puede descargarlo haciendo clic <a href="content/formato.doc" download="formato de transposición didáctica de práctica docente">aquí</a>.</p>
+                                <div class="box-text link" label="Para profundizar:">
+                                    <p>
+                                        Descargue y lea el artículo <a href="http://aprendeenlinea.udea.edu.co/revistas/index.php/iatreia/article/view/4438" target="_blank">"Desde el currículo hasta la didáctica o sobre la circulación de los saberes y sus controles en la universidad: un ejemplo en la enseñanza de la Medicina"</a>.
+                                    </p>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-salud" ptitle="Pedagogía en el área de la salud">
+                <div class="subpage">
+                    <p>
+                        A nivel internacional, se ha reconocido como parte fundamental para el desempeño de los médicos del siglo XXI la integración del conocimiento básico y clínico <sup class="tooltip" title="Guinzberg E. The reform of medical education: an outsider’s reflection. Academic Medicine. 1993;68:581-521.">[3]</sup>. Por esta razón, la Federación Mundial de Escuelas de Medicina, durante marzo del 2003, propuso unos estándares de calidad relacionados con la enseñanza de las ciencias básicas y menciona que “las escuelas de medicina deben identificar e incorporar en el Plan de Estudios las contribuciones de las ciencias biomédicas básicas para crear el entendimiento del conocimiento científico, conceptos y métodos fundamentales para adquirir y aplicar las ciencias clínicas” <sup class="tooltip" title="Basic Medical Education (WEME). Global standards for quality improvement. World Federation for Medical Education: Copenhagen, Denmark. 2003.">[4]</sup>
+                    </p>
+                    <p>
+                        Esto significa que la enseñanza de las ciencias básicas debe lograr que los estudiantes adquieran un aprendizaje profundo y duradero para que durante la etapa clínica puedan relacionar los datos que obtienen de la historia clínica, la exploración física y los estudios de laboratorio con los principios y mecanismos biológicos.
+                    </p>
+                    <p>
+                        Existen dos enfoques principales para la enseñanza de las ciencias básicas; uno orientado por la estructura de las ciencias y el otro orientado hacia clínica.
+                    </p>
+
+                    <div class="videobox" width="100%">
+                        <video controls>
+                            <source src="content/03.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>
+                            ¿Qué curso sirve en su unidad académica? ¿A qué enfoque pertenece el curso? ¿Cuál de los dos impera en su práctica docente? ¿Qué estrategias didácticas se utiliza en cada uno de estos enfoques? ¿Tiene conciencia de la importancia de hacer las clases de ciencias básicas con enfoque clínico? ¿Las preguntas de los exámenes de ciencias básicas las realiza partiendo de situaciones de la práctica clínica? ¿Qué impacto tiene trabajar los conceptos de ciencias básicas desde situaciones reales o casos clínicos?
+                        </p>
+                    </div>
+
+                    <p>Para acercarnos a la solución de estos interrogantes:</p>
+                    <ol>
+                        <li>Revise las características sobre la <strong>enseñanza de las ciencias básicas:</strong></li>
+                        <div class="accordion">
+                            <h3>Orientado por la estructura de las ciencias.</h3>
+                            <div>
+                                <div class="caracteristica">
+                                    <div>No se da relevancia a los aspectos clínicos, sino que se muestra su aplicación en el mismo campo de conocimiento. <br/></div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Explora clásicamente la memorización de información de los estudiantes.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Los investigadores de los departamentos de las ciencias básicas profundizan sobre un tema muy específico y poseen un conocimiento profundo sobre aspectos que representan una pequeña parte del programa académico.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Muchos de los investigadores son expertos en aspectos moleculares y se les dificulta enseñar a los estudiantes los conceptos básicos de todos los órganos y sistemas del cuerpo humano aplicados a la clínica.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Es insuficiente la interacción que existe entre los profesores que imparten los conocimientos biomédicos y quienes se encargan de la enseñanza clínica, por lo que no saben con precisión si los conocimientos que están impartiendo en los primeros años de la carrera corresponden a las necesidades de la práctica clínica.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>No se cuenta con estudios específicos destinados a obtener evidencias para determinar en qué grado están contribuyendo, a la solución de problemas clínicos, los conocimientos que poseen los estudiantes sobre las ciencias básicas.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>En la enseñanza clínica no se dedica suficiente atención al uso de los conocimientos de las ciencias básicas como puede ser, por ejemplo, elaborar la correlación fisiopatológica o para la toma de decisiones terapéuticas.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>La aplicación del conocimiento biomédico a la clínica está estrechamente relacionado con el razonamiento clínico, que es el proceso mental que realiza el médico para solucionar un problema, por lo que las deficiencias en estos conocimientos afectan el desarrollo dicho razonamiento.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Los métodos de evaluación que se usan tradicionalmente exploran la memorización de información y no la aplicación de los conocimientos biomédicos para la solución problemas o para la toma de decisiones.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Orientado hacia clínica.</h3>
+                            <div>
+                                <div class="caracteristica">
+                                    <div>En este enfoque, las ciencias básicas son estudiadas con base en las situaciones clínicas o aquellas relacionadas con aplicaciones a la clínica.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Durante la enseñanza se usan casos clínicos que son dependientes y se desarrollan dentro de los temas clínicos que son su objeto primario de estudio.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Se introduce una actividad académica en la que, sistemáticamente, se enfrente a los alumnos a problemas que les represente un reto y les requiera echar mano de su repertorio de habilidades cognoscitivas.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Los alumnos toman la responsabilidad de su proceso de aprendizaje y, por lo tanto, se fomentan los hábitos de estudio que también les será de utilidad durante su desempeño profesional para mantenerse actualizados.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Se estimula el interés del alumno por aprender y se prolonga la cantidad de tiempo de estudio con lo que, consecuentemente, mejoran sus logros.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="caracteristica">
+                                    <div>Se apoya la enseñanza con el uso de material didáctico diseñado específicamente para que los estudiantes apliquen los conocimientos de ciencias básicas a situaciones clínicas con el fin de estimular el razonamiento.</div>
+                                    <div class="check">
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <li>Lea el documento <a href="http://www.scielo.org.co/pdf/rfmun/v65n1/0120-0011-rfmun-65-01-00089.pdf" target="_blank">“Estrategias instruccionales para la enseñanza de las ciencias básicas”.</a></li>
+                    </ol>
+
+                </div>
+            </section>
+
+            <section id="pag-actividad" ptitle="Estrategias didácticas">
+                <div class="subpage">
+                    <p>
+                        La siguiente tabla muestra algunas de las prácticas educativas más comunes que se utilizan en Medicina.
+                    </p>
+                    <table class="datatable">
+                        <thead>
+                            <th>Espacio académico</th>
+                            <th>Estrategia didáctica/actividad</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Salón de clase.</td>
+                                <td>Clase magistral-expositiva, lúdica, seminario investigativo, taller, lectura crítica, exposiciones, estudio de caso.</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Salón múltiple, biblioteca, anfiteatro.</td>
+                                <td>Seminario investigativo, taller, conversatorio, lectura crítica, lúdica, exposiciones, diálogo, medicina basada en la evidencia (MBE), trabajo cooperativo, demostraciones, casos clínicos, aprendizaje basado en problemas (ABP), videos, piezas anatómicas, autopsias, disección.</td>
+                            </tr>
+                            <tr>
+                                <td>Laboratorios, movimiento, electrodiagnóstico, cámara de Gessell, imágenes diagnósticas.</td>
+                                <td>Simulación clínica-quirúrgica, videos, imágenes diagnósticas, aprendizaje basado en problemas (ABP), medicina basada en la evidencia (MBE), simulación, preparaciones micro y macro.</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Laboratorios básicos.</td>
+                                <td>Actividades teórico-prácticas, proyectos de investigación cualitativos y cuantitativa, aprendizaje basado en problemas (ABP), procesos de muestras patológicas, trabajo cooperativo, correlación básico-clínica, simulación.</td>
+                            </tr>
+                            <tr>
+                                <td>Consultorio, jardín infantil, sala hospital.</td>
+                                <td>Prácticas clínicas: consulta, interconsulta, ronda clínica,  seminario investigativo, ABP, MBE individual y trabajo cooperativo, normalidad y patologías. </td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Sala de cirugía o quirófano.</td>
+                                <td>Práctica quirúrgica, procedimientos directos, aprendizaje basado en problemas (ABP), medicina basada en la evidencia (MBE), circuito cerrado de televisión, trabajo cooperativo y lúdica.</td>
+                            </tr>
+                            <tr>
+                                <td>Espacio comunitario.</td>
+                                <td>Práctica de campo, aprendizaje basado en la comunidad (ABC), aprendizaje basado en problemas (ABP), medicina basada en la evidencia (MBE), estrategia domiciliaria, proyectos de investigación, seminario investigativo, conversatorio, trabajo cooperativo, lúdica, proyectos de investigación cualitativos y cuantitativos.</td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Sala de cómputo.</td>
+                                <td>Imágenes virtuales, aprendizaje basado en problemas (ABP), medicina basada en la evidencia (MBE), circuito cerrado de televisión, chat, teleconferencia, conversatorio, cursos, exposiciones y seminario investigativo.</td>
+                            </tr>
+                            <tr>
+                                <td>Casa estudiante</td>
+                                <td>Aprendizaje autónomo y preparación de actividades.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="box_media">
+                        <div class="about">
+                            <strong>Tomado de:</strong> Vera Silva L, Calderón García A. Caracterización de las prácticas educativas en la enseñanza de la Medicina. Rev. Fac. Med. 2017;65,1:89-97. <br /> Disponible en <a href="http://www.scielo.org.co/pdf/rfmun/v65n1/0120-0011-rfmun-65-01-00089.pdf" target="_blank">http://www.scielo.org.co/[...]</a>
+                        </div>
+                    </div>
+
+                    <div class="box-text important" label="Importante">
+                        <p>
+                            Aunque existen estrategias didácticas específicas en el área de fundamentación básica o en el área de fundamentación clínico-quirúrgica, muchas de estas se pueden usar en ambas áreas. Actualmente, se hace énfasis en la importancia de articular los esfuerzos de los profesores a las asignaturas de las ciencias básicas biomédicas con los de las clínicas y establecer mecanismos de comunicación para lograr su interacción permanente, y así facilitar el aprendizaje en los estudiantes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+             <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Flórez Ochoa, R. Evaluación, pedagogía y cognición. Editorial McGrawHill: Bogotá. 1999.</li>
+
+                <li>González Agudelo EM, Díaz Hernández DP. Desde el currículo hasta la didáctica o sobre la circulación de los saberes y sus controles en la universidad: un ejemplo en la enseñanza de la Medicina. Latreia. 2008;21(1):83-93. Disponible en <a href="https://www.redalyc.org/articulo.oa?id=180513861010" target="_blank">https://www.redalyc.org/[...]</a></li>
+
+                <li>Guinzberg E. The reform of medical education: an outsider’s reflection. Academic Medicine. 1993;68:581-521. </li>
+
+                <li>Basic Medical Education (WEME). Global standards for quality improvement. World Federation for Medical Education: Copenhagen, Denmark. 2003.</li>
+
+                <li>Álvarez de Zayas CM, González Agudelo EM. Lecciones de Didáctica General. Editorial Magisterio. 1998.</li>
+
+                <li>Gimeno Sacristán, J. Saberes e incertidumbres sobre el currículum. Editorial Morata. 2010.</li>
+
+                <li>Díaz Barriga F. Cognición situada y estrategias para el aprendizaje significativo. Revista electrónica de investigación educativa. 2003;5(2):1-13. Disponible en <a href="https://redie.uabc.mx/redie/article/view/85" target="_blank">https://redie.uabc.mx/redie/[...]</a></li>
+
+                <li>Gutiérrez A. Lecciones de didáctica general [recurso en línea]. 2016. Disponible en <a href="https://es.slideshare.net/aguty08/lecciones-de-didacticageneral" target="_blank">https://es.slideshare.net/[...]</a></li>
+
+                <li>Marín Campos Y. Estrategias instruccionales para la enseñanza de las ciencias básicas. Gac. Méd. Méx. 2004;140(3):309-311. Disponible en <a href="http://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0016-38132004000300009" target="_blank">http://www.scielo.org.mx/[...]</a></li>
+
+                <li>Vera Silva L, Calderón García A. Caracterización de las prácticas educativas en la enseñanza de la Medicina. Rev. Fac. Med. 2017;65,1:89-97. Disponible en <a href="http://www.scielo.org.co/pdf/rfmun/v65n1/0120-0011-rfmun-65-01-00089.pdf" target="_blank">http://www.scielo.org.co/pdf/[...]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

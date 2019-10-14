@@ -1,0 +1,247 @@
+.text_tooltip {
+    line-height: 20px;
+}
+
+#pag-pedagogia .imagen {
+    text-align: center;
+}
+
+.connection.center {
+    text-align: center;
+}
+
+.horizontal-menu.modelos > .chalkboard_content {
+    height: unset;
+    background: #f5f5f5;
+    border: 1px solid #333;
+    color: unset;
+}
+
+/********************************************************************************/
+/* Actividad modelos pedagógicos
+/********************************************************************************/
+
+#arrastrargrupos h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 2px dotted #95B0CB;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+#arrastrargrupos h5.tradicional {
+    background-color: #f5e7ae;
+    border: 1px solid #e1b95b;
+}
+
+#arrastrargrupos h5.conductista {
+    background-color: #dcdcdd;
+    border: 1px solid #899794;
+}
+
+#arrastrargrupos h5.desarrollista {
+    background-color: #e2f3f4;
+    border: 1px solid #4ea9c0;
+}
+
+#arrastrargrupos h5.socialista {
+    background-color: #f2af6b;
+    border: 1px solid #ee9747;
+}
+
+#arrastrargrupos .target {
+    height: 220px;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px dashed #d8dbdc;
+    -webkit-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    -moz-box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    box-shadow: 10px 10px 5px 1px rgba(158,152,158,0.3);
+    padding-bottom: 5px;
+}
+
+#arrastrargrupos .sources {
+    margin: 10px auto 0;
+}
+
+#arrastrargrupos .sources > div {
+    /*width: max-content;*/
+}
+
+#arrastrargrupos .draggable {
+    width: 95%;
+    margin: 0 1px 5px;
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+    color: unset;
+}
+
+#arrastrargrupos .draggable.disabled {
+    cursor: default;
+}
+
+#arrastrargrupos .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+#arrastrargrupos .sources div[data-group] {
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+}
+
+#arrastrargrupos .ctrl-pagination.sides .position {
+    z-index: 2;
+}
+
+#arrastrargrupos .ctrl-pagination.sides .button.previous {
+    left: 10px;
+}
+
+#arrastrargrupos .ctrl-pagination ul.layers {
+    height: 630px;
+}
+
+#arrastrargrupos .imagefeedback {
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+
+#arrastrargrupos .imagefeedback img {
+    position: absolute;
+    opacity: 0.02;
+}
+
+#arrastrargrupos .imagefeedback img.good {
+    opacity: 1;
+}
+
+#arrastrargrupos .imagefeedback img:nth-child(1) { left: 0; }
+#arrastrargrupos .imagefeedback img:nth-child(2) { left: 64px; }
+#arrastrargrupos .imagefeedback img:nth-child(3) { left: 153px; }
+#arrastrargrupos .imagefeedback img:nth-child(4) { left: 244px; }
+#arrastrargrupos .imagefeedback img:nth-child(5) { left: 0; top: 146px; }
+#arrastrargrupos .imagefeedback img:nth-child(6) { left: 62px; top: 146px; }
+#arrastrargrupos .imagefeedback img:nth-child(7) { left: 153px; top: 146px; }
+#arrastrargrupos .imagefeedback img:nth-child(8) { left: 244px; top: 146px; }
+
+#arrastrargrupos .info {
+}
+
+#arrastrargrupos .draggable.wrong {
+    background-color: #ffffff;
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable {
+    padding-bottom: 150px;
+}
+
+/********************************************************************************/
+/* Actividad crucigrama
+/********************************************************************************/
+
+.jpit-activities-crossword .word_content {
+    text-align: left;
+}
+
+.jpit-activities-crossword td {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.jpit_activity_crossword_cell input {
+    width: 23px;
+    height: 21px;
+    box-shadow: 4px 5px 6px #888;
+}
+
+.jpit_activity_crossword_cell {
+    width: 26px;
+    height: 24px;
+}
+
+.jpit_activity_crossword_label {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    border-radius: 50%;
+}
+
+.jpit_activity_crossword_board {
+    margin-bottom: 20px;
+    min-width: 540px;
+}
+
+.box_words li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/********************************************************************************/
+/* Acordeón
+/********************************************************************************/
+
+#pag-salud .accordion {
+    background-color: #fff;
+    color: #000;
+    margin: 20px 0;
+}
+
+
+#pag-salud .caracteristica {
+    margin: 4px 4px 4px -9px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#pag-salud .caracteristica div {
+    padding: 5px 20px;
+    background-color: #f3f3f3;
+    width: 100%;
+}
+
+#pag-salud .caracteristica .check {
+    padding: 5px;
+    margin-left: 4px;
+    width: 35px;
+}
+
+#pag-salud .caracteristica .check div {
+    padding: 0;
+    width: 37px;
+    height: 38px;
+    background-image: url(../img/sprite.png);
+    background-position: -883px -112px;
+}
+
+#pag-salud .ui-accordion .ui-accordion-header {
+    font-size: 18px;
+}
+
+#pag-salud .ui-accordion .ui-accordion-content {
+    padding: 0;
+}
+
+/********************************************************************************/
+/* actividad
+/********************************************************************************/
+
+#pag-actividad .nota {
+    text-align: center;
+    font-size: 12px;
+}
