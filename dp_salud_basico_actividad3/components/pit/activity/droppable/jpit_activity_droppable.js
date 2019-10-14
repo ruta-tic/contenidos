@@ -1,6 +1,6 @@
 (function(jpit){
     var transformProp;
-    var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";    
+    var DROPPEDCLASS = "jpit_activities_jpitdroppable_dropped";
     var CONTAINERSELECTOR = ".jpit-activities-droppable";
     /**
     * dragStartListener
@@ -32,7 +32,7 @@
             pos = $target.data('_dragpos') || { x: 0, y: 0 };
 
         pos.x += event.dx;
-        pos.y += event.dy;  
+        pos.y += event.dy;
         $target.css(transformProp, `translate(${pos.x}px, ${pos.y}px)`);
         $target.data('_dragpos', pos);
     }

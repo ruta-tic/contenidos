@@ -1,5 +1,8 @@
-# Tepuy
-Template for interactive content editing
+# OVA - La didáctica en el área de la salud
 
-## Version: 1.1
-### Release: 20190107.1
+Producido en **Tepuy** - Template for interactive content editing
+https://github.com/davidherney/tepuy/
+
+**Version:** 1.1
+
+**Release:** 20190107.1

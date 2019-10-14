@@ -308,7 +308,7 @@ dhbgApp.standard.start = function() {
         $this.dialog(properties);
     });
 
-    $('.w-content-controler').on('click', function(){
+    $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
@@ -704,7 +704,7 @@ dhbgApp.standard.start = function() {
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================
-    $('.accordion').accordion({ autoHeight: false, heightStyle: "content"});
+    $('.accordion').accordion({ autoHeight: false, heightStyle: "content", collapsible: true });
 
     // ==============================================================================================
     // Special control: View first
@@ -732,7 +732,7 @@ dhbgApp.standard.start = function() {
 
             var $dd= $('<div class="element rule_1 tab_content"></div>');
             $dd.append($dl.find('>dd').children());
-            var $dt = $('<div class="chalkboard_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
+            var $dt = $('<div class="chalkboard_item button">' + $dl.find('>dt').html() + '</div>').on('click', function(){
 
                 var $item_dt = $(this);
 
@@ -781,17 +781,14 @@ dhbgApp.standard.start = function() {
         var $chalkboard_items = $('<div class="chalkboard_vertical_items board"></div>');
         var $chalkboard_content = $('<div class="chalkboard_vertical_content elements"></div>');
 
-        $this.find('dl').each(function() {
+        $this.find('>dl').each(function() {
             var $dl = $(this);
 
             var $dd= $('<div class="element rule_1 tab_content"></div>');
             $dd.append($dl.find('>dd').children());
             var $dt = $('<div class="chalkboard_vertical_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
-
-                    var $item_dt = $(this);
-
+                var $item_dt = $(this);
                 $chalkboard_content.find('> .element').hide();
-
                 $chalkboard_items.find('.current').removeClass('current');
                 $item_dt.addClass('current');
                 $dd.show();
@@ -830,7 +827,7 @@ dhbgApp.standard.start = function() {
 
         $this.find('left').each(function(){
             var $left = $(this);
-            $left.find('dl').each(function() {
+            $left.find('>dl').each(function() {
                 var $dl = $(this);
 
                 var $dd= $('<div class="element rule_1 tab_content"></div>');
@@ -860,7 +857,7 @@ dhbgApp.standard.start = function() {
         $this.find('right').each(function(){
 
             var $right = $(this);
-            $right.find('dl').each(function() {
+            $right.find('>dl').each(function() {
                 var $dl = $(this);
 
                 var $dd= $('<div class="element rule_1 tab_content"> ' + $dl.find('dd').html() + ' </div>');
@@ -1014,7 +1011,7 @@ dhbgApp.standard.start = function() {
             $list_buttons.append($back_button);
             // End Back button.
 
-            if (orientation == 'vertical') {
+            if (orientation == 'vertical' || orientation == 'sides') {
                 $position_index_label = $('<div class="position">' + dhbgApp.s('pagination_label', { 'a': 1, 'b': $items.length } )  + '</div>');
                 $this.append($position_index_label);
             }
@@ -1059,9 +1056,9 @@ dhbgApp.standard.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1070,7 +1067,7 @@ dhbgApp.standard.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1210,7 +1207,6 @@ dhbgApp.standard.start = function() {
         };
     }
 
-
     //Activities
     dhbgApp.standard.load_operations();
     dhbgApp.actions.startTimer = function($container, seconds) {
@@ -1219,7 +1215,7 @@ dhbgApp.standard.start = function() {
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -1292,7 +1288,7 @@ dhbgApp.standard.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide(); 
+            $start.hide();
         });
 
     };
@@ -1518,6 +1514,19 @@ dhbgApp.standard.start = function() {
             }, 100);
         }
     });
+
+    // ==============================================================================================
+    // Form element value in a target control
+    // ==============================================================================================
+    dhbgApp.actions.afterChangePage[dhbgApp.actions.afterChangePage.length] = function($current_subpage){
+        $current_subpage.find('.form-value-display').each(function(){
+            var $this = $(this);
+            var text = $($this.attr('data-element')).val();
+            text = text.replace(/\n/g, '<br />');
+            text = text.replace(/\t/g, '    ');
+            $this.html(text);
+        });
+    };
 
     // ==============================================================================================
     // Sounds
@@ -1909,6 +1918,8 @@ dhbgApp.standard.load_operations = function() {
         activityOptions.prefixType       = $this.attr('data-prefixtype') ? $this.attr('data-prefixtype') : jpit.activities.quiz.prefixes.none;
         activityOptions.requiredAll      = $this.attr('data-requiredall') && $this.attr('data-requiredall') != 'true' ? false : true;
         activityOptions.paginationNumber = $this.attr('data-paginationnumber') ? parseInt($this.attr('data-paginationnumber')) : 1;
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var count_questions = $this.find('question[type!="label"]').length;
         var question_weight = 100 / count_questions;
@@ -2045,6 +2056,7 @@ dhbgApp.standard.load_operations = function() {
         var $box_end = $('<div class="box_end" style="display:none"></div>');
 
         var add_restart_button = function () {
+            if (!allowRetry) return;
             var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
             $button_again.on('click', function(){
                 $this.empty();
@@ -2074,7 +2086,7 @@ dhbgApp.standard.load_operations = function() {
         var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             // If it is not answered.
             if(!activity.showPartialFeedback(activity.currentPagination)){
                 $dialog_answer_required.dialog('open');
@@ -2130,6 +2142,10 @@ dhbgApp.standard.load_operations = function() {
                     if (weight < 100) {
                         add_restart_button();
                     }
+                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                        id: scorm_id,
+                        weight: weight
+                    }]);
                 }
             }
 
@@ -2310,6 +2326,8 @@ dhbgApp.standard.load_operations = function() {
         var activity;
         var unique_id = 'activity_crossword_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
 
@@ -2384,7 +2402,7 @@ dhbgApp.standard.load_operations = function() {
             activity.stop();
             activity.highlight('correct', 'wrong');
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
                     $box_end.empty();
@@ -2397,6 +2415,10 @@ dhbgApp.standard.load_operations = function() {
 
                 $this.find('.box_end').append($button_again)
             }
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
         });
 
         var $box_verify = $('<div class="verify_container"></div>');
@@ -2427,7 +2449,7 @@ dhbgApp.standard.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();
@@ -2466,11 +2488,13 @@ dhbgApp.standard.load_operations = function() {
             'continueResolve': false,
             'holdCorrects': false,
             'multiTarget': 1,
-            'autoAlignNodes': true,
+            'autoAlignNodes': false,
             'requiredAll': false,
             'required_all_pairs': true,
             'draggableContainer': $('#middle')
         };
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
 
@@ -2481,7 +2505,7 @@ dhbgApp.standard.load_operations = function() {
 
         var autoalign;
         if (autoalign = $this.attr('data-autoalign')) {
-            activityOptions.autoAlignNodes = !(autoalign == 'false');
+            activityOptions.autoAlignNodes = autoalign === 'true';
         }
         // Build the board.
         var origins = [], targets = [], pairs = [],  pair_indexs = [];
@@ -2510,8 +2534,12 @@ dhbgApp.standard.load_operations = function() {
         });
 
         var add_restart_button = function() {
+            if (!allowRetry) return;
             var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
             $button_again.on('click', function(){
+                $(dhbgApp).trigger('jpit:activity:restart', [$this, {
+                    id: scorm_id
+                }]);
                 $box_end.empty().hide();
                 $this.find('.draggable,.droppable').removeClass('wrong correct');
                 $this.removeClass('completed');
@@ -2538,6 +2566,12 @@ dhbgApp.standard.load_operations = function() {
             $dragEl.trigger('click');
 
             var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+
+            $(dhbgApp).trigger('jpit:activity:drop', [$this, {
+                id: scorm_id,
+                dragEl: $dragEl
+            }]);
+
             if (!end) return;
 
             var timer = $this.data('clock');
@@ -2545,7 +2579,14 @@ dhbgApp.standard.load_operations = function() {
                 timer.stop();
             }
 
-            var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+            var weight;
+
+            if (type_verification == 'target') {
+                weight = Math.round(activity.countCorrect() * 100 / targets.length);
+            }
+            else {
+                weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+            }
             activity.disable();
 
             if (dhbgApp.scorm) {
@@ -2598,7 +2639,7 @@ dhbgApp.standard.load_operations = function() {
                     correct.t.removeClass('wrong').addClass('correct');
                 });
             }
-            
+
             $(dhbgApp).trigger('jpit:activity:completed', [$this, {
                 id: scorm_id,
                 weight: weight
@@ -2622,6 +2663,7 @@ dhbgApp.standard.load_operations = function() {
     dhbgApp.actions.activityMultidroppable = function ($this) {
 
         var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'multidroppable';
+        var feedbacktrue = '', feedbackfalse = '';
 
         if (dhbgApp.scorm) {
             if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
@@ -2629,6 +2671,16 @@ dhbgApp.standard.load_operations = function() {
 
         var activity;
         var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
+
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct').html();
+        }
+
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong').html();
+        }
+
+        $this.find('feedback').empty();
 
         var $box_end = $this.find('.box_end');
         $box_end.hide();
@@ -2680,6 +2732,7 @@ dhbgApp.standard.load_operations = function() {
 
         var $verify = $this.find('button.verify');
         var $continue = $this.find('button.continue');
+        var $resolve = $this.find('button.resolve');
 
         $verify.on('click', function () {
             var dropped = $this.find('.box_targets .draggable');
@@ -2695,6 +2748,13 @@ dhbgApp.standard.load_operations = function() {
                     $k.find('[data-group!="' + $k.attr('data-target-group') + '"]').addClass('wrong disabled');
                 });
 
+                $.each(targets, function(i, $target) {
+                    var imagefeedback = $this.find('.imagefeedback[data-feedback="' + $target.attr('data-target-group') + '"] img');
+                    $target.find('.draggable.correct').each(function (i, item) {
+                        $(imagefeedback[i]).addClass('good');
+                    });
+                });
+
                 $(this).hide();
 
                 var weight = Math.round(corrects * 100 / origins.length);
@@ -2706,17 +2766,22 @@ dhbgApp.standard.load_operations = function() {
 
                 var msg;
                 if (weight >= dhbgApp.evaluation.approve_limit) {
-                    msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                    msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
                 }
                 else {
-                    msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                    msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
                 }
 
                 $box_end.append(msg).show();
 
                 if (weight < 100) {
                     $continue.show();
+                    $resolve.show();
                 }
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             }
             else {
                 var d_drop_buttons = {};
@@ -2729,6 +2794,7 @@ dhbgApp.standard.load_operations = function() {
         $continue.on('click', function () {
 
             $box_end.empty().hide();
+            $this.find('.sources').append($this.find('.draggable.wrong'));
             $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
 
             $this.find('[data-group]').draggable( "enable" );
@@ -2738,6 +2804,19 @@ dhbgApp.standard.load_operations = function() {
             $verify.show();
         });
 
+        $resolve.on('click', function () {
+
+            $box_end.empty().hide();
+            $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
+
+            $.each(targets, function(i, $target) {
+                $target.append($this.find('[data-group="' + $target.attr('data-target-group') + '"]'));
+            });
+
+            $continue.hide();
+            $resolve.hide();
+            $verify.trigger('click');
+        });
 
         $this.find( ".draggable" ).disableSelection();
     };
@@ -2755,6 +2834,8 @@ dhbgApp.standard.load_operations = function() {
         var activity;
         var unique_id = 'activity_cloze_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = '', feedbackfalse = '';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
         var $box_end = $this.find('.box_end');
@@ -2784,7 +2865,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
@@ -2816,7 +2897,7 @@ dhbgApp.standard.load_operations = function() {
                     $this.find('.correct').parents(mark_parent).addClass('correct');
                 }
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -2851,6 +2932,9 @@ dhbgApp.standard.load_operations = function() {
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
         var html_body = $this.html();
         var $box_end = $this.find('.box_end');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
+
         $box_end.hide();
 
         if ($this.find('feedback correct').text() != '') {
@@ -2896,7 +2980,7 @@ dhbgApp.standard.load_operations = function() {
             activity.disable();
             activity.highlight('correct', 'wrong');
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                 $button_again.on('click', function(){
                     $box_end.empty();
@@ -2909,7 +2993,10 @@ dhbgApp.standard.load_operations = function() {
 
                 $box_end.append($button_again);
             }
-
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
         });
 
         var $box_verify = $('<div class="verify_container"></div>');
@@ -2946,6 +3033,10 @@ dhbgApp.standard.load_operations = function() {
                     dhbgApp.scorm.activityAttempt(scorm_id, weight);
                 }
                 dhbgApp.printProgress();
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             },
         };
 
@@ -2969,6 +3060,9 @@ dhbgApp.standard.load_operations = function() {
         var html_body = $this.html();
         var $box_verify = $('<div class="verify_container"></div>');
         var $box_end = $('<div class="box_end"></div>');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
+
         $box_end.hide();
         $box_verify.append($box_end);
 
@@ -2999,7 +3093,7 @@ dhbgApp.standard.load_operations = function() {
         $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
         $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-        $verify.on('click', function() { 
+        $verify.on('click', function() {
             if (!activity.fullAnswered()){
                 $dialog_answer_required.dialog('open');
             }
@@ -3043,7 +3137,7 @@ dhbgApp.standard.load_operations = function() {
                 activity.disable();
                 activity.highlight('correct', 'wrong');
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3056,6 +3150,10 @@ dhbgApp.standard.load_operations = function() {
 
                     $box_end.append($button_again);
                 }
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             }
         });
 
@@ -3082,6 +3180,8 @@ dhbgApp.standard.load_operations = function() {
         var ok = dhbgApp.s('accept');
         d_answer_buttons[ok] = function() { $(this).dialog('close'); };
         var $dialog_answer_required = $('<div>' + dhbgApp.s('answer_required') + '</div>').dialog({modal: true, autoOpen: false, buttons: d_answer_buttons });
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         // Load custom feedback, if exists.
         var feedbacktrue = null, feedbackfalse = null;
@@ -3152,7 +3252,7 @@ dhbgApp.standard.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }
@@ -3302,14 +3402,7 @@ dhbgApp.standard.load_operations = function() {
             var weight = Math.round(count_corrects * 100 / groups.length);
 
             if (dhbgApp.scorm) {
-                var student_response = [];
-                $this.find('[data-group].selected').each(function(idx, el) {
-                    student_response[student_response.length] = $(el).attr('data-group-value');
-                });
-
-                student_response = student_response.join('|');
-
-                dhbgApp.scorm.activityAttempt(scorm_id, weight, null, student_response);
+                dhbgApp.scorm.activityAttempt(scorm_id, weight);
             }
             dhbgApp.printProgress();
 
@@ -3328,7 +3421,7 @@ dhbgApp.standard.load_operations = function() {
 
             $button_check.hide();
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 $button_again.show();
             }
 

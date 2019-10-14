@@ -44,7 +44,7 @@ dhbgApp.mobile.start = function() {
     // ==============================================================================================
     // Full content to Mobile view
     // ==============================================================================================
-    dhbgApp.mobile.fullContent.main = $('<div id="full_content" class="not_print"><div id="dialog_content"></div></div>');
+    dhbgApp.mobile.fullContent.main = $('<div id="full_content" class="not_print"></div>');
     dhbgApp.mobile.fullContent.back = $('<div class="back_label"><button class="backward_button button"></button></div>');
     dhbgApp.mobile.fullContent.content = $('<div id="dialog_content"></div>');
     dhbgApp.mobile.fullContent.main.append(dhbgApp.mobile.fullContent.back);
@@ -349,6 +349,9 @@ dhbgApp.mobile.start = function() {
         var properties = {
             modal: true,
             autoOpen: false,
+            resizable: true,
+            maxHeight: $(window).height() - 5,
+            maxWidth: $(window).width() - 5,
             close: function( event, ui ) {
                 $('body').removeClass('dhbgapp_fullview');
             }
@@ -357,24 +360,32 @@ dhbgApp.mobile.start = function() {
         if ($this.attr('data-property-width')) {
             properties.width = $this.attr('data-property-width');
 
+            var window_w = $(window).width();
             if (properties.width.indexOf('%') >= 0) {
-                var window_w = $(window).width();
                 var tmp_w = Number(properties.width.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     properties.width = tmp_w * window_w / 100;
                 }
+            }
+
+            if (properties.width > window_w) {
+                properties.width = window_w;
             }
         }
 
         if ($this.attr('data-property-height')) {
             properties.height = $this.attr('data-property-height');
 
+            var window_h = $(window).height();
             if (properties.height.indexOf('%') >= 0) {
-                var window_h = $(window).height();
                 var tmp_h = Number(properties.height.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     properties.height = tmp_h * window_h / 100;
                 }
+            }
+
+            if (properties.height > window_h) {
+                properties.height = window_h;
             }
         }
 
@@ -385,36 +396,48 @@ dhbgApp.mobile.start = function() {
         $this.dialog(properties);
     });
 
-    $('.w-content-controler').on('click', function(){
+    $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
+        var $dialog = $($this.attr('data-content'));
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
         if (w) {
+            var window_w = $(window).width();
             if (w.indexOf('%') >= 0) {
-                var window_w = $(window).width();
                 var tmp_w = Number(w.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     w = tmp_w * window_w / 100;
                 }
             }
 
-            $($this.attr('data-content')).dialog('option', 'width', w);
+            if (w > window_w) {
+                w = window_w;
+            }
+
+            $dialog.dialog('option', 'width', w);
         }
 
         if (h) {
+            var window_h = $(window).height();
             if (h.indexOf('%') >= 0) {
-                var window_h = $(window).height();
                 var tmp_h = Number(h.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     h = tmp_h * window_h / 100;
                 }
             }
 
-            $($this.attr('data-content')).dialog('option', 'height', h);
+            if (h > window_h) {
+                h = window_h;
+            }
+
+            $dialog.dialog('option', 'height', h);
         }
 
-        $($this.attr('data-content')).dialog('open');
+        $dialog.dialog('option', 'maxHeight', $(window).height() - 5);
+        $dialog.dialog('option', 'maxWidth', $(window).width() - 5);
+
+        $dialog.dialog('open');
         $('body').addClass('dhbgapp_fullview');
     });
 
@@ -499,18 +522,6 @@ dhbgApp.mobile.start = function() {
     // ==============================================================================================
     // "More - Less"
     // ==============================================================================================
-    $('.more-less').each(function() {
-        var $this = $(this);
-        var selector = $this.attr('data-ref');
-
-        if ($(selector).is(":hidden")) {
-            $this.addClass('viewless');
-        }
-        else {
-            $this.addClass('viewmore');
-        }
-    });
-
     $('.more-less').on('click', function() {
         var $this = $(this);
         var selector = $this.attr('data-ref');
@@ -648,8 +659,8 @@ dhbgApp.mobile.start = function() {
     var $results_modal = $('#results_page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -745,6 +756,8 @@ dhbgApp.mobile.start = function() {
         }
 
         $('body').addClass('dhbgapp_fullview');
+        $results_modal.dialog('option', 'height', $(window).height() - 10);
+        $results_modal.dialog('option', 'width', $(window).width() - 10);
         $results_modal.dialog('open');
     });
 
@@ -752,8 +765,9 @@ dhbgApp.mobile.start = function() {
     var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        resize: 'auto',
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -765,6 +779,8 @@ dhbgApp.mobile.start = function() {
     $('[data-global="credits"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $credits_modal.dialog('option', 'height', $(window).height() - 10);
+        $credits_modal.dialog('option', 'width', $(window).width() - 10);
         $credits_modal.dialog('open');
     });
 
@@ -772,8 +788,8 @@ dhbgApp.mobile.start = function() {
     var $library_modal = $('#library-page').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth - 10,
-        height: dhbgApp.documentHeight - 10,
+        width: $(window).width() - 10,
+        height: $(window).height() - 10,
         classes: {
             "ui-dialog": "library_page_dialog"
         },
@@ -785,13 +801,15 @@ dhbgApp.mobile.start = function() {
     $('[data-global="library"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
+        $library_modal.dialog('option', 'height', $(window).height() - 10);
+        $library_modal.dialog('option', 'width', $(window).width() - 10);
         $library_modal.dialog('open');
     });
 
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================
-    $('.accordion').accordion({ autoHeight: false, heightStyle: "content"});
+    $('.accordion').accordion({ autoHeight: false, heightStyle: "content", collapsible: true });
 
     // ==============================================================================================
     // Special control: View first
@@ -903,7 +921,7 @@ dhbgApp.mobile.start = function() {
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_vertical_content elements"></div>');
 
-        $this.find('dl').each(function() {
+        $this.find('>dl').each(function() {
             var $dl = $(this);
             var $element_container = $('<div class="element"></div>');
             var $dd = $dl.find('dd').children();
@@ -942,7 +960,7 @@ dhbgApp.mobile.start = function() {
 
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_both_content elements"></div>');
-        $this.find('dl').each(function() {
+        $this.find('>dl').each(function() {
             var $dl = $(this);
 
             var $element_container = $('<div class="element"></div>');
@@ -1090,7 +1108,7 @@ dhbgApp.mobile.start = function() {
             $list_buttons.append($back_button);
             // End Back button.
 
-            if (orientation == 'vertical') {
+            if (orientation == 'vertical' || orientation == 'sides') {
                 $position_index_label = $('<div class="position">' + dhbgApp.s('pagination_label', { 'a': 1, 'b': $items.length } )  + '</div>');
                 $this.append($position_index_label);
             }
@@ -1135,9 +1153,9 @@ dhbgApp.mobile.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1146,7 +1164,7 @@ dhbgApp.mobile.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1287,14 +1305,14 @@ dhbgApp.mobile.start = function() {
     }
 
     //Activities
-    dhbgApp.standard.load_operations();
+    dhbgApp.mobile.load_operations();
     dhbgApp.actions.startTimer = function($container, seconds) {
         var format = function (s) {
             var h = Math.floor(s / 3600);
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -1351,12 +1369,14 @@ dhbgApp.mobile.start = function() {
             ondemand = /^(any|mobile)$/.test(el.getAttribute('data-on-demand'));
         }
 
+        options.ondemand = ondemand;
         if (!ondemand && timer == 0) {
             loader.call(loader, $container, options);
             return;
         }
 
         var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
+
         $container.before($start);
         var parent_class = $container.parent().attr('id');
         $container.addClass(parent_class);
@@ -1575,8 +1595,8 @@ dhbgApp.mobile.start = function() {
     var $expand_image_modal = $('<div><div id="expand_image_content"></div></div>').dialog({
         modal: true,
         autoOpen: false,
-        width: dhbgApp.documentWidth,
-        height: dhbgApp.documentHeight,
+        width: $(window).width(),
+        height: $(window).height(),
         classes: {
             "ui-dialog": "expand_image_dialog"
         },
@@ -1602,6 +1622,8 @@ dhbgApp.mobile.start = function() {
             if (title) {
                 $expand_image_modal.dialog('option', 'title', title);
             }
+            $expand_image_modal.dialog('option', 'height', $(window).height());
+            $expand_image_modal.dialog('option', 'width', $(window).width());
             $expand_image_modal.dialog('open');
         };
 
@@ -1629,6 +1651,19 @@ dhbgApp.mobile.start = function() {
             }, 100);
         }
     });
+
+    // ==============================================================================================
+    // Form element value in a target control
+    // ==============================================================================================
+    dhbgApp.actions.afterChangePage[dhbgApp.actions.afterChangePage.length] = function($current_subpage){
+        $current_subpage.find('.form-value-display').each(function(){
+            var $this = $(this);
+            var text = $($this.attr('data-element')).val();
+            text = text.replace(/\n/g, '<br />');
+            text = text.replace(/\t/g, '    ');
+            $this.html(text);
+        });
+    };
 
     // ==============================================================================================
     // Sounds
@@ -2057,6 +2092,8 @@ dhbgApp.mobile.load_operations = function() {
         activityOptions.prefixType       = $this.attr('data-prefixtype') ? $this.attr('data-prefixtype') : jpit.activities.quiz.prefixes.none;
         activityOptions.requiredAll      = $this.attr('data-requiredall') && $this.attr('data-requiredall') != 'true' ? false : true;
         activityOptions.paginationNumber = $this.attr('data-paginationnumber') ? parseInt($this.attr('data-paginationnumber')) : 1;
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var count_questions = $this.find('question[type!="label"]').length;
         var question_weight = 100 / count_questions;
@@ -2193,6 +2230,7 @@ dhbgApp.mobile.load_operations = function() {
         var $box_end = $('<div class="box_end" style="display:none"></div>');
 
         var add_restart_button = function () {
+            if (!allowRetry) return;
             var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
             $button_again.on('click', function(){
                 $this.empty();
@@ -2278,6 +2316,10 @@ dhbgApp.mobile.load_operations = function() {
                     if (weight < 100) {
                         add_restart_button();
                     }
+                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                        id: scorm_id,
+                        weight: weight
+                    }]);
                 }
             }
 
@@ -2458,6 +2500,8 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_crossword_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
 
@@ -2532,7 +2576,7 @@ dhbgApp.mobile.load_operations = function() {
             activity.stop();
             activity.highlight('correct', 'wrong');
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
                     $box_end.empty();
@@ -2545,6 +2589,10 @@ dhbgApp.mobile.load_operations = function() {
 
                 $this.find('.box_end').append($button_again)
             }
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
         });
 
         var $box_verify = $('<div class="verify_container"></div>');
@@ -2575,7 +2623,7 @@ dhbgApp.mobile.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();
@@ -2611,11 +2659,13 @@ dhbgApp.mobile.load_operations = function() {
                 'continueResolve': false,
                 'holdCorrects': false,
                 'multiTarget': 1,
-                'autoAlignNodes': true,
+                'autoAlignNodes': false,
                 'requiredAll': false,
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
             };
+            var allowRetry = !($this.attr('data-allow-retry') === 'false');
+            var modalFeedback = true && $this.attr('data-modal-feedback');
 
             var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
 
@@ -2626,7 +2676,7 @@ dhbgApp.mobile.load_operations = function() {
 
             var autoalign;
             if (autoalign = $this.attr('data-autoalign')) {
-                activityOptions.autoAlignNodes = !(autoalign == 'false');
+                activityOptions.autoAlignNodes = autoalign === 'true';
             }
 
             // Build the board.
@@ -2656,8 +2706,12 @@ dhbgApp.mobile.load_operations = function() {
             });
 
             var add_restart_button = function() {
+                if (!allowRetry) return;
                 var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
                 $button_again.on('click', function(){
+                    $(dhbgApp).trigger('jpit:activity:restart', [$this, {
+                        id: scorm_id
+                    }]);
                     $box_end.empty().hide();
                     $this.find('.draggable,.droppable').removeClass('wrong correct');
                     $this.removeClass('completed');
@@ -2690,11 +2744,25 @@ dhbgApp.mobile.load_operations = function() {
                 $dragEl.trigger('click');
 
                 var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
+
+                $(dhbgApp).trigger('jpit:activity:drop', [$this, {
+                    id: scorm_id,
+                    dragEl: $dragEl
+                }]);
+
                 if (!end) return;
 
                 $this.data('clock') && $this.data('clock').stop();
 
-                var weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+                var weight;
+
+                if (type_verification == 'target') {
+                    weight = Math.round(activity.countCorrect() * 100 / targets.length);
+                }
+                else {
+                    weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+                }
+
                 activity.disable();
 
                 if (dhbgApp.scorm) {
@@ -2765,9 +2833,12 @@ dhbgApp.mobile.load_operations = function() {
                 }]);
             });
             $this.data('loaded', true);
-        };
-        dhbgApp.mobile.fullContent.content.append($this);
-        dhbgApp.showFullContent($this);
+        }
+
+        if (options.ondemand) {
+            dhbgApp.mobile.fullContent.content.append($this);
+            dhbgApp.showFullContent($this);
+        }
     };
 
     dhbgApp.actions.activityMultidroppable = function ($this, scorm_id) {
@@ -2775,6 +2846,17 @@ dhbgApp.mobile.load_operations = function() {
         if (!$this.data('loaded')) {
             var activity;
             var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
+            var feedbacktrue = '', feedbackfalse = '';
+
+            if ($this.find('feedback correct').text() != '') {
+                feedbacktrue = $this.find('feedback correct').html();
+            }
+
+            if ($this.find('feedback wrong').text() != '') {
+                feedbackfalse = $this.find('feedback wrong').html();
+            }
+
+            $this.find('feedback').empty();
 
             var $box_end = $this.find('.box_end');
             $box_end.hide();
@@ -2826,6 +2908,7 @@ dhbgApp.mobile.load_operations = function() {
 
             var $verify = $this.find('button.verify');
             var $continue = $this.find('button.continue');
+            var $resolve = $this.find('button.resolve');
 
             $verify.on('click', function () {
                 var dropped = $this.find('.box_targets .draggable');
@@ -2841,6 +2924,13 @@ dhbgApp.mobile.load_operations = function() {
                         $k.find('[data-group!="' + $k.attr('data-target-group') + '"]').addClass('wrong disabled');
                     });
 
+                    $.each(targets, function(i, $target) {
+                        var imagefeedback = $this.find('.imagefeedback[data-feedback="' + $target.attr('data-target-group') + '"] img');
+                        $target.find('.draggable.correct').each(function (i, item) {
+                            $(imagefeedback[i]).addClass('good');
+                        });
+                    });
+
                     $(this).hide();
 
                     var weight = Math.round(corrects * 100 / origins.length);
@@ -2852,17 +2942,22 @@ dhbgApp.mobile.load_operations = function() {
 
                     var msg;
                     if (weight >= dhbgApp.evaluation.approve_limit) {
-                        msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                        msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
                     }
                     else {
-                        msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                        msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
                     }
 
                     $box_end.append(msg).show();
 
                     if (weight < 100) {
                         $continue.show();
+                        $resolve.show();
                     }
+                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                        id: scorm_id,
+                        weight: weight
+                    }]);
                 }
                 else {
                     var d_drop_buttons = {};
@@ -2875,6 +2970,7 @@ dhbgApp.mobile.load_operations = function() {
             $continue.on('click', function () {
 
                 $box_end.empty().hide();
+                $this.find('.sources').append($this.find('.draggable.wrong'));
                 $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
 
                 $this.find('[data-group]').draggable( "enable" );
@@ -2882,6 +2978,20 @@ dhbgApp.mobile.load_operations = function() {
 
                 $continue.hide();
                 $verify.show();
+            });
+
+            $resolve.on('click', function () {
+
+                $box_end.empty().hide();
+                $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
+
+                $.each(targets, function(i, $target) {
+                    $target.append($this.find('[data-group="' + $target.attr('data-target-group') + '"]'));
+                });
+
+                $continue.hide();
+                $resolve.hide();
+                $verify.trigger('click');
             });
 
 
@@ -2907,6 +3017,8 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_cloze_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = '', feedbackfalse = '';
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         var html_body = $this.html();
         var $box_end = $this.find('.box_end');
@@ -2967,7 +3079,7 @@ dhbgApp.mobile.load_operations = function() {
                     $this.find('.correct').parents(mark_parent).addClass('correct');
                 }
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -2997,6 +3109,8 @@ dhbgApp.mobile.load_operations = function() {
             var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
             var html_body = $this.html();
             var $box_end = $this.find('.box_end');
+            var allowRetry = !($this.attr('data-allow-retry') === 'false');
+            var modalFeedback = true && $this.attr('data-modal-feedback');
             $box_end.hide();
 
             if ($this.find('feedback correct').text() != '') {
@@ -3042,7 +3156,7 @@ dhbgApp.mobile.load_operations = function() {
                 activity.disable();
                 activity.highlight('correct', 'wrong');
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3055,7 +3169,10 @@ dhbgApp.mobile.load_operations = function() {
 
                     $box_end.append($button_again);
                 }
-
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             });
 
             var $box_verify = $('<div class="verify_container"></div>');
@@ -3097,6 +3214,10 @@ dhbgApp.mobile.load_operations = function() {
                     dhbgApp.scorm.activityAttempt(scorm_id, weight);
                 }
                 dhbgApp.printProgress();
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             },
         };
 
@@ -3120,6 +3241,9 @@ dhbgApp.mobile.load_operations = function() {
         var html_body = $this.html();
         var $box_verify = $('<div class="verify_container"></div>');
         var $box_end = $('<div class="box_end"></div>');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
+
         $box_end.hide();
         $box_verify.append($box_end);
 
@@ -3194,7 +3318,7 @@ dhbgApp.mobile.load_operations = function() {
                 activity.disable();
                 activity.highlight('correct', 'wrong');
 
-                if (weight < 100) {
+                if (weight < 100 && allowRetry) {
                     var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
                     $button_again.on('click', function(){
                         $box_end.empty();
@@ -3207,6 +3331,10 @@ dhbgApp.mobile.load_operations = function() {
 
                     $box_end.append($button_again);
                 }
+                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                    id: scorm_id,
+                    weight: weight
+                }]);
             }
         });
 
@@ -3233,6 +3361,8 @@ dhbgApp.mobile.load_operations = function() {
         var ok = dhbgApp.s('accept');
         d_answer_buttons[ok] = function() { $(this).dialog('close'); };
         var $dialog_answer_required = $('<div>' + dhbgApp.s('answer_required') + '</div>').dialog({modal: true, autoOpen: false, buttons: d_answer_buttons });
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
         // Load custom feedback, if exists.
         var feedbacktrue = null, feedbackfalse = null;
@@ -3303,7 +3433,7 @@ dhbgApp.mobile.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }
@@ -3453,14 +3583,7 @@ dhbgApp.mobile.load_operations = function() {
             var weight = Math.round(count_corrects * 100 / groups.length);
 
             if (dhbgApp.scorm) {
-                var student_response = [];
-                $this.find('[data-group].selected').each(function(idx, el) {
-                    student_response[student_response.length] = $(el).attr('data-group-value');
-                });
-
-                student_response = student_response.join('|');
-
-                dhbgApp.scorm.activityAttempt(scorm_id, weight, null, student_response);
+                dhbgApp.scorm.activityAttempt(scorm_id, weight);
             }
             dhbgApp.printProgress();
 
@@ -3479,7 +3602,7 @@ dhbgApp.mobile.load_operations = function() {
 
             $button_check.hide();
 
-            if (weight < 100) {
+            if (weight < 100 && allowRetry) {
                 $button_again.show();
             }
 
