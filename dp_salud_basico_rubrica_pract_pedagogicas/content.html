@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Rúbrica: Foro sobre Mis prácticas pedagógicas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-pract_pedagogicas" ptitle="Evaluación participación y desempeño en el foro">
+                <div class="subpage">
+                    <div class="box-text activity" label="Evalúe su participación y desempeño en el foro">
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single" data-max="12" data-min="4">
+                            <table>
+                                <colgroup>
+                                    <col width="55%"/>
+                                    <col width="15%"/>
+                                    <col width="15%"/>
+                                    <col width="15%"/>
+                                 </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>No cumple</th>
+                                        <th>Cumple parcialmente</th>
+                                        <th>Cumple</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Escribe por lo menos tres estrategias que usen en su práctica docente.</th>
+                                        <td class="button" data-group="1" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Justifica, de manera clara, las razones por las cuales considera que determinadas estrategias y/o actividades, han sido más y menos potentes para el trabajo con sus estudiantes, dentro de su práctica docente.</th>
+                                        <td class="button" data-group="2" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Especifica las razones del interés por las cuales desea profundizar en una determinada estrategia didáctica.</th>
+                                        <td class="button" data-group="3" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Comenta, por lo menos, dos participaciones de sus pares.</th>
+                                        <td class="button" data-group="4" data-group-value="1"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="2"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <h5>¡Muy bien!</h5>
+                                    <p>La autoevaluación ha sido almacenada, ahora regresa al componente para continuar con las actividades.</p>
+                                </correct>
+                                <wrong>
+                                    <h5>¡Muy bien!</h5>
+                                    <p>La autoevaluación ha sido almacenada, ahora regresa al componente para continuar con las actividades.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
