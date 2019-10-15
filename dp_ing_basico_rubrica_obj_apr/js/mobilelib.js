@@ -1139,9 +1139,9 @@ dhbgApp.mobile.start = function() {
             // End Next button.
         }
         $this.data('pagination', {
-            moveNext: function () { 
+            moveNext: function () {
                 $next_button.find('.button.next').removeAttr('disabled');
-                $next_button.trigger('click'); 
+                $next_button.trigger('click');
             },
             moveBack: function () { $back_button.trigger('click'); },
             setButtonEnable: function (button, enabled) {
@@ -1150,7 +1150,7 @@ dhbgApp.mobile.start = function() {
                 }
                 else {
                     $this.find('.button.'+button).attr('disabled', true);
-                }                
+                }
             },
             isLastPage: function () {
                 return ($items.data('current') + 1) == total_pages;
@@ -1298,7 +1298,7 @@ dhbgApp.mobile.start = function() {
             s = s % 3600;
             var m = Math.floor(s / 60);
             s = s % 60;
-            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +  
+            return h > 0 ? ('0'+h).slice(-2) + ':' : '' +
                 ('0'+m).slice(-2) + ':' +
                 ('0'+s).slice(-2);
         };
@@ -2787,7 +2787,7 @@ dhbgApp.mobile.load_operations = function() {
             });
             $this.data('loaded', true);
         }
-        
+
         if (options.ondemand) {
             dhbgApp.mobile.fullContent.content.append($this);
             dhbgApp.showFullContent($this);
@@ -3351,7 +3351,7 @@ dhbgApp.mobile.load_operations = function() {
                 }
 
                 if (hasPagination && $e.is('.selected') && $this.attr('data-next-page-on-selection') == 'true') {
-                    
+
                     if (nextPageSelectionRequired && pagination.isLastPage()) {
                         $button_check.trigger('click');
                     }
@@ -3445,63 +3445,27 @@ dhbgApp.mobile.load_operations = function() {
                 return;
             }
 
-            var count_corrects = 0;
-            $.each(groups, function(i, g) {
+            var count_values = 0;
 
-                var sub_correct = 0;
-                $.each(g.correct, function(j, item) {
-                    if (item.element.hasClass('selected')) {
-                        if (mode != 'multi') {
-                            item.element.addClass('correct');
-                        }
-
-                        if (mark_parent) {
-                            item.element.parents(mark_parent).addClass('correct');
-                        }
-                        sub_correct++;
-                    }
-                    else {
-                        if (mode == 'multi') {
-                            sub_correct--;
-                        }
-                    }
-                });
-
-                $.each(g.wrong, function(j, item) {
-                    if (item.element.hasClass('selected')) {
-                        if (mode != 'multi') {
-                            item.element.addClass('wrong');
-                        }
-
-                        if (mark_parent) {
-                            item.element.parents(mark_parent).addClass('wrong');
-                        }
-
-                        if (mode == 'multi') {
-                            sub_correct--;
-                        }
-                    }
-                    else {
-                        if (mode == 'multi') {
-                            sub_correct++;
-                        }
-                    }
-                });
-
-                if (mode == 'multi') {
-                    if (sub_correct > 0) {
-                        count_corrects += sub_correct / (g.correct.length + g.wrong.length);
-                    }
-                }
-                else {
-                    count_corrects += sub_correct;
-                }
+            $this.find('[data-group].selected').each(function(idx, el) {
+                count_values += Number($(el).attr('data-group-value'));
             });
 
-            var weight = Math.round(count_corrects * 100 / groups.length);
+            var min = Number($this.attr('data-min'));
+            var max = Number($this.attr('data-max'));
+            count_values = count_values - min;
+
+            var weight = Math.round(count_values * 100 / (max - min));
 
             if (dhbgApp.scorm) {
-                dhbgApp.scorm.activityAttempt(scorm_id, weight);
+                var student_response = [];
+                $this.find('[data-group].selected').each(function(idx, el) {
+                    student_response[student_response.length] = $(el).attr('data-group-value');
+                });
+
+                student_response = student_response.join('|');
+
+                dhbgApp.scorm.activityAttempt(scorm_id, weight, null, student_response);
             }
             dhbgApp.printProgress();
 

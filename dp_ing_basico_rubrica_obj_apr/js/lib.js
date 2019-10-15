@@ -3283,60 +3283,18 @@ dhbgApp.standard.load_operations = function() {
                 return;
             }
 
-            var count_corrects = 0;
-            $.each(groups, function(i, g) {
+            var count_values = 0;
 
-                var sub_correct = 0;
-                $.each(g.correct, function(j, item) {
-                    if (item.element.hasClass('selected')) {
-                        if (mode != 'multi') {
-                            item.element.addClass('correct');
-                        }
-
-                        if (mark_parent) {
-                            item.element.parents(mark_parent).addClass('correct');
-                        }
-                        sub_correct++;
-                    }
-                    else {
-                        if (mode == 'multi') {
-                            sub_correct--;
-                        }
-                    }
-                });
-
-                $.each(g.wrong, function(j, item) {
-                    if (item.element.hasClass('selected')) {
-                        if (mode != 'multi') {
-                            item.element.addClass('wrong');
-                        }
-
-                        if (mark_parent) {
-                            item.element.parents(mark_parent).addClass('wrong');
-                        }
-
-                        if (mode == 'multi') {
-                            sub_correct--;
-                        }
-                    }
-                    else {
-                        if (mode == 'multi') {
-                            sub_correct++;
-                        }
-                    }
-                });
-
-                if (mode == 'multi') {
-                    if (sub_correct > 0) {
-                        count_corrects += sub_correct / (g.correct.length + g.wrong.length);
-                    }
-                }
-                else {
-                    count_corrects += sub_correct;
-                }
+            $this.find('[data-group].selected').each(function(idx, el) {
+                count_values += Number($(el).attr('data-group-value'));
             });
 
-            var weight = Math.round(count_corrects * 100 / groups.length);
+            var min = Number($this.attr('data-min'));
+            var max = Number($this.attr('data-max'));
+            count_values = count_values - min;
+
+            var weight = Math.round(count_values * 100 / (max - min));
+            console.log(weight);
 
             if (dhbgApp.scorm) {
                 var student_response = [];
