@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Evolución de la educación en ingeniería</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Evolución de la educación en ingeniería</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Introducción" data-page="pag-inicio"></menuitem>
+                    <menuitem label="Linea de tiempo" data-page="linea-tiempo"></menuitem>
+                    <menuitem label="La educación en ingeniería" data-page="edu-ingenieria"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="Introducción">
+
+                <div class="subpage">
+                    <p>
+                        El profesor Heberto Tapias brinda un contexto general sobre la ingeniería como abrebocas para el ejercicio de la línea de tiempo, en donde se trabaja más a profundidad el desarrollo que ha tenido la ingeniería desde sus inicios hasta la actualidad.
+                    </p>
+
+                    <div class="videobox">
+                        <video controls>
+                            <source src="content/videos/introduccion_ingenieria.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+            <section id="linea-tiempo" ptitle="Linea de tiempo">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Ordene los sucesos propuestos teniendo en cuenta la secuencia lógica en la que se han producido. Para esto, debe arrastrar cada bloque de información en el orden que considere correcto y, finalmente, leer cuidadosamente cada una de las descripciones que aparecerán una vez sitúe los eventos, pues es allí donde podrá reconocer a profundidad cómo aporta cada suceso a esta evolución.
+                        </p>
+                        <p>Tenga en cuenta que solamente se dejarán colocar los elementos en el lugar que sea el correcto.</p>
+                    </div>
+                    <div id="act1" class="jpit-activities-droppable ingenieria" data-act-id="1-timeline" data-act-title="Línea de tiempo">
+                        <div class="instruction onlymobile">Si mantiene presionado sobre un nodo de destino, podrá seleccionar fácilmente la respuesta.</div>
+                        <div class="bloque1">
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="1"></div>
+                                    </div>
+                                    <div class="ano ano1">Inicios de la ingeniería</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="2"></div>
+                                    </div>
+                                    <div class="ano ano1">Surgimiento de la educación en ingeniería y sus tendencias</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="3"></div>
+                                    </div>
+                                    <div class="ano ano1">Modelos en pugna</div>
+                                </div>
+                            </div>
+                            <div class="linea2 izq">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="4"></div>
+                                    </div>
+                                    <div class="ano ano1">Impacto de la guerra y la posguerra</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="5"></div>
+                                    </div>
+                                    <div class="ano ano1">Retorno a la práctica</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="6"></div>
+                                    </div>
+                                    <div class="ano ano1">Convergencia de modelos</div>
+                                </div>
+                            </div>
+                            <div class="linea3 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="7"></div>
+                                    </div>
+                                    <div class="ano ano1">Tensiones curriculares y soluciones pedagógicas</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="8"></div>
+                                    </div>
+                                    <div class="ano ano1">Repensando la educación en ingeniería</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="9"></div>
+                                    </div>
+                                    <div class="ano ano1">La educación en ingeniería hoy</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear" />
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> el ícono <i class="ion-information-circled" style="color: green;"></i> de cada imagen para ver la información.</div>
+                        <div class="opciones opciones1">
+                            <div data-group="3" class="item  w-content-controler general" data-content="#lt03">
+                                <img src="content/lt-03.png" />
+                                <i class="ion-information-circled tooltip" title="<span>Dos orientaciones, que desde el inicio entraron en tensión: educación basada en ciencias y entrenamiento en calificaciones prácticas.</span>"></i>
+                            </div>
+                            <div data-group="8" class="item  w-content-controler general" data-content="#lt08">
+                                <img src="content/lt-08.png" />
+                                <i class="ion-information-circled tooltip" title="<span>Las nuevas perspectivas en la formación práctica tienen en cuenta la complejidad actual de las tareas de ingeniería, que demandan habilidades comunicativas, trabajo en equipo y cultura de proyecto.</span>"></i>
+                            </div>
+                            <div data-group="9" class="item  w-content-controler general" data-content="#lt09">
+                                <img src="content/lt-09.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>Algunas de las preguntas que es necesario abordar al momento de pensar en la educación de la ingeniería son respecto al tipo de competencias, valores, contenidos y estrategias didácticas y evaluativas necesarias para propender por una formación integral del ingeniero.</span>"></i>
+                            </div>
+                            <div data-group="1" class="item  w-content-controler general" data-content="#lt01">
+                                <img src="content/lt-01.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>Ha acompañado a la humanidad desde las primeras civilizaciones. Algunos autores asocian sus comienzos con la aparición de la agricultura, la domesticación de animales y la construcción de refugios y viviendas.</span>"></i>
+                            </div>
+                            <div data-group="7" class="item  w-content-controler general" data-content="#lt07">
+                                <img src="content/lt-07.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>Los cambios en el desarrollo de disciplinas especializadas generaron conflictos, por un lado, entre el conocimiento en los dominios especializados emergentes, el conocimiento generalizado en ingeniería, y la práctica de ingeniería, y por el otro, debido a la congestión de conocimientos especializados y el desvanecimiento de las fronteras entre las diversas disciplinas y otras ciencias.</span>"></i>
+                            </div>
+                            <div data-group="4" class="item  w-content-controler general" data-content="#lt04">
+                                <img src="content/lt-04.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>Desarrollo de ciencias aplicadas o ciencias técnicas de ingeniería, derivado del incremento de fondos públicos y militares para investigación, y financiación de estudios básicos en una variedad de áreas de conocimiento apoyaron la idea de alejarse de la educación e investigación orientada a la práctica.</span>"></i>
+                            </div>
+                            <div data-group="2" class="item  w-content-controler general" data-content="#lt02">
+                                <img src="content/lt-02.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>La educación formal en ingeniería se difundió a Europa y Estados Unidos de formas diferentes, muy asociados a los procesos propios de la revolución industrial y las siguientes revoluciones tecnológicas.</span>"></i>
+                            </div>
+                            <div data-group="5" class="item  w-content-controler general" data-content="#lt05">
+                                <img src="content/lt-05.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>En los 70 la crisis del petróleo, el comienzo del movimiento ambientalista y otros eventos técnicos y políticos cambiaron el curso de la tecnología en su contexto social. Por otra parte, la crisis competitiva de los de los Estados Unidos en los años 80 orientó la investigación en las universidades desde lo militar hacia el diseño de productos.</span>"></i>
+                            </div>
+                            <div data-group="6" class="item  w-content-controler general" data-content="#lt06">
+                                <img src="content/lt-06.png" alt="" />
+                                <i class="ion-information-circled tooltip" title="<span>Expansión de las disciplinas técnicas y cambios en los currículos de ingeniería en los colegios técnicos; cambios que incluyeron mejoras en matemáticas y ciencias naturales mientras conservaron su orientación práctica.</span>"></i>
+                            </div>
+                        </div>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct><p>¡Muy bien! Ha culminado la línea de tiempo.</p></correct>
+                        </feedback>
+                    </div>
+
+                    <div id="lt01" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-01.png" />
+                            <div class="ano ano1 der">Inicios de la ingeniería</div>
+                        </div>
+                        <div class="completo">
+                            <p>La ingeniería, como conjunto de conocimientos y prácticas para disponer de materiales, objetos simbólicos y de las fuerzas de la naturaleza en la realización de las necesidades humanas, es milenaria.</p>
+                            <p>Es común que se señale a los artesanos como los predecesores de los ingenieros, con conocimientos y calificaciones especializadas para realizar sus labores, debido a la división del trabajo en las primeras ciudades. Evidencias históricas de ingeniería las encontramos en vestigios antiguos en las civilizaciones mesopotámica, egipcia, china, griega, romana, inca y azteca. En todas ellas se presupone un estado de conocimientos y prácticas específicas, es decir una tecnología, como medios que usa la ingeniería para concebirlas, diseñarlas y materializarlas.</p>
+                            <p>Y así, como ha evolucionado la tecnología, como lo evidenciamos hoy en las actividades humanas donde se usan sus artefactos, igualmente lo ha hecho la ingeniería y la manera como se educan los ingenieros. No solo han cambiado los conocimientos y calificaciones que usan en sus creaciones, sino también la naturaleza de los objetos, las actividades y contextos donde interviene.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt02" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-02.png" />
+                            <div class="ano ano2 der">Surgimiento de la educación en ingeniería y sus tendencias</div>
+                        </div>
+                        <div class="completo">
+                            <p>En Europa se crearon dos tipos de instituciones con dos modelos de énfasis de entrenamiento diferentes, concomitantes con las escuelas técnicas, para la formación de la fuerza laboral que requería la difusión de la revolución industrial y las siguientes revoluciones tecnológicas. Un modelo de educación con énfasis en el entrenamiento práctico, en colegios técnicos, dirigido a artesanos iniciados y con vinculación a la industria; y otro, llevado a cabo en universidades técnicas, de educación académica con énfasis teórico.</p>
+                            <p>La educación formalizada en ingeniería con propósitos de aplicaciones civiles y desarrollos industriales, emerge en Francia en el siglo XVIII, con la creación de la primera escuela de ingeniería civil, La Ecole Nationale des ponts et Chaussée, como una rama de la ingeniería militar, en 1747. La educación en ingeniería desarrollada y promovida a través de la École Polytechnique en 1792, con la idea básica de que la teoría matemática y principios generales de las ciencias formarían la base para mejorar la tecnología, desplazándose del nivel de experiencia basado en destrezas y prácticas a un nivel superior con mayor conocimiento práctico.</p>
+                            <p>En Estados Unidos, prevaleció un modelo que enfatizó la orientación práctica, con menos énfasis en matemáticas y ciencias, y que permaneció hasta la II guerra mundial cuando se incorporó una base científica de ingeniería o ciencias de ingeniería en la formación de los ingenieros.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt03" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-03.png" />
+                            <div class="ano ano3 der">Modelos en pugna</div>
+                        </div>
+                        <div class="completo">
+                            <p>Muchas disciplinas de ingeniería se desarrollaron desde una etapa que podría calificarse de enciclopédica, evolución que distanció la educación del ingeniero de la experiencia y práctica de ingeniería necesaria en su formación.</p>
+                            <p>Las dos aproximaciones, con énfasis teórico o entrenamiento práctico, condujeron a distintas estructuras institucionales de ingeniería técnica e ingeniería de base científica, y a perfiles diferenciados de sus egresados.  Modelos con los que se educaron ingenieros técnicos para participar en desarrollos tecnológicos, como resultado de su calificación práctica, y que jugaron un papel importante en la industrialización de finales del siglo XIX; pero también, ingenieros entrenados académicamente para asumir roles como innovadores y constructores de nuevos sistemas en las nuevas tecnologías.</p>
+                            <p>Las dos orientaciones, educación basada en ciencias y entrenamiento en calificaciones prácticas, no estuvieron libres de tensiones desde el comienzo. Los conflictos entre estas dos tendencias aún perduran, aunque se le han dado soluciones diferenciadas, y  han posibilitado que la ingeniería se mantenga como una profesión homogénea con identidad internacional bien definida.</p>
+                            <p>A finales del siglo XIX aparecieron las ramas de ingeniería mecánica, química y eléctrica, asociadas al avance de grandes empresas productoras de materiales, equipos y bienes de consumo. Evolución y especialización en otras áreas tecnológicas que proliferó en el siglo XX y se mantiene en el XXI, en ámbitos de disciplinas técnicas especializadas emergentes con las nuevas tecnologías (TIC), e hibridaciones de estas con disciplinas más maduras, y hasta combinaciones sugestivas de las ramas clásicas de ingeniería con las ciencias fácticas y formales, que cuestionan la identidad de la profesión.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt04" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-04.png" />
+                            <div class="ano ano4 der">Impacto de la guerra y la posguerra</div>
+                        </div>
+                        <div class="completo">
+                            <p>Los resultados visibles en semiconductores, aerodinámica de alta velocidad y computación, confirmaron que la física y la matemática conducidas en un ambiente de laboratorio podían abrir nuevas fronteras tecnológicas.</p>
+                            <p>Para mediados de los 60, muchas facultades de ingeniería hicieron la transición a un estilo más analítico y científico en la enseñanza en ingeniería; cambio estimulado por la formalización de concejos científicos y grandes programas de investigación financiados por el gobierno, orientados a la utilización pacífica de tecnologías desarrolladas durante la II guerra mundial.</p>
+                            <p>En las décadas de la posguerra se identificó la ingeniería de sistemas y el pensamiento sistémico como herramientas de ingeniería ampliamente aplicables. Con este nuevo paradigma, aparecieron y se aplicaron ciencias de sistemas que incluyen: teoría de sistemas, teoría de control, investigación de operación, dinámica de sistemas y cibernética, entre otras; que condujeron a los ingenieros a concentrarse en la construcción de modelos analíticos de sistemas a pequeña y gran escala, generalmente haciendo uso de nuevas herramientas que proporcionaba los computadores digitales y las simulaciones.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt05" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-05.png" />
+                            <div class="ano ano5 der">Retorno a la práctica</div>
+                        </div>
+                        <div class="completo">
+                            <p>Estos hechos también estuvieron acompañados de autocríticas en las universidades en contra de un enfoque muy estrecho de la enseñanza en ciencia con ausencia de competencias en ingeniería y componentes prácticos, lo que generó que algunos programas enfocaran sus soluciones en el ámbito pedagógico incorporando estrategias de aprendizaje en proyecto y aprendizaje basado en problemas con los cuales se abordarían aspectos interdisciplinarios de métodos de ingeniería, de solución de problemas y de integración de elementos teóricos y prácticos necesarios.</p>
+                            <p>Los cambios en las universidades no se redujeron a cambios en el enfoque e incorporación de estrategias; también diversificaron conocimientos disciplinarios en los currículos y ampliaron la oferta de programas especializados de ingeniería, para hacerle frente y seguir en la frontera, en un número creciente de dominios tecnológicos y disciplinas de ciencias técnicas especializadas generadas como resultados de grandes inversiones en investigación en ingeniería en la industria y en los institutos de investigación y universidades en la segunda mitad del siglo XX hacia el diseño y desarrollo de productos, y estudios de innovación con más énfasis en problemas prácticos.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt06" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-06.png" />
+                            <div class="ano ano6 der">Convergencia de modelos</div>
+                        </div>
+                        <div class="completo">
+                            <p>La perspectiva de sistemas en la ingeniería desencadenó un movimiento más amplio que consideró que esas herramientas podrían finalmente proveer las bases teóricas para toda la ingeniería; contribuciones que van más allá de los principios básicos de las ciencias naturales.</p>
+                            <p>Igualmente, las nuevas ideas de sistemas de los años 80 y los 90, se enfocaron en la relación entre tecnología y su contexto industrial y social, desarrollada en el campo de los estudios sociológicos de ciencia y tecnología, que se tradujo en la noción de la ingeniería como tecnociencia. Así, los dos modelos de educación en ingeniería en Europa resultaron convergiendo.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt07" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-07.png" />
+                            <div class="ano ano7 der">Tensiones curriculares y soluciones pedagógicas</div>
+                        </div>
+                        <div class="completo">
+                            <p>Los cambios en el desarrollo de disciplinas especializadas no resultaron libres de conflictos por lo que se identifican dos grandes tensiones.</p>
+                            <p>Una primera tensión surge entre el conocimiento en los dominios especializados emergentes, el conocimiento generalizado en ingeniería, y la práctica de ingeniería. Y una segunda tensión inédita que milita en contra de la homogeneidad de la ingeniería y de su propia identidad que resulta siendo la congestión de conocimientos especializados y el desvanecimiento de las fronteras entre las diversas disciplinas y otras ciencias, lo cual hace borroso los dominios y límites entre ellas.</p>
+                            <p>Para abordar la congestión, las universidades han ensayado varias soluciones:</p>
+                            <ul class="data_list">
+                                <li>Aumento en el número y variedad de cursos técnicos.</li>
+                                <li>Organización del currículo en estructuras modulares.</li>
+                                <li>Expansión del número de especializaciones.</li>
+                                <li>Definición de un núcleo de contenido en ciencias y cursos electivos.</li>
+                                <li>Reformas pedagógicas basadas en:</li>
+                                <ul>
+                                    <li>Trabajo en proyecto.</li>
+                                    <li>Solución de problemas.</li>
+                                    <li>Autogestión de conocimientos.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="lt08" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-08.png" />
+                            <div class="ano ano8 der">Repensando la educación en ingeniería</div>
+                        </div>
+                        <div class="completo">
+                            <p>Para enfrentar el fraccionamiento del dominio de la ingeniería, la tendencia difusa de su identidad y su relación con la dimensión social y humana de la tecnología, las universidades tendrán que repensar la educación.</p>
+                            <p>Las reflexiones deben abordar el estado actual del paradigma tecnológico en despliegue y el futuro que se insinúa con los desarrollos en biotecnología, nanotecnología y bioelectrónica; pero también como tendrá que intervenir el ingeniero en su contexto y objetos de trabajo, con qué tipo de conocimientos y con cuáles competencias, puesto que ya se han insinuado algunas líneas guías para estas reflexiones y algunas propuestas.</p>
+                            <p>Mientras el entrenamiento en planta y aspectos prácticos de la organización del trabajo estuvieron presentes en las fases primigenias de la educación en ingeniería,  en la fase actual, además de la orientación teórica o práctica, son cruciales en el diseño curricular y la práctica pedagógica en ingeniería, la preocupación sobre la dirección del desarrollo tecnológico, el impacto social y ambiental, y la identidad de la ingeniería.</p>
+                        </div>
+                    </div>
+
+                    <div id="lt09" class="w-content" data-property-width="600">
+                        <div class="imagen">
+                            <img src="./content/lt-09.png" />
+                            <div class="ano ano9 der">La educación en ingeniería hoy</div>
+                        </div>
+                        <div class="completo">
+                            <p>¿Qué competencias, conocimientos y valores requieren los ingenieros para la creación y desarrollo de sus artefactos? ¿Qué contenidos específicos en ciencias naturales y formales, tecnológicos especializados, filosóficos, éticos, políticos, y en ciencias sociales y humanas, se deben seleccionar para definir los contenidos de aprendizaje? ¿Cuáles son las estrategias didácticas que posibilitan la adquisición y desarrollo de esos conocimientos?</p>
+                            <p>Ya se han insinuado algunas líneas guías para esas decisiones y algunas propuestas concretas; CDIO es una propuesta y una iniciativa con la que se pretende dar respuestas a esas preguntas para mejorar la educación en el área de ingeniería.</p>
+                        </div>
+                    </div>
+
+                    <div class="box-text link" label="Enlace">
+                        <p>
+                            Para conocer más, lea el documento completo: <a target="_blank" href="https://docs.google.com/document/d/1l5jrkEAe_CNKwzzpps16DD7-ANXB4yaw7BzmvQNnsa0/edit#">Breve reseña de la educación en ingeniería de Heberto Tapias</a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="edu-ingenieria" ptitle="La educación en ingeniería">
+                <p>El profesor Heberto Tapias concluye el ejercicio presentando los dilemas éticos y los retos que tiene la ingeniería el mundo actual.</p>
+                <div class="videobox">
+                    <video controls>
+                        <source src="content/videos/dilemas_y_retos_de_la_ingenieria.mp4" type="video/mp4">
+                        El reproductor de video no es soportado por el navegador
+                    </video>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividad de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Heberto Tapias García</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br />
+                Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+             <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

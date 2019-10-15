@@ -1,0 +1,255 @@
+.text_tooltip p {
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.jpit-activities-droppable .droppable {
+    padding-bottom: 5px;
+}
+
+.jpit-activities-droppable .linea1 {
+    border-bottom: 2px solid #70B1BC;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.jpit-activities-droppable .contenedor{
+    margin: 0 10px 20px;
+    width: 200px;
+}
+
+.jpit-activities-droppable .sombra {
+    background-color: #F1F1F0;
+    width: 130px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.ano {
+    width: 100%;
+    height: 4.5em;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    bottom: -10px;
+    color: #fff;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ano1 {
+    background-color: #0089a9;
+}
+
+
+.der .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    right: -20px;
+    content: "";
+    top: 1.5em;
+}
+
+.der .ano1:after {
+    border-left-color: #0089a9;
+}
+
+.der .ano2:after {
+    border-left-color: #879592;
+}
+
+.der .ano3:after {
+    border-left-color: #FF8000;
+}
+
+.izq .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    left: -20px;
+    content: "";
+    top: 1.5em;
+}
+
+.izq .ano1:after {
+    border-right-color: #0089a9;
+}
+
+.izq .ano3:after {
+    border-right-color: #FF8000;
+}
+
+.ano2 {
+        background-color: #879592;
+}
+
+.ano3 {
+        background-color: #FF8000;
+}
+
+.jpit-activities-droppable {
+    position: relative;
+}
+
+.jpit-activities-droppable .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 130px;
+    height: 80px;
+    padding: 0;
+}
+
+.jpit-activities-droppable .cajon .draggable {
+    cursor: pointer;
+}
+
+.jpit-activities-droppable .der {
+    border-bottom: 2px solid #70B1BC;
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.jpit-activities-droppable .izq {
+    border-bottom: 2px solid #70B1BC;
+    border-right: 2px solid #70B1BC;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.jpit-activities-droppable .introductorio {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.jpit-activities-droppable .introductorio1 {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+.jpit-activities-droppable .introductorio1 p,
+.jpit-activities-droppable .introductorio1 h3,
+.jpit-activities-droppable .introductorio p,
+.jpit-activities-droppable .introductorio h3 {
+    padding: 0 20px;
+}
+
+.jpit-activities-droppable .introductorio2 {
+    border-right: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+.jpit-activities-droppable .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.jpit-activities-droppable.completed .opciones {
+    margin-top: 0;
+}
+
+.jpit-activities-droppable .item {
+    border: 1px solid #73C8D1;
+    border-radius: 15px;
+    width: 130px;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #000;
+    overflow: hidden;
+}
+
+.jpit-activities-droppable .item img {
+    width: 100%;
+}
+
+.jpit-activities-droppable .item span {
+    display: none;
+}
+
+.jpit-activities-droppable .opciones .item {
+    margin: 10px;
+}
+
+#act1.jpit-activities-droppable .item {
+    background-color: #DFE9EF;
+    position: relative;
+}
+
+#act1.jpit-activities-droppable .item i,
+.jpitdroppable_select_list_item .item i {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: green;
+    font-size: 25px;
+}
+
+#act1.jpit-activities-droppable .item i:hover,
+.jpitdroppable_select_list_item .item i:hover {
+    color: blue;
+}
+
+.jpit-activities-droppable .scroll {
+    display: block;
+    overflow: auto;
+    width: 145px;
+}
+
+.w-content .imagen img {
+    display: block;
+    margin: auto;
+}
+
+.w-content .imagen {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.imagen .ano {
+    background-color: #008aac;
+    margin-left: 0;
+    left: 0;
+    font-size: 20px;
+    height: 50px;
+}
+
+.imagen .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    left: 60px;
+    content: "";
+}
+
+.box_end .icon_more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    transform: rotate(45deg);
+}
