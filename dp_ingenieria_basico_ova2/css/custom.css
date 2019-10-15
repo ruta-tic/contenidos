@@ -1,0 +1,173 @@
+/********************************************************************************/
+/* Actividad Estándares act-cdio*/
+/********************************************************************************/
+
+/********************************************************************************/
+/* Actividad 5 - Componentes de una plataforma educativa*/
+/********************************************************************************/
+#act-cdio {
+    min-width: 850px;
+}
+
+#act-cdio .box_targets {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 95%;
+    margin: 0 auto;
+}
+
+#act-cdio .caracteristicas {
+    text-align: center;
+    position: relative;
+}
+
+#act-cdio .titulo,
+#act-cdio .subtitulo {
+    width: 240px;
+    height: 60px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#act-cdio .titulo {
+    background-color: #fff;
+    border: 2px solid #809390;
+    margin: 20px auto;
+}
+
+#act-cdio .titulo.categorias {
+    background-color: #ecd46c;
+    border: 2px solid #ecd46c;
+    margin: 20px auto;
+}
+
+#act-cdio .titulo.estandares {
+    background-color: #dcf3f4;
+    border: 2px solid #009ed5;
+    margin: 20px auto;
+}
+
+#act-cdio .sub1 {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#act-cdio .sub2 {
+    background-color: #dcdcdd;
+    border: 2px solid #859390;
+}
+
+#act-cdio .sub3 {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
+}
+
+#act-cdio .target {
+    width: 120px;
+    border: 1px dashed #859390;
+    border-radius: 10px;
+    background-color: #f1f0ef;
+    padding: 0;
+}
+
+#act-cdio .categorias .target {
+    min-height: 70px;
+    background-color: #ecd46c;
+}
+
+#act-cdio .estandares .target {
+    min-height: 100px;
+    padding-bottom: 20px;
+    background-color: #e2f3f4;
+}
+
+#act-cdio .target .caracteristica {
+    margin: -1px 0 0 -1px;
+}
+
+#act-cdio .sombra {
+    border-radius: 10px;
+    background-color: #f1f0ef;
+    padding: 4px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+}
+
+#act-cdio .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+#act-cdio .sources {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#act-cdio .caracteristica {
+    width: 108px;
+    border-radius: 10px;
+    border: 2px solid #17809d;
+    background-color: #e2f3f4;
+    color: #000;
+    margin: 1px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#act-cdio .categoria.caracteristica {
+    background-color: #ecd46c;
+    border: 2px solid #d79f21;
+}
+
+#act-cdio .estandar.caracteristica {
+    height: 85px;
+}
+
+#act-cdio .draggable.wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+#act-cdio .conectores {
+    border-top: 2px solid #809390;
+    width: 80%;
+    height: 22px;
+    margin: 20px auto 0;
+    position: relative;
+}
+
+#act-cdio .conectores.superior:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -23px;
+    height: 19px;
+    border: 2px solid #809390;
+    border-right: 0;
+}
+
+#act-cdio .box_targets.estandares {
+    margin: 23px auto;
+}
+
+#act-cdio .box_targets .caracteristicas:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -23px;
+    height: 19px;
+    border: 2px solid #809390;
+    border-right: 0;
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Estándares CDIO</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Estándares CDIO</h2>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+                <section id="pag-inicio" ptitle="Estándares CDIO">
+                        <div class="subpage">
+                            <div class="box-text activity" label="Indicaciones:">
+                                <ol class="ol_counter">
+                                    <li>De la lista de categorías que se presentan en la parte de abajo, arrastre aquella que considera corresponde a la definición presentada en cada una de las casillas del segundo nivel del mapa. Para ver la definición, <span class="onlymobile">toque</span><span class="notmobile">pase el mouse por</span> cada casilla.</li>
+                                    <li>Posteriormente, de la lista de los 12 estándares que se presenta en la parte de abajo, ubique en el tercer nivel del mapa, debajo de cada categoría, aquellos que correspondan con la definición presentada. </li>
+                                    <li>Valide las respuestas para saber qué aciertos ha tenido y realice un nuevo intento si lo considera necesario.</li>
+                                    <li>En cada intento se le indicará cuáles conceptos no están bien asociados.</li>
+                                </ol>
+                            </div>
+
+                            <div id="act-cdio" class="jpit-activities-multidroppable" data-act-id="1-multidroppable" data-act-title="CDIO">
+                                <div class="titulo"><strong>CDIO</strong></div>
+                                <div class="conectores superior"></div>
+                                <div class="box_targets categorias">
+                                    <!--Categorías-->
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="1" title="Marco general de los principios y objetivos de la iniciativa."></div>
+                                        </div>
+                                    </div>
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="2" title="Curriculum, cursos y resultados de aprendizaje orientados a la construcción de productos, procesos y sistemas."></div>
+                                        </div>
+                                    </div>
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="3" title="Experiencias contenidas en el curriculum y espacios para su desarrollo."></div>
+                                        </div>
+                                    </div>
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="4" title="Experiencias de aprendizaje para la adquisición de conocimientos y habilidades."></div>
+                                        </div>
+                                    </div>
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="5" title="Acciones que fortalecen las competencias de los académicos."></div>
+                                        </div>
+                                    </div>
+                                    <div class="caracteristicas">
+                                        <div class="sombra">
+                                            <div class="target tooltip" data-target-group="6" title="Evaluación del aprendizaje y del programa completo."></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Estándares-->
+                                <div class="box_targets estandares">
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="7"></div>
+                                            </div>
+                                        </div>
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="8"></div>
+                                            </div>
+                                        </div>
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="9"></div>
+                                            </div>
+                                        </div>
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="10"></div>
+                                            </div>
+                                        </div>
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="11"></div>
+                                            </div>
+                                        </div>
+                                        <div class="caracteristicas">
+                                            <div class="sombra">
+                                                <div class="target" data-target-group="12"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="box_end"></div>
+                                <div class="buttons">
+                                    <button class="general verify">Validar</button>
+                                    <button class="general continue" style="display: none;">Continuar intentando</button>
+                                </div>
+                                <div class="titulo categorias"><strong>Categorías</strong></div>
+                                <div class="sources categorias">
+                                    <div class="caracteristica categoria" data-group="4">Métodos de enseñanza-aprendizaje</div>
+                                    <div class="caracteristica categoria" data-group="1">Filosofía del programa</div>
+                                    <div class="caracteristica categoria" data-group="2">Desarrollo del curriculum</div>
+                                    <div class="caracteristica categoria" data-group="5">Desarrollo docente</div>
+                                    <div class="caracteristica categoria" data-group="3">Espacios de trabajo</div>
+                                    <div class="caracteristica categoria" data-group="6">Evaluación</div>
+                                </div>
+                                <div class="titulo estandares"><strong>Estándares</strong></div>
+                                <div class="sources estandares">
+                                    <div class="caracteristica estandar" data-group="12">Evaluación del aprendizaje</div>
+                                    <div class="caracteristica estandar" data-group="7">Contexto</div>
+                                    <div class="caracteristica estandar" data-group="8">Introducción a la ingeniería</div>
+                                    <div class="caracteristica estandar" data-group="9">Experiencias de diseño-implementación</div>
+                                    <div class="caracteristica estandar" data-group="9">Espacios de trabajo</div>
+                                    <div class="caracteristica estandar" data-group="10">Experiencias de aprendizaje integrado</div>
+                                    <div class="caracteristica estandar" data-group="8">Resultados de aprendizaje</div>
+                                    <div class="caracteristica estandar" data-group="8">Curriculum integrado</div>
+                                    <div class="caracteristica estandar" data-group="10">Aprendizaje activo</div>
+                                    <div class="caracteristica estandar" data-group="11">Fortalecimiento de la experiencia de los académicos</div>
+                                    <div class="caracteristica estandar" data-group="12">Evaluación del programa</div>
+                                    <div class="caracteristica estandar" data-group="11">Fortalecimiento de la competencia docente de los académicos</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <br class="clear" />
+        <h3>Actividad de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>Wilmer Alberto Gil <br />
+                    Óscar Ortega Lobo
+                </cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+             <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativas</h3>
+                <cite>David Herney Bernal García <br>
+                    Maribel Salazar Estrada
+                </cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: octubre de 2019
+            </div>
+            <div>
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br>Creative Commons Atribución 4.0 Internacional<br><br>
+                    <img src="img/cc.png" alt="Creative Commons"></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>CDIO en Chile, Estándares CDIO V 2.0 (con rúbricas personalizadas), septiembre 8, 2010. Disponible en <a href="https://bit.ly/2TBV5Xz" target="_blank">https://bit.ly/2TBV5Xz</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
