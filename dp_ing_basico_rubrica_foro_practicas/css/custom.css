@@ -19,6 +19,10 @@
     padding-left: 10px;
 }
 
+.jpit-activities-selection table tr {
+    background-color: #fff;
+}
+
 .jpit-activities-selection table .odd {
     background-color: #dde5f0;
 }
