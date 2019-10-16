@@ -9,11 +9,10 @@
 .timeline,
 .formacion {
     text-align: center;
-    width: 100%;
 }
 
 .formacion img {
-    max-width: 90%;
+    max-width: 500px;
 }
 
 .tabla {
@@ -21,9 +20,8 @@
 }
 
 .datatable {
-    max-width: 90%;
+    max-width: 80%;
     margin: 0 auto;
-    overflow: auto;
 }
 
 .tabla1 .datatable td:first-child {
@@ -33,10 +31,13 @@
 }
 
 .jpit-activities-quiz {
-    width: 80%;
+    max-width: 600px;
     margin: 0 auto;
 }
 
+.jpit_activities_quiz_question_statement {
+    font-weight: bold;
+}
 
 /********************************************************************************/
 /* Actividad - enfoques
@@ -46,62 +47,29 @@
     position: relative;
 }
 
-.jpit-activities-selection.actividad1 .ctrl-pagination {
-    max-width: 700px;
-    margin: auto;
-}
-
-.ctrl-pagination ul.layers {
-    margin-top: 40px;
-
-}
-.ctrl-pagination .label_current {
-    top: 0;
-    left: 20px;
-    border-radius: 0;
-    background-color: #4397CE;
-}
-.ctrl-pagination p {
-    margin-right: 0;
-}
-.jpit-activities-selection .option-group {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: solid 1px #4276A7;
-    border-radius: 5px;
-    display: flex;
-    border-right: none;
-}
-.jpit-activities-selection .ctrl-pagination .option-group [data-group] {
-    display: inline-block;
-    width: 140px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: #4397CE;
-    color: #FFFFFF;
-    border-radius: 0;
-    border:none;
-    border-left: solid 1px #FFFFFF;
-}
-.jpit-activities-selection .ctrl-pagination .option-group [data-group]:first-child {
-    border-left: none;
-}
-
-.jpit-activities-selection .ctrl-pagination .option-group [data-group]:hover,
-.jpit-activities-selection .ctrl-pagination .option-group [data-group].selected {
-        background-color: #003543;
-    color: #FFFFFF;
-}
-.jpit-activities-selection.actividad1 .box_end .correct {
+#act1 .box_end .wrong,
+#act1 .box_end .correct {
     max-width: inherit;
     text-align: justify;
 }
-.jpit-activities-selection.actividad1 .box_end .correct:after {
+
+#act1 .box_end .correct:after,
+#act1 .box_end .wrong:after {
     background: none;
 }
+
+#act1 td.wrong {
+    background-color: #ffbab5;
+}
+
+#act1 tbody th {
+    text-align: left;
+}
+
+#act1 td {
+    text-align: center;
+}
+
 .estilos-aprendizaje-grafica {
     width: 300px;
     padding: 20px;
@@ -136,23 +104,8 @@
 /* Evaluacion
 /********************************************************************************/
 
-#pag-evaluacion .imagenes {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#pag-evaluacion .imagenes img {
-    width: 45%;
-    margin: 5px;
-}
-
-#pag-evaluacion .imagenes p {
-    width: 100%;
+#pag-evaluacion .box_media img {
+    max-width: 300px;
 }
 
 /********************************************************************************/
@@ -172,6 +125,17 @@
 #pag-obra .clasificacion .seccion {
     position: absolute;
     background: url(../content/sprite-01.png) top left no-repeat;
+}
+
+#pag-obra .clasificacion .seccion.button {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+#pag-obra .clasificacion .seccion.current,
+#pag-obra .clasificacion .seccion:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
 }
 
 #pag-obra .clasificacion .escrita {
@@ -254,8 +218,12 @@
 }
 
 #pag-obra .medios .tabla {
-    max-height: 450px;
+    height: 450px;
     overflow: auto;
+}
+
+#pag-obra .medios .tabla tr td:first-child {
+    font-weight: bold;
 }
 
 #pag-obra .nota {
