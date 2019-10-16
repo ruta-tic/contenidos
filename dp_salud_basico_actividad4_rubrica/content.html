@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Rúbrica: Autoevaluación Base de datos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-pract_pedagogicas" ptitle="Rúbrica: Autoevaluación Base de datos">
+                <div class="subpage">
+                    <div class="box-text activity" label="Rúbrica: Autoevaluación Base de datos">
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single" data-max="12" data-min="4">
+                            <p>Lea con atención los cuatro ítems con sus respectivas valoraciones y asigne el puntaje que más se ajuste al trabajo realizado por usted.</p>
+                            <table>
+                                <colgroup>
+                                    <col width="55%"/>
+                                    <col width="15%"/>
+                                    <col width="15%"/>
+                                    <col width="15%"/>
+                                 </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Diligencia la matriz de manera oportuna, según los tiempos destinados para tal fin</th>
+                                        <td class="button" data-group="1" data-group-value="1"><div class="radio"></div><br />No cumple</td>
+                                        <td class="button" data-group="1" data-group-value="2"><div class="radio"></div><br />Cumple parcialmente o en su totalidad, pero de manera tardía</td>
+                                        <td class="button" data-group="1" data-group-value="3"><div class="radio"></div><br />Cumple con la totalidad de la matriz en el tiempo oportuno</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Describe la evaluación de las competencias en saber ser, saber hacer o saber qué de la estrategia evaluativa</th>
+                                        <td class="button" data-group="2" data-group-value="1"><div class="radio"></div><br />Describe una competencia en el saber ser, saber hacer o saber qué</td>
+                                        <td class="button" data-group="2" data-group-value="2"><div class="radio"></div><br />Describe dos competencias en saber ser, saber hacer o saber qué</td>
+                                        <td class="button" data-group="2" data-group-value="3"><div class="radio"></div><br />Describe las tres competencias en el saber ser, saber hacer o saber qué</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Actividad en áreas de la salud con enfoque constructivista por competencias</th>
+                                        <td class="button" data-group="3" data-group-value="1"><div class="radio"></div><br />Describe una estrategia evaluativa en áreas de la salud con enfoque tradicional</td>
+                                        <td class="button" data-group="3" data-group-value="2"><div class="radio"></div><br />Describe parcialmente una estrategia evaluativa  en áreas  de la salud con enfoque constructivista por competencias</td>
+                                        <td class="button" data-group="3" data-group-value="3"><div class="radio"></div><br />Describe una estrategia evaluativa  contextualizada a las áreas de la salud con enfoque constructivista por competencia</td>
+
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Tiene en cuenta los trabajos de los compañeros y complementa de forma constructiva </th>
+                                        <td class="button" data-group="4" data-group-value="1"><div class="radio"></div><br />No participa con comentarios  o descalifica</td>
+                                        <td class="button" data-group="4" data-group-value="2"><div class="radio"></div><br />Comenta la estrategias de dos compañeros</td>
+                                        <td class="button" data-group="4" data-group-value="3"><div class="radio"></div><br />Comenta y hace  aportes constructivos a la participación de dos compañeros</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <h5>¡Muy bien!</h5>
+                                    <p>La autoevaluación ha sido almacenada, ahora regresa al componente para continuar con las actividades.</p>
+                                </correct>
+                                <wrong>
+                                    <h5>¡Muy bien!</h5>
+                                    <p>La autoevaluación ha sido almacenada, ahora regresa al componente para continuar con las actividades.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
