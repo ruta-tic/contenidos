@@ -1,4 +1,4 @@
-# OVA - La didáctica en el área de la salud
+# OVA - Introducción a las estrategias didácticas
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
