@@ -1,0 +1,89 @@
+/********************************************************************************/
+
+
+/* Actividad arrastrar y soltar - apareamiento
+/********************************************************************************/
+
+#jpit_activities_sortable_1_board {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#jpit_activities_sortable_1_board .column1,
+#jpit_activities_sortable_1_board .column2 {
+    display: grid;
+    grid-template-columns: auto; 
+    grid-auto-rows: 1fr;
+    grid-gap: 2px;
+}
+
+#jpit_activities_sortable_1_board .column1 {
+
+}
+
+#jpit_activities_sortable_1_board .column2 {
+
+}
+
+#jpit_activities_sortable_1_board .fixed_cell {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+#jpit_activities_sortable_1_board .fixed_cell .content {
+    text-align: justify;
+}
+
+#jpit_activities_sortable_1_board .fixed_cell .content strong {
+    text-align: center;
+    display: block;
+}
+
+#jpit_activities_sortable_1_board .column2 li[data-position] {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+}
+
+#jpit_activities_sortable_1_board .column2 .sortable_item {
+    margin: 5px;
+    padding: 10px;
+    text-align: justify;
+}
+
+#jpit_activities_sortable_1_board .box_end,
+#jpit_activities_sortable_1_board .verify_container {
+    grid-column: 1 / span 2;
+}
+
+
+.interactive_image {
+    text-align: center;
+    position: relative;
+}
+
+.interactive_image .wf-content {
+    position: absolute;
+    top: 25%;
+    z-index: 10;
+}
+
+.interactive_image .box_media {
+    cursor: pointer;
+}
+
+/********************************************************************************/
+
+
+/* Actividad Quiz
+/********************************************************************************/
+
+.pag-actividades-cuestionario .chalkboard_content {
+    min-height: 350px;
+    height: auto;
+}
