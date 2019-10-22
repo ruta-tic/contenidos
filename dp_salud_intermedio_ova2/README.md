@@ -1,5 +1,8 @@
-# Tepuy
-Template for interactive content editing
+# OVA - La interactividad en las clases y las pruebas escritas
 
-## Version: 1.1
-### Release: 20190107.1
+Producido en **Tepuy** - Template for interactive content editing
+https://github.com/davidherney/tepuy/
+
+**Version:** 1.1
+
+**Release:** 20190107.1

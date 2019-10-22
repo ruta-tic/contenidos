@@ -1,6 +1,4 @@
 /********************************************************************************/
-
-
 /* Actividad arrastrar y soltar - apareamiento
 /********************************************************************************/
 
@@ -14,7 +12,7 @@
 #jpit_activities_sortable_1_board .column1,
 #jpit_activities_sortable_1_board .column2 {
     display: grid;
-    grid-template-columns: auto; 
+    grid-template-columns: auto;
     grid-auto-rows: 1fr;
     grid-gap: 2px;
 }
@@ -61,29 +59,142 @@
     grid-column: 1 / span 2;
 }
 
+/********************************************************************************/
+/* Interactivo pirámide
+/********************************************************************************/
+#piramide-miller {
+    margin-bottom: 50px;
+}
 
-.interactive_image {
+.titulo-piramide {
     text-align: center;
-    position: relative;
+    font-size: 25px;
+    color: #333;
 }
 
-.interactive_image .wf-content {
-    position: absolute;
-    top: 25%;
-    z-index: 10;
+#piramide div {
+    text-align: center;
 }
 
-.interactive_image .box_media {
+#piramide div img {
+    filter: grayscale(1);
+    max-width: 100%;
+}
+
+#piramide div img.active,
+#piramide div img.current {
+    filter: grayscale(0);
+}
+
+.info-piramide {
+    display: flex;
+}
+
+.info-piramide h5 {
+    font-size: x-large;
+}
+
+#piramide-hacer {
+    border: 2px solid #e49525;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-hacer h5 {
+    color: #e49525;
+}
+
+#piramide-mostrarcomo {
+    border: 2px solid #bd6a3c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-mostrarcomo h5 {
+    color: #bd6a3c;
+}
+
+#piramide-sabercomo {
+    border: 2px solid #28519e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-sabercomo h5 {
+    color: #28519e;
+}
+
+#piramide-saber {
+    border: 2px solid #3db3af;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-saber h5 {
+    color: #3db3af;
+}
+
+#nationalboard h5 {
+    font-size: 25px;
+}
+
+#nationalboard .layer .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nationalboard .layer .row > .col-2 {
+    width: unset;
+    flex-grow: unset;
+}
+
+#nationalboard .box_media img {
     cursor: pointer;
 }
 
+#nationalboard .box_media img:hover {
+    transform: scale(0.9);
+    filter: grayscale(0.5);
+}
+
+#nationalboard .wf-content {
+    display: flex;
+    padding: 20px;
+    overflow: auto;
+}
+
+#nationalboard .wf-content img {
+    margin-right: 20px;
+}
 /********************************************************************************/
-
-
 /* Actividad Quiz
 /********************************************************************************/
 
 .pag-actividades-cuestionario .chalkboard_content {
     min-height: 350px;
     height: auto;
+}
+
+.jpit_activities_quiz_question_statement {
+    background-color: #fff;
+    border: 3px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.jpit_activities_quiz_question_feedback {
+    display: block;
+    margin-top: 20px;
+}
+
+.jpit_activities_quiz_question_feedback_all {
+    background-color: #fff;
+    border: 2px solid #eee;
+    padding: 20px;
+}
+
+.jpit_activities_quiz_question_feedback_true,
+.jpit_activities_quiz_question_feedback_false {
+    display: flex;
 }

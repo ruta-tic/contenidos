@@ -1929,7 +1929,7 @@ dhbgApp.standard.load_operations = function() {
             var $question = $(this);
             var q;
             var question_options = {};
-            var q_feedbacktrue = feedbacktrue, q_feedbackfalse = feedbackfalse;
+            var q_feedbacktrue = feedbacktrue, q_feedbackfalse = feedbackfalse, q_feedbackall = '';
 
             if ($question.find('feedback correct').text() != '') {
                 q_feedbacktrue = $question.find('feedback correct').html();
@@ -1939,11 +1939,16 @@ dhbgApp.standard.load_operations = function() {
                 q_feedbackfalse = $question.find('feedback wrong').html();
             }
 
+            if ($question.find('feedback all').text() != '') {
+                q_feedbackall = $question.find('feedback all').html();
+            }
+
             question_options.shuffleAnswers = $question.attr('data-shuffle') && $question.attr('data-shuffle') != 'true' ? false : true;
             question_options.prefixType = $question.attr('data-prefixtype') ? $question.attr('data-prefixtype') : jpit.activities.quiz.prefixes.capital;
             question_options.displayFeedback = true;
             question_options.feedbackIfTrue = q_feedbacktrue;
             question_options.feedbackIfFalse = q_feedbackfalse;
+            question_options.feedbackAll = q_feedbackall;
             question_options.weight = question_weight;
 
             switch($question.attr('type')) {
