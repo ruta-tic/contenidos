@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html class="multiple">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. La interactividad en las clases y las pruebas escritas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. La interactividad en las clases y las pruebas escritas</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Prácticas educativas comunes" data-page="pag-practicas"></menuitem>
+                    <menuitem label="Transformar la magistralidad" data-page="pag-transformar"></menuitem>
+                    <menuitem label="¿Prueba de selección múltiple?" data-page="pag-prueba"></menuitem>
+                    <menuitem label="Preguntas de tipo selección múltiple" data-page="pag-preguntas"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">Prácticas educativas comunes</h2>
+
+            <section id="pag-practicas" ptitle="Prácticas educativas más comunes en el área de la salud">
+
+                <div class="subpage">
+                    <p>Algunas investigaciones dedicadas al análisis de las prácticas educativas de los docentes de las ciencias de la salud, muestran que la mayoría de los profesores siguen un enfoque educativo ortodoxo, y, por lo tanto, continúan empleando
+                        las clases magistrales como la estrategia didáctica más frecuente en su proceso de enseñanza. De otro lado, los investigadores confirman que el modelo integrador es el enfoque didáctico menos usado por estos docentes. Esta manera
+                        de concebir la didáctica comprende todos los aspectos que forman parte de la educación: el educando, el profesor, los contenidos, los métodos y medios didácticos, la evaluación, los fines, los objetivos, los valores culturales,
+                        los fundamentos filosóficos y pedagógicos, las condiciones sociales, históricas, económicas, políticas, ideológicas y jurídicas del país<sup class="tooltip" title="Quintana MS, de Suárez LMR. Modelo didáctico integrador para las ciencias de la salud. REDHECS: Revista electrónica de Humanidades, Educación y Comunicación Social. 2008;3(5):141-161.  Disponible en <a href='https://bit.ly/2maBf8Z' target='_blank'>https://bit.ly/2maBf8Z</a>">(1)</sup> <sup class="tooltip" title="Vera Silva L, Calderón García A. Caracterización de las prácticas educativas en la enseñanza de la Medicina. Revista de la Facultad de Medicina. 2017;65(1):89-97. Disponible en <a href='https://bit.ly/2T8AOZh' target='_blank'>https://bit.ly/2T8AOZh</a>">(2)</sup>.
+                    </p>
+                    <p>En la actualidad, el proceso de enseñanza y aprendizaje en el área de la salud, se orienta por una constante renovación del currículo, con estrategias didácticas centradas en la resolución de problemas y con una posición muy activa
+                        del estudiante; además, los estudiantes hacen prácticas en la comunidad durante las cuales desarrollan proyectos sobre los problemas más relevantes que encuentran en ellas. La renovación del currículo pretende involucrar tanto
+                        la investigación formativa como la formación en investigación, de modo que ambas permitan desarrollar competencias científicas en el estudiante y, por lo tanto, en el futuro profesional <sup class="tooltip" title="Hernández DPD. Una visión sucinta de la enseñanza de la medicina a través de la historia: II. Colombia, un sitio donde confluyeron varias culturas con su arte de curar. Iatreia. 2011;24(2):207-214. Disponible en <a href='https://bit.ly/2lUn6fW' target='_blank'>https://bit.ly/2lUn6fW</a>">(3)</sup>.
+                    </p>
+                    <div class="box-text note" label="Nota">
+                        <p>Al hacer referencia a las estrategias de enseñanza situada en las ciencias de la salud, la mayoría de los profesores aplican como estrategias didácticas innovadoras, por orden de frecuencia, las siguientes:</p>
+
+                        <ol class="ol_counter">
+                            <li>El aprendizaje situado en la resolución de problemas.</li>
+                            <li>La estrategia de prácticas situadas o simulación.</li>
+                            <li>Los aprendizajes mediados por las TIC</li>
+                            <li>Los trabajos elaborados en equipos cooperativos.</li>
+                            <li>Las experiencias de investigación.</li>
+                        </ol>
+                    </div>
+                    <div class="box_media">
+                        <img src="content/01_practicas_educativas_comunes-01.png" />
+                    </div>
+                    <p>En Medicina, las prácticas educativas se ubican en diferentes espacios académicos y tienen diversas estrategias didácticas como clases magistrales, seminarios investigativos, atención a pacientes, demostración en prácticas clínicas
+                        y quirúrgicas (consulta y técnica quirúrgica), los casos clínicos fundados en el aprendizaje basado en problemas (ABP), la simulación, las actividades comunitarias y las prácticas de laboratorio en asignaturas básicas y clínicas
+                        <sup class="tooltip" title="Vera Silva L, Calderón García A. Caracterización de las prácticas educativas en la enseñanza de la Medicina. Revista de la Facultad de Medicina. 2017;65(1):89-97. Disponible en <a href='https://bit.ly/2T8AOZh' target='_blank'>https://bit.ly/2T8AOZh</a>">(2)</sup>.
+                    </p>
+                    <p>Este módulo profundiza en la clase magistral como estrategia didáctica y en las pruebas escritas, como la principal forma evaluativa de esta estrategia en las ciencias de la salud.
+                    </p>
+                </div>
+            </section>
+
+            <!--Ejercicio: Estrategias para transformar la clase magistral-->
+            <section id="pag-transformar" ptitle="Ejercicio: Estrategias para transformar la clase magistral">
+
+                <div class="subpage">
+                    <div>
+                        <p>La clase magistral se reconoce como una estrategia didáctica del modelo pedagógico tradicional cuyo propósito es enseñar conocimientos específicos, por medio de la lección repetida, y así formar una persona ilustrada, obediente,
+                            un ser perfectamente educado para vivir en el mundo, ejercer su profesión, y ser respetuoso de las normas sociales impuestas.</p>
+                        <p>Karl-Heinz Flechsig y Ernesto Schiefelbein, en su texto “Veinte modelos didácticos para América Latina”, describen cuatro principios didácticos que orientan la clase magistral:</p>
+                    </div>
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada uno de los números para ver la información.</div>
+                    <div class="ctrl-pagination" data-numeric-pagination="true">
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-02.png" />
+                            </div>
+
+                            <p>
+                                El profesor dirige el proceso de enseñanza del estudiante mediante indicaciones orales o tareas escritas del profesor.
+                            </p>
+
+                        </li>
+
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-05.png" />
+                            </div>
+                            <p>
+                                El aprendizaje de una clase se realiza mediante una oferta de contenidos estandarizada, es decir, la exposición del profesor se adapta al promedio de más de 20 estudiantes que logren oírlo y ver el tablero, la pantalla o el televisor.
+                            </p>
+
+                        </li>
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-03.png" />
+                            </div>
+                            <p>
+                                El aprendizaje es temáticamente orientado, por lo tanto, el contenido definido por el profesor es el eje central del aprendizaje y las capacidades del estudiante se orientan al ámbito temático.
+                            </p>
+
+                        </li>
+
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-04.png" />
+                            </div>
+                            <p>
+                                El silencio es la cualidad de los que aprenden, pues es fundamental oír la voz del profesor. Así, las interacciones de los que aprenden son mínimas.
+                            </p>
+                        </li>
+                    </div>
+
+                    <p>
+                        Según Carretero González, la lección magistral sigue siendo la práctica pedagógica dominante en las clases de ciencias básicas en el área de la salud en los centros universitarios españoles. Aunque, en nuestro medio, cuando se tienen grupos de 120 a 140
+                        estudiantes en un salón no está indicada su desaparición, pero es necesario rediseñar sus objetivos y contenidos, debiendo ser orientadora y discriminadora <sup class="tooltip" title="González JC. Técnicas y recursos educativos  en la enseñanza de la medicina. Viguera Editores. 2010. Disponible en <a href='https://bit.ly/2kg9hIp' target='_blank'>https://bit.ly/2kg9hIp</a>">(6)</sup>.
+                    </p>
+                    <p>
+                        Hay ocho tipos de clases magistrales que se pueden adaptar a distintas áreas de conocimiento: el texto oral exquisito, clase participativa, solución de un problema, cambios de energía, interpretación de textos, los debates, los grupos pequeños en clases
+                        grandes (simulaciones y juego de roles) y la clase multimedia, las cuales, exceptuando la primera, promueven la interacción <sup class="tooltip" title="Universidad de Antioquia. Cartilla No. 4 Enlaces didácticas 'La clase Magistral'. 2015;1.">(7)</sup>.
+                    </p>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A continuación, encontrará un listado con los tipos de clases magistrales propuestas junto a una breve descripción de estas y del rol que tiene el estudiante en ellas. También se dispone, en la columna de la derecha, una serie de descripciones del rol docente que deberá ordenar para que queden en frente a la clase correspondiente.</p>
+                        <p>
+                            Para ordenar los elementos, haga clic sostenido sobre uno de los bloques de la derecha y arrastrelo arriba o abajo.
+                        </p>
+                    </div>
+                    <div class="box_media">
+                        <div class="about">
+                            Adaptado de Frederick (1986) citado en Morell Moll (2009).
+                        </div>
+                    </div>
+                    <div class="jpit-activities-sortable" data-act-id="1_tipos_de_clases" data-act-title="Tipos de clases magistrales">
+                        <div class="column1">
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>El texto oral exquisito</strong>
+                                            <div class="box_media">
+                                                <img src="content/oral_exquisito.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>
+                                                Auditor pasivo que, observa y escucha un discurso que le puede inspirar, pero no vive el proceso de la creación del discurso.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Clase participativa</strong>
+                                            <div class="box_media">
+                                                <img src="content/clase_participativa.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Auditor pasivo que, observa y escucha un discurso que le puede inspirar, pero no vive el proceso de la creación del discurso.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Solución de un problema (demostraciones, pruebas, historietas)</strong>
+                                            <div class="box_media">
+                                                <img src="content/solucion_problema.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>La clase suele empezar con una pregunta, un problema, una paradoja, o un enigma, él debe hacer uso de su razonamiento crítico para dar respuesta a preguntas que surgen durante la sesión.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Cambios de energía: alternaciones entre mini discursos y discusiones</strong>
+                                            <div class="box_media">
+                                                <img src="content/cambios_energia.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Similar a la del texto oral exquisito pero tiene en cuenta la capacidad de atención de los estudiantes, puesto que no se extiende por más de 20 minutos. Se presta a cualquier asignatura donde se alterne la teoría con la práctica, el modelo con los resultados o la hipótesis con la experimentación.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Interpretación de textos: exponer las destrezas analíticas</strong>
+                                            <div class="box_media">
+                                                <img src="content/interpretacion_textos.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Utilizar textos verbales, usar gráficos, tablas e imágenes que se prestan para la interpretación y análisis. Los estudiantes también toman parte del análisis, especialmente cuando puedan darse diferentes interpretaciones.
+                                            Una vez los estudiantes hacen el análisis, pueden exponer las ideas, y tanto el profesor como los estudiantes pueden realizar su feedback.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Debates: la división de la clase en dos sin perder el control.</strong>
+                                            <div class="box_media">
+                                                <img src="content/debates.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Aportar su perspectiva personal y posicionarse en el debate. Para este fin se recomienda que los estudiantes aborden el tema previamente.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Grupos pequeños en clases grandes: las simulaciones y el juego de roles.</strong>
+                                            <div class="box_media">
+                                                <img src="content/grupos_pequenhos.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Asumir un rol según la situación y el contexto que se le presente, y participar en la toma de postura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Clase multimedia para estimular la afectividad y el interés</strong>
+                                            <div class="box_media">
+                                                <img src="content/clase_multimedia.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Se sugiere hacer una compilación de citas que los estudiantes deben leer, en voz alta, al empezar las sesiones, o una presentación audiovisual que compagine imágenes con las palabras de una canción o con un discurso verbal.
+                                            Una vez se haya hecho la presentación, los estudiantes estarán más dispuestos a discutir a expresar sus pensamientos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                        </div>
+                        <ul class="column2 sortable">
+                            <li data-position="0">
+                                <div class="sortable_item">Las actividades cognitivas de pensar, relacionar, analizar, sintetizar, las realiza él y, por tanto puede perder la atención de los estudiantes.</div>
+                            </li>
+                            <li data-position="1">
+                                <div class="sortable_item">El profesor parte desde los conocimientos reales de los estudiantes. Los aportes de estos pueden ser clasificados, explicados, ilustrados, etc., tanto por el profesor como por los estudiantes.</div>
+                            </li>
+                            <li data-position="2">
+                                <div class="sortable_item">La solución del problema requiere una demostración, un modelo, una narración o un repaso que se puede realizar entre los participantes (profesor y estudiantes).</div>
+                            </li>
+                            <li data-position="3">
+                                <div class="sortable_item">El profesor empieza explicando los fundamentos de una cuestión, y este monólogo (máximo de 20 minutos) va seguido por un debate grupal (máximo de 15 minutos) sobre las implicaciones y efectos. Esta dinámica se alterna durante toda la sesión.</div>
+                            </li>
+                            <li data-position="4">
+                                <div class="sortable_item">Se recomienda que el profesor utilice los textos claves de las asignaturas para hacer seguimiento, leer en voz alta en la clase y vocalizar sus interpretaciones.</div>
+                            </li>
+                            <li data-position="5">
+                                <div class="sortable_item">Para que se dé el debate los estudiantes se dividen en dos grupos y cada parte defiende una perspectiva o posición.</div>
+                            </li>
+                            <li data-position="6">
+                                <div class="sortable_item">Esta variedad conlleva cuatro pasos:
+                                <ol>
+                                    <li>El profesor establece el contexto y explica la posición o rol de cada grupo.</li>
+                                    <li>Se divide en pequeños grupos y a cada uno se les asigna un rol.</li>
+                                    <li>A cada grupo se les adjudica una tarea para llevar a cabo como, por ejemplo, proponer una posición o una toma de acción.</li>
+                                    <li>Cada grupo aportará su propuesta a la clase y se discutirá su validez en comparación con las otras.</li>
+                                </div>
+                            </li>
+                            <li data-position="7">
+                                <div class="sortable_item">En estas clases se hace uso de medios multimedia ya que su objetivo es captar la atención y estimular las emociones de los estudiantes.</div>
+                            </li>
+                        </ul>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!--¿Qué evalúa una prueba de selección múltiple?-->
+
+            <section id="pag-prueba" ptitle="¿Qué evalúa una prueba de selección múltiple?">
+
+                <div id="piramide-miller" class="subpage">
+                    <p>
+                        La evaluación de las competencias debe comprender los saberes de conocimientos, habilidades y actitudes de acuerdo con los resultados de aprendizaje esperados. La Pirámide de Miller es una propuesta que posibilita la evaluación de las competencias considerando
+                        los diversos saberes organizados en cuatro niveles. En la siguiente figura se puede observar el nivel al cual llegan por lo regular este tipo de pruebas, esto es, solo alcanzan a evaluar el conocimiento y, en el mejor de los casos,
+                        el nivel de análisis e interpretación.
+                    </p>
+
+                    <h4 class="titulo-piramide">Pirámide de Miller</h4>
+                    <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor</span> sobre las casillas de la pirámide para desplegar la información<span class="onlymobile">, la cual se verá bajo la gráfica</span>.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div id="piramide" class="mouse-over-one">
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-02.png" class="button current" data-ref="#piramide-hacer" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-03.png" class="button" data-ref="#piramide-mostrarcomo" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-04.png" class="button" data-ref="#piramide-sabercomo" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-05.png" class="button" data-ref="#piramide-saber" /></div>
+                            </div>
+                        </div>
+                        <div class="col-2 info-piramide">
+                            <div id="piramide-hacer">
+                                <h5>Práctica profesional real</h5>
+                                <p>
+                                    La evaluación se hace en una situación o contexto real como el Mini-CEX (<em>Mini Clinical Evaluation Excercise</em>), OECP (Observación Estructurada de la Práctica Clínica), portafolio, el feedback 360o, las videograbaciones.
+                                </p>
+                            </div>
+                            <div id="piramide-mostrarcomo" style="display: none;">
+                                <h5>Demostración como actuación del estudiante frente a una situación clínica específica</h5>
+                                <p>
+                                    Evaluación del desempeño con el paciente real o simulado, ECOE.
+                                </p>
+                            </div>
+                            <div id="piramide-sabercomo" style="display: none;">
+                                <h5>Saber cómo utilizar conocimientos para analizar e interpretar</h5>
+                                <p>
+                                    Evaluación por observación indirecta con pruebas escritas con casos clínicos o con entrevistas.
+                                </p>
+                            </div>
+                            <div id="piramide-saber" style="display: none;">
+                                <h5>Recordar contenidos, teorías y datos</h5>
+                                <p>
+                                    Pruebas orales o escritas de respuesta múltiple, de respuesta corta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="nationalboard" class="subpage">
+
+                    <div class="box-text connection">
+                        <p>
+                            Según el National Board of Medical Examiners, las siguientes son las reglas básicas para los ítems de selección de la mejor respuesta.
+                        </p>
+                    </div>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las imágenes para ampliar la información y en cada uno de los números para pasar entre páginas.</div>
+                    <div class="ctrl-pagination" data-labelcurrent="true" data-numeric-pagination="true">
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/infografia_interactiva-03.png" class="wf-content-controler" data-content="#ventana_textos_flotante1" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h5>
+                                        Cada ítem debería centrarse en un concepto importante
+                                    </h5>
+                                </div>
+                            </div>
+                            <div id="ventana_textos_flotante1" class="wf-content autox autoy">
+                                <img src="content/infografia_interactiva-03.png" />
+                                <p>Cada ítem debería centrarse en un concepto importante que normalmente es un problema clínico común o potencialmente grave. No dedique tiempo del examen a preguntas que evalúen el conocimiento de datos triviales: concéntrese en los problemas que se encontrarán en la vida real y evite el uso de preguntas complicadas, triviales o excesivamente complejas.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/infografia_interactiva-02.png" class="wf-content-controler" data-content="#ventana_textos_flotante2" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h5>Cada ítem debería evaluar la aplicación de conocimientos y no la retención de un hecho aislado</h5>
+                                </div>
+                                <div id="ventana_textos_flotante2" class="wf-content autox autoy">
+                                    <img src="content/infografia_interactiva-02.png" />
+                                    <p>Cada ítem debería evaluar la aplicación de conocimientos y no la retención de un hecho aislado. El enunciado del ítem puede ser relativamente extenso; las opciones deberían ser breves. La viñeta clínica proporciona una buena base para la pregunta. Para
+                                    el área de las ciencias clínicas, cada una debería comenzar con la presentación de un problema de un paciente. Luego, debería continuar con la historia clínica (que incluya la duración de los signos y síntomas), los datos del examen físico, resultados de los estudios de diagnóstico, tratamiento inicial, hallazgos posteriores, etc. Las viñetas pueden incluir solamente un subgrupo de esta información pero se debería presentar la información en el orden especificado. Para el área de las ciencias básicas, la viñeta del paciente puede ser muy breve; las “viñetas de laboratorio” también son adecuadas.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/infografia_interactiva-04.png" class="wf-content-controler" data-content="#ventana_textos_flotante3" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h5>
+                                        El enunciado del ítem debe generar una pregunta clara y debe ser posible llegar a la respuesta con las opciones ocultas.</h5>
+                                </div>
+                            </div>
+                            <div id="ventana_textos_flotante3" class="wf-content autox autoy">
+                                <img src="content/infografia_interactiva-04.png" />
+                                <p>Para determinar si la pregunta está centrada en un tema en particular, cubra las opciones y observe si la pregunta es clara y si los alumnos pueden intentar responder solamente a partir de la información en el enunciado. Si no es posible, vuelva a elaborar el contenido del enunciado o de las opciones.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/infografia_interactiva-05.png" class="wf-content-controler" data-content="#ventana_textos_flotante4" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h5>
+                                        Todos los distractores, es decir, opciones incorrectas, deben ser homogéneos</h5>
+                                </div>
+                            </div>
+                            <div id="ventana_textos_flotante4" class="wf-content autox autoy">
+                                <img src="content/infografia_interactiva-05.png" />
+                                <p>Todos los distractores, es decir, opciones incorrectas, deben ser homogéneos y estar dentro de la misma categoría que la respuesta correcta (por ejemplo, diagnósticos, análisis, tratamientos, pronósticos, alternativas de disposición). Vuelva a redactar los distractores que no sean de la misma categoría. Evite el uso de “opciones dobles” (por ejemplo, hacer W y X; hacer Y debido a Z) a menos que la respuesta correcta y todos los distractores tengan doble opción. Vuelva a escribir las opciones dobles para que se concentren en un único punto. Todos los distractores deben ser convincentes, gramaticalmente correctas, lógicamente compatibles y de la misma extensión (relativa) que la respuesta correcta. Ordene las opciones de manera lógica o en orden alfabético.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/infografia_interactiva-06.png" class="wf-content-controler" data-content="#ventana_textos_flotante5" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h5>
+                                        Evite los defectos técnicos que proporcionan un beneficio especial a los alumnos que saben rendir o que presentan una dificultad irrelevante</h5>
+                                </div>
+                            </div>
+                            <div id="ventana_textos_flotante5" class="wf-content autox autoy">
+                                <img src="content/infografia_interactiva-06.png" />
+                                <p>Evite los defectos técnicos que proporcionan un beneficio especial a los alumnos que saben rendir o que presentan una dificultad irrelevante. No redacte preguntas del tipo “¿Cuál de las siguientes afirmaciones es correcta?” o “Las opciones a continuación son correctas EXCEPTO”. Estas preguntas no se concentran en un tema en particular y tienen opciones heterogéneas.</p>
+                            </div>
+                        </li>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>Someta cada pregunta a las cinco pruebas contempladas en las reglas anteriores. Si una pregunta pasa con éxito los cinco puntos, significa que probablemente está correctamente redactada y que se refiere a un tema adecuado.</p>
+                    </div>
+
+                    <div class="box-text link" label="Tomado de">
+                        <p>National Board of Medical Examiners. <em>Cómo elaborar preguntas para evaluaciones escritas en el área de ciencias básicas y clínicas</em>. 2009. Disponible en <a href="http://sedici.unlp.edu.ar/handle/10915/8529" target="_blank">http://sedici.unlp.edu.ar/[...]</a></p>
+                    </div>
+
+                    <p>A continuación, observe una pregunta que evalúa únicamente la retención de un hecho aislado:</p>
+
+                    <div class="box-text example">
+                        <p><em>La porfiria aguda intermitente es el resultado de un defecto en la vía biosintética:</em></p>
+                        <ol class="ol_counter" type="A">
+                            <li>del colágeno</li>
+                            <li>del corticosteroide</li>
+                            <li>del ácido graso</li>
+                            <li>de la glucosa</li>
+                            <li>del hemo</li>
+                        </ol>
+                    </div>
+                    <p>Ahora, observe una pregunta que evalúa la aplicación de conocimientos y no la retención de un hecho aislado:</p>
+                    <div class="box-text example">
+                        <p><em>Un hombre sano de 33 años de edad tiene debilidad leve y episodios ocasionales de dolor abdominal severo y continuo con algunos calambres pero sin diarrea. Una tía y un primo han tenido episodios similares. Durante una crisis, su abdomen se distiende y disminuyen los ruidos intestinales. El examen neurológico muestra debilidad leve en la parte superior de los brazos. Estos datos sugieren que existe una anomalía en la vía biosintética:
+                            </em></p>
+                        <ol class="ol_counter" type="A">
+                            <li>del colágeno</li>
+                            <li>del corticosteroide</li>
+                            <li>del ácido graso</li>
+                            <li>de la glucosa</li>
+                            <li>del hemo</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!--Ejercicio: Revisión de preguntas de tipo selección múltiple-->
+            <section id="pag-preguntas" ptitle="Ejercicio: Revisión de preguntas de tipo selección múltiple">
+                <div class="subpage">
+                    <p>El siguiente ejercicio permite detectar los defectos comunes en la formulación de este tipo de preguntas. La probabilidad de responder correctamente debe estar relacionada con la experiencia del estudiante en el tema que se evalúa
+                        y no con su experiencia en estrategias para responder a este tipo de exámenes.
+                    </p>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Teniendo en cuenta lo expuesto, señale si cada una de las siguientes preguntas es correcta o incorrecta con base en su formulación.
+                        </p>
+                    </div>
+
+                    <div class="box-text example">
+                        <div class="jpit-activities-quiz" data-act-title="Ejercicio: Revisión de preguntas de tipo selección múltiple" data-act-id="2_revision_preguntas" data-shuffle="false">
+                            <question type="simplechoice">
+                                <description>
+                                    <p>Un hombre de 60 años es trasladado al departamento de urgencias por la policía, que lo encontró en estado inconsciente en la acera. Luego de determinar que la vía aérea está abierta, el primer paso en el tratamiento debería
+                                        ser la administración intravenosa de:
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Examen del líquido cefalorraquídeo
+                                        </li>
+                                        <li>
+                                            Glucosa con vitamina B1 (tiamina)
+                                        </li>
+                                        <li>
+                                            Tomografía computarizada de la cabeza
+                                        </li>
+                                        <li>
+                                            Fenitoína
+                                        </li>
+                                        <li>
+                                            Diazepam
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+
+                                <feedback>
+                                    <all><strong>Pistas gramaticales:</strong> uno o más distractores no tienen correspondencia gramatical con el enunciado. Como el redactor del ítem tiende a prestar más atención a la respuesta correcta que a los distractores, los errores gramaticales son más comunes en las respuestas falsas. En este ejemplo, los alumnos que saben responder eliminarían las opciones A y C porque no respetan gramatical o lógicamente el enunciado. Los alumnos que tienen estrategias para responder deben elegir solamente entre B, D y E.</all>
+                                </feedback>
+                            </question>
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Una niña de 10 años de edad presenta hematuria macroscópica 14 días luego de un dolor de garganta. Tiene una presión arterial de 170/100 mm Hg y edema 2+ pedal y pretibial. El nivel de nitrógeno ureico sérico es de 3,2 mg/dL. ¿Cuál de las siguientes opciones
+                                        sería la causa más probable?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Coartación de la aorta </li>
+                                        <li>
+                                            Disminución en la producción del factor relajante derivado del endotelio
+                                        </li>
+                                        <li>
+                                            Aumento de la producción de aldosterona
+                                        </li>
+                                        <li>
+                                            Aumento de la producción de catecolamina
+                                        </li>
+                                        <li>
+                                            Volumen de expansión intravascular
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        El delito:
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Se distribuye igualmente entre las clases sociales
+                                        </li>
+                                        <li>
+                                            Está sobrerrepresentado entre los pobres
+                                        </li>
+                                        <li>
+                                            Está sobrerrepresentado entre la clase media y rica
+                                        </li>
+                                        <li>
+                                            Es fundamentalmente un indicio de desajuste psicosexual
+                                        </li>
+                                        <li>
+                                            Está llegando a una meseta de tolerancia en la nación
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+                                <feedback>
+                                    <all>
+                                        <strong>Pistas lógicas:</strong> un subgrupo de las opciones son en conjunto exhaustivas. En este ítem, las opciones A, B y C incluyen todas las posibilidades. El estudiante con estrategias para responder a este tipo de pruebas sabe que A, B o C deben ser correctas, mientras que los que carecen de estas estrategias dedican tiempo a considerar las opciones D y E. Usualmente, los redactores de ítems agregan D y E porque desean enumerar cinco opciones. En estas situaciones, es probable que el redactor no haya prestado mucha atención a los méritos de las opciones D y E. Algunas veces, son parcialmente correctas y confusas porque no se pueden ordenar en forma secuencial en la misma dimensión que las opciones A, B y C. Este defecto se observa comúnmente con opciones tales como “aumenta”, “disminuye” y “permanece igual”.
+                                    </all>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un hombre de 65 años de edad tiene dificultades para levantarse cuando está sentado y para enderezar su tronco, pero no tiene inconvenientes para flexionar sus piernas. ¿Cuál de los siguientes músculos es más probable que haya sufrido una lesión?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Glúteo mayor
+                                        </li>
+                                        <li>
+                                            Glúteo menor
+                                        </li>
+                                        <li>
+                                            Posterior del muslo
+                                        </li>
+                                        <li>
+                                            Iliopsoas
+                                        </li>
+                                        <li>
+                                            Obturador interno
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un hombre de 30 años de edad presenta pérdida de sensación de temperatura y de dolor desde el cuello hacia abajo en el lado derecho del cuerpo y en el lado izquierdo de la cara; parálisis parcial del velo del paladar, la laringe y faringe en la izquierda;
+                                        y ataxia en la izquierda. Este síndrome es probablemente el resultado de una trombosis ¿de cuál de las siguientes arterias?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Basilar </li>
+                                        <li>
+                                            Cerebelosa inferior posterior derecha </li>
+                                        <li>
+                                            Cerebelosa inferior posterior izquierda
+                                        </li>
+                                        <li>
+                                            Cerebelosa superior derecha
+                                        </li>
+                                        <li>
+                                            Cerebelosa superior izquierda
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        En pacientes que padecen demencia avanzada, tipo Alzheimer, el defecto de memoria:
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Puede ser tratado correctamente con fosfatidilcolina (lecitina)
+                                        </li>
+                                        <li>
+                                            Podría ser una secuela de enfermedad de Parkinson precoz
+                                        </li>
+                                        <li>
+                                            Nunca se observa en pacientes con ovillos neurofibrilares en la autopsia
+                                        </li>
+                                        <li>
+                                            Nunca es severo
+                                        </li>
+                                        <li>
+                                            Posiblemente compromete al sistema colinérgico
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+                                <feedback>
+                                    <all>
+                                        <strong>Términos absolutos:</strong> son aquellos como “siempre” o “nunca” que se usan en las opciones. En este ítem, las opciones A, B y E contienen términos que son menos absolutos que los de las opciones C y D. El estudiante con estrategias para responder este tipo de pruebas eliminará las opciones C y D porque tienen menos posibilidades de ser verdaderas que otras expresadas de manera menos absoluta. Observe que este defecto no se presentaría si el enunciado estuviera bien definido y las opciones fueran cortas; solamente surge cuando los verbos están incluidos en las opciones en lugar de estar en la pregunta introductoria.
+                                    </all>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        En un examen de detección de enfermedades de rutina se determina que una mujer sana de 75 años de edad moderadamente activa presenta una concentración de colesterol sérico total de 208 mg/dL y una concentración de colesterol HDL sérico de 70 mg/dL. El
+                                        electrocardiograma no presenta anomalías. ¿Cuál de las siguientes recomendaciones dietéticas sería la más adecuada?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Disminución de la ingesta de colesterol
+                                        </li>
+                                        <li>
+                                            Disminución de la ingesta de grasas saturadas
+                                        </li>
+                                        <li>
+                                            Disminución de la ingesta de carbohidratos simples
+                                        </li>
+                                        <li>
+                                            Aumento de la ingesta de fibras
+                                        </li>
+                                        <li>
+                                            No realizar cambios en la dieta
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        La ganancia secundaria:
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Es sinónimo de simulación
+                                        </li>
+                                        <li>
+                                            Es un problema frecuente en los trastornos obsesivos compulsivos
+                                        </li>
+                                        <li>
+                                            Es una complicación de una serie de enfermedades y tiende a prolongar muchas de ellas
+                                        </li>
+                                        <li>
+                                            Nunca se observa en casos de daño cerebral orgánico
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+                                <feedback>
+                                    <all>
+                                        <strong>Respuesta correcta extensa:</strong> la respuesta correcta es más extensa, más específica o más completa que las otras opciones. En este ítem, la opción C es más extensa que las otras opciones; también es la única opción doble. Los redactores de ítems tienden
+                                        a prestar más atención a la respuesta correcta que a los distractores. Como son maestros, redactan respuestas correctas extensas que incluyen material instructivo adicional, información entre paréntesis, advertencias, etc.
+                                        Algunas veces, se llega a casos bastante extremos: la respuesta correcta tiene un párrafo de extensión mientras que los distractores son de una sola palabra.
+                                    </all>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un paciente que padece cirrosis posthepatitis desarrolla un agrandamiento rápido del hígado asociado con el deterioro de la función hepática. ¿La concentración sérica de cuál de los siguientes es más probable que sea anormal?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            α1-Antitripsina </li>
+                                        <li>
+                                            Antígeno carcinoembriónico
+                                        </li>
+                                        <li>
+                                            Gonadotropina coriónica
+                                        </li>
+                                        <li>
+                                            α-Fetoproteína
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un hombre de 58 años de edad, con antecedentes de alcoholismo e internaciones psiquiátricas previas presenta confusión y agitación. Comenta que siente que el mundo es algo irreal. El síntoma se llama:
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Despersonalización
+                                        </li>
+                                        <li>
+                                            Descarrilamiento
+                                        </li>
+                                        <li>
+                                            Desrealización
+                                        </li>
+                                        <li>
+                                            Déficit focal de memoria
+                                        </li>
+                                        <li>
+                                            Ansiedad señal
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+                                <feedback>
+                                    <all>
+                                        <strong>Repeticiones de palabras:</strong> se incluye una palabra o frase en el enunciado y en la respuesta correcta. Este ítem utiliza la palabra “irreal” en el enunciado y “desrealización” es la respuesta correcta. Algunas veces, una palabra se repite solamente con
+                                        sentido metafórico, por ejemplo, un enunciado que menciona un dolor óseo, y la respuesta correcta comienza con “osteo-”.
+                                    </all>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un adolescente de 15 años de edad sufrió dos episodios de shock anafiláctico severo luego de sufrir picaduras de abejas. ¿Cuál de las siguientes intervenciones sería la más adecuada?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Administración de corticosteroides durante el verano </li>
+                                        <li>
+                                            Terapia profiláctica con antihistamínicos de largo plazo
+                                        </li>
+                                        <li>
+                                            Vestimenta protectora
+                                        </li>
+                                        <li>
+                                            Desensibilización con extracto de veneno de abejas
+                                        </li>
+                                        <li>
+                                            No dejar que el paciente salga de la casa durante los meses de verano
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Luego de un segundo episodio infeccioso, ¿cuál es la probabilidad de que una mujer sea estéril?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Menos del 20%
+                                        </li>
+                                        <li>
+                                            De un 20 a un 30%
+                                        </li>
+                                        <li>
+                                            Más de 50%
+                                        </li>
+                                        <li>
+                                            90%
+                                        </li>
+                                        <li>
+                                            75%
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Incorrecta</li>
+                                    <li>Correcta</li>
+                                </ul>
+                                <feedback>
+                                    <all>
+                                        Los datos numéricos no se expresan de manera uniforme. Cuando se usan opciones numéricas, las opciones deben estar incluidas en orden numérico y en un solo formato (es decir, como términos individuales o como intervalos). La confusión se presenta cuando los formatos están mezclados y cuando las opciones se enumeran en un orden ilógico o con un formato desigual.
+                                    </all>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Durante una cirugía, se controlan PCO2 arterial y el pH arterial de un paciente bajo anestesia. Está conectado a un respirador mecánico y los valores iniciales son normales (PCO2 = 40 mm Hg; pH = 7,42). Si la ventilación disminuye, ¿cuál de las siguientes
+                                        será la consecuencia más probable?
+                                    </p>
+                                    <table class="datatable">
+                                        <tr>
+                                            <th></th>
+                                            <th>PCO2 arterial </th>
+                                            <th>pH</th>
+                                        </tr>
+                                        <tr>
+                                            <td>A</td>
+                                            <td>Disminución </td>
+                                            <td>disminución</td>
+                                        </tr>
+                                        <tr>
+                                            <td>B</td>
+                                            <td>Disminución </td>
+                                            <td>aumento</td>
+                                        </tr>
+                                        <tr>
+                                            <td>C</td>
+                                            <td>Aumento </td>
+                                            <td>disminución</td>
+                                        </tr>
+                                        <tr>
+                                            <td>D</td>
+                                            <td>Aumento </td>
+                                            <td>aumento</td>
+                                        </tr>
+
+                                    </table>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Un hombre de 52 años de edad presenta aumento de disnea y tos con esputo purulento desde hace 2 días. Fuma un paquete de cigarrillos por día desde hace 30 años. Su temperatura es de 37,2°C (99°F). Los ruidos respiratorios son distantes con algunos roncus
+                                        y sibilancias. El recuento de leucocitos es de 9.000/mm3 con diferencial normal. La tinción de Gram del esputo muestra numerosos neutrófilos y diplococos gramnegativos. Las radiografías de tórax revelan hiperinflación.
+                                        ¿Cuál de las siguientes opciones sería el diagnóstico más probable?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Asma
+                                        </li>
+                                        <li>
+                                            Bronquiectasia
+                                        </li>
+                                        <li>
+                                            Bronquitis
+                                        </li>
+                                        <li>
+                                            Embolia pulmonar
+                                        </li>
+                                        <li>
+                                            Neumonía estreptocócica
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+
+                            <question type="simplechoice">
+                                <description>
+                                    <p>
+                                        Una mujer de 55 años con cirrosis descompensada del hígado es hospitalizada. Recibe tratamiento con espironolactona, elixir de cloruro de potasio y furosemida. En este momento, apenas responde y está hipotensa sin distrés respiratorio. Tiene signos que
+                                        coinciden con enfermedad hepática crónica, ascitis y edema periférico leve. El ECG muestra un ritmo cardíaco lento (55/min) y regular, sin ondas P y un complejo QRS ancho y empastado que continúa con ondas ST y T anchas
+                                        y empastadas. ¿Cuál de las siguientes opciones debería administrarse por vía endovenosa?
+                                    </p>
+                                    <ol class="ol_counter" type="A">
+                                        <li>
+                                            Calcio
+                                        </li>
+                                        <li>
+                                            Lidocaína
+                                        </li>
+                                        <li>
+                                            Magnesio
+                                        </li>
+                                        <li>
+                                            Solución salina al 0,9%
+                                        </li>
+                                        <li>
+                                            Potasio
+                                        </li>
+                                    </ol>
+                                </description>
+                                <ul>
+                                    <li>Incorrecta</li>
+                                    <li data-response="true">Correcta</li>
+                                </ul>
+                            </question>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                    Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>
+                    Mariana Múnera Manco<br />
+                    Jesús María Otero Vega<br />
+                </cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García
+                    <br />Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                </p>
+                <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+            </div>
+
+            <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Quintana MS, de Suárez LMR. Modelo didáctico integrador para las ciencias de la salud. REDHECS: Revista electrónica de Humanidades, Educación y Comunicación Social. 2008;3(5):141-161.  Disponible en <a href="https://bit.ly/2maBf8Z" target="_blank">https://bit.ly/2maBf8Z</a></li>
+                <li>Vera Silva L, Calderón García A. Caracterización de las prácticas educativas en la enseñanza de la Medicina. Revista de la Facultad de Medicina. 2017;65(1):89-97. Disponible en <a href="https://bit.ly/2T8AOZh" target="_blank">https://bit.ly/2T8AOZh</a></li>
+                <li>Hernández DPD. Una visión sucinta de la enseñanza de la medicina a través de la historia: II. Colombia, un sitio donde confluyeron varias culturas con su arte de curar. Iatreia. 2011;24(2):207-214. Disponible en <a href="https://bit.ly/2lUn6fW" target="_blank">https://bit.ly/2lUn6fW</a></li>
+                <li>González Agudelo, EM. Acerca de los conceptos que un profesional dedicado a la docencia universitaria podría saber. Medellín: Mimeógrafo. 2006.</li>
+                <li>Flechsing K, Schielfelbein E. Veinte modelos didácticos para América Latina [en línea]. Disponible en <a href="https://bit.ly/2KEoAHa" target="_blank">https://bit.ly/2KEoAHa</a></li>
+                <li>González JC. Técnicas y recursos educativos  en la enseñanza de la medicina. Viguera Editores. 2010. Disponible en <a href="https://bit.ly/2kg9hIp" target="_blank">https://bit.ly/2kg9hIp</a></li>
+                <li>Universidad de Antioquia. Cartilla No. 4 Enlaces didácticas "La clase Magistral". 2015;1.</li>
+                <li>Morell Moll T. ¿Cómo podemos fomentar la participación en nuestras clases universitarias?. 2009. Disponible en <a href="https://bit.ly/1S6UO9C" target="_blank">https://bit.ly/1S6UO9C</a></li>
+                <li>Flores Hernández F, Contreras Michel N, Martínez González A. Evaluación del aprendizaje en la educación médica. Rev Fac Med UNAM. 2012;55(3):42-48. Disponible en <a href="https://bit.ly/2GYmjCC" target="_blank">https://bit.ly/2GYmjCC</a></li>
+                <li>National Board of Medical Examiners. Cómo elaborar preguntas para evaluaciones escritas en el área de ciencias básicas y clínicas. 2009. Disponible en <a href="https://bit.ly/2kwj2m5" target="_blank">https://bit.ly/2kwj2m5</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
