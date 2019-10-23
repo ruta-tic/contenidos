@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Didáctica de la enseñanza por competencias en el área de la salud</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Didáctica de la enseñanza por competencias en el área de la salud</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Competencias" data-page="pag-evolucion"></menuitem>
+                    <menuitem label="Elementos del aprendizaje" data-page="pag-crucigrama"></menuitem>
+                    <menuitem label="La metacognición" data-page="pag-metacognicion"></menuitem>
+                    <menuitem label="Las competencias" data-page="pag-salud"></menuitem>
+                    <menuitem label="Didáctica" data-page="pag-didactica"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">OVA. Didáctica de la enseñanza por competencias en el área de la salud</h2>
+
+            <section id="pag-evolucion" ptitle="Evolución de la enseñanza basada en competencias">
+                <div class="subpage">
+                    <p>Se define <em>competencia</em> como una capacidad que se desarrolla a partir de un conjunto de aprendizajes significativos (conocimientos, habilidades, actitudes y valores), y que se transfiere a situaciones específicas de condiciones y contextos mediante el uso consciente de los recursos que se poseen.</p>
+                    <p>Este término genera gran polémica en el sector educativo debido a que:</p>
+                    <ul class="data_list">
+                        <li>Proviene de prácticas promovidas en el sector productivo.</li>
+                        <li>Algunos profesores relacionan el término competencia con “competir” y en realidad se refiere a ser competente.</li>
+                        <li>Existen diferentes definiciones; por ejemplo, para la corriente conductista, que retoma trabajos de Estados Unidos las evidencias son muy importantes y, con ello, los resultados que se obtienen durante todo el proceso formativo. Esta corriente hace énfasis en el proceso de conciencia a través del cual el estudiante entiende las adecuaciones que debe hacer en sus aprendizajes para realizar de manera efectiva las transferencias.</li>
+                    </ul>
+
+                    <p>A pesar de lo anterior, desde hace varias décadas en todo el mundo el enfoque por competencias se ha promovido desde la educación básica hasta el sector productivo, que es el beneficiado directamente. Específicamente, en el área de la salud este enfoque ha sido ampliamente utilizado por lo que se propone, a continuación, revisar los eventos claves para conocer cómo evolucionó la enseñanza basada en competencias (EBC).</p>
+
+                    <div class="box_media">
+                        <img src="./content/dp_salud_intermedio_ova1_evolucion.png">
+                        <div class="about">
+                            <strong>Imagen 1: </strong>
+                            Enseñanza basada en competencias
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="subpage">
+                    <h3>Ejercicio 1. Arma la línea de tiempo</h3>
+                    <div class="box-text activity" label="Indicaciones">
+                        <p>Organice en el tiempo los eventos más significativos de esta evolución, para lo cual se sugiere:</p>
+                        <ul class="data_list">
+                            <li>Leer los bloques de información que se encuentran en la parte de abajo.</li>
+                            <li>Analizar cuál sería la secuencia lógica de la evolución de los conceptos.</li>
+                            <li>Arrastrar cada bloque de información al año que considere correspondiente.</li>
+                        </ul>
+                    </div>
+
+                    <div id="act1" class="jpit-activities-droppable prevencion" data-act-id="1-prevencion" data-act-title="Ejercicio 1. Arma la línea de tiempo">
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                        <div class="bloque1">
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="1"></div>
+                                    </div>
+                                    <div class="ano ano1">1989</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="2"></div>
+                                    </div>
+                                    <div class="ano ano1">1990</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="3"></div>
+                                    </div>
+                                    <div class="ano ano1">1990-2000</div>
+                                </div>
+                            </div>
+                            <div class="linea2 izq">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="4"></div>
+                                    </div>
+                                    <div class="ano ano1">1992</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="5"></div>
+                                    </div>
+                                    <div class="ano ano1">1999</div>
+                                </div>
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="6"></div>
+                                    </div>
+                                    <div class="ano ano1">2000</div>
+                                </div>
+                            </div>
+                            <div class="linea1 der">
+                                <div class="contenedor">
+                                    <div class="sombra">
+                                        <div class="cajon" data-target-group="7"></div>
+                                    </div>
+                                    <div class="ano ano1">2009</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br class="clear" />
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursos sobre</span> el ícono <i class="ion-information-circled" style="color: green;"></i> de cada imagen para ver la información.</div>
+
+                        <div class="opciones opciones1">
+                            <div data-group="3" class="item  w-content-controler general" data-content="#1990_2000" data-property-width="600"><img src="./content/linea_de_tiempo/1990_2000.png">
+                            <i class="ion-information-circled tooltip" title="<span>En Canadá se identificaron tres grupos de habilidades básicas: académicas, personales y de trabajo en equipo.</span>"></i></div>
+                            <div data-group="1" class="item  w-content-controler general" data-content="#1989" data-property-width="600"><img src="./content/linea_de_tiempo/1989.png">
+                                <i class="ion-information-circled tooltip" title="<span>En Gran Bretaña se dio origen al planteamiento de habilidades centrales divididas en cinco niveles que permea desde la educación básica hasta la educación media y superior.</span>"></i>
+                            </div>
+                            <div data-group="7" class="item  w-content-controler general" data-content="#2009" data-property-width="700"><img src="./content/linea_de_tiempo/2009.png">
+                                <i class="ion-information-circled tooltip" title="<span>En Colombia, el proceso de revisión y descripción de perfiles y competencias de las profesiones de la salud tuvo origen en la solicitud que hizo el Ministerio de Protección Social a la Academia Nacional de Medicina. </span>"></i>
+                            </div>
+                            <div data-group="4" class="item  w-content-controler general" data-content="#1992" data-property-width="600"><img src="./content/linea_de_tiempo/1992.png">
+                                <i class="ion-information-circled tooltip" title="<span>El Comité Meyer, en Australia, socializó el concepto de competencias clave, las cuales tienen solamente tres niveles. En Nueva Zelanda, el Ministerio de Educación hace referencia a las habilidades esenciales y a las áreas esenciales de aprendizaje.</span>"></i>
+                            </div>
+                            <div data-group="2" class="item  w-content-controler general" data-content="#1990" data-property-width="600"><img src="./content/linea_de_tiempo/1990.png">
+                                <i class="ion-information-circled tooltip" title="<span>En Estados Unidos se estableció la Comisión de la Secretaría para la Adquisición de las Habilidades Necesarias y se identificó el concepto de competencias y habilidades base.</span>"></i>
+                            </div>
+                            <div data-group="5" class="item  w-content-controler general" data-content="#1999" data-property-width="600"><img src="./content/linea_de_tiempo/1999.png">
+                                <i class="ion-information-circled tooltip" title="<span>La Organización para la Cooperación y el Desarrollo Económico (OCDE) llevó a cabo la “Encuesta Internacional para la Vida” y sus resultados mostraron que las habilidades prioritarias por desarrollar en los adultos eran la solución de problemas, la promoción del trabajo en equipo y la aplicación y uso de la tecnología y la comunicación en el manejo de la información. </span>"></i>
+                            </div>
+                            <div data-group="6" class="item  w-content-controler general" data-content="#2000" data-property-width="600"><img src="./content/linea_de_tiempo/2000.png">
+                                <i class="ion-information-circled tooltip" title="<span>Se ratificaron los pilares de la educación en el informe de la UNESCO de la Comisión Internacional Sobre la Educación para el siglo XXI.</span>"></i>
+                            </div>
+                        </div>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>
+                                <p>
+                                    En esta revisión hubo un consenso, en primer lugar, respecto a la importancia y la necesidad de la definición y descripción de las competencias profesionales en el área de la salud sustentadas en el reconocimiento de los requerimientos del desempeño, en segundo, se resaltó el respeto de la autonomía universitaria establecida en la Constitución Política y en la Ley, y se afirmó que el reconocimiento de las competencias profesionales no determina qué deben hacer las Instituciones de Educación Superior (IES), ni cómo lo deben hacer, con el fin de viabilizar y facilitar el desarrollo de estas en sus educandos y, en tercer lugar, se estableció la necesidad de precisar un conjunto básico de competencias profesionales compartidas que, en cada caso, tomará en consideración las características y problemáticas de la respectiva profesión, y los resultados de estudios e investigaciones pertinentes, nacionales e internacionales sobre el tema.
+                                </p>
+                                <p>
+                                    La conceptualización y formulación de las competencias profesionales en el área de la salud en Colombia implicó la incorporación de esos cambios y acciones educativas. Por lo tanto, toda propuesta educativa (currículo o plan de estudios) contiene, como elemento que integra el documento, un apartado que corresponde al fundamento epistemológico, en el cual se enmarcan las nociones de aprendizaje y de la práctica docente. Actualmente, el currículo de las áreas de la salud trabaja la EBC.
+                                </p>
+                            </correct>
+                        </feedback>
+                    </div>
+
+                    <!--
+                    *************************
+                        Ventanas Modales
+                    *************************-->
+
+                    <div id="1989" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/1989_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">1989</div>
+                            <p>
+                                En Gran Bretaña se dio origen al planteamiento de habilidades centrales divididas en cinco niveles que permea desde la educación básica hasta la educación media y superior.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="1990" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/1990_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">1990</div>
+                            <p>
+                                En Estados Unidos se estableció la Comisión de la Secretaría para la Adquisición de las Habilidades Necesarias y se identificó el concepto de competencias y habilidades base.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="1990_2000" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/1990_2000_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">1990-2000</div>
+                            <p>
+                                En Canadá se identificaron tres grupos de habilidades básicas: académicas, personales y de trabajo en equipo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="1992" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/1992_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">1992</div>
+                            <p>
+                                El Comité Meyer, en Australia, socializó el concepto de competencias clave, las cuales tienen solamente tres niveles. En Nueva Zelanda, el Ministerio de Educación hace referencia a las habilidades esenciales y a las áreas esenciales de aprendizaje.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="1999" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/1999_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">1999</div>
+                            <p>
+                                La Organización para la Cooperación y el Desarrollo Económico (OCDE) llevó a cabo la “Encuesta Internacional para la Vida” y sus resultados mostraron que las habilidades prioritarias por desarrollar en los adultos eran la solución de problemas, la promoción del trabajo en equipo y la aplicación y uso de la tecnología y la comunicación en el manejo de la información.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="2000" class="w-content conimagensobre">
+                        <div class="imagen">
+                            <div class="view-first">
+                                <img src="./content/linea_de_tiempo/2000_ventana_modal_1.png" />
+                                <div class="view-content">
+                                    <h2>Aprender a CONOCER</h2>
+                                    Adquirir los instrumentos para comprender.
+                                </div>
+                            </div>
+                            <div class="view-first">
+                                <img src="./content/linea_de_tiempo/2000_ventana_modal_2.png" />
+                                <div class="view-content">
+                                    <h2>Aprender a HACER</h2>
+                                    Para influir en el entorno.
+                                </div>
+                            </div>
+                            <br />
+                            <div class="view-first">
+                                <img src="./content/linea_de_tiempo/2000_ventana_modal_3.png" />
+                                <div class="view-content">
+                                    <h2>Aprender a VIVIR JUNTOS</h2>
+                                    Para participar y cooperar con los demás.
+                                </div>
+                            </div>
+                            <div class="view-first">
+                                <img src="./content/linea_de_tiempo/2000_ventana_modal_4.png" />
+                                <div class="view-content">
+                                    <h2>Aprender a SER</h2>
+                                    Para realizarse de manera plena como persona.
+                                </div>
+                            </div>
+
+                            <br class="clear" />
+                            <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursos sobre</span> cada imagen para ver más información.</p>
+
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">2000</div>
+                            <p>
+                                Se ratificaron los pilares de la educación en el informe de la UNESCO de la Comisión Internacional Sobre la Educación para el siglo XXI.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="2009" class="w-content">
+                        <div class="imagen">
+                            <img src="./content/linea_de_tiempo/2009_ventana_modal.png" />
+                        </div>
+                        <div class="completo">
+                            <div class="ano ano1 der">2009</div>
+                            <p>
+                                En Colombia, el proceso de revisión y descripción de perfiles y competencias de las profesiones de la salud tuvo origen, durante el 2009, en la solicitud que hizo el Ministerio de Protección Social a la Academia Nacional de Medicina. El propósito central de esta iniciativa fue contribuir al fortalecimiento de la calidad y la pertinencia de la actuación y de la formación de los profesionales de la salud como factor fundamental para mejorar la respuesta del sistema de servicios a las necesidades de la población colombiana, en el marco de disposiciones legislativas y reglamentarias pertinentes de la Ley 1164 de 2007 (Ley del Talento Humano en Salud) y la Ley 1438 de 2011 que formalizó la Atención Primaria en Salud como estrategia fundamental del Sistema General de Seguridad Social en Salud.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-crucigrama" ptitle="Ejercicio 2. Crucigrama sobre elementos del aprendizaje">
+                <div class="subpage">
+                    <div class="box-text activity" label="Indicaciones">
+                        <p>Todo proceso de aprendizaje implica que el estudiante ponga en juego sus conocimientos. Realiza el siguiente crucigrama, en el cual se describen los elementos del aprendizaje.</p>
+                    </div>
+                    <div id="act2" class="jpit-activities-crossword" data-act-id="2-crossword" data-act-title="Ejercicio 2. Crucigrama sobre elementos del aprendizaje">
+                        <horizontal>
+                            <li data-row="4" data-col="4" data-term="memoria">Capacidad para evocar información previamente aprendida. En ella se involucran las fases: 1) Procesos de adquisición. 2) Procesos de almacenamiento 3) Procesos de recuperación.</li>
+                            <li data-row="7" data-col="3" data-term="necesidad">Carencia de algo que es vital para el sujeto. Es esta fuerza interna que lleva a los individuos a la búsqueda del “objeto” que cubre la carencia, lo cual se llama motivación. </li>
+                            <li data-row="12" data-col="5" data-term="actitud">Predisposición relativamente estable de la conducta. Algunas de sus características son: se refleja en la conducta, incluye procesos cognitivos y afectivos, es referencia (evoca a un objeto o sector de la realidad), es relativamente estable e involucra a todos los ámbitos o dimensiones del sujeto.</li>
+                            <li data-row="14" data-col="0" data-term="atencion">Proceso de focalización perceptiva que incrementa la conciencia clara y distinta de un número central de estímulos en cuyo entorno quedan otros más difusamente percibidos.</li>
+                        </horizontal>
+                        <vertical>
+                            <li data-row="5" data-col="4" data-term="inteligencia">Capacidad para resolver problemas ya que implica la necesidad de tomar decisiones entre dos o más opciones.</li>
+                            <li data-row="5" data-col="7" data-term="percepcion">Análisis interpretativo de un conjunto de datos a partir del cual el estudiante obtiene información. No puede entenderse como un proceso pasivo de extracción de información exclusivamente guiado por los datos.</li>
+                            <li data-row="0" data-col="10" data-term="aptitud">La Real Academia de la Lengua Española (RAE) ofrece tres opciones: a) Cualidad que hace que un objeto sea apto para un fin. b) Suficiencia o idoneidad para obtener un empleo o cargo. c) Capacidad, disposición para el buen desempeño de una actividad.</li>
+                            <li data-row="9" data-col="10" data-term="interes">Inclinación, más o menos vehemente, del ánimo hacia un objeto, persona o narración que le atrae o conmueve.</li>
+                        </vertical>
+
+                        <feedback>
+                            <correct>
+                                <p>La movilización de estos elementos da como resultado un aprendizaje. Para que este sea significativo debe lograr los siguientes puntos:</p>
+                                <ul>
+                                    <li>Integrar las tres esferas cognoscitivas (cognitiva, habilidades y psicosocial), de las habilidades mentales (análisis, síntesis y valoración), psicomotoras (escritura de las ideas, manejo de la tecnología y herramientas propias de la carrera) y socioafectivas.</li>
+                                    <li>Lograr que el estudiante se reconozca en lo que aprende, es decir, que le encuentre un significado personal; esto hará que lo aprendido perdure más tiempo en su memoria.</li>
+                                    <li>Promover que, a partir de la aplicación de lo que se aprende en las aulas, el estudiante sea agente de transformación en el contexto en el que vive.</li>
+                                </ul>
+                            </correct>
+                            <wrong>
+                                Siga intentando, hasta responder la actividad de manera correcta.
+                            </wrong>
+                        </feedback>
+                    </div>
+                    <div class="box-text note" label="Preguntas para la reflexión">
+                        <p>Revise los contenidos del programa de estudios donde labora, considere las siguientes preguntas de reflexión y piense con qué actividades podría abordarlas. </p>
+
+                        <ul class="data_list">
+                            <li>¿Cuál es la percepción que tienen los estudiantes según su edad y experiencia en el tema? Esto le ayudará a trabajar los conocimientos previos.</li>
+                            <li>¿Cuáles son sus intereses y necesidades, y cómo puede relacionarlos con el tema que está trabajando? Esto le permitirá favorecer la motivación que tengan en el tema.</li>
+                            <li>¿Cómo puede integrar los conocimientos teóricos y lograr que desarrollen habilidades y actitudes favorables a partir de los temas que están trabajando?</li>
+                            <li>¿De qué manera los estudiantes pueden aplicar los contenidos en esta unidad de aprendizaje para trabajar su contexto de vida?</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-metacognicion" ptitle="Ejercicio 3. La metacognición ">
+                <div class="subpage">
+                    <p>La metacognición es el proceso mediante el cual los estudiantes identifican las estrategias de aprendizaje con las que acceden mejor, con más facilidad y rapidez a los contenidos, y los procedimientos adquiridos en las distintas áreas del conocimiento. Además, los hace reflexionar de qué manera pueden acceder a sus propios recursos y cuáles son sus debilidades en cuanto a conocimientos, habilidades y actitudes.</p>
+
+                    <div class="box-text activity" label="Indicaciones">
+                        <ul class="data_list">
+                            <li>Lea la clasificación con los tres niveles de abordaje de las estrategias metacognitivas.</li>
+                            <li>Analice las preguntas o enunciados con reflexiones metacognitivas.</li>
+                            <li>Ubique cada una en el nivel que le corresponda.</li>
+                        </ul>
+                    </div>
+
+                    <div id="act3" class="jpit-activities-droppable" data-act-id="3-metacognicion" data-act-title="Ejercicio 3. La metacognición" data-shuffle="false" data-verify-type="target">
+
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic </span> en las flechas a los lados de la imagen para pasar entre niveles.</div>
+
+                        <div class="bloque1">
+                            <div class="box_end"></div>
+                            <div class="opciones opciones1">
+                                <div data-group="1" class="item item1" data-value="nivel1">
+                                    <span>¿Qué procedimientos sigue para llevar a cabo una investigación del tema?</span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="nivel3">
+                                    <span>Elabore un cronograma donde señale los tiempos en los que llevará a cabo todo el proceso de investigación. </span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="nivel3">
+                                    <span>¿De qué manera puede proponer una alternativa de diagnóstico e intervención de farmacodependencia en estos jóvenes cuando las personas responsables del microtráfico en esta zona no les beneficia este programa? </span>
+                                </div>
+                                <div data-group="2" class="item item2" data-value="nivel2">
+                                    <span>¿Qué hace cuando se le presenta un problema con los compañeros de equipo?</span>
+                                </div>
+                                <div data-group="1" class="item item2" data-value="nivel1">
+                                    <span>¿Cómo organiza  la agenda para concluir todos los trabajos que le solicitan durante el semestre?</span>
+                                </div>
+                                <div data-group="2" class="item item1" data-value="nivel2">
+                                    <span>¿Cuáles son las actitudes no le ayudan para exponer sus propias ideas frente a los demás?</span>
+                                </div>
+                                <div data-group="1" class="item item2" data-value="nivel1">
+                                    <span>¿Qué criterios utiliza para elaborar un concepto?</span>
+                                </div>
+                                <div data-group="2" class="item item3" data-value="nivel2">
+                                    <span>¿Cómo resuelve los problemas que se le presentan en la comunidad cuando realiza sus prácticas profesionales?</span>
+                                </div>
+                                <div data-group="3" class="item item1" data-value="nivel3">
+                                    <span>Si estuviera con los jóvenes del barrio de la Nueva Jerusalén en el Municipio de Bello, ¿qué adecuaciones debe hacer a la forma de plantear propuestas de salud? </span>
+                                </div>
+                            </div>
+
+                            <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+
+                            <div class="cajones ctrl-pagination" data-orientation="sides">
+                                <li class="contenedor">
+                                    <img src="./content/ejercicio3_metacognicion/metacognicion_01.png">
+                                    <h3>Nivel 1</h3>
+                                    <p>Reflexiones cognitivas, que se refieren a la forma personal en la que se desarrolla el aprendizaje.</p>
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <div class="cajon" data-target-group="1"></div>
+                                </li>
+                                <li class="contenedor">
+                                    <img src="./content/ejercicio3_metacognicion/metacognicion_02.png">
+                                    <h3>Nivel 2</h3>
+                                    <p>Reflexiones motivadas a la motivación personal para el aprendizaje.</p>
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <div class="cajon" data-target-group="2"></div>
+                                </li>
+                                <li class="contenedor">
+                                    <img src="./content/ejercicio3_metacognicion/metacognicion_03.png">
+                                    <h3>Nivel 3</h3>
+                                    <p>Reflexiones encaminadas a la transferencia y autorregulación, también conocidas como estrategias o sugerencias metacognitivas.</p>
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <div class="cajon" data-target-group="3"></div>
+                                </li>
+                            </div>
+                        </div>
+                        <br class="clear" />
+                        <feedback>
+                            <correct>
+                                <h4>Retroalimentación general</h4>
+                                <p>Las reflexiones de transferencia son las que vinculan los temas del programa o contenido con la competencia en un contexto específico o de manera situada. En la siguiente imagen se puede observar cómo en la educación basada en competencias y las estrategias de aprendizaje tienen como objetivo incidir en el proceso más que en el contenido, buscando así la transferencia y la reflexión.</p>
+                                <div class="box_media">
+                                    <img src="./content/ejercicio3_metacognicion/ejercicio_3_retroalimentacion-04.png" alt="Retroalimentación">
+                                    <div class="about">
+                                        <strong>Imagen 3: </strong>
+                                         Secuencias didácticas para el desarrollo de competencias.
+                                         <br />Ramírez Apaez M y otros. 2014.
+                                    </div>
+                                </div>
+                            </correct>
+                            <wrong>Intente nuevamente</wrong>
+                        </feedback>
+                    </div>
+                    <br class="clear" />
+
+                    <p>En conclusión, se puede decir que el vínculo entre aprendizaje y competencia se presenta cuando los aprendizajes significativos son los cimientos que edifican las competencias, y la metacognición es el puente que permite pasar de los aprendizajes significativos a estas.</p>
+                    <div class="box_media">
+                        <img src="./content/ejercicio3_metacognicion/ejercicio_3_retroalimentacion_2-05.png" alt="Megacognición">
+                        <div class="about">
+                            <strong>Ilustración 4. </strong>
+                                Metacognición
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-salud" ptitle="Las competencias en el área de la salud">
+                <div class="subpage">
+                    <p>Desde el año 2016, existe en Colombia la descripción de perfiles y competencias profesionales de las quince profesiones del área de la salud reconocidas en el país (Bacteriología, Enfermería, Fisioterapia, Fonoaudiología, Gerontología, Instrumentación Quirúrgica, Medicina, Nutrición y Dietética, Odontología, Optometría, Psicología, Química Farmacéutica, Terapia Respiratoria, Terapia Ocupacional y Trabajo Social) las cuales representan un consenso interinstitucional que se construyó como resultado de consultas y de participación colectiva entre entidades del Gobierno, profesionales del área de salud, organismos gremiales pertinentes y entidades educativas e investigadoras en el tema.</p>
+
+                    <p>El documento del Ministerio de Salud de Colombia llamado “Perfiles y competencias profesionales en salud” describe las competencias transversales cuyos enunciados y contenidos fueron reconocidos y compartidos por todos los grupos profesionales. De esta forma, el perfil profesional define el conjunto de características o rasgos, actitudes, valores, motivaciones y comportamientos que identifican a un profesional del área de salud, y las competencias son las habilidades que expresan el perfil profesional y se agrupan en transversales y específicas.</p>
+
+                    <p>Las competencias transversales representan el factor común entre profesiones y permiten la integración entre las disciplinas. Para su identificación y descripción, se agrupan en siete dominios como se observa en la siguiente tabla:</p>
+
+                    <div class="box_media">
+                        <p class="about">
+                            <strong>Tabla 1. </strong>
+                            Matriz que relaciona dominios, competencias y criterios de desempeño
+                        </p>
+                    </div>
+                    <table class="datatable">
+                        <thead>
+                            <tr>
+                                <th>Dominio</th>
+                                <th>Competencia</th>
+                                <th>Criterios de desempeño</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="text-align: center;">
+                                <th colspan="3"><strong>Competencias transversales</strong></th>
+                            </tr>
+                            <tr class="odd">
+                                <td>Acción profesional y profesionalismo</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Asumir el rol que le corresponde.</li>
+                                        <li>Practicar con base en la evidencia.</li>
+                                        <li>Prestar servicio con la más alta calidad.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Actualización permanente.</li>
+                                        <li>Revisión de nuevas y mejores prácticas.</li>
+                                        <li>Responsabilidad, autoevaluación y autocuidado.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Reconocimiento, contexto y cultura</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Actuar profesional de acuerdo con las condiciones en las que la vida de las personas, las familias y las comunidades, tiene lugar.</li>
+                                        <li>Intervenir con enfoque diferencial.</li>
+                                        <li>Realizar análisis cultural.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Características, limitaciones y recursos del contexto y la profesión.</li>
+                                        <li>Conocimiento de la ruta de atención y normatividad.</li>
+                                        <li>Conocimiento de la ruta de atención y normatividad.</li>
+                                        <li>Enfoque diferencial, cultura, tradiciones.</li>
+                                        <li>Reconocimiento de los sujetos en la dinámica social, en un marco de participación.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Docencia y educación</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Aplicar estrategias didácticas para preparar a las comunidades y usuarios y fortalecer sus capacidades de participación.</li>
+                                        <li>Realizar acciones para educar en salud a los usuarios, comunidad, al gremio y a los miembros de los equipos interdisciplinarios.</li>
+                                        <li>Apoyar el fortalecimiento del equipo.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Propuestas pedagógicas relación docencia-servicio.</li>
+                                        <li>Cualificación de profesionales.</li>
+                                        <li>Intercambio de experiencias.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ética y humanismo</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Actuar sin daño, con dignidad y cuidado de la vida.</li>
+                                        <li>Actuar dentro del marco de responsabilidad de la profesión y social.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Actualización del ejercicio profesional, normatividad y ética.</li>
+                                        <li>Protección de la salud y la vida.</li>
+                                        <li>Utilización del secreto profesional, consentimiento informado.</li>
+                                        <li>Promoción de la autonomía de la persona, los grupos y las comunidades.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Gestión</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Desarrollar procesos de gestión con relación al talento humano que presta servicios de salud.</li>
+                                        <li>Administrar los recursos físicos, financieros, tecnológicos para la prestación de los servicios de salud.</li>
+                                        <li>Ser responsable de los recursos a su cargo.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Actualización profesional y normatividad vigente.</li>
+                                        <li>El «hacer» y el «poder hacer» dado que cuenta con los recursos necesarios.</li>
+                                        <li>Optimización de recursos.</li>
+                                        <li>Acción interdisciplinaria.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Investigación y gestión del conocimiento</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Evaluar el conocimiento y hacer uso apropiado de las nuevas tendencias.</li>
+                                        <li>Generar y socializar el nuevo conocimiento para resolver problemas de la población, aportar al bienestar y desarrollo de la profesión.</li>
+                                        <li>Interactuar con equipos inter, trans y multidisciplinares en la identificación y solución de problemáticas.</li>
+                                        <li>Liderar propuestas de investigación que aporten a la solución de problemas de salud de la población.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Identificación de problemáticas y condiciones de salud.</li>
+                                        <li>Práctica basada en la evidencia.</li>
+                                        <li>Promoción de investigación que fortalezca la evidencia.</li>
+                                        <li>Identificación de diversas fuentes y resultados de búsqueda de información.</li>
+                                        <li>Convierte su práctica en una fuente permanente de investigación.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Relaciones interpersonales</td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Promover relaciones de respeto con los usuarios, intra e interdisciplinar y el trabajo en equipo.</li>
+                                        <li>Favorecer las relaciones de colaboración en su actuación profesional.</li>
+                                        <li>Reconocer el aporte de otras disciplinas.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul class="data_list">
+                                        <li>Comunicación abierta y participativa.</li>
+                                        <li>Fomento de relaciones y acciones colaborativas.</li>
+                                        <li>Respeto y confianza en el equipo de trabajo.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <th colspan="3"><strong>Competencias específicas</strong></th>
+                            </tr>
+                            <tr class="odd">
+                                <td colspan="3">Promoción de la salud</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Prevención de la enfermedad</td>
+                            </tr>
+                            <tr class="odd">
+                                <td colspan="3">Diagnóstico</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Tratamiento</td>
+                            </tr>
+                            <tr class="odd">
+                                <td colspan="3">Rehabilitación </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Las competencias específicas corresponden a las actuaciones propias de cada profesión; expresan la capacidad y actuación de un dominio profesional en el desempeño de unos roles determinados en un contexto específico de salud, ya que definen lo que un profesional debe ser capaz de hacer en relación con lo misional de su profesión. Para su descripción se utilizan como categorías las intervenciones clásicas en salud como promoción de la salud, prevención de la enfermedad, diagnóstico de la salud individual y colectiva, tratamiento y rehabilitación.</p>
+
+                    <div class="box-text connection">
+                        <p>A continuación, se puede observar los aspectos comunes que se trabajan en las diferentes profesiones del área de la salud.</p>
+                    </div>
+
+                    <div class="videobox">
+                        <div class="videobox">
+                            <video controls="">
+                                <source src="content/caracteristicas_comunes_abordaje.mp4" type="video/mp4">
+                                El reproductor de video no es soportado por el navegador
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-didactica" ptitle="La didáctica en la enseñanza por competencias">
+                <div class="subpage" id="pag-contenidointeractivo-pointers">
+                    <p>La didáctica de cada profesor es indispensable para el logro de las competencias, por eso se recomienda que la educación se centre en el estudiante y que los contenidos estén contextualizados y sean útiles.</p>
+
+                    <div class="instruction">
+                        <span class="onlymobile">Toque</span>
+                        <span class="notmobile">Pase el mouse por</span> cada uno de los elementos para obtener más información
+                    </div>
+                    <div class="didactica_ensenanza">
+                        <div class="estudiante_1 tooltip" title="<strong>Actor fundamental en los procesos de enseñanza</strong>"></div>
+                        <div class="curriculo_2 tooltip" title="<strong>Actualizado y contextualizado, basado en productos útiles</strong>"></div>
+                        <div class="profesor_3 tooltip" title="<strong>Guía de proyectos sustentables, orientador de investigaciones y facilitador de aprendizajes</strong>"></div>
+                    </div>
+                    <div class="about">
+                        Adaptado de: Ramírez Apaez M y otros. Secuencias didácticas para el desarrollo de competencias [Interactivo]. 2014. Disponible en <a href="https://view.genial.ly/5d3cfb44aa77280fa0aea3fa" target="_blank">https://view.genial.ly/[...]</a>
+                    </div>
+                </div>
+
+                <div class="subpage" id="pag-contenidointeractivo-pointers2">
+                    <div class="box-text connection">
+                        <p>Para realizar el diseño didáctico tiene en cuenta el perfil de egreso por competencias y el contenido de la asignatura o de la unidad de aprendizaje. A continuación, se repasan varias actividades que promueven el desarrollo de aprendizajes significativos y competencias.</p>
+                    </div>
+
+                    <div class="instruction">
+                        <span class="onlymobile">Toque</span>
+                        <span class="notmobile">Pase el mouse por</span> cada uno de los elementos para obtener más información
+                    </div>
+                    <div class="secuencias_didacticas">
+                        <div class="evaluacion_1 tooltip" title="<strong>Son situaciones planteadas para valorar cómo inician los aspectos formativos y cómo cierran el proceso.</strong>"></div>
+                        <div class="recuperacion_2 tooltip" title="<strong>Se programan para los alumnos que no han adquirido los conocimientos trabajados durante un período.</strong>"></div>
+                        <div class="consolidacion_3 tooltip" title="<strong>Contrastar las nuevas ideas con las previas, y aplicar los nuevos aprendizajes.</strong>"></div>
+                        <div class="conocimientos_4 tooltip" title="<strong>Conocer las ideas, las opiniones o errores conceptuales de los estudiantes.</strong>"></div>
+                        <div class="ampliacion_5 tooltip" title="<strong>Permiten continuar la construcción de nuevos conocimientos y hacer las transferencias propias de las competencias. Se remiten a otros contextos.</strong>"></div>
+                        <div class="refuerzo_6 tooltip" title="<strong>Se programan cuando un tema es complejo.</strong>"></div>
+                        <div class="desarrollo_7 tooltip" title="<strong>Construir conceptos, procedimientos o actitudes nuevas, y comunicar la labor realizada.</strong>"></div>
+                    </div>
+                    <div class="about">Adaptado de: Ramírez Apaez M, Pérez Mendia E, Tapia Mendoza, F. Secuencias didácticas para el desarrollo de competencias. México: Editorial Trillas. 2014.</div>
+                </div>
+
+                <div class="subpage" id="pag-contenidointeractivo-pointers3">
+                    <h3>Situaciones de aprendizaje</h3>
+                    <p>Una situación de aprendizaje es una secuencia didáctica que está contextualizada con la vida de los estudiantes o en aspectos que le son cercanos y concretos. Un ejercicio en el que los estudiantes practican de manera mecánica para aprender algo no se considera como una situación de aprendizaje. La EBC, de manera prioritaria, recomienda diseñar estudios de caso, proyectos educativos y actividades integradoras. Observe la siguiente figura interactiva:</p>
+
+                    <div class="instruction">
+                        <span class="onlymobile">Toque</span>
+                        <span class="notmobile">Pase el mouse por</span> cada uno de los elementos para obtener más información
+                    </div>
+                    <div id="sit-aprendizaje">
+                        <div id="fila1" class="row">
+                            <div class="situacion">
+                                <div class="tooltip" title="<strong>Conjunto de actividades contextualizada en la vida de los estudiantes: familiar, laboral, académica, como ciudadano</strong>"></div>
+                            </div>
+                            <div class="situacion">
+                                <div class="tooltip" title="<strong>
+                                    <ul>
+                                        <li>Conjunto de acciones que el alumno debe realizar con criterios y procesos establecidos por el docente.</li>
+                                        <li>El esquema de evaluación lo hace el docente.</li>
+                                        <li>Conjunto de actividades  (una clase, un día o una semana) y conjunto de evidencias por evaluar.</li>
+                                        <li>Pueden elaborarse para una asignatura en particular o por un grupo de docentes para evaluar de manera conjunta aprendizajes y competencias.</li>
+                                    </ul></strong>">
+                                </div>
+                            </div>
+                            <div class="situacion">
+                                <div class="tooltip" title="<strong>
+                                    <ul>
+                                        <li>Son situaciones reales-hipotéticas, problematizadoras, generalmente redactadas por el docente para ser resueltas por el estudiante de acuerdo con criterios de evaluación concretos y con posibilidad de resolución abierta.</li>
+                                        <li>Es activa la participación de los estudiantes, porque se incorporan experiencias previas y nuevos aprendizajes y se pueden incluir diversas competencias.</li>
+                                    </ul></strong>">
+                                </div>
+                            </div>
+                            <div class="diagonal diagonal1"></div>
+                            <div class="diagonal diagonal2"></div>
+                            <div class="diagonal diagonal3"></div>
+                            <div class="diagonal diagonal4"></div>
+                        </div>
+                        <br>
+                        <div id="fila2" class="row">
+                            <div class="situacion">
+                                <div class="tooltip" title="<strong>No se considera una situación de aprendizaje</strong>">
+                                </div>
+                            </div>
+                            <div class="situacion"></div>
+                            <div class="situacion">
+                                <div class="tooltip" title="<strong>
+                                    <ul>
+                                        <li>Estos poseen mayor énfasis en la autorregulación del estudiante y en su toma de decisiones.</li>
+                                        <li>Conjunto de acciones que el alumno debe realizar con criterios y procesos establecidos por el docente.</li>
+                                        <li>El estudiante los selecciona y decide a partir de los lineamientos generales que ofrece el docente.</li>
+                                        <li>El estudiante diseña su cronograma de trabajo.</li>
+                                        <li>El esquema de evaluación lo hace el docente</li>
+                                    </ul>
+                                </strong>"></div>
+                            </div>
+                            <div class="situacion"></div>
+                        </div>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>A continuación, se realizan algunas recomendaciones para el diseño de secuencias didácticas.</p>
+                    </div>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic </span> en las flechas de la derecha para pasar entre las recomendaciones.</div>
+
+                    <div class="ctrl-pagination" data-orientation="vertical" data-layer-height="100">
+                        <li><p>Identifique el perfil de egreso del profesional del área de la salud.</p></li>
+                        <li><p>Reconozca cuáles son las competencias de dicho perfil en las que interviene su unidad de aprendizaje.</p></li>
+                        <li><p>Revise de manera general los contenidos o bloques de su unidad de aprendizaje.</p></li>
+                        <li><p>Identifique cuáles son los criterios de desempeño para que diseñe actividades relacionadas con los contenidos (temas por abordar). Recuerde que los criterios de desempeño se encaminan a lo que deben saber hacer los estudiantes en otros contextos (es decir, cómo deben hacerlo).</p></li>
+                        <li><p>Identifique los indicadores de evaluación para que a partir de ellos plantee las evidencias que solicitará a su grupo.</p></li>
+                        <li><p>Revise el propósito de su unidad de aprendizaje (objetivo general y competencias).</p></li>
+                        <li><p>Valore qué contenidos pueden ser trabajados de manera integral (todos los subtemas a partir de actividades integradoras o proyectos educativos); ello le llevará a definir si lo trabaja solo o si se debe reunir con otros profesores.</p></li>
+                        <li><p>Identifique cuáles serán los contextos en los que se promoverá el desarrollo de competencias.</p></li>
+                        <li><p>Diseñe estudios de caso, actividades integradoras y proyectos educativos procurando que por lo menos la actividad de cierre esté vinculada a reflexiones metacognitivas.</p></li>
+                        <li><p>Realice la planeación didáctica de manera conjunta con la planeación para evaluar. Tenga presente que la evaluación tiene la finalidad de ser formativa.</p></li>
+                        <li><p>Planee los diferentes instrumentos con los que evaluará y que le servirán como evidencias.</p></li>
+                        <li><p>Vincule sus actividades a los intereses y necesidades de los estudiantes.</p></li>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+        <!--Créditos-->
+        <div id="credits-page" style="display:none;">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+                <div>
+                    <h3>Investigación y desarrollo de contenidos</h3>
+                    <cite>Lina María González Duque <br />
+                        Catalina Echeverry Querubín
+                    </cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Diana Patricia Ospina Pineda</cite>
+                </div>
+                <div>
+                    <h3>Guionización</h3>
+                    <cite>Betsabé Lema Ospina</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite>Elizabeth Hernandez Gonzalez</cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite>Felipe Quintana</cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>Alejandro Morales Gallo</cite>
+                </div>
+                <div>
+                    <h3>Revisión de calidad</h3>
+                    <cite>Mauricio Arboleda</cite>
+                </div>
+                <div>
+                    <h3>Gestión Administrativa</h3>
+                    <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada
+                    </cite>
+                </div>
+                <div>
+                    <h3>Producción</h3>
+                    <div class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                        <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                    </div>
+                </div>
+
+                <div class="editions">
+                    1ª edición: octubre de 2019
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                </div>
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
+
+                <ul class="data_list">
+                    <li>Ramírez Apaez M, Pérez Mendia E, Tapia Mendoza, F. Secuencias didácticas para el desarrollo de competencias. México: Editorial Trillas. 2014.</li>
+                    <li>MINSALUD. Perfiles y competencias profesionales en salud [en línea]. 2016. Disponible en <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/VS/TH/Perfiles-profesionales-salud.pdf" target="_blank"><em>https://www.minsalud.gov.co/[...]</em></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
