@@ -1,30 +1,39 @@
 /********************************************************************************/
-
-
-/* formato de imágenes
-/********************************************************************************/
-
-
-/***********Alinear imagenes****************/
-
-.box_media {
-    text-align: center;
-}
-
-
-/***********Nota al pie de imagen****************/
-
-.nota_pie {
-    font-size: 12px;
-    text-align: center;
-}
-
-
-/********************************************************************************/
-
-
 /* Ejercicio 1. Linea de tiempo
 /********************************************************************************/
+.view-first h2 {
+    background-color: transparent;
+    padding: 5px;
+}
+
+#act1.jpit-activities-droppable .item,
+.jpitdroppable_select_list_item .item {
+    position: relative;
+}
+
+#act1.jpit-activities-droppable .item i,
+.jpitdroppable_select_list_item .item i {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    color: green;
+    font-size: 25px;
+}
+
+#act1.jpit-activities-droppable .item i:hover,
+.jpitdroppable_select_list_item .item i:hover {
+    color: blue;
+}
+
+.conimagensobre.w-content > div {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+.conimagensobre.w-content .imagen > div {
+    float: left;
+    margin: 2px;
+}
 
 .text_tooltip p {
     min-width: 200px;
@@ -32,21 +41,12 @@
     padding: 0;
 }
 
-.jpit-activities-droppable .linea1 {
-    border-bottom: 2px solid #70B1BC;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 800px;
-}
-
-.jpit-activities-droppable .contenedor {
+#act1.jpit-activities-droppable .contenedor {
     width: 220px;
     margin: 10px;
 }
 
-.jpit-activities-droppable .sombra {
+#act1.jpit-activities-droppable .sombra {
     background-color: #F1F1F0;
     width: 220px;
     height: 156px;
@@ -83,28 +83,18 @@
 }
 
 
-.jpit-activities-droppable {
+#act1.jpit-activities-droppable {
     position: relative;
 }
 
-.jpit-activities-droppable .cajon {
+#act1.jpit-activities-droppable .cajon {
     border: 1px dashed #0089A9;
     border-radius: 12px;
     width: 218px;
     height: 153px;
 }
 
-.jpit-activities-droppable .linea1 {
-    border-bottom: 2px solid #70B1BC;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 800px;
-    padding-top: 40px;
-}
-
-.jpit-activities-droppable .linea2 {
+#act1.jpit-activities-droppable .linea2 {
     border-bottom: 2px solid #70B1BC;
     border-right: 2px solid #70B1BC;
     margin: 0 auto;
@@ -112,31 +102,31 @@
     flex-direction: row-reverse;
     justify-content: center;
     max-width: 800px;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
-.jpit-activities-droppable .introductorio {
+#act1.jpit-activities-droppable .introductorio {
     border-left: 2px solid #70B1BC;
     margin: 0 auto;
     max-width: 800px;
     padding: 10px 0;
 }
 
-.jpit-activities-droppable .introductorio1 {
+#act1.jpit-activities-droppable .introductorio1 {
     border-left: 2px solid #70B1BC;
     margin: 0 auto;
     max-width: 800px;
     padding: 10px 0;
 }
 
-.jpit-activities-droppable .introductorio1 p,
-.jpit-activities-droppable .introductorio1 h3,
-.jpit-activities-droppable .introductorio p,
-.jpit-activities-droppable .introductorio h3 {
+#act1.jpit-activities-droppable .introductorio1 p,
+#act1.jpit-activities-droppable .introductorio1 h3,
+#act1.jpit-activities-droppable .introductorio p,
+#act1.jpit-activities-droppable .introductorio h3 {
     padding: 0 20px;
 }
 
-.jpit-activities-droppable .linea1 {
+#act1.jpit-activities-droppable .linea1 {
     border-bottom: 2px solid #70B1BC;
     border-left: 2px solid #70B1BC;
     margin: 0 auto;
@@ -144,17 +134,17 @@
     flex-direction: row;
     justify-content: center;
     max-width: 800px;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
-.jpit-activities-droppable .introductorio2 {
+#act1.jpit-activities-droppable .introductorio2 {
     border-right: 2px solid #70B1BC;
     margin: 0 auto;
     max-width: 800px;
     padding: 10px 0;
 }
 
-.jpit-activities-droppable .opciones {
+#act1.jpit-activities-droppable .opciones {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -163,11 +153,11 @@
     margin-top: 30px;
 }
 
-.jpit-activities-droppable.completed .opciones {
+#act1.jpit-activities-droppable.completed .opciones {
     margin-top: 0;
 }
 
-.jpit-activities-droppable .item {
+#act1.jpit-activities-droppable .item {
     border: 1px solid #73C8D1;
     border-radius: 12px;
     width: 216px;
@@ -178,7 +168,7 @@
     color: #000;
 }
 
-.jpit-activities-droppable .opciones .item {
+#act1.jpit-activities-droppable .opciones .item {
     margin: 10px;
 }
 
@@ -186,15 +176,11 @@
     background-color: #DFE9EF;
 }
 
-#act2.jpit-activities-droppable .item {
-    background-color: #DCE0DF;
-}
-
 #act3.jpit-activities-droppable .item {
     background-color: #F7C490;
 }
 
-.jpit-activities-droppable .scroll {
+#act1.jpit-activities-droppable .scroll {
     display: block;
     overflow: auto;
     width: 145px;
@@ -238,13 +224,13 @@
     border-left-color: #73C8D1;
 }
 
-.jpit-activities-droppable .box_end {
-    position: absolute;
-    bottom: 180px;
-    left: calc(50% - 250px);
+#act1 .box_end .correct,
+#act1 .box_end .wrong {
+    max-width: unset;
+    text-align: justify;
 }
 
-.jpit-activities-droppable .box_end .icon_more {
+#act1.jpit-activities-droppable .box_end .icon_more {
     position: absolute;
     top: 0;
     right: 0;
@@ -252,40 +238,108 @@
     transform: rotate(45deg);
 }
 
-.jpit-activities-droppable .draggable, 
-.jpit-activities-droppable .droppable {
+#act1.jpit-activities-droppable .draggable,
+#act1.jpit-activities-droppable .droppable {
     padding: 0;
 }
 
-
 /********************************************************************************/
+/* Ejercicio 2 - Crucigrama
+/********************************************************************************/
+#act2 .board_content {
+    background: url(../content/detalle_plano_tiza_5.png) no-repeat right bottom;
+    background-size: cover;
+    border: 1px #aaa dashed;
+    box-shadow: 5px 5px 5px #aaa;
+    margin-bottom: 5px;
+}
 
+.jpit-activities-crossword tr:nth-child(1) {
+    text-align: center;
+    display: flex;
+}
 
-/* ejercicio 3 - La metacognición
+.jpit-activities-crossword tr:nth-child(2) td {
+    max-width: unset;
+}
+
+.jpit-activities-crossword td {
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+}
+
+.jpit_activity_crossword_cell input {
+    width: 23px;
+    height: 21px;
+    box-shadow: 4px 5px 6px #888;
+}
+
+.jpit_activity_crossword_cell {
+    width: 26px;
+    height: 24px;
+}
+
+.jpit_activity_crossword_label {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    border-radius: 50%;
+}
+
+.jpit_activity_crossword_board {
+    margin-bottom: 20px;
+    min-width: 540px;
+}
+
+.box_words li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    background-color: cadetblue;
+}
+
+#act2 .box_end {
+    padding: 0;
+    margin: 0 auto;
+}
+
+#act2 .box_end .correct {
+    text-align: left;
+}
+/********************************************************************************/
+/* Ejercicio 3 - La metacognición
 /********************************************************************************/
 
 #act3 .bloque1 {
     width: 800px;
-    height: 780px;
     margin: auto;
     position: relative;
 }
 
 #act3 .contenedor {
-    position: absolute;
+    position: relative;
     border: 2px solid #f3f3f3;
     border-radius: 20px;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
     background-color: #f3f3f3;
     width: 420px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #act3 .cajon {
     border: 1px dashed #0089A9;
     border-radius: 15px;
-    width: 220px;
-    height: 140px;
+    width: 232px;
+    height: 152px;
     margin: 5px auto;
     background-color: #dcdcdd;
 }
@@ -306,36 +360,22 @@
 #act3 .ctrl-pagination {
     background-color: transparent;
     border: none;
-    width: 500px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    width: 460px;
+    position: relative;
+    float: right;
 }
 
 #act3 .opciones1 {
-    position: absolute;
-    left: 0;
-    top: 20px;
+    position: relative;
     width: 280px;
+    float: left;
 }
 
 #act3 .opciones1 .item {
-    position: absolute;
     text-align: center;
     padding: 5px;
-}
-
-#act3 .opciones1 .item1 {
-    top: 0;
-}
-
-#act3 .opciones1 .item2 {
-    top: 160px;
-}
-
-#act3 .opciones1 .item3 {
-    top: 320px;
+    margin-bottom: 10px;
+    position: relative;
 }
 
 #act3 .opciones1 .item.draggable {
@@ -430,17 +470,18 @@
 }
 
 #act3 .ctrl-pagination.sides .button.previous {
-    left: 10px;
+    left: -10px;
+    top: 100px;
+}
+
+#act3 .ctrl-pagination.sides .button.next {
+    top: 100px;
 }
 
 #act3 .box_end {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 0;
-    background: rgba(255, 255, 255, 0.8);
     z-index: 3;
+    float: left;
 }
 
 #act3 .draggable.wrong {
@@ -448,6 +489,33 @@
     color: #D60C1B;
 }
 
+#act3.jpit-activities-droppable .droppable {
+    padding: 0;
+}
+
+#act3 .box_end .correct {
+    padding: 0;
+    background: #fff;
+    max-width: unset;
+}
+
+#act3 .box_end .correct::after {
+    top: 0;
+    left: 0;
+}
+
+#act3 .box_end .correct p {
+    text-align: justify;
+}
+
+
+/********************************************************************************/
+/*  Matriz que relaciona...
+/********************************************************************************/
+table.datatable .data_list {
+    margin: 0;
+    padding: 0;
+}
 
 /********************************************************************************/
 /* didáctica de la enseñanza por competencias
@@ -496,7 +564,7 @@
 /* Infográfico secuencias didácticas
 /********************************************************************************/
 
-#pag-contenidointeractivo-pointers .secuencias_didacticas {
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas {
     background: url(../content/infografico_secuencias_didacticas.png) no-repeat;
     background-size: cover;
     margin: 10px auto;
@@ -505,7 +573,7 @@
     position: relative;
 }
 
-#pag-contenidointeractivo-pointers .secuencias_didacticas .tooltip {
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .tooltip {
     position: absolute;
     border-radius: 16px;
     height: 38px;
@@ -515,45 +583,45 @@
     background-position: left bottom;
 }
 
-#pag-contenidointeractivo-pointers .secuencias_didacticas .conocimientos_4.tooltip{
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .conocimientos_4.tooltip{
     width: 202px;
 }
 
-#pag-contenidointeractivo-pointers .secuencias_didacticas .tooltip:hover {
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .tooltip:hover {
     background-color: rgba(192, 197, 208, 0.3);
 }
 
-#pag-contenidointeractivo-pointers .evaluacion_1 {
+#pag-contenidointeractivo-pointers2 .evaluacion_1 {
     left: 16px;
     top: 33px;
 }
 
-#pag-contenidointeractivo-pointers .recuperacion_2 {
+#pag-contenidointeractivo-pointers2 .recuperacion_2 {
     left: 16px;
     top: 130px;
 }
 
-#pag-contenidointeractivo-pointers .consolidacion_3 {
+#pag-contenidointeractivo-pointers2 .consolidacion_3 {
     left: 16px;
     top: 224px;
 }
 
-#pag-contenidointeractivo-pointers .conocimientos_4 {
+#pag-contenidointeractivo-pointers2 .conocimientos_4 {
     left: 16px;
     top: 322px;
 }
 
-#pag-contenidointeractivo-pointers .ampliacion_5 {
+#pag-contenidointeractivo-pointers2 .ampliacion_5 {
     left: 559px;
     top: 84px;
 }
 
-#pag-contenidointeractivo-pointers .refuerzo_6 {
+#pag-contenidointeractivo-pointers2 .refuerzo_6 {
     left: 559px;
     top: 174px;
 }
 
-#pag-contenidointeractivo-pointers .desarrollo_7 {
+#pag-contenidointeractivo-pointers2 .desarrollo_7 {
     left: 559px;
     top: 262px;
 }
@@ -562,6 +630,11 @@
 /********************************************************************************/
 /* Sprite Situaciones de aprendizaje
 /********************************************************************************/
+#sit-aprendizaje {
+    position: relative;
+    min-width: 700px;
+    margin: auto;
+}
 
 #sit-aprendizaje #fila1 .situacion,
 #sit-aprendizaje #fila2 .situacion{
@@ -619,26 +692,31 @@
     width: 100px;
     border-bottom: 2px solid #d5d5d5;
     transform: rotate(50deg);
-    top: 64.5%;
+    top: 190px;
 }
 
 #sit-aprendizaje .diagonal1 {
-    left: 33%;
+    left: calc(50% - 200px);
 }
 
 #sit-aprendizaje .diagonal2 {
-    left: 41%;
+    left: calc(50% - 100px);
     transform: rotate(115deg);
     width: 85px;
 }
 
 #sit-aprendizaje .diagonal3 {
-    left: 51%;
+    left: calc(50% + 10px);;
     transform: rotate(65deg);
     width: 85px;
 }
 
 #sit-aprendizaje .diagonal4 {
-    left: 56%;
+    left: calc(50% + 100px);
     transform: rotate(130deg);
+}
+
+#pag-contenidointeractivo-pointers3 .ctrl-pagination {
+    max-width: 800px;
+    margin: auto;
 }

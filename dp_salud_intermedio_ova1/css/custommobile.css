@@ -1,0 +1,708 @@
+/********************************************************************************/
+/* Ejercicio 1. Linea de tiempo
+/********************************************************************************/
+.view-first h2 {
+    background-color: transparent;
+    padding: 5px;
+}
+
+#act1.jpit-activities-droppable .item,
+.jpitdroppable_select_list_item .item {
+    position: relative;
+}
+
+#act1.jpit-activities-droppable .item i,
+.jpitdroppable_select_list_item .item i {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    color: green;
+    font-size: 25px;
+}
+
+#act1.jpit-activities-droppable .item i:hover,
+.jpitdroppable_select_list_item .item i:hover {
+    color: blue;
+}
+
+.conimagensobre.w-content > div {
+    margin-bottom: 0;
+}
+
+.conimagensobre.w-content .imagen > div {
+    float: left;
+    margin: 2px;
+}
+
+.text_tooltip p {
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+#act1.jpit-activities-droppable .contenedor {
+    width: 220px;
+    margin: 10px;
+}
+
+#act1.jpit-activities-droppable .sombra {
+    background-color: #F1F1F0;
+    width: 220px;
+    height: 156px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.ano {
+    width: 100px;
+    height: 20px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    bottom: -10px;
+    color: #fff;
+    background-color: #73C8D1;
+}
+
+.der .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    content: "";
+    border-left-color: #73C8D1;
+}
+
+.izq .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    left: -20px;
+    content: "";
+    border-right-color: #73C8D1;
+}
+
+
+#act1.jpit-activities-droppable {
+    position: relative;
+}
+
+#act1.jpit-activities-droppable .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 12px;
+    width: 218px;
+    height: 153px;
+}
+
+#act1.jpit-activities-droppable .linea2 {
+    border-bottom: 2px solid #70B1BC;
+    border-right: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 10px;
+}
+
+#act1.jpit-activities-droppable .introductorio {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+#act1.jpit-activities-droppable .introductorio1 {
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+#act1.jpit-activities-droppable .introductorio1 p,
+#act1.jpit-activities-droppable .introductorio1 h3,
+#act1.jpit-activities-droppable .introductorio p,
+#act1.jpit-activities-droppable .introductorio h3 {
+    padding: 0 20px;
+}
+
+#act1.jpit-activities-droppable .linea1 {
+    border-bottom: 2px solid #70B1BC;
+    border-left: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 10px;
+}
+
+#act1.jpit-activities-droppable .introductorio2 {
+    border-right: 2px solid #70B1BC;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px 0;
+}
+
+#act1.jpit-activities-droppable .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#act1.jpit-activities-droppable.completed .opciones {
+    margin-top: 0;
+}
+
+#act1.jpit-activities-droppable .item {
+    border: 1px solid #73C8D1;
+    border-radius: 12px;
+    width: 216px;
+    height: 153px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+#act1.jpit-activities-droppable .opciones .item {
+    margin: 10px;
+}
+
+#act1.jpit-activities-droppable .item {
+    background-color: #DFE9EF;
+}
+
+#act3.jpit-activities-droppable .item {
+    background-color: #F7C490;
+}
+
+#act1.jpit-activities-droppable .scroll {
+    display: block;
+    overflow: auto;
+    width: 145px;
+}
+
+.w-content .imagen img {
+    display: block;
+    margin: auto;
+}
+
+.w-content .imagen {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.w-content .completo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+
+.completo .ano {
+    margin-left: 0;
+    left: 0;
+}
+
+.completo .ano:after {
+    border: 10px solid transparent;
+    position: absolute;
+    left: 100px;
+    content: "";
+    border-left-color: #73C8D1;
+}
+
+#act1 .box_end .correct,
+#act1 .box_end .wrong {
+    max-width: unset;
+    text-align: justify;
+}
+
+#act1.jpit-activities-droppable .box_end .icon_more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    transform: rotate(45deg);
+}
+
+#act1.jpit-activities-droppable .draggable,
+#act1.jpit-activities-droppable .droppable {
+    padding: 0;
+}
+
+#act1.jpit-activities-droppable .box_end {
+    position: unset;
+}
+
+/********************************************************************************/
+/* Ejercicio 2 - Crucigrama
+/********************************************************************************/
+#act2 .board_content {
+    background: url(../content/detalle_plano_tiza_5.png) no-repeat left top;
+    background-size: cover;
+    border: 1px #aaa dashed;
+    box-shadow: 5px 5px 5px #aaa;
+    margin-bottom: 5px;
+}
+
+.jpit-activities-crossword tr:nth-child(2) td {
+    max-width: unset;
+}
+
+.jpit-activities-crossword td {
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+}
+
+.jpit_activity_crossword_cell input {
+    width: 23px;
+    height: 21px;
+    box-shadow: 4px 5px 6px #888;
+}
+
+.jpit_activity_crossword_cell {
+    width: 26px;
+    height: 24px;
+}
+
+.jpit_activity_crossword_label {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    border-radius: 50%;
+}
+
+.jpit_activity_crossword_board {
+    margin-bottom: 20px;
+    min-width: 350px;
+}
+
+.box_words li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.jpit-activities-crossword .jpit_activity_crossword_label {
+    background-color: cadetblue;
+}
+
+#act2 .box_end {
+    padding: 0;
+    margin: 0 auto;
+}
+
+#act2 .box_end .correct {
+    text-align: left;
+}
+/********************************************************************************/
+/* Ejercicio 3 - La metacognición
+/********************************************************************************/
+
+#act3 .bloque1 {
+    margin: auto;
+    position: relative;
+}
+
+#act3 .contenedor {
+    position: relative;
+    border: 2px solid #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    background-color: #f3f3f3;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#act3 .contenedor img {
+    max-width: 100%;
+}
+
+#act3 .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 232px;
+    height: 152px;
+    margin: 5px auto;
+    background-color: #dcdcdd;
+}
+
+#act3 .item {
+    border-radius: 15px;
+    width: 220px;
+    height: 140px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#act3 .ctrl-pagination {
+    background-color: transparent;
+    border: none;
+    position: relative;
+}
+
+#act3 .opciones1 {
+    position: relative;
+    width: 235px;
+    margin: auto;
+}
+
+#act3 .opciones1 .item {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#act3 .opciones1 .item.draggable {
+    z-index: 3;
+}
+
+#act3 .opciones1 .item.draggable:after {
+    content: unset;
+}
+
+#act3 .opciones1 .item.draggable:before {
+    content: "\f263";
+    font-family: "Ionicons";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#act3 .opciones1 .enlace1 {
+    position: absolute;
+    left: 26px;
+    top: 95px;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    background: #fff;
+    padding-bottom: 5px;
+}
+
+#act3 .opciones1 .enlace2 {
+    position: absolute;
+    left: 26px;
+    top: 245px;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    background: #fff;
+    padding-bottom: 5px;
+}
+
+#act3 .opciones1 .enlace .down_pointer {
+    background-position: -548px -15px;
+    width: 35px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+#act3 .cajon .item {
+    position: unset !important;
+    margin: -1px 0 0 -1px;
+}
+
+#act3 .contenedor.educacion:after,
+#act3 .contenedor.ambiente:after,
+#act3 .contenedor.plataforma:after {
+    content: "";
+    position: absolute;
+    left: -128px;
+    width: 125px;
+    border: 1px solid #d79f21;
+}
+
+#act3 .contenedor.educacion {
+    border: 2px solid #d79f21;
+}
+
+#act3 .contenedor.ambiente {
+    border: 2px solid #859390;
+}
+
+#act3 .contenedor.plataforma {
+    border: 2px solid #17809d;
+}
+
+#act3 .contenedor.educacion:after {
+    top: 50px;
+    border: 1px solid #d79f21;
+}
+
+#act3 .contenedor.ambiente:after {
+    top: 200px;
+    border: 1px solid #859390;
+}
+
+#act3 .contenedor.plataforma:after {
+    top: 350px;
+    border: 1px solid #17809d;
+}
+
+#act3 .ctrl-pagination.sides .position {
+    z-index: 2;
+}
+
+#act3 .ctrl-pagination.sides .button.previous {
+    left: -10px;
+    top: 100px;
+}
+
+#act3 .ctrl-pagination.sides .button.next {
+    top: 100px;
+}
+
+#act3 .box_end {
+    padding: 0;
+    z-index: 3;
+    position: unset;
+}
+
+#act3 .draggable.wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+#act3.jpit-activities-droppable .droppable {
+    padding: 0;
+}
+
+#act3 .box_end .correct {
+    padding: 0;
+    background: #fff;
+    max-width: unset;
+}
+
+#act3 .box_end .correct::after {
+    top: 0;
+    left: 0;
+}
+
+#act3 .box_end .correct p {
+    text-align: justify;
+}
+
+
+/********************************************************************************/
+/*  Matriz que relaciona...
+/********************************************************************************/
+table.datatable .data_list {
+    margin: 0;
+    padding: 0;
+}
+
+/********************************************************************************/
+/* didáctica de la enseñanza por competencias
+/********************************************************************************/
+
+#pag-contenidointeractivo-pointers .didactica_ensenanza {
+    background: url(../content/didactica_competencias/didactica_ensenanza.png) no-repeat;
+    background-size: cover;
+    margin: 10px auto;
+    width: 500px;
+    height: 408px;
+    position: relative;
+}
+
+#pag-contenidointeractivo-pointers .didactica_ensenanza .tooltip {
+    position: absolute;
+    border-radius: 10px;
+    height: 42px;
+    width: 106px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+
+#pag-contenidointeractivo-pointers .didactica_ensenanza .tooltip:hover {
+    background-color: rgba(192, 197, 208, 0.3);
+}
+
+#pag-contenidointeractivo-pointers .estudiante_1 {
+    left: 195px;
+    top: 122px;
+}
+
+#pag-contenidointeractivo-pointers .curriculo_2 {
+    left: 74px;
+    top: 329px;
+}
+
+#pag-contenidointeractivo-pointers .profesor_3 {
+    left: 317px;
+    top: 329px;
+}
+
+
+/********************************************************************************/
+/* Infográfico secuencias didácticas
+/********************************************************************************/
+
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas {
+    background: url(../content/infografico_secuencias_didacticas.png) no-repeat;
+    background-size: cover;
+    margin: 10px auto;
+    width: 700px;
+    height: 408px;
+    position: relative;
+}
+
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .tooltip {
+    position: absolute;
+    border-radius: 16px;
+    height: 38px;
+    width: 131px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .conocimientos_4.tooltip{
+    width: 202px;
+}
+
+#pag-contenidointeractivo-pointers2 .secuencias_didacticas .tooltip:hover {
+    background-color: rgba(192, 197, 208, 0.3);
+}
+
+#pag-contenidointeractivo-pointers2 .evaluacion_1 {
+    left: 16px;
+    top: 33px;
+}
+
+#pag-contenidointeractivo-pointers2 .recuperacion_2 {
+    left: 16px;
+    top: 130px;
+}
+
+#pag-contenidointeractivo-pointers2 .consolidacion_3 {
+    left: 16px;
+    top: 224px;
+}
+
+#pag-contenidointeractivo-pointers2 .conocimientos_4 {
+    left: 16px;
+    top: 322px;
+}
+
+#pag-contenidointeractivo-pointers2 .ampliacion_5 {
+    left: 559px;
+    top: 84px;
+}
+
+#pag-contenidointeractivo-pointers2 .refuerzo_6 {
+    left: 559px;
+    top: 174px;
+}
+
+#pag-contenidointeractivo-pointers2 .desarrollo_7 {
+    left: 559px;
+    top: 262px;
+}
+
+
+/********************************************************************************/
+/* Sprite Situaciones de aprendizaje
+/********************************************************************************/
+#sit-aprendizaje {
+    position: relative;
+    min-width: 700px;
+    margin: auto;
+}
+
+#sit-aprendizaje #fila1 .situacion,
+#sit-aprendizaje #fila2 .situacion{
+    height: 170px;
+    width: 170px;
+}
+
+#sit-aprendizaje #fila1 .situacion:nth-child(1) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') 0 0;
+}
+
+#sit-aprendizaje #fila1 .situacion:nth-child(2) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') -200px 0px;
+}
+
+#sit-aprendizaje #fila1 .situacion:nth-child(3) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') -400px 0px;
+}
+
+#sit-aprendizaje #fila2 .situacion:nth-child(1) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') 600px 0px;
+}
+
+#sit-aprendizaje #fila2 .situacion:nth-child(2) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') 404px 0px;
+}
+
+#sit-aprendizaje #fila2 .situacion:nth-child(3) {
+    background: url('../content/sprite_situaciones_aprendizaje.png') 200px 0px;
+}
+
+#sit-aprendizaje .row {
+    width: 700px;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px auto;
+}
+
+#sit-aprendizaje .tooltip {
+    position: absolute;
+    border-radius: 166px;
+    height: 166px;
+    width: 166px;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: 100% 100%;
+    background-position: left bottom;
+}
+
+#sit-aprendizaje .tooltip:hover {
+    background-color: rgba(192, 197, 208, 0.3);
+}
+
+#sit-aprendizaje .diagonal {
+    position: absolute;
+    width: 100px;
+    border-bottom: 2px solid #d5d5d5;
+    transform: rotate(50deg);
+    top: 190px;
+}
+
+#sit-aprendizaje .diagonal1 {
+    left: calc(50% - 200px);
+}
+
+#sit-aprendizaje .diagonal2 {
+    left: calc(50% - 100px);
+    transform: rotate(115deg);
+    width: 85px;
+}
+
+#sit-aprendizaje .diagonal3 {
+    left: calc(50% + 10px);;
+    transform: rotate(65deg);
+    width: 85px;
+}
+
+#sit-aprendizaje .diagonal4 {
+    left: calc(50% + 100px);
+    transform: rotate(130deg);
+}
+
+#pag-contenidointeractivo-pointers3 .ctrl-pagination {
+    max-width: 800px;
+    margin: auto;
+}

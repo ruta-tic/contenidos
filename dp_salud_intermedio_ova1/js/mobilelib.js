@@ -402,6 +402,10 @@ dhbgApp.mobile.start = function() {
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
+        if (!$this.hasClass('jpit_activities_jpitdroppable_dropped')) {
+            return;
+        }
+
         if (w) {
             var window_w = $(window).width();
             if (w.indexOf('%') >= 0) {
@@ -1388,7 +1392,7 @@ dhbgApp.mobile.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide();
+            //$start.hide();
         });
 
     };
@@ -2566,10 +2570,10 @@ dhbgApp.mobile.load_operations = function() {
 
             var msg;
             if (weight >= dhbgApp.evaluation.approve_limit) {
-                msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
             }
             else {
-                msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
             $this.find('.box_end').append(msg).show();
 
@@ -2623,7 +2627,7 @@ dhbgApp.mobile.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();
@@ -2655,11 +2659,11 @@ dhbgApp.mobile.load_operations = function() {
             $this.find('feedback').empty();
 
             var activityOptions = {
-                'autoResolve': false,
+                'autoResolve': true,
                 'continueResolve': false,
                 'holdCorrects': false,
                 'multiTarget': 1,
-                'autoAlignNodes': false,
+                'autoAlignNodes': true,
                 'requiredAll': false,
                 'required_all_pairs': true,
                 'draggableContainer': dhbgApp.mobile.fullContent.content
@@ -2676,7 +2680,7 @@ dhbgApp.mobile.load_operations = function() {
 
             var autoalign;
             if (autoalign = $this.attr('data-autoalign')) {
-                activityOptions.autoAlignNodes = autoalign === 'true';
+                activityOptions.autoAlignNodes = autoalign === 'false';
             }
 
             // Build the board.

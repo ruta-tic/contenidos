@@ -313,6 +313,10 @@ dhbgApp.standard.start = function() {
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
+        if (!$this.hasClass('jpit_activities_jpitdroppable_dropped')) {
+            return;
+        }
+
         if (w) {
             if (w.indexOf('%') >= 0) {
                 var window_w = $(window).width();
@@ -2449,7 +2453,7 @@ dhbgApp.standard.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();
@@ -2484,11 +2488,11 @@ dhbgApp.standard.load_operations = function() {
         $this.find('feedback').empty();
 
         var activityOptions = {
-            'autoResolve': false,
+            'autoResolve': true,
             'continueResolve': false,
             'holdCorrects': false,
             'multiTarget': 1,
-            'autoAlignNodes': false,
+            'autoAlignNodes': true,
             'requiredAll': false,
             'required_all_pairs': true,
             'draggableContainer': $('#middle')
@@ -2505,7 +2509,7 @@ dhbgApp.standard.load_operations = function() {
 
         var autoalign;
         if (autoalign = $this.attr('data-autoalign')) {
-            activityOptions.autoAlignNodes = autoalign === 'true';
+            activityOptions.autoAlignNodes = autoalign === 'false';
         }
         // Build the board.
         var origins = [], targets = [], pairs = [],  pair_indexs = [];
