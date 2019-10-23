@@ -1,0 +1,24 @@
+.jpit-activities-selection table {
+    border-collapse: collapse;
+}
+
+.jpit-activities-selection thead tr:nth-child(odd),
+.jpit-activities-selection tbody tr:nth-child(even),
+.jpit-activities-selection tbody th
+ {
+    border-bottom: solid 1px #dedede;
+}
+
+.jpit-activities-selection th, .jpit-activities-selection td {
+    text-align: left;
+    padding: 5px;
+}
+
+.jpit-activities-selection td[data-group] {
+    text-align: center;
+    padding-left: 10px;
+}
+
+.jpit-activities-selection table .odd {
+    background-color: #dde5f0;
+}

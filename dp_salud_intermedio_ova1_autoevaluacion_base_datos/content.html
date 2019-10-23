@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="single">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Autoevaluación: Las actividades en mi práctica docente</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-base-datos" ptitle="Autoevaluación: Las actividades en mi práctica docente">
+                <div class="subpage">
+                    <div class="box-text activity" label="Autoevaluación">
+                        <p>
+                            Revise de nuevo la conceptualización, lea con atención los ítems con sus respectivas valoraciones y asigne el puntaje que más se ajuste al trabajo realizado por usted.
+                        </p>
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single" data-min="3" data-max="9">
+                            <table>
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Aspectos a evaluar</th>
+                                        <th style="text-align: center;" colspan="3">Valoración</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th style="text-align: center;">1</th>
+                                        <th style="text-align: center;">2</th>
+                                        <th style="text-align: center;">3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd">
+                                        <th>Describe las situaciones de aprendizaje y las categoriza según lo descrito en la explicación</th>
+                                        <td class="button" data-group="1" data-group-value="1">No cumple con los parámetros del ejercicio. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="1" data-group-value="2">Describe tres situaciones de aprendizaje y no las categoriza como corresponde.<br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="1" data-group-value="3">Describe tres situaciones de aprendizaje y las categoriza como corresponde.<br />
+                                            <div class="radio"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Propone diferentes tipos de actividades para una unidad temática y las categoriza según lo descrito en la explicación</th>
+                                        <td class="button" data-group="2" data-group-value="1">No cumple con los parámetros propuestos. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="2" data-group-value="2">Propone dos tipos de actividad y no las categoriza como corresponde. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="2" data-group-value="3">Propone tres tipos de actividades y las categoriza como corresponde. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>Toma en cuenta los trabajos de los compañeros y complementa de forma constructiva</th>
+                                        <td class="button" data-group="3" data-group-value="1">No participa con comentarios. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="3" data-group-value="2">Comenta la estrategias de dos colegas. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                        <td class="button" data-group="3" data-group-value="3">Comenta y hace aportes constructivos a la participación de dos colegas. <br />
+                                            <div class="radio"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <p>La autoevaluación ha sido almacenada, ahora puede continuar con las otras actividades.</p>
+                                </correct>
+                                <wrong>
+                                    <p>La autoevaluación ha sido almacenada, ahora puede continuar con las otras actividades.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
