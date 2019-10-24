@@ -1,0 +1,157 @@
+/********************************************************************************/
+/* Video inicial
+/********************************************************************************/
+#pag-inicio iframe {
+    width: 100%;
+    margin: auto;
+}
+
+#pag-inicio .box-text.link {
+    text-align: center;
+}
+
+#pag-inicio .box-text.link p {
+    text-align: left;
+}
+
+#act1 .datatable {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+#act1.jpit-activities-selection {
+    position: relative;
+}
+
+#act1 .box_end .wrong,
+#act1 .box_end .correct {
+    max-width: inherit;
+    text-align: justify;
+}
+
+#act1 .box_end .correct:after,
+#act1 .box_end .wrong:after {
+    background: none;
+}
+
+#act1 td.wrong {
+    background-color: #ffbab5;
+}
+
+#act1 tbody th {
+    text-align: left;
+}
+
+#act1 td[data-group] {
+    text-align: center;
+    cursor: pointer;
+}
+
+.tabla1 .datatable td:first-child {
+    background-color: #003543;
+    color: #fff;
+    border-color: #fff;
+}
+
+/********************************************************************************/
+/* Interactivo pirámide
+/********************************************************************************/
+#piramide-miller {
+    margin-bottom: 50px;
+}
+
+.titulo-piramide {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+}
+
+#piramide div {
+    text-align: center;
+}
+
+#piramide div img {
+    filter: grayscale(1);
+    max-width: 100%;
+}
+
+#piramide div img.active,
+#piramide div img.current {
+    filter: grayscale(0);
+}
+
+.info-piramide {
+    display: flex;
+}
+
+.info-piramide h5 {
+    font-size: x-large;
+    margin: 10px auto;
+}
+
+#piramide-hacer {
+    border: 2px solid #e49525;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-hacer h5 {
+    color: #e49525;
+}
+
+#piramide-mostrarcomo {
+    border: 2px solid #bd6a3c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-mostrarcomo h5 {
+    color: #bd6a3c;
+}
+
+#piramide-sabercomo {
+    border: 2px solid #28519e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-sabercomo h5 {
+    color: #28519e;
+}
+
+#piramide-saber {
+    border: 2px solid #3db3af;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-saber h5 {
+    color: #3db3af;
+}
+
+/********************************************************************************/
+/* Tipos de evaluaciones
+/********************************************************************************/
+#evaluaciones {
+    text-align: center;
+    margin: 4em 0;
+}
+#evaluaciones img {
+    transform: perspective(1px) translateZ(0);
+    transition: transform 0.3s;
+}
+#evaluaciones img:hover, #evaluaciones img:focus, #evaluaciones img:active {
+    transform: scale(1.1);
+}
+
+/********************************************************************************/
+/* Cuestionario
+/********************************************************************************/
+.jpit-activities-quiz {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.jpit_activities_quiz_question_statement {
+    font-weight: bold;
+}
