@@ -1,0 +1,297 @@
+#subp-ejercicio1 .ctrl-pagination {
+    max-width: 800px;
+    margin: auto;
+}
+
+#subp-ejercicio1 .ctrl-pagination p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+}
+
+/********************************************************************************/
+/* Actividad arrastrar y soltar - apareamiento
+/********************************************************************************/
+
+#jpit_activities_sortable_1_board {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 40%;
+}
+
+#jpit_activities_sortable_1_board .column1,
+#jpit_activities_sortable_1_board .column2 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: 1fr;
+    grid-gap: 2px;
+}
+
+#jpit_activities_sortable_1_board .column1 {
+
+}
+
+#jpit_activities_sortable_1_board .column2 {
+
+}
+
+#jpit_activities_sortable_1_board .fixed_cell {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+#jpit_activities_sortable_1_board .fixed_cell .content {
+    text-align: justify;
+}
+
+#jpit_activities_sortable_1_board .fixed_cell .content strong {
+    text-align: center;
+    display: block;
+}
+
+#jpit_activities_sortable_1_board .column2 li[data-position] {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+}
+
+#jpit_activities_sortable_1_board .column2 .sortable_item {
+    margin: 5px;
+    padding: 10px;
+    text-align: justify;
+}
+
+#jpit_activities_sortable_1_board .box_end,
+#jpit_activities_sortable_1_board .verify_container {
+    grid-column: 1 / span 2;
+}
+
+/********************************************************************************/
+/* Infografico
+/********************************************************************************/
+
+#infografico-estrategias {
+    overflow: auto;
+    padding-left: 245px;
+}
+
+#infografico-estrategias .central {
+    background: url(../content/infografico-centro.png) no-repeat center center;
+    width: 548px;
+    height: 548px;
+    position: relative;
+    margin: auto;
+}
+
+#infografico-estrategias .central > div {
+    position: absolute;
+}
+
+#infografico-estrategias .central > div.esquinas {
+    color: #fff;
+    width: 133px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#infografico-estrategias .central .forma {
+    top: 80px;
+    left: 210px;
+}
+
+#infografico-estrategias .central .transforma {
+    top: 243px;
+    left: 395px;
+}
+
+#infografico-estrategias .central .renova {
+    top: 243px;
+    left: 20px;
+}
+
+#infografico-estrategias .central .educa {
+    top: 435px;
+    left: 210px;
+}
+
+#infografico-estrategias .central .titulo {
+    color: #333;
+    font-size: 18px;
+    left: 210px;
+    top: 250px;
+    width: 133px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#infografico-estrategias .central .biblio {
+    left: 246px;
+    top: 150px;
+}
+
+#infografico-estrategias .central .enlace.ppal {
+    top: 350px;
+    left: 262px;
+    font-size: 40px;
+}
+
+#infografico-estrategias .laterales {
+    width: 310px;
+}
+
+#infografico-estrategias .laterales .numero {
+    position: absolute;
+    border: 60px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+#infografico-estrategias .laterales.izq .numero {
+    right: -60px;
+    border-left: 60px solid #16a085;
+}
+
+#infografico-estrategias .laterales.der .numero {
+    left: -60px;
+    border-right: 60px solid #16a085;
+}
+
+#infografico-estrategias .laterales .numero:after {
+    content: attr(data-number) " ";
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    top: -13px;
+    font-weight: bold;
+}
+
+#infografico-estrategias .laterales.izq .numero:after {
+    left: -44px;
+}
+
+#infografico-estrategias .laterales.der .numero:after {
+    right: -44px;
+}
+
+#infografico-estrategias .laterales .etiqueta {
+    position: relative;
+    background-color: #d0e5e1;
+    height: 120px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0 40px;
+}
+
+#infografico-estrategias .laterales.izq .etiqueta {
+    margin-right: 70px;
+}
+
+#infografico-estrategias .laterales.der .etiqueta {
+    margin-left: 70px;
+}
+
+#infografico-estrategias .laterales .documento {
+    position: absolute;
+    top: calc(50% - 10px);
+    font-size: 30px;
+}
+
+#infografico-estrategias .laterales.izq .documento {
+    left: 5px;
+}
+
+#infografico-estrategias .laterales.der .documento {
+    right: 5px;
+}
+
+#infografico-estrategias .laterales .documento a i {
+    color: #16a085;
+}
+
+#infografico-estrategias .laterales .video {
+    position: absolute;
+    top: calc(50% - 10px);
+    font-size: 30px;
+}
+
+#infografico-estrategias .laterales.izq .video {
+    right: 5px;
+}
+
+#infografico-estrategias .laterales.der .video {
+    left: 5px;
+}
+
+#infografico-estrategias .laterales .video a i {
+    color: #ff0000;
+}
+
+#infografico-estrategias .laterales .documento a:hover i,
+#infografico-estrategias .laterales .video a:hover i {
+    color: #7c8f8c;
+}
+
+#infografico-estrategias .laterales .vermas {
+    position: absolute;
+    right: 50%;
+    bottom: 10px;
+}
+
+#infografico-estrategias .laterales.uno {
+    top: 40px;
+    left: -245px;
+}
+
+
+#infografico-estrategias .laterales.dos {
+    top: 340px;
+    left: -245px;
+}
+
+
+#infografico-estrategias .laterales.tres {
+    top: 40px;
+    right: -245px;
+}
+
+
+#infografico-estrategias .laterales.cuatro {
+    top: 340px;
+    right: -245px;
+}
+
+
+#infografico-estrategias .laterales.dos .numero {
+    border-left: 60px solid #c0392b;
+}
+
+#infografico-estrategias .laterales.tres .numero {
+    border-right: 60px solid #f39c12;
+}
+
+#infografico-estrategias .laterales.cuatro .numero {
+    border-right: 60px solid #9bbb59;
+}
+
+#infografico-estrategias .laterales.dos .etiqueta {
+    background-color: #e9d4d2;
+}
+
+#infografico-estrategias .laterales.tres .etiqueta {
+    background-color: #f2e4cf;
+}
+
+#infografico-estrategias .laterales.cuatro .etiqueta {
+    background-color: #e4e9da;
+}
+
+
+#pag-estrategias .subpage > h3 {
+    margin-top: 50px;
+}

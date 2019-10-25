@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Tendencias actuales en la formación de ingenieros</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Tendencias actuales en la formación de ingenieros</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Prácticas comunes" data-page="pag-practicas"></menuitem>
+                    <menuitem label="Algunas miradas" data-page="pag-algunas"></menuitem>
+                    <menuitem label="Tendencias" data-page="pag-tendencias"></menuitem>
+                    <menuitem label="Estrategias didácticas" data-page="pag-estrategias"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+            <h2 class="page-title"></h2>
+
+            <section id="pag-practicas" ptitle="Prácticas educativas más comunes en la educación superior">
+
+                <div class="subpage">
+                    <p>Algunas investigaciones dedicadas al análisis de las prácticas educativas de los docentes universitarios muestran que la mayoría de los profesores siguen un enfoque educativo ortodoxo y, por lo tanto, continúan empleando las clases
+                        magistrales como la estrategia didáctica más frecuente en su proceso de enseñanza. El enfoque didáctico menos usado es el modelo integrador, en el cual se tienen en cuenta todos los aspectos que forman parte de la educación: el
+                        educando, el profesor, los contenidos, los métodos y medios didácticos, la evaluación, los fines, los objetivos, los valores culturales, los fundamentos filosóficos y pedagógicos, así como el contexto.
+                    </p>
+
+                </div>
+
+                <div class="subpage" id="subp-ejercicio1">
+                    <h3>Ejercicio: Estrategias para transformar la clase magistral</h3>
+                    <p>La clase magistral se reconoce como una estrategia didáctica del modelo pedagógico tradicional cuyo propósito es enseñar conocimientos específicos por medio de la lección repetida y así formar una persona ilustrada, obediente, un ser
+                        perfectamente educado para vivir en el mundo, ejercer su profesión y ser respetuoso de las normas sociales impuestas<sup class="tooltip" title="E. M. González Agudelo, Acerca de los conceptos que un profesional dedicado a la docencia universitaria podría saber, Medellín: Mimeógrafo, 2006, p. 6.">(1)</sup>.
+                    </p>
+                    <p>Karl-Heinz y Schiefelbein describen cuatro principios didácticos<sup class="tooltip" title="K.H. Flechsig, E. Schiefelbein, 20 modelos didácticos para América Latina. Disponible en <a href='https://www.academia.edu/12637552/20_modelos_did%C3%A1cticos_para_Am%C3%A9rica_Latina' target='_blank'>https://www.academia.edu/[...]</a>">(2)</sup> que orientan la clase magistral:
+                    </p>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada uno de los números para ver la información.</div>
+                    <div class="ctrl-pagination" data-numeric-pagination="true">
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-02.png" />
+                            </div>
+                            <p>
+                                El profesor dirige el proceso de enseñanza del estudiante mediante indicaciones orales o tareas escritas.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-05.png" />
+                            </div>
+                            <p>
+                                El aprendizaje de una clase se realiza mediante una oferta de contenidos estandarizada, es decir, la exposición del profesor se adapta al promedio de más de 20 estudiantes que logren oírlo y ver el tablero, la pantalla o el televisor.
+                            </p>
+                        </li>
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-03.png" />
+                            </div>
+                            <p>
+                                El aprendizaje es temáticamente orientado, por lo tanto, el contenido definido por el profesor es el eje central del aprendizaje y las capacidades del estudiante se orientan al ámbito temático.
+                            </p>
+                        </li>
+
+                        <li>
+                            <div class="box_media">
+                                <img src="content/2_apuntadores_informativos-04.png" />
+                            </div>
+                            <p>
+                                El silencio es la cualidad de los que aprenden, pues es fundamental oír la voz del profesor. Así, las interacciones de los que aprenden son mínimas.
+                            </p>
+                        </li>
+                    </div>
+
+                    <p>La lección magistral sigue siendo la práctica pedagógica dominante en las clases de ciencias básicas en los centros universitarios españoles <sup class="tooltip" title="M. Kamburova, Cartilla No. 4 Enlaces didácticas 'La clase Magistral', 2015.">(3)</sup>. Así mismo en nuestro medio, especialmente, cuando se tienen grupos numerosos de estudiantes
+                        en un salón, sin embargo, no está indicada su desaparición pero es necesario rediseñar sus objetivos y contenidos, debiendo ser orientadora y discriminadora.
+                    </p>
+                    <p>Autores como Friedrich Fröbel detallan una clasificación de ocho tipos de clases magistrales que se pueden adaptar a distintas áreas de conocimiento: <strong>el texto oral exquisito</strong>, <strong>la clase participativa</strong>, <strong>la clase de la solución de un problema</strong>, <strong>la de cambios de energía</strong>, <strong>la interpretación de textos</strong>, <strong>los debates</strong>, <strong>los grupos pequeños en clases grandes</strong> (simulaciones y juego de roles) y <strong>la clase multimedia</strong>, las cuales, exceptuando la primera, promueven la interacción.
+                    </p>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A continuación, encontrará un listado con los tipos de clases magistrales propuestas junto a una breve descripción de estas y del rol que tiene el estudiante en ellas. También se dispone, en la columna de la derecha, una serie de descripciones del rol docente que deberá ordenar para que queden en frente a la clase correspondiente.</p>
+                        <p>
+                            Para ordenar los elementos, haga clic sostenido sobre uno de los bloques de la derecha y arrastrelo arriba o abajo.
+                        </p>
+                    </div>
+
+                    <div class="box_media">
+                        <div class="about">
+                            Adaptado de Frederick (1986) citado en Morell Moll (2009).
+                        </div>
+                    </div>
+                    <div class="jpit-activities-sortable" data-act-id="1_tipos_de_clases" data-act-title="Tipos de clases magistrales">
+                        <div class="column1">
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>El texto oral exquisito</strong>
+                                            <div class="box_media">
+                                                <img src="content/oral_exquisito.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>
+                                                Auditor pasivo que observa y escucha un discurso que le puede inspirar, pero no vive el proceso de la creación del discurso.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Clase participativa</strong>
+                                            <div class="box_media">
+                                                <img src="content/clase_participativa.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>El punto más importante no es el esquema con las ideas que son organizadas en el tablero o en algún medio visual, sino el proceso de creación del producto, ya que permite conocer los pre-saberes de los estudiantes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Solución de un problema (demostraciones, pruebas, historietas)</strong>
+                                            <div class="box_media">
+                                                <img src="content/solucion_problema.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>La clase suele empezar con una pregunta, un problema, una paradoja, o un enigma, él debe hacer uso de su razonamiento crítico para dar respuesta a preguntas que surgen durante la sesión.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Cambios de energía: alternaciones entre mini discursos y discusiones</strong>
+                                            <div class="box_media">
+                                                <img src="content/cambios_energia.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Similar a la del texto oral exquisito pero tiene en cuenta la capacidad de atención de los estudiantes, puesto que no se extiende por más de 20 minutos. Se presta a cualquier asignatura donde se alterne la teoría con la práctica, el modelo con los resultados o la hipótesis con la experimentación.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Interpretación de textos: exponer las destrezas analíticas</strong>
+                                            <div class="box_media">
+                                                <img src="content/interpretacion_textos.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Utilizar textos verbales, usar gráficos, tablas e imágenes que se prestan para la interpretación y análisis. Los estudiantes también toman parte del análisis, especialmente cuando puedan darse diferentes interpretaciones.
+                                            Una vez los estudiantes hacen el análisis, pueden exponer las ideas, y tanto el profesor como los estudiantes pueden realizar su feedback.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Debates: la división de la clase en dos sin perder el control.</strong>
+                                            <div class="box_media">
+                                                <img src="content/debates.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Aportar su perspectiva personal y posicionarse en el debate. Para este fin se recomienda que los estudiantes aborden el tema previamente.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Grupos pequeños en clases grandes: las simulaciones y el juego de roles.</strong>
+                                            <div class="box_media">
+                                                <img src="content/grupos_pequenhos.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Asumir un rol según la situación y el contexto que se le presente, y participar en la toma de postura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                            <div class="fixed_cell">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <strong>Clase multimedia para estimular la afectividad y el interés</strong>
+                                            <div class="box_media">
+                                                <img src="content/clase_multimedia.png" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Se sugiere hacer una compilación de citas que los estudiantes deben leer, en voz alta, al empezar las sesiones, o una presentación audiovisual que compagine imágenes con las palabras de una canción o con un discurso verbal.
+                                            Una vez se haya hecho la presentación, los estudiantes estarán más dispuestos a discutir a expresar sus pensamientos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conection"><span class="icon_horizontal_arrow"></span></div>
+                            </div>
+                        </div>
+                        <ul class="column2 sortable">
+                            <li data-position="0">
+                                <div class="sortable_item">Las actividades cognitivas de pensar, relacionar, analizar, sintetizar, las realiza el profesor y, por tanto, puede perder la atención de los estudiantes.</div>
+                            </li>
+                            <li data-position="1">
+                                <div class="sortable_item">El profesor parte desde los conocimientos reales de los estudiantes. Los aportes de estos pueden ser clasificados, explicados, ilustrados, etc., tanto por el profesor como por los estudiantes.</div>
+                            </li>
+                            <li data-position="2">
+                                <div class="sortable_item">La solución del problema requiere una demostración, un modelo, una narración o un repaso que se puede realizar entre los participantes (profesor y estudiantes).</div>
+                            </li>
+                            <li data-position="3">
+                                <div class="sortable_item">El profesor empieza explicando los fundamentos de una cuestión, y este monólogo (máximo de 20 minutos) va seguido por un debate grupal (máximo de 15 minutos) sobre las implicaciones y efectos. Esta dinámica se alterna durante toda la sesión.</div>
+                            </li>
+                            <li data-position="4">
+                                <div class="sortable_item">Se recomienda que el profesor utilice los textos claves de las asignaturas para hacer seguimiento, leer en voz alta en la clase y vocalizar sus interpretaciones.</div>
+                            </li>
+                            <li data-position="5">
+                                <div class="sortable_item">Para que se dé el debate los estudiantes se dividen en dos grupos y cada parte defiende una perspectiva o posición.</div>
+                            </li>
+                            <li data-position="6">
+                                <div class="sortable_item">Esta variedad conlleva cuatro pasos:
+                                <ol>
+                                    <li>El profesor establece el contexto y explica la posición o rol de cada grupo.</li>
+                                    <li>Se divide en pequeños grupos y a cada uno se les asigna un rol.</li>
+                                    <li>A cada grupo se les adjudica una tarea para llevar a cabo como, por ejemplo, proponer una posición o una toma de acción.</li>
+                                    <li>Cada grupo aportará su propuesta a la clase y se discutirá su validez en comparación con las otras.</li>
+                                </div>
+                            </li>
+                            <li data-position="7">
+                                <div class="sortable_item">En estas clases se hace uso de medios multimedia ya que su objetivo es captar la atención y estimular las emociones de los estudiantes.</div>
+                            </li>
+                        </ul>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-algunas" ptitle="Algunas miradas sobre la formación de ingenieros">
+
+                <div class="subpage">
+                    <p>Cada ingeniero tiene una historia que contar sobre su proceso de formación y los retos en su desarrollo profesional. El primer paso para entender dichos retos es escuchar los testimonios y reconocer su valor para redirigir el camino y evolucionar. A continuación, se presentan algunas miradas sobre la formación del ingeniero:
+
+                        <h3>Video: Desde el lente de un experto</h3>
+                        <div class="videobox">
+                            <video controls="">
+                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/desde_la_lente_de_un_experto.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <p>Un docente del campo nos cuenta qué conocimientos debe tener un ingeniero para desempeñarse como docente.
+                        </p>
+
+                        <h3>Video: Desde el lente de los estudiantes
+                        </h3>
+                        <div class="videobox">
+                            <video controls>
+                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/desde_la_lente_de_los_estudiantes.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Algunos estudiantes opinan sobre su experiencia de formación como ingenieros.
+                        </p>
+
+                        <h3>Video: Desde el lente de los profesores</h3>
+                        <div class="videobox">
+                            <video controls>
+                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/desde_la_lente_de_los_profesores.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Algunos docentes cuentan cómo aprendieron sobre ingeniería.
+                        </p>
+
+                        <div class="box-text important" label="Para finalizar, reflexione:">
+                            <ul class="data_list">
+                                <li>¿Cuáles fueron las características de su formación?
+                                </li>
+                                <li>¿Qué aspectos positivos se pueden destacar de sus experiencias?
+                                </li>
+                                <li>Desde su perspectiva, ¿cuáles son los retos de la formación de ingenieros?
+                                </li>
+                                <li>¿Cuál es su aporte a la reflexión?
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </section>
+
+            <section id="pag-tendencias" ptitle="Tendencias actuales en la formación ingenieril">
+
+                <div class="subpage">
+                    <p>La ingeniería es una profesión que demanda saberes variados de las ciencias, incluyendo las exactas, naturales, sociales y humanas. El ingeniero conjuga todos esos saberes con un enfoque práctico orientado a la construcción de artefactos
+                        diversos, en concordancia con el objeto de estudio de la ingeniería particular, lo que lo lleva a desarrollar además métodos, técnicas y estrategias para lograr dicha construcción. Entre esta diversidad emergen conceptos compartidos
+                        por las distintas ingenierías: el sistema para designar el artefacto, así como el proceso de construcción del artefacto, con fases como: concepción, diseño, implementación y operación.
+                    </p>
+                    <p>Enseñar y aprender en ingeniería es todo un reto. Esa multiplicidad de saberes, métodos, técnicas y estrategias deben ser asimiladas por el estudiante para un objeto de estudio particular, y aplicadas en cada una de las fases. Dicha
+                        variedad abre una oportunidad para adoptar diversos modelos y estrategias para orientar el proceso de enseñanza aprendizaje. Si bien, el docente en áreas de ingeniería no dispone de muchos recursos pedagógicos y didácticos fundamentados
+                        en teorías, es verdad que los requiere y, de hecho, los incorpora en su labor de una manera intuitiva, replicando en muchas oportunidades lo vivido como estudiante, ahora en su labor docente de enseñanza-aprendizaje.
+                    </p>
+                    <p>Como señalan Capote León, Rizo Rabelo y Bravo López (2016) la enseñanza de la ingeniería, desde su surgimiento, ha estado vinculada a cambios sociales, culturales y ambientales que le han permitido evolucionar y, a la vez, enriquecerse,
+                        puesto que en los diferentes momentos históricos y contextos se requiere una formación sensible a las necesidad del entorno en que vive y se desenvuelve el ingeniero. De tal manera que, para lograr este propósito, los autores consideran
+                        que es necesaria una formación del profesional que supere el paradigma en el que predominaba la adquisición y transmisión de conocimientos, y se asuma uno orientado a generar nuevas formas de pensamiento y acción más adecuados
+                        a las características de los nuevos tiempos que permita formar profesionales que sean capaces de lograr un aprendizaje continuo o permanente.
+                    </p>
+                    <p>Las investigadores en enseñanza de la ingeniería reclaman superar el umbral de la educación tradicional para favorecer una formación crítica, activa y vinculante con las demandas sociales. Así mismo, la articulación estatal, corporativa
+                        y relativa al sistema educativo, donde se fomente la participación, colaboración y dinamización de los aprendizajes, pues se considera que la formación de ingenieros debería garantizar la integralidad y adaptabilidad, así como
+                        el desarrollo de capacidades y aptitudes que les permita desenvolverse en el mundo social, el cual reclama nuevas actitudes como el desarrollo sustentable, la reflexión crítica y las formulaciones participativas.
+                    </p>
+
+                    <div class="box-text link" label="Video externo">
+                        <p>Si desea ampliar la información, vea el siguiente video complementario haciendo clic <a href="https://www.youtube.com/watch?v=G_Pjumo707Q" target="_blank">aquí</a>.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+            <section id="pag-estrategias" ptitle="Estrategias didácticas para la formación ingenieril">
+
+                <div class="subpage">
+                    <p>Para comenzar, se exponen algunas experiencias docentes acerca de las estrategias didácticas utilizadas en los cursos.</p>
+
+                    <h3>Video: Estrategias didácticas en ingeniería</h3>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/estrategias_didacticas_en_ingenieria.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <h3>Estrategias didácticas para la formación de ingenieros</h3>
+
+                    <div id="infografico-estrategias">
+                        <div class="central">
+                            <div class="forma esquinas">
+                                Formación activa
+                            </div>
+                            <div class="transforma esquinas">
+                                Transformación didáctica
+                            </div>
+                            <div class="renova esquinas">
+                                Renovación curricular
+                            </div>
+                            <div class="educa esquinas">
+                                Formación activa
+                            </div>
+                            <div class="titulo">
+                                Estrategias para la formación de ingenieros
+                            </div>
+                            <div class="biblio">
+                                <button class="icondocument button w-content-controler" data-content="#infografico-biblio"></button>
+                                <div id="infografico-biblio" class="w-content" data-property-width="600">
+                                    <h4>Referencias bibliográficas</h4>
+                                    <ul class="data_list">
+                                        <li>O. Painean, V. Aliaga, T. Torres, Aprendizaje basado en problemas: evaluación de una propuesta curricular para la formación inicial docente, Estudios Pedagógicos, 38(1), 161-180, 2012.</li>
+                                        <li>J. Domínguez, E. Carod, M. Velilla, Comparativa entre el aprendizaje basado en proyectos y el aprendizaje basado en problemas, En II Jornadas de Innovación Docente, Tecnologías de la Información y de la Comunicación e Investigación Educativa en la Universidad de Zaragoza, llevado a cabo en Zaragoza, España.</li>
+                                        <li>F. J. García Peñalvo, Aprendizaje servicio. Experiencia en la asignatura de Gobierno TI del Máster en Ingeniería Informática de la Universidad de Salamanca, 2017.</li>
+                                        <li>R. Rodríguez Gallegos, Repensando la enseñanza de las matemáticas para futuros ingenieros: actualidades y desafíos, IE Revista de investigación educativa de la REDIECH, 8(15), 69-85, 2017.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="enlace ppal">
+                                <a href="http://arbor.revistas.csic.es/index.php/arbor/article/view/218/219" target="_blank">
+                                    <i class="ion-share"></i>
+                                </a>
+                            </div>
+                            <div class="laterales uno izq">
+                                <div class="numero" data-number="1"></div>
+                                <div class="etiqueta">
+                                    Aprendizaje basado en proyectos (ABP)
+                                    <div class="enlace documento tooltip" title="<span><strong>Profundizar</strong><br />Evaluación de la estrategia “aprendizaje basado en proyectos”</span>">
+                                        <a href="https://www.redalyc.org/pdf/834/83416264002.pdf" target="_blank">
+                                            <i class="ion-share"></i>
+                                        </a>
+                                    </div>
+                                    <div class="enlace video tooltip" title="<span><strong>Una experiencia</strong><br />Video: Evaluación de la metodología PBL en Ingeniería</span>">
+                                        <a href="https://www.youtube.com/watch?v=W6_Y0XTqFIM" target="_blank">
+                                            <i class="ion-social-youtube"></i>
+                                        </a>
+                                    </div>
+                                    <div class="vermas w-content-controler" data-content="#laterales-uno">
+                                        <span class="icon_more button"></span>
+                                        <div id="laterales-uno" class="w-content" data-property-width="600">
+                                            <h3>Características - Aprendizaje basado en proyectos (ABP)</h3>
+                                            <p>El  ABP  es  una  metodología  de  enseñanza-aprendizaje  que  busca,  a  través  del  trabajo  en  equipo  de  un  grupo  pequeño  de  estudiantes  orientados  por  un  profesor-tutor,  abordar,  un problema relacionado con su futuro desempeño profesional, recogido de la realidad, para luego de  un  proceso  de  investigación  proponer  soluciones. La finalidad es que durante ese proceso cada  uno  de  los  estudiantes  participantes  puedan construir un aprendizaje altamente significativo, pertinente, actualizado y contextualizado. </p>
+                                            <p>En el ABP se  pretende  alcanzar  una  meta  de  aprendizaje  concreta, donde más importante que la solución del problema, es el proceso que implica desarrollar todas las habilidades estipuladas. Debido  a  la  profundidad  con  que se tratan los proyectos, no se pueda abarcar  una  visión  amplia  de  los  conocimientos y por ello es necesario que los estudiantes sean capaces de cubrir sus posibles lagunas de contenido. La aplicación del trabajo por proyectos es recomendable cuando se trabaja en las asignaturas finales del plan  de  estudios,  en  cursos donde  se  integran   contenidos de diferentes áreas del conocimiento y en cursos donde se puede hacer un trabajo interdisciplinario.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="laterales dos izq">
+                                <div class="numero" data-number="2"></div>
+                                <div class="etiqueta">
+                                    Aprendizaje-servicio
+                                    <div class="enlace documento tooltip" title="<span><strong>Profundizar</strong><br />Aprendizaje-servicio. Experiencia en la asignatura Gobierno TI del Máster en Ingeniería Informática de la Universidad de Salamanca</span>">
+                                        <a href="https://repositorio.grial.eu/bitstream/grial/999/1/20171016%20-%20AprendizajeServicio.pdf" target="_blank">
+                                            <i class="ion-share"></i>
+                                        </a>
+                                    </div>
+                                    <div class="enlace video tooltip" title="<span><strong>Una experiencia</strong><br />Video: Aprendizaje/servicio: aprender haciendo un servicio a la comunidad: Roser Batlle at TEDxBarcelona</span>">
+                                        <a href="https://www.youtube.com/watch?v=Bx29nbHx3F4" target="_blank">
+                                            <i class="ion-social-youtube"></i>
+                                        </a>
+                                    </div>
+                                    <div class="vermas w-content-controler" data-content="#laterales-dos">
+                                        <span class="icon_more button"></span>
+                                        <div id="laterales-dos" class="w-content" data-property-width="600">
+                                            <h3>Características - Aprendizaje-servicio</h3>
+                                            <p>La Corporation for National and Community Service define el aprendizaje-servicio como un método en el que los estudiantes aprenden y se desarrollan a través de la participación activa en experiencias de servicio cuidadosamente organizadas que satisfacen las necesidades reales de la comunidad que se integran en el currículo académico de los estudiantes, o proporcionan tiempo estructurado para la reflexión, y que mejoran lo que se enseña en la escuela ampliando el aprendizaje del estudiante más allá del aula y en la comunidad.</p>
+                                            <p>Algunos autores definen el aprendizaje-servicio como un enfoque de educación experiencial que se basa en el aprendizaje recíproco. Esta definición fue precisada a través de una tipología que compara diferentes programas que combinan servicio y aprendizaje, e incluyó la noción importante de que el aprendizaje-servicio solo ocurre cuando hay un equilibrio entre objetivos de aprendizaje y los resultados de servicio. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="laterales tres der">
+                                <div class="numero" data-number="3"></div>
+                                <div class="etiqueta">
+                                    Modelo STEM
+                                    <div class="enlace documento tooltip" title="<span><strong>Profundizar</strong><br />STE(A)M: Arte, diseño y arquitectura en la formación de ingenieros</span>">
+                                        <a href="https://www.researchgate.net/publication/318456397_STEAM_Arte_diseno_y_arquitectura_en_la_formacion_de_ingenieros" target="_blank">
+                                            <i class="ion-share"></i>
+                                        </a>
+                                    </div>
+                                    <div class="enlace video tooltip" title="<span><strong>Una experiencia</strong><br />Video: The University of Birmingham Collaborative Teaching Laboratory, transforming STEM education</span>">
+                                        <a href="https://www.youtube.com/watch?v=sN9MgjPEtl4" target="_blank">
+                                            <i class="ion-social-youtube"></i>
+                                        </a>
+                                    </div>
+                                    <div class="vermas w-content-controler" data-content="#laterales-tres">
+                                        <span class="icon_more button"></span>
+                                        <div id="laterales-tres" class="w-content" data-property-width="600">
+                                            <h3>Características - Modelo STEM</h3>
+                                            <p>Desde la perspectiva de Bourn y Neal (2008) se presenta la necesidad de trabajar en la dimensión global del ingeniero, por lo que se pone de manifiesto la importancia de desarrollar las competencias disciplinares específicas, así como aquellas relacionadas con áreas de ciencia, tecnología, ingeniería y matemáticas (STEM, por sus siglas en inglés), así como habilidades denominadas genéricas, como son el pensamiento holístico, el pensamiento crítico, el análisis y la reflexión, el aprendizaje activo y la aplicación práctica, autoestima y empatía, así como fuertes habilidades de comunicación y escucha. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="laterales cuatro der">
+                                <div class="numero" data-number="4"></div>
+                                <div class="etiqueta">
+                                    Design Thinking
+                                    <div class="enlace documento tooltip" title="<span><strong>Profundizar</strong><br />Estrategias para trabajar la creatividad en la Educación Superior: pensamiento de diseño, aprendizaje basado en juegos y en proyectos</span>">
+                                        <a href="https://revistas.um.es/red/article/view/234291/180001" target="_blank">
+                                            <i class="ion-share"></i>
+                                        </a>
+                                    </div>
+                                    <div class="enlace video tooltip" title="<span><strong>Una experiencia</strong><br />Video: El proceso de pensamiento de diseño</span>">
+                                        <a href="https://www.youtube.com/watch?v=_r0VX-aU_T8" target="_blank">
+                                            <i class="ion-social-youtube"></i>
+                                        </a>
+                                    </div>
+                                    <div class="vermas w-content-controler" data-content="#laterales-cuatro">
+                                        <span class="icon_more button"></span>
+                                        <div id="laterales-cuatro" class="w-content" data-property-width="600">
+                                            <h3>Características - Design Thinking</h3>
+                                            <p>Es un método para generar ideas innovadoras que centra su eficacia en entender y dar solución a las necesidades reales de los usuarios. Proviene de la forma en la que trabajan los diseñadores de producto. De ahí su nombre, que en español se traduce de forma literal como "pensamiento de diseño".</p>
+                                            <p>Se empezó a desarrollar de forma teórica en la Universidad de Stanford en California (Estados Unidos) a partir de los años 70, y su primera aplicabilidad con fines lucrativos como "Design Thinking" la llevó a cabo la consultoría de diseño IDEO, siendo hoy en día su principal precursora.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada elemento para: <i class="ion-share"></i> abrir documento externo, <i class="ion-social-youtube"></i> ir a video externo, <span class="icon_more button"></span> ver características.</div>
+
+                    <div class="box-text connection">
+                        <p>Para finalizar, se expone, a continuación, estas dos experiencias locales de implementación de la estrategia de ABP.</p>
+                    </div>
+
+                    <h3>Video: Experiencia de ABP en acción</h3>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/abp_en_accion_importancia_del_trabajo_en_equipo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividad de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>Lina María González Duque<br />
+                    Heberto Tapias García<br/>
+                    Marisol Lopera Pérez<br/>
+                    </cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guoización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Mariana Múnera Manco</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br/>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <div>
+                    <h3>Producción</h3>
+                    <p class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                        <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                        <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                    </p>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+
+                <div class="editions">
+                    1ª edición: Octubre 2019<br />
+                </div>
+                <div>
+                    <p>
+                        <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                            <img src="img/cc.png" alt="Creative Commons" /></a>
+                    </p>
+                </div>
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+                </div>
+            </div>
+
+            <!-- Bibliografía -->
+            <div id="library-page" style="display:none;">
+                <div id="library_subpage">
+                    <h2>Referencias bibliográficas</h2>
+
+                    <ul class="data_list">
+                        <li>E. M. González Agudelo, Acerca de los conceptos que un profesional dedicado a la docencia universitaria podría saber, Medellín: Mimeógrafo, 2006, p. 6.
+                        </li>
+                        <li>H. Gorgone y otros, Nuevo enfoque en la enseñanza de la ingeniería. Futuro y relación con el desarrollo sustentable, 2012.
+                        </li>
+                        <li>K.H. Flechsig, E. Schiefelbein, 20 modelos didácticos para América Latina. Disponible en <a href="https://www.academia.edu/12637552/20_modelos_did%C3%A1cticos_para_Am%C3%A9rica_Latina" target="_blank">https://www.academia.edu/[...]</a>
+                        </li>
+                        <li>Capote León, G., Rizo Rabelo, N. y Bravo López, G. (2016). Professional training of engineers at present. A necessary explanation. Revista Universidad y Sociedad, 8(1), 21-28. Recuperado en 08 de septiembre de 2019, de <a href="http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202016000100004&lng=es&tlng=en"
+                                target="_blank">http://scielo.sld.cu/[...]</a>
+                        </li>
+                        <li>M. Kamburova, Cartilla No. 4 Enlaces didácticas "La clase Magistral", 2015.
+                        </li>
+                        <li>T. Morell Moll, Tipos de clases magistrales que privilegian la interacción, 2009. Disponible en: <a href="http://lsi.vc.ehu.es/pablogn/docencia/manuales/varios/C%C3%93MO%20PODEMOS%20mejorar%20docencia%201.pdf" target="_blank">http://lsi.vc.ehu.es/[...]</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="printent_content" style="display:none;">
+                <div class="content"></div>
+                <div class="button_container">
+                    <button class="general button" onclick="window.print();">Imprimir</button>
+                    <button id="printent_back" class="general button">Volver</button>
+                </div>
+            </div>
+
+</body>
+
+</html>
