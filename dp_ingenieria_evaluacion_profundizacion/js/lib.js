@@ -3430,8 +3430,8 @@ dhbgApp.standard.load_operations = function() {
                     var encode_serialize_data = window.btoa(serialize_data);
 
                     var txt_response = activity.txtContent();
-                    if (txt_response.length > 2048) {
-                        txt_response = txt_response.substring(0, 2047);
+                    if (txt_response.length > 8192) {
+                        txt_response = txt_response.substring(0, 8186);
                         txt_response += '[...]';
                     }
 
