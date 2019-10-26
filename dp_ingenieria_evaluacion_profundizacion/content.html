@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Rúbrica: Evaluación planeación de estrategia didáctica</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Evaluación planeación de estrategia didáctica" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-rubrica_profundizacion_IE" ptitle="Evaluación planeación de estrategia didáctica">
+                <div class="subpage">
+                    <div class="box-text activity" label="Evaluación planeación de estrategia didáctica">
+                        <p>Para la autoevaluación, deben analizar, en equipo, la propuesta de la parte 2 de este OVA y valorarla de manera cuantitativa y cualitativa a partir de los siguientes criterios :</p>
+                        <p> <strong>Nota.</strong> Para la valoración cuantitativa se empleará una escala del 1 al 5, siendo 1, la valoración más baja y 5 la más alta.</p>
+                        <div class="jpit-activities-selection" data-act-id="cuantitativo" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single" data-min="8" data-max="40">
+                            <div class="jpit-activities-form" data-save="true" data-act-id="cualitativo" data-act-title="Autoevaluación - Observaciones">
+                                <div>
+                                    <table>
+                                        <colgroup>
+                                            <col width="35%"/>
+                                            <col width="5%"/>
+                                            <col width="5%"/>
+                                            <col width="5%"/>
+                                            <col width="5%"/>
+                                            <col width="5%"/>
+                                            <col width="40%"/>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Criterios</th>
+                                                <th colspan="5" style="text-align: center;">Valoración cuantitativa</th>
+                                                <th>Valoración cualitativa</th>
+                                            </tr>
+                                            <tr>
+                                                <th>1</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>4</th>
+                                                <th>5</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd">
+                                                <th>1. El problema auténtico seleccionado podría movilizar la motivación de los estudiantes y favorecer aprendizajes.</th>
+                                                <td class="button" data-group="1" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="1" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="1" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="1" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="1" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                    <textarea name="problema-autentico"></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <th>2.  La incorporación de problemas auténticos posibilita la reorganización e integración de contenidos.</th>
+                                                <td class="button" data-group="2" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="2" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="2" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="2" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="2" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="incorporacion-problema" ></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <th>3. El proceso de enseñanza está enmarcado en los resultados de aprendizaje desde la perspectiva de los estudiantes y del mejoramiento del curso.</th>
+                                                <td class="button" data-group="3" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="3" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="3" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="3" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="3" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="proceso-ensenanza" ></textarea>
+                                            </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th>4. Las actividades incluidas en la secuencia están conectadas y son coherentes con los resultados de aprendizaje propuestos.</th>
+                                                <td class="button" data-group="4" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="4" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="4" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="4" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="4" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="actividades-incluidas" ></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <th>5. El proceso de evaluación es permanente y flexible, y además rompe con los esquemas propios de la evaluación sumativa.</th>
+                                                <td class="button" data-group="5" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="5" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="5" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="5" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="5" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="proceso-evaluacion" ></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <th>6. Se plantea el uso de herramientas TIC que dinamizan el proceso de enseñanza y favorecen los aprendizajes.</th>
+                                                <td class="button" data-group="6" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="6" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="6" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="6" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="6" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="uso-herramientas" ></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <th>7. Los participantes del equipo colaborativo podrían adaptar la estrategia a sus cursos y la consideran pertinente.</th>
+                                                <td class="button" data-group="7" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="7" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="7" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="7" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="7" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="participantes-equipo" ></textarea>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <th>8. El planteamiento de la estrategia posibilitó el trabajo y aprendizaje colaborativo entre los docentes.</th>
+                                                <td class="button" data-group="8" data-group-value="1"><div class="radio"></div></td>
+                                                <td class="button" data-group="8" data-group-value="2"><div class="radio"></div></td>
+                                                <td class="button" data-group="8" data-group-value="3"><div class="radio"></div></td>
+                                                <td class="button" data-group="8" data-group-value="4"><div class="radio"></div></td>
+                                                <td class="button" data-group="8" data-group-value="5"><div class="radio"></div></td>
+                                                <td>
+                                                <textarea name="planteamiento-estrategia" ></textarea>
+                                            </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <p>La autoevaluación ha sido almacenada, ahora puede continuar con las otras actividades.</p>
+                                </correct>
+                                <wrong>
+                                     <p>La autoevaluación ha sido almacenada, ahora puede continuar con las otras actividades.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
