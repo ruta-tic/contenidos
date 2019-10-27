@@ -1,0 +1,340 @@
+#pag-simulacion .subpage_0 {
+        margin-bottom: 50px;
+}
+
+#pag-simulacion .horizontal-menu > .chalkboard_content {
+    height: unset;
+}
+
+#pag-simulacion .horizontal-menu > .chalkboard_content h3 {
+    text-align: center;
+}
+
+#ventajas-desventajas .col-2 {
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+#ventajas-desventajas .col-2:nth-child(1) {
+    border-right: 5px solid #f3f3f3;
+}
+
+#ventajas-desventajas .col-2:nth-child(2) {
+    border-left: 5px solid #f3f3f3;
+}
+
+#ventajas-desventajas .col-2 h5 {
+    border: 2px solid;
+    text-align: center;
+    width: 140px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+#ventajas-desventajas .col-2 h5:before,
+#ventajas-desventajas .col-2 h5:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 3px);
+    border: 1px solid;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+}
+
+#ventajas-desventajas .col-2 h5:before {
+    left: -6px;
+}
+
+#ventajas-desventajas .col-2 h5:after {
+    right: -6px;
+}
+
+#ventajas-desventajas .col-2:nth-child(1) h5 {
+    background-color: #ebe4a2;
+    border-color: #e6a400;
+}
+
+#ventajas-desventajas .col-2:nth-child(1) h5:before,
+#ventajas-desventajas .col-2:nth-child(1) h5:after {
+    border-color: #e6a400;
+    background-color: #e6a400;
+}
+
+#ventajas-desventajas .col-2:nth-child(2) h5 {
+    background-color: #d6f5f5;
+    border-color: #007896;
+}
+
+#ventajas-desventajas .col-2:nth-child(2) h5:before,
+#ventajas-desventajas .col-2:nth-child(2) h5:after {
+    border-color: #007896;
+    background-color: #007896;
+}
+
+#ventajas-desventajas .col-2:nth-child(1) img {
+    float: left;
+    margin: 0 30px 30px 0;
+}
+
+#ventajas-desventajas .col-2:nth-child(2) img {
+    float: right;
+    margin: 0 0 30px 30px;
+}
+
+.w-estrategias table th:nth-child(1) {
+    background-color: #f4e5ad;
+    color: #333;
+}
+
+.w-estrategias table th:nth-child(2) {
+    background-color: #759ba5;
+    color: #333;
+}
+
+#estrategias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#estrategias .w-content-controler {
+    width: 200px;
+    position: relative;
+    margin: 5px;
+    padding-bottom: 45px;
+}
+
+#estrategias h3 {
+    position: absolute;
+    bottom: 0;
+    background-color: #daeef0;
+    border: 2px solid #71b5c6;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 5px;
+    left: 0;
+    right: 0;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/********************************************************************************/
+/* Debriefing
+/********************************************************************************/
+#pag-debriefing .box-text.activity {
+    margin-bottom: 60px;
+    margin-top: 50px;
+}
+
+/********************************************************************************/
+/* Actividad 1
+/********************************************************************************/
+#act1 .targets {
+    margin-left: 10px;
+}
+
+#act1 .targets > div {
+    border-bottom: 2px solid #ddd;
+}
+
+#act1 .targets .droppable {
+    display: inline-block;
+    width: 152px;
+    padding: 0;
+    margin: 0 0 0 10px;;
+    border-radius: 10px;
+    height: 32px;
+    border: 1px dashed #7c8f8c;
+}
+
+#act1 .targetresponse {
+    display: flex;
+    align-items: center;
+}
+
+#act1 .targets .item {
+    margin: -1px 0 0 -1px;
+}
+
+#act1 .sources {
+    display: flex;
+}
+
+#act1 .item {
+    border: 2px solid;
+    text-align: center;
+    width: 140px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    color: #333;
+}
+
+#act1 .sources .item {
+    margin: 10px 5px 0;
+}
+
+#act1 .item:before,
+#act1 .item:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 3px);
+    border: 1px solid;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+}
+
+#act1 .item:before {
+    left: -6px;
+}
+
+#act1 .item:after {
+    right: -6px;
+}
+
+#act1 .item.buenjuicio {
+    background-color: #daeef0;
+    border-color: #007995;
+}
+
+#act1 .item.conjuicio {
+    background-color: #f4e5ad;
+    border-color: #e09b14;
+}
+
+#act1 .item.sinjuicio {
+    background-color: #dddddd;
+    border-color: #7f9390;
+}
+
+#act1 .item.buenjuicio:before,
+#act1 .item.buenjuicio:after {
+    border-color: #007995;
+    background-color: #007995;
+}
+
+#act1 .item.conjuicio:before,
+#act1 .item.conjuicio:after {
+    border-color: #e09b14;
+    background-color: #e09b14;
+}
+
+#act1 .item.sinjuicio:before,
+#act1 .item.sinjuicio:after {
+    border-color: #7f9390;
+    background-color: #7f9390;
+}
+
+#act1 .item.draggable.wrong {
+    background-color: #ffffff;
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+/********************************************************************************/
+/* Actividad 2
+/********************************************************************************/
+#act2 {
+    border: 3px solid #40bcc6;
+    background-color: #f3f3f3;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#act2 audio {
+    width: 100%;
+}
+
+#act2 .jpit_activities_quiz_question_statement label {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+/********************************************************************************/
+/* Interactivo pirámide
+/********************************************************************************/
+#piramide-miller {
+    margin-bottom: 50px;
+}
+
+.titulo-piramide {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+}
+
+#piramide div {
+    text-align: center;
+}
+
+#piramide div img {
+    filter: grayscale(1);
+    max-width: 100%;
+}
+
+#piramide div img.active,
+#piramide div img.current {
+    filter: grayscale(0);
+}
+
+.info-piramide {
+    display: flex;
+}
+
+.info-piramide h5 {
+    font-size: x-large;
+}
+
+#piramide-hacer {
+    border: 2px solid #e49525;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-hacer h5 {
+    color: #e49525;
+}
+
+#piramide-mostrarcomo {
+    border: 2px solid #bd6a3c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-mostrarcomo h5 {
+    color: #bd6a3c;
+}
+
+#piramide-sabercomo {
+    border: 2px solid #28519e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-sabercomo h5 {
+    color: #28519e;
+}
+
+#piramide-saber {
+    border: 2px solid #3db3af;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-saber h5 {
+    color: #3db3af;
+}

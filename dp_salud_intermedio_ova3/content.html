@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. La simulación, debriefing y la evaluación clínica objetiva estructurada (ECOE)</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. La simulación, debriefing y la evaluación clínica objetiva estructurada (ECOE)</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Simulación como estrategia" data-page="pag-simulacion"></menuitem>
+                    <menuitem label="Debriefing" data-page="pag-debriefing"></menuitem>
+                    <menuitem label="ECOE" data-page="pag-ecoe"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+            <section id="pag-simulacion" ptitle="La simulación como estrategia didáctica">
+                <div class="subpage">
+
+                    <p>La simulación pretende ubicar al estudiante en un contexto que reproduce una situación clínica <sup class="tooltip" title="Corvetto M, Bravo M, Montaña R, Utili F, Escudero E, Boza C, et al. Simulación en educación médica: una sinopsis. Rev Med Chile 2013;141:70-9. Disponible en <a href='https://bit.ly/2FlSr14' target='_blank'>https://bit.ly/2FlSr14</a>">(1)</sup>. Estos contextos seguros y controlados, son creados de acuerdo con las necesidades de formación y están basados en circunstancias y escenarios supuestos <sup class="tooltip" title="Ávila R, Mahana P, Rivera C, McColl. Simulación clínica como método de formación de competencias en estudiantes de medicina. Rev Educ Cienc Salud 2016; 13(1):11-4. Disponible en <a href='https://bit.ly/2kU1Uqr' target='_blank'>https://bit.ly/2kU1Uqr</a>">(2)</sup>. La bioética, que vela por la protección de los derechos, el aseguramiento de la calidad en la educación médica y la seguridad de los pacientes, ha promovido el desarrollo de la simulación como estrategia didáctica en las diferentes áreas de la salud, debido a que los errores presentados por los estudiantes pueden ser corregidos al repetir el procedimiento de manera correcta <sup class="tooltip" title="Serna Corredor DS, Martínez Sánchez, L. La simulación en la educación médica, una alternativa para facilitar el aprendizaje. Archivos de Medicina. 2018;18(2). Disponible en <a href='https://bit.ly/2kUtUKB' target='_blank'>https://bit.ly/2kUtUKB</a>">(3)</sup>.</p>
+                    <p>En la siguiente tabla se realiza una comparación entre metodología tradicional de educación y educación basada en simulación:
+                    </p>
+
+                    <table class="datatable">
+                        <tr>
+                            <th>Educación tradicional</th>
+                            <th>Educación basada en simulación</th>
+                        </tr>
+                        <tr>
+                            <td>Conferencia</td>
+                            <td>Reproducción de escenarios clínicos reales</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Metodología pasiva de enseñanza-aprendizaje
+                            </td>
+                            <td>
+                                Metodología activa de enseñanza-aprendizaje
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Desarrollo de competencias genéricas
+                            </td>
+                            <td>Desarrollo de competencias genéricas y transversales</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Es posible realizarla en grupos grandes de estudiantes
+                            </td>
+                            <td>
+                                Se debe realizar en grupos pequeños de estudiantes para lograr la participación activa por parte de todos los estudiantes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Requiere menor disponibilidad de tiempo
+                            </td>
+                            <td>Requiere mayor disponibilidad de tiempo pues al tratarse de grupos de personas pequeños, se deben realizar las actividades correspondientes en múltiples sesiones</td>
+                        </tr>
+                    </table>
+
+                    <div class="box_media">
+                        <div class="about">
+                            Tomado de Serna Corredor y Martínez Sánchez (2018)
+                        </div>
+                    </div>
+
+                    <p>A continuación, puede observar el video “<strong>La simulación como estrategia didáctica</strong>”, el cual describe el origen de la simulación y sus diferentes fases: lectura previa del tema, preparación de la estación, planeación de la situación clínica, introducción al escenario, correr escenario y debriefing.
+                    </p>
+                    <div class="videobox">
+                        <video controls="">
+                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/la_simulacion_como_estrategia_didactica.mp4" type="video/mp4">
+                        </video>
+
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <div class="horizontal-menu">
+                    <dl>
+                        <dt>Ventajas y limitaciones</dt>
+                        <dd>
+                            <h3>Ventajas y limitaciones</h3>
+                            <div id="ventajas-desventajas" class="row">
+                                <div class="col-2">
+                                    <img src="content/1_1_ventajas.png">
+                                    <h5>Ventajas</h5>
+                                    <ul class="data_list">
+                                        <li>El estudiante se acerca a escenarios clínicos reales y así puede tomar decisiones totalmente autónomas, sin las implicaciones que recaerían sobre el paciente.
+                                        </li>
+                                        <li>Protección del paciente debido a que la simulación permite que se considere como el fin de todo proceso de aprendizaje, como lo establece la ética kantiana.
+                                        </li>
+                                        <li>Autonomía y posibilidad de reflexionar acerca de la misma y de sus consecuencias a modo de autoevaluación, lo cual fomenta su aprendizaje y el de sus compañeros.
+                                        </li>
+                                        <li>La retroalimentación se fundamenta en las observaciones del profesor sobre las maneras en que los alumnos se enfrentan a diferentes situaciones.
+                                        </li>
+                                        <li>Estimula la confianza y motivación de los estudiantes en torno al aprendizaje, lo cual se fundamenta en la percepción de autoeficiencia y control interno.
+                                        </li>
+                                        <li>La motivación favorece las adquisición de habilidades y un mejor rendimiento académico en todas las asignaturas de las áreas de la salud.
+                                        </li>
+                                        <li>Permite replicar un mismo escenario para varios estudiantes y evaluar su desempeño sin dejar de lado los beneficios de costo-efectividad.
+                                        </li>
+                                        <li>Permite mejorar la curva de aprendizaje, lo que minimiza los riesgos en la práctica clínica real de los egresados.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-2">
+                                    <img src="content/1_1_limitaciones.png">
+                                    <h5>Limitaciones</h5>
+                                    <ul class="data_list">
+                                        <li>Disponibilidad de recursos humanos y económicos.
+                                        </li>
+                                        <li>Requiere de capacitación y disponibilidad de tiempo por parte de los maestros, ya que en muchas ocasiones no se encuentran familiarizados con los equipos utilizados, no tienen experiencia en la enseñanza con este método
+                                            y deben rediseñar el curso en torno a los objetivos que se pretenden lograr.
+                                        </li>
+                                        <li>Se requieren grupos pequeños, lo cual prolonga la duración del curso.
+                                        </li>
+                                        <li>El ambiente, puede resultar intimidante para algunos participantes.
+                                        </li>
+                                        <li>No sustituye la realidad; su uso debe ser complementario pero los escenarios clínicos reales contribuyen al perfeccionamiento de las competencias.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Estrategias de simulación</dt>
+                        <dd>
+                            <h3>Estrategias de simulación</h3>
+
+                            <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada uno de los elementos para ampliar la información.</p>
+
+                            <div id="estrategias">
+                                <div class="w-content-controler general" data-content="#ventana_textos_modal">
+                                    <h3>
+                                        Simulación híbrida
+                                    </h3>
+                                    <img src="content/a_1_2_simulacion_hibrida.png">
+                                </div>
+                                <div id="ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Combinación de los simuladores con los pacientes reales para recrear un escenario clínico.
+                                            </td>
+                                            <td>
+                                                Adquisición de competencias individuales en habilidades clínicas.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="w-content-controler general" data-content="#1ventana_textos_modal">
+                                    <h3>
+                                        Simulación de un caso nuevo
+                                    </h3>
+                                    <img src="content/b_1_2_simulacion_de_un_caso_nuevo.png">
+                                </div>
+                                <div id="1ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Diseño de un caso clínico de un paciente con una enfermedad poco frecuente, que puede incluir varios eventos. </td>
+                                            <td>
+                                                Desarrollo de pensamiento crítico que perfecciona las competencias asociadas a los objetivos educativos del área clínica. </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="w-content-controler general" data-content="#2ventana_textos_modal">
+                                    <h3>
+                                        Simulación en pacientes estandarizados
+                                    </h3>
+                                    <img src="content/c_1_2_simulacion_en_pacientes_estandarizados.png">
+                                </div>
+                                <div id="2ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Participan actores reales para representar casos clínicos específicos. Pueden ser usados para evaluar la elaboración de la historia clínica, comunicación con el paciente y cómo se realiza el examen físico.</td>
+                                            <td>Adquisición de habilidades comunicacionales, psicomotrices y de trabajo en equipo.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="w-content-controler general" data-content="#3ventana_textos_modal">
+                                    <h3>
+                                        Simulación in situ
+                                    </h3>
+                                    <img src="content/d_1_2_simulacion _in_sit.png">
+                                </div>
+                                <div id="3ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Diseño de un escenario en el sitio para cuidar un paciente.</td>
+                                            <td>Desarrollo de pensamiento crítico que perfecciona las competencias asociadas a los objetivos educativos del área clínica.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+
+                                <div class="w-content-controler general" data-content="#4ventana_textos_modal">
+                                    <h3>
+                                        Simulación virtual </h3>
+                                    <img src="content/e_1_2simulacion_virtual.png">
+                                </div>
+                                <div id="4ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Se realiza con escenarios simulados por computadora, se pueden tener varios estudiantes de manera simultánea.</td>
+                                            <td>Adquisición de competencias individuales en habilidades clínicas.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="w-content-controler general" data-content="#5ventana_textos_modal">
+                                    <h3>
+                                        Simulación de tareas complejas </h3>
+                                    <img src="content/f_1_2_simulacion_ tareas_complejas.png">
+                                </div>
+                                <div id="5ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Se utiliza para desarrollar habilidades manuales como técnicas quirúrgicas.</td>
+                                            <td>Adquisición de competencias individuales en habilidades manuales.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="w-content-controler general" data-content="#6ventana_textos_modal">
+                                    <h3>
+                                        Simulación de paciente completo </h3>
+                                    <img src="content/g_1_2_simulacion_de_paciente_completo.png">
+                                </div>
+                                <div id="6ventana_textos_modal" class="w-content" data-property-width="500" data-cssclass="w-estrategias">
+                                    <table class="datatable">
+                                        <tr>
+                                            <th>
+                                                Descripción
+                                            </th>
+                                            <th>
+                                                Impacto
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Se utilizan maniquíes de tamaño real con situaciones clínicas complejas que requieren ser resueltos en equipo.</td>
+                                            <td>Adquisición de competencias individuales en habilidades clínicas.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="box_media">
+                                    <div class="about">
+                                        <strong>Tomado de</strong> Serna Corredor DS, Martínez Sánchez, L. La simulación en la educación médica, una alternativa para facilitar el aprendizaje. Archivos de Medicina. 2018;18(2). Disponible en <a href="http://revistasum.umanizales.edu.co/ojs/index.php/archivosmedicina/article/view/2624" target="_blank">http://revistasum.umanizales.edu.co/[...]</a>
+                                    </div>
+                                </div>
+
+                                <div class="box-text connection">
+                                <p>Para conocer un poco más sobre algunas de estas estrategias, observe los siguientes videos:</p>
+                                </div>
+
+                                <div class="box-text note" label="Estrategias de simulación">
+                                    <p>Este video le ayudará a comprender la diferencia entre esta estrategia con un paciente simulado, estandarizado o con un maniquí, y a reconocer los diferentes tipos de simuladores (baja, mediana y alta fidelidad).</p>
+                                    <div class="videobox">
+                                        <video controls="">
+                                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/estrategias_de_simulacion.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+
+                                <div class="box-text note" label="Simulación en paciente estandarizado">
+                                    <p>Este video le mostrará un ejemplo del espacio en donde se puede realizar esta estrategia.</p>
+                                    <div class="videobox">
+                                        <video controls="">
+                                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/simulacion_en_pacientes_estandarizados.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    </div>
+
+                </div>
+            </section>
+            <section id="pag-debriefing" ptitle="Estrategias de evaluación - Debriefing">
+                <div class="subpage">
+                    <p>Un componente especial de la simulación es el debriefing, el cual se define como la conversación entre varias personas para revisar un evento real o simulado, en la que los participantes analizan sus acciones y reflexionan sobre el
+                        papel de los procesos del pensamiento, las habilidades psicomotrices y los estados emocionales para mejorar o mantener su rendimiento en el futuro <sup class="tooltip" title="Maestre JM, Rudolph, J. Teorías y estilos de debriefing: el método con buen juicio como herramienta de evaluación formativa en salud. Revista Española de Cardiología. 2015;68(4)282-285.">(4)</sup>.
+                    </p>
+                    <p>Observe el video “<strong>Debriefing</strong>”, el cual explica sus fases como reacciones (descarga de emociones, resumen de los hechos), comprensión (descubrimiento de los marcos mentales de los estudiantes) y síntesis.
+                    </p>
+                    <div class="videobox">
+                        <video controls="">
+                        <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/debriefing.mp4" type="video/mp4">
+                    </video>
+                    </div>
+
+                    <p>El problema para algunos docentes con el debriefing, es que no encuentran el modo de manifestarse abiertamente sobre la actuación clínica observada sin herir los sentimientos o provocar una actitud defensiva en sus compañeros <sup class="tooltip" title="Rudolph JW, Simon R, Dufresne RL, Raemer DB. There’s no such thing as «nonjudgmental» debriefing: a theory and method for debriefing with good judgment. Simul Healthc. 2006;1:49–55.">(5)</sup>.
+                        Frecuentemente, evitan expresar de forma oral sus críticas por no enfrentarse a sus compañeros, no ponerlos en evidencia o no provocarles emociones negativas, ya que desean conservar una buena relación profesional con ellos. Sin
+                        embargo, es fundamental realizar un debriefing efectivo, es decir, el enfoque con buen juicio para resolver este dilema.
+                    </p>
+
+                </div>
+
+                <div class="subpage">
+
+                    <div class="box-text activity" label="Ejercicio interactivo de apareamiento debriefing">
+                        <p>A continuación, aparecerán algunas situaciones que contrastan los diferentes estilos de debriefing. Usted deberá emparejar correctamente, en caso de que corresponda, un debriefing con juicio, sin juicio o con buen juicio.</p>
+                        <p> Analice cada uno de los siguientes enunciados y seleccione el tipo de debriefing <strong>con juicio</strong>, <strong>sin juicio</strong> o <strong>con buen juicio</strong> que le corresponda.
+                        </p>
+
+                        <div id="act1" class="jpit-activities-droppable" data-act-title="Ejercicio interactivo de apareamiento debriefing" data-act-id="1_juicio" data-shuffle="false">
+
+                            <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada número de la parte de abajo para pasar entre enunciados. <br/>En cada enunciado arrastre la opción correcta a la casilla punteada de respuesta.</span>.</p>
+
+                            <div class="ctrl-pagination" data-numeric-pagination="true">
+                                <li>
+                                    <h3>El docente efectivo</h3>
+                                    <div class="targets">
+                                        <div><p>1. Ayuda al participante a cambiar diciéndole en qué se equivocó.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="1"></span></p></div>
+                                        <div><p>2. Ayuda al participante a cambiar, proporcionando preguntas para que él mismo se dé cuenta en qué se equivocó.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="2"></span></p></div>
+                                        <div><p>3. Crea un contexto para el aprendizaje y el cambio.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="3"></span></p></div>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="3" class="item buenjuicio">Con buen juicio</div>
+                                        <div data-group="1" class="item conjuicio">Con juicio</div>
+                                        <div data-group="2" class="item sinjuicio">Sin juicio</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h3>Objetivo principal del debriefing</h3>
+                                    <div class="targets">
+                                        <div><p>1. Interno: observar los significados y presunciones tanto del docente como del participante.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="4"></span></p></div>
+                                        <div><p>2. Externo: Señalar de forma delicada las acciones e inacciones del participante.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="5"></span></p></div>
+                                        <div><p>3. Externo: Corregir las acciones e inacciones del participante.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="6"></span></p></div>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="4" class="item buenjuicio">Con buen juicio</div>
+                                        <div data-group="6" class="item conjuicio">Con juicio</div>
+                                        <div data-group="5" class="item sinjuicio">Sin juicio</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h3>¿Cómo se considera al participante?</h3>
+                                    <div class="targets">
+                                        <div><p>1. Una persona cuyas acciones son consecuencia de presunciones, conocimiento y actitudes específicas.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="7"></span></p></div>
+                                        <div><p>2. Una persona que realiza acciones y comete errores.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="8"></span></p></div>
+                                        <div><p>3. Una persona que realiza malas acciones y debe corregir errores.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="9"></span></p></div>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="7" class="item buenjuicio">Con buen juicio</div>
+                                        <div data-group="9" class="item conjuicio">Con juicio</div>
+                                        <div data-group="8" class="item sinjuicio">Sin juicio</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h3>¿Quién conoce la verdad sobre la situación?</h3>
+                                    <div class="targets">
+                                        <div><p>1. Únicamente el docente tiene la perspectiva correcta</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="10"></span></p></div>
+                                        <div><p>2. El docente tiene la perspectiva correcta</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="11"></span></p></div>
+                                        <div><p>3. El docente tiene su perspectiva, y los participantes, la suya</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="12"></span></p></div>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="12" class="item buenjuicio">Con buen juicio</div>
+                                        <div data-group="10" class="item conjuicio">Con juicio</div>
+                                        <div data-group="11" class="item sinjuicio">Sin juicio</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h3>¿Quién no entiende?</h3>
+                                    <div class="targets">
+                                        <div><p>1. El participante porque es un aprendiz.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="13"></span></p></div>
+                                        <div><p>2. El participante porque no sabe y yo le tengo que aclarar.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="14"></span></p></div>
+                                        <div><p>3. El docente.</p>
+                                        <p class="targetresponse"><strong>Respuesta:</strong> <span data-target-group="15"></span></p></div>
+                                    </div>
+                                    <div class="sources">
+                                        <div data-group="15" class="item buenjuicio">Con buen juicio</div>
+                                        <div data-group="14" class="item conjuicio">Con juicio</div>
+                                        <div data-group="13" class="item sinjuicio">Sin juicio</div>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="box_end"></div>
+                        </div>
+                    </div>
+
+                    <div class="box-text activity" label="Ejercicio de escucha">
+                        <p>Escuche las siguientes expresiones que puede tener un docente en un debriefing, sobre su propia actitud y la del estudiante. Posteriormente, analícelas y clasifíquelas según su estructura: <strong>Con juicio</strong>, <strong>Sin juicio</strong> o <strong>Con buen juicio</strong>.</p>
+
+                        <div id="act2" class="jpit-activities-quiz" data-act-title="Ejercicio de escucha" data-act-id="2_cuestionario" data-prefixtype="numeric">
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_1.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li>Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>En este caso, la confusión es genuina y el docente indaga para entender el sentido de las acciones del participante. </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_2.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li>Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>En este caso, el docente manifiesta respeto por él mismo.</correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_3.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li>Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>En este caso, el docente manifiesta respeto por el participante.
+                                    </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_4.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li data-response="true">Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li>Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>En este caso, el docente manifiesta que ambos pueden aprender algo que los pueda transformar </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_5.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li>Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li data-response="true">Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>El docente usa estrategias protectoras para esconder la crítica y evitar herir las susceptibilidades del estudiante. </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_6.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li>Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li data-response="true">Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>El docente está en una posición intransigente de considerar que solo él posee la verdad y el estudiante nunca tiene la razón.
+                                    </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+
+                            <question type="simplechoice" data-shuffle="false">
+                                <description>
+                                    <div>
+
+                                        <audio controls>
+                                            <source src="content/audios/dp_intermedio_audios_ova3_numero_7.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </description>
+                                <ul>
+                                    <li>Con buen juicio</li>
+                                    <li>Con juicio</li>
+                                    <li data-response="true">Sin juicio</li>
+                                </ul>
+                                <feedback>
+                                    <correct>El docente se dispone en una posición de poder en la que se muestra como el único que puede enseñar o tiene la verdad absoluta respecto a la situación, no tiene una actitud interesada en comprender lo que ha motivado
+                                        al estudiante, sino en mostrar cómo lo hace él mismo.
+                                    </correct>
+                                    <wrong>Escuche de nuevo e intente una vez más.</wrong>
+                                </feedback>
+                            </question>
+                        </div>
+                    </div>
+
+                    <div class="box-text important" label="Resumen">
+                        <p>En resumen, el debriefing es una estrategia evaluativa formativa que permite facilitar el desarrollo personal. Utiliza la indagación para poner en manifiesto los marcos mentales que explican la diferencia entre el rendimiento clínico esperado y el observado, y permite proporcionar un <em>feedback</em> adaptado a las necesidades de cada participante para ayudarle a elaborar nuevos modelos mentales que le permitan desarrollar acciones nuevas y más efectivas en situaciones clínicas similares.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-ecoe" ptitle="ECOE (Evaluación Clínica Objetiva Estructurada)">
+                <div id="piramide-miller" class="subpage">
+
+                    <p>La ECOE es un modelo de prueba práctica para evaluar las competencias profesionales que integra diversos instrumentos para determinar el nivel de competencia de un profesional, y se desarrolla a lo largo de un circuito de estaciones que simulan situaciones clínicas para acercarse a la práctica real <sup class="tooltip" title="Pinilla Roa, AE. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53-70. Disponible en <a href='https://bit.ly/2EQJfDp' target='_blank'>https://bit.ly/2EQJfDp</a>">(6)</sup>. </p>
+                    <p>Revise el video sobre <strong>ECOE</strong> y observe las diferentes fases de esta estrategia evaluativa basada en los tres niveles de la Pirámide de Miller <sup class="tooltip" title="Flores Hernández F, Contreras Michel N, Martínez González A. Evaluación del aprendizaje en la educación médica. Rev Fac Med UNAM. 2012;55(3):42-48. Disponible en <a href='https://bit.ly/2GYmjCC' target='_blank'>https://bit.ly/2GYmjCC</a>">(7)</sup>.</p>
+
+                    <p>
+                        La evaluación de las competencias debe comprender los saberes de conocimientos, habilidades y actitudes de acuerdo con los resultados de aprendizaje esperados. La Pirámide de Miller es una propuesta que posibilita la evaluación de las competencias considerando
+                        los diversos saberes organizados en cuatro niveles. En la siguiente figura se puede observar el nivel al cual llegan por lo regular este tipo de pruebas, esto es, solo alcanzan a evaluar el conocimiento y, en el mejor de los casos, el nivel de análisis e interpretación.
+                    </p>
+
+                    <h4 class="titulo-piramide">Pirámide de Miller</h4>
+                    <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor</span> sobre las casillas de la pirámide para desplegar la información<span class="onlymobile">, la cual se verá bajo la gráfica</span>.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div id="piramide" class="mouse-over-one">
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-02.png" class="button current" data-ref="#piramide-hacer" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-03.png" class="button" data-ref="#piramide-mostrarcomo" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-04.png" class="button" data-ref="#piramide-sabercomo" /></div>
+                                <div><img src="content/03_que_evalua_una_prueba_de_seleccion-05.png" class="button" data-ref="#piramide-saber" /></div>
+                            </div>
+                        </div>
+                        <div class="col-2 info-piramide">
+                            <div id="piramide-hacer">
+                                <h5>Práctica profesional real</h5>
+                                <p>
+                                    La evaluación se hace en una situación o contexto real como el Mini-CEX (<em>Mini Clinical Evaluation Excercise</em>), OECP (Observación Estructurada de la Práctica Clínica), portafolio, el feedback 360o, las videograbaciones.
+                                </p>
+                            </div>
+                            <div id="piramide-mostrarcomo" style="display: none;">
+                                <h5>Demostración como actuación del estudiante frente a una situación clínica específica</h5>
+                                <p>
+                                    Evaluación del desempeño con el paciente real o simulado, ECOE.
+                                </p>
+                            </div>
+                            <div id="piramide-sabercomo" style="display: none;">
+                                <h5>Saber cómo utilizar conocimientos para analizar e interpretar</h5>
+                                <p>
+                                    Evaluación por observación indirecta con pruebas escritas con casos clínicos o con entrevistas.
+                                </p>
+                            </div>
+                            <div id="piramide-saber" style="display: none;">
+                                <h5>Recordar contenidos, teorías y datos</h5>
+                                <p>
+                                    Pruebas orales o escritas de respuesta múltiple, de respuesta corta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p>En cada estación se solicita al evaluado resolver determinada situación como la interpretación de imágenes clínicas y pruebas diagnósticas, actuar como profesional en escenarios de simulación de situaciones de la vida real (en un programa
+                        virtual por computador, con maniquíes y con pacientes simulados estandarizados), examen oral estructurado con paciente simulado, búsqueda de bibliografía sobre el caso clínico analizado, etc. Una prueba ECOE utiliza diferentes
+                        instrumentos evaluativos como casos clínicos, preguntas de respuesta corta, pacientes estandarizados, maniquíes o preguntas tipo test <sup class="tooltip" title="Ruiz R. Manual práctico para clínicos. Especialidad: Educación en Ciencias de la Salud-Pedagogía. Panamericana: 2010.">(8)</sup>.</p>
+
+                    <div class="box-text connection">
+                        <p>
+                            A continuación, revise en detalle las fases de elaboración de una ECOE.
+                        </p>
+                    </div>
+
+                    <!--Aquí el guion tiene una tabla que tiene unas indicaciones particulares como que cuando se pase el mouse, aparezcan las convenciones, si esto no es posible, agregué más abajo las convenciones para que siempre estén visibles-->
+                    <table class="datatable">
+                        <tr>
+                            <th>Dominio</th>
+                            <th>instrumento</th>
+                            <th>Edad</th>
+                            <th>Sexo</th>
+                            <th>A</th>
+                            <th>EF</th>
+                            <th>C</th>
+                            <th>HT</th>
+                            <th>M</th>
+                            <th>P</th>
+                            <th>AF</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>Ejercicio</td>
+                            <td>PS</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>10</td>
+                            <td></td>
+                            <td></td>
+                            <td>90</td>
+                            <td></td>
+                            <td>100</td>
+
+                        </tr>
+                        <tr>
+                            <td>Dieta saludable</td>
+                            <td>PS</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>10</td>
+                            <td></td>
+                            <td></td>
+                            <td>90</td>
+                            <td></td>
+                            <td>100</td>
+
+                        </tr>
+                        <tr>
+                            <td>Abuso</td>
+                            <td>PS</td>
+                            <td></td>
+                            <td></td>
+                            <td>20</td>
+                            <td></td>
+                            <td>40</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>40</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Obesidad</td>
+                            <td>PS</td>
+                            <td></td>
+                            <td></td>
+                            <td>50</td>
+                            <td></td>
+                            <td>20</td>
+                            <td></td>
+                            <td>30</td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Sutura</td>
+                            <td>M</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Artralgias</td>
+                            <td>PS</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>60</td>
+                            <td>20</td>
+                            <td></td>
+                            <td>20</td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Alteración exámenes de laboratorio</td>
+                            <td>PCR</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Piel</td>
+                            <td>I</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>EKG</td>
+                            <td>I</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                            <td></td>
+                            <td></td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>70</td>
+                            <td>60</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>350</td>
+                            <td>180</td>
+                            <td>40</td>
+                            <td>900</td>
+                        </tr>
+                        <tr>
+                            <td>Porcentaje</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>15</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>13</td>
+                            <td>20</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td></td>
+                        </tr>
+
+                    </table>
+                    <p>Modificado de Roger, R. (2010)</p>
+
+                    <h4>Convenciones de la tabla</h4>
+                    <ul class="data_list">
+                        <li><strong>Instrumento</strong>. PS: paciente simulado; PRC: pregunta de respuesta corta; I: imágenes; M: maniquí.
+                        </li>
+                        <li><strong>Competencias</strong>. A: anamnesis; EF: exploración física; C: comunicación; HT: habilidades técnicas; M: manejo; P: preventivas; AF: atención de la familia.
+                        </li>
+                        <li><strong>Puntuación total</strong>. Cada caso vale 100 puntos, si tiene 9 casos la prueba vale 900 puntos. Cada competencia es un porcentaje del valor total fijado previamente.
+                        </li>
+                        <li><strong>Diseño de la prueba</strong>. El comité logístico desarrolla la prueba de tal forma que tanto el contenido clínico como la logística concuerdan en espacio y tiempo.
+                        </li>
+                        <li><strong>Prueba piloto</strong>. Sirve para la validación de la logística, obtener datos de la fiabilidad y revisar las situaciones clínicas.
+                        </li>
+                        <li><strong>Determinación de los resultados</strong>. Aquí se define el punto de corte para considerar superada la prueba.
+                        </li>
+                        <li><strong>Consolidación</strong>. Es cuando la prueba puede aplicarse en el formato utilizado a una mayor escala, obteniendo una información sobre su utilidad y eficiencia.
+                        </li>
+                    </ul>
+
+                    <p>Ahora que conoce las aspectos básicos de la estructura y el diseño de una ECOE, además de las potencialidades y limitaciones del formato, propóngase realizar en el futuro una estación ECOE en su propia especialidad, incluso, aunque
+                        sea de ciencias básicas siguiendo los siguientes pasos:
+                    </p>
+                    <img src="content/infografico-01.png">
+
+                </div>
+            </section>
+
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Expertos temáticos</h3>
+                <cite>Lina María González Duque<br />
+                        Catalina Echeverry Querubín
+                </cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda </cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Mariana Múnera Manco</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>Maribel Salazar Estrada <br/>
+                    David Herney Bernal García</cite>
+            </div>
+
+            <div>
+                <div>
+                    <h3>Producción</h3>
+                    <div class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                        <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                    </div>
+                </div>
+
+                <div class="editions">
+                    1ª edición: Octubre 2019<br />
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                            <img src="img/cc.png" alt="Creative Commons" /></a>
+                </div>
+
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
+
+                <ol class="data_list">
+                    <li>Corvetto M, Bravo M, Montaña R, Utili F, Escudero E, Boza C, et al. Simulación en educación médica: una sinopsis. Rev Med Chile 2013;141:70-9. Disponible en <a href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&pid=S0034-98872013000100010"
+                            target="_blank">https://bit.ly/2FlSr14</a></li>
+                    <li>Ávila R, Mahana P, Rivera C, McColl. Simulación clínica como método de formación de competencias en estudiantes de medicina. Rev Educ Cienc Salud 2016; 13(1):11-4. Disponible en <a href="http://www2.udec.cl/ofem/recs/anteriores/vol1312016/artinv13116a.pdf"
+                            target="_blank">https://bit.ly/2kU1Uqr</a></li>
+                    <li>Serna Corredor DS, Martínez Sánchez, L. La simulación en la educación médica, una alternativa para facilitar el aprendizaje. Archivos de Medicina. 2018;18(2). Disponible en <a href="http://revistasum.umanizales.edu.co/ojs/index.php/archivosmedicina/article/view/2624"
+                            target="_blank">https://bit.ly/2kUtUKB</a></li>
+                    <li>Maestre JM, Rudolph, J. Teorías y estilos de debriefing: el método con buen juicio como herramienta de evaluación formativa en salud. Revista Española de Cardiología. 2015;68(4)282-285.</li>
+                    <li>Rudolph JW, Simon R, Dufresne RL, Raemer DB. There’s no such thing as «nonjudgmental» debriefing: a theory and method for debriefing with good judgment. Simul Healthc. 2006;1:49–55.</li>
+                    <li>Pinilla Roa, AE. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53-70. Disponible en <a href="http://www.scielo.org.co/pdf/rfmun/v61n1/v61n1a08.pdf" target="_blank">https://bit.ly/2EQJfDp</a></li>
+                    <li>Flores Hernández F, Contreras Michel N, Martínez González A. Evaluación del aprendizaje en la educación médica. Rev Fac Med UNAM. 2012;55(3):42-48. Disponible en <a href="https://www.medigraphic.com/pdfs/facmed/un-2012/un123h.pdf"
+                            target="_blank">https://bit.ly/2GYmjCC</a></li>
+                    <li>Ruiz R. Manual práctico para clínicos. Especialidad: Educación en Ciencias de la Salud-Pedagogía. Panamericana: 2010.</li>
+                    <li>Martínez Carretero, JM. Los métodos de evaluación de la competencia profesional: la evaluación clínica objetivo estructurada (ECOE). FEM. 2005;8(S02):18-22. Disponible en <a href="http://scielo.isciii.es/scielo.php?script=sci_arttext&amp;pid=S1575-18132005000600007"
+                            target="_blank">https://bit.ly/2kVLCNQ</a></li>
+                    <li>Rueda D, Arcos M, Alemán M. Simulación clínica, una herramienta eficaz para el aprendizaje en ciencias de la salud. Rev Publicando. 2017;4(13):225-243. Disponible en <a href="https://revistapublicando.org/revista/index.php/crv/article/view/838/pdf_605"
+                            target="_blank">https://bit.ly/2msVz5R</a></li>
+                    <li>Barrios S, Urrutia M, Rubio M. Impacto de la simulación en el desarrollo de la autoeficacia y del locus control en estudiantes de enfermería. Educ Med Super. 2017;31(1):125-133. Disponible en <a href="http://scielo.sld.cu/scielo.php?script=sci_arttext&amp;pid=S0864-21412017000100012"
+                            target="_blank">https://bit.ly/2m46zGI</a></li>
+                    <li>Gomar C, Palés J. ¿Por qué la simulación en la docencia de las ciencias de salud sigue estando infrautilizada? Educ Med. 2011;14(2):10-30. Disponible en <a href="http://scielo.isciii.es/scielo.php?script=sci_arttext&amp;pid=S1575-18132011000200005"
+                            target="">https://bit.ly/2mk4qXg</a></li>
+                    <li>Moya P, Ruz M, Parraguez E, Carreño V, Rodríguez A, Froes P. Efectividad de la simulación en la educación médica desde la perspectiva de seguridad de pacientes. Rev Med Chile. 2017;145:514-26. Disponible en <a href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&amp;pid=S0034-98872017000400012"
+                            target="_blank">https://bit.ly/2m1j6KO</a></li>
+                    <li>Riancho J, Maestre J, del Moral I, Riancho J. Simulación clínica de alto realismo: una experiencia de pregrado. Educ Med. 2012;15(2):109-115. Disponible en <a href="http://scielo.isciii.es/pdf/edu/v15n2/original4.pdf" target="_blank">https://bit.ly/2m47JSA</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
