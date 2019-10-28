@@ -1,0 +1,95 @@
+#subroles .col-2 {
+    background-color: #f0efee;
+    border-radius: 0.7em;
+    padding: 2em;
+    border-right: 5px solid #fff;
+    border-left: 5px solid #fff;
+}
+
+#subroles .col-2 .col-title {
+    border-radius: 0.5em;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5em;
+    text-align: center;
+    width: 50%;
+}
+
+#subroles .col-2 .col-title.blue {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
+}
+
+#subroles .col-2 .col-title.yellow {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#subroles > img {
+    width: 100%;
+}
+
+#expand_image_content {
+    display: block;
+    text-align: center;
+}
+
+.expand-image {
+    margin: 0 auto 20px;
+}
+
+/********************************************************************************/
+/* Fases
+/********************************************************************************/
+#fases-opciones {
+    display: flex;
+    justify-content: center;
+}
+
+#fases-opciones > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    max-width: 25%;
+}
+
+#fases-opciones > div.current:after {
+    position: absolute;
+    content: "";
+    background: url(../img/sprite.png) no-repeat -550px -15px;
+    width: 34px;
+    height: 25px;
+    bottom: -17px;
+    left: calc(50% - 17px);
+}
+
+#fases-contenido > .element {
+    border: #e2e0e4 4px solid;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+#fases-contenido .horizontal-menu > .chalkboard_content {
+    height: unset;
+    background-color: #fff;
+}
+
+#fases-contenido .horizontal-menu .chalkboard_items > .chalkboard_item {
+    background-color: #fff;
+}
+
+#respuestacaso tbody th {
+    text-align: left;
+}
+
+#respuestacaso tbody td {
+    cursor: pointer;
+    text-align: center;
+}
+
+#fases-contenido .accordion h3.ui-accordion-header {
+    font-size: 20px;
+}

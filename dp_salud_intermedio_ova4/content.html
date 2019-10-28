@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. El aprendizaje basado en problemas (ABP) y su evaluación</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. El aprendizaje basado en problemas (ABP) y su evaluación</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Introducción al ABP" data-page="pag-introduccion"></menuitem>
+                    <menuitem label="Características" data-page="pag-caracteristicas"></menuitem>
+                    <menuitem label="Fases" data-page="pag-fases"></menuitem>
+                    <menuitem label="Para finalizar" data-page="pag-final"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-introduccion" ptitle="El aprendizaje basado en problemas (ABP)">
+                <div class="subpage">
+                    <p>Es una estrategia didáctica que fundamenta el problema, de acuerdo con las necesidades de cada área de formación, como el principio del proceso de aprendizaje. A partir de este, el estudiante se formula preguntas que respondan a las necesidades de aprendizaje y, de esta manera, adquiere los conocimientos necesarios y las competencias requeridas para su formación profesional<sup class="tooltip" title="Díaz Hernández DP, Aguirre Muñoz CE, Múnera Villegas EM, Echeverri Restrepo C. Cartilla No. 1. Enlaces didácticas 'Aprendizaje basado en problemas'. 2011;1:548.">(1)</sup>.</p>
+
+                    <h3>¿Cuáles son las particularidades de la estrategia ABP?</h3>
+
+                    <div class="row">
+                        <div class="col-2">
+                            <img class="imgcentered" src="content/01_estrategia_abp.png" alt="Estrategia ABP">
+                        </div>
+                        <div class="col-2">
+                            <ul class="data_list">
+                                <li>Está centrada en el estudiante, es decir, estimula su posición activa frente  la adquisición del conocimiento, lo que aumenta su autonomía.</li>
+                                <li>A través de la solución de problemas, el estudiante logra el aprendizaje de los objetivos propuestos, mediante la asociación entre la teoría y la práctica.</li>
+                                <li>Favorece en el estudiante, la capacidad de generar preguntas, análisis, síntesis y consulta de fuentes.</li>
+                                <li>El problema debe retar al grupo hacia la búsqueda del conocimiento, la determinación de las causas y las consecuencias para llegar a soluciones hipotéticas.</li>
+                                <li>El problema se analiza de una manera holística, abarcando los aspectos filosóficos, sociales y científicos.</li>
+                                <li>El docente toma una posición más horizontal y se convierte en un facilitador o tutor que colabora en cada una de las fases del proceso de aprendizaje de los estudiantes.</li>
+                                <li>El trabajo se realiza en pequeños grupos de estudiantes, lo que fomenta la responsabilidad, la interacción y el aprendizaje colaborativo.</li>
+                                <li>Los procesos de autoevaluación permiten la autorregulación y la responsabilidad frente al propio conocimiento.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>¿De dónde es?</h3>
+                    <div class="videobox">
+                        <video controls loop autoplay>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/animacion_mapas_gif_final.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                </div>
+
+                <div class="subpage">
+                    <h3>Resumen de la estrategia</h3>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/resumen_abp.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-caracteristicas" ptitle="Características">
+                <div class="subpage">
+                    <h3>¿Cuáles son las competencias genéricas en el ABP?</h3>
+                    <p>En primer lugar, el ABP favorece el desarrollo de competencias genéricas instrumentales de investigación como la movilización de recursos, el manejo de referencias bibliográficas, la ubicación y selección de fuentes primarias o secundarias, la escritura de textos pertinentes y la lectura rápida, y la movilización de pensamiento, es decir, competencias cognitivas basadas en la interrelación de conceptos, la argumentación con sustento en las fuentes de información, la conceptualización con fundamento en la información encontrada, la argumentación a partir del análisis de información, y el análisis y síntesis del objeto de estudio.</p>
+                    <p>En segundo lugar, el ABP favorece el desarrollo de competencias genéricas de interacción individual como manejo del tiempo en forma adecuada, aprendizaje autónomo y curiosidad personal, y social como el trabajo en equipo por medio de roles, la comunicación de ideas, el diálogo, la construcción colectiva, el manejo de públicos y la interacción con medios de apoyo <sup class="tooltip" title="Díaz Hernández DP, Aguirre Muñoz CE, Múnera Villegas EM, Echeverri Restrepo C. Cartilla No. 1. Enlaces didácticas 'Aprendizaje basado en problemas'. 2011;1:548.">(1)</sup>.</p>
+                    <p>Observe el video <strong>“Aprendizaje basado en problemas (ABP)”</strong> expuesto a continuación, el cual habla de las ventajas de esta estrategia y de las fases del ABP: planeación, ejecución, seguimiento y  realimentación.</p>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/aprendizaje_basado_en_problemas_abp.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                </div>
+
+                <div id="subroles" class="subpage">
+                    <h3>Roles</h3>
+                    <div class="row">
+                        <div class="col-2">
+                            <span class="col-title yellow">¿Cuál es el rol del tutor?</span>
+                            <p>Las principales características de un tutor son:</p>
+                            <ul class="data_list">
+                                <li>Facilita el trabajo en grupo y la colaboración entre los estudiantes para alcanzar los objetivos propuestos.</li>
+                                <li>Respeta el fundamento de la estrategia, que considera al estudiante como el principal gestor de su aprendizaje.</li>
+                                <li>Tiene disponibilidad para atender las inquietudes y necesidades del estudiante, tanto en las sesiones de tutoría como en las asesorías individuales cuando ellos las requieran.</li>
+                                <li>Promueve el aprendizaje mediante la reflexión de los estudiantes.</li>
+                                <li>Desarrolla las actitudes y habilidades en la construcción de conocimiento favoreciendo autoaprendizaje en él y en los estudiantes.</li>
+                                <li>Evalúa el proceso y realiza la realimentación.</li>
+                                <li>Registra la colaboración y el crecimiento de cada estudiante.</li>
+                                <li>Orienta al estudiante en la búsqueda de fuentes y hace su seguimiento.</li>
+                                <li>Es un maestro integral.</li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <span class="col-title blue">¿Cuál es el rol del estudiante?</span>
+                            <p>Las principales características de un estudiante son:</p>
+                            <ul class="data_list">
+                                <li>Gestiona su propio aprendizaje.</li>
+                                <li>Asume una actitud activa frente al conocimiento.</li>
+                                <li>Contrae un compromiso con la formación profesional más allá del desempeño como estudiante.</li>
+                                <li>Organiza y analiza críticamente la información obtenida.</li>
+                                <li>Comparte y comunica sus conocimientos e inquietudes, y confronta los argumentos de los colegas.</li>
+                                <li>Trabaja activamente por fuera de las sesiones, de forma individual y en equipo.</li>
+                                <li>Mantiene una actitud autocrítica, honesta desde la conciencia del sentido formativo de la evaluación.</li>
+                                <li>Reconoce los roles dentro de la estrategia: tutor-estudiante; estudiante-profesor; estudiante-estudiante; médico-paciente.</li>
+                                <li>Adopta una actitud ética en el manejo de la información y la comunicación.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <img src="content/2b_roles.png" alt="Roles">
+
+                    <div class="expand-image" data-src="content/2c_inforafia.png" title="Infográfico"></div>
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic</span> en la imagen para desplegar el infográfico.</div>
+                </div>
+            </section>
+
+            <section id="pag-fases" ptitle="Fases">
+                <div class="subpage">
+                    <h3>¿Qué fases tiene un ABP?</h3>
+                    <p>Aunque existen múltiples formas para realizar el ABP, esta estrategia didáctica básicamente refuerza los pasos del método científico como lectura o análisis del problema, el lanzamiento y discusión de la hipótesis, la investigación adicional independiente para lograr mayor información y la discusión final para descartar y acercarse a la hipótesis más probable.</p>
+                    <p>Algunos de los métodos que se hacen del ABP son el método de los siete saltos de la Universidad de Limburg, el método de los ocho pasos del Journal of Problem-based Learning, el método de los nueve pasos de la Academia de Matemáticas y Ciencias de Illinois, y el método de las cinco fases de la Universidad de Queen de Canadá <sup class="tooltip" title="Restrepo Gómez B. Aprendizaje basado en problemas (ABP): una innovación didáctica para la enseñanza universitaria. Educación y Educadores. 2005;8:9-19. Disponible en <a href='https://bit.ly/1IVnYld' target='_blank'>https://bit.ly/1IVnYld</a>">(3)</sup>.</p>
+                    <p>En general, en  las diferentes universidades de Medellín se reconocen las siguientes fases del ABP: planeación, ejecución, seguimiento y realimentación.</p>
+                    <ol class="ol_counter">
+                        <li><b>Planeación o etapa cero:</b> realizada por el grupo de docentes.</li>
+                        <li><b>Ejecución o apertura del caso:</b> se realiza en el primer encuentro con los estudiantes.</li>
+                        <li><b>Seguimiento:</b> pueden ser uno o varios encuentros con los estudiantes.</li>
+                        <li><b>Realimentación o cierre del caso:</b> se refiere al último encuentro con los estudiantes.</li>
+                    </ol>
+
+                    <div class="box-text connection">
+                        <p>
+                            A partir de un ejemplo concreto, revise  el contenido específico de cada fase, haga seguimiento del caso que se presenta y responda las preguntas propuestas en la revisión del mismo.
+                        </p>
+                    </div>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada uno de los elementos para ampliar la información.</div>
+
+                    <div id="fases-opciones" class="mouse-over-one">
+                        <div class="button b1 current" data-ref="#fases-contenido .p1">
+                            <img src="content/4_planeacion.png" alt="Planeación">
+                        </div>
+                        <div class="button b2" data-ref="#fases-contenido .p2">
+                            <img src="content/4_ejecucion.png" alt="Ejecución">
+                        </div>
+                        <div class="button b3" data-ref="#fases-contenido .p3">
+                            <img src="content/4_seguimiento.png" alt="Seguimiento">
+                        </div>
+                        <div class="button b4" data-ref="#fases-contenido .p4">
+                            <img src="content/4_realimentacion.png" alt="Retroalimentación">
+                        </div>
+                    </div>
+
+                    <br class="clear" />
+
+                    <div id="fases-contenido">
+                        <div class="element p1">
+                            <h3>1. Planeación</h3>
+                            <div class="box-text important" label="Importante">
+                                <p>
+                                    En esta etapa se realiza una revisión de los objetivos de aprendizaje definidos en el programa y luego se plantea el problema.
+                                </p>
+                            </div>
+                            <p>El ejemplo con el que se va a trabajar parte de una preparación de un caso en el área de Fisiología, más concretamente, en la Unidad de Endocrinología. Revise los objetivos y demás puntos del menú que se expone a continuación.</p>
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>Objetivos</dt>
+                                    <dd>
+                                        <h5>Objetivos unidad de endocrinología:</h5>
+                                        <ul class="data_list">
+                                            <li>Describir los componentes del sistema endocrino.</li>
+                                            <li>Comparar las dos clases químicas de hormonas.</li>
+                                            <li>Identificar, integrar e interpretar los problemas clínicos específicos del sistema endocrino, teniendo en cuenta los parámetros estructurales y funcionales normales.</li>
+                                            <li>Analizar los mecanismos de acción de las hormonas.</li>
+                                            <li>Correlacionar los diferentes tipos de interacciones hormonales.</li>
+                                            <li>Describir las formas en que se puede controlar la secreción hormonal.</li>
+                                            <li>Diagnosticar los principales trastornos del sistema endocrino.</li>
+                                            <li>Proponer tratamiento médico o quirúrgico.</li>
+                                            <li>Planear la educación del paciente para comprender su enfermedad y prevenir complicaciones.</li>
+                                            <li>Deducir la importancia en la mejoría y/o rehabilitación de los pacientes con alteraciones del sistema endocrino.</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>¿Cuál es la esencia de un buen problema de ABP?</dt>
+                                    <dd>
+                                        <h5>¿Cuál es la esencia de un buen problema de ABP?</h5>
+                                        <ul class="data_list">
+                                            <li><b>Interdisciplinario:</b> cuando hablamos de “un problema” nos referimos a que sus posibles soluciones son multidimensionales.</li>
+                                            <li><b>Provocador:</b> debe contener un tema de interés que sea llamativo y motivador.</li>
+                                            <li><b>Integrador:</b> permite la integración de los temas vistos durante el semestre y el desarrollo de las distintas competencias.</li>
+                                            <li><b>Temporal:</b> debe ser posible de resolver en las sesiones que se trabajan; además de concreto, preciso y claro.</li>
+                                            <li><b>Pertinente:</b> que haga referencia a casos reales enmarcados dentro de nuestra población, región o país.</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Presentación del caso</dt>
+                                    <dd>
+                                        <p>
+                                            Lea <button class="w-content-controler general" data-content="#claudia-texto">el caso</button> y <button class="w-content-controler general" data-content="#claudia-competencias">las competencias</button> asociadas a este, y responda la pregunta después de analizarlo a la luz de los anteriores criterios que se acaban de exponer.
+                                        </p>
+
+                                        <div id="claudia-texto" class="w-content" data-property-width="600">
+                                            <h5>"Doctor, tengo mucha sed todo el día"</h5>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <img src="content/4_1pestana_3_claudia-01.png" alt="Claudia">
+                                                </div>
+                                                <div class="col-2">
+                                                    <p>Claudia es una empleada doméstica, tiene 33 años, estudió hasta quinto de primaria, está casada y no ha quedado en embarazo a pesar de que no utiliza ningún método de planificación familiar. Vive en el barrio Nueva Jerusalén y pertenece al estrato socioeconómico 1. Su consulta es debido a que sufre fatiga, debilidad y mareos desde hace tres meses. La paciente tiene una estatura de 155 cm y un peso de 88 kg. En la historia clínica señala que su madre, quien vive todavía, es diabética. También indica que presenta sed y necesidad de orinar con una frecuencia cada vez mayor. Tiene una frecuencia cardiaca de 100 pulsaciones/minuto, una presión arterial de  140/90, una frecuencia respiratoria de 20 respiraciones/minuto y está afebril. La  fecha de su última menstruación fue hace 15 días y sus  ciclos son cada 40 días con una duración promedio. Se solicita una analítica general incluyendo pruebas de función tiroidea.Todos los resultados son normales, excepto una TSH de 6,8 mU/l. y una glucemia en ayunas de 220 mg/dl.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="claudia-competencias" class="w-content" data-property-width="600">
+                                            <h5>Competencias</h5>
+                                            <ul class="data_list">
+                                                <li>Analiza la participación del sistema endocrino en la economía normal del organismo.</li>
+                                                <li>Integra la función endocrina partiendo del aporte de cada uno de los tejidos endocrinos para el funcionamiento óptimo del organismo.</li>
+                                                <li>Identifica las alteraciones más frecuentes del sistema endocrino.</li>
+                                                <li>Interpreta las pruebas de laboratorio y las correlaciona con las manifestaciones clínicas del paciente.</li>
+                                                <li>Describe las principales manifestaciones de hipo o de hiperfunción glandular.</li>
+                                                <li>Diferencia las alteraciones metabólicas que acompañan los trastornos endocrinos.</li>
+                                                <li>Diagnostica los principales trastornos del sistema endocrino.</li>
+                                                <li>Identifica y propone los medicamentos que se utilizan en el tratamiento  para las alteraciones más frecuentes del sistema endocrino.</li>
+                                                <li>Planea la educación del paciente para comprender su enfermedad y prevenir complicaciones.</li>
+                                                <li>Deduce la importancia en la mejoría y/o rehabilitación de los pacientes con alteraciones del sistema endocrino.</li>
+                                            </ul>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Responda</dt>
+                                    <dd>
+                                        <div class="box-text activity" label="Actividad">
+                                            <p>
+                                                Analice el caso que se acaba de presentar y señale la respuesta que considere:
+                                            </p>
+                                            <div id="respuestacaso" class="jpit-activities-selection" data-act-id="1-seleccionar" data-act-title="Respuesta a caso" data-parent-mark-selector="false" data-mode="single">
+                                                <table class="datatable">
+                                                    <thead>
+                                                        <th>Critero</th>
+                                                        <th>Cumple</th>
+                                                        <th>Cumple parcialmente</th>
+                                                        <th>No cumple</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="odd">
+                                                            <td>Es interdisciplinario</td>
+                                                            <td data-group="1" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="1" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="1" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Resulta provocador para el estudiante</td>
+                                                            <td data-group="2" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="2" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="2" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <td>Integra diferentes competencias</td>
+                                                            <td data-group="3" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="3" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="3" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Es concreto y preciso</td>
+                                                            <td data-group="4" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="4" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="4" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <td>Tiene pertinencia en tanto hace referencia a un caso de la vida real</td>
+                                                            <td data-group="5" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="5" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="5" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Se corresponde con los objetivos de la unidad</td>
+                                                            <td data-group="6" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="6" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="6" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <td>Es coherente con las competencias que se proponen</td>
+                                                            <td data-group="7" data-group-value="3" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="7" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                                            <td data-group="7" data-group-value="1" data-correct="true"><div class="radio"></div></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="box_end"></div>
+                                                <feedback>
+                                                    <correct>
+                                                        <p>Información almacenada. Puede continuar con la revisión del contenido.</p>
+                                                    </correct>
+                                                </feedback>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="element p2" style="display: none;">
+                            <h3>2. Ejecución</h3>
+
+                            <div class="expand-image" data-src="content/4_2_ejecucion_infografia.png" title="Infográfico"></div>
+                            <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic</span> en la imagen para desplegar el infográfico.</div>
+
+                            <div class="box-text activity" label="Actividad">
+                                <p>
+                                    Analice las actividades que realizaron los estudiantes a partir del caso de Claudia.
+                                </p>
+                            </div>
+
+                            <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> cada título para abrir o cerrar el contenido.</div>
+                            <div class="accordion">
+                                <h3>Lista de términos</h3>
+                                <div>
+                                    <img class="center" src="content/lista_de_terminos_recorderis_claudia.png" alt="Lista de términos" />
+                                    <table class="datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Términos y conceptos conocidos</th>
+                                                <th>Términos y conceptos nuevos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Embarazo</td>
+                                                <td>Sed</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Diabetes</td>
+                                                <td>Pruebas de función tiroidea</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Planificación</td>
+                                                <td>TSH</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fatiga</td>
+                                                <td>Diabetes</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Debilidad</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mareos</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sed</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Orina</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Menstruación</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Desaliento</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Glucemia</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h3>¿Qué preguntas generó la lectura del caso?</h3>
+                                <div>
+                                    <div>
+                                        <img src="content/lista_de_terminos_recorderis_claudia.png" alt="Clauida">
+                                        <ul class="data_list">
+                                            <li>¿La paciente tiene obesidad por su talla y peso?</li>
+                                            <li>¿Ese nivel de glucemia indica diabete necesariamente?</li>
+                                            <li>¿Cómo funciona la TSH?</li>
+                                            <li>¿Porqué el médico ordenó una prueba de función tiroidea?</li>
+                                            <li>¿Cuáles son los valores normales de la TSH?</li>
+                                            <li>¿Cómo se relaciona la sed con la necesidad de orinar y la enfermedad?</li>
+                                            <li>¿Qué alteraciones hormonales hacen que la paciente tenga aumento de peso y un ciclo tan largo?</li>
+                                            <li>¿Cuáles son los valores normales de la glucemia en ayunas?</li>
+                                            <li>¿Cómo afecta el grado académico en la comprensión de su propia patología en la paciente?</li>
+                                            <li>¿Tiene alguna relación la enfermedad de Claudia con factores hereditarios y su estilo de vida?</li>
+                                            <li>¿Existe una clasificación para las enfermedades tiroideas?</li>
+                                            <li>¿Cómo responde el cuerpo fisiológicamente frente a este tipo de enfermedades?</li>
+                                            <li>¿La estatura e Claudia se pudo ver afectada por alteraciones endocrinas durante su desarrollo?</li>
+                                            <li>¿Cómo una endocrinopatía aumenta la sed y las ganas de orinar?</li>
+                                            <li>¿En qué se relacionan la sed y la fatiga con la glucemia alta, el sobrepeso y el ciclo menstrual tan prolongado?</li>
+                                            <li>¿Cómo se ve afectado su ciclo menstrual por problemas hormonales?</li>
+                                            <li>¿Qué relación tiene la obesidad, la diabetes y el ciclo menstrual?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <h3>¿Qué debe aprender al final del caso?</h3>
+                                <div>
+                                    <div>
+                                        <img src="content/que_debe_aprender-01.png" alt="¿Qué debe aprender?">
+                                        <ul class="data_list">
+                                            <li>Identificar qué es una hormona y qué importancia tiene en el cuerpo.</li>
+                                            <li>Identificar los distintos tipos de hormona y su clasificación.</li>
+                                            <li>Entender las funciones hormonales y glandulares.</li>
+                                            <li>Conocer la fisiología de las glándulas endocrinas en general y lo que puede ocasionar un mal funcionamiento de estas.</li>
+                                            <li>Establecer la importancia de la regulación hormonal.</li>
+                                            <li>Analizar el mecanismo de acción de las hormonas y qué factores lo pueden afectar.</li>
+                                            <li>Cómo afectan las hormonas los diferentes tejidos del cuerpo.</li>
+                                            <li>Comprender cómos se asocian los síntomas de Claudia con un daño o alteración en la función del sistema endocrino.</li>
+                                            <li>Reconocer los valores normales de la TSH.</li>
+                                            <li>Comprender cómo las endocrinopatías alteran la fisiología y la anatomía normal.</li>
+                                            <li>Describir las patologías relacionadas con el sistema endocrino.</li>
+                                            <li>Conocer los medicamentos del tratamiento de Claudia.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <h3>¿Para qué debe aprender?</h3>
+                                <div>
+                                    <img src="content/para_que_debe_aprender-01.png" alt="¿Para qué aprender?">
+                                    <ul class="data_list">
+                                        <li>Porque son casos comunes y esto es fundamental para el buen ejercicio de la práctica médica.</li>
+                                        <li>Para analizar el funcionamiento de las hormonas y glándulas en el cuerpo y comprender los mecanismos de secreción de los mismo.</li>
+                                        <li>Para identificar diferentes signos y síntomas en un paciente que presenta alteración del sistema endocrino, además de múltiples patologías.</li>
+                                        <li>Para hacer el correcto abordaje de un diagnóstico con desorden hormonal.</li>
+                                        <li>Para comprender situaciones como las que vive Claudia y poder ayudarle a solucionarlo, y por lo tanto, así ayudar a futuros pacientes con el mismo diagnóstico...</li>
+                                        <li>Porque al conocer la fisiología endocrina, podríamos hacer promoción y prevención de las diferentes deficiencias hormonales.</li>
+                                    </ul>
+                                </div>
+                                <h3>Búsquedas</h3>
+                                <div>
+                                    <img src="content/busquedas-01.png" alt="Búsquedas">
+                                    <p>De acuerdo con estas necesidades de aprendizaje, cada grupo realizó las búsquedas bibliográficas en diferentes fuentes de información:</p>
+                                    <ul class="data_list">
+                                        <li>Barrett KE, Barman SM, Boitano S, Brooks HL. Barrett K.E., Barman S.M., Boitano S, Brooks H.L. Eds. Kim E. Barrett, et al. Ganong. Fisiología médica, 25aed. México: McGraw-Hill. 2016.</li>
+                                        <li>Hall JE. Guyton y Hall. Tratado de Fisiología Médica, 13ª ed. España: Elsevier. 2016.</li>
+                                        <li>Derrickson B. Fisiología Humana. España: Panamericana. 2018.</li>
+                                        <li>Brunton L, Hilal Dandan R, Knollmann BC. Goodman &amp; Gilman's. The pharmacological basis of therapy, 13a ed. New York: McGraw-Hill. 2018.</li>
+                                        <li>Walter F. Boron. Fisiología Médica, 3ª ed. España: Elsevier; 2017.</li>
+                                        <li>Kasper D, Fauci A, Hauser S, Longo D, Jameson JL, Loscalzo J. Harrison. Principios de Medicina Interna, 19e. México: McGraw-Hill. 2016.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element p3" style="display: none;">
+                            <h3>3. Otros encuentros con los estudiantes</h3>
+                            <p>En equipos, los estudiantes  socializan los resultados y hallazgos de las actividades de la fase anterior, en la cual realizan:</p>
+                            <ul class="data_list">
+                                <li><strong>Análisis de la información:</strong> se discuten los datos consultados, se plantean hipótesis, opciones y posibilidades de solución, y se replantea la necesidad de hacer una nueva consulta para lograr los objetivos planteados.</li>
+                                <li><strong>Planteamiento de los resultados:</strong> los integrantes del grupo deben presentar un reporte de los resultados obtenidos, hacer inferencias y aproximar soluciones al problema.</li>
+                                <li><strong>Realimentación:</strong> es permanente en todo el proceso de trabajo permitiendo motivar y estimular a los estudiantes a mejorar el desarrollo del proceso cognitivo; es recomendable que al final de cada sesión se deje un espacio para el proceso de realimentación en grupo. A partir de unos criterios de valoración, se realiza la realimentación por medio de una autoevaluación, una coevaluación (la relación de cada uno de los integrantes del grupo con los demás) y una heteroevaluación, es decir, la relación de los integrantes del grupo con el tutor.</li>
+                            </ul>
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>Evaluación del ABP</dt>
+                                    <dd>
+                                        <h5>Evaluación del ABP</h5>
+                                        <p>Para complementar la información observa el siguiente video.</p>
+                                        Ejemplo de video utilizando el reproductor del navegador
+                                        <div class="videobox">
+                                            <video controls>
+                                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/evaluacion_en_el_abp.mp4" type="video/mp4">
+                                                El reproductor de video no es soportado por el navegador
+                                            </video>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Actividades</dt>
+                                    <dd>
+                                        <h5>Actividades</h5>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Revisa las actividades que realizaron los estudiantes en esta fase:</p>
+                                                <p>Durante la semana se fueron trabajando diferentes temas como generalidades de endocrinología, hipófisis, hipotálamo, tiroides y paratiroides, glándulas suprarrenales, etc., y se evaluaron presaberes teniendo en cuenta la elaboración y discusión de los talleres propuestos para cada tema. Durante la discusión, los estudiantes definieron los términos y conceptos nuevos como sed, pruebas de función tiroidea, TSH y diabetes, además de:</p>
+                                                <ol class="ol_counter">
+                                                    <li>Definir que la paciente era obesa pero todavía no sabían clasificar el grado de obesidad según el IMC.</li>
+                                                    <li>Diagnosticar la diabetes mellitus, pero sin reconocer todos los criterios para este diagnóstico.</li>
+                                                    <li>Describir cómo funciona la TSH y comprender porqué el médico la solicitó, además de consultar sus valores normales.</li>
+                                                    <li>Integrar la presencia de polidipsia, polifagia y poliuria con la presencia de diabetes.</li>
+                                                    <li>Diagnosticar el hipotiroidismo, pero sin saber clasificarlo.</li>
+                                                    <li>Integrar la relación de las hormonas tiroideas en el hipotiroidismo, y su relación con el aumento de peso y un ciclo menstrual largo.</li>
+                                                    <li>Reconocer los valores normales de la glucemia en ayunas.</li>
+                                                    <li>Reflexionar sobre la diabetes y la herencia multifactorial de esta enfermedad.</li>
+                                                    <li>Criticar los hábitos de vida saludable de la paciente, pero sin saber dar indicaciones claras para mejorarlos.</li>
+                                                    <li>Deducir cómo afecta el grado académico en la comprensión de su propia patología.</li>
+                                                    <li>Analizar las respuestas fisiológicas del cuerpo frente a este tipo de enfermedades.</li>
+                                                </ol>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box_media">
+                                                    <img src="content/z3_actividades-01.png" alt="Actividades" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Preguntas</dt>
+                                    <dd>
+                                        <h5>¿Qué preguntas generó, nuevamente, la discusión del caso?</h5>
+                                        <ul class="data_list">
+                                            <li>¿Existe otro diagnóstico para Claudia que no se haya  tenido en cuenta?</li>
+                                            <li>¿Cómo se clasifica la obesidad?</li>
+                                            <li>¿Cuál es el peso mínimo ideal, promedio y máximo para Claudia?</li>
+                                            <li>¿Qué importancia tiene la T3 y T4 en la clasificación de las enfermedades de la tiroides?</li>
+                                            <li>¿Cómo se clasifica el hipotiroidismo?</li>
+                                            <li>¿La estatura e Claudia se pudo ver afectada por alteraciones endocrinas durante su desarrollo?</li>
+                                            <li>¿Cómo se ve afectado su ciclo menstrual por problemas hormonales?</li>
+                                            <li>¿Por qué no tiene hijos?</li>
+                                            <li>¿Qué seguridad social tiene Claudia?</li>
+                                            <li>¿Cómo es su salud mental?</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="element p4" style="display: none;">
+                            <h3>4. Realimentación</h3>
+                            <p><strong>Último encuentro con los estudiantes:</strong> se retoman los pasos de los anteriores encuentros, se aprueban o desaprueban las hipótesis planteadas, se plantean  conclusiones de cierre y se hace la realimentación correspondiente.</p>
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>Conclusiones</dt>
+                                    <dd>
+                                        <h5>Conclusiones</h5>
+                                        <div class="box-text activity" label="Actividad">
+                                            <p>
+                                                Analice las actividades y conclusiones a las que llegaron los estudiantes a partir del caso de ejemplo en esta última fase.
+                                            </p>
+                                        </div>
+                                        <p>Los estudiantes definieron que Claudia tiene los siguientes diagnósticos:</p>
+                                        <ul class="data_list">
+                                            <li>Hipotiroidismo</li>
+                                            <li>Diabetes mellitus</li>
+                                            <li>Hipertensión arterial</li>
+                                            <li>Obesidad grado II</li>
+                                            <li>Descartar infertilidad</li>
+                                            <li>Descartar síndrome de ovario poliquístico</li>
+                                            <li>Descartar Adenoma hipofisiario</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Solución a las preguntas pendientes</dt>
+                                    <dd>
+                                        <h5>Solución a las preguntas pendientes</h5>
+                                        <ul class="data_list">
+                                            <li>Consultaron y calcularon el peso mínimo ideal, promedio y máximo para Claudia.</li>
+                                            <li>Integraron la importancia de la T3 y T4 en la clasificación de las enfermedades de la tiroides.</li>
+                                            <li>Describieron cómo se clasifica el hipotiroidismo.</li>
+                                            <li>Analizaron que la estatura de Claudia no se afectó por alteraciones endocrinas durante su desarrollo, sino que es consecuencia de una madre y padre de talla baja.</li>
+                                            <li>Integraron cómo se puede afectar el ciclo menstrual por problemas hormonales.</li>
+                                            <li>Planificaron otras preguntas que le harían a Claudia para descartar el síndrome de ovario poliquístico e incluso propusieron una ecografía transvaginal.</li>
+                                            <li>Discutieron sobre la posible seguridad social que tiene Claudia.</li>
+                                            <li>Propusieron un tratamiento con medicamentos para la diabetes e hipotiroidismo.</li>
+                                            <li>Propusieron cambios específicos en el estilo de vida de Claudia para prevenir complicaciones (como ejercicio, alimentación adecuada, etc.)</li>
+                                            <li>Planearon una interconsulta a la nutricionista.</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Cierre del ABP</dt>
+                                    <dd>
+                                        <h5>Cierre del ABP</h5>
+                                        <p>El cierre del ABP se realiza con una realimentación a través de una autoevaluación, una coevaluación y una heteroevaluación, siguiendo estos criterios:</p>
+                                        <table class="datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Criterios de valoración</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="odd">
+                                                    <td>Trabajo en equipo aportando desde mis saberes a la solución del problema en la estrategia del ABP.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Planeo y organizo mis actividades con responsabilidad para el cumplimiento de compromisos, de acuerdo con el cronograma establecido.</td>
+                                                </tr>
+                                                <tr class="odd">
+                                                    <td>Establezco relaciones interpersonales desde la comunicación asertiva con profesores y pares bajo un ambiente de respeto por sus palabras e ideas.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Argumento en las producciones académicas, en textos orales y escritos la comprensión de los temas y conceptos tratados en la solución del problema en la estrategia del ABP.</td>
+                                                </tr>
+                                                <tr class="odd">
+                                                    <td>Realicé  búsquedas oportunas, adecuadas al nivel de exigencia que emergió del curso y de mis pares.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Establecí redes de conocimiento con mis pares para compartir y aprender de mis compañeros para sesiones futuras. </td>
+                                                </tr>
+                                                <tr class="odd">
+                                                    <td>Logré la comprensión de los objetivos de la estrategia didáctica del ABP</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-final" ptitle="Para finalizar">
+                <div class="subpage">
+                    <div class="box-text connection">
+                        <p>Para finalizar, puede observar los siguientes videos en los cuáles diferentes profesores comparten las estrategias didácticas más usadas en Microbiología, Odontología e Instrumentación Quirúrgica.</p>
+                    </div>
+
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/estrategias_didacticas_en_microbiologia.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                    <div class="about"><strong>Video: </strong>Estrategias didácticas en Microbiología. Juan Carlos Méndez Velásquez, MSc.</div>
+                    <br><br>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/estrategias_didacticas_en_odontologia.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                    <div class="about"><strong>Video: </strong>Estrategias didácticas en Odontología - Leonor Victoria González Pérez, MSc.</div>
+                    <br><br>
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/estrategias_didacticas_en_intrumentacion_quirurgica.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                    <div class="about"><strong>Video: </strong>Estrategias didácticas en instrumentación quirúrgica - Nurvey Elena Cano Marín, Esp., MSc.</div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividad de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br>
+                    Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Sigifredo Escobar Gómez</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+            </div>
+
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Díaz Hernández DP, Aguirre Muñoz CE, Múnera Villegas EM, Echeverri Restrepo C. Cartilla No. 1. Enlaces didácticas "Aprendizaje basado en problemas". 2011;1:548.</li>
+                <li>Comisión Pedagógica. Relatoría III Encuentro de Tutores: La encrucijada de la evaluación. Facultad de Medicina. Universidad de Antioquia. Medellín. 2008.</li>
+                <li>Restrepo Gómez B. Aprendizaje basado en problemas (ABP): una innovación didáctica para la enseñanza universitaria. Educación y Educadores. 2005;8:9-19. Disponible en <a href="https://bit.ly/1IVnYld" target="_blank">https://bit.ly/1IVnYld</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
