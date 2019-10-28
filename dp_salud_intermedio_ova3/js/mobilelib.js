@@ -1388,7 +1388,7 @@ dhbgApp.mobile.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide();
+            //$start.hide();
         });
 
     };

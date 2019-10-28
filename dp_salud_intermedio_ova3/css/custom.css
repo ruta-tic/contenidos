@@ -338,3 +338,22 @@
 #piramide-saber h5 {
     color: #3db3af;
 }
+
+
+#dosfases.vertical-menu .chalkboard_vertical_content {
+    height: unset;
+    margin-bottom: 40px;
+}
+
+#pag-ecoe .datatable {
+    margin: auto;
+}
+
+#expand_image_content {
+    display: block;
+    text-align: center;
+}
+
+.expand-image {
+    margin: 0 auto 20px;
+}

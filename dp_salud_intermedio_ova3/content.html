@@ -9,26 +9,11 @@
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-    <!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-    <!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
@@ -36,37 +21,25 @@
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
     <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
-    <script src="components/scorm/SCORM_12_APIWrapper.js">
-    </script>
-    <script src="components/scorm/scorm_api.js">
-    </script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
 
     <style type='text/css'>
         body {
             background-color: rgba(242, 242, 242, 0.7);
         }
-        
+
         body.loading {
             text-align: center;
         }
-        
+
         body.loading:after {
             content: "";
             background: url(img/loading.gif) no-repeat bottom center;
@@ -76,7 +49,7 @@
             margin: auto;
             padding-bottom: 20px;
         }
-        
+
         body.loading #body {
             display: none;
         }
@@ -84,7 +57,7 @@
 
 </head>
 
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -707,12 +680,15 @@
                 <div id="piramide-miller" class="subpage">
 
                     <p>La ECOE es un modelo de prueba práctica para evaluar las competencias profesionales que integra diversos instrumentos para determinar el nivel de competencia de un profesional, y se desarrolla a lo largo de un circuito de estaciones que simulan situaciones clínicas para acercarse a la práctica real <sup class="tooltip" title="Pinilla Roa, AE. Evaluación de competencias profesionales en salud. Revista de La Facultad de Medicina. 2013;61(1):53-70. Disponible en <a href='https://bit.ly/2EQJfDp' target='_blank'>https://bit.ly/2EQJfDp</a>">(6)</sup>. </p>
+
                     <p>Revise el video sobre <strong>ECOE</strong> y observe las diferentes fases de esta estrategia evaluativa basada en los tres niveles de la Pirámide de Miller <sup class="tooltip" title="Flores Hernández F, Contreras Michel N, Martínez González A. Evaluación del aprendizaje en la educación médica. Rev Fac Med UNAM. 2012;55(3):42-48. Disponible en <a href='https://bit.ly/2GYmjCC' target='_blank'>https://bit.ly/2GYmjCC</a>">(7)</sup>.</p>
 
-                    <p>
-                        La evaluación de las competencias debe comprender los saberes de conocimientos, habilidades y actitudes de acuerdo con los resultados de aprendizaje esperados. La Pirámide de Miller es una propuesta que posibilita la evaluación de las competencias considerando
-                        los diversos saberes organizados en cuatro niveles. En la siguiente figura se puede observar el nivel al cual llegan por lo regular este tipo de pruebas, esto es, solo alcanzan a evaluar el conocimiento y, en el mejor de los casos, el nivel de análisis e interpretación.
-                    </p>
+                    <div class="videobox">
+                        <video controls="">
+                                <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/ecoe.mp4" type="video/mp4">
+                        </video>
+
+                    </div>
 
                     <h4 class="titulo-piramide">Pirámide de Miller</h4>
                     <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor</span> sobre las casillas de la pirámide para desplegar la información<span class="onlymobile">, la cual se verá bajo la gráfica</span>.</p>
@@ -764,205 +740,231 @@
                         </p>
                     </div>
 
-                    <!--Aquí el guion tiene una tabla que tiene unas indicaciones particulares como que cuando se pase el mouse, aparezcan las convenciones, si esto no es posible, agregué más abajo las convenciones para que siempre estén visibles-->
+                    <div id="dosfases" class="vertical-menu">
+                        <dl>
+                            <dt>Bases estratégicas</dt>
+                            <dd>
+                                <h5>Bases estratégicas</h5>
+                                <p>Aquí se deben definir tres objetivos concretos que deben responderse: ¿A quién se dirige la prueba? ¿Con qué finalidad se utilizará? ¿A qué nivel queremos detectar la suficiencia?</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Contenido competencial</dt>
+                            <dd>
+                                <h5>Contenido competencial</h5>
+                                <p>Se debe desarrollar de forma amplia y detallada con sus listados evaluativos, los criterios de corrección, el ámbito en que se va a desarrollar, las necesidades temporales requeridas y toda la información clínica pormenorizada que será necesaria para el desarrollo del encuentro.</p>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <p>Observe la tabla de especificaciones de una ECOE:</p>
+
+                    <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse</span> sobre las siglas para desplegar información.</p>
                     <table class="datatable">
-                        <tr>
-                            <th>Dominio</th>
-                            <th>instrumento</th>
-                            <th>Edad</th>
-                            <th>Sexo</th>
-                            <th>A</th>
-                            <th>EF</th>
-                            <th>C</th>
-                            <th>HT</th>
-                            <th>M</th>
-                            <th>P</th>
-                            <th>AF</th>
-                            <th>Total</th>
-                        </tr>
-                        <tr>
-                            <td>Ejercicio</td>
-                            <td>PS</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>10</td>
-                            <td></td>
-                            <td></td>
-                            <td>90</td>
-                            <td></td>
-                            <td>100</td>
+                        <thead>
+                            <tr>
+                                <th>Dominio</th>
+                                <th>Instrumento</th>
+                                <th>Edad</th>
+                                <th>Sexo</th>
+                                <th class="tooltip" title="<strong>A:</strong> anamnesis">A</th>
+                                <th class="tooltip" title="<strong>EF:</strong> exploración física">EF</th>
+                                <th class="tooltip" title="<strong>C:</strong> comunicación">C</th>
+                                <th class="tooltip" title="<strong>HT:</strong> habilidades técnicas">HT</th>
+                                <th class="tooltip" title="<strong>M:</strong> manejo">M</th>
+                                <th class="tooltip" title="<strong>P:</strong> preventivas">P</th>
+                                <th class="tooltip" title="<strong>AF:</strong> atención de la familia">AF</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ejercicio</td>
+                                <td class="tooltip" title="<strong>PS:</strong> paciente simulado">PS</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td>90</td>
+                                <td></td>
+                                <td>100</td>
 
-                        </tr>
-                        <tr>
-                            <td>Dieta saludable</td>
-                            <td>PS</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>10</td>
-                            <td></td>
-                            <td></td>
-                            <td>90</td>
-                            <td></td>
-                            <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Dieta saludable</td>
+                                <td class="tooltip" title="<strong>PS:</strong> paciente simulado">PS</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td>90</td>
+                                <td></td>
+                                <td>100</td>
 
-                        </tr>
-                        <tr>
-                            <td>Abuso</td>
-                            <td>PS</td>
-                            <td></td>
-                            <td></td>
-                            <td>20</td>
-                            <td></td>
-                            <td>40</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>40</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Obesidad</td>
-                            <td>PS</td>
-                            <td></td>
-                            <td></td>
-                            <td>50</td>
-                            <td></td>
-                            <td>20</td>
-                            <td></td>
-                            <td>30</td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Sutura</td>
-                            <td>M</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Artralgias</td>
-                            <td>PS</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>60</td>
-                            <td>20</td>
-                            <td></td>
-                            <td>20</td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Alteración exámenes de laboratorio</td>
-                            <td>PCR</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Piel</td>
-                            <td>I</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>EKG</td>
-                            <td>I</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                            <td></td>
-                            <td></td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Total</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>70</td>
-                            <td>60</td>
-                            <td>100</td>
-                            <td>100</td>
-                            <td>350</td>
-                            <td>180</td>
-                            <td>40</td>
-                            <td>900</td>
-                        </tr>
-                        <tr>
-                            <td>Porcentaje</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>15</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>13</td>
-                            <td>20</td>
-                            <td>11</td>
-                            <td>12</td>
-                            <td></td>
-                        </tr>
-
+                            </tr>
+                            <tr>
+                                <td>Abuso</td>
+                                <td class="tooltip" title="<strong>PS:</strong> paciente simulado">PS</td>
+                                <td></td>
+                                <td></td>
+                                <td>20</td>
+                                <td></td>
+                                <td>40</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>40</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Obesidad</td>
+                                <td class="tooltip" title="<strong>PS:</strong> paciente simulado">PS</td>
+                                <td></td>
+                                <td></td>
+                                <td>50</td>
+                                <td></td>
+                                <td>20</td>
+                                <td></td>
+                                <td>30</td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Sutura</td>
+                                <td class="tooltip" title="<strong>M:</strong> maniquí">M</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Artralgias</td>
+                                <td class="tooltip" title="<strong>PS:</strong> paciente simulado">PS</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>60</td>
+                                <td>20</td>
+                                <td></td>
+                                <td>20</td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Alteración exámenes de laboratorio</td>
+                                <td class="tooltip" title="<strong>PRC:</strong> pregunta de respuesta corta">PRC</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Piel</td>
+                                <td class="tooltip" title="<strong>I:</strong> imágenes">I</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>EKG</td>
+                                <td class="tooltip" title="<strong>I:</strong> imágenes">I</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>70</td>
+                                <td>60</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>350</td>
+                                <td>180</td>
+                                <td>40</td>
+                                <td>900</td>
+                            </tr>
+                            <tr>
+                                <td>Porcentaje</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>15</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>13</td>
+                                <td>20</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <p>Modificado de Roger, R. (2010)</p>
+                    <div class="about">
+                        <p>Modificado de Roger, R. (2010)</p>
+                    </div>
 
-                    <h4>Convenciones de la tabla</h4>
-                    <ul class="data_list">
-                        <li><strong>Instrumento</strong>. PS: paciente simulado; PRC: pregunta de respuesta corta; I: imágenes; M: maniquí.
-                        </li>
-                        <li><strong>Competencias</strong>. A: anamnesis; EF: exploración física; C: comunicación; HT: habilidades técnicas; M: manejo; P: preventivas; AF: atención de la familia.
-                        </li>
-                        <li><strong>Puntuación total</strong>. Cada caso vale 100 puntos, si tiene 9 casos la prueba vale 900 puntos. Cada competencia es un porcentaje del valor total fijado previamente.
-                        </li>
-                        <li><strong>Diseño de la prueba</strong>. El comité logístico desarrolla la prueba de tal forma que tanto el contenido clínico como la logística concuerdan en espacio y tiempo.
-                        </li>
-                        <li><strong>Prueba piloto</strong>. Sirve para la validación de la logística, obtener datos de la fiabilidad y revisar las situaciones clínicas.
-                        </li>
-                        <li><strong>Determinación de los resultados</strong>. Aquí se define el punto de corte para considerar superada la prueba.
-                        </li>
-                        <li><strong>Consolidación</strong>. Es cuando la prueba puede aplicarse en el formato utilizado a una mayor escala, obteniendo una información sobre su utilidad y eficiencia.
-                        </li>
-                    </ul>
+                    <div class="box-text note" label="Convenciones de la tabla">
+                        <ul class="data_list">
+                            <li><strong>Instrumento</strong>. PS: paciente simulado; PRC: pregunta de respuesta corta; I: imágenes; M: maniquí.
+                            </li>
+                            <li><strong>Competencias</strong>. A: anamnesis; EF: exploración física; C: comunicación; HT: habilidades técnicas; M: manejo; P: preventivas; AF: atención de la familia.
+                            </li>
+                            <li><strong>Puntuación total</strong>. Cada caso vale 100 puntos, si tiene 9 casos la prueba vale 900 puntos. Cada competencia es un porcentaje del valor total fijado previamente.
+                            </li>
+                            <li><strong>Diseño de la prueba</strong>. El comité logístico desarrolla la prueba de tal forma que tanto el contenido clínico como la logística concuerdan en espacio y tiempo.
+                            </li>
+                            <li><strong>Prueba piloto</strong>. Sirve para la validación de la logística, obtener datos de la fiabilidad y revisar las situaciones clínicas.
+                            </li>
+                            <li><strong>Determinación de los resultados</strong>. Aquí se define el punto de corte para considerar superada la prueba.
+                            </li>
+                            <li><strong>Consolidación</strong>. Es cuando la prueba puede aplicarse en el formato utilizado a una mayor escala, obteniendo una información sobre su utilidad y eficiencia.
+                            </li>
+                        </ul>
+                    </div>
 
                     <p>Ahora que conoce las aspectos básicos de la estructura y el diseño de una ECOE, además de las potencialidades y limitaciones del formato, propóngase realizar en el futuro una estación ECOE en su propia especialidad, incluso, aunque
                         sea de ciencias básicas siguiendo los siguientes pasos:
                     </p>
-                    <img src="content/infografico-01.png">
 
+                    <div class="expand-image" data-src="content/infografico-01.png" title="Infográfico"></div>
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic</span> en la imagen para desplegar el infográfico.</div>
                 </div>
             </section>
 
@@ -1041,6 +1043,10 @@
                 <cite>Mariana Múnera Manco</cite>
             </div>
             <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
                 <h3>Gestión Administrativa</h3>
                 <cite>Maribel Salazar Estrada <br/>
                     David Herney Bernal García</cite>
@@ -1078,7 +1084,7 @@
             <div id="library_subpage">
                 <h2>Referencias bibliográficas</h2>
 
-                <ol class="data_list">
+                <ul class="data_list">
                     <li>Corvetto M, Bravo M, Montaña R, Utili F, Escudero E, Boza C, et al. Simulación en educación médica: una sinopsis. Rev Med Chile 2013;141:70-9. Disponible en <a href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&pid=S0034-98872013000100010"
                             target="_blank">https://bit.ly/2FlSr14</a></li>
                     <li>Ávila R, Mahana P, Rivera C, McColl. Simulación clínica como método de formación de competencias en estudiantes de medicina. Rev Educ Cienc Salud 2016; 13(1):11-4. Disponible en <a href="http://www2.udec.cl/ofem/recs/anteriores/vol1312016/artinv13116a.pdf"
@@ -1102,7 +1108,7 @@
                     <li>Moya P, Ruz M, Parraguez E, Carreño V, Rodríguez A, Froes P. Efectividad de la simulación en la educación médica desde la perspectiva de seguridad de pacientes. Rev Med Chile. 2017;145:514-26. Disponible en <a href="https://scielo.conicyt.cl/scielo.php?script=sci_arttext&amp;pid=S0034-98872017000400012"
                             target="_blank">https://bit.ly/2m1j6KO</a></li>
                     <li>Riancho J, Maestre J, del Moral I, Riancho J. Simulación clínica de alto realismo: una experiencia de pregrado. Educ Med. 2012;15(2):109-115. Disponible en <a href="http://scielo.isciii.es/pdf/edu/v15n2/original4.pdf" target="_blank">https://bit.ly/2m47JSA</a></li>
-                </ol>
+                </ul>
             </div>
         </div>
 
