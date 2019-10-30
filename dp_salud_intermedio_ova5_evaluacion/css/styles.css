@@ -1370,6 +1370,32 @@ sup.tooltip {
 
 /* End Vertical pagination */
 
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
+
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
 /********************************************************************************/

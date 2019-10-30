@@ -1601,7 +1601,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
-        dhbgApp.loadPage(1, 0);
+        dhbgApp.loadPage(0, 0);
     }
 };
 

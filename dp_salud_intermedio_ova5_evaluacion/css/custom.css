@@ -18,8 +18,14 @@
 /********************************************************************************/
 /*
 /********************************************************************************/
-.w-content, .mw-eval {
-    width: 50%;
+#arrastrar .ctrl-pagination {
+    background-color: transparent;
+    border: none;
+    width: 500px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 #arrastrar .ctrl-pagination .position {
@@ -30,39 +36,191 @@
     left: 10px;
 }
 
-/********************************************************************************/
-/* Pirámide de Miller
-/********************************************************************************/
-#piramide, #piramide .brick {
-    align-items: center;
+#arrastrar {
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+}
+
+#arrastrar .contenedor {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 2px solid #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    background-color: #f3f3f3;
+}
+
+#arrastrar .contenedor > p {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#arrastrar .target {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 160px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #dcdcdd;
+    padding: 0;
+}
+
+#arrastrar .item {
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    color: #000;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    z-index: 1;
 }
-#piramide h3 {
-    padding: 1em 0;
+
+#arrastrar .item1,
+#arrastrar .item4 {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
 }
-#piramide .brick {
-    width: 50%;
+
+#arrastrar .item2,
+#arrastrar .item5 {
+    background-color: #dcdcdd;
+    border: 2px solid #859390;
 }
-#piramide .brick img {
-    cursor: pointer;
-    display: block;
+
+#arrastrar .item3 {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
 }
-#piramide .brick .description {
-    background-color: #e7e7e7;
-    border-radius: 0.8em;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+
+#arrastrar .opciones {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 0;
+    width: 280px;
 }
-#piramide .brick .description .content {
-    margin: 2em;
-    border-radius: 1em;
+
+#arrastrar .opciones .item {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    position: relative;
 }
-#piramide .brick .description.opened {
-    max-height: 100px;
+
+#arrastrar .opciones .item.draggable {
+    z-index: 3;
 }
+
+#arrastrar .opciones .item.draggable:after {
+    content: unset;
+}
+
+#arrastrar .opciones .item.draggable:before {
+    content: "\f263";
+    font-family: "Ionicons";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#arrastrar .target .item {
+    position: unset !important;
+    margin: -1px 0 0 -1px;
+}
+
+#arrastrar .box_end {
+}
+
+#arrastrar .draggable.wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+#arrastrar .ctrl-pagination li.layer {
+    padding: 5px 20px 0;
+}
+
+/********************************************************************************/
+/* Interactivo pirámide
+/********************************************************************************/
+#piramide-miller {
+    margin-bottom: 50px;
+}
+
+.titulo-piramide {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+}
+
+#piramide div {
+    text-align: center;
+}
+
+#piramide div img {
+    filter: grayscale(1);
+    max-width: 100%;
+}
+
+#piramide div img.active,
+#piramide div img.current {
+    filter: grayscale(0);
+}
+
+.info-piramide {
+    display: flex;
+}
+
+.info-piramide h5 {
+    font-size: x-large;
+    margin: 10px auto;
+}
+
+#piramide-hacer {
+    border: 2px solid #e49525;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-hacer h5 {
+    color: #e49525;
+}
+
+#piramide-mostrarcomo {
+    border: 2px solid #bd6a3c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-mostrarcomo h5 {
+    color: #bd6a3c;
+}
+
+#piramide-sabercomo {
+    border: 2px solid #28519e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-sabercomo h5 {
+    color: #28519e;
+}
+
+#piramide-saber {
+    border: 2px solid #3db3af;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-saber h5 {
+    color: #3db3af;
+}
+
 /********************************************************************************/
 /* Tipos de evaluaciones
 /********************************************************************************/
