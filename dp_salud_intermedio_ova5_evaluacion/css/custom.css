@@ -1,0 +1,88 @@
+/********************************************************************************/
+/* Video inicial
+/********************************************************************************/
+#pag-intro iframe {
+    width: 80%;
+    height: 400px;
+    margin: auto;
+}
+
+#pag-intro .box-text.link {
+    text-align: center;
+}
+
+#pag-intro .box-text.link p {
+    text-align: left;
+}
+
+/********************************************************************************/
+/*
+/********************************************************************************/
+.w-content, .mw-eval {
+    width: 50%;
+}
+
+#arrastrar .ctrl-pagination .position {
+    z-index: 2;
+}
+
+#arrastrar .ctrl-pagination .button.previous {
+    left: 10px;
+}
+
+/********************************************************************************/
+/* Pirámide de Miller
+/********************************************************************************/
+#piramide, #piramide .brick {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#piramide h3 {
+    padding: 1em 0;
+}
+#piramide .brick {
+    width: 50%;
+}
+#piramide .brick img {
+    cursor: pointer;
+    display: block;
+}
+#piramide .brick .description {
+    background-color: #e7e7e7;
+    border-radius: 0.8em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+#piramide .brick .description .content {
+    margin: 2em;
+    border-radius: 1em;
+}
+#piramide .brick .description.opened {
+    max-height: 100px;
+}
+/********************************************************************************/
+/* Tipos de evaluaciones
+/********************************************************************************/
+#evaluaciones {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 4em 0;
+}
+#evaluaciones img {
+    transform: perspective(1px) translateZ(0);
+    transition: transform 0.3s;
+}
+#evaluaciones img:hover, #evaluaciones img:focus, #evaluaciones img:active {
+    transform: scale(1.1);
+}
+/********************************************************************************/
+/* Tipos de evaluaciones
+/********************************************************************************/
+#estrategias-eval .indentation {
+    margin: 1em 0 1em 3em;
+    overflow: hidden;
+    text-align: left;
+}
