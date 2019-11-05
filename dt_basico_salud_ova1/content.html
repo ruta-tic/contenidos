@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA 1. Herramientas tecnológicas empleadas en áreas de salud</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA 1. Herramientas tecnológicas empleadas en áreas de salud</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Introducción" data-page="pag-introduccion"></menuitem>
+                    <menuitem label="Tecnologías en salud" data-page="pag-salud"></menuitem>
+                    <menuitem label="Actividad evaluativa" data-page="pag-actividad"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-introduccion" ptitle="Introducción">
+                <div class="subpage">
+                    <p>De manera general, la tecnología en salud se entiende como la aplicación de conocimientos empíricos y científicos en función del proceso salud-enfermedad de los sujetos, para promover la salud y prevenir la enfermedad, y para la evaluación,
+                        el diagnóstico, el tratamiento y la rehabilitación de procesos mórbidos. </p>
+
+                    <p>Específicamente, la tecnología biomédica referencia la concepción, utilización e investigación de medicamentos, equipos y dispositivos sanitarios, y los procedimientos médico-quirúrgicos. En las últimas décadas, el concepto de tecnología
+                        en salud se ha ampliado hasta “abarcar todos los métodos técnicos que se aplican en la atención de las personas (sanas o enfermas) y también para resaltar la importancia de los conocimientos asociados con su uso” (1, 2).</p>
+                </div>
+            </section>
+
+            <section id="pag-salud" ptitle="Tecnologías en salud">
+                <div class="subpage">
+                    <p>El Ministerio de Salud propone la siguiente definición (3): <cite>“Las tecnologías en salud son el conjunto de instrumentos, procedimientos y medicamentos utilizados para promover los estados saludables; prevenir, curar y paliar la enfermedad así como rehabilitar y cuidar a largo plazo las secuelas producto de ésta.”</cite></p>
+
+                    <div class="box_media">
+                        <img src="content/gif-tecnologia-salud.gif" class="animation" title="Animación Tecnologías en salud" />
+                    </div>
+
+                    <p>Esta definición hace hincapié en dos aspectos: el objetivo material, es decir, al decir instrumento se refiere a modelos o esquemas administrativos, por ejemplo, los análisis económicos en la aplicación de las políticas en salud; por
+                        procedimientos se refiere a las cirugías, exámenes diagnósticos y al trabajo comunitario, entre otros; y por medicamentos hacen referencia a la administración de una sustancia que previene o trata determinado proceso mórbido. Por
+                        otro lado, el objetivo final se refiere a la aplicación de las tecnologías en todos los puntos del proceso salud enfermedad (4).</p>
+
+                    <p>De acuerdo con lo anterior, entendemos como tecnologías en salud desde el uso de la penicilina en un proceso infeccioso hasta la utilización de anticuerpos monoclonales desarrollados por la ingeniería genética para el control de enfermedades
+                        autoinmunes. De la misma manera, denominamos tecnologías en salud al uso de los Rayos X para hacer diagnósticos en primeros niveles de atención y también a los equipos de radiología intervencionista con los cuales, además de hacer
+                        diagnóstico, se puede ofrecer manejo terapéutico en el mismo momento en cuatro niveles de atención.</p>
+
+                    <div class="box-text connection">
+                        <p>
+                            Como se alcanza a vislumbrar, existe una amplia variedad de tecnologías en salud con orientación, objetivos e infraestructura diversa. En el presente componente se hará mención de diversas tecnologías y se profundizará en cuatro de ellas. Todas las tecnologías
+                            de las que se hará mención están dirigidas a profesionales de la salud, tienen utilización de tecnologías blandas y duras, y se emplean en alguno o algunos momentos del proceso salud-enfermedad.
+                        </p>
+                    </div>
+
+                    <p>Con el objetivo de facilitar la comprensión de las tecnologías en salud, se propone la siguiente división según:</p>
+
+                    <div class="accordion">
+                        <h3>A quién va dirigida:</h3>
+                        <div>
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>Comunidad en general</dt>
+                                    <dd>
+                                        <h5>Comunidad en general</h5>
+                                        <div class="row pordecoracion">
+                                            <div class="col-2">
+                                                <p>Referente a la comunidad en general. Actualmente, las plataformas digitales tienen un papel protagónico ofreciendo cantidades inmensurables de información relacionada con diversos procesos mórbidos y al
+                                                    mismo tiempo con culturas modernas de la promoción de hábitos de vida saludable como el movimiento fitness. También se han desarrollado diferentes aplicativos móviles para cuantificar el número de pasos
+                                                    que se dan al día promovido por la cultura de la promoción de la salud de la Organización Mundial de la Salud para monitorizar los signos vitales, recordar la toma de medicación o las citas programadas
+                                                    e incluso en algunos lugares del mundo se ha dotado a la población de dispositivos tecnológicos para su uso en caso de emergencias, como en el caso de la Cruz Roja Colombiana, Seccional Antioquia.</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box_media">
+                                                    <img src="content/intro_comunidad_general.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Profesionales sanitarios</dt>
+                                    <dd>
+                                        <h5>Profesionales sanitarios</h5>
+                                        <div class="row pordecoracion">
+                                            <div class="col-2">
+                                                <p>Por el lado de los profesionales de la salud, la tecnología ha venido soportando el quehacer profesional desde tiempos remotos. En la actualidad, han tomado relevancia los esfuerzos sistemáticos por mejorar
+                                                    la calidad en la atención sanitaria y evaluar los procesos de atención en términos de costo-efectividad. En estos se ponen en consideración las diferentes tecnologías existentes, los costos y los resultados
+                                                    en salud. Relacionado con el ejercicio profesional en el quehacer diario, de las disciplinas básicas como la Microbiología; de las ramas clínicas como la Nutrición y Dietética y la Psicología; y de las
+                                                    áreas quirúrgicas como la Instrumentación quirúrgica, se abre un panorama amplio con equipos, dispositivos y aplicativos tecnológicos. Equipos para procesar y analizar muestras de fluidos corporales,
+                                                    imágenes diagnósticas y terapéuticas; equipos para almacenar información de los registros médicos; equipos para la evaluación clínica y quirúrgica. Aplicativos tecnológicos como software para el registro
+                                                    y almacenamiento de las historias clínicas, plataformas digitales para la monitorización y acompañamiento de pacientes, aplicaciones móviles para calcular escalas de riesgo o probabilidad. Los equipos
+                                                    empleados en la atención de la salud en las diferentes áreas de la salud tienen hardware (laboratorios, consultorios, microscopios, cintas métricas, básculas, quirófanos, etc), otros tienen hardware
+                                                    y software, es decir, a parte de la materia tangible que se utiliza para la atención cuenta con un programa que permite tomar, procesar y analizar datos como los termocicladores, equipos de realidad
+                                                    virtual para el tratamiento de fobias y tratamiento de ansiedad, entre otros. </p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box_media">
+                                                    <img src="content/intro_comunidad_general.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <h3>Tipo de tecnología:</h3>
+                        <div>
+                            <ul class="data_list">
+                                <li>Dura</li>
+                                <li>Blanda</li>
+                            </ul>
+                            <div class="row pordecoracion">
+                                <div class="col-2">
+                                    <p>Cuando se habla de tecnologías, existe una clasificación tradicional para comprender los diferentes equipos, instrumentos y herramientas tecnológicas, y es referente de si la tecnología es tangible o material. En dicho
+                                        caso se refiere al <em>hardware</em> o tecnología dura; o si por el contrario no lo es, por lo cual se denomina <em>software</em> o tecnología blanda. </p>
+
+                                    <p>Referente a la tecnología dura, como ejemplos, se cuenta con los equipos como el equipo de órganos empleados en la evaluación; los microscopios simples en el diagnóstico; y el cauterizador quirúrgico en el tratamiento.
+                                        En cuanto a la tecnología blanda se cuenta con programas para el registro de la historia clínica; algoritmos aplicados a la electrocardiografía para identificar electrocardiogramas normales y alterados; programas
+                                        predictivos para diferentes enfermedades.</p>
+
+                                    <p>Puede utilizar un equipo o un programa que emplee de manera aislada la tecnología dura o blanda, como también puede utilizar equipos que funcionan con ambas tecnologías. Tal es el caso de los pulsioxímetros, equipos
+                                        que monitorean algunos signos vitales; los equipos de cómputo en hospitales y clínicas con programas en su interior para lectura de imágenes diagnósticas; tabletas o teléfonos inteligentes con aplicativos para calcular
+                                        el riesgo de mortalidad frente ciertas enfermedades; equipos de inteligencia artificial que hacen predicción del cáncer, entre otros.</p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/tipos_tecnologias.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Instrumento, programa y aparato:</h3>
+                        <div>
+                            <ul class="data_list">
+                                <li>Procesos de compilación de la información para mejorar el ejercicio profesional</li>
+                                <li>Aplicativos</li>
+                                <li>Dispositivos/equipos</li>
+                            </ul>
+
+                            <div class="row pordecoracion">
+                                <div class="col-2">
+                                    <p>Se entiende <em>instrumento</em> como la combinación de piezas para cumplir el objetivo de un oficio (4). La compilación de evidencia para mejorar la práctica profesional en salud expresada en guías de práctica profesional
+                                        basadas en la evidencia, es un ejemplo. Por otro lado, los programas son aplicativos que requieren de un equipo o tecnología dura para su funcionamiento. Dicho aplicativo puede utilizarse en un teléfono inteligente,
+                                        tableta, computador o equipo diseñado específicamente para ejecutar el programa. Un ejemplo es el software de historia clínica. Respecto a
+                                        <stron>aparatos</stron>, ya se ha mencionado anteriormente ejemplos de equipos. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>El momento del proceso salud-enfermedad:</h3>
+                        <div>
+                            <ul class="data_list">
+                                <li>Promoción de la salud</li>
+                                <li>Prevención de la enfermedad</li>
+                                <li>Evaluación de la persona</li>
+                                <li>Diagnóstico de la persona</li>
+                                <li>Tratamiento (y rehabilitación) de la persona</li>
+                            </ul>
+                            <div class="row pordecoracion">
+                                <div class="col-2">
+                                    <p>El proceso salud-enfermedad hace referencia a todos los momentos por los que transcurre un ser humano en términos de salud. Algunos pueden coincidir temporalmente, mientras que otros suceden de manera aislada. En sujetos
+                                        saludables con ausencia de síntomas de enfermedad se debería reflexionar acerca de promover hábitos de vida saludables, como realizar actividades que potencialicen una armoniosa conexión con el medio que les rodea,
+                                        entre ellas ingerir dietas ricas en frutas y verduras orgánicas. Al mismo tiempo, prevenir enfermedades evitando ingerir copiosas cantidades de alcohol y azúcares refinados y evitar al máximo consumir tabaco, conducir
+                                        motocicleta sin casco, entre otras. Mientras que cuando se tienen síntomas de enfermedad, es necesario ver, oír, oler y sentir el cuerpo. Tomar en cuenta todos los síntomas y signos para conducir una evaluación;
+                                        encontrar la causa de dicha afección mediante un diagnóstico clínico y paraclínico; y poner en marcha el manejo adecuado farmacológico, quirúrgico o expectante.</p>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/proceso_salud_enfermedad.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>En otras actividades del nivel de inmmersión se abordarán las cuatro tecnologías de profundización a saber:</p>
+                    <ul class="data_list">
+                        <li>Guías de práctica basadas en la evidencia.</li>
+                        <li>Aplicativos móviles.</li>
+                        <li>Telesalud.</li>
+                        <li>Equipos de inteligencia artificial.</li>
+                    </ul>
+
+                    <div class="box-text link" label="Si quiere ampliar información consulte">
+                        <li>Plataforma con información de telemedicina, teleasistencia, teleducación y mucho más. Disponible en <a href="https://bit.ly/2mas4Wh" target="_blank"> https://bit.ly/2mas4Wh</a></li>
+                        <li>Plataforma con énfasis en promoción de la salud y prevención de la enfermedad. Disponible en <a href="http://atulado.co/" target="_blank"> http://atulado.co/</a> </li>
+                        <li>Canal con herramientas para formación continua que le permitirá mejorar su práctica profesional médica y odontológica en promoción de la salud, prevención de la enfermedad y en la evaluación, diagnóstico y tratamiento (rehabilitación)
+                            de las personas. Disponible en <a href="https://bit.ly/2lN71IY" target="_blank">https://bit.ly/2lN71IY</a></li>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-actividad" ptitle="Actividad evaluativa">
+                <div class="subpage">
+                    <p>Con base en la clasificación anterior, se propone la siguiente actividad con el fin de que reconozca diversas tecnologías disponibles en el área de la salud y las clasifique según la propuesta hecha. </p>
+
+                    <div class="box-text activity" label="Indicaciones">
+                        <p>Para el desarrollo de la actividad observe la imagen, la página web o el vídeo dispuesto en cada ítem y con base en esto, seleccione a quién va dirigida; qué tipo de tecnología utiliza; si es un instrumento, un programa o un equipo,
+                            y qué momento del proceso salud enfermedad impacta. Puede elegir varias opciones en caso de que lo considere necesario.</p>
+                    </div>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>1</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Plataforma virtual A tu lado. Disponible en <a href="https://atulado.co/nosotros" target="_blank">https://atulado.co/nosotros</a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/plataforma_a_tu_lado.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>2</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Aplicación <em>Dieta balanceada - Alimentación saludable personal</em>. Disponible en <a href="https://bit.ly/2m5ShoM" target="_blank">https://bit.ly/2m5ShoM</a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/dieta_balanceada.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li>Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>3</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p><em>Alarma de Medicina - Recordatorio de Medicamentos. Disponible en</em> <a href="https://bit.ly/2kFn0sm" target="_blank">https://bit.ly/2kFn0sm </a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/alarma_medica.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li>Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>4</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Plataforma para registro de historia clínica</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/plataforma_historia_medica.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>5</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Buscador</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/buscador.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>6</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Plataforma digital para monitoreo de pacientes. Disponible en <a href="https://bit.ly/2KABkwN" target="_blank">https://bit.ly/2KABkwN </a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/monitoreo_pacientes.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>7</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Programador de citas médicas</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/citas_medicas.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li>Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>8</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Programa para consulta de resultados de exámenes</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/resultados_examenes.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>9</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Imagen de monitor de signos vitales</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/monitor_signos_vitales.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>10</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Desfibrilador externo automático</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/desfribrilador.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>11</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Microscopio óptico técnica luz polarizada (Petrografía)</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/microscopio.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>12</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Teleasistencia domiciliaria local. Disponible en <a href="https://youtu.be/CeM3lEK1AF8" target="_blank">https://youtu.be/CeM3lEK1AF8</a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/teleasistencia.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>13</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Telesalud</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/telesalud.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>14</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Telesalud (realidad aumentada)</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/telesalud_fobias.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>15</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Guía técnica <em>“Buenas prácticas para la seguridad del paciente en la atención en salud”</em>. Disponible en <a href="https://bit.ly/2p9sFFV" target="_blank">https://bit.ly/2p9sFFV</a></p>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li data-response="true">Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>16</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Cursos online gratuitos para gestión del conocimiento (Aulas abiertas). Disponible en <a href="https://bit.ly/2kqvnrX" target="_blank">https://bit.ly/2kqvnrX</a></p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/curso_online.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li>Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li data-response="true">Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>17</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Dispositivo de inteligencia artificial</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/inteligencia_artificial.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li data-response="true">Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>18</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Termómetro de mercurio</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/termometro.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>19</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Microscopio de luz (Crotalus)</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/microscopio_luz.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>20</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Instrumental quirúrgico</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/instrumental_quirurjico.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li>Diagnóstico de la persona</li>
+                                                    <li data-response="true">Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>21</dt>
+                            <dd>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <h3>Herramienta tecnológica:</h3>
+                                        <p>Resonador magnético</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/resonador_magnetico.png" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="ctrl-pagination" data-layer-height="320px" data-labelcurrent="true">
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A quién va dirigida?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Comunidad</li>
+                                                    <li data-response="true">Profesionales de la salud</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Qué tipo de tecnología utiliza?</p>
+                                                </description>
+                                                <ul>
+                                                    <li data-response="true">Blanda</li>
+                                                    <li data-response="true">Dura</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿Es un instrumento, un programa o un equipo?</p>
+                                                </description>
+                                                <ul>
+                                                    <li>Programa</li>
+                                                    <li>Instrumento</li>
+                                                    <li data-response="true">Equipo</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="jpit-activities-quiz" data-act-title="Actividad evaluativa" data-act-id="1_cuestionario">
+                                            <question type="multichoice">
+                                                <description>
+                                                    <p>¿A qué momento del proceso salud-enfermedad pertenece? </p>
+                                                </description>
+                                                <ul>
+                                                    <li>Promoción de la salud</li>
+                                                    <li>Prevención de la enfermedad</li>
+                                                    <li>Evaluación de la persona</li>
+                                                    <li data-response="true">Diagnóstico de la persona</li>
+                                                    <li>Tratamiento (y rehabilitación) de la persona</li>
+                                                </ul>
+                                            </question>
+                                            <feedback>
+                                                <wrong>Es preciso que revise su respuesta.</wrong>
+                                            </feedback>
+                                        </div>
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+    </div>
+    </main>
+    </div>
+
+    <footer class="not_print">
+        <span id="labelmeasuringprogress">Avance</span>
+        <div class="measuring-progress" data-type="circle"></div>
+
+        <nav label="General" class="globals2">
+            <menu>
+                <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+            </menu>
+        </nav>
+
+        <div id="subpages_menu">
+            <div class="button" previous-page></div>
+            <ul class="button" subpages-menu></ul>
+            <div class="button" next-page></div>
+        </div>
+
+        <div id="page_number"></div>
+    </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada
+                    </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: octubre de 2019
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Infante A. Evaluación de la tecnología empleada en la atención de la salud. Revista Panamericana de Salud Pública. 1997;2(5): 363–372. Disponible en <a href="https://bit.ly/2k9OrKH" target="_blank">https://bit.ly/2k9OrKH</a></li>
+                <li>Organización Mundial de la Salud. Evaluación de tecnologías sanitarias aplicada a los dispositivos médicos. Serie de documentos técnicos de la OMS sobre dispositivos médicos. Ginebra. 2012. Disponible en <a href="https://bit.ly/2ZsmX5y"
+                        target="_blank">https://bit.ly/2ZsmX5y</a> </li>
+                <li>MinSalud. Medicamentos y tecnologías en Salud. Disponible en <a href="https://bit.ly/2kFXbZp" target="_blank">https://bit.ly/2kFXbZp</a>
+                    <li>Cubillos Turriago L. Evaluacion de tecnologias en salud: aplicaciones y recomendaciones en el sistema de seguridad social en salud colombiano. Programa de Apoyo a la Reforma de Salud. Bogotá. 2004. Disponible en <a href="https://bit.ly/1SMUydw"
+                            target="_blank">https://bit.ly/1SMUydw</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
