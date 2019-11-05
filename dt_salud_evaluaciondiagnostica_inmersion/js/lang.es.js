@@ -97,7 +97,7 @@ dhbgApp.strings = {
 
     'start_activity': 'Iniciar la actividad',
 
-    'verify': 'Retroalimentación',
+    'verify': 'Terminar',
 
     'vertical': 'Vertical',
 
