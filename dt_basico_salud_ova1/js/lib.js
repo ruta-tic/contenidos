@@ -704,7 +704,7 @@ dhbgApp.standard.start = function() {
     // ==============================================================================================
     // Special control: Accordion
     // ==============================================================================================
-    $('.accordion').accordion({ autoHeight: false, heightStyle: "content"});
+    $('.accordion').accordion({ autoHeight: false, heightStyle: "content", collapsible: true });
 
     // ==============================================================================================
     // Special control: View first

@@ -1,19 +1,43 @@
-/**********************alineación gif**************************/
-
-.animation_image {
-    text-align: center;
-    float: left;
-    margin: 0 20px 0 0;
+.box_media img {
+    max-width: 100%;
 }
 
+.ui-accordion .ui-accordion-header {
+    font-size: 20px
+}
 
 /**********************actividad evaluativa**************************/
 
-#id_subpagina .jpit_activities_quiz_question_answers {
-    height: 150px;
-    overflow: auto;
+.infoitem {
+    margin-bottom: 20px;
 }
 
-#id_subpagina .jpit_activities_quiz_board {
-    height: 220px;
+.jpit_activities_quiz_question_statement {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.jpit_activities_quiz_board {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jpit_activities_quiz_quest {
+    background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    background-color: #fff;
+    width: 40%;
+    margin: 10px auto;
+}
+
+#pag-actividad .col-2 > p {
+    margin-left: 20px;
+}
+
+#pag-actividad .col-2 > p:first-of-type {
+    color: #dd9f31;
+    font-size: 16px;
+    font-weight: bold;
 }

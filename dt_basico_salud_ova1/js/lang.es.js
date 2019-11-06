@@ -34,7 +34,7 @@ dhbgApp.strings = {
 
     'answer_corrent': 'La respuesta es correcta',
 
-    'answer_required': 'Por favor, asigne una respuesta para continuar.',
+    'answer_required': 'Por favor, asigne una respuesta a todas las preguntas para continuar.',
 
     'answer_wrong': 'La respuesta es incorrecta',
 

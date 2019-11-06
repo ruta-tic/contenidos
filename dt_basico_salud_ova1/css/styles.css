@@ -1207,17 +1207,17 @@ sup.tooltip {
     left: 0;
     right: 0;
     top: 0;
-    background-color: #44C5D0;
+    background-color: #44c5d0;
 }
 
 .horizontal-menu > .chalkboard_content {
     width: 98%;
-    height: 500px;
+    height: 300px;
     float: left;
     padding: 1%;
     overflow: auto;
     background-color: #f3f3f3;
-    border: 3px solid #44C5D0;
+    border: 3px solid #40bcc6;
 }
 
 .horizontal-menu > .chalkboard_content > .element > h5 {
@@ -1369,6 +1369,32 @@ sup.tooltip {
 }
 
 /* End Vertical pagination */
+
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
 
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
