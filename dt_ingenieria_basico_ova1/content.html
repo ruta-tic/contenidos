@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Tecnologías en ingeniería</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Tecnologías en ingeniería</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="El porqué del uso" data-page="pag-uso"></menuitem>
+                    <menuitem label="Ciclo de vida" data-page="pag-ciclo"></menuitem>
+                    <menuitem label="El ingeniero y las tecnologías" data-page="pag-ingeniero"></menuitem>
+                    <menuitem label="Consideraciones para la selección" data-page="pag-consideraciones"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">¿Por qué utilizar tecnologías digitales en la ingeniería?</h2>
+            <section id="pag-uso" ptitle="¿Por qué utilizar tecnologías digitales en la ingeniería?">
+                <div class="subpage">
+
+                    <blockquote>«Lo cierto es que la tecnología no se puede
+                        considerar como una “bendición pura”
+                        y mucho menos como una
+                        “maldición incontrolable”»
+                        <label>Mesthene, 1970</label>
+                    </blockquote>
+
+                    <br class="clear" />
+
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/01_imagen.png" />
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>El uso y apropiación de tecnologías digitales en el ejercicio profesional de un ingeniero o el quehacer de una organización, relacionada con alguna de las áreas disciplinares de la ingeniería, propicia espacios y recursos que favorecen la creación de soluciones a las situaciones o necesidades que surgen en el desarrollo de los procesos misionales de una empresa.</p>
+                            <p>Una de las tantas contribuciones que han realizado las tecnologías digitales al ejercicio  profesional de un ingeniero, o al logro de los objetivos estratégicos de una organización, según Carnoy (2004), es la creación de redes interactivas de comunicación y una cultura de trabajo en red que favorecen la interactividad y la conexión fluida y permanente entre los diferentes agentes que participan en la elaboración de un producto o la prestación de un servicio.</p>
+                        </div>
+                    </div>
+
+                    <p>Desde un enfoque empresarial las tecnologías digitales no son un fin en sí mismo, sino un factor clave que puede ser determinante para la competitividad empresarial, bien sea de la empresa o del ingeniero. Entre las posibilidades que brindan están:</p>
+                    <div class="ctrl-pagination" data-layer-height="180px" data-labelcurrent="true" data-orientation="sides">
+                        <li>
+                            <p>Promueven el <strong>trabajo colaborativo</strong> mediante su uso.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_1.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Fomentan la cultura participativa, en cuanto favorece acciones para compartir recursos y experiencias que mejoren las prácticas ingenieriles.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_2.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Promueven <strong>nuevos escenarios</strong> para el desarrollo de soluciones.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_3.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Proporcionan herramientas para la <strong>generación y transferencia de conocimiento</strong>.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_4.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Contribuyen a mejorar la <strong>competitividad</strong>.
+                            </p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_5.png" />
+                            </div>
+                        </li>
+
+                        <li>
+                            <p>Propician la creación de <strong>nuevos negocios</strong>.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_6.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Permiten la <strong>automatización y optimización de algunas actividades</strong>.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_7.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Contribuyen a mejorar el <strong>vínculo con los clientes</strong> actuales y potenciales.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_8.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Contribuyen a la <strong>reducción de costos</strong>.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_9.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p>Contribuyen al <strong>mejoramiento de la calidad del producto</strong>.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_10.png" />
+                            </div>
+                        </li>
+                        <li>
+                            <p><strong>Simplifican</strong>las tareas.</p>
+                            <div class="box_media">
+                                <img src="content/lista_slide_11.png" />
+                            </div>
+                        </li>
+                    </div>
+
+                    <div class="box-text note" label="Nota">
+                        <p>Es importante precisar que la integración de cualquier tecnología debe estar asociada a un proceso de capacitación o formación en el uso de ésta, bien sea mediante el aprendizaje autónomo, o a través de la ayuda de un tercero.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pag-ciclo" ptitle="Ciclo de la vida de la tecnología">
+                <div class="subpage">
+                    <p>La tecnología tiene su propio ciclo de vida y este determina el uso estratégico que puede tener dentro de una organización, o para el ejercicio profesional del ingeniero. Por lo tanto, es importante reconocer los estados por los cuales
+                        pasa una tecnología al momento de tener que tomar una decisión sobre cuál utilizar. A continuación, se presentan los tres estados que atraviesa una tecnología de acuerdo con Betancur Fernández (2).
+                    </p>
+
+                    <!--Esta animación no está en el formato correcto-->
+                    <div class="videobox">
+                        <video loop autoplay>
+                            <source src="content/ciclo_vida_tecnologias.mp4" type="video/mp4">
+                         </video>
+                        <div class="about">
+                            <p><strong>Imagen 1.</strong> Ciclo de vida de la tecnología</p>
+                        </div>
+                    </div>
+                    <h3>Haga clic sobre cada bloque para ampliar la información sobre la tecnología</h3>
+
+
+                    <!--Lo que sigue acontinuación requere organización, cada título son botones distribuidos que conforman un interactivo con ventanas modales-->
+
+                    <div class="w-content-controler general" data-content="#ventana_textos_modal">
+                        Tecnología emergente
+                    </div>
+                    <div id="ventana_textos_modal" class="w-content">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="box_media">
+                                    <img src="content/tecnologias-emergente.png" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <p>Es aquella que está apareciendo en el ámbito económico e industrial, y está siendo utilizada por algunas empresas. Tiene un potencial económico grande al igual que su nivel de incertidumbre y riesgo. Las empresas que utilizan
+                                    esta tecnología ven en ella un elemento diferenciados del mañana y están dispuestas en invertir y arriesgar un capital considerable para para tomar ventaja a los competidores en el uso que esta puede tener.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="w-content-controler general" data-content="#1ventana_textos_modal">
+                        Tecnología clave
+                    </div>
+                    <div id="1ventana_textos_modal" class="w-content">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="box_media">
+                                    <img src="content/tecnologias-clave.png" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <p>Es aquella tecnología emergente que fue aceptada por el mercado y ha pasado a convertirse en el sustento operacional y estratégico de la empresa que la posee. Para tener una tecnología clave, es necesario fomentar una cultura
+                                    organizativa que propicie y apoye la creatividad y la investigación continua.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-content-controler general" data-content="#2ventana_textos_modal">
+                        Tecnología básica
+                    </div>
+                    <div id="2ventana_textos_modal" class="w-content">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="box_media">
+                                    <img src="content/tecnologias-basica.png" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <p>Hace referencia a aquella tecnología que está al alcance de todas las empresas del sector y es el estándar de la industria. Es la que en algún momento fue una tecnología clave, pero con el paso del tiempo, fue conocida
+                                    y dominada por el resto de las empresas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-ingeniero" ptitle="El ingeniero y el uso de la tecnología">
+                <div class="subpage">
+                    <p>El ingeniero, independiente de su área disciplinar, debe estar preparado, capacitarse y realizar un rastreo de las tecnologías que surgen en su área. Esto tiene varios propósitos que se identificaran a continuación.</p>
+                    <!--Las siguientes opciones, deben salir correcto así se responda sí o no-->
+                    <div class="jpit-activities-check">
+                        <words>
+                            <li data-val="true">
+                                Identificar tecnologías básicas y emergentes, con el fin de evaluar si son aplicables en su área disciplinar y en qué medida, para satisfacer las necesidades de los usuarios.
+                                <!-- esta imagen debe acompañar la selección
+                                <div class="box_media">
+                                    <img src="content/actividad_clasificar-02.png" />
+                                </div>-->
+                            </li>
+                            <li data-val="true">
+                                Diseñar e implementar soluciones basadas en tecnologías, integrándolas en el entorno de usuario.
+                                <!-- esta imagen debe acompañar la selección
+                                    <div class="box_media">
+                                        <img src="content/actividad_clasificar-03.png" />
+                                    </div>-->
+                            </li>
+                            <li data-val="true">
+                                Analizar, identificar y definir los requisitos que debe cumplir un sistema informático para solucionar un problema o una necesidad de su área disciplinar.
+                                <!-- esta imagen debe acompañar la selección
+                                    <div class="box_media">
+                                        <img src="content/actividad_clasificar-04.png" />
+                                    </div>-->
+                            </li>
+                            <li data-val="true">
+                                Investigar e integrar continuamente aquellas tecnologías que aportan a mejorar los procesos, productos o servicios en los cuales participa.
+                                <!-- esta imagen debe acompañar la selección
+                                    <div class="box_media">
+                                        <img src="content/actividad_clasificar-05.png" />
+                                    </div>-->
+                            </li>
+
+                        </words>
+                        <div class="board">
+                            <div class="check_left">
+                                <div class="play">
+                                    <p>A continuación, se presentarán varios propósitos. Identifique cuáles de ellos son motivantes de la búsqueda de tecnologías en los ingenieros. Seleccione Sí si considera que es un propósito motivante, o No en caso contrario.
+                                    </p>
+                                    <div class="word_content"> </div>
+                                    <div class="buttons">
+                                        <button class="yes general">Sí</button>
+                                        <button class="not general">No</button>
+                                    </div>
+                                </div>
+                                <div class="box_conclution">
+                                    <h3>¡Ha finalizado!</h3>
+                                    <p>Cada ingeniero puede tener sus razones que despiertan el interés o la necesidad de hacer la búsqueda de la información. Aunque consideramos que todas las razones anteriores son válidas y deberían estar presentes en
+                                        el interés de los ingenieros, las características de cada uno pueden dar mayor o menor para cada una de ellas. Ahora pregúntese: ¿Son un propósito en su trabajo o en la aplicación de su rol de ingeniero? ¿Qué otras
+                                        razones le motivan a investigar y a apropiarse de nuevas tecnologías?
+                                    </p>
+                                    <p>
+                                        <strong>Aciertos:</strong>
+                                        <span class="correct_words"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Desaciertos:</strong>
+                                        <span class="wrong_words"></span>
+                                    </p>
+                                    <div class="buttons">
+                                        <button class="general reload">Vovler a clasificar las opciones incorrectamente clasificadas</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check_right">
+                                <div class="box_result">
+                                    <div class="correct">
+                                        <div class="hits">0</div>
+                                        <div class="text">Aciertos</div>
+                                    </div>
+                                    <div class="wrong">
+                                        <div class="miss">0</div>
+                                        <div class="text">Desaciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-consideraciones" ptitle="Aspectos a tener en cuenta para la selección de tecnologías digitales">
+                <div class="subpage">
+                    <p>Antes de seleccionar una tecnología, lo primero que se debe tener claro son las necesidades o requerimientos que esta atenderá y las características deseables de la misma. Al momento de tomar decisiones relacionadas con la selección
+                        de una tecnología para apoyar alguno de los procesos para el desarrollo de un producto o la prestación de un servicio, los aspectos a tener en cuenta son:
+                    </p>
+
+
+                    <div class="box-text activity" label="Adopción de tecnologías digitales">
+                        <p>
+                            Arrastre cada una de las fichas del rompecabezas para conocer las consideraciones que debe tener al momento de adoptar una tecnología digital.
+                        </p>
+                        <!--Lo siguiente es un rompecabezas, mientrastanto, se disposieron los contenidos del rompecabezas que se abrirían en ventana modal-->
+                        <div class="w-content-controler general" data-content="#0ventana_textos_modal">
+                            Elaborar un plan tecnológico detallado
+                        </div>
+                        <div id="0ventana_textos_modal" class="w-content">
+                            <h3>Elaborar un plan tecnológico detallado
+                            </h3>
+                            <p>
+                                Una de las preguntas que debemos hacernos al momento de seleccionar una tecnología es cómo se integrará en los procesos y las aplicaciones existentes. Para dar solución a esta, se debe tener un plan detallado que permita comprender las tecnologías que
+                                actualmente se utilizan para llevar a cabo el o los procesos en los cuales se utilizará la solución tecnológica, e identificar las aplicaciones que potencialmente se verán afectadas si estas se usan.
+                            </p>
+                            <p>Es importante que las tecnologías que se propongan tengan un impacto neutro o positivo para los usuarios finales y aquellas personas encargadas de coordinar o liderar el proceso que está siendo intervenido.
+                            </p>
+                        </div>
+
+                        <div class="w-content-controler general" data-content="#11ventana_textos_modal">
+                            La compatibilidad es esencial
+                        </div>
+                        <div id="11ventana_textos_modal" class="w-content">
+                            <h3>La compatibilidad es esencial</h3>
+                            <p>La tecnología seleccionada debe funcionar en el entorno existente. En este sentido, una consideración clave al momento de seleccionar una tecnología es su capacidad para adaptarse de forma rentable al entorno en donde será
+                                utilizada y a los procesos existentes.</p>
+                        </div>
+
+
+                        <div class="w-content-controler general" data-content="#22ventana_textos_modal">
+                            Evitar la primera generación de una tecnología
+                        </div>
+                        <div id="22ventana_textos_modal" class="w-content">
+                            <h3>Evitar la primera generación de una tecnología
+                            </h3>
+                            <p>Cualquier nueva tecnología necesitará tiempo para mejorar, pues sería poco rentable que la implementación y soporte cambiara rápidamente. Adoptar la primera generación de una tecnología aumentará los costos de implementación
+                                debido al precio adicional que hay que pagar por el know-how, el producto propiamente dicho y el soporte que supone integrar productos poco maduros en un entorno.
+                            </p>
+                        </div>
+
+
+                        <div class="w-content-controler general" data-content="#44ventana_textos_modal">
+                            Usabilidad
+                        </div>
+                        <div id="44ventana_textos_modal" class="w-content">
+                            <h3>Usabilidad</h3>
+                            <p>Este criterio se centra en mejorar la satisfacción de todos los usuarios del lugar y para ello contempla los siguientes elementos:
+                            </p>
+                            <ul class="datalist">
+                                <li><strong>Diseño de la interfaz</strong>: la presentación gráfica de la herramienta es agradable, y su entorno de trabajo permite una fácil navegación y ubicación de los elementos que la conforman.
+                                </li>
+                                <li><strong>Facilidad de aprendizaje</strong>: indica la manera en que los nuevos usuarios interactúan y comprenden las funcionalidades que ofrece la herramienta, es decir, si es sencilla e intuitiva al usar.
+                                </li>
+                                <li><strong>Flexibilidad</strong>: hace referencia a las opciones que ofrece la herramienta para personalizarla y configurarla a las necesidades del usuario.
+                                </li>
+                                <li><strong>Accesibilidad</strong>: capacidad de la herramienta para que sea accesible a personas con necesidades educativas especiales.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="w-content-controler general" data-content="#55ventana_textos_modal">
+                            Soporte y mantenimiento
+                        </div>
+                        <div id="55ventana_textos_modal" class="w-content">
+                            <h3>Soporte y mantenimiento
+                            </h3>
+                            <p>Hace énfasis en las funcionalidades ofrecidas por el sistema para la conservación y almacenamiento seguro de la información, además del servicio proporcionado una vez ha sido implantado.
+                            </p>
+                            <ul class="datalist">
+                                <li><strong>Medio de soporte</strong>:existe un espacio para contactar a los creadores de la herramienta con el fin de reportar inconvenientes con la misma la misma.
+                                </li>
+                                <li><strong>Soporte</strong>: se identifica un equipo de soporte y mantenimiento (comunidad en general) que se ocupa de actualizar la herramienta.
+                                </li>
+                                <li><strong>Actualización</strong>:hace referencia a la fecha en la cual se generó la última versión de la herramienta y a la disponibilidad de las diferentes versiones con su respectiva fecha.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                    Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>
+                    Mariana Múnera Manco<br />
+
+                </cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García
+                    <br />Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                </p>
+                <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+            </div>
+
+            <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ol class="ol_counter">
+                <li>M. Carnoy, Las TIC en la enseñanza: posibilidades y retos, Universidad Oberta de Catalunya, Lección inaugural del curso académico 2005, pp. 1-19. Disponible en <a href="https://www.uoc.edu/pdf/inaugural04/esp/carnoy1004.pdf" target="_blank">https://www.uoc.edu/pdf/inaugural04/esp/carnoy1004.pdf</a></li>
+                <li>J. D. Betancur Fernández, Conceptos básicos sobre la tecnología, Revista Universidad Eafit, 34(109), 117-133, 2012. Disponible en <a href="http://publicaciones.eafit.edu.co/index.php/revista-universidad-eafit/article/view/1136" target="_blank">http://publicaciones.eafit.edu.co/index.php/revista-universidad-eafit/article/view/1136 </a></li>
+                <li>E. G. Mesthene, Technological Changes, A mentor Book. New York. The new American Library, 1970.</li>
+                <li>E. Sanabria Torres. Las TIC y el desarrollo organizacional: Necesidades y elementos de juicio para la implantación de las TIC como medio de apoyo a la generación de conocimiento y formación. Educación en la nube para educar con los pies
+                    en la tierra, 2015.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

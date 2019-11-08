@@ -1,0 +1,66 @@
+#pag-uso blockquote {
+    max-width: 300px;
+    float: right;
+    margin-top: 20px;
+}
+
+/********************************************************************************/
+/* Actividad Clasificar, formato de marcador.
+/********************************************************************************/
+
+.jpit-activities-check .check_left {
+    float: left;
+    width: 50%;
+}
+
+.jpit-activities-check .check_left .word_content {
+    background: #ffffff none repeat scroll 0 0;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+.jpit-activities-check .check_right {
+    float: right;
+}
+
+.jpit-activities-check .buttons {
+    text-align: center;
+}
+
+.jpit-activities-check .buttons button.yes,
+.jpit-activities-check .buttons button.not {
+    font-size: 30px;
+}
+
+.jpit-activities-check .box_result {
+    float: left;
+    font-size: 20px;
+    text-align: center;
+}
+
+.jpit-activities-check .box_result>div {
+    background-color: #ffffff;
+    padding: 10px;
+    width: 110px;
+    float: left;
+    margin: 0 10px;
+}
+
+.jpit-activities-check .box_result .correct {
+    color: #8bc541;
+}
+
+.jpit-activities-check .box_result .hits {
+    font-size: 30px;
+}
+
+.jpit-activities-check .box_result .wrong {
+    color: #d60c1b;
+}
+
+.jpit-activities-check .box_result .miss {
+    font-size: 30px;
+}
