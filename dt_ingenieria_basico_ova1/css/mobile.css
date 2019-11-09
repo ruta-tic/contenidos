@@ -1290,6 +1290,31 @@ sup.tooltip {
 }
 
 /* End Vertical pagination */
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
 
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
@@ -1777,7 +1802,7 @@ sup.tooltip {
     border: 1px solid #7c8f8c;
     text-align: left;
     padding: 5px;
-    padding-bottom: 30px; /* This is important so there is always space to touch and select*/ 
+    padding-bottom: 30px; /* This is important so there is always space to touch and select*/
     user-select: none;
 }
 

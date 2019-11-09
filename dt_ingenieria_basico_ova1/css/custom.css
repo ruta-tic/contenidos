@@ -4,6 +4,48 @@
     margin-top: 20px;
 }
 
+#pag-uso .ctrl-pagination p {
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+}
+
+#pag-ciclo #videoinfo {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+#pag-ciclo #videoinfo video {
+    width: 100%;
+}
+
+#pag-ciclo #videoinfo > div {
+    position: absolute;
+    top: 17%;
+}
+
+#pag-ciclo #videoinfo > div i {
+    color: #fff;
+    font-size: 25px;
+}
+
+#pag-ciclo #videoinfo > div i:hover {
+    color: #00ff00;
+}
+
+#pag-ciclo #videoinfo > div.i1 {
+    left: 42%;
+}
+
+#pag-ciclo #videoinfo > div.i2 {
+    left: 65%;
+}
+
+#pag-ciclo #videoinfo > div.i3 {
+    left: 87%;
+}
+
 /********************************************************************************/
 /* Actividad Clasificar, formato de marcador.
 /********************************************************************************/

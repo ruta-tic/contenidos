@@ -14,9 +14,9 @@ jpit.activities.check.instances = [];
 
 
 
-jpit.activities.check.toString = function(){    
+jpit.activities.check.toString = function(){
     return  'jpit.activities.check';
-}; 
+};
 
 /**
  * Class activity
@@ -108,7 +108,7 @@ jpit.activities.check.init = function (container, words, properties) {
             }
 
             this.current_word = this.getRandomWord();
-            this.box_word.text(this.current_word.text);
+            this.box_word.html(this.current_word.text);
             this.current_word.used = true;
         },
 
@@ -239,7 +239,7 @@ jpit.activities.check.init = function (container, words, properties) {
 /**
  * Class word
  * Namespace jpit.activities.check
- * 
+ *
  * This class is used to manage a word in the board
  */
 jpit.activities.check.word = function (text, res) {
