@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2></h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Tipos de tecnologías" data-page="pag-tipos-tec"></menuitem>
+                    <menuitem label="Las TIC" data-page="pag-las-tic"></menuitem>
+                    <menuitem label="Clasificación por niveles" data-page="pag-clas-niveles"></menuitem>
+                    <menuitem label="Características" data-page="pag-caracteristicas"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-tipos-tec" ptitle="Tipos de tecnologías">
+                <div class="subpage">
+                    <h3>Tipos de tecnologías por área de aplicación</h3>
+                    <p>Para introducir el concepto de "tecnología" consideremos la siguiente descripción:</p>
+                    <cite>"La tecnología es el sistema de conocimientos y de información derivado de la investigación, de la experimentación o de la experiencia y que, unido a los métodos de producción, comercialización y gestión que le son propios, permite crear una forma reproducible o generar nuevos o mejorados productos, procesos o servicios". Benavides, 1998.</cite>
+                    <p>En este sentido, los productos, procesos y servicios que se generan a partir de las tecnologías se enfocan en áreas específicas y permiten a las ingenierías emplearlas de acuerdo con su aplicación. Por eso, iniciaremos clasificando algunas tecnologías según el objetivo de su uso o el fin para el cual son desarrolladas.</p>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <h5>Clasifique las tecnologías</h5>
+                        <p>Comencemos por entender un poco los tipos de tecnología más comunes en áreas relacionadas con la ingeniería. Realice una clasificación de la siguiente lista de tecnologías en las categorías que se han dispuesto, esto le ayudará a ir enmarcando los conceptos de aquellas tecnologías que son de principal interés en este módulo, es decir, las de la información y las de la comunicación:</p>
+                    </div>
+                    <div id="clasificar" class="jpit-activities-multidroppable" data-act-title="Arrastrar y soltar múltiple" data-act-id="act_mdrag">
+                        <div class="box_targets ctrl-pagination" data-orientation="horizontal">
+                            <li>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_clasificacion_de_informacion.png" alt="De información">
+                                        <h5>De información</h5>
+                                    </div>
+                                    <div data-target-group="1" class="target"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_clasificacion_manufactura_de_productos.png" alt="Manufactura de productos">
+                                        <h5>Manufactura de productos</h5>
+                                    </div>
+                                    <div data-target-group="2" class="target"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_energia.png" alt="Energía">
+                                        <h5>Energía</h5>
+                                    </div>
+                                    <div data-target-group="3" class="target"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_clasificacion_agricultura_ecologia.png" alt="Agricultura, ecología y alimentación">
+                                        <h5>Agricultura, ecología y alimentación</h5>
+                                    </div>
+                                    <div data-target-group="4" class="target"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_entretenimiento.png" alt="Entretenimiento">
+                                        <h5>Entretenimiento</h5>
+                                    </div>
+                                    <div data-target-group="5" class="target"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_transporte.png" alt="Transporte">
+                                        <h5>Transporte</h5>
+                                    </div>
+                                    <div data-target-group="6" class="target"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="title">
+                                        <img src="content/01_actividad_comunicacion.png" alt="Comunicación">
+                                        <h5>Comunicación</h5>
+                                    </div>
+                                    <div data-target-group="7" class="target"></div>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <feedback>
+                            <correct>¡Así es! Un ingeniero utiliza múltiples tecnologías para lograr su objetivo y cada una suele ser la suma de varias tecnologías, por eso su categoría la determina su uso principal.</correct>
+                            <wrong>No todas las asociaciones fueron correctas. Aunque varias de las tecnologías pueden tener aplicación o soportarse en diferentes tipos de tecnologías, es importante identificarlas de acuerdo con sun uso principal.</wrong>
+                        </feedback>
+                        <div class="box_end"></div>
+                        <div class="sources">
+                            <div data-group="2">Impresión 3D</div>
+                            <div data-group="4">Genética de microorganismos</div>
+                            <div data-group="3">Atmosférica</div>
+                            <div data-group="6">Vehículos autónomos</div>
+                            <div data-group="3">Paneles solares</div>
+                            <div data-group="4">Plantas transgénicas</div>
+                            <div data-group="7">Internet</div>
+                            <div data-group="1">Inteligencia artificial</div>
+                            <div data-group="7">Espectro electromagnético</div>
+                            <div data-group="5">Consolas de videojuego</div>
+                            <div data-group="4">Elementos biodegradables</div>
+                            <div data-group="2">Exoesqueletos</div>
+                            <div data-group="6">Drones</div>
+                            <div data-group="5">Realidad aumentada</div>
+                            <div data-group="6">Trenes supersónicos</div>
+                            <div data-group="1">Bases de datos</div>
+                            <div data-group="1">Minería de datos</div>
+                            <div data-group="3">Combustibles alternativos</div>
+                            <div data-group="5">Sonido envolvente</div>
+                            <div data-group="7">Teléfonos inteligentes</div>
+                            <div data-group="2">Brazos robóticos</div>
+                        </div>
+                    </div>
+                    <div class="text-image">
+                        <p>Existen entonces varios tipos de tecnologías que pueden tener aplicación o ser de interés para diferentes ingenierías. No obstante, dado el vasto universo de tecnologías que tienen  aplicación en el campo, en este módulo nos concentraremos en aquellas que son transversales y aplicadas por los ingenieros  independientemente de su área profesional, e incluso cualquiera sea la fase del proyecto que se esté desarrollando; estas son las tecnologías de la Información y la comunicación (TIC). Todas las ingenierías emplean tecnologías de la información, y a su vez requieren transmitir dicha información, empleando tecnologías de comunicación.</p>
+                        <img src="content/01_incorrecto-02.png" alt="TIC">
+                    </div>
+                    <div class="box-text connection">
+                        <p>
+                            Por este motivo, y con el fin de delimitar un poco el alcance y profundidad que se verá en este módulo, abordaremos las TIC como la combinación de estas tecnologías.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-las-tic" ptitle="Las TIC">
+                <div class="subpage">
+                    <h3>Las TIC</h3>
+                    <div class="box-text connection">
+                        <p>
+                            A continuación, se presenta la definición de TIC desde varios puntos de vista, resaltando algunos de sus conceptos clave.
+                        </p>
+                    </div>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <h5>Construyamos el concepto de TIC</h5>
+                        <p>A continuación, encontrará unas definiciones con espacios en blanco. El objetivo es identificar la palabra apropiada que dé sentido a la definición del concepto, considerando que cada término es clave para entender aquello que se define. De la lista que aparece en cada espacio, seleccione la palabra que considere adecuada y valide la respuesta.</p>
+                    </div>
+                    <p>De acuerdo con la definición de TIC dada por el Gobierno de Colombia a través del Ministerio de Tecnologías de la Información y las Comunicaciones, entenderemos por TIC:</p>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span">
+                        <p>
+                            "Las Tecnologías de la Información y las Comunicaciones (TIC), son el conjunto de recursos,
+                            <span>
+                                <select>
+                                    <option>propiedades</option>
+                                    <option data-response="true">herramientas</option>
+                                    <option>valores</option>
+                                </select>
+                            </span>
+                            , equipos, programas informáticos, aplicaciones, redes y medios, que permiten la compilación, procesamiento, almacenamiento,
+                            <span>
+                                <select>
+                                    <option data-response="true">transmisión</option>
+                                    <option>evaluación</option>
+                                    <option>creación</option>
+                                </select>
+                            </span>
+                            de
+                            <span>
+                                <select>
+                                    <option>números</option>
+                                    <option data-response="true">información</option>
+                                    <option>datos</option>
+                                </select>
+                            </span>
+                            como voz,
+                            <span>
+                                <select>
+                                    <option>ecuaciones</option>
+                                    <option>encuestas</option>
+                                    <option data-response="true">datos</option>
+                                </select>
+                            </span>
+                            , texto, video e imágenes." Ley  1341 de 2009, Artículo 6.
+                        </p>
+
+                        <feedback>
+                            <correct>¡Muy bien! Es importante clarificar el concepto de TIC para reconocer su abordaje desde la política nacional.</correct>
+                            <wrong>No todas las asociaciones fueron correctas. Valide muy bien sus respuestas para que pueda clarificar el concepto de TIC desde la política nacional.</wrong>
+                        </feedback>
+                        <div class="box_end"></div>
+                    </div>
+                    <p>Puede verse que en esta definición se contempla una gran cantidad de herramientas tecnológicas que son necesarias, o por lo menos útiles, para las labores del ingeniero en Colombia.</p>
+                    <p>Desde otro punto de vista, según Valderrama (2017):</p>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span">
+                        <p>
+                            "La característica principal de las TIC es que es una
+                            <span>
+                                <select>
+                                    <option>definición</option>
+                                    <option>renovación</option>
+                                    <option data-response="true">fusión</option>
+                                </select>
+                            </span>
+                            de tecnologías que permiten tanto la representación y el procesamiento de la información en un medio
+                            <span>
+                                <select>
+                                    <option>lógico</option>
+                                    <option>físico</option>
+                                    <option data-response="true">digital</option>
+                                </select>
+                            </span>
+                            como la
+                            <span>
+                                <select>
+                                    <option data-response="true">transmisión</option>
+                                    <option>fusión</option>
+                                    <option>información</option>
+                                </select>
+                            </span>
+                            de la misma con otras personas mediante el uso de
+                            <span>
+                                <select>
+                                    <option>medios convencionales</option>
+                                    <option data-response="true">la red</option>
+                                    <option>cualquier medio</option>
+                                </select>
+                            </span>
+                            . Es justamente esta posibilidad de almacenar y
+                            <span>
+                                <select>
+                                    <option data-response="true">almacenar y transferir</option>
+                                    <option>gestionar y eliminar</option>
+                                    <option>solicitar y transformar</option>
+                                </select>
+                            </span>
+                            la información, lo que transformó muchas de las actividades y dio origen a la sociedad del conocimiento."
+                        </p>
+
+                        <feedback>
+                            <correct>¡Muy bien!  Identificar características de las TIC ayudará a reconocer mejor su aplicación en el campo de la ingeniería.</correct>
+                            <wrong>Hay respuestas incorrectas. Procure identificar mejor las características de las TIC mencionadas en el texto, pues esto le ayudará a reconocer su aplicación en el campo de la ingeniería.</wrong>
+                        </feedback>
+                        <div class="box_end"></div>
+                    </div>
+                    <div class="box-text connection">
+                        <p>Ahora, revise la aplicación práctica de esta definición con la siguiente actividad:</p>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <h5>Suma de  tecnologías para obtener soluciones</h5>
+                        <p>A continuación, encontrará una lista de ecuaciones que debe completar para obtener el resultado apropiado. Observe cada uno de los conceptos y tome de la lista ubicada en la parte inferior aquel que considere apropiado para completar la ecuación correcta y obtener un producto o servicio moderno que combine tecnologías de la información con tecnologías de la comunicación. Preste mucha atención a las definiciones de los conceptos para que pueda identificar cuáles serían las combinaciones más pertinentes.</p>
+                    </div>
+                    <div id="suma-drag" class="jpit-activities-droppable" data-layer-height="180px" data-orientation="horizontal" data-act-id="arrastrar-suma">
+                        <div class="ctrl-pagination">
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando" data-target-group="1"></div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Internet
+                                        <div class="more-less viewless" data-ref="#def-internet">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total">
+                                        Educación virtual
+                                        <div class="more-less viewless" data-ref="#def-edu-virtual">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando">
+                                        Base de datos médica
+                                        <div class="more-less viewless" data-ref="#def-bd-medica">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Teléfono inteligente
+                                        <div class="more-less viewless" data-ref="#def-tel-inteligente">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total" data-target-group="2"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando" data-target-group="3"></div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Intranet
+                                        <div class="more-less viewless" data-ref="#def-intranet">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total">
+                                        Contabilidad en línea
+                                        <div class="more-less viewless" data-ref="#def-cont-linea">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando">
+                                        Música
+                                        <div class="more-less viewless" data-ref="#def-musica">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando" data-target-group="4"></div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total">
+                                        Emisora radial
+                                        <div class="more-less viewless" data-ref="#def-emi-radial">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando">
+                                        Catálogo de productos
+                                        <div class="more-less viewless" data-ref="#def-cat-products">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Internet
+                                        <div class="more-less viewless" data-ref="#def-internet">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total" data-target-group="5"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando" data-target-group="6"></div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Internet
+                                        <div class="more-less viewless" data-ref="#def-internet">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total">
+                                        Supervisión a distancia
+                                        <div class="more-less viewless" data-ref="#def-sup-dist">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="suma">
+                                    <div class="sumando">
+                                        Inteligencia artificial
+                                        <div class="more-less viewless" data-ref="#def-ia">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-mas03.png" alt="Suma">
+                                    <div class="sumando">
+                                        Internet
+                                        <div class="more-less viewless" data-ref="#def-internet">
+                                            <span class="icon_more button"></span>
+                                            <span class="icon_less button"></span>
+                                        </div>
+                                    </div>
+                                    <img src="content/02arrastrar_y_soltar-menos04.png" alt="Igual">
+                                    <div class="total" data-target-group="7"></div>
+                                </div>
+                            </li>
+                        </div>
+                        <div class="definiciones">
+                            <div id="def-lms"><strong>LMS:</strong> "Learning Management System" o sistema de gestión de aprendizaje. Hace referencia a plataformas que permiten la organización y administración de cursos o recursos educativos de manera virtual.</div>
+                            <div id="def-internet"><strong>Internet:</strong> Red de comunicación a nivel mundial que permite la transmisión de datos a través de diversos protocolos de comunicación.</div>
+                            <div id="def-edu-virtual"><strong>Educación virtual:</strong> Hace referencia a la formación a distancia y en algunos casos asíncrona, permitiendo incluso el diálogo con los formadores y otros estudiantes.</div>
+                            <div id="def-bd-medica"><strong>Base de datos médica:</strong> repositorio estadísticos y de historias clínicas que permite identificar algunos síntomas o comportamientos de determinadas variables o estados de salud.</div>
+                            <div id="def-tel-inteligente"><strong>Teléfono inteligente:</strong> dispositivo de comunicación que integra software apropiado para procesamiento y comunicación de información.</div>
+                            <div id="def-telmon-salud"><strong>Telemonitoreo en salud:</strong> revisión a distancia de indicadores de salud de pacientes.</div>
+                            <div id="def-sis-contable"><strong>Sistema contable:</strong> software encargado del cálculo y registro de la contabilidad.</div>
+                            <div id="def-intranet"><strong>Intranet:</strong> red de conexión de dispositivos al interior de una organización.</div>
+                            <div id="def-cont-linea"><strong>Contabilidad en línea:</strong> servicio de registro y supervisión de la contabilidad de una organización desde cualquier equipo que haga parte de la red.</div>
+                            <div id="def-musica"><strong>Música:</strong> Combinación de sonidos que buscan transmitir algún tipo de mensaje o sensación.</div>
+                            <div id="def-esp-electmag"><strong>Espectro electromagnético:</strong> campo de emisión de ondas que permite el envío de información a determinadas frecuencias.</div>
+                            <div id="def-emi-radial"><strong>Emisora radial:</strong> canal de transmisión de una lista de canciones de manera continua.</div>
+                            <div id="def-cat-products"><strong>Catálogo de productos:</strong> conjunto de productos o servicios que ofrece un proveedor o vendedor, con sus respectivas características.</div>
+                            <div id="def-t-virtual"><strong>Tienda virtual:</strong> plataforma para la promoción y venta de productos a distancia.</div>
+                            <div id="def-videocam"><strong>Videocámaras:</strong> dispositivos para la captación o grabación de videos.</div>
+                            <div id="def-sup-dist"><strong>Supervisión a distancia:</strong> control o vigilancia de espacios sin necesidad de estar de manera presencial en ellos.</div>
+                            <div id="def-ia"><strong>Inteligencia artificial:</strong> conjunto de algoritmos que procesan información simulando los procesos del cerebro.</div>
+                            <div id="def-iot"><strong>IoT:</strong> "Internet of Things" o internet de las cosas. Sistema de interconexión entre dispositivos cotidianos a través del internet, permitiendo enviar información de los datos almacenados por cada uno.</div>
+                        </div>
+                        <div class="suma-opciones">
+                            <div data-group="1">
+                                LMS
+                                <div class="more-less viewless" data-ref="#def-lms">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="2">
+                                Telemonitoreo en salud
+                                <div class="more-less viewless" data-ref="#def-telmon-salud">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="3">
+                                Sistema contable
+                                <div class="more-less viewless" data-ref="#def-sis-contable">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="4">
+                                Espectro electromagnético
+                                <div class="more-less viewless" data-ref="#def-esp-electmag">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="5">
+                                Tienda virtual
+                                <div class="more-less viewless" data-ref="#def-t-virtual">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="6">
+                                Videocámaras
+                                <div class="more-less viewless" data-ref="#def-videocam">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                            <div data-group="7">
+                                IoT
+                                <div class="more-less viewless" data-ref="#def-iot">
+                                    <span class="icon_more button"></span>
+                                    <span class="icon_less button"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <feedback>
+                            <correct>¡Perfecto! La combinación correcta de tecnologías de la información con tecnologías de la comunicación permite obtener productos o servicios modernos como los ejemplos que se acaban de abordar.</correct>
+                            <wrong>Es posible mejorar. Busque la combinación correcta de tecnologías de la información con tecnologías de la comunicación para que pueda obtener productos o servicios modernos como los ejemplos que se han abordado.</wrong>
+                        </feedback>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-clas-niveles" ptitle="Clasificación por niveles">
+                <div class="subpage">
+                    <h3>Una vista por niveles</h3>
+                    <p>Otra forma de ver las TIC es mediante la suma de las tecnologías empleadas por nivel para permitir que sean una realidad. Serralde Romero (2010) propone tres categorías de tecnologías que soportan las TIC:</p>
+                    <div class="niveles">
+                        <div class="lvls-hover">
+                            <div id="hvr-redes">
+                                <h5>Redes</h5>
+                                <p>Se refieren a las tecnologías que permiten la transmisión de la información de una terminal a otra y usan el espectro electromagnético o redes cableadas para dicho fin.</p>
+                            </div>
+                            <div id="hvr-terminales">
+                                <h5>Terminales</h5>
+                                <p>Hacen referencia a las tecnologías propias de los equipos que permiten la recepción, procesamiento y transmisión de la información, tales como sistemas operativos, reproductores multimedia, navegadores de internet, plataformas de envío de correos electrónicos, entre otros.</p>
+                            </div>
+                            <div id="hvr-servicios">
+                                <h5>Servicios</h5>
+                                <p>Son las tecnologías que emplean la información transmitida e inicialmente procesada para dar cumplimiento a un fin específico y facilitar las tareas del usuario.</p>
+                            </div>
+                        </div>
+                        <div class="image-levels mouse-over-one">
+                            <div class="servicios" data-ref="#hvr-servicios"></div>
+                            <div class="terminales" data-ref="#hvr-terminales"></div>
+                            <div class="redes" data-ref="#hvr-redes"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <p>Las TIC, propiamente dichas, están integradas por tecnologías en cada uno de estos niveles. En el siguiente infográfico se muestran, como ejemplo, algunos de los servicios definidos anteriormente mediante tecnologías en cada uno de los niveles mencionados.</p>
+                    <div class="ecuaciones">
+                        <img src="content/ecuaciones_01.png" alt="Educación Virtual">
+                        <img src="content/ecuaciones_02.png" alt="Telemonitoreo en salud">
+                        <img src="content/ecuaciones_03.png" alt="Contabilidad en línea">
+                        <img src="content/ecuaciones_04.png" alt="Emisora radial">
+                        <img src="content/ecuaciones_05.png" alt="Tienda virtual">
+                        <img src="content/ecuaciones_05 copia.png" alt="Supervisión a distancia">
+                        <img src="content/ecuaciones_06.png" alt="IoT">
+                    </div>
+                    <p>Lo anterior no quiere decir que solamente se pueda usar una tecnología en cada nivel para obtener el servicio, de hecho, hay muchas tecnologías que pueden entrar a competir para solventar el servicio de otra manera; tal es el caso de las emisoras en internet y la contabilidad empresarial en la nube, entre otros. La mayoría de las veces los servicios tienden a converger sobre un nivel de red específico: el internet, y las terminales cada vez convergen más en los dispositivos móviles.</p>
+                    <p>En adelante, se seguirá haciendo énfasis principalmente en el nivel de servicios, que es el que tiene una relación directa con el usuario final. Generalmente, el nivel de redes y terminales pueden ser vistos más como niveles de soporte que no se abordarán de manera específica, pero que son necesarios para garantizar la prestación de dichos servicios.</p>
+                </div>
+            </section>
+
+            <section id="pag-caracteristicas" ptitle="Características">
+                <div class="subpage">
+                    <h3>Características de las TIC</h3>
+                    <p>Considerando que las TIC se presentan de manera transversal para su utilización en las ingenierías, es importante identificar las características que las describen para conocer su importancia y uso potencial.</p>
+                    <div class="box-text connection">
+                        <p>Identifique cuáles de las siguientes características son propias y definen las TIC:</p>
+                    </div>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <h5>¿Caracteriza o no las TIC?</h5>
+                        <p>A continuación, se presentará una serie de características. Si usted considera que se trata de una característica que define las TIC arrástrela hacia la izquierda; en caso contrario, hacia la derecha.</p>
+                    </div>
+                    <div id="caracteristicas-tic-drop" class="jpit-activities-multidroppable" data-act-title="Arrastrar y soltar múltiple" data-act-id="caracteristicas-tic-drag">
+                        <div class="caracteristicas-tic box_targets">
+                            <div class="option si">
+                                <span>Si</span>
+                                <div data-target-group="1" class="target"></div>
+                            </div>
+                            <div class="options">
+                                <span>¿Caracteríza o no las TIC?</span>
+                                <div class="sources">
+                                    <div data-group="1">Alternativa al manejo de la información en diferentes formatos.</div>
+                                    <div data-group="1">Facilita la búsqueda y transmisión de la información.</div>
+                                    <div data-group="1">Autonomía en el manejo del tiempo.</div>
+                                    <div data-group="1">Diversidad de información.</div>
+                                    <div data-group="2">Cualquier persona puede emplearlas adecuadamente sin capacitación o conocimiento previo.</div>
+                                    <div data-group="2">Disminuyen el consumo de energía eléctrica.</div>
+                                    <div data-group="1">Proporcionan diferentes herramientas de comunicación.</div>
+                                    <div data-group="2">No requieren conectividad.</div>
+                                    <div data-group="2">Disminuyen los riesgos del robo de información.</div>
+                                    <div data-group="1">Disponibilidad en cualquier lugar en el que haya acceso a la red.</div>
+                                    <div data-group="1">Corrección y revisión sincrónica de la información.</div>
+                                    <div data-group="2">Realizan funciones que no son realizadas por otros sistemas o conjunto de personas.</div>
+                                    <div data-group="2">Evitan cualquier tipo de distracción.</div>
+                                </div>
+                            </div>
+                            <div class="option no">
+                                <span>No</span>
+                                <div data-target-group="2" class="target"></div>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <feedback>
+                            <correct>Efectivamente, las TIC permiten acceso y gestión de información desde diferentes ubicaciones, y comunicar o consultar dicha información en tiempo real desde una gran cantidad de dispositivos. Pero esto conlleva ciertos riesgos y dificultades que deben considerarse para aprovechar, de la mejor forma, sus ventajas.</correct>
+                            <wrong>¡Intente de nuevo! Considere características propias de las TIC que a su vez introducen riesgos o limitaciones. Por ejemplo, la posibilidad de trabajar a distancia introduce la necesidad de una conexión casi permanente a internet, lo que a su vez aumenta las distracciones al tener disponible, de forma permanente, el acceso a redes sociales, juegos en línea, comunicación sincrónica tipo chat, entre otros. A su vez, el poder acceder a la información desde diferentes ubicaciones y dispositivos aumenta el riesgo de que personas ajenas accedan a dicha información.</wrong>
+                        </feedback>
+                        <div class="box_end"></div>
+                        <div class="box-text important" label="En síntesis...">
+                            <p>El uso continuo de las TIC es inminente en los procesos asociados a cualquier campo de la ingeniería y la importancia de su uso en el ejercicio profesional radica en que no solo satisface las necesidades, sino la solución de problemas y la mejora de procesos, siendo una tecnología esencial y transversal a todas las áreas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Wilber Alberto Gil Moreno</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Sigifredo Escobar Gómez</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>&lt; &gt;</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <cite>Departamento Administrativo de Ciencia, Tecnología e Innovación<br>
+                    COLCIENCIAS<br>
+                    Gobierno de Colombia</cite>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br />
+                2ª edición: octubre 2015<br />
+                3ª edición: febrero 2016<br />
+                4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>C. A. Benavides, Tecnología, Innovación y Empresa. Madrid: Ediciones Pirámide, 1998.</li>
+                <li>MinTIC, Cuenta Satélite de las Tecnologías de la Información y las Comunicaciones, Gobierno de Colombia, 2018.</li>
+                <li>Á. Valderrama, De qué hablamos cuando hablamos de TIC, Universidad de Antioquia - Ude@ Educación Virtual, 2017.</li>
+                <li>C. Serralde Romero, Clasificación de las tecnologías de la información y la comunicación, Universidad de Guadalajara, 2010.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+/********************************************************************************/
+/* Actividad de clasificación
+/********************************************************************************/
+
+#clasificar li {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#clasificar .title {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    width: 250px;
+}
+
+#clasificar h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 2px dotted #95B0CB;
+    word-wrap: break-word;
+}
+
+#clasificar .item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 2em;
+}
+
+#clasificar .item .target {
+    border-radius: 0.5em;
+    min-height: 150px;
+    overflow: auto;
+    width: 200px;
+}
+
+#clasificar.jpit-activities-multidroppable .sources {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em auto 0;
+    width: 100%;
+}
+
+#clasificar.jpit-activities-multidroppable .draggable {
+    background-color: #e2f3f4;
+    border: 2px solid #2199d1;
+    border-radius: 1em;
+    margin: 0 1px 5px;
+    padding: 1em;
+    width: 165px;
+}
+
+#clasificar .box_targets .draggable.disabled {
+    cursor: default;
+}
+
+#clasificar.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+.text-image {
+    align-items: flex-start;
+    border-top: 1px dotted black;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3em 0;
+    padding: 3em 0;
+}
+
+.text-image p {
+    text-align: justify;
+    max-width: 50%;
+}
+
+/********************************************************************************/
+/* Actividad TIC
+/********************************************************************************/
+.jpit-activities-cloze {
+    margin: 2em auto;
+    width: 80%;
+}
+
+.jpit-activities-cloze p {
+    line-height: 2.2em;
+    text-align: justify;
+}
+
+/********************************************************************************/
+/* Actividad suma
+/********************************************************************************/
+.definiciones>div {
+    background-color: #f3f3f3;
+    border: 1px solid #2199d1;
+    border-radius: 1em;
+    display: none;
+    margin: 2em auto;
+    padding: 2em;
+    width: 80%;
+}
+.suma {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.suma .sumando, .suma .total, .jpit-activities-droppable .draggable {
+    align-items: center;
+    background-color: #e2f3f4;
+    border: 2px solid #2199d1;
+    border-radius: 1em;
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 200px;
+    word-wrap: break-word;
+}
+.suma-opciones {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.suma .droppable {
+    background-color: #d7d8dc;
+    border: 1px dashed gray;
+}
+.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+    color: black;
+    margin: 0;
+}
+
+/********************************************************************************/
+/* Clasificación por niveles
+/********************************************************************************/
+.niveles {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+}
+.niveles .image-levels {
+    background-image: url('../content/una_vista_por_niveles_imagen.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: center;
+    width: 437px;
+}
+.niveles .image-levels > div {
+    height: 20%;
+}
+.niveles .lvls-hover {
+    width: 45%;
+}
+.niveles .lvls-hover p {
+    text-align: justify;
+}
+.niveles .lvls-hover > div {
+    display: none;
+}
+
+/********************************************************************************/
+/* Ecuaciones
+/********************************************************************************/
+.ecuaciones {
+    margin: 2em 0;
+}
+.ecuaciones > img {
+    display: block;
+    margin: 0 auto;
+}
+
+/********************************************************************************/
+/* Características TIC
+/********************************************************************************/
+#caracteristicas-tic-drop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.caracteristicas-tic {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.caracteristicas-tic > div {
+    width: 30%;
+}
+.caracteristicas-tic .draggable,
+.caracteristicas-tic .options span {
+    border-radius: 1em;
+    margin: 1em 0;
+    padding: 1em;
+}
+.caracteristicas-tic .draggable {
+    background-color: #e2f3f4;
+    border: 2px solid #2199d1;
+    user-select: none;
+}
+.caracteristicas-tic .option {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.caracteristicas-tic .option > span {
+    background-color: #163e4a;
+    border-radius: 50% 50% 0 0;
+    color: #ffffff;
+    padding: 1em 1em 0.5em;
+}
+.caracteristicas-tic .option > div {
+    border: 1px dashed gray;
+    border-radius: 1em;
+    height: 100%;
+    width: 100%;
+}
+.caracteristicas-tic .options span {
+    display: block;
+    background-color: #dcdcdd;
+    border: 2px solid #879592;
+    margin: 0 auto;
+    max-width: 70%;
+    text-align: center;
+}
