@@ -402,6 +402,11 @@ dhbgApp.mobile.start = function() {
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
+        if ($this.hasClass('draggable') &&
+            !$this.hasClass('jpit_activities_jpitdroppable_dropped')) {
+            return;
+        }
+
         if (w) {
             var window_w = $(window).width();
             if (w.indexOf('%') >= 0) {
@@ -1389,7 +1394,7 @@ dhbgApp.mobile.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide();
+            //$start.hide();
         });
 
     };
@@ -2661,7 +2666,7 @@ dhbgApp.mobile.load_operations = function() {
             $this.find('feedback').empty();
 
             var activityOptions = {
-                'autoResolve': false,
+                'autoResolve': true,
                 'continueResolve': false,
                 'holdCorrects': false,
                 'multiTarget': 1,
@@ -3175,11 +3180,13 @@ dhbgApp.mobile.load_operations = function() {
 
         var properties = {
             "onfinished": function (a) {
-                var weight = Math.round(a.countCorrect() * 100 / a.words.length);
+//                 var weight = Math.round(a.countCorrect() * 100 / a.words.length);
+                // El peso se deja siempre a 100% para este OVA porque se definió que todas las respuestas son correctas.
+                var weight = 100;
 
-                if (a.finishedAll()) {
-                    weight = 100;
-                }
+//                 if (a.finishedAll()) {
+//                     weight = 100;
+//                 }
 
                 if (dhbgApp.scorm) {
                     dhbgApp.scorm.activityAttempt(scorm_id, weight);

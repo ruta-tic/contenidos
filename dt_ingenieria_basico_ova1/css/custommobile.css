@@ -1,185 +1,162 @@
-/********************************************************************************/
-/* Actividad arrastrar y soltar - apareamiento
-/********************************************************************************/
-
-#jpit_activities_sortable_1_board {
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 59% 39%;
-}
-
-#jpit_activities_sortable_1_board .column1,
-#jpit_activities_sortable_1_board .column2 {
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-rows: 1fr;
-    grid-gap: 2px;
-}
-
-#jpit_activities_sortable_1_board .column1 {
-
-}
-
-#jpit_activities_sortable_1_board .column2 {
-
-}
-
-#jpit_activities_sortable_1_board .fixed_cell {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-}
-
-#jpit_activities_sortable_1_board .fixed_cell .content {
-    text-align: justify;
-}
-
-#jpit_activities_sortable_1_board .fixed_cell .content strong {
-    text-align: center;
-    display: block;
-}
-
-#jpit_activities_sortable_1_board .column2 li[data-position] {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    border: solid 1px #ccc;
-    border-radius: 10px;
-}
-
-#jpit_activities_sortable_1_board .column2 .sortable_item {
-    margin: 5px;
-    text-align: justify;
-}
-
-#jpit_activities_sortable_1_board .box_end,
-#jpit_activities_sortable_1_board .verify_container {
-    grid-column: 1 / span 2;
-}
-
-/********************************************************************************/
-/* Interactivo pirámide
-/********************************************************************************/
-#piramide-miller {
-    margin-bottom: 50px;
-}
-
-.titulo-piramide {
-    text-align: center;
-    font-size: 25px;
-    color: #333;
-}
-
-#piramide div {
-    text-align: center;
-}
-
-#piramide div img {
-    filter: grayscale(1);
-    max-width: 100%;
-}
-
-#piramide div img.active,
-#piramide div img.current {
-    filter: grayscale(0);
-}
-
-.info-piramide {
-    display: flex;
-}
-
-.info-piramide h5 {
-    font-size: x-large;
-}
-
-#piramide-hacer {
-    border: 2px solid #e49525;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#piramide-hacer h5 {
-    color: #e49525;
-}
-
-#piramide-mostrarcomo {
-    border: 2px solid #bd6a3c;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#piramide-mostrarcomo h5 {
-    color: #bd6a3c;
-}
-
-#piramide-sabercomo {
-    border: 2px solid #28519e;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#piramide-sabercomo h5 {
-    color: #28519e;
-}
-
-#piramide-saber {
-    border: 2px solid #3db3af;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#piramide-saber h5 {
-    color: #3db3af;
-}
-
-#nationalboard .box_media img {
-    cursor: pointer;
-}
-
-#nationalboard .box_media img:hover {
-    transform: scale(0.9);
-    filter: grayscale(0.5);
-}
-
-#nationalboard .wf-content {
-    padding: 20px;
-    overflow: auto;
-}
-
-#nationalboard .wf-content img {
-    margin-right: 20px;
-}
-
-/********************************************************************************/
-/* Actividad Quiz
-/********************************************************************************/
-
-.pag-actividades-cuestionario .chalkboard_content {
-    min-height: 350px;
-    height: auto;
-}
-
-.jpit_activities_quiz_question_statement {
-    background-color: #fff;
-    border: 3px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.jpit_activities_quiz_question_feedback {
-    display: block;
+#pag-uso blockquote {
+    max-width: 300px;
+    float: right;
     margin-top: 20px;
 }
 
-.jpit_activities_quiz_question_feedback_all {
-    background-color: #fff;
-    border: 2px solid #eee;
-    padding: 20px;
-    text-align: left;
+#pag-uso .ctrl-pagination p {
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
 }
 
-.jpit_activities_quiz_question_feedback_true,
-.jpit_activities_quiz_question_feedback_false {
-    display: flex;
+#pag-ciclo #videoinfo {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+#pag-ciclo #videoinfo video {
+    width: 100%;
+}
+
+#pag-ciclo #videoinfo > div {
+    position: absolute;
+    top: 17%;
+}
+
+#pag-ciclo #videoinfo > div i {
+    color: #fff;
+    font-size: 25px;
+}
+
+#pag-ciclo #videoinfo > div i:hover {
+    color: #00ff00;
+}
+
+#pag-ciclo #videoinfo > div.i1 {
+    left: 42%;
+}
+
+#pag-ciclo #videoinfo > div.i2 {
+    left: 65%;
+}
+
+#pag-ciclo #videoinfo > div.i3 {
+    left: 87%;
+}
+
+/********************************************************************************/
+/* Actividad Clasificar, formato de marcador.
+/********************************************************************************/
+.jpit-activities-check {
+    border: 2px solid;
+    border-radius: 20px;
+    background-color: #F2F2F1;
+    padding: 10px;
+}
+
+.jpit-activities-check .check_left .word_content {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+.jpit-activities-check .check_left .word_content p {
+    line-height: 25px;
+}
+
+.jpit-activities-check .buttons {
+    text-align: center;
+}
+
+.jpit-activities-check .buttons button.yes,
+.jpit-activities-check .buttons button.not {
+    font-size: 30px;
+}
+
+.jpit-activities-check .box_conclution {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+/********************************************************************************/
+/* Actividad rompecabes.
+/********************************************************************************/
+#rompezabezas {
+    max-width: 600px;
+    margin: auto;
+}
+
+#rompezabezas .targets {
+    width: 100%;
+    padding-bottom: 60%;
+}
+
+#rompezabezas .target {
+    float: left;
+    padding: 0 0 33% 0;
+    width: 33.33%;
+    box-shadow: 0 0 1px #999;
+    border: none;
+    position: relative;
+}
+
+#rompezabezas .target.t1,
+#rompezabezas .target.t2 {
+    width: 50%;
+}
+
+#rompezabezas .partes {
+    width: 100%;
+}
+
+#rompezabezas .partes > div {
+    margin: 10px;
+}
+
+#rompezabezas [data-content] {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 33.33%;
+    padding: 0 0 33% 0;
+    float: left;
+    border: none;
+}
+
+#rompezabezas .parte1,
+#rompezabezas .parte2 {
+    width: 50%;
+}
+
+#rompezabezas .jpit_activities_jpitdroppable_dropped {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute !important;
+}
+
+#rompezabezas .jpit_activities_jpitdroppable_dropped:hover {
+    opacity: 0.8;
+}
+
+#rompezabezas .parte1 {
+    background-image: url(../content/parte1.png);
+}
+
+#rompezabezas .parte2 {
+    background-image: url(../content/parte2.png);
+}
+
+#rompezabezas .parte3 {
+    background-image: url(../content/parte3.png);
+}
+
+#rompezabezas .parte4 {
+    background-image: url(../content/parte4.png);
+}
+
+#rompezabezas .parte5 {
+    background-image: url(../content/parte5.png);
 }

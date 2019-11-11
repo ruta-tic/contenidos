@@ -23,6 +23,7 @@
     <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
     <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
     <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
 
 
     <script src="js/app.js"></script>
@@ -61,7 +62,7 @@
 
 </head>
 
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -271,7 +272,7 @@
                         <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic sobre</span> cada ícono <i title="Información" class="ion-information-circled"></i> para ampliar la información sobre la tecnología</div>
 
                         <div id="videoinfo">
-                            <video loop autoplay="autoplay">
+                            <video loop controls autoplay="autoplay">
                                 <source src="content/ciclo_vida_tecnologias.mp4" type="video/mp4">
                             </video>
 
@@ -341,146 +342,182 @@
                 <div class="subpage">
                     <p>El ingeniero, independiente de su área disciplinar, debe estar preparado, capacitarse y realizar un rastreo de las tecnologías que surgen en su área. Esto tiene varios propósitos que se identificaran a continuación.</p>
 
-                    <div class="jpit-activities-check">
-                        <words>
-                            <li data-val="true">
-                                Identificar tecnologías básicas y emergentes, con el fin de evaluar si son aplicables en su área disciplinar y en qué medida, para satisfacer las necesidades de los usuarios.
+                    <div class="box-text activity" label="Identifica los propósitos">
+                        <p>A continuación, se presentarán varios propósitos. Identifique cuáles de ellos son motivantes de la búsqueda de tecnologías en los ingenieros. Seleccione <strong>Sí</strong> si considera que es un propósito motivante, o <strong>No</strong> en caso contrario.</p>
 
-                                <div class="box_media">
-                                    <img src="content/actividad_clasificar-02.png" />
-                                </div>
-                            </li>
-                            <li data-val="true">
-                                Diseñar e implementar soluciones basadas en tecnologías, integrándolas en el entorno de usuario.
-
-                                    <div class="box_media">
-                                        <img src="content/actividad_clasificar-03.png" />
+                        <div class="jpit-activities-check" data-act-id="1-check" data-act-title="Identifica los propósitos">
+                            <words>
+                                <li data-val="true">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p>
+                                                Identificar tecnologías básicas y emergentes, con el fin de evaluar si son aplicables en su área disciplinar y en qué medida, para satisfacer las necesidades de los usuarios.
+                                            </p>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="box_media">
+                                                <img src="content/actividad_clasificar-02.png" />
+                                            </div>
+                                        </div>
                                     </div>
-                            </li>
-                            <li data-val="true">
-                                Analizar, identificar y definir los requisitos que debe cumplir un sistema informático para solucionar un problema o una necesidad de su área disciplinar.
 
-                                    <div class="box_media">
-                                        <img src="content/actividad_clasificar-04.png" />
+                                </li>
+                                <li data-val="true">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p>
+                                                Diseñar e implementar soluciones basadas en tecnologías, integrándolas en el entorno de usuario.
+                                            </p>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="box_media">
+                                                <img src="content/actividad_clasificar-03.png" />
+                                            </div>
+                                        </div>
                                     </div>
-                            </li>
-                            <li data-val="true">
-                                Investigar e integrar continuamente aquellas tecnologías que aportan a mejorar los procesos, productos o servicios en los cuales participa.
+                                </li>
+                                <li data-val="true">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p>
+                                                Analizar, identificar y definir los requisitos que debe cumplir un sistema informático para solucionar un problema o una necesidad de su área disciplinar.
+                                            </p>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="box_media">
+                                                <img src="content/actividad_clasificar-04.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-val="true">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p>
+                                                Investigar e integrar continuamente aquellas tecnologías que aportan a mejorar los procesos, productos o servicios en los cuales participa.
+                                            </p>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="box_media">
+                                                <img src="content/actividad_clasificar-05.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
 
-                                    <div class="box_media">
-                                        <img src="content/actividad_clasificar-05.png" />
+                            </words>
+                            <div class="board">
+                                <div class="check_left">
+                                    <div class="play">
+                                        <div class="word_content"> </div>
+                                        <div class="buttons">
+                                            <button class="yes general">Sí</button>
+                                            <button class="not general">No</button>
+                                        </div>
                                     </div>
-                            </li>
-
-                        </words>
-                        <div class="board">
-                            <div class="check_left">
-                                <div class="play">
-                                    <p>A continuación, se presentarán varios propósitos. Identifique cuáles de ellos son motivantes de la búsqueda de tecnologías en los ingenieros. Seleccione Sí si considera que es un propósito motivante, o No en caso contrario.
-                                    </p>
-                                    <div class="word_content"> </div>
-                                    <div class="buttons">
-                                        <button class="yes general">Sí</button>
-                                        <button class="not general">No</button>
+                                    <div class="box_conclution">
+                                        <h3>¡Ha finalizado!</h3>
+                                        <p>Cada ingeniero puede tener sus razones que despiertan el interés o la necesidad de hacer la búsqueda de la información. Aunque consideramos que todas las razones anteriores son válidas y deberían estar presentes en el interés de los ingenieros, las características de cada uno pueden dar mayor o menor relevancia a cada una de ellas. Ahora pregúntese: ¿Son un propósito en su trabajo o en la aplicación de su rol de ingeniero? ¿Qué otras razones le motivan a investigar y a apropiarse de nuevas tecnologías?
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="box_conclution">
-                                    <h3>¡Ha finalizado!</h3>
-                                    <p>Cada ingeniero puede tener sus razones que despiertan el interés o la necesidad de hacer la búsqueda de la información. Aunque consideramos que todas las razones anteriores son válidas y deberían estar presentes en el interés de los ingenieros, las características de cada uno pueden dar mayor o menor para cada una de ellas. Ahora pregúntese: ¿Son un propósito en su trabajo o en la aplicación de su rol de ingeniero? ¿Qué otras razones le motivan a investigar y a apropiarse de nuevas tecnologías?
-                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                     </div>
+               </div>
             </section>
 
             <section id="pag-consideraciones" ptitle="Aspectos a tener en cuenta para la selección de tecnologías digitales">
                 <div class="subpage">
-                    <p>Antes de seleccionar una tecnología, lo primero que se debe tener claro son las necesidades o requerimientos que esta atenderá y las características deseables de la misma. Al momento de tomar decisiones relacionadas con la selección
-                        de una tecnología para apoyar alguno de los procesos para el desarrollo de un producto o la prestación de un servicio, los aspectos a tener en cuenta son:
+                    <p>Antes de seleccionar una tecnología, lo primero que se debe tener claro son las necesidades o requerimientos que esta atenderá y las características deseables de la misma. Al momento de tomar decisiones relacionadas con la selección de una tecnología para apoyar alguno de los procesos para el desarrollo de un producto o la prestación de un servicio, los aspectos a tener en cuenta son:
                     </p>
-
 
                     <div class="box-text activity" label="Adopción de tecnologías digitales">
                         <p>
                             Arrastre cada una de las fichas del rompecabezas para conocer las consideraciones que debe tener al momento de adoptar una tecnología digital.
                         </p>
-                        <!--Lo siguiente es un rompecabezas, mientrastanto, se disposieron los contenidos del rompecabezas que se abrirían en ventana modal-->
-                        <div class="w-content-controler general" data-content="#0ventana_textos_modal">
-                            Elaborar un plan tecnológico detallado
-                        </div>
-                        <div id="0ventana_textos_modal" class="w-content">
-                            <h3>Elaborar un plan tecnológico detallado
-                            </h3>
-                            <p>
-                                Una de las preguntas que debemos hacernos al momento de seleccionar una tecnología es cómo se integrará en los procesos y las aplicaciones existentes. Para dar solución a esta, se debe tener un plan detallado que permita comprender las tecnologías que
-                                actualmente se utilizan para llevar a cabo el o los procesos en los cuales se utilizará la solución tecnológica, e identificar las aplicaciones que potencialmente se verán afectadas si estas se usan.
-                            </p>
-                            <p>Es importante que las tecnologías que se propongan tengan un impacto neutro o positivo para los usuarios finales y aquellas personas encargadas de coordinar o liderar el proceso que está siendo intervenido.
-                            </p>
-                        </div>
 
-                        <div class="w-content-controler general" data-content="#11ventana_textos_modal">
-                            La compatibilidad es esencial
-                        </div>
-                        <div id="11ventana_textos_modal" class="w-content">
-                            <h3>La compatibilidad es esencial</h3>
-                            <p>La tecnología seleccionada debe funcionar en el entorno existente. En este sentido, una consideración clave al momento de seleccionar una tecnología es su capacidad para adaptarse de forma rentable al entorno en donde será
-                                utilizada y a los procesos existentes.</p>
-                        </div>
+                        <div id="rompezabezas" class="jpit-activities-droppable" data-act-id="2-drop" data-act-title="Adopción de tecnologías digitales" data-verify-type="target">
+                            <div class="targets">
+                                <div class="target t1" data-target-group="1"></div>
+                                <div class="target t2" data-target-group="2"></div>
+                                <div class="target t3" data-target-group="3"></div>
+                                <div class="target t4" data-target-group="4"></div>
+                                <div class="target t5" data-target-group="5"></div>
+                            </div>
+                            <br class="clear" />
+                            <div class="box_end"></div>
 
+                            <div class="partes">
+                                <div class="w-content-controler general parte1" data-group="1"  data-content="#0ventana_textos_modal"></div>
+                                <div class="w-content-controler general parte2" data-group="2" data-content="#11ventana_textos_modal"></div>
+                                <div class="w-content-controler general parte3" data-group="3" data-content="#22ventana_textos_modal"></div>
+                                <div class="w-content-controler general parte4" data-group="4" data-content="#44ventana_textos_modal"></div>
+                                <div class="w-content-controler general parte5" data-group="5" data-content="#55ventana_textos_modal"></div>
+                                <br class="clear" />
+                            </div>
 
-                        <div class="w-content-controler general" data-content="#22ventana_textos_modal">
-                            Evitar la primera generación de una tecnología
-                        </div>
-                        <div id="22ventana_textos_modal" class="w-content">
-                            <h3>Evitar la primera generación de una tecnología
-                            </h3>
-                            <p>Cualquier nueva tecnología necesitará tiempo para mejorar, pues sería poco rentable que la implementación y soporte cambiara rápidamente. Adoptar la primera generación de una tecnología aumentará los costos de implementación
-                                debido al precio adicional que hay que pagar por el know-how, el producto propiamente dicho y el soporte que supone integrar productos poco maduros en un entorno.
-                            </p>
-                        </div>
+                            <feedback>
+                                <correct>Ha completado la actividad. Puede dar clic sobre cada ficha para ver de nuevo la información.</correct>
+                            </feedback>
 
+                            <div id="0ventana_textos_modal" class="w-content" data-property-width="400">
+                                <h3>Elaborar un plan tecnológico detallado
+                                </h3>
+                                <p>
+                                    Una de las preguntas que debemos hacernos al momento de seleccionar una tecnología es cómo se integrará en los procesos y las aplicaciones existentes. Para dar solución a esta, se debe tener un plan detallado que permita comprender las tecnologías que
+                                    actualmente se utilizan para llevar a cabo el o los procesos en los cuales se utilizará la solución tecnológica, e identificar las aplicaciones que potencialmente se verán afectadas si estas se usan.
+                                </p>
+                                <p>Es importante que las tecnologías que se propongan tengan un impacto neutro o positivo para los usuarios finales y aquellas personas encargadas de coordinar o liderar el proceso que está siendo intervenido.
+                                </p>
+                            </div>
 
-                        <div class="w-content-controler general" data-content="#44ventana_textos_modal">
-                            Usabilidad
-                        </div>
-                        <div id="44ventana_textos_modal" class="w-content">
-                            <h3>Usabilidad</h3>
-                            <p>Este criterio se centra en mejorar la satisfacción de todos los usuarios del lugar y para ello contempla los siguientes elementos:
-                            </p>
-                            <ul class="datalist">
-                                <li><strong>Diseño de la interfaz</strong>: la presentación gráfica de la herramienta es agradable, y su entorno de trabajo permite una fácil navegación y ubicación de los elementos que la conforman.
-                                </li>
-                                <li><strong>Facilidad de aprendizaje</strong>: indica la manera en que los nuevos usuarios interactúan y comprenden las funcionalidades que ofrece la herramienta, es decir, si es sencilla e intuitiva al usar.
-                                </li>
-                                <li><strong>Flexibilidad</strong>: hace referencia a las opciones que ofrece la herramienta para personalizarla y configurarla a las necesidades del usuario.
-                                </li>
-                                <li><strong>Accesibilidad</strong>: capacidad de la herramienta para que sea accesible a personas con necesidades educativas especiales.
-                                </li>
-                            </ul>
-                        </div>
+                            <div id="11ventana_textos_modal" class="w-content" data-property-width="400">
+                                <h3>La compatibilidad es esencial</h3>
+                                <p>La tecnología seleccionada debe funcionar en el entorno existente. En este sentido, una consideración clave al momento de seleccionar una tecnología es su capacidad para adaptarse de forma rentable al entorno en donde será
+                                    utilizada y a los procesos existentes.</p>
+                            </div>
 
-                        <div class="w-content-controler general" data-content="#55ventana_textos_modal">
-                            Soporte y mantenimiento
-                        </div>
-                        <div id="55ventana_textos_modal" class="w-content">
-                            <h3>Soporte y mantenimiento
-                            </h3>
-                            <p>Hace énfasis en las funcionalidades ofrecidas por el sistema para la conservación y almacenamiento seguro de la información, además del servicio proporcionado una vez ha sido implantado.
-                            </p>
-                            <ul class="datalist">
-                                <li><strong>Medio de soporte</strong>:existe un espacio para contactar a los creadores de la herramienta con el fin de reportar inconvenientes con la misma la misma.
-                                </li>
-                                <li><strong>Soporte</strong>: se identifica un equipo de soporte y mantenimiento (comunidad en general) que se ocupa de actualizar la herramienta.
-                                </li>
-                                <li><strong>Actualización</strong>:hace referencia a la fecha en la cual se generó la última versión de la herramienta y a la disponibilidad de las diferentes versiones con su respectiva fecha.
-                                </li>
-                            </ul>
+                            <div id="22ventana_textos_modal" class="w-content" data-property-width="400">
+                                <h3>Evitar la primera generación de una tecnología
+                                </h3>
+                                <p>Cualquier nueva tecnología necesitará tiempo para mejorar, pues sería poco rentable que la implementación y soporte cambiara rápidamente. Adoptar la primera generación de una tecnología aumentará los costos de implementación
+                                    debido al precio adicional que hay que pagar por el know-how, el producto propiamente dicho y el soporte que supone integrar productos poco maduros en un entorno.
+                                </p>
+                            </div>
 
-                        </div>
+                            <div id="44ventana_textos_modal" class="w-content" data-property-width="400">
+                                <h3>Usabilidad</h3>
+                                <p>Este criterio se centra en mejorar la satisfacción de todos los usuarios del lugar y para ello contempla los siguientes elementos:
+                                </p>
+                                <ul class="datalist">
+                                    <li><strong>Diseño de la interfaz</strong>: la presentación gráfica de la herramienta es agradable, y su entorno de trabajo permite una fácil navegación y ubicación de los elementos que la conforman.
+                                    </li>
+                                    <li><strong>Facilidad de aprendizaje</strong>: indica la manera en que los nuevos usuarios interactúan y comprenden las funcionalidades que ofrece la herramienta, es decir, si es sencilla e intuitiva al usar.
+                                    </li>
+                                    <li><strong>Flexibilidad</strong>: hace referencia a las opciones que ofrece la herramienta para personalizarla y configurarla a las necesidades del usuario.
+                                    </li>
+                                    <li><strong>Accesibilidad</strong>: capacidad de la herramienta para que sea accesible a personas con necesidades educativas especiales.
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <div id="55ventana_textos_modal" class="w-content" data-property-width="400">
+                                <h3>Soporte y mantenimiento
+                                </h3>
+                                <p>Hace énfasis en las funcionalidades ofrecidas por el sistema para la conservación y almacenamiento seguro de la información, además del servicio proporcionado una vez ha sido implantado.
+                                </p>
+                                <ul class="datalist">
+                                    <li><strong>Medio de soporte</strong>:existe un espacio para contactar a los creadores de la herramienta con el fin de reportar inconvenientes con la misma la misma.
+                                    </li>
+                                    <li><strong>Soporte</strong>: se identifica un equipo de soporte y mantenimiento (comunidad en general) que se ocupa de actualizar la herramienta.
+                                    </li>
+                                    <li><strong>Actualización</strong>:hace referencia a la fecha en la cual se generó la última versión de la herramienta y a la disponibilidad de las diferentes versiones con su respectiva fecha.
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -527,16 +564,12 @@
 
             <div>
                 <h3>Investigación y desarrollo de contenidos</h3>
-                <cite>Lina María González Duque<br />
-                    Catalina Echeverry Querubín</cite>
-            </div>
-            <div>
-                <h3>Asesoría pedagógica</h3>
-                <cite>Diana Patricia Ospina Pineda</cite>
+                <cite>Wilmer Alberto Gil Moreno<br />
+                David Herney Bernal García</cite>
             </div>
             <div>
                 <h3>Guionización</h3>
-                <cite>Betsabé Lema Ospina</cite>
+                <cite>Carolina Llanos Tobón</cite>
             </div>
             <div>
                 <h3>Corrección de estilo</h3>
@@ -553,8 +586,7 @@
             <div>
                 <h3>Integración de contenidos</h3>
                 <cite>
-                    Mariana Múnera Manco<br />
-
+                    Mariana Múnera Manco
                 </cite>
             </div>
             <div>
