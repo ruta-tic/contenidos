@@ -1,46 +1,45 @@
+.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+    color: black;
+    margin: 0;
+}
+
 /********************************************************************************/
 /* Actividad de clasificación
 /********************************************************************************/
-
-#clasificar li {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 #clasificar .title {
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 1em;
-    width: 250px;
+    width: 100%;
 }
 
 #clasificar h5 {
     text-align: center;
-    font-size: 16px;
+    font-size: 35px;
     color: #000;
     border-bottom: 2px dotted #95B0CB;
     word-wrap: break-word;
+    margin: 0 20px;
 }
 
 #clasificar .item {
     align-items: center;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 2em;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 0 10px;
 }
 
 #clasificar .item .target {
-    border-radius: 0.5em;
-    min-height: 150px;
-    overflow: auto;
-    width: 200px;
+    border-radius: 15px;
+    height: 53px;
+    width: 195px;
+    padding: 0;
+    background-color: #fff;
 }
 
-#clasificar.jpit-activities-multidroppable .sources {
+#clasificar.jpit-activities-droppable .sources {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -49,23 +48,28 @@
     width: 100%;
 }
 
-#clasificar.jpit-activities-multidroppable .draggable {
+#clasificar.jpit-activities-droppable .draggable {
     background-color: #e2f3f4;
     border: 2px solid #2199d1;
     border-radius: 1em;
     margin: 0 1px 5px;
     padding: 1em;
     width: 165px;
+    height: 23px;
 }
 
 #clasificar .box_targets .draggable.disabled {
     cursor: default;
 }
 
-#clasificar.jpit-activities-multidroppable .buttons {
+#clasificar.jpit-activities-droppable .buttons {
     text-align: center;
     padding: 5px 0;
     clear: both;
+}
+
+#clasificar .draggable.jpit_activities_jpitdroppable_dropped {
+    margin: -1px 0 0 -1px;
 }
 
 .text-image {
@@ -112,7 +116,9 @@
     display: flex;
     justify-content: center;
 }
-.suma .sumando, .suma .total, .jpit-activities-droppable .draggable {
+.suma .sumando,
+.suma .total,
+.jpit-activities-droppable .draggable {
     align-items: center;
     background-color: #e2f3f4;
     border: 2px solid #2199d1;
@@ -134,9 +140,11 @@
 .suma .droppable {
     background-color: #d7d8dc;
     border: 1px dashed gray;
+    height: 50px;
+    padding: 0;
 }
-.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
-    color: black;
+
+.suma .jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
     margin: 0;
 }
 

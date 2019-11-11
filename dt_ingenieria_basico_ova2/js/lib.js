@@ -1601,7 +1601,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
-        dhbgApp.loadPage(0, 0);
+        dhbgApp.loadPage(1, 0);
     }
 };
 
@@ -2484,7 +2484,7 @@ dhbgApp.standard.load_operations = function() {
         $this.find('feedback').empty();
 
         var activityOptions = {
-            'autoResolve': false,
+            'autoResolve': true,
             'continueResolve': false,
             'holdCorrects': false,
             'multiTarget': 1,
