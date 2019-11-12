@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA 3. Tecnologías emergentes</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA 3. Tecnologías emergentes</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Tecnologías emergentes" data-page="pag-tecnologias"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-tecnologías" ptitle="Tecnologías emergentes">
+                <div class="subpage">
+                    <p>
+                        Se entiende por <strong>tecnologías emergentes</strong> aquellas que están surgiendo y aún no se han afianzado por completo, pero que generan expectativa e, incluso, pueden significar un cambio en los paradigmas. Quienes las adoptan
+                        asumen un riesgo al explorar con ellas nuevas posibilidades, pero a su vez, estarían a la vanguardia y pueden llegar a alcanzar la exploración de “terrenos desconocidos”. A continuación, se describen las tecnologías emergentes
+                        que presentan una aplicación moderna en la ingeniería.
+                    </p>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada uno de los elementos para ampliar la información.</div>
+
+                    <div id="pasos-opciones" class="mouse-over-one">
+                        <div class="button b1 current" data-ref="#pasos-contenido .p1">
+                            <img src="content/boton_tecnologías_industria.png" alt="">
+                        </div>
+                        <div class="button b2" data-ref="#pasos-contenido .p2">
+                            <img src="content/boton_evolucion_web.png" alt="">
+                        </div>
+                    </div>
+
+                    <br class="clear" />
+
+                    <div id="pasos-contenido">
+                        <div class="element p1">
+                            <h5>Las tecnologías en la Industria 4.0</h5>
+                            <div>
+                                <div class="row pordecoracion">
+                                    <div class="col-2">
+                                        <p>Los cambios en la tecnología son constantes; permanentemente se desarrollan nuevas herramientas y se adaptan a los cambios culturales partiendo de las necesidades del ser humano y la sociedad en general. Esos cambios
+                                            son graduales, sin embargo, cuando se habla de Industria, se han establecido cuatro grandes momentos que identifican estos cambios, los cuales comienzan a plantearse desde la invención de la máquina de vapor
+                                            y, más específicamente, desde que comenzó su uso en la industria. Otros hitos tecnológicos han marcado época hasta el punto de que hoy se habla de la existencia de cuatro revoluciones industriales y, más claramente,
+                                            de la Industria 4.0.</p>
+                                        <p>La Industria 4.0 hace referencia a las organizaciones que esperan satisfacer las necesidades de sus usuarios aprovechando la producción en masa, pero con tal flexibilidad de que sus productos y servicios posean
+                                            un alto grado de personalización; esto lo logran empleando sistemas cibernéticos y de alta tecnología, automatizando sus procesos y utilizando las redes de información para vincular objetos reales y personas
+                                            con objetos virtuales (1).
+                                        </p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="box_media">
+                                            <img src="content/tecnologias_industria_40.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Queda pendiente ajustar linea de tiempo de acuerdo a la propuesta entregada por la diseñadora-->
+
+                            <div>
+                                <div class="box-text activity" label="Conozca las revoluciones industriales">
+                                    <p>
+                                        La Industria 4.0 o Cuarta Revolución Industrial se manifiesta por el avance que ha tenido la tecnología a partir de grandes hitos, como son:
+                                    </p>
+                                </div>
+
+                                <div class="section-4Content ">
+                                    <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-1">
+                                        <h5>Primera Revolución Industrial</h5>
+                                        <div>
+                                            <div id="recurso-1"></div>
+                                        </div>
+                                    </div>
+                                    <div id="ventana_textos_modal-recurso-1" class="w-content" data-property-width="800" title="Primera Revolución Industrial (S. XIX)">
+                                        <div class="modal-recurso">
+                                            <div>
+                                                <img src="./content/primera_revolucion.png" alt="">
+                                                <p><cite>Pepe Bescós. “Locomotora de Vapor”. [Imagen]. <br> Recuperada de <a href="https://bit.ly/2MGXdu5" target="_blank">https://bit.ly/2MGXdu5</a></cite></p>
+                                            </div>
+                                            <div>
+                                                <p><strong>Primera Revolución Industrial (S. XIX):</strong> aplicación de la máquina de vapor para la producción industrial y el transporte.</p>
+                                                <p>
+                                                    Con la invención de la máquina de vapor se genera la primera industrialización; aumenta la producción y se crean las primeras empresas, generando la migración de la población hacia los primeros centros urbanos y conformando las grandes ciudades. Así mismo,
+                                                    con la adaptación de la máquina de vapor al transporte se crean los ferrocarriles, permitiendo la conexión entre las nacientes ciudades y acelerando su crecimiento.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-2">
+                                        <h5>Segunda Revolución Industrial</h5>
+                                        <div>
+                                            <div id="recurso-2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ventana_textos_modal-recurso-2" class="w-content" data-property-width="800" title="Revolución Industrial (Primera mitad del S. XX)">
+                                        <div class="modal-recurso">
+                                            <div>
+                                                <img src="./content/segunda_revolucion.png" alt="">
+                                                <p><cite>Vehículo presentado en 1908 por el industrial Henry 
+                                                <br>Ford. [Imagen]. Recuperada de <a href="https://bit.ly/2MMPmv7 " target="_blank">https://bit.ly/2MMPmv7</a></cite></p>
+                                            </div>
+                                            <div>
+                                                <p><strong>Revolución Industrial (Primera mitad del S. XX):</strong> transformación de la producción a través de la cadena de montaje, permitiendo la especialización de las tareas.</p>
+                                                <p> Debido al crecimiento de las industrias y de las grandes ciudades, se incrementó la demanda de obreros o trabajadores que se ocuparan de la producción. No obstante, esta era algo lenta, ya que cada empleado
+                                                    se ocupaba de varias funciones en el proceso productivo y cada producto era creado uno a uno. A principios del siglo XX, Henry Ford implementó el sistema de producción en línea para la fabricación de
+                                                    automóviles y gracias a lo que hoy se conoce como “Cadena de producción” fue posible que cada empleado se encargara de una tarea específica y aumentara así la producción disminuyendo los costos, el tiempo
+                                                    y permitiendo que la oferta fuera más accesible para las personas, incluso de clase media. Esto permitió la especialización del trabajo y mejoró la calidad de los productos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-3">
+                                        <h5>Tercera Revolución Industrial</h5>
+                                        <div>
+                                            <div id="recurso-3"></div>
+                                        </div>
+                                    </div>
+                                    <div id="ventana_textos_modal-recurso-3" class="w-content" data-property-width="800" title="Tercera Revolución Industrial (Segunda mitad del S. XX)">
+                                        <div class="modal-recurso">
+                                            <div><img src="./content/tercera_revolucion.png" alt=""></div>
+                                            <div>
+                                                <p>
+                                                    <strong>Tercera Revolución Industrial (Segunda mitad del S. XX)</strong>: también conocida como la revolución de la informática y las telecomunicaciones.</p>
+                                                <p>
+                                                    Con la tecnología surgida luego de la Segunda Guerra Mundial, se presenta un avance en la computación y en las comunicaciones; se construyen grandes máquinas de cómputo y se mejoran las comunicaciones a distancia, permitiendo la agilización de los procesos
+                                                    y la seguridad en los mismos, y conectando al mundo entero a través del Internet y demás avances informáticos. Esto permitió una mayor oferta de productos y servicios a distancia, y disminuyó enormemente
+                                                    los costos de cálculo, operación y producción.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="section-4-box w-content-controler general" data-content="#ventana_textos_modal-recurso-4">
+                                        <h5>Cuarta Revolución Industrial</h5>
+                                        <div>
+                                            <div id="recurso-4"></div>
+                                        </div>
+                                    </div>
+                                    <div id="ventana_textos_modal-recurso-4" class="w-content" data-property-width="800" title="Tercera Revolución Industrial (Segunda mitad del S. XX)">
+                                        <div class="modal-recurso">
+                                            <div><img src="./content/cuarta_revolucion.png" alt=""></div>
+                                            <div>
+                                                <p>
+                                                    <strong>Cuarta Revolución Industrial (S. XXI)</strong>: automatización de los procesos, intercomunicación de los dispositivos (Internet de las cosas) y personalización de los productos.
+                                                </p>
+                                                <p>
+                                                    Al integrar algoritmos de procesamiento de información a grandes volúmenes de datos, surgen tecnologías que permiten la automatización de los procesos y reemplazan labores operativas que antes eran realizadas por personas, aumentando la capacidad y disminuyendo
+                                                    el tiempo de producción. De igual manera, comienza a recolectarse y analizarse la información a través de los mismos productos o dispositivos creados bajo estas tecnologías, permitiendo un mayor contacto
+                                                    y comunicación directa con los usuarios, y una mejora constante en la oferta. De esta forma, las tecnologías de la información y la comunicación adquieren gran importancia y se proyectan como las tecnologías
+                                                    de vanguardia.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element p2">
+                            <h5>La evolución de la web</h5>
+                            <div>
+                                <p>La evolución más reciente de la Industria también se ha visto marcada por una evolución en la comunicación a través de las redes, lo que conlleva a la definición de los diferentes tipos de Web:</p>
+                            </div>
+
+                            <div class="ctrl-pagination" data-layer-max-height="380px" data-labelcurrent="true">
+                                <li>
+                                    <strong>Web 1.0</strong> centrada en los contenidos. Su comunicación es principalmente unidireccional y plenamente informativa. Fue el inicio de la comunicación a través del uso de la Internet en donde se accedía a
+                                    una página web y se recibía información de ella sin mucha interacción.
+                                </li>
+                                <li>
+                                    <strong>Web 2.0</strong> centrada en lo social. Se afianzan las interacciones con el usuario, quien pasa a tener un rol más activo con la información de los sitios web. Se da un gran impulso a la interacción entre personas
+                                    con herramientas enfocadas al trabajo colaborativo y a la socialización de los contenidos, donde entran a jugar un papel de gran relevancia las redes sociales y los sitios para compartir y construir a <em>varias manos</em>.
+                                </li>
+                                <li>
+                                    <strong>Web 3.0</strong> centrada en las necesidades individuales. Introduce conceptos como la web semántica, las tecnología en la nube, la conexión multidispositivo, entre otros. Se presenta como una web inteligente
+                                    que recoge, transmite y proporciona información y servicios a los usuarios de manera personalizada y ajustada a las necesidades de cada usuario de acuerdo con la variedad de dispositivos.
+                                </li>
+                                <li>
+
+                                    <!--Queda pendiente configurar la retroalimentación de la actividad-->
+
+                                    <div class="box-text activity" label="Identificando las características de la Web">
+                                        <p>
+                                            Catalogue los siguientes conceptos de acuerdo con el momento en el que surgieron o en el que tuvieron mayor relevancia:
+                                        </p>
+                                    </div>
+                                    <div id="act5" class="jpit-activities-multidroppable" data-act-id="5-componentes" data-act-title="Identificando las características de la Web">
+
+                                        <div class="box_targets">
+                                            <div class="caracteristicas">
+                                                <div class="subtitulo sub1">Web 1.0</div>
+                                                <div class="sombra">
+                                                    <div class="target" data-target-group="1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="caracteristicas">
+                                                <div class="subtitulo sub2">Web 2.0</div>
+                                                <div class="sombra">
+                                                    <div class="target" data-target-group="2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="caracteristicas">
+                                                <div class="subtitulo sub3">Web 3.0</div>
+                                                <div class="sombra">
+                                                    <div class="target" data-target-group="3"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box_end"></div>
+                                        <div class="buttons">
+                                            <button class="general verify">Validar</button>
+                                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                                        </div>
+                                        <div class="sources">
+                                            <div class="caracteristica" data-group="2">Wiki</div>
+                                            <div class="caracteristica" data-group="1">Boletines digitales</div>
+                                            <div class="caracteristica" data-group="2">Blog</div>
+                                            <div class="caracteristica" data-group="3">Servicios con geolocalización</div>
+                                            <div class="caracteristica" data-group="1">Páginas web corporativas</div>
+                                            <div class="caracteristica" data-group="2">Chat</div>
+                                            <div class="caracteristica" data-group="3">Canales de streaming personalizados</div>
+                                            <div class="caracteristica" data-group="1">Buscadores</div>
+                                            <div class="caracteristica" data-group="2">Redes sociales</div>
+                                            <div class="caracteristica" data-group="3">Publicidad dirigida</div>
+                                            <div class="caracteristica" data-group="1">Bancos de contenido multimedia</div>
+                                            <div class="caracteristica" data-group="2">Podcast</div>
+                                            <div class="caracteristica" data-group="3">Telemedicina</div>
+                                            <div class="caracteristica" data-group="2">Multimedia interactiva</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="not_print">
+        <span id="labelmeasuringprogress">Avance</span>
+        <div class="measuring-progress" data-type="circle"></div>
+
+        <nav label="General" class="globals2">
+            <menu>
+                <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+            </menu>
+        </nav>
+
+        <div id="subpages_menu">
+            <div class="button" previous-page></div>
+            <ul class="button" subpages-menu></ul>
+            <div class="button" next-page></div>
+        </div>
+
+        <div id="page_number"></div>
+    </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Wilber Alberto Gil Moreno</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Alejandro Morales Gallo</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión Administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada
+                    </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: octubre de 2019
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>T. Devezas, J. Leitão, A. Sarygulov, Industry 4.0. Cham: Springer International Publishing, 2017. Disponible en <a href="http://link.springer.com/10.1007/978-3-319-49604-7" target="_blank">http://link.springer.com/10.1007/978-3-319-49604-7</a></li>
+                <li>DE247 Digital Engineering 2019. Disponible en <a href="https://www.digitalengineering247.com" target="_blank">https://www.digitalengineering247.com</a></li>
+                <li>C. Serralde Romero, Clasificación de las tecnologías de la información y la comunicación, Universidad de Guadalajara, 2010.</li>
+                <li>MinTIC, Cuenta Satélite de las Tecnologías de la Información y las Comunicaciones, Gobierno de Colombia, 2018.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
