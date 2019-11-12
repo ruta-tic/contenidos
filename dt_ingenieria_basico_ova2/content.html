@@ -7,11 +7,6 @@
     <title>OVA. Las TIC en la ingeniería</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
@@ -34,24 +29,14 @@
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
     <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
 
@@ -81,7 +66,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -125,9 +110,10 @@
                         <p>Solamente las tecnologías que estén bien clasificadas podrán ser ubicadas en la casilla respectiva.</p>
                     </div>
 
-                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las flechas a los lados para pasar entre tipos de tecnologías.</div>
-
                     <div id="clasificar" class="jpit-activities-droppable" data-verify-type="target" data-act-title="Clasifique las tecnologías" data-act-id="1-drag">
+
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las flechas a los lados para pasar entre tipos de tecnologías.</div>
+
                         <div class="box_targets ctrl-pagination" data-orientation="sides">
                             <li>
                                 <div class="item">
@@ -239,9 +225,16 @@
                             <div data-group="2">Brazos robóticos</div>
                         </div>
                     </div>
-                    <div class="text-image">
-                        <p>Existen entonces varios tipos de tecnologías que pueden tener aplicación o ser de interés para diferentes ingenierías. No obstante, dado el vasto universo de tecnologías que tienen  aplicación en el campo, en este módulo nos concentraremos en aquellas que son transversales y aplicadas por los ingenieros  independientemente de su área profesional, e incluso cualquiera sea la fase del proyecto que se esté desarrollando; estas son las tecnologías de la Información y la comunicación (TIC). Todas las ingenierías emplean tecnologías de la información, y a su vez requieren transmitir dicha información, empleando tecnologías de comunicación.</p>
-                        <img src="content/01_incorrecto-02.png" alt="TIC">
+
+                   <div class="row">
+                        <div class="col-2">
+                            <p>Existen entonces varios tipos de tecnologías que pueden tener aplicación o ser de interés para diferentes ingenierías. No obstante, dado el vasto universo de tecnologías que tienen  aplicación en el campo, en este módulo nos concentraremos en aquellas que son transversales y aplicadas por los ingenieros  independientemente de su área profesional, e incluso cualquiera sea la fase del proyecto que se esté desarrollando; estas son las tecnologías de la Información y la comunicación (TIC). Todas las ingenierías emplean tecnologías de la información, y a su vez requieren transmitir dicha información, empleando tecnologías de comunicación.</p>
+                        </div>
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/01_incorrecto-02.png" alt="TIC">
+                            </div>
+                        </div>
                     </div>
                     <div class="box-text connection">
                         <p>
@@ -370,7 +363,7 @@
                     </div>
                     <div id="suma-drag" class="jpit-activities-droppable" data-layer-height="180px" data-act-id="4-drag" data-act-title="Suma tecnologías para obtener soluciones">
 
-                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las flechas a los lados para pasar entre operaciones.</div>
+                        <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las flechas a los lados para pasar entre operaciones y <span class="onlymobile">toque</span><span class="notmobile">pase el mouse sobre</span> el ícono <i class="ion-information-circled"></i> para ver la definición del concepto.</div>
                         <div class="ctrl-pagination" data-orientation="sides">
                             <li>
                                 <div class="suma">
@@ -524,7 +517,7 @@
                         <div class="suma-opciones">
                             <div data-group="1">
                                 LMS
-                                <div class="tooltip" title="<strong>LMS:</strong> "Learning Management System" o sistema de gestión de aprendizaje. Hace referencia a plataformas que permiten la organización y administración de cursos o recursos educativos de manera virtual.">
+                                <div class="tooltip" title="<strong>LMS:</strong> 'Learning Management System' o sistema de gestión de aprendizaje. Hace referencia a plataformas que permiten la organización y administración de cursos o recursos educativos de manera virtual.">
                                     <i class="ion-information-circled"></i>
 
                                 </div>
@@ -566,7 +559,7 @@
                             </div>
                             <div data-group="7">
                                 IoT
-                                <div class="tooltip" title="<strong>IoT:</strong> "Internet of Things" o internet de las cosas. Sistema de interconexión entre dispositivos cotidianos a través del internet, permitiendo enviar información de los datos almacenados por cada uno.">
+                                <div class="tooltip" title="<strong>IoT:</strong> 'Internet of Things' o internet de las cosas. Sistema de interconexión entre dispositivos cotidianos a través del internet, permitiendo enviar información de los datos almacenados por cada uno.">
                                     <i class="ion-information-circled"></i>
 
                                 </div>
@@ -581,60 +574,107 @@
                 </div>
             </section>
 
-            <section id="pag-clas-niveles" ptitle="Clasificación por niveles">
+            <section id="pag-clas-niveles" ptitle="Una vista por niveles">
                 <div class="subpage">
-                    <h3>Una vista por niveles</h3>
                     <p>Otra forma de ver las TIC es mediante la suma de las tecnologías empleadas por nivel para permitir que sean una realidad. Serralde Romero (2010) propone tres categorías de tecnologías que soportan las TIC:</p>
                     <div class="niveles">
-                        <div class="lvls-hover">
-                            <div id="hvr-redes">
-                                <h5>Redes</h5>
-                                <p>Se refieren a las tecnologías que permiten la transmisión de la información de una terminal a otra y usan el espectro electromagnético o redes cableadas para dicho fin.</p>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada nivel de la gráfica para obtener más información.</div>
+                                <div class="image-levels mouse-over-one">
+                                    <div class="redes button current" data-ref="#hvr-redes"></div>
+                                    <div class="terminales button" data-ref="#hvr-terminales"></div>
+                                    <div class="servicios button" data-ref="#hvr-servicios"></div>
+                                </div>
                             </div>
-                            <div id="hvr-terminales">
-                                <h5>Terminales</h5>
-                                <p>Hacen referencia a las tecnologías propias de los equipos que permiten la recepción, procesamiento y transmisión de la información, tales como sistemas operativos, reproductores multimedia, navegadores de internet, plataformas de envío de correos electrónicos, entre otros.</p>
+                            <div class="col-2">
+                                <div class="lvls-hover">
+                                    <div id="hvr-redes">
+                                        <h5>Redes</h5>
+                                        <p>Se refieren a las tecnologías que permiten la transmisión de la información de una terminal a otra y usan el espectro electromagnético o redes cableadas para dicho fin.</p>
+                                    </div>
+                                    <div id="hvr-terminales" style="display: none;">
+                                        <h5>Terminales</h5>
+                                        <p>Hacen referencia a las tecnologías propias de los equipos que permiten la recepción, procesamiento y transmisión de la información, tales como sistemas operativos, reproductores multimedia, navegadores de internet, plataformas de envío de correos electrónicos, entre otros.</p>
+                                    </div>
+                                    <div id="hvr-servicios" style="display: none;">
+                                        <h5>Servicios</h5>
+                                        <p>Son las tecnologías que emplean la información transmitida e inicialmente procesada para dar cumplimiento a un fin específico y facilitar las tareas del usuario.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="hvr-servicios">
-                                <h5>Servicios</h5>
-                                <p>Son las tecnologías que emplean la información transmitida e inicialmente procesada para dar cumplimiento a un fin específico y facilitar las tareas del usuario.</p>
-                            </div>
-                        </div>
-                        <div class="image-levels mouse-over-one">
-                            <div class="servicios" data-ref="#hvr-servicios"></div>
-                            <div class="terminales" data-ref="#hvr-terminales"></div>
-                            <div class="redes" data-ref="#hvr-redes"></div>
                         </div>
                     </div>
                 </div>
+
                 <div class="subpage">
                     <p>Las TIC, propiamente dichas, están integradas por tecnologías en cada uno de estos niveles. En el siguiente infográfico se muestran, como ejemplo, algunos de los servicios definidos anteriormente mediante tecnologías en cada uno de los niveles mencionados.</p>
-                    <div class="ecuaciones">
-                        <img src="content/ecuaciones_01.png" alt="Educación Virtual">
-                        <img src="content/ecuaciones_02.png" alt="Telemonitoreo en salud">
-                        <img src="content/ecuaciones_03.png" alt="Contabilidad en línea">
-                        <img src="content/ecuaciones_04.png" alt="Emisora radial">
-                        <img src="content/ecuaciones_05.png" alt="Tienda virtual">
-                        <img src="content/ecuaciones_05 copia.png" alt="Supervisión a distancia">
-                        <img src="content/ecuaciones_06.png" alt="IoT">
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en</span> las opciones <span class="notmobile">de la izquierda</span> para ver más información.</div>
+                    <div class="vertical-menu ecuaciones">
+                        <dl>
+                            <dt>Educación Virtual</dt>
+                            <dd>
+                                <img src="content/ecuaciones_01.png" alt="Educación Virtual">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Telemonitoreo en salud</dt>
+                            <dd>
+                                <img src="content/ecuaciones_02.png" alt="Telemonitoreo en salud">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Contabilidad en línea</dt>
+                            <dd>
+                                <img src="content/ecuaciones_03.png" alt="Contabilidad en línea">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Emisora radial</dt>
+                            <dd>
+                                <img src="content/ecuaciones_04.png" alt="Emisora radial">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Tienda virtual</dt>
+                            <dd>
+                                <img src="content/ecuaciones_05.png" alt="Tienda virtual">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>IoT</dt>
+                            <dd>
+                                <img src="content/ecuaciones_06.png" alt="IoT">
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Supervisión a distancia</dt>
+                            <dd>
+                                <img src="content/ecuaciones_07.png" alt="Supervisión a distancia">
+                            </dd>
+                        </dl>
                     </div>
+
                     <p>Lo anterior no quiere decir que solamente se pueda usar una tecnología en cada nivel para obtener el servicio, de hecho, hay muchas tecnologías que pueden entrar a competir para solventar el servicio de otra manera; tal es el caso de las emisoras en internet y la contabilidad empresarial en la nube, entre otros. La mayoría de las veces los servicios tienden a converger sobre un nivel de red específico: el internet, y las terminales cada vez convergen más en los dispositivos móviles.</p>
-                    <p>En adelante, se seguirá haciendo énfasis principalmente en el nivel de servicios, que es el que tiene una relación directa con el usuario final. Generalmente, el nivel de redes y terminales pueden ser vistos más como niveles de soporte que no se abordarán de manera específica, pero que son necesarios para garantizar la prestación de dichos servicios.</p>
+
+                    <div class="box-text connection">
+                        <p>En adelante, se seguirá haciendo énfasis principalmente en el nivel de servicios, que es el que tiene una relación directa con el usuario final. Generalmente, el nivel de redes y terminales pueden ser vistos más como niveles de soporte que no se abordarán de manera específica, pero que son necesarios para garantizar la prestación de dichos servicios.</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="pag-caracteristicas" ptitle="Características">
+            <section id="pag-caracteristicas" ptitle="Características de las TIC">
                 <div class="subpage">
-                    <h3>Características de las TIC</h3>
+
                     <p>Considerando que las TIC se presentan de manera transversal para su utilización en las ingenierías, es importante identificar las características que las describen para conocer su importancia y uso potencial.</p>
                     <div class="box-text connection">
                         <p>Identifique cuáles de las siguientes características son propias y definen las TIC:</p>
                     </div>
-                    <div class="box-text activity" label="Actividad de aprendizaje">
-                        <h5>¿Caracteriza o no las TIC?</h5>
+                    <div class="box-text activity" label="¿Caracteriza o no las TIC?">
                         <p>A continuación, se presentará una serie de características. Si usted considera que se trata de una característica que define las TIC arrástrela hacia la izquierda; en caso contrario, hacia la derecha.</p>
                     </div>
-                    <div id="caracteristicas-tic-drop" class="jpit-activities-multidroppable" data-act-title="Arrastrar y soltar múltiple" data-act-id="caracteristicas-tic-drag">
+                    <div id="caracteristicas-tic-drop" class="jpit-activities-multidroppable" data-act-id="5-group" data-act-title="¿Caracteriza o no las TIC?">
                         <div class="caracteristicas-tic box_targets">
                             <div class="option si">
                                 <span>Si</span>
@@ -657,24 +697,25 @@
                                     <div data-group="2">Realizan funciones que no son realizadas por otros sistemas o conjunto de personas.</div>
                                     <div data-group="2">Evitan cualquier tipo de distracción.</div>
                                 </div>
+                                <div class="buttons">
+                                    <button class="general verify">Verificar</button>
+                                    <button class="general continue" style="display: none;">Continuar intentando</button>
+                                </div>
+                                <div class="box_end"></div>
                             </div>
                             <div class="option no">
                                 <span>No</span>
                                 <div data-target-group="2" class="target"></div>
                             </div>
                         </div>
-                        <div class="buttons">
-                            <button class="general verify">Verificar</button>
-                            <button class="general continue" style="display: none;">Continuar intentando</button>
-                        </div>
                         <feedback>
                             <correct>Efectivamente, las TIC permiten acceso y gestión de información desde diferentes ubicaciones, y comunicar o consultar dicha información en tiempo real desde una gran cantidad de dispositivos. Pero esto conlleva ciertos riesgos y dificultades que deben considerarse para aprovechar, de la mejor forma, sus ventajas.</correct>
                             <wrong>¡Intente de nuevo! Considere características propias de las TIC que a su vez introducen riesgos o limitaciones. Por ejemplo, la posibilidad de trabajar a distancia introduce la necesidad de una conexión casi permanente a internet, lo que a su vez aumenta las distracciones al tener disponible, de forma permanente, el acceso a redes sociales, juegos en línea, comunicación sincrónica tipo chat, entre otros. A su vez, el poder acceder a la información desde diferentes ubicaciones y dispositivos aumenta el riesgo de que personas ajenas accedan a dicha información.</wrong>
                         </feedback>
-                        <div class="box_end"></div>
-                        <div class="box-text important" label="En síntesis...">
-                            <p>El uso continuo de las TIC es inminente en los procesos asociados a cualquier campo de la ingeniería y la importancia de su uso en el ejercicio profesional radica en que no solo satisface las necesidades, sino la solución de problemas y la mejora de procesos, siendo una tecnología esencial y transversal a todas las áreas.</p>
-                        </div>
+                    </div>
+
+                    <div class="box-text important" label="En síntesis...">
+                        <p>El uso continuo de las TIC es inminente en los procesos asociados a cualquier campo de la ingeniería y la importancia de su uso en el ejercicio profesional radica en que no solo satisface las necesidades, sino la solución de problemas y la mejora de procesos, siendo una tecnología esencial y transversal a todas las áreas.</p>
                     </div>
                 </div>
             </section>
@@ -718,20 +759,14 @@
         <div id="credits_subpage">
             <h2>Créditos</h2>
 
-            <p>
-                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
-            </p>
             <div>
                 <h3>Investigación y desarrollo de contenidos</h3>
-                <cite>Wilber Alberto Gil Moreno</cite>
-            </div>
-            <div>
-                <h3>Asesoría pedagógica</h3>
-                <cite>Diana Patricia Ospina Pineda</cite>
+                <cite>Wilmer Alberto Gil Moreno<br />
+                David Herney Bernal García</cite>
             </div>
             <div>
                 <h3>Guionización</h3>
-                <cite>Betsabé Lema Ospina</cite>
+                <cite>Carolina Llanos Tobón</cite>
             </div>
             <div>
                 <h3>Corrección de estilo</h3>
@@ -751,7 +786,7 @@
             </div>
             <div>
                 <h3>Revisión de calidad</h3>
-                <cite>&lt; &gt;</cite>
+                <cite>Mauricio Arboleda</cite>
             </div>
             <div>
                 <h3>Gestión técnica y administrativa</h3>
@@ -761,37 +796,27 @@
 
             <div>
                 <h3>Producción</h3>
-                <cite>Departamento Administrativo de Ciencia, Tecnología e Innovación<br>
-                    COLCIENCIAS<br>
-                    Gobierno de Colombia</cite>
                 <p class="logos">
-                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
-                    <br />
-                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
-                    <br />
-                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
                 </p>
+                <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
             </div>
 
             <div class="editions">
-                1ª edición: diciembre 2013<br />
-                2ª edición: octubre 2015<br />
-                3ª edición: febrero 2016<br />
-                4ª edición: junio 2017
+                1ª edición: Octubre 2019<br />
             </div>
             <div>
-                <br />
-                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
-                <img src="img/cc.png" alt="Creative Commons" /></a><br />
-                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
             </div>
-
-            <p>
-                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
-            </p>
-            <p>
-                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
-            </p>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
         </div>
     </div>
 

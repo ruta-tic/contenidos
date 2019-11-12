@@ -116,6 +116,7 @@
     display: flex;
     justify-content: center;
 }
+
 .suma .sumando,
 .suma .total,
 .jpit-activities-droppable .draggable {
@@ -124,13 +125,15 @@
     border: 2px solid #2199d1;
     border-radius: 1em;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 1em;
     padding: 1em;
     text-align: center;
-    width: 200px;
+    width: 160px;
+    height: 30px;
     word-wrap: break-word;
 }
+
 .suma-opciones {
     align-items: center;
     display: flex;
@@ -140,22 +143,33 @@
 .suma .droppable {
     background-color: #d7d8dc;
     border: 1px dashed gray;
-    height: 50px;
+    height: 60px;
+    width: 190px;
     padding: 0;
 }
 
-.suma .jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
-    margin: 0;
+#suma-drag.jpit-activities-droppable .draggable.jpit_activities_jpitdroppable_dropped {
+    margin: -1px 0 0 -1px;
+}
+
+#suma-drag .tooltip i {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+#suma-drag .tooltip i:hover {
+    color: #00ff00;
 }
 
 /********************************************************************************/
 /* Clasificación por niveles
 /********************************************************************************/
-.niveles {
+/*.niveles {
     align-items: flex-start;
     display: flex;
     justify-content: center;
 }
+
 .niveles .image-levels {
     background-image: url('../content/una_vista_por_niveles_imagen.png');
     background-position: center;
@@ -178,17 +192,94 @@
 }
 .niveles .lvls-hover > div {
     display: none;
+}*/
+
+#pag-clas-niveles .image-levels {
+    position: relative;
+    padding-bottom: 100%;
+}
+
+#pag-clas-niveles .image-levels > div {
+    position: absolute;
+    border: 10px solid;
+    transform: rotate(45deg);
+    width: 30%;
+    height: 30%;
+    right: 10%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+#pag-clas-niveles .image-levels > div:before {
+    position: absolute;
+    font-size: 2.2vw;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    left: -110%;
+    top: 110%;
+    width: 100%;
+    text-align: right;
+}
+
+#pag-clas-niveles .image-levels > div.servicios {
+    top: 10%;
+    border-color: #5ca2e1;
+}
+
+#pag-clas-niveles .image-levels > div.servicios:before {
+    content: "Servicios";
+    color: #5ca2e1;
+}
+
+#pag-clas-niveles .image-levels > div.terminales {
+    top: 25%;
+    border-color: #73beba;
+}
+
+#pag-clas-niveles .image-levels > div.terminales:before {
+    content: "Terminales";
+    color: #73beba;
+}
+
+#pag-clas-niveles .image-levels > div.redes {
+    top: 40%;
+    border-color: #d89730;
+}
+
+#pag-clas-niveles .image-levels > div.redes:before {
+    content: "Redes";
+    color: #d89730;
+}
+
+#pag-clas-niveles .image-levels > div.current {
+    background-color: rgba(255, 255, 54, 0.2);
+}
+
+#pag-clas-niveles .lvls-hover h5 {
+    font-size: 20px;
+}
+
+#hvr-redes h5 {
+    color: #d89730;
+}
+
+#hvr-terminales h5 {
+    color: #73beba;
+}
+
+#hvr-servicios h5 {
+    color: #5ca2e1;
 }
 
 /********************************************************************************/
 /* Ecuaciones
 /********************************************************************************/
-.ecuaciones {
-    margin: 2em 0;
+.ecuaciones .element {
+    text-align: center;
 }
-.ecuaciones > img {
-    display: block;
-    margin: 0 auto;
+
+.ecuaciones .element img {
+    max-width: 99%;
 }
 
 /********************************************************************************/
@@ -199,7 +290,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 70px;
 }
+
 .caracteristicas-tic {
     display: flex;
     justify-content: space-evenly;
@@ -224,12 +317,19 @@
     display: flex;
     flex-direction: column;
 }
+
 .caracteristicas-tic .option > span {
     background-color: #163e4a;
     border-radius: 50% 50% 0 0;
     color: #ffffff;
     padding: 1em 1em 0.5em;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 20px;
+    min-width: 50px;
+    text-align: center;
 }
+
 .caracteristicas-tic .option > div {
     border: 1px dashed gray;
     border-radius: 1em;
@@ -243,4 +343,9 @@
     margin: 0 auto;
     max-width: 70%;
     text-align: center;
+}
+
+.caracteristicas-tic .buttons {
+    text-align: center;
+    margin-top: 20px;
 }

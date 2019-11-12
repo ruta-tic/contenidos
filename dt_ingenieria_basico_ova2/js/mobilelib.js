@@ -1388,7 +1388,7 @@ dhbgApp.mobile.start = function() {
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            $start.hide();
+            //$start.hide();
         });
 
     };
@@ -2655,7 +2655,7 @@ dhbgApp.mobile.load_operations = function() {
             $this.find('feedback').empty();
 
             var activityOptions = {
-                'autoResolve': false,
+                'autoResolve': true,
                 'continueResolve': false,
                 'holdCorrects': false,
                 'multiTarget': 1,
@@ -2846,6 +2846,17 @@ dhbgApp.mobile.load_operations = function() {
         if (!$this.data('loaded')) {
             var activity;
             var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
+            var feedbacktrue = '', feedbackfalse = '';
+
+            if ($this.find('feedback correct').text() != '') {
+                feedbacktrue = $this.find('feedback correct').html();
+            }
+
+            if ($this.find('feedback wrong').text() != '') {
+                feedbackfalse = $this.find('feedback wrong').html();
+            }
+
+            $this.find('feedback').empty();
 
             var $box_end = $this.find('.box_end');
             $box_end.hide();
@@ -2923,13 +2934,15 @@ dhbgApp.mobile.load_operations = function() {
 
                     var msg;
                     if (weight >= dhbgApp.evaluation.approve_limit) {
-                        msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                        msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
                     }
                     else {
-                        msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                        msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
                     }
 
-                    $box_end.append(msg).show();
+                    var $msg = $(msg);
+
+                    $box_end.append($msg).show();
 
                     if (weight < 100) {
                         $continue.show();
