@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2></h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Atención sanitaria" data-page="pag-at-sanitaria"></menuitem>
+                    <menuitem label="Medicina basada en evidencia">
+                        <menu>
+                            <menuitem label="Ejercicio: Definiciones" data-page="pag-ej-definiciones"></menuitem>
+                            <menuitem label="Ejercicio: Verdad / Mentira" data-page="pag-eje-verdad-mentira"></menuitem>
+                        </menu>
+                    </menuitem>
+                    <menuitem label="Guía de práctica clínica" data-page="pag-guia-pclinica"></menuitem>
+                    <menuitem label="Protocolo de atención sanitaria" data-page="pag-protocolo"></menuitem>
+                    <menuitem label="Actividad evaluativa" data-page="pag-act-eval"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-at-sanitaria" ptitle="Atención sanitaria">
+                <div class="subpage">
+                    <h3>Ejercicio 1: Línea de tiempo sobre la evolución de la atención sanitaria basada en la evidencia</h3>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Ordene los sucesos propuestos teniendo en cuenta la secuencia lógica en la que se han producido. Para esto, se presentan los cuatro eventos más representativos dentro de la consolidación de esta práctica, y en los cuales se dispone la década y el origen de este avance. En los bloques de información encontrará un listado de objetivos e innovaciones respecto a la práctica de la medicina basada en la evidencia. Allí, debe arrastrar cada bloque de información correspondiente, tanto al objetivo, como a la innovación, en el orden que considere correcto.
+                        </p>
+                    </div>
+                    <div id="drag-act1" class="jpit-activities-droppable" data-verify-type="target" data-act-id="arrastrar1">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Año</th>
+                                    <th>Orígenes</th>
+                                    <th>Innovación</th>
+                                    <th>Objetivo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>70</td>
+                                    <td>Archie Cochrane John Wennberg</td>
+                                    <td data-target-group="1"></td>
+                                    <td data-target-group="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>90</td>
+                                    <td>Universidad de McMaster (Canadá) en colaboración con la Biblioteca de Cochrane (Reino Unido)</td>
+                                    <td data-target-group="3"></td>
+                                    <td data-target-group="4"></td>
+                                </tr>
+                                <tr>
+                                    <td>90</td>
+                                    <td>Instituto Nacional de Medicina (Estados Unidos)</td>
+                                    <td data-target-group="5"></td>
+                                    <td data-target-group="6"></td>
+                                </tr>
+                                <tr>
+                                    <td>2000</td>
+                                    <td>Organizaciones Internacionales (48 países y 100 organizaciones a nivel mundial)</td>
+                                    <td data-target-group="7"></td>
+                                    <td data-target-group="8"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="drag-options">
+                            <div data-group="1">Evidencia de la variabilidad en la práctica clínica y en la toma de decisiones en salud</div>
+                            <div data-group="2">Exponer falta de evaluación crítica y toma de decisiones en salud sin fundamento</div>
+                            <div data-group="3">Medicina basada en la evidencia</div>
+                            <div data-group="4">Toma de decisiones basada en la mejor evidencia disponible</div>
+                            <div data-group="5">Guías de práctica clínica</div>
+                            <div data-group="6">Racionalizar el uso de recursos hacia los más costo-eficientes</div>
+                            <div data-group="7">Red Internacional de Guías de Práctica Clínica</div>
+                            <div data-group="8">Trabajo colaborativo que brinda herramientas educativas y acceso a miles de documentos basados en la evidencia</div>
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="pag-ej-definiciones" ptitle="Ejercicio: Definiciones">
+                <div class="subpage">
+                    <h3>Medicina basada en la evidencia</h3>
+                    <p>La toma de decisiones en temas de salud se ha realizado, tradicionalmente, con base en el conocimiento aprendido durante el proceso formativo, la experiencia de la práctica profesional, las revisiones de textos y publicaciones, las consultas a pares, las pruebas de ensayo y error, y los lineamientos gubernamentales. A continuación, se plantean varios ejercicios para conocer más sobre este tema.</p>
+                    <h3>Ejercicio 2: Definiciones de medicina basada en la evidencia</h3>
+                    <p>Encuentre dos definiciones sobre medicina basada en la evidencia y las guías de práctica basadas en la evidencia.</p>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Complete la definición correspondiente.
+                        </p>
+                    </div>
+                    <div id="arrastrar" class="jpit-activities-droppable" data-droppable-content-inner="true"
+                            data-droppable-content-helper="..." data-act-id="arrastrar4">
+                        <div>
+                            <p>El profesor David Sackett de la Universidad de McMaster en Canadá la definió como “el uso concienzudo, explícito y juicioso de la mejor <span data-target-group="1">...</span> disponible para <span data-target-group="2">...</span> de decisiones para el cuidado individual de los pacientes […] Esta práctica [...] requiere la integración de la experiencia clínica individual con la mejor evidencia médica disponible obtenida de la investigación <span data-target-group="3">...</span>, y de los valores y circunstancias <span data-target-group="4">...</span> de nuestro paciente” (1).</p>
+                        </div>
+                        <div>
+                            <h4>Palabras:</h4>
+                            <div class="options-sets">
+                                <div class="column">
+                                    <div class="drag-option set1" data-group="11">tratamiento</div>
+                                    <div class="drag-option set1" data-group="12">diagnóstico</div>
+                                    <div class="drag-option set1" data-group="1">evidencia</div>
+                                    <div class="drag-option set1" data-group="13">medicamento</div>
+                                </div>
+                                <div class="column">
+                                    <div class="drag-option set2" data-group="21">el análisis</div>
+                                    <div class="drag-option set2" data-group="2">la toma</div>
+                                    <div class="drag-option set2" data-group="22">el estudio</div>
+                                    <div class="drag-option set2" data-group="23">la eficiencia</div>
+                                </div>
+                                <div class="column">
+                                    <div class="drag-option set3" data-group="31">médica</div>
+                                    <div class="drag-option set3" data-group="32">organizada</div>
+                                    <div class="drag-option set3" data-group="33">clínica</div>
+                                    <div class="drag-option set3" data-group="3">sistemática</div>
+                                </div>
+                                <div class="column">
+                                    <div class="drag-option set4" data-group="4">únicas</div>
+                                    <div class="drag-option set4" data-group="42">propias</div>
+                                    <div class="drag-option set4" data-group="41">clínica</div>
+                                    <div class="drag-option set4" data-group="43">médicas</div>
+                                </div>
+                            </div>
+                            <br class="clear" />
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="pag-eje-verdad-mentira" ptitle="Ejercicio: Verdad / Mentira">
+                <div class="subpage">
+                    <h3>Ejercicio 3. Verdad o mentira sobre la medicina basada en la evidencia</h3>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A continuación, aparecerán aseveraciones que deberá clasificar entre verdades y mentiras:</p>
+                    </div>
+                    <div class="jpit-activities-check">
+                        <words>
+                            <li data-val="true">Las recomendaciones a la práctica disciplinar basadas en la evidencia se extienden a disciplinas del área de la salud. Inició con la medicina basada en la evidencia y, rápidamente, se extendió a la enfermería basada en la evidencia, odontología basada en la evidencia y psicología basada en la evidencia, entre otras.</li>
+                            <li data-val="true">Existen protocolos basados en evidencia para la promoción de la salud, prevención de diferentes enfermedades, evaluación clínica o quirúrgica, diagnóstico de la enfermedad, tratamiento de la enfermedad y rehabilitación de la enfermedad.</li>
+                            <li>La formación académica y la práctica disciplinar específica lo capacita para hacer uso razonable de la literatura científica, y lo convierte en un consumidor responsable de la atención sanitaria basada en la evidencia.</li>
+                            <li data-val="true">El inicio de la medicina basada en la evidencia se realizó a partir de evaluaciones críticas a los ensayos clínicos controlados y aleatorizados publicados.</li>
+                            <li data-val="true">La aplicación de las guías de práctica clínica debe ser orientada a las particularidades de la población (contexto social, económico, educativo).</li>
+                            <li>La aplicación de las guías de práctica clínica debe estar por encima de la experiencia clínico-quirúrgica particular porque se basa en las mejores, más rigurosas y juiciosas recomendaciones de múltiples expertos. Las guías no admiten interrogantes o dudas, ni individualizar a los pacientes, puesto que los expertos ya lo hicieron con antelación.</li>
+                            <li data-val="true">Las guías de práctica clínica son desarrolladas por personal altamente cualificado y calificado con el fin de mejorar la toma de decisiones en la práctica clínica y, por ende, mejorar los desenlaces en salud de los pacientes.</li>
+                            <li>La toma de decisiones se abole al tener una guía de práctica clínica porque lo que debe hacer el profesional es aplicar, paso a paso, la guía en su paciente.</li>
+                            <li data-val="true">Las guías de práctica basada en la evidencia son instrumentos de la atención sanitaria basada en la evidencia.</li>
+                        </words>
+                        <div class="board">
+                            <div>
+                                <div class="play">
+                                    <div class="word_content"></div>
+                                    <div class="buttons">
+                                        <button class="yes general">Verdadero</button>
+                                        <button class="not general">falso</button>
+                                    </div>
+                                </div>
+                                <div class="box_conclution">
+                                    <h3>¡Ha finalizado!</h3>
+                                    <button class="general reload">Reiniciar la actividad</button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="box_result">
+                                    <div class="correct">
+                                        <div class="hits">0</div>
+                                        <div class="text">Aciertos</div>
+                                    </div>
+                                    <div class="wrong">
+                                        <div class="miss">0</div>
+                                        <div class="text">Desaciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Retroalimentación</h3>
+                    <p>Existe una tendencia a utilizar, de manera automática, el conocimiento obtenido a partir del entrenamiento y de las revisiones de publicaciones. Un profesional del área de la salud no está en capacidad de abarcar toda la información novedosa, y si lo hace, debe tener en consideración la calidad de dichas publicaciones.</p>
+                    <p>¿Están los profesionales de la salud en capacidad de evaluar la validez de los artículos de revistas, la calidad de la metodología empleada y la veracidad de los resultados? Existen múltiples limitaciones de los estudios como el tamaño y no aleatorización de la muestra, el tipo de estudio realizado, los análisis estadísticos y la interpretación de resultados. Así mismo, existen sesgos conocidos como el de publicación, que dan énfasis a resultados con significación estadística e ignoran aquellos que no mostraron diferencias entre grupos de comparación (2).</p>
+                    <div class="columns">
+                        <div class="column">
+                            <p>Estas limitaciones, a la hora de poner en consideración qué información se utiliza en la toma de decisiones, han llevado a prácticas heterogéneas en la evaluación, el diagnóstico, el manejo terapéutico y la rehabilitación, exponiendo a los pacientes a pruebas o tratamientos que han mostrado ser ineficientes e incluso perjudiciales, lo que conlleva a  riesgos, desenlaces desafortunados en salud y mayores costos al sistema.</p>
+                            <p>Para mejorar el panorama, grupos de investigadores han realizado revisiones sistemáticas de publicaciones sobre diversos temas, y han generado recomendaciones útiles, actualizadas y rigurosas con la mejor evidencia disponible que permiten mejorar la toma de decisiones del profesional sanitario, y de toda la cadena del sistema de salud. Este proceder se denomina medicina basada en la evidencia, como también odontología basada en la evidencia y psicología basada en la evidencia, etc. Al conjunto de estos instrumentos, dentro de todo el espectro del campo de la salud, se le denomina atención sanitaria basada en la evidencia (2, 3).</p>
+                        </div>
+                        <img src="content/2_2_imagen_retroalimetnacion-02.png" alt="Retroalimentación">
+                    </div>
+                </div>
+            </section>
+            <section id="pag-guia-pclinica" ptitle="Guía de práctica clínica">
+                <div class="subpage">
+                    <h3>Guía de práctica clínica</h3>
+                    <p>Según el Instituto Nacional de Medicina de Estados    Unidos, las guías de práctica clínica son “recomendaciones desarrolladas sistemáticamente para asistir a los clínicos y a los pacientes en su toma de decisiones para una mejor calidad en la atención de la salud en condiciones específicas” (2).</p>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>Escoja las palabras que se relacionen con el concepto de <strong>Guía de práctica clínica.</strong></p>
+                    </div>
+                    <div class="jpit-activities-selection" data-act-id="practica-clinica" data-act-title="Práctica clínica" data-mode="multi">
+                        <ul class="writers data_list">
+                            <li data-group="1"><div class="check"></div>Investigación sistemática</li>
+                            <li data-group="1"><div class="check"></div>Experiencia clínica</li>
+                            <li data-group="1" data-correct="true"><div class="check"></div>Recomendaciones</li>
+                            <li data-group="1" data-correct="true"><div class="check"></div>Uso de tecnología sanitaria</li>
+                            <li data-group="1"><div class="check"></div>Experiencia clínica</li>
+                            <li data-group="1" data-correct="true"><div class="check"></div>Costo-efectividad</li>
+                            <li data-group="1" data-correct="true"><div class="check"></div>Calidad en la atención</li>
+                            <li data-group="1"><div class="check"></div>Integración de saberes</li>
+                            <li data-group="1"><div class="check"></div>Mejor evidencia</li>
+                            <li data-group="1" data-correct="true"><div class="check"></div>Racionalidad</li>
+                        </ul>
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="retroalimentacion">
+                        <h3>¿Qué son las guías de práctica clínica?</h3>
+                        <div class="columns">
+                            <div class="column">
+                                <p>Las guías de práctica clínica son pieza clave de la atención sanitaria basada en la evidencia. Se definen como protocolos que integran investigaciones de revisión sistemática de la literatura disponible, experticia clínica, quirúrgica y disciplinar, y contextualización de los pacientes desarrollados por expertos metodológicos, clínicos, representantes de los pacientes y otras personas interesadas con la mejor evidencia disponible. Con base en preguntas clínicas contestadas por medio de revisiones  sistemáticas de la literatura científica se elaboran recomendaciones clínicas específicas. Su objetivo es mejorar la atención en salud (4, 2, 3).</p>
+                                <p>Este protocolo le permite al grupo de desarrollo de la guía establecer un marco general, plantearse preguntas clínicas relevantes de una manera estructurada, responderlas a través de revisiones sistemáticas de la literatura y redactar las recomendaciones clínicas específicas.</p>
+                            </div>
+                            <img src="content/imagen_guia_de_practica_clinica-02.png" alt="¿Qué son las guías de práctica clínica?">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="pag-protocolo" ptitle="Protocolo de atención sanitaria">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>Se le invita a ubicar, en cada paso de la atención sanitaria basada en la evidencia, las acciones y los elementos que deben abordarse en cada paso. A continuación, tendrá cuatro pasos y múltiples elementos (5).</p>
+                    </div>
+                    <div id="arrastrargrupos" class="jpit-activities-multidroppable" data-act-title="Arrastrar y soltar múltiple" data-act-id="act_mdrag">
+                        <div class="box_targets">
+                            <div class="card"><h5>Definir claramente las preguntas de interés</h5><div data-target-group="1" class="target"></div></div>
+                            <div class="card"><h5>Revisión de la literatura disponible</h5><div data-target-group="2" class="target"></div></div>
+                            <div class="card"><h5>Evaluación crítica de la evidencia</h5><div data-target-group="3" class="target"></div></div>
+                            <div class="card"><h5>Aplicación de las conclusiones a la práctica</h5><div data-target-group="4" class="target"></div></div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="box_end"></div>
+                        <div class="sources">
+                            <div data-group="4">Contar con experticia y habilidad clínico-quirúrgica para adaptar la información revisada al público objeto de interés.</div>
+                            <div data-group="2">Seleccionar bases de datos bibliográficas de interés.</div>
+                            <div data-group="3">Contar con criterios para identificar la validez interna y validez externa de los estudios.</div>
+                            <div data-group="2">Identificar fuentes de información de interés.</div>
+                            <div data-group="1">Identificar qué se desea conocer, especificando población, intervención o tratamiento; grupo de comparación y desenlace.</div>
+                            <div data-group="3">Contar con herramientas básicas de estadística y diseños de investigación.</div>
+                            <div data-group="2">Seleccionar criterios de inclusión para búsqueda de información (idiomas, años de publicación, tipos de estudios).</div>
+                            <div data-group="3">Identificar escalas para jerarquizar la evidencia según la fuente de información.</div>
+                            <div data-group="4">Individualizar las recomendaciones a la práctica disciplinar.</div>
+                            <div data-group="2">Definir estrategias de búsqueda.</div>
+                            <div data-group="1">Precisar el momento del proceso salud enfermedad del cuál se deseaba conocer información (promoción de la salud,  prevención de la enfermedad, evaluación, diagnóstico o tratamiento de alguna enfermedad basadas en  práctica profesional).</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <h3>Construcción de guías de práctica clínica basadas en la evidencia</h3>
+                    <img id="retroalimentacion-a4" src="content/4_retroalimetnacion_ilistraciones-01.png" alt="Retro alimentación">
+                </div>
+            </section>
+            <section id="pag-act-eval" ptitle="Actividad evaluativa">
+                <div class="subpage">
+                    <h3>Actividad de evaluación: Diseño de protocolo de guía práctica basado en la evidencia</h3>
+                    <p>Ahora cuenta con información necesaria para realizar un protocolo de guía de práctica clínica, se le invita a realizar su propio protocolo aplicado a un tema específico en salud. Seleccione la opción que más se relacione con su situación profesional o con su interés particular, entre la guía para un evento clínico y la guía para un evento quirúrgico.</p>
+                    <div class="horizontal-menu ppal-menu">
+                    <dl>
+                        <dt><div id="aev-01" class="aev-sprite"></div></dt>
+                        <dd>
+                            <h5>Problemática: diarrea en menores de 5 años.</h5>
+                            <p>Se reportó un aumento en el número de consultas por dolor abdominal, diarrea, náuseas y vómito en menores de 5 años que habitan en el 85% de los barrios de un municipio colombiano. Posterior a las averiguaciones respectivas, se encontró como fuentes de infección el sistema de abastecimiento de agua suministrada como vehículo y el contagio de persona a persona. Origen de la infección: viral (7).</p>
+                            <p>Dada la problemática anterior, el sector sanitario del municipio está interesado en aplicar una guía de práctica clínica basada en la evidencia que se oriente hacia la prevención de la enfermedad en la población menor de 5 años del municipio. Por lo cual, usted ha sido invitado/a a realizar un protocolo de guía de práctica clínica basada en la evidencia.</p>
+                            <div class="box-text activity" label="Actividad de aprendizaje">
+                                <p>
+                                    Seleccione, de manera cronológica, el paso a paso para producir su propio protocolo. Una vez tenga el primer paso, le aparecerá selección múltiple, por lo que deberá seleccionar la opción que más se ajuste a las necesidades de la guía de práctica clínica en la problemática dada. Finalizada su selección, aparecerán todas sus selecciones y el porcentaje de éxito que tuvo en la gestión, producción e implementación de su guía.
+                                </p>
+                            </div>
+                            <div id="guia-event-clin" class="jpit-activities-selection" data-act-id="guia-event-clin" data-act-title="Guía evento clínico" data-mode="single">
+                                <div class="horizontal-menu sel-activity-5">
+                                    <dl>
+                                        <dt><div id="spt-01" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="1"><div class="radio"></div> ¿Cuál es la mejor intervención educativa o la mejor forma de promover prácticas educativas y de prevenir la enfermedad diarreica aguda?</li>
+                                                <li data-group="1" data-correct="true"><div class="radio"></div> ¿Los niños menores de 5 años que practican medidas de higiene de manos rutinariamente, en comparación con la ausencia de esta práctica, tienen menos prevalencia y/o incidencia de diarrea?</li>
+                                                <li data-group="1"><div class="radio"></div> En los niños menores de 5 años con enfermedad diarreica aguda, ¿cuáles son los microorganismos etiológicos más frecuentes en el mundo y en el país?</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-02" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="2"><div class="radio"></div> Los estudios que se deben seleccionar son los de prevalencia, puesto que brindan información acerca de la prevalencia o incidencia de la enfermedad.</li>
+                                                <li data-group="2"><div class="radio"></div> Los estudios que se deben seleccionar son  los tipo ensayo clínico, en los cuales se ordena a un grupo de niños que se higienicen las manos, y a otros no, para ver cuál de estos grupos desarrolla la enfermedad.</li>
+                                                <li data-group="2" data-correct="true"><div class="radio"></div> Los estudios que se deben seleccionar son los tipo cohorte, en los cuales se hace seguimiento a un grupo de niños que se higienizan las manos y otro que no, para ver cuál de estos desarrolla la enfermedad.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-03" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="3" data-correct="true"><div class="radio"></div> Ecuación de búsqueda: Enfermedad diarreica aguda <strong>y</strong> niños menores de cinco años <strong>y</strong> educación para la salud <strong>y</strong> metaanálisis <strong>no</strong> inmunodeficiencias. Bases de datos bibliográficas: Librería Cochrane/PUBMED.</li>
+                                                <li data-group="3"><div class="radio"></div> Ecuación de búsqueda: Enfermedad diarreica aguda <strong>y</strong> niños menores de cinco años <strong>y</strong> uso de antimicrobianos <strong>y</strong> ensayo clínico controlado <strong>no</strong> resistencia antimicrobiana. Bases de datos bibliográficas: PUBMED/LILACS.</li>
+                                                <li data-group="3"><div class="radio"></div> Ecuación de búsqueda: Enfermedad diarreica aguda <strong>y</strong> niños menores de cinco años <strong>y</strong> estudio de materia fecal <strong>y</strong> guías de práctica clínica <strong>no</strong> intolerancia a la lactosa. Bases de datos bibliográficas: LILACS/google académico.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-04" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <p>Al revisar los artículos de su interés, debe seleccionar los estudios que provean mejor evidencia de acuerdo con:</p>
+                                            <ul>
+                                                <li data-group="4"><div class="radio"></div> La aplicación del instrumento AGREE a las revisiones sistemáticas de la literatura; si confío en los resultados, continúo evaluando si puedo aplicar sus resultados a mi medio y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                                <li data-group="4"><div class="radio"></div> La aplicación del instrumento PRISMA a las guías de práctica clínica; si puedo aplicar sus resultados a mi medio, continúo viendo si confío en los resultados y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                                <li data-group="4" data-correct="true"><div class="radio"></div> Aplicación del instrumento CONSORT a los ensayos clínicos; si confío en los resultados, continúo evaluando si puedo aplicar sus resultados a mi medio y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-05" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="5"><div class="radio"></div> Si se dispone de evidencia de ensayos clínicos con dificultades en la metodología o en los resultados, la calidad de la evidencia será alta y la fuerza de la recomendación fuerte.</li>
+                                                <li data-group="5" data-correct="true"><div class="radio"></div> Si se dispone de evidencia de metanálisis y revisiones sistemáticas sin dificultades en la metodología ni en los resultados, la calidad de la evidencia será alta y la fuerza fuerte.</li>
+                                                <li data-group="5"><div class="radio"></div> Si se dispone de evidencia de estudios de cohorte sin dificultades en la metodología ni en los resultados, la calidad de la evidencia será alta y la fuerza fuerte.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-06" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <p>Para lograr una mejor implementación y mejorar la revisión externa de la guía, se requiere:</p>
+                                            <ul>
+                                                <li data-group="6"><div class="radio"></div> Lenguaje técnico y realización de conferencias orientadas a profesionales y a la comunidad en general, donde se den a conocer las recomendaciones principales de la guía.</li>
+                                                <li data-group="6" data-correct="true"><div class="radio"></div> Síntesis en la versión final y realización de conversatorios con profesionales y con la comunidad en general, donde se validen las recomendaciones de la guía.</li>
+                                                <li data-group="6"><div class="radio"></div> Realizar conferencias con profesionales y con la comunidad en general, donde se den a conocer las recomendaciones principales de la guía para luego reescribirla.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="box_end"></div>
+                            </div>
+                            <div class="box-text note" label="Nota">
+                                <p>
+                                    Se recomienda revisar la “Guía de práctica clínica de referencia rápida para prevención, diagnóstico y tratamiento de la enfermedad diarreica aguda en niños menores de 5 años”, disponible <a href="https://www.researchgate.net/publication/255686950_Colombia_Ministerio_de_Salud_y_Proteccion_Social_Colciencias_Universidad_de_Antioquia_Guia_de_referencia_rapida_para_prevencion_diagnostico_y_tratamiento_de_la_enfermedad_diarreica_aguda_en_ninos_meno" target="_blank">aquí</a>.
+                                </p>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><div id="aev-02" class="aev-sprite"></div></dt>
+                        <dd>
+                            <strong>Problemática:</strong> infección de s itio operatorio.
+                            <p>Se reportó un aumento en el número de infecciones de sitio operatorio en los pacientes atendidos en un hospital colombiano de nivel III de atención. Cerca del 80% de los pacientes cursó con infección de sitio operatorio de gravedad variable.</p>
+                            <p>Dada la problemática anterior, el sector sanitario del municipio está interesado en aplicar una guía de práctica clínica basada en la evidencia que se oriente hacia la prevención de ocurrencia de infecciones de sitio operatorio en el municipio. Por lo cual, usted es invitado(a) a realizar un protocolo de guía de práctica clínica basada en la evidencia.</p>
+                            <div class="box-text activity" label="Actividad de aprendizaje">
+                                <p>
+                                    Seleccione, de manera cronológica, el paso a paso para producir su propio protocolo. Una vez tenga el primer paso, le aparecerá selección múltiple, por lo que deberá seleccionar la opción que más se ajuste a las necesidades de la guía de práctica clínica en la problemática dada. Finalizada su selección, aparecerán todas sus selecciones y el porcentaje de éxito que tuvo en la gestión, producción e implementación de su guía.
+                                </p>
+                            </div>
+                            <div id="guia-event-quir" class="jpit-activities-selection" data-act-id="guia-event-quir" data-act-title="Guía evento clínico" data-mode="single">
+                                <div class="horizontal-menu sel-activity-5">
+                                    <dl>
+                                        <dt><div id="spt-01" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="1"><div class="radio"></div> ¿El tratamiento de las infecciones en el sitio operatorio en pacientes sometidos a cirugías con antibióticos betalactámicos reduce las complicaciones en comparación con los antibióticos aminoglicósidos?</li>
+                                                <li data-group="1" data-correct="true"><div class="radio"></div> ¿Qué medidas generales deben seguir los pacientes sometidos a intervención quirúrgica antes del procedimiento para  prevenir la aparición de infección de sitio operatorio?</li>
+                                                <li data-group="1"><div class="radio"></div> ¿En infecciones de sitio operatorio cuáles son los microorganismos etiológicos más frecuentes en el mundo y en el país?</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-02" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="2"><div class="radio"></div> Los estudios que se deben seleccionar son los de prevalencia, puesto que brindan información acerca de la prevalencia o incidencia de la infección de sitio operatorio.
+                                                <li data-group="2"><div class="radio"></div> Los estudios que se deben seleccionar son los tipo casos y controles, en los cuales se le asigna a un grupo un tratamiento con betalactámicos y, al otro, aminoglicósidos para ver cuál de estos grupos tiene menos complicaciones.
+                                                <li data-group="2" data-correct="true"><div class="radio"></div> Los estudios que se deben seleccionar son los tipo ensayo clínico con asignación de dos grupos; uno con rasurado con cuchilla y otro con rasurado con máquina para ver cuál de estos desarrolla más la enfermedad.
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-03" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="3" data-correct="true"><div class="radio"></div> Ecuación de búsqueda: Infección de sitio operatorio <strong>y</strong> prevención <strong>y</strong> metaanálisis <strong>no</strong> inmunosupresión. Bases de datos bibliográficas: Librería Cochrane/PUBMED.</li>
+                                                <li data-group="3"><div class="radio"></div> Ecuación de búsqueda: Infección de sitio operatorio <strong>y</strong> tratamiento <strong>y</strong> uso de antimicrobianos <strong>y</strong> ensayo clínico controlado <strong>no</strong> resistencia antimicrobiana. Bases de datos bibliográficas: PUBMED/LILACS.</li>
+                                                <li data-group="3"><div class="radio"></div> Ecuación de búsqueda: Infección de sitio operatorio <strong>y</strong> etiología <strong>y</strong> cultivo <strong>y</strong> guías de práctica clínica <strong>no</strong> inmunosupresión. Bases de datos bibliográficas: LILACS/google académico.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-04" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <p>Al revisar los artículos de su interés, debe seleccionar los estudios que provean mejor evidencia de acuerdo con:</p>
+                                            <ul>
+                                                <li data-group="4"><div class="radio"></div> La aplicación del instrumento AGREE a las revisiones sistemáticas de la literatura; si confío en los resultados, continúo evaluando si puedo aplicar sus resultados a mi medio y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                                <li data-group="4"><div class="radio"></div> La aplicación del instrumento PRISMA a las guías de práctica clínica; si puedo aplicar sus resultados a mi medio, continúo viendo si confío en los resultados y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                                <li data-group="4" data-correct="true"><div class="radio"></div> Aplicación del instrumento CONSORT a los ensayos clínicos; si confío en los resultados, continúo evaluando si puedo aplicar sus resultados a mi medio y, de ser así, selecciono el artículo para proceder con las recomendaciones.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-05" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <ul>
+                                                <li data-group="5"><div class="radio"></div> Si se dispone de evidencia de ensayos clínicos con dificultades en la metodología o en los resultados, la calidad de la evidencia será alta y la fuerza de la recomendación fuerte.</li>
+                                                <li data-group="5" data-correct="true"><div class="radio"></div> Si se dispone de evidencia de metanálisis y revisiones sistemáticas sin dificultades en la metodología ni en los resultados, la calidad de la evidencia será alta y la fuerza fuerte.</li>
+                                                <li data-group="5"><div class="radio"></div> Si se dispone de evidencia de estudios de cohorte sin dificultades en la metodología ni en los resultados, la calidad de la evidencia será alta y la fuerza fuerte.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><div id="spt-06" class="sel-sprite"></div></dt>
+                                        <dd>
+                                            <p>Para lograr una mejor implementación y mejorar la revisión externa de la guía, se requiere:</p>
+                                            <ul>
+                                                <li data-group="6"><div class="radio"></div> Lenguaje técnico y realización de conferencias orientadas a profesionales y a la comunidad en general, donde se den a conocer las recomendaciones principales de la guía.</li>
+                                                <li data-group="6" data-correct="true"><div class="radio"></div> Síntesis en la versión final y realización de conversatorios con profesionales y con la comunidad en general, donde se validen las recomendaciones de la guía.</li>
+                                                <li data-group="6"><div class="radio"></div> Realizar conferencias con profesionales y con la comunidad en general, donde se den a conocer las recomendaciones principales de la guía para luego reescribirla.</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="box_end"></div>
+                            </div>
+                            <div class="box-text note" label="Nota">
+                                <p>
+                                    Se recomienda revisar el documento llamado <strong>"Buenas prácticas para la seguridad del paciente en la atención en salud"</strong>, disponible <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/CA/Guia-buenas-practicas-seguridad-paciente.pdf" target="_blank">aquí</a>.
+                                </p>
+                            </div>
+                        </dd>
+                    </dl>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Sigifredo Escobar Gómez</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>&lt; &gt;</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <cite>
+                    Departamento Administrativo de Ciencia, Tecnología e Innovación<br>
+                    COLCIENCIAS<br>
+                    Gobierno de Colombia
+                </cite>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br />
+                2ª edición: octubre 2015<br />
+                3ª edición: febrero 2016<br />
+                4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Butrón JL, Hidalgo LV, Ochoa-Carrillo FJ. Guías de Práctica Clínica Basadas en Evidencia, cerrando la brecha entre el conocimiento científico y la toma de decisiones clínicas. Documento de la serie MBE, 3 de 3. Gaceta Mexicana de Oncología. 2015;14(6):329-34. Disponible en <a href="https://www.sciencedirect.com/science/article/pii/S1665920115001182" target="_blanl">https://www.sciencedirect.com/science/article/pii/S1665920115001182</a></li>
+                <li>González Garay AG, Mayorga Butrón JL, Ochoa Carrillo FJ. Revisiones sistemáticas de la literatura, la piedra angular de la medicina basada en evidencia. Documento de la serie Medicina basada en evidencia, 2 de 3. Gaceta Mexicana de Oncología. 2015;14(2):103-6. Disponible en <a href="https://www.sciencedirect.com/science/article/pii/S1665920115000188" target="_blanl">https://www.sciencedirect.com/science/article/pii/S1665920115000188</a></li>
+                <li>Hortiales González AF, Gómez Navarro JA, Barajas Nava LA, Garduño Espinosa J. Archibald Cochrane: evidencia, efectividad y toma de decisiones en salud. Boletín Médico del Hospital Infantil de México. 2017;74(5):319-323. Disponible en <a href="http://www.sciencedirect.com/science/article/pii/S1665114616301812" target="_blanl">http://www.sciencedirect.com/science/article/pii/S1665114616301812</a></li>
+                <li>Montaño Velázquez BB, Figueroa Morales MA, Fernández Celorio A, Ochoa Carrillo FJ. Fundamentos de la Medicina Basada en Evidencias (MBE). Documento de la serie MBE, 1 de 3. Gaceta Mexicana de Oncología. 2014;13(5):274-7. Disponible en <a href="https://www.researchgate.net/publication/320567128_Fundamentos_de_la_Medicina_Basada_en_Evidencias_MBE_Documento_de_la_serie_MBE_1_de_3" target="_blanl">https://www.researchgate.net/publication/320567128_Fundamentos_de_la_Medicina_Basada_en_Evidencias_MBE_Documento_de_la_serie_MBE_1_de_3</a></li>
+                <li>Junquera LM, Baladrón J, Albertos JM, Olay S. Controversias en Cirugía Oral y Maxilofacial: parte I: Medicina basada en la evidencia (MBE). Ventajas. Rev Esp Cirug Oral y Maxilofac. 2003;25:265-272. Disponible en <a href="http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1130-05582003000500003" target="_blanl">http://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1130-05582003000500003</a></li>
+                <li>Sanabria AJ, Rigau D, Rotaeche R, Selva A, Marzo Castillejo M, Alonso Coello P. Sistema GRADE: metodología para la realización de recomendaciones para la práctica clínica. Aten Primaria. 2015;47(1):48-55. Disponible en <a href="http://www.sciencedirect.com/science/article/pii/S0212656714000493" target="_blanl">http://www.sciencedirect.com/science/article/pii/S0212656714000493</a></li>
+                <li>Instituto Nacional de Salud. Investigación de brote enfermedad diarreica aguda en Ipiales, Nariño. Semanas epidemiológicas 28 a 34 de 2017. Disponible en <a href="https://www.ins.gov.co/Direcciones/Vigilancia/Investigacin%20de%20brotes/Investigaci%C3%B3n%20de%20brote%20enfermedad%20diarreica%20aguda,%20Ipiales%20-%20Nari%C3%B1o.pdf" target="_blanl">https://www.ins.gov.co/Direcciones/Vigilancia/Investigacin%20de%20brotes/Investigaci%C3%B3n%20de%20brote%20enfermedad%20diarreica%20aguda,%20Ipiales%20-%20Nari%C3%B1o.pdf</a></li>
+                <li>Flórez I, Contreras J, Sierra J, Lugo LH, Tamayo Pérez ME y otros. Guía de Práctica Clínica de referencia rápida para prevención, diagnóstico y tratamiento de la enfermedad diarreica aguda en niños menores de 5 años. Guía No. 8.  Bogotá, D.C. 2013. Recuperado de: <a href="https://www.researchgate.net/publication/255686950_Colombia_Ministerio_de_Salud_y_Proteccion_Social_Colciencias_Universidad_de_Antioquia_Guia_de_referencia_rapida_para_prevencion_diagnostico_y_tratamiento_de_la_enfermedad_diarreica_aguda_en_ninos_meno" target="_blanl">https://www.researchgate.net/publication/255686950_Colombia_Ministerio_de_Salud_y_Proteccion_Social_Colciencias_Universidad_de_Antioquia_Guia_de_referencia_rapida_para_prevencion_diagnostico_y_tratamiento_de_la_enfermedad_diarreica_aguda_en_ninos_meno</a></li>
+                <li>Ministerio de Salud y Protección Social. Seguridad del paciente y la atención segura. Guía Técnica "Buenas prácticas para la seguridad del paciente en la atención en salud". 2010. Disponible en <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/CA/Guia-buenas-practicas-seguridad-paciente.pdf" target="_blanl">https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/CA/Guia-buenas-practicas-seguridad-paciente.pdf</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

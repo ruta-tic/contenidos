@@ -1,0 +1,395 @@
+
+
+/********************************************************************************/
+/* OVA1
+/********************************************************************************/
+
+p {
+    text-align: justify;
+}
+
+.columns {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.columns > div {
+    margin-right: 2em;
+}
+
+.retroalimentacion {
+    width: 80%;
+    margin: 3em auto;
+}
+
+#retroalimentacion-a4 {
+    width: 100%;
+}
+
+#credits_subpage p {
+    text-align: center;
+}
+
+/********************************************************************************/
+/* Ejercicio 1
+/********************************************************************************/
+#drag-act1 table {
+    border-spacing: 1em;
+    margin: 0 auto;
+    table-layout: fixed;
+    width: 90%;
+}
+
+#drag-act1 th, #drag-act1 td, #drag-act1 .drag-options>div {
+    background-color: #E2F3F4;
+    border: 2px solid #51B4DD;
+    border-radius: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 30%;
+}
+
+#drag-act1 td > div {
+    background-color: #E2F3F4;
+    border: 1px dotted gray;
+    border-radius: 1em;
+    color: black;
+    padding: 0.5em;
+}
+
+#drag-act1 .drag-options {
+    align-items: center;
+    border-top: 1px dotted #51B4DD;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+}
+
+#drag-act1 .drag-options>div {
+    margin: 1em;
+}
+
+#drag-act1 th:first-child, #drag-act1 td:first-child {
+    width: 10%;
+}
+
+#drag-act1 tbody td {
+    height: 100px;
+}
+
+/********************************************************************************/
+/* Actividad de arrastrar
+/********************************************************************************/
+#arrastrar.jpit-activities-droppable {
+    margin: 2em 0;
+}
+
+#arrastrar.jpit-activities-droppable p {
+    line-height: 2em;
+}
+
+#arrastrar.jpit-activities-droppable span {
+    display: inline-block;
+    border: 1px dashed #777777;
+    border-radius: 0.5em;
+    padding: 5px;
+    text-align: center;
+    width: 5em;
+}
+
+#arrastrar.jpit-activities-droppable span:nth-child(1), #arrastrar.jpit-activities-droppable .set1 {
+    background-color: #ECD46C;
+}
+
+#arrastrar.jpit-activities-droppable span:nth-child(2), #arrastrar.jpit-activities-droppable .set2 {
+    background-color: #E2F3F4;
+}
+
+#arrastrar.jpit-activities-droppable span:nth-child(4), #arrastrar.jpit-activities-droppable .set4 {
+    background-color: #DCDCDD;
+}
+
+#arrastrar.jpit-activities-droppable .options-sets {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#arrastrar.jpit-activities-droppable .options-sets > div {
+    display: flex;
+    flex-direction: column;
+}
+#arrastrar.jpit-activities-droppable .drag-option {
+    border-radius: 0.5em;
+    padding: 5px;
+}
+
+#arrastrar.jpit-activities-droppable .set1 {
+    background-color: #ECD46C;
+}
+
+#arrastrar.jpit-activities-droppable .draggable {
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+#arrastrar.jpit-activities-droppable .wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+    background-color: transparent;
+}
+
+/********************************************************************************/
+/* Actividad de falso y verdadero
+/********************************************************************************/
+.jpit-activities-check .board {
+    align-items: flex-start;
+    background-color: #F3F3F3;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3em 0;
+}
+
+.jpit-activities-check .board > div {
+    max-width: 60%;
+}
+
+.jpit-activities-check .word_content {
+    background: #ffffff none repeat scroll 0 0;
+    box-shadow: 3px 3px 3px #dadbdc;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.jpit-activities-check .buttons button.yes,
+.jpit-activities-check .buttons button.not {
+    font-size: 30px;
+}
+
+.jpit-activities-check .box_result {
+    float: left;
+    font-size: 20px;
+    text-align: center;
+}
+
+.jpit-activities-check .box_result > div {
+    background-color: #ffffff;
+    box-shadow: 3px 3px 3px #cbcccc;
+    padding: 10px;
+    width: 110px;
+    float: left;
+    margin: 0 10px;
+}
+
+.jpit-activities-check .box_result .correct {
+    color: #8bc541;
+}
+.jpit-activities-check .box_result .hits {
+    font-size:30px;
+}
+
+.jpit-activities-check .box_result .wrong {
+    color: #d60c1b;
+}
+.jpit-activities-check .box_result .miss {
+    font-size: 30px;
+}
+
+/********************************************************************************/
+/* Actividad de seleccionar
+/********************************************************************************/
+.jpit-activities-selection {
+    margin: 0 auto;
+    width: 70%;
+}
+.jpit-activities-selection ul {
+    margin: 2em 0;
+    padding: 0;
+}
+.jpit-activities-selection li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+/********************************************************************************/
+/* Actividad de arrastrar y soltar - uno a muchos
+/********************************************************************************/
+#arrastrargrupos .card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+#arrastrargrupos .box_targets {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#arrastrargrupos h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    margin: 1.5em 0;
+}
+
+#arrastrargrupos .card .target {
+    min-height: 150px;
+    width: 200px;
+    overflow: auto;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .sources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em 0;
+    width: 100%;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .draggable {
+    height: fit-content;
+    margin: 1em;
+    width: 165px;
+}
+
+#arrastrargrupos table .draggable.disabled {
+    cursor: default;
+}
+
+#arrastrargrupos.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+/********************************************************************************/
+/* Actividad evaluativa
+/********************************************************************************/
+.horizontal-menu > .chalkboard_content {
+    height: fit-content;
+}
+
+#guia-event-clin, #guia-event-quir {
+    width: 100%;
+}
+
+.sel-activity-5 ul {
+    list-style: none;
+}
+
+.sel-activity-5 .chalkboard_items.board {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sel-activity-5 .chalkboard_items > .chalkboard_item,
+.sel-activity-5 .chalkboard_items > .chalkboard_item.current,
+.sel-activity-5 .chalkboard_items > .chalkboard_item.active,
+.sel-activity-5 .chalkboard_items > .chalkboard_item:first-child,
+.ppal-menu .chalkboard_items > .chalkboard_item,
+.ppal-menu .chalkboard_items > .chalkboard_item.current,
+.ppal-menu .chalkboard_items > .chalkboard_item.active,
+.ppal-menu .chalkboard_items > .chalkboard_item:first-child {
+    border: 0;
+}
+
+.sel-activity-5 .chalkboard_items > .chalkboard_item.current:after,
+.sel-activity-5 .chalkboard_items > .chalkboard_item.active:after,
+.ppal-menu .chalkboard_items > .chalkboard_item.current:after,
+.ppal-menu .chalkboard_items > .chalkboard_item.active:after {
+    content: none;
+}
+
+.ppal-menu .chalkboard_items > .chalkboard_item {
+    border: 0;
+}
+
+.aev-sprite {
+    height: 101px;
+    width: 255px;
+}
+
+#aev-01 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -2398px -32px;
+}
+
+#aev-02 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -2398px -395px;
+}
+
+.ppal-menu.horizontal-menu .chalkboard_items > .chalkboard_item.current #aev-01 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -2398px -135px;
+}
+
+.ppal-menu.horizontal-menu .chalkboard_items > .chalkboard_item.current #aev-02 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -2398px -506px;
+}
+
+.ppal-menu .chalkboard_items.board {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sel-sprite {
+    height: 275px;
+    width: 274px;
+}
+
+#spt-01 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -40px -37px;
+}
+
+#spt-02 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -400px -38px;
+}
+
+#spt-03 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -800px -38px;
+}
+
+#spt-04 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1200px -39px;
+}
+
+#spt-05 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1601px -39px;
+}
+
+#spt-06 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1999px -39px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-01 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -41px -400px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-02 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -401px -400px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-03 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -801px -399px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-04 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1200px -399px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-05 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1601px -399px;
+}
+
+.sel-activity-5.horizontal-menu .chalkboard_items > .chalkboard_item.current #spt-06 {
+    background: url('../content/5_sprite_actividad_evaluacion01y02.png') -1999px -403px;
+}
