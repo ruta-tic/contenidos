@@ -16,15 +16,13 @@
 }
 
 #pasos-opciones>div {
-    width: 100px;
-    height: 100px;
     color: #fff;
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin: 50px;
+    margin: 5px 50px 40px;
     position: relative;
 }
 
@@ -45,14 +43,50 @@
     background-color: #f5f5f5;
 }
 
-
 /********Línea de tiempo********/
 
 .section-4Content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+}
+
+.section-4-box {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    border: 2px solid #aaa;
+    opacity: 0.6;
+}
+
+.section-4-box:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.section-4-box h5 {
+    color: #088cab;
+}
+
+.section-4-box > div > div {
+    width: 80%;
+    padding-bottom: 60%;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.contenido-modal .col-2:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pasos-contenido .ctrl-pagination.horizontal {
+    background-color: #fff;
+    margin-bottom: 50px;
 }
 
 
@@ -173,58 +207,30 @@
     text-align: center;
 }
 
-
-/*****Imagenes*****/
-
-.section-4Content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-}
-
-.section-4-box {
-    margin: 0 20px 0 20px;
-}
-
-
 /*********Recursos***********/
 
 #recurso-1 {
     background-image: url(../content/primera_revolucion.png);
     background-size: cover;
-    height: 168px;
     background-repeat: no-repeat;
-    width: 190px;
 }
 
 #recurso-2 {
     background-image: url(../content/segunda_revolucion.png);
     background-size: cover;
-    height: 168px;
     background-repeat: no-repeat;
-    width: 190px;
 }
 
 #recurso-3 {
     background-image: url(../content/tercera_revolucion.png);
     background-size: cover;
-    height: 168px;
     background-repeat: no-repeat;
-    width: 190px;
 }
 
 #recurso-4 {
     background-image: url(../content/cuarta_revolucion.png);
     background-size: cover;
-    height: 168px;
     background-repeat: no-repeat;
-    width: 190px;
-}
-
-.modal-recurso>div:first-child {
-    float: left;
-    margin: 10px;
 }
 
 #act5 .sub2 {

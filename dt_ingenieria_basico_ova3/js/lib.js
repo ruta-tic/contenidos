@@ -398,7 +398,7 @@ dhbgApp.standard.start = function() {
                 $($(this).attr('data-ref')).hide();
             });
 
-            $this.parent().find('.button').removeClass('current');
+            $this.find('.button').removeClass('current');
 
             var selector = $(this).attr('data-ref');
             $(selector).show();
@@ -2663,10 +2663,21 @@ dhbgApp.standard.load_operations = function() {
     dhbgApp.actions.activityMultidroppable = function ($this) {
 
         var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'multidroppable';
+        var feedbacktrue = '', feedbackfalse = '';
 
         if (dhbgApp.scorm) {
             if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
         }
+
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct').html();
+        }
+
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong').html();
+        }
+
+        $this.find('feedback').empty();
 
         var activity;
         var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
@@ -2747,13 +2758,15 @@ dhbgApp.standard.load_operations = function() {
 
                 var msg;
                 if (weight >= dhbgApp.evaluation.approve_limit) {
-                    msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                    msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
                 }
                 else {
-                    msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                    msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
                 }
 
-                $box_end.append(msg).show();
+                var $msg = $(msg);
+
+                $box_end.append($msg).show();
 
                 if (weight < 100) {
                     $continue.show();
