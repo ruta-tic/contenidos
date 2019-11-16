@@ -1,13 +1,14 @@
+#expand_image_content {
+    display: block;
+}
 
+.expand-image {
+    margin: auto;
+}
 
 /********************************************************************************/
 /* OVA1
 /********************************************************************************/
-
-p {
-    text-align: justify;
-}
-
 .columns {
     align-items: flex-start;
     display: flex;
@@ -34,20 +35,45 @@ p {
 /********************************************************************************/
 /* Ejercicio 1
 /********************************************************************************/
+#drag-act1 .innova {
+    background-color: #dcdcdd;
+    border-color: #83928f;
+}
+
+#drag-act1 .objetivo {
+    background-color: #f5e7ae;
+    border-color: #d9a417;
+}
+
+#drag-act1 .innova.droppable {
+    background-color: #dcdcdd44;
+}
+
+#drag-act1 .objetivo.droppable {
+    background-color: #f5e7ae44;
+}
+
 #drag-act1 table {
     border-spacing: 1em;
     margin: 0 auto;
     table-layout: fixed;
-    width: 90%;
+    width: 100%;
 }
 
-#drag-act1 th, #drag-act1 td, #drag-act1 .drag-options>div {
+#drag-act1 th, #drag-act1 td {
     background-color: #E2F3F4;
     border: 2px solid #51B4DD;
     border-radius: 1em;
     padding: 1em;
     text-align: center;
-    width: 30%;
+}
+
+#drag-act1 .drag-options>div {
+    border: 2px solid;
+    border-radius: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 20%;
 }
 
 #drag-act1 td > div {
@@ -76,7 +102,16 @@ p {
 }
 
 #drag-act1 tbody td {
-    height: 100px;
+    padding: 10px;
+}
+
+#drag-act1 tbody td.droppable {
+    padding: 0;
+}
+
+#drag-act1 tbody td.droppable .jpit_activities_jpitdroppable_dropped {
+    border: none;
+    background-color: transparent;
 }
 
 /********************************************************************************/
@@ -194,25 +229,107 @@ p {
 .jpit-activities-check .box_result .wrong {
     color: #d60c1b;
 }
+
 .jpit-activities-check .box_result .miss {
     font-size: 30px;
+}
+
+.jpit-activities-check .wrong_words br,
+.jpit-activities-check .correct_words br {
+    margin-bottom: 10px;
 }
 
 /********************************************************************************/
 /* Actividad de seleccionar
 /********************************************************************************/
-.jpit-activities-selection {
-    margin: 0 auto;
-    width: 70%;
+#pag-act-eval .mouse-over-one {
+    display: flex;
+    justify-content: center;
 }
-.jpit-activities-selection ul {
-    margin: 2em 0;
-    padding: 0;
+
+#pag-act-eval .caso {
+    background-color: #f3f3f3;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #40bcc6;
 }
-.jpit-activities-selection li {
+
+.guia-event-clin-ord li.ui-sortable-handle {
+    display: flex;
+}
+
+.guia-event-clin-ord .item-select {
+    max-width: 150px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.guia-event-clin-ord .item-select img {
+    max-width: 100%;
+}
+
+.guia-event-clin-ord .item-select div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #bfbfc1;
+    padding: 5px;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 0 0 10px 10px;
+    font-size: 12px;
+    min-height: 25px;
+}
+
+.guia-event-clin-ord .sortable-item {
+    border: 1px dotted;
     margin-bottom: 5px;
+    border-radius: 20px;
+    background-color: #fff;
+    max-width: 150px;
+}
+
+.guia-event-clin-ord .verify_container,
+.guia-event-clin-ord > .box_end {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.guia-event-clin-ord > .box_end .correct,
+.guia-event-clin-ord > .box_end .wrong {
+    margin: 0 auto;
+}
+
+.guia-event-clin-select .layer {
+    display: flex;
+    align-items: center;
+}
+
+.guia-event-clin-select .paraseleccion > p {
+    margin-left: 20px;
+}
+
+.guia-event-clin-select .paraseleccion ul {
+    list-style: none;
+}
+
+.guia-event-clin-select .paraseleccion li {
+    margin-bottom: 10px;
     cursor: pointer;
-    padding: 2px 5px;
+}
+
+.guia-event-clin-select .paraseleccion li:hover {
+    background-color: #eee;
+}
+
+.guia-event-clin-select .paraseleccion li.wrong .radio {
+    background-color: red;
+}
+
+.guia-event-clin-select .ctrl-pagination {
+    background-color: #fff;
 }
 
 /********************************************************************************/
@@ -223,6 +340,13 @@ p {
     display: flex;
     flex-direction: column;
     margin: 1em;
+    width: 20%;
+}
+
+#arrastrargrupos .card .droppable {
+    background-color: #dcdcdd;
+    border-radius: 20px;
+    border: 1px dashed;
 }
 
 #arrastrargrupos .box_targets {
@@ -234,29 +358,37 @@ p {
 
 #arrastrargrupos h5 {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     color: #000;
-    margin: 1.5em 0;
+    margin: 1em 0;
+    background-color: #e2f3f4;
+    border: 2px solid #80badf;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #arrastrargrupos .card .target {
     min-height: 150px;
-    width: 200px;
+    width: 100%;
     overflow: auto;
+    padding: 5px 5px 15px 5px;
 }
 
 #arrastrargrupos.jpit-activities-multidroppable .sources {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     margin: 1em 0;
-    width: 100%;
 }
 
 #arrastrargrupos.jpit-activities-multidroppable .draggable {
     height: fit-content;
-    margin: 1em;
-    width: 165px;
+    margin: 10px;
+    width: 18%;
+    background-color: #e2f3f4;
+    border: 2px solid #80badf;
+    border-radius: 10px;
 }
 
 #arrastrargrupos table .draggable.disabled {
@@ -269,14 +401,19 @@ p {
     clear: both;
 }
 
+#arrastrargrupos.jpit-activities-multidroppable .droppable .draggable {
+    width: unset;
+    margin: 0;
+}
+
 /********************************************************************************/
 /* Actividad evaluativa
 /********************************************************************************/
 .horizontal-menu > .chalkboard_content {
-    height: fit-content;
+    height: unset;
 }
 
-#guia-event-clin, #guia-event-quir {
+.guia-event-clin-ord, #guia-event-quir {
     width: 100%;
 }
 

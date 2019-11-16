@@ -398,7 +398,7 @@ dhbgApp.standard.start = function() {
                 $($(this).attr('data-ref')).hide();
             });
 
-            $this.parent().find('.button').removeClass('current');
+            $this.parent().find('> .button').removeClass('current');
 
             var selector = $(this).attr('data-ref');
             $(selector).show();
@@ -1470,7 +1470,7 @@ dhbgApp.standard.start = function() {
         }
     });
 
-    $('.expand-image').each(function() {
+    dhbgApp.checkexpandeimage = function() {
         var $this = $(this);
         var src = $this.attr('data-src');
         var title = $this.attr('title') ? $this.attr('title') : false;
@@ -1497,7 +1497,9 @@ dhbgApp.standard.start = function() {
         var $icon = $('<i class="ion-arrow-expand"></i>');
         $icon.on('click', f_show);
         $this.append($icon);
-    });
+    };
+
+    $('.expand-image').each(dhbgApp.checkexpandeimage);
 
     // ==============================================================================================
     // Print page
@@ -2484,7 +2486,7 @@ dhbgApp.standard.load_operations = function() {
         $this.find('feedback').empty();
 
         var activityOptions = {
-            'autoResolve': false,
+            'autoResolve': true,
             'continueResolve': false,
             'holdCorrects': false,
             'multiTarget': 1,
@@ -2663,6 +2665,7 @@ dhbgApp.standard.load_operations = function() {
     dhbgApp.actions.activityMultidroppable = function ($this) {
 
         var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'multidroppable';
+        var feedbacktrue = '', feedbackfalse = '';
 
         if (dhbgApp.scorm) {
             if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
@@ -2673,6 +2676,16 @@ dhbgApp.standard.load_operations = function() {
 
         var $box_end = $this.find('.box_end');
         $box_end.hide();
+
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct');
+        }
+
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong');
+        }
+
+        $this.find('feedback').empty();
 
         var $targets = $this.find( ".target" );
         $targets.sortable({
@@ -2745,15 +2758,19 @@ dhbgApp.standard.load_operations = function() {
                 }
                 dhbgApp.printProgress();
 
-                var msg;
+                var $msg;
                 if (weight >= dhbgApp.evaluation.approve_limit) {
-                    msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                    $msg = $('<div class="correct"></div>');
+                    $msg.append(feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight));
                 }
                 else {
-                    msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                    $msg = $('<div class="wrong"></div>');
+                    $msg.append(feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight)));
                 }
 
-                $box_end.append(msg).show();
+                $msg.find('.expand-image').each(dhbgApp.checkexpandeimage);
+
+                $box_end.append($msg).show();
 
                 if (weight < 100) {
                     $continue.show();
@@ -2897,19 +2914,20 @@ dhbgApp.standard.load_operations = function() {
         var unique_id = 'activity_sortable_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
         var html_body = $this.html();
-        var $box_end = $this.find('.box_end');
+        var $box_end = $this.find('> .box_end');
         var allowRetry = !($this.attr('data-allow-retry') === 'false');
         var modalFeedback = true && $this.attr('data-modal-feedback');
 
         $box_end.hide();
 
-        if ($this.find('feedback correct').text() != '') {
-            feedbacktrue = $this.find('feedback correct').html();
+        if ($this.find('> feedback correct').text() != '') {
+            feedbacktrue = $this.find('> feedback correct').html();
         }
 
-        if ($this.find('feedback wrong').text() != '') {
-            feedbackfalse = $this.find('feedback wrong').html();
+        if ($this.find('> feedback wrong').text() != '') {
+            feedbackfalse = $this.find('> feedback wrong').html();
         }
+        $this.find('> feedback').empty();
 
         var set_position = $this.attr('data-set-position') ? $this.attr('data-set-position') : false;
 
@@ -2936,12 +2954,14 @@ dhbgApp.standard.load_operations = function() {
 
             var msg;
             if (weight >= dhbgApp.evaluation.approve_limit) {
-                msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
             }
             else {
-                msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
-            $box_end.append(msg).show();
+
+            var $msg = $(msg);
+            $box_end.append($msg).show();
 
             activity.disable();
             activity.highlight('correct', 'wrong');
@@ -3152,15 +3172,15 @@ dhbgApp.standard.load_operations = function() {
         // Load custom feedback, if exists.
         var feedbacktrue = null, feedbackfalse = null;
 
-        if ($this.find('feedback correct').text() != '') {
-            feedbacktrue = $this.find('feedback correct').html();
+        if ($this.find('> feedback correct').text() != '') {
+            feedbacktrue = $this.find('> feedback correct').html();
         }
 
-        if ($this.find('feedback wrong').text() != '') {
-            feedbackfalse = $this.find('feedback wrong').html();
+        if ($this.find('> feedback wrong').text() != '') {
+            feedbackfalse = $this.find('> feedback wrong').html();
         }
 
-        $this.find('feedback').empty();
+        $this.find('> feedback').empty();
         // End feedback.
 
         var mark_parent = $this.attr('data-parent-mark-selector') ? $this.attr('data-parent-mark-selector') : false;
@@ -3272,7 +3292,7 @@ dhbgApp.standard.load_operations = function() {
 
         if_shuffle();
 
-        var $box_end = $this.find('.box_end');
+        var $box_end = $this.find('> .box_end');
 
         var $msg_end = $('<div class="msg"></div>');
         $box_end.append($msg_end);
