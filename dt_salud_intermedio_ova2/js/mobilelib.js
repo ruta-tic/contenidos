@@ -2513,6 +2513,8 @@ dhbgApp.mobile.load_operations = function() {
             feedbackfalse = $this.find('feedback wrong').html();
         }
 
+        $this.find('feedback').empty();
+
         // Build the board.
         var words = [];
         var i = 1;
@@ -2566,12 +2568,14 @@ dhbgApp.mobile.load_operations = function() {
 
             var msg;
             if (weight >= dhbgApp.evaluation.approve_limit) {
-                msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
             }
             else {
-                msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
-            $this.find('.box_end').append(msg).show();
+
+            var $msg = $(msg);
+            $this.find('.box_end').append($msg).show();
 
             activity.stop();
             activity.highlight('correct', 'wrong');
@@ -2623,7 +2627,7 @@ dhbgApp.mobile.load_operations = function() {
         $layout.append($r2);
 
         $this.append($layout);
-        $this.append($box_end);
+        $box_content.append($box_end);
         $this.append('<br class="clear" />');
 
         activity.run();

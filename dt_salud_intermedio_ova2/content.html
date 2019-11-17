@@ -5,54 +5,28 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/icon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>OVA 2. La telesalud</title>
+    <title>OVA. La telesalud</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
     <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
-    <!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-    <!--End jQuery components -->
-
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
-    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
     <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js">
     </script>
     <script src="components/scorm/scorm_api.js">
@@ -62,11 +36,11 @@
         body {
             background-color: rgba(242, 242, 242, 0.7);
         }
-        
+
         body.loading {
             text-align: center;
         }
-        
+
         body.loading:after {
             content: "";
             background: url(img/loading.gif) no-repeat bottom center;
@@ -76,7 +50,7 @@
             margin: auto;
             padding-bottom: 20px;
         }
-        
+
         body.loading #body {
             display: none;
         }
@@ -84,7 +58,7 @@
 
 </head>
 
-<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -93,24 +67,18 @@
         <nav label="Características globales" class="globals">
             <menu>
                 <menuitem data-global-id="return">
-                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
-                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
                 </menuitem>
                 <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
             </menu>
         </nav>
 
         <header>
-            <h2>OVA 2. La telesalud</h2>
+            <h2>OVA. La telesalud</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
-                    <menuitem label="La telesalud">
-                    <menu>
-                        <menuitem label="Introducción" data-page="pag-introduccion"></menuitem>
-                        <menuitem label="Avances tecnológicos" data-page="pag-avances"></menuitem>
-                        <menuitem label="Ejercicio: Crucigrama" data-page="pag-crucigrama"></menuitem>
-                    </menu>
-                    </menuitem>
+                    <menuitem label="La telesalud" data-page="pag-telesalud"></menuitem>
                     <menuitem label="La telemedicina" data-page="pag-telemedicina"></menuitem>
                 </menu>
             </nav>
@@ -120,71 +88,129 @@
 
             <h2 class="page-title"></h2>
 
-            <section id="pag-introduccion" ptitle="La telesalud">
+            <section id="pag-telesalud" ptitle="La telesalud">
                 <div class="subpage">
                     <p>La palabra telesalud significa salud a distancia; el prefijo tele significa a distancia o lejos en griego. Se refiere a la prestación de servicios de salud en la promoción de la salud, prevención de la enfermedad y en la evaluación,
                         diagnóstico, tratamiento y rehabilitación de la enfermedad. Emplea las tecnologías de la información y la comunicación (TIC) y contribuye a aminorar y combatir las barreras en tiempo y espacio. Inició con la telemedicina y ahora
-                        se ha ampliado a otras áreas de la salud permitiendo la articulación e interdisciplinariedad (1).</p>
+                        se ha ampliado a otras áreas de la salud permitiendo la articulación e interdisciplinariedad <sup class="tooltip" title="Dos-Santos A, Fernández A.Desarrollo de la telesalud en América Latina: Aspectos conceptuales y estado actual. Santiago de Chile: Comisión Económica para América Latina y el Caribe & Organización de Naciones Unidas. 2013. Disponible en <a href='https://www.cepal.org/es/publicaciones/35453-desarrollo-la-telesalud-america-latina-aspectos-conceptuales-estado-actual' target='_blank'>https://www.cepal.org/[...]</a>">(1)</sup>.</p>
 
-                    <p>El inicio de la telesalud data de los años 60 en Estados Unidos y Europa, con mayor auge hacia los años 90 debido al desarrollo tecnológico.</p>
+                    <div class="box-text note" label="Nota">
+                        <p>El inicio de la telesalud data de los años 60 en Estados Unidos y Europa, con mayor auge hacia los años 90 debido al desarrollo tecnológico.</p>
+                    </div>
                 </div>
-            </section>
 
-            <section id="pag-avances" ptitle="Avances tecnológicos asociados a la telesalud">
                 <div class="subpage">
                     <h3>Avances tecnológicos asociados a la telesalud </h3>
 
-                    <!--Pendiente ajustar infografía según la propuesta gráfica, y pedirle al diseñador las imágenes correspondientes a cada año (solo entregó la muestra de cómo va la infografía)-->
-                    <div>
-                        <div>
-                            <h4>Años 70 - Era de las telecomunicaciones</h4>
-                            <p>Uso de radio y televisión para difusión de la información sin integración de datos audiovisuales a otros datos en salud; con difícil acceso y almacenamiento de la información.</p>
-                        </div>
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en </span> las flechas a la derecha para ver más información.</div>
 
-                        <div>
-                            <h4>Años 80 y 90 - Era digital</h4>
+                    <div class="ctrl-pagination" data-orientation="vertical">
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/info1.png" alt="Años 70 - Era de las telecomunicaciones" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h4>Años 70 - Era de las telecomunicaciones</h4>
+                                    <p>Uso de radio y televisión para difusión de la información sin integración de datos audiovisuales a otros datos en salud; con difícil acceso y almacenamiento de la información.</p>
+                                </div>
+                            </div>
+                        </li>
 
-                            <p>Integración de redes de telecomunicación y computadores, transmisión conjunta e integrada de sonido, imagen y datos a alta velocidad.</p>
-                        </div>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <h4>Años 80 y 90 - Era digital</h4>
+                                    <p>Integración de redes de telecomunicación y computadores, transmisión conjunta e integrada de sonido, imagen y datos a alta velocidad.</p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/info2.png" alt="Años 80 y 90 - Era digital" />
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div>
-                            <h4>Inicios del siglo XXI - Era del internet</h4>
+                        </li>
 
-                            <p>Integración de redes amplias de telecomunicación y computadores con protocolos estandarizados, accesibilidad rápida y tecnología barata.</p>
+                        <li>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/info3.png" alt="Inicios del siglo XXI - Era del internet" />
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <h4>Inicios del siglo XXI - Era del internet</h4>
+                                    <p>Integración de redes amplias de telecomunicación y computadores con protocolos estandarizados, accesibilidad rápida y tecnología barata.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
 
-                            <p>En las últimas décadas se ha ampliado, de manera exponencial, la utilización de las TIC en las áreas de la salud. Una de las aplicaciones es la telesalud; se podría decir que la telesalud es polisémica debido a la gran cantidad
-                                de aspectos que engloba.</p>
-                        </div>
+                    <div class="box-text note" label="Nota">
+                        <p>En las últimas décadas se ha ampliado, de manera exponencial, la utilización de las TIC en las áreas de la salud. Una de las aplicaciones es la telesalud; se podría decir que la telesalud es polisémica debido a la gran cantidad de aspectos que engloba.</p>
                     </div>
                 </div>
-            </section>
 
-            <section id="pag-crucigrama" ptitle="Ejercicio: Crucigrama (definiciones asociadas a la telesalud) ">
                 <div class="subpage">
-                    <div class="box-text activity" label="Indicaciones">
-                        <p>Se le invita a nombrar cada una de las definiciones en el siguiente crucigrama. En caso de encontrar dificultad con algunos términos, se le invita a revisar el capítulo V del documento “Desarrollo de la telesalud en América Latina:
-                            Aspectos conceptuales y estado actual” disponible aquí.</p>
+                    <div class="box-text activity" label="Ejercicio: Crucigrama (definiciones asociadas a la telesalud)">
+                        <p>Se le invita a nombrar cada una de las definiciones en el siguiente crucigrama. En caso de encontrar dificultad con algunos términos, se le invita a revisar el capítulo V del documento <strong>“Desarrollo de la telesalud en América Latina: Aspectos conceptuales y estado actual”</strong> disponible <a href="https://www.cepal.org/es/publicaciones/35453-desarrollo-la-telesalud-america-latina-aspectos-conceptuales-estado-actual" target="_blank">aquí</a>.</p>
                     </div>
 
-                    <!--Pendiente ajustar tamaño de los cajones con las pistas, y configurar la retroalimentación que sugiere la guionista (retroalimentación por cada palabra en ventana modal)-->
-                    <div class="jpit-activities-crossword">
+                    <div class="jpit-activities-crossword" data-act-id="1-crossword" data-act-title="Ejercicio: Crucigrama (definiciones asociadas a la telesalud)">
                         <horizontal>
-                            <li data-row="1" data-col="0" data-term="teleasistenciadomiciliaria">Utilización de las TIC por un profesional sanitario y por la comunidad en general que permite promover cuidados en salud a distancia. Usualmente, está orientado a pacientes con necesidades especiales o enfermedades crónicas,
-                                trastornos mentales y ancianos. </li>
-                            <li data-row="4" data-col="0" data-term="elearning">Uso de las TIC para mejorar la calidad de la atención en salud facilitando la accesibilidad en profesionales con barreras geográficas.</li>
-                            <li data-row="11" data-col="0" data-term="telediagnostico">Uso o lectura de pruebas diagnósticas para apoyar un diagnóstico a distancia.</li>
-                            <li data-row="9" data-col="2" data-term="telemedicina">Prestación de servicios en salud a distancia con el uso de TIC para apoyar la prevención, diagnóstico, tratamiento y rehabilitación de la enfermedad.</li>
-                            <li data-row="17" data-col="2" data-term="teleconsulta">Consulta del paciente directamente con el profesional sanitario.</li>
-                            <li data-row="20" data-col="1" data-term="telecirugia">Utilización de robótica en actos quirúrgicos guiados a distancia para la orientación en prácticas y técnicas quirúrgicas. </li>
-                            <li data-row="22" data-col="9" data-term="historiaclinica">Banco de datos con información relacionada con la salud de pacientes a la que puede disponer el profesional sanitario en cualquier momento. Permite la transmisión en tiempo real de datos y la planeación y análisis en salud.</li>
-                            <li data-row="25" data-col="10" data-term="esalud">Uso de las TIC para promoción de la salud, prevención, evaluación, diagnóstico, tratamiento y rehabilitación de la enfermedad. </li>
+                            <li data-row="1" data-col="0" data-term="historia clinica electronica">Banco de datos con información relacionada con la salud de pacientes a la que puede disponer el profesional sanitario en cualquier momento. Permite la transmisión en tiempo real de datos y la planeación y análisis en salud.</li>
+
+                            <li data-row="4" data-col="0" data-term="teleasistencia domiciliaria">Utilización de las TIC por un profesional sanitario y por la comunidad en general que permite promover cuidados en salud a distancia. Usualmente, está orientado a pacientes con necesidades especiales o enfermedades crónicas, trastornos mentales y ancianos. También es llamada "telecuidado" o "telesalud domiciliaria".</li>
+
+                            <li data-row="6" data-col="19" data-term="esalud">Uso de las TIC para promoción de la salud, prevención, evaluación, diagnóstico, tratamiento y rehabilitación de la enfermedad. También es llamada salud electrónica.</li>
+
+                            <li data-row="7" data-col="2" data-term="salud movil">Uso de dispositivos móviles conectados a servicios de internet para promover la salud, y prevenir, diagnosticar, tratar y rehabilitar la enfermedad.</li>
+
+                            <li data-row="10" data-col="11" data-term="telemedicina">Prestación de servicios en salud a distancia con el uso de TIC para apoyar la prevención, diagnóstico, tratamiento y rehabilitación de la enfermedad.</li>
+
+                            <li data-row="12" data-col="3" data-term="telecirugia">Utilización de robótica en actos quirúrgicos guiados a distancia para la orientación en prácticas y técnicas quirúrgicas. </li>
+
+                            <li data-row="14" data-col="9" data-term="teleconsultoria">Solicitar segunda opinión a un especialista o experto en áreas de la salud en términos de diagnóstico o conducta con un paciente.</li>
+
                         </horizontal>
                         <vertical>
-                            <li data-row="0" data-col="1" data-term="teleconsultoria">Solicitar segunda opinión a un especialista o experto en áreas de la salud en términos de diagnóstico o conducta con un paciente.</li>
-                            <li data-row="8" data-col="3" data-term="telemonitoreo">Utilización de dispositivos móviles en los hogares o en vía pública sin que sea necesaria la presencia física del profesional de la salud, con el fin de orientar sobre signos y síntomas, hábitos de vida saludable y control
-                                de medicación, entre otros.</li>
-                            <li data-row="15" data-col="14" data-term="saludmovil">Uso de dispositivos móviles conectados a servicios de internet para promover la salud, y prevenir, diagnosticar, tratar y rehabilitar la enfermedad.</li>
+                            <li data-row="3" data-col="1" data-term="telemonitoreo">Utilización de dispositivos móviles en los hogares o en vía pública sin que sea necesaria la presencia física del profesional de la salud, con el fin de orientar sobre signos y síntomas, hábitos de vida saludable y control de medicación, entre otros. También es llamado televigilancia.</li>
+
+                            <li data-row="0" data-col="4" data-term="telediagnostico">Uso o lectura de pruebas diagnósticas para apoyar un diagnóstico a distancia. También es llamado “pruebas diagnósticas a distancia”.</li>
+
+                            <li data-row="6" data-col="17" data-term="teleconsulta">Consulta del paciente directamente con el profesional sanitario.</li>
+
+                            <li data-row="2" data-col="22" data-term="elearning">Uso de las TIC para mejorar la calidad de la atención en salud facilitando la accesibilidad en profesionales con barreras geográficas.</li>
                         </vertical>
+                        <feedback>
+                            <correct>
+                                <div id="retro-act1" class="box-text important" label="Retroalimentación general">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div class="box_media">
+                                                <img src="content/1_3_retroalimentacion_general-02.png" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <p>Dentro de la telesalud se encuentra la telemedicina, o teleodontología, o telepsicología, o telenutrición, las cuales reciben este nombre debido a la atención médica, odontológica, psicológica o nutricional a distancia. Para fines netamente prácticos, se le denominará de ahora en adelante telemedicina, haciendo hincapié en el hecho de que puede aplicarse a todas las disciplinas del área de la salud.</p>
+                                        </div>
+                                    </div>
+
+                                    <p>Todas las funcionalidades o términos mencionados como teleconsultoría, teleconsulta, telediagnóstico, telemonitoreo, e-Learning, etc., pueden aplicarse a la telemedicina. Algunas instituciones investigadoras como la Universidad Nacional de Colombia, manejan la telesalud y la telemedicina de manera indistinta; mientras que otros, como en la Universidad de Antioquia, subdividen la telesalud en: </p>
+                                    <ul class="data_list">
+                                        <li>Telemedicina (atención sanitaria a distancia).</li>
+                                        <li>Teleasistencia domiciliaria (monitoreo de pacientes específicos en casa).</li>
+                                        <li>Teleeducación (capacitación a distancia).</li>
+                                        <li>Salud móvil (utilización de dispositivos o aplicativos en salud).</li>
+                                    </ul>
+
+                                    <p>Indiferente a como se le clasifique, se invita al participante a dimensionar las posibilidades que le permite la aplicación de la tecnología en el quehacer profesional específico para cada disciplina. A continuación, se profundizará en telemedicina y se mencionarán tres experiencias exitosas con las que cuenta Colombia.</p>
+                                </div>
+                            </correct>
+                        </feedback>
                     </div>
                 </div>
             </section>
@@ -196,7 +222,7 @@
                         el uso de las TIC en la promoción de la salud, prevención de la enfermedad y para la evaluación, diagnóstico, tratamiento y rehabilitación de la enfermedad. A continuación, se mencionan tres leyes relacionadas con la aplicación
                         de las TIC en el campo de la salud.
                     </p>
-                    <ol class="counter">
+                    <ol class="ol_counter">
                         <li>Ley 1419 de 2010, que define lineamientos para el desarrollo y la aplicación de la telesalud como apoyo para la atención en salud bajo el sistema general de seguridad social en salud.
                         </li>
                         <li>Ley 1438 de 2011, reforma al sistema general, que incluye los servicios de telemedicina dentro de las redes integradas de atención en salud.
@@ -205,28 +231,30 @@
                         </li>
                     </ol>
 
-                    <div class="box-text important" label="Importante">
+                    <div class="box-text important" label="Requisitos para su uso">
 
-                        <h3>Requisitos para su uso</h3>
                         <p>Para el uso de la telemedicina, como profesional en salud, debe disponer de unos mínimos básicos:</p>
 
-                        <ol class="counter">
-                            <li>Conocimientos en TIC: computadores, tabletas, disponibilidad y conectividad a internet.</li>
-                            <li>Interés y motivación para usar las TIC: reflexionar sobre el modelo hegemónico de atención en salud y abrir la posibilidad de la atención a distancia.</li>
+                        <ol class="ol_counter">
+                            <li><strong>Conocimientos en TIC:</strong> computadores, tabletas, disponibilidad y conectividad a internet.</li>
+                            <li><strong>Interés y motivación para usar las TIC:</strong> reflexionar sobre el modelo hegemónico de atención en salud y abrir la posibilidad de la atención a distancia.</li>
                             <li>Comprensión sobre el funcionamiento del modelo de telemedicina.</li>
-                            <li>Plataforma conectada con centro de telemedicina con la cadena de atención: emisor-articulador-receptor, la cual se compone por un centro remisor (personal que solicita el concepto en salud); un centro regulador (donde se administran
-                                las solicitudes) y el centro de referencia (personal experto que emite conceptos). A su vez, el receptor genera respuesta al ofrecer el servicio que se le solicitó con antelación.</li>
-                            <li>Aspectos administrativos: todo lo relacionado con las autorizaciones, pagos y contrataciones entre las entidades promotoras de salud y las empresas que presten servicios de telemedicina.</li>
+                            <li><strong>Plataforma conectada con centro de telemedicina con la cadena de atención:</strong> emisor-articulador-receptor, la cual se compone por un centro remisor (personal que solicita el concepto en salud); un centro regulador (donde se administran las solicitudes) y el centro de referencia (personal experto que emite conceptos). A su vez, el receptor genera respuesta al ofrecer el servicio que se le solicitó con antelación.</li>
+                            <li><strong>Aspectos administrativos:</strong> todo lo relacionado con las autorizaciones, pagos y contrataciones entre las entidades promotoras de salud y las empresas que presten servicios de telemedicina.</li>
                             <li>Interés y autorización por parte del paciente.</li>
                         </ol>
 
                     </div>
 
                     <h3>Experiencias exitosas</h3>
-                    <!--Falta una animación que continúa aquí-->
-                    <div class="media">
-                        <img src="content/prev_cinemagraph.expert.png" class="play-animation" title="Animación Cinemagraph.expert" data-animation="content/cinemagraph.expert.gif" />
+
+                    <div class="videobox">
+                        <video controls>
+                            <source src="content/videos/experiencias_exitosas.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
                     </div>
+
                     <p>De igual manera, existen experiencias a nivel nacional en las cuales la telemedicina presta servicios, como monitoreo de signos vitales; apoyo en pacientes críticos; microscopía robotizada; laboratorio en marcha; fonendoscopio digital;
                         espirómetro digital; electromiógrafo digital; transductor de ecografía digital; imágenes histopatológicas, para apoyo diagnóstico y formación a profesionales en patología, entre otros específicos en el área del a salud.
                     </p>
@@ -238,7 +266,7 @@
                         la Fundación <a href="http://www.fcv.org/site/telemedicina/servicios/tele-consulta" target="_blank">Cardiovascular de Colombia</a> y la <a href="https://livinglab.medicinaudea.co/index.php" target="_blank">Universidad de Antioquia</a>.
                     </p>
                     <p>Existen experiencias a nivel internacional de empresas dedicadas a la integración de las TIC en diversos escenarios, uno de ellos la salud. En estas, por medio de cámaras y pantallas, se comparten imágenes de exámenes de rutina empleando
-                        la telerradiología entre otros recursos de la telemedicina (2). Esto permite apoyar el sistema de salud, mejorando el tiempo de oportunidad para la atención y eliminando las barreras geográficas.
+                        la telerradiología entre otros recursos de la telemedicina <sup class="tooltip" title="Rodríguez, CE. Telesalud en Colombia [en línea]. Disponible en <a href='http://www.acreditacionensalud.org.co/Adm/ArchivosBoletines/68/Revista%20Normas%20y%20Calidad%20N%C2%B0%2090.pdf' target='_blank'>http://www.acreditacionensalud.org.co/[...]</a>">(2)</sup>. Esto permite apoyar el sistema de salud, mejorando el tiempo de oportunidad para la atención y eliminando las barreras geográficas.
                     </p>
                 </div>
 
@@ -284,10 +312,6 @@
         <div id="credits_subpage">
             <h2>Créditos</h2>
 
-            <p>
-                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
-                a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
-            </p>
             <div>
                 <h3>Expertos temáticos</h3>
                 <cite>Catalina Echeverry Querubín</cite>
@@ -318,7 +342,7 @@
             </div>
             <div>
                 <h3>Revisión de calidad</h3>
-                <cite></cite>
+                <cite>Mauricio Arboleda</cite>
             </div>
 
             <div>
@@ -359,13 +383,13 @@
 
             <ul class="data_list">
                 <li>Dos-Santos A, Fernández A.Desarrollo de la telesalud en América Latina: Aspectos conceptuales y estado actual. Santiago de Chile: Comisión Económica para América Latina y el Caribe & Organización de Naciones Unidas. 2013. Disponible en
-                    <a href="https://www.cepal.org/es/publicaciones/35453-desarrollo-la-telesalud-america-latina-aspectos-conceptuales-estado-actual">https://www.cepal.org/es/publicaciones/35453-desarrollo-la-telesalud-america-latina-aspectos-conceptuales-estado-actual</a></li>
-                <li>Rodríguez, CE. Telesalud en Colombia [en línea]. Disponible en <a href="http://www.acreditacionensalud.org.co/Adm/ArchivosBoletines/68/Revista%20Normas%20y%20Calidad%20N%C2%B0%2090.pdf" target="_blank">http://www.acreditacionensalud.org.co/Adm/ArchivosBoletines/68/Revista%20Normas%20y%20Calidad%20N%C2%B0%2090.pdf</a></li>
-                <li>Congreso de la República de Colombia. Ley 1273 de 2009. Disponible en <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1273_2009.html" target="_blank">http://www.secretariasenado.gov.co/senado/basedoc/ley_1273_2009.html</a></li>
-                <li>Congreso de la República de Colombia. Ley 1419 de 2010. Disponible en <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1419_2010.html" target="_blank">http://www.secretariasenado.gov.co/senado/basedoc/ley_1419_2010.html</a></li>
-                <li>Congreso de la República de Colombia. Ley 1438 de 2011. Disponible en <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/LEY%201438%20DE%202011.pdf" target="_blank">https://www.minsalud.gov.co/Normatividad_Nuevo/LEY%201438%20DE%202011.pdf</a></li>
-                <li>Organización Panamericana de la Salud. Marco de Implementación de un Servicio de Telemedicina. Washington, DC: OPS. 2016. Disponible en <a href="http://iris.paho.org/xmlui/handle/123456789/28413" target="_blank">http://iris.paho.org/xmlui/handle/123456789/28413</a></li>
-                <li>Ministerio de Salud y Protección Social (2017). Resolución 5269 de 2017. Disponible en <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Forms/DispForm.aspx?ID=5114" target="_blank">https://www.minsalud.gov.co/Normatividad_Nuevo/Forms/DispForm.aspx?ID=5114</a>
+                    <a href="https://www.cepal.org/es/publicaciones/35453-desarrollo-la-telesalud-america-latina-aspectos-conceptuales-estado-actual">https://www.cepal.org/[...]</a></li>
+                <li>Rodríguez, CE. Telesalud en Colombia [en línea]. Disponible en <a href="http://www.acreditacionensalud.org.co/Adm/ArchivosBoletines/68/Revista%20Normas%20y%20Calidad%20N%C2%B0%2090.pdf" target="_blank">http://www.acreditacionensalud.org.co/[...]</a></li>
+                <li>Congreso de la República de Colombia. Ley 1273 de 2009. Disponible en <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1273_2009.html" target="_blank">http://www.secretariasenado.gov.co/[...]</a></li>
+                <li>Congreso de la República de Colombia. Ley 1419 de 2010. Disponible en <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1419_2010.html" target="_blank">http://www.secretariasenado.gov.co/[...]</a></li>
+                <li>Congreso de la República de Colombia. Ley 1438 de 2011. Disponible en <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/LEY%201438%20DE%202011.pdf" target="_blank">https://www.minsalud.gov.co/N[...]</a></li>
+                <li>Organización Panamericana de la Salud. Marco de Implementación de un Servicio de Telemedicina. Washington, DC: OPS. 2016. Disponible en <a href="http://iris.paho.org/xmlui/handle/123456789/28413" target="_blank">http://iris.paho.org/[...]</a></li>
+                <li>Ministerio de Salud y Protección Social (2017). Resolución 5269 de 2017. Disponible en <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Forms/DispForm.aspx?ID=5114" target="_blank">https://www.minsalud.gov.co/[...]</a>
                 </li>
             </ul>
         </div>

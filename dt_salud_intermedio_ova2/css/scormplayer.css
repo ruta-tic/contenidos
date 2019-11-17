@@ -172,6 +172,27 @@ button.general.active, button.general:hover {
     padding: 10px;
 }
 
+ul.data_list {
+    list-style: none;
+}
+
+ul.data_list li {
+    padding-bottom: 10px;
+}
+
+ul.data_list li:before {
+    content: "\f109";
+    font-family: "Ionicons";
+    position: relative;
+    left: -5px;
+    color: #44c5d0;
+    font-weight: bold;
+}
+
+ol.ol_counter li {
+    padding-bottom: 10px;
+}
+
 @media (max-width:750px) {
     #body {
         width: 95%;
