@@ -1,4 +1,4 @@
-# OVA - Rúbrica: Autoevaluación Objetivos y resultados de aprendizaje
+# OVA - Rúbrica: Evalúe su participación en la actividad Teleconcepto a solo unos clics de distancia
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
