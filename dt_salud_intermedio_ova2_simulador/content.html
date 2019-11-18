@@ -57,14 +57,16 @@
             padding-bottom: 20px;
         }
 
-        body.loading #body {
-            display: none;
+        body.loading main > section,
+        body.loading header h2,
+        body.loading footer {
+            display: none!important;
         }
     </style>
 
 </head>
 
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030319" data-act-id="1-td-salud-simulador">
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030319" data-act-id="1-td-salud-simulador">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -152,7 +154,7 @@
                                 <dl>
                                     <dt class="tab-respuestas">Respuestas a solicitud</dt>
                                     <dd>
-                                        <div class="accordion conceptos"></div>
+                                        <div class="accordion conceptos">Ninguno hasta el momento.</div>
                                     </dd>
                                 </dl>
                                 <dl>
@@ -187,7 +189,7 @@
                                 <dl>
                                     <dt>Comentarios</dt>
                                     <dd>
-                                        <div class="comentarios"></div>
+                                        <div class="comentarios">Ninguno hasta el momento.</div>
                                         <div class="comentario">
                                             <form id="form-comentar">
                                                 <strong>Comentario:</strong>

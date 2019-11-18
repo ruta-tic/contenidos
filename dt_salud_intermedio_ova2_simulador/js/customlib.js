@@ -5,7 +5,7 @@
  */
 (function(app) {
 
-    var MODEDEBUG = 'custom';
+    var MODEDEBUG = 'none';
     var _customdebugdata = {
         "url": "/moodle36",
         "courseId": 4
@@ -16,6 +16,7 @@
     var _solicitudes = [];
     var _currentSolicitud;
     var _table_solicitudes;
+    var _scorm_id_prefix = 'sim-kta';
 
     function toURLParams(data) {
         var out = [];
@@ -206,11 +207,11 @@
      */
     function initialize(data) {
 
-        //register for scorm
-        scorm_id_prefix = $('body').data().manifestId || 'sim-kta';
+        // Register for scorm.
+        _scorm_id_prefix = $('body').data().actId || 'sim-kta';
 
         if (app.scorm) {
-            if (!app.scorm.activities[scorm_id_prefix]) { app.scorm.activities[scorm_id_prefix] = []; }
+            if (!app.scorm.activities[_scorm_id_prefix]) { app.scorm.activities[_scorm_id_prefix] = []; }
         }
 
         if (_sessionData.userpicture) {
@@ -240,6 +241,12 @@
         $('#guardarcomentario').on('click', saveComentario);
 
         $('#respondersolicitud').on('click', saveRespuesta);
+
+        $('#borrarsolicitud').on('click', deleteSolicitud);
+
+        $('#cerrarsolicitud').on('click', closeSolicitud);
+
+        $('body').removeClass('loading');
     }
 
     function loadSolicitudes(event) {
@@ -330,6 +337,18 @@
 
         _currentSolicitud = $this.attr('data-record');
         var data = _solicitudes[_currentSolicitud];
+
+        $('#cerrarsolicitud').hide();
+        $('#borrarsolicitud').hide();
+
+        if (data.solicitanteid == _sessionData.userid) {
+            $('#borrarsolicitud').show();
+
+            if (data.estado == 'Abierta') {
+                $('#cerrarsolicitud').show();
+            }
+        }
+
         var $tpl = $('#tpl-solicitud');
         var $item = $tpl.tmpl(data);
 
@@ -396,6 +415,10 @@
                     console.log(data.stacktrace);
                 }
                 return;
+            }
+
+            if (data.id && dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(_scorm_id_prefix, 100, null, 'Creó solicitud: ' + data.id);
             }
 
             loadSolicitudes(event);
@@ -480,6 +503,10 @@
                 return;
             }
 
+            if (dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(_scorm_id_prefix, 100, null, 'Respondió a solicitud: ' + _currentSolicitud);
+            }
+
             _solicitudes[_currentSolicitud].conceptos[_solicitudes[_currentSolicitud].conceptos.length] = concepto;
             $tpl = $('#tpl-concepto');
             $item = $tpl.tmpl(concepto);
@@ -497,8 +524,87 @@
 
     }
 
-    $( document ).ready(function() {
+    function deleteSolicitud(event) {
+        event.preventDefault();
+        $('body').addClass('loading');
 
+        var r = confirm("¿Está seguro de borrar la solicitud?");
+        if (r !== true) {
+            $('body').removeClass('loading');
+            return;
+        }
+
+        var params = { "id": _currentSolicitud };
+
+        setToDB('delete', 'solicitudes', null, params).then(function(data){
+            $('body').removeClass('loading');
+
+            if (data.error) {
+                showMsg(ERROR, data.error);
+                console.log('+++++++++++++++ Error ++++++++++++++++++++');
+                if (data.debuginfo) {
+                    console.log('Debuginfo:');
+                    console.log(data.debuginfo);
+                }
+                if (data.stacktrace) {
+                    console.log('Stacktrace:');
+                    console.log(data.stacktrace);
+                }
+                return;
+            }
+
+            $('#solicitud-detalles').dialog('close');
+            loadSolicitudes(event);
+
+        }, function(err) {
+            $('body').removeClass('loading');
+            showMsg(ERROR, 'Hubo un error. Por favor intente de nuevo.');
+            console.log(err)
+        });
+
+    }
+
+    function closeSolicitud(event) {
+        event.preventDefault();
+        $('body').addClass('loading');
+
+        var r = confirm("¿Está seguro de cerrar la solicitud? Una vez cerrada no podrá volverla a abrir.");
+        if (r !== true) {
+            $('body').removeClass('loading');
+            return;
+        }
+
+        var params = { "id": _currentSolicitud, 'fields': '{"estado" : "Cerrada"}' };
+
+        setToDB('change', 'solicitudes', null, params).then(function(data){
+            $('body').removeClass('loading');
+
+            if (data.error) {
+                showMsg(ERROR, data.error);
+                console.log('+++++++++++++++ Error ++++++++++++++++++++');
+                if (data.debuginfo) {
+                    console.log('Debuginfo:');
+                    console.log(data.debuginfo);
+                }
+                if (data.stacktrace) {
+                    console.log('Stacktrace:');
+                    console.log(data.stacktrace);
+                }
+                return;
+            }
+
+            $('#solicitud-detalles').dialog('close');
+            loadSolicitudes(event);
+
+        }, function(err) {
+            $('body').removeClass('loading');
+            showMsg(ERROR, 'Hubo un error. Por favor intente de nuevo.');
+            console.log(err)
+        });
+
+    }
+
+    $( document ).ready(function() {
         connect().then(function(data) {
             console.log('Connected');
         }, function(err) {

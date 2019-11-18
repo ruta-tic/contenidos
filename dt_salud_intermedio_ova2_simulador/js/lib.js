@@ -24,7 +24,7 @@ dhbgApp.standard.start = function() {
 
     $('main > section').hide();
     $('main').show();
-    $('body').removeClass('loading');
+    //$('body').removeClass('loading');
 
     if (dhbgApp.scorm) {
         dhbgApp.scorm.initialization({activities_percentage: dhbgApp.evaluation.activities_percentage});
@@ -1625,7 +1625,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
-        dhbgApp.loadPage(1, 0);
+        dhbgApp.loadPage(0, 0);
     }
 };
 
