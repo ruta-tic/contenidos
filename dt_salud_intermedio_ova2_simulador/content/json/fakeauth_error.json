@@ -1,0 +1,7 @@
+{
+    "error":"error\/settingsnotfound",
+    "errorcode":"settingsnotfound",
+    "stacktrace":"* line 494 of \/lib\/setuplib.php: moodle_exception thrown\n* line 103 of \/local\/tepuy\/components\/singledb\/index.php: call to print_error()\n",
+    "debuginfo":"\nError code: settingsnotfound\n$a contents: ",
+    "reproductionlink":"https:\/\/localhost.test\/moodle36\/"
+}

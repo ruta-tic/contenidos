@@ -750,6 +750,16 @@ dhbgApp.standard.start = function() {
                 $dd.show();
             });
 
+            var classes = $dl.find('>dt').attr('class');
+            if (classes) {
+                $dt.addClass(classes);
+            }
+
+            classes = $dl.find('>dd').attr('class');
+            if (classes) {
+                $dd.addClass(classes);
+            }
+
             $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
 
             $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
@@ -1500,6 +1510,20 @@ dhbgApp.standard.start = function() {
     });
 
     // ==============================================================================================
+    // Data table grid
+    // ==============================================================================================
+    $('.datatable-grid').each(function() {
+        var $this = $(this);
+        var $datatable = $this.DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+            }
+        });
+
+        $this.data('$datatable', $datatable);
+    });
+
+    // ==============================================================================================
     // Print page
     // ==============================================================================================
     $('#printent_back').on('click', function(){
@@ -1601,7 +1625,7 @@ dhbgApp.standard.start = function() {
         dhbgApp.changeSco(dhbgApp.scorm.currentSco);
     }
     else {
-        dhbgApp.loadPage(0, 0);
+        dhbgApp.loadPage(1, 0);
     }
 };
 

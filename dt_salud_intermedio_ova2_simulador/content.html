@@ -15,6 +15,13 @@
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
+<!-- Data tablet componente-->
+    <link rel="stylesheet" type="text/css" href="components/datatables/datatables.min.css"/>
+    <script type="text/javascript" src="components/datatables/datatables.min.js"></script>
+<!-- End Data tablet componente-->
+
+    <script src="components/tmpl/jquery.tmpl.min.js"></script>
+
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
@@ -27,10 +34,9 @@
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="components/scorm/SCORM_12_APIWrapper.js">
-    </script>
-    <script src="components/scorm/scorm_api.js">
-    </script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
 
     <style type='text/css'>
         body {
@@ -58,7 +64,7 @@
 
 </head>
 
-<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030319" data-act-id="1-td-salud-simulador">
     <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
@@ -75,14 +81,18 @@
         </nav>
 
         <header>
-            <h2>Teleconcepto "<i>A unos pocos clics de distancia</i>"</h2>
+            <span class="avatar"></span>
+            <h2>
+                <button class="general" data-page="pag-ppal"><i class="ion-home"></i> <label id="labelprogress">Inicio</label></button>
+                Teleconcepto "<i>A unos pocos clics de distancia</i>"
+            </h2>
         </header>
 
         <main style="display: none;">
 
             <h2 class="page-title"></h2>
 
-            <section id="pag-telesalud" ptitle="La telesalud">
+            <section id="pag-inicio" ptitle="Inicio">
                 <div class="subpage">
                     <div class="box-text link" label="Inicio">
                         <p>
@@ -91,20 +101,183 @@
                         </p>
                         <p>
                             <strong>Contraseña:</strong><br />
-                            <input type="password" id="form-clave" placeholder="Su fecha de nacimiento (aaaa-mm-dd)" />
+                            <input type="password" id="form-clave" placeholder="Su documento de identidad" />
                         </p>
                         <p>
-                            <button class="general" type="button" id="form-ingresar" data-page="pag-ppal">Ingresar</button>
+                            <button class="general" type="button" id="btn-ingresar" data-page="pag-ppal">Ingresar</button>
                         </p>
                     </div>
                 </div>
-
             </section>
 
             <section id="pag-ppal" ptitle="Principal">
                 <div class="subpage">
+                    <h2>Inicio</h2>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/4_imagen_del_sitio-03.png" />
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div id="btn-apoyame" class="btn-ppal tooltip" data-page="pag-apoyame" title="Para profesional solicitante" data-position-my="right"></div>
+                            <div id="btn-teapoyo" class="btn-ppal tooltip" data-page="pag-teapoyo" title="Para experto respondiente" data-position-my="right"></div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
+            <section id="pag-apoyame" ptitle="¡Apóyame!">
+                <div class="subpage">
+                    <h2>¡Apóyame!</h2>
+                    <div id="tablebox-apoyame"></div>
+
+                    <div class="botonera">
+                        <button class="general w-content-controler" data-content="#nuevasolicitud"><i title="Crear" class="ion-plus-circled"></i> Nueva solicitud</button>
+                    </div>
+
+                    <div id="solicitud-detalles" class="w-content" data-property-width="90%" data-property-height="90%">
+                        <div class="botonera parasolicitar">
+                            <button id="cerrarsolicitud" class="general"><i title="Cerrar" class="ion-locked"></i> Cerrar la solicitud</button>
+                            <button id="borrarsolicitud" class="general"><i title="Borrar" class="ion-trash-b"></i> Borrar solicitud</button>
+                        </div>
+                        <div class="record-detail">
+                            <div class="horizontal-menu">
+                                <dl>
+                                    <dt>Solicitud</dt>
+                                    <dd>
+                                        <div class="generales"></div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt class="tab-respuestas">Respuestas a solicitud</dt>
+                                    <dd>
+                                        <div class="accordion conceptos"></div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt class="pararesponder">Responder</dt>
+                                    <dd>
+                                        <form id="form-conceptos" class="autoform">
+                                            <ul class="data_list">
+                                                <li><strong>Concepto:</strong>
+                                                    <textarea name="concepto"></textarea>
+                                                </li>
+                                                <li><strong>Órdenes en salud solicitadas:</strong>
+                                                    <textarea name="ordenes"></textarea>
+                                                </li>
+                                                <li><strong>Conducta:</strong>
+                                                    <select name="conducta">
+                                                        <option>Seguimiento por consulta presencial</option>
+                                                        <option>Seguimiento por teleconsulta</option>
+                                                        <option>No seguimiento</option>
+                                                    </select>
+                                                </li>
+                                                <li><strong>Comentarios al seguimiento:</strong>
+                                                    <textarea name="comentariosseguimiento"></textarea>
+                                                </li>
+                                            </ul>
+                                            <div class="botonera">
+                                                <button id="respondersolicitud" class="general"><i title="Cerrar" class="ion-plus-circled"></i> Enviar concepto</button>
+                                                <button class="general" type="reset">Limpiar</button>
+                                            </div>
+                                        </form>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Comentarios</dt>
+                                    <dd>
+                                        <div class="comentarios"></div>
+                                        <div class="comentario">
+                                            <form id="form-comentar">
+                                                <strong>Comentario:</strong>
+                                                <textarea name="comentario"></textarea>
+
+                                                <div class="botonera">
+                                                    <button id="guardarcomentario" class="comentar general"><i title="Guardar" class="ion-plus-circled"></i> Comentar</button>
+                                                    <button class="general" type="reset">Limpiar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="nuevasolicitud" class="w-content" data-property-width="90%" data-property-height="90%" title="Crear solicitud">
+                        <div class="record-detail">
+                            <form id="form-nuevasolicitud" class="autoform">
+                                <ul class="data_list">
+                                    <li><strong>Tipo:</strong>
+                                        <select name="tipo">
+                                            <option>Clínica</option>
+                                            <option>Quirúrgica</option>
+                                        </select>
+                                    </li>
+                                    <li><strong>Prioritario:</strong>
+                                        <select name="prioritario">
+                                            <option>Si</option>
+                                            <option>No</option>
+                                        </select>
+                                    </li>
+                                    <li><strong>Nombres y apellidos del paciente:</strong>
+                                        <input type="text" name="paciente" />
+                                    </li>
+                                    <li><strong>Documento de identidad del paciente:</strong>
+                                        <input type="text" name="identificacion" />
+                                    </li>
+                                    <li><strong>Edad del paciente:</strong>
+                                        <input type="text" name="edad" />
+                                    </li>
+                                    <li><strong>Estrato socioeconómico:</strong>
+                                        <select name="estrato">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </li>
+                                    <li><strong>Enfermedad actual:</strong>
+                                        <textarea name="enfermedad"></textarea>
+                                    </li>
+                                    <li><strong>Examen físico:</strong>
+                                        <textarea name="examen"></textarea>
+                                    </li>
+                                    <li><strong>Ayudas diagnósticas:</strong>
+                                        <textarea name="ayudas"></textarea>
+                                        <button class="general" disabled="disabled"><i title="Adjuntar" class="ion-paperclip"></i> Adjuntar archivos</button>
+                                        <em><strong>Nota:</strong> el sistema se encuentra en fase de simulación por lo que no se pueden subir archivos. Normalmente acá se podrían seleccionar exámenes, fotografías, videos, entre otros archivos.</em>
+                                    </li>
+                                    <li><strong>Diagnóstico:</strong>
+                                        <textarea name="diagnostico"></textarea>
+                                    </li>
+                                    <li><strong>Descripción del apoyo que solicita:</strong>
+                                        <textarea name="descripcion"></textarea>
+                                    </li>
+                                    <li><strong>Especialidad o experticia solicitada:</strong>
+                                        <textarea name="especialidadrequerida"></textarea>
+                                    </li>
+                                </ul>
+
+                                <div class="botonera">
+                                    <button id="guardarsolicitud" class="general"><i title="Guardar" class="ion-plus-circled"></i> Guardar la solicitud</button>
+                                    <button class="general" type="reset">Limpiar formulario</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-teapoyo" ptitle="¡Te apoyo!">
+                <div class="subpage">
+                    <h2>¡Te apoyo!</h2>
+                    <div id="tablebox-teapoyo"></div>
+                </div>
             </section>
 
         </main>
@@ -112,6 +285,7 @@
         <footer class="not_print">
             <nav label="General" class="globals2">
                 <menu>
+                    <menuitem><span data-page="pag-ppal" ><i class="ion-home"></i> <br /><label id="labelprogress">Inicio</label></span></menuitem>
                     <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
                 </menu>
             </nav>
@@ -132,14 +306,6 @@
                 <cite>Catalina Echeverry Querubín</cite>
             </div>
             <div>
-                <h3>Asesoría pedagógica</h3>
-                <cite>Diana Patricia Ospina Pineda</cite>
-            </div>
-            <div>
-                <h3>Guionización</h3>
-                <cite>Betsabé Lema Ospina</cite>
-            </div>
-            <div>
                 <h3>Corrección de estilo</h3>
                 <cite>María José Mercado Castrillón</cite>
             </div>
@@ -152,8 +318,8 @@
                 <cite>Felipe Quintana</cite>
             </div>
             <div>
-                <h3>Integración de contenidos</h3>
-                <cite>Alejandro Morales Gallo</cite>
+                <h3>Desarrollo</h3>
+                <cite>David Herney Bernal García</cite>
             </div>
             <div>
                 <h3>Revisión de calidad</h3>
@@ -203,6 +369,124 @@
         </div>
     </div>
 
+<!-- Templates -->
+<script id="tpl-solicitud" type="text/x-jQuery-tmpl">
+<table class="datatable">
+    <tr class="tipo"><th>Tipo:</th> <td>${tipo}</td></tr>
+    <tr class="prioritario"><th>Prioritario:</th> <td>${prioritario}</td></tr>
+    <tr class="paciente"><th>Nombres y apellidos del paciente:</th> <td>${paciente}</td></tr>
+    <tr class="identificacion"><th>Identificación del paciente:</th> <td>${identificacion}</td></tr>
+    <tr class="estado"><th>Estado:</th> <td>${estado}</td></tr>
+    <tr class="edad"><th>Edad:</th> <td>${edad}</td></tr>
+    <tr class="estrato"><th>Estrato socioeconómico:</th> <td>${estrato}</td></tr>
+    <tr class="enfermedad"><th>Enfermedad actual:</th> <td>${enfermedad}</td></tr>
+    <tr class="examen"><th>Examen físico:</th> <td>${examen}</td></tr>
+    <tr class="ayudas"><th>Ayudas diagnósticas:</th> <td>${ayudas}</td></tr>
+    <tr class="diagnostico"><th>Diagnóstico:</th> <td>${diagnostico}</td></tr>
+    <tr class="descripcion"><th>Descripción del apoyo que solicita:</th> <td>${descripcion}</td></tr>
+    <tr class="especialidadrequerida"><th>Especialidad o experticia solicitada:</th> <td>${especialidadrequerida}</td></tr>
+</table>
+</script>
+
+<script id="tpl-solicitud-row" type="text/x-jQuery-tmpl">
+<tr>
+    <td>${tipo}</td>
+    <td>${prioritario}</td>
+    <td>${paciente}</td>
+    <td>${identificacion}</td>
+    <td>${estado}</td>
+    <td class="operaciones"><i class="ion-clipboard button" title="Detalles"></i></td>
+</tr>
+</script>
+
+<script id="tpl-teapoyo-row" type="text/x-jQuery-tmpl">
+<tr>
+    <td>${tipo}</td>
+    <td>${prioritario}</td>
+    <td>${paciente}</td>
+    <td>${identificacion}</td>
+    <td>${estado}</td>
+    <td>${solicitante}</td>
+    <td class="operaciones"><i class="ion-clipboard button" title="Detalles"></i></td>
+</tr>
+</script>
+
+<script id="tpl-concepto" type="text/x-jQuery-tmpl">
+<h3>${usuario} (${fecha})</h3>
+<div>
+    <table class="datatable">
+        <tr><th>Concepto</th> <td>${concepto}</td></tr>
+        <tr><th>Órdenes en salud solicitadas:</th> <td>${ordenes}</td></tr>
+        <tr><th>Conducta:</th> <td>${conducta}</td></tr>
+        <tr><th>Comentarios al seguimiento:</th> <td>${comentariosseguimiento}</td></tr>
+    </table>
+</div>
+</script>
+
+<script id="tpl-comentario" type="text/x-jQuery-tmpl">
+<div class="comentario">
+    <h3>${usuario} (${fecha})</h3>
+    <p>${comentario}</p>
+</div>
+</script>
+
+<script id="tpl-table-apoyame" type="text/x-jQuery-tmpl">
+<table id="apoyame-list" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Prioridad</th>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Estado</th>
+            <th>O</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Tipo</th>
+            <th>Prioridad</th>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Estado</th>
+            <th>Detalles</th>
+        </tr>
+    </tfoot>
+</table>
+</script>
+
+<script id="tpl-table-teapoyo" type="text/x-jQuery-tmpl">
+<table id="teapoyo-list" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Prioridad</th>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Estado</th>
+            <th>Solicitante</th>
+            <th>O</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Tipo</th>
+            <th>Prioridad</th>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Estado</th>
+            <th>Solicitante</th>
+            <th>Detalles</th>
+        </tr>
+    </tfoot>
+</table>
+</script>
+
+<!-- EndTemplates -->
 </body>
 
 </html>

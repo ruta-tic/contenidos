@@ -1,0 +1,60 @@
+[
+    {
+        "id": 1,
+        "tipo" : "Clínica",
+        "prioritario" : "Si",
+        "paciente" : "Ana Cecilia Álvarez García",
+        "identificacion" : "43087206",
+        "estado" : "Abierta",
+        "edad" : 25,
+        "estrato" : "3",
+        "enfermedad" : "Paciente de 45 años, abogada, con antecedentes de diabetes mellitus tipo 2, tabaquismo de 2 paquetes diarios por 20 años. Consulta en múltiples oportunidades por tos húmeda de 2 meses de evolución, pérdida de 7 kilogramos de peso y sudoración profusa. Se encuentra hospitalizada porque no tolera la vía oral.",
+        "examen" : "Regulares condiciones generales, enflaquecida, peso 40 kilogramos, 160 cm signos vitales estables excepto porque necesita oxígeno suplementario por cánula nasal a 3 litros por minutos. En la cavidad oral llama la atención: ulceraciones en carrillos y estigmas de sangrado en orofaringe. Los pulmones se auscultan hipoventilados con roncus difusos en ambos campos pulmonares.",
+        "ayudas" : "1. Imágenes: reporte de radiografía de tórax: se encuentran imágenes múltiples sugestivas de proceso infeccioso bacteriano. 2. Laboratorio: reactantes de fase aguda muestran leucopenia con monocitosis (células de las defensas bajas con predominio de células monocíticas); virus de la inmunodeficiencia humana: positivo.",
+        "diagnostico" : "1. Pérdida anormal de peso 2. Desnutrición proteico calórica 3. Infección por el virus de la inmunodeficiencia humana. 3. Proceso infeccioso bacteriano pulmonar.",
+        "descripcion" : "Se solicita apoyo por nutrición y dietética para guiar la recuperación nutricional; se solicita apoyo por microbiología para guiar exámenes diagnósticos que deban complementar la búsqueda activa del proceso infeccioso; se solicita apoyo por odontología para concepto sobre patología odontológica; se solicita apoyo por enfermería para guiar al personal en cuidado de heridas y evitar úlceras por decúbito o presión; se solicita apoyo por psicología para acompañamiento emocional por diagnóstico reciente de VIH; se solicita apoyo por química farmaceútica para asesoría en interacción medicamentosa; se solicita apoyo por médico internista / infectólogo para apoyo en orientación clínica y manejo a seguir.",
+        "especialidadrequerida" : "Nutrición y dietética; microbiología; odontología; enfermería; psicología: química farmacéutica; medicina (medicina interna/infectología).",
+        "solicitante": "Menguanito",
+        "solicitanteid": 2,
+        "conceptos": [
+            {
+                "usuario": "El nombre",
+                "usuarioid": 3,
+                "fecha": "2019-08-06 15:32",
+                "concepto": "Se considera que Margarita está pasando por una situación emocional crítica debido a la sospecha de abuso sexual, por tanto, requiere de la protección integral y la reivindicación de sus derechos humanos. Respecto a salud, la paciente requiere acompañamiento psicológico con sesiones de psicoterapia a necesidad, inicialmente, cada semana por un mes para manejo y contención de crisis, y luego cada 15 días a un mes para apoyo y acompañamiento.",
+                "ordenes": "Psicoterapia, 15 sesiones y revaloración al terminar.",
+                "conducta": "Seguimiento por consulta presencial",
+                "comentariosseguimiento": "Sería ideal que el acompañamiento se pueda realizar de manera presencial, sin embargo, en caso de no contar con disponibilidad presencial o que esta se tarde se sugiere realizar sesiones sincrónicas por medio de la telepsicología."
+            },
+            {
+                "usuario": "Menguano",
+                "usuarioid": 7,
+                "fecha": "2019-08-06 15:32",
+                "concepto": "Respecto a salud, la paciente requiere acompañamiento psicológico con sesiones de psicoterapia a necesidad, inicialmente, cada semana por un mes para manejo y contención de crisis, y luego cada 15 días a un mes para apoyo y acompañamiento.",
+                "ordenes": "Revaloración al terminar.",
+                "conducta": "Seguimiento por telemedicina",
+                "comentariosseguimiento": "NA"
+            }
+        ],
+        "comentarios": [
+            {
+                "usuario": "Menguano",
+                "usuarioid": 3,
+                "fecha": "2019-08-06 15:32",
+                "comentario": "Loren ipsum"
+            },
+            {
+                "usuario": "Perano",
+                "usuarioid": 4,
+                "fecha": "2019-08-11 15:32",
+                "comentario": "Lipsum"
+            },
+            {
+                "usuario": "Menguano",
+                "usuarioid": 3,
+                "fecha": "2019-08-06 15:32",
+                "comentario": "XXXXX"
+            }
+        ]
+    }
+]

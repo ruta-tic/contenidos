@@ -1,0 +1,136 @@
+.horizontal-menu > .chalkboard_content {
+    background-color: #fefef0;
+}
+
+header h2 {
+    display: flex;
+    align-items: center;
+}
+
+header h2 > button {
+    margin: 0 10px 0 0;
+}
+
+header .avatar {
+    float: right;
+    display: none;
+}
+
+body.logued header .avatar {
+    display: block;
+}
+
+header .avatar img {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.subpage h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#pag-inicio .box-text.link {
+    width: 300px;
+}
+
+#pag-inicio .box-text.link p {
+    text-align: center;
+}
+
+#pag-ppal .row {
+    max-width: 800px;
+    margin: auto;
+}
+
+#pag-ppal .box_media img {
+    max-width: 100%;
+}
+
+.btn-ppal {
+    width: 210px;
+    height: 90px;
+    display: inline-block;
+    background: url('../content/4_sprite.png') no-repeat;
+}
+
+#btn-apoyame {
+    background-position: -250px -18px;
+}
+
+#btn-teapoyo {
+    background-position: -500px -18px;
+}
+
+#btn-apoyame:hover {
+    background-position: -250px -140px;
+}
+
+#btn-teapoyo:hover {
+    background-position: -500px -140px;
+}
+
+.comentario {
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0 4px #999;
+    margin-bottom: 15px;
+}
+
+.horizontal-menu > .chalkboard_content {
+    height: auto;
+}
+
+.operaciones {
+    text-align: center;
+}
+
+.operaciones i {
+    font-size: 20px;
+}
+
+.operaciones i:hover {
+    color: green;
+}
+
+.botonera {
+    text-align: center;
+    padding: 10px;
+}
+
+.autoform ul.data_list li {
+    display: flex;
+    flex-flow: column;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.autoform > ul.data_list li:before {
+    content: "";
+}
+
+.autoform ul.data_list li select,
+.autoform ul.data_list li input {
+    max-width: 400px;
+}
+
+.autoform ul li textarea {
+    height: 100px;
+    padding: 10px;
+}
+
+.comentario textarea {
+    width: 96%;
+    height: 70px;
+    padding: 1%;
+}
+
+.paraapoyame .pararesponder {
+    display: none;
+}
+
+.parateapoyo .parasolicitar {
+    display: none;
+}
