@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Aplicación de la tecnología en ingeniería</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Aplicación de la tecnología en ingeniería</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Experiencias" data-page="pag-experiencias"></menuitem>
+                    <menuitem label="Cuadrante de Gartner" data-page="pag-cuadrante"></menuitem>
+                    <menuitem label="Otras evaluaciones" data-page="pag-otra"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-experiencias" ptitle="Experiencias sobre el uso de aplicaciones en ingeniería">
+                <div class="subpage">
+                    <p>A continuación, se presentan experiencias sobre tecnologías que varios ingenieros consultados consideran de gran utilidad en su labor. En algunos casos narraron experiencias con tecnologías que consideran novedosas y, en otros, es
+                        el uso de tecnologías habituales para generar nuevos productos o servicios.
+                    </p>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">De clic en </span> las flechas para pasar entre experiencias.</div>
+
+                    <div class="ctrl-pagination" data-labelcurrent="true">
+                        <li>
+                            <h3>Postman - Tecnología de integración empresarial</h3>
+                            <p>Mauricio Arboleda Zuluaga - Ingeniero Electrónico (IBM)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>"Últimamente estoy usando mucho la herramienta <a href="https://www.getpostman.com/" target="_blank">Postman</a> para facilitar el desarrollo de código que consume APIs de servicios, con el objetivo de integrar distintos sistemas ya que a través de su interfaz gráfica permite crear peticiones ingresando de forma separada el tipo de petición, la URL, los encabezados, el método de autenticación y los datos para probar la correcta estructura de las peticiones, y su posterior exportación a distintos lenguajes de programación. Además, permite almacenar variables y capturar salidas para reutilizarlas en otras peticiones."</blockquote>
+                                    <p></p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_1.png" /><br />
+                                        IBM - Postman
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <h3>Terraform y Azure - Computación en la nube</h3>
+                            <p>Edwin Arias - Ingeniero de Sistemas</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“Actualmente, en la empresa se han implementado procesos de automatización para el despliegue de infraestructura nueva con el fin de realizar despliegues de una forma menos manual, que ayude con la optimización de tiempo por medio de la herramienta <a href="https://www.terraform.io/" target="_blank">Terraform</a>, en la cual se integra la conexión con la <a href="https://www.terraform.io/docs/providers/azurerm/index.html" target="_blank">nube de Azure</a>. De esta forma, se pueden desplegar servidores para publicar nuevos desarrollos que se hagan en la empresa.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_2.png" /><br />
+                                        Terraform
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Odoo y BPM - Gestión empresarial y de procesos</h3>
+                            <p>Johman Ardila - Ingeniero Físico (DIBTEC S.A.S)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“En DIBTEC S.A.S, empresa del sector metalmecánico, estamos empleado <a href="https://www.odoo.com/es_ES/" target="_blank">Odoo</a>, herramienta ERP [Siglas en inglés para Enterprise Resource Planning, que en español puede entenderse como “planeación de recursos empresariales”.] que nos ayuda a la gestión de los procesos empresariales. Allí venimos integrando poco a poco los procesos de la empresa, iniciando por los procesos de contabilidad, recursos humanos y ahora los procesos de producción. Contamos con un equipo de desarrollo que ha permitido agregar módulos de trabajo a la herramienta y de esta manera integrar nuevos servicios como sería un BPM [Siglas en inglés para Business Process Management, que en español puede entenderse como “gestión de procesos de negocio”.] que nos conduzca a la automatización y mejora de la calidad de nuestros productos.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_3.png" /><br />
+                                        DIBTEC S.A.S - Odoo
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <h3>Trello - Gestión de tareas</h3>
+                            <p>Elkin Botero Vera - Coordinador TI (Grupo Nethexa)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“<a href="https://trello.com/" target="_blank">Trello</a> es una aplicación basada en el método Kanban y sirve para gestionar tareas. Permite organizar el trabajo en grupo de forma colaborativa mediante tableros virtuales compuestos de listas de tareas en forma de columnas. Así podemos mejorar las rutinas de trabajo de un equipo generando prioridades, tiempos, avisos y otras opciones perfectas para organizar un proyecto en el que colaboran varias personas.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_4.png" /><br />
+                                        Grupo Nethexa - Trello
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>UiPath - Automatización de procesos mediante robots</h3>
+                            <p>Juan Felipe Medina - Ingeniero de Control y Automatización (Renault Sofasa)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“Considero que los RPA [Siglas en inglés para Robotic Process Automation que en inglés puede entenderse como “automatización robótica de procesos] como <a href="https://www.uipath.com/" target="_blank">UiPath</a>, por ejemplo, puede ser una herramienta útil a la hora de disminuir la intervención humana, especialmente en tareas repetitivas que varían muy poco en cada iteración. Como caso de éxito, en Renault Sofasa se desarrolló un RPA que permite ensamblar en 3D CAD [Siglas en inglés de “Diseño Asistido por Computadora”] una o varias piezas del vehículo bajo la parametrización de una hoja de excel. Esto es útil si pensamos que una misma pieza de un mismo tipo de vehículo puede variar entre sí, si se fabrica en Rumania o se fabrica en Colombia.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_5.png" /><br />
+                                        Renault Sofasa - UiPath
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Aspen Plus Technology - Herramienta de simulación de procesos químicos</h3>
+                            <p>Stephanie Acevedo - Supervisora Control Calidad, Ingeniera Química (Cooperativa Colanta)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“El software <a href="https://www.aspentech.com/en/products/engineering/aspen-plus" target="_blank">Aspen Plus Technology</a>, netamente para ingenieros químicos, es de gran utilidad porque allí pueden simularse procesos de la vida real (plantas de producción o pequeños procesos), e incluso diseñar un proceso que pueda optimizar uno ya existente. Este software permite una aproximación muy real, ya que justamente es un simulador que indica cuáles son las fallas en los procesos (flujos, temperaturas, presiones, entalpías, etc).”</blockquote>
+
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_6.png" /><br />
+                                        Cooperativa Colanta - Aspen Technology
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Google Maps - Herramienta de geolocalización</h3>
+                            <p>Iván Darío Yepes Bedoya - Auxiliar de Ingeniería (Energizando)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“La opción <a href="https://www.google.com/maps/" target="_blank">Google Maps</a> permite ubicar lugares en el mapa cargando la información desde un archivo plano de Excel, poniendo las referencias como país, ciudad, y hasta dirección, o aún con geocoordenadas. Luego, permite actualizar el archivo desde el mismo mapa y cargar varias capas, por lo cual podría cargar, por ejemplo, una capa de proveedores, otra capa de clientes, otra capa de bodegas, verlas independientes o todas juntas, y ofrece opciones de filtros y de iconos para visualizar. Esta herramienta la uso constantemente para distribuir varios frente de trabajo por todo el país y hacer el seguimiento de avance de manera gráfica sobre las sedes que deben instalar. También la he usado para graficar la distribución de redes de internet en una ciudad, en el país y en proyectos de gran calado.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_7.png" /><br />
+                                        Energizando - Google Maps
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>TinkerCAD y Arduino - Herramientas de simulación</h3>
+                            <p>Diana Carolina Gutiérrez Arango - Ingeniera en Diseño Industrial</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“En el diseño industrial es necesario tener en cuenta algunos aspectos funcionales del diseño antes de pasar a la fase de producción; algunas veces el diseñador debe saber cómo funcionará el producto internamente para basar su diseño formal (de forma) en esas especificaciones. Aunque no es tarea de un ingeniero en diseño industrial, en ocasiones debe saber sobre dispositivos electrónicos o electromecánicos. En mi caso me ha sido útil usar herramientas de simulación antes de hacer conexiones para evitar el mal funcionamiento o las malas conexiones. La herramienta que he usado es <a href="https://www.tinkercad.com/" target="_blank">TinkerCAD</a>, la cual permite simular la programación y funcionamiento de Arduinos.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_8.png" /><br />
+                                        Tinkercad
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Python e Inteligencia Artificial - Análisis de datos</h3>
+                            <p>Claudia Isaza - Docente (Universidad de Antioquia)</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <blockquote>“En análisis de datos para identificar, de manera temprana, fallos en sistemas bancarios hemos utilizado técnicas de Machine Learning. Específicamente, hemos usado algoritmos de agrupamiento que son de aprendizaje no supervisado. Estos algoritmos los programamos en <a href="https://www.python.org/" target="_blank">Python</a> usando librerías del área de Inteligencia Artificial. También para análisis de datos en bancos, hemos implementado Redes Neuronales programadas en <a href="https://www.python.org/" target="_blank">Python</a>. Cuando se tiene un sistema de Red Neuronal Artificial o un clasificador ya entrenados, esta estructura fácilmente se puede implementar en lenguajes básicos como C++, o en sistemas embebidos donde hay restricciones de costo computacional.”</blockquote>
+                                </div>
+                                <div class="col-2">
+                                    <div class="box_media">
+                                        <img src="content/1_slide_9.png" /><br />
+                                        Universidad de Antioquia - Python
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+
+                    <p>Al recoger las experiencias, se notó que la reacción inicial de los entrevistados hacia las preguntas fue de sorpresa. En un principio, respondieron con tecnologías base o aplicaciones comunes, incluso quienes emplean tecnología de punta no las tenían entre sus primeras opciones. También se vislumbró que muchos ingenieros consideran que en su entorno no se usan tecnologías que se puedan considerar de vanguardia, de hecho, algunos decidieron no completar la
+                        entrevista al considerar que no tenían un aporte de interés a partir de su desarrollo profesional.</p>
+
+                    <div class="box-text connection">
+                        <p>Para hacer evidentes algunas de las tecnologías específicas que se consideran novedosas y con el fin de proponer caminos de descubrimiento de las mismas, a continuación, se presentarán algunos canales de consulta como lo son los <strong>Cuadrantes de Gartner</strong>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-cuadrante" ptitle="Evaluación de alternativas tecnológicas con el Cuadrante Mágico de Gartner">
+                <div class="subpage">
+                    <p>
+                        El Cuadrante Mágico de Gartner o Cuadrante de Gartner es un indicador desarrollado anualmente por la consultora Gartner, el cual presenta de forma gráfica un análisis global sobre las tendencias en productos y soluciones tecnológicas.
+                    </p>
+                    <p>
+                        El cuadrante proporciona a las organizaciones una visión de conjunto de una determinada área de productos o servicios tecnológicos, y es resultado del trabajo de investigación y consultoría de alto nivel al que se dedica la empresa estadounidense Gartner.
+                        Esta herramienta permite conocer qué posición ocupan los proveedores y en qué punto de desarrollo se encuentran en cuanto a visión de mercado y poder de implementación.
+                    </p>
+                    <p>
+                        El Cuadrante de Gartner se presenta de forma gráfica en dos ejes que coinciden en un punto central, así:
+                    </p>
+
+                    <p>El eje X indica el conocimiento que poseen los proveedores para definir e implementar estrategias y generar valor en el mercado actual. Por otra parte, el eje Y refleja la capacidad de ejecución de las empresas y representa la habilidad
+                        de los proveedores para desarrollar con éxito su visión del mercado. En estos ejes se forman fragmentos que representan a las empresas según su tipo y productos ofrecidos, como se muestra en la siguiente gráfica:
+                    </p>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por </span> cada eje del gráfico para conocer su descripción.</div>
+
+                    <div class="row">
+                        <div class="col-2 col-imagen">
+                            <div id="img1" class="mouse-over-one">
+                                <div class="button current" data-ref="#a1"></div>
+                                <div class="button" data-ref="#a2"></div>
+                                <div class="button" data-ref="#a3"></div>
+                                <div class="button" data-ref="#a4"></div>
+                            </div>
+                            <div class="about">
+                                Imagen tomada de Gartner Inc. (2019)
+                            </div>
+                        </div>
+                        <div class="col-2 optionscontent">
+                            <div id="a1">
+                                <h2>Challengers</h2>
+                                <div class="box_media">
+                                    <img src="content/02_grafico_challengers.png" />
+                                </div>
+                                <p>
+                                    En el cuadrante superior izquierdo están los retadores o aspirantes <em>(Challengers)</em>, empresas que tienen un buen portafolio de productos pero cuya variedad o cantidad no es suficiente para satisfacer la variabilidad de la demanda. Por lo general, este tipo
+                                    de empresas atienden un segmento único del mercado y no poseen un amplio portafolio de productos o servicios.
+                                </p>
+
+                            </div>
+                            <div id="a2" style="display:none">
+                                <h2>Leaders</h2>
+                                <div class="box_media">
+                                    <img src="content/02_grafico_leaders.png" />
+                                </div>
+                                <p>
+                                    En el cuadrante superior derecho se posicionan los líderes <em>(Leaders)</em>, refiriéndose a los proveedores de soluciones y servicios de tecnologías con mayor puntuación, indicando que se trata de empresas con un amplio portafolio de servicios y productos, y
+                                    capacidad de adaptarse a los cambios del mercado.
+                                </p>
+                            </div>
+                            <div id="a3" style="display: none">
+                                <h2>Niche Players</h2>
+                                <div class="box_media">
+                                    <img src="content/02_grafico_niche_players.png" />
+                                </div>
+                                <p>
+                                    En el cuadrante inferior izquierdo, están los jugadores de nicho <em>(Niche Players)</em>, empresas que ofrecen productos y servicios para el mercado pero que no lo suficientemente sólidos para responder a las demandas de manera satisfactoria. Estas
+                                    empresas se especializan en un segmento específico del mercado y generalmente dominan una zona geográfica en particular.
+                                </p>
+                            </div>
+                            <div id="a4" style="display: none">
+                                <h2>Visionaries</h2>
+                                <div class="box_media">
+                                    <img src="content/02_grafico_visionaries.png" />
+                                </div>
+                                <p>
+                                    En el cuadrante inferior derecho están los visionarios <em>(Visionaries)</em>, empresas que, al igual que los líderes, tienen una buena visión del mercado y procuran responder ante la variabilidad de la demanda pero los productos y servicios no cuentan con una
+                                    plataforma lo suficientemente sólida que pueda responder satisfactoriamente las necesidades de sus clientes. Son empresas que se caracterizan por innovar en tecnología y modelos de negocio pero no cuentan con los recursos
+                                    para implementarlo a nivel global.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>De acuerdo con el tipo de tecnología que se quiera emplear conviene hacer la identificación del cuadrante correspondiente para observar el posicionamiento de las empresas líderes en el sector o que tienen una buena proyección.
+                    </p>
+
+                    <div class="box-text example" label="Ejemplo">
+                        <p>A continuación, vemos el Cuadrante Mágico de Gartner a modo de ejemplo para el software robótico de automatización de procesos:</p>
+                        <div class="box_media">
+                            <img src="content/02_grafico_2.png" />
+                        </div>
+                        <div class="about">
+                            Imagen tomada de Gartner Inc. (2019)
+                        </div>
+                        <p>Al interpretar la gráfica anterior se entiende que en mayo del 2019 UiPath se posicionó como la empresa líder en el mercado de utilización de software robótico para la automatización de procesos. Por otra parte, se identifica a NTT (Nippon Telegraph and Telephone) como una corporación que hace parte del nicho del mercado pero sin tener una posición preponderante. NICE (The National Institute for Health and Care Excellence) se ubica como un “retador” que aún no tiene una visión completa del mercado pero se acerca a una posición de liderazgo, teniendo una fuerte habilidad de ejecución de su visión.
+                        </p>
+                    </div>
+                    <p>Sin embargo, los estudios que publica el grupo Gartner no se limitan a la clasificación de las compañías o empresas representativas en el cuadrante. También proyectan tendencias tecnológicas para los próximos años y permiten identificar
+                        mercados de gran proyección en las tecnologías presentes y futuras.
+                    </p>
+                    <div class="box-text activity" label="Tendencias">
+                        <p>
+                            A continuación, se presentan las 10 tendencias de tecnologías estratégicas para el 2019 de acuerdo con el grupo Gartner. Arrastre cada una de las tecnologías al espacio que considere correspondiente. En cada concepto encontrará la definición de la tecnología, para verla <span class="onlymobile">toque</span><span class="notmobile">pase el cursor</span> sobre el ícono de información.
+                        </p>
+                        <p>
+                            Tenga presente que si una tecnología no corresponde a la celda destino, no se dejará arrastrar allí.
+                        </p>
+                    </div>
+
+                    <div id="act-1" class="jpit-activities-droppable" data-verify-type="target" data-act-id="1-drag" data-act-title="Tendencias">
+                        <table>
+                            <tr>
+                                <th><div>Tecnologías inteligentes</div></th>
+                                <th><div>Tecnologías digitales</div></th>
+                                <th><div>Tecnologías de red o malla</div></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div data-target-group="1"></div>
+                                    <div data-target-group="1"></div>
+                                    <div data-target-group="1"></div>
+                                </td>
+                                <td>
+                                    <div data-target-group="2"></div>
+                                    <div data-target-group="2"></div>
+                                    <div data-target-group="2"></div>
+                                </td>
+                                <td>
+                                    <div data-target-group="3"></div>
+                                    <div data-target-group="3"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div data-target-group="4"></div>
+                                    <div data-target-group="4"></div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="box_end"></div>
+                        <div class="origenes">
+                            <div data-group="1">
+                                <i class="ion-information-circled tooltip" title="<strong>Autonomous Things</strong><br />Se refiere a los dispositivos y herramientas que emplean inteligencia artificial para automatizar funciones previamente realizadas por humanos, potencializando las funciones con el fin de interactuar de una manera natural con el entorno y los humanos. Se observa su implementación en la robótica, vehículos, drones y agentes."></i>
+                                Autonomous Things
+                            </div>
+                            <div data-group="1">
+                                <i class="ion-information-circled tooltip" title="<strong>Analíticas aumentadas</strong><br />Emplea el aprendizaje de máquinas para transformar la manera como se desarrolla, consume y comparte el contenido. Se considera el futuro del análisis de datos."></i>
+                                Analíticas aumentadas
+                            </div>
+                            <div data-group="1">
+                                <i class="ion-information-circled tooltip" title="<strong>Desarrollo impulsado por Inteligencia Artificial</strong><br />Explora la evolución de herramientas, tecnologías y mejores prácticas en aplicaciones a través del uso de la inteligencia artificial, enfocado al proceso de desarrollo en sí. Se encuentra en aplicaciones tales como servicios IA, marcos de trabajo con IA, plataformas, infraestructura, testeo automatizado y generación de código, modelado automático de procesos y negocios, así como arquitectura automatizada."></i>
+                                Desarrollo impulsado por IA
+                            </div>
+                            <div data-group="2">
+                                <i class="ion-information-circled tooltip" title="<strong>Digital twins</strong><br />Se trata de una representación digital de una entidad o sistema del mundo real. Sus orígenes se remontan al diseño asistido por computadora, y permiten simular o generar modelos y comportamientos de sistemas reales, desde sistemas simples hasta plantas nucleares o ciudades completas."></i>
+                                Digital twins
+                            </div>
+                            <div data-group="2">
+                                <i class="ion-information-circled tooltip" title="<strong>Empowered edge</strong><br />Se refiere a una topología de comunicación que busca mantener la recolección y procesamiento de la información cerca de las fuentes y repositorios, para mejorar el tráfico y disminuir los tiempos de latencia y el consumo de energía, procurando tener un modelo de información digital centralizado. Se emplea para la comunicación de sistemas IoT. Se trata de un concepto complementario para la computación en la nube."></i>
+                                Empowered edge
+                            </div>
+                            <div data-group="2">
+                                <i class="ion-information-circled tooltip" title="<strong>Experiencias inmersivas</strong><br />Modelo tecnológico que combina tecnologías tales como la realidad virtual (VR), la realidad aumentada (AR) y la realidad mixta (MR), modificando la forma como las personas pueden percibir el mundo interactuando con escenarios digitales."></i>
+                                Experiencias inmersivas
+                            </div>
+                            <div data-group="3">
+                                <i class="ion-information-circled tooltip" title="<strong>Blockchain</strong><br />Hace referencia a una base de datos distribuida que garantiza registros transaccionales firmados criptográficamente y compartidos por todos los participantes de una red. Dado que cada registro contiene una marca de tiempo y un enlace de referencia a las transacciones anteriores, se crea una cadena que permite que cualquier participante pueda rastrear un evento transaccional. Su estructura permite eliminar una “autoridad central confiable” que verifique la información. "></i>
+                                Blockchain
+                            </div>
+                            <div data-group="3">
+                                <i class="ion-information-circled tooltip" title="<strong>Espacios inteligentes</strong><br />Se refiere a entornos físicos o digitales en los que los sistemas, la tecnología y los humanos interactúan como en un ecosistema, cada vez más abierto, conectado, coordinado e inteligente, creando experiencias inmersivas, interactivas y automatizadas."></i>
+                                Espacios inteligentes
+                            </div>
+                            <div data-group="4">
+                                <i class="ion-information-circled tooltip" title="<strong>Ética digital y privacidad</strong><br />Hace referencia a principios en el desarrollo de las tecnologías digitales que consideren la preocupación creciente con respecto al control y valor de la información personal y privada. Se busca garantizar una correcta administración de los datos personales implementando una legislación estricta para garantizar que así se haga."></i>
+                                Ética digital y privacidad
+                            </div>
+                            <div data-group="4">
+                                <i class="ion-information-circled tooltip" title="<strong>Computación cuántica</strong><br />Paradigma que representa la información como elementos denotados como bits cuánticos (qubits). Los qubits se pueden vincular con otros a través de una propiedad conocida como “entrelazamiento”. Los algoritmos de este paradigma operan y entrelazan dichos qubits con el fin de crear masivamente soluciones antes no consideradas, a través de sistemas de procesamiento en paralelo."></i>
+                                Computación cuántica
+                            </div>
+                        </div>
+
+                        <feedback>
+                            <correct>
+                                <p>¡Muy bien! Ha identificado correctamente el grupo al que pertenece cada una de las tendencias tecnológicas. La siguiente es la gráfica presentada por Gartner de las 10 tendencias de tecnologías estratégicas para el 2019.</p>
+                                <div class="box_media">
+                                    <img src="content/04_retroalimentaciones_grafico_imagen.png" />
+                                    <div class="about">
+                                        Imagen tomada de Cearley &amp; Burke (2018)
+                                    </div>
+                                </div>
+                            </correct>
+                        </feedback>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-otras" ptitle="Otras maneras de evaluar las tecnologías">
+                <div class="subpage">
+                    <p>Adicional al Cuadrante Mágico de Gartner y los estudios sobre tendencias tecnológicas que publican, existen alternativas para evaluar el nivel de madurez o incluso el posible impacto que puede tener la adopción o desarrollo de una nueva tecnología.</p>
+
+                    <p>Una forma de definir el nivel de madurez de una tecnología es empleando el concepto de <strong>TRL</strong> (<em>Technology Readiness Level</em>) o <strong>Niveles de Madurez Tecnológica</strong>, establecidos por la NASA a mediados de los años 70. Este mismo concepto es empleado por Colciencias y define una tecnología en una escala de 9 niveles que son:</p>
+
+                    <div class="box_media">
+                        <img src="content/05_grafico_colciencias_1.png" class="jpit-resources-zoom" data-magnification="2"
+ data-magnifier-size="200" />
+                        <div class="about">
+                            Imagen adaptada de Colciencias (2017)
+                        </div>
+                    </div>
+
+                    <p>De acuerdo con el desarrollo y las pruebas realizadas sobre y con la tecnología se establece su grado de madurez. Se sugiere, a nivel empresarial, emplear como tecnologías base aquellas que ya estén en el nivel TRL9 o en fase de despliegue, y liberar al mercado las nuevas tecnologías que hayan superado o posean al menos el nivel TRL6.</p>
+
+                    <p>Por otra parte, si desea conocerse el impacto económico que puede tener una nueva tecnología, se sugiere la siguiente fórmula:</p>
+
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por </span> cada variable de la ecuación para ver su descripción.</div>
+                    <div id="ecuacion" class="box_media">
+                        <div class="tooltip" title="<strong>FCLi</strong><br />Flujo de caja libre en el período i"></div>
+                        <div class="tooltip" title="<strong>WACC</strong><br />Costo promedio del capital (inversión en tecnología)"></div>
+                        <div class="tooltip" title="<strong>VPN</strong><br /> Valor presente neto"></div>
+                        <div class="tooltip" title="<strong>n</strong><br />Número de años"></div>
+                        <img src="content/06_ecuacion_1.png" />
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>El cálculo debe hacerse bajo escenarios pesimistas, probables y optimistas, y con base en los resultados tomar una decisión que permita invertir o no en la tecnología correspondiente.</p>
+                    </div>
+
+                    <div class="box-text important" label="En síntesis...">
+                        <p>El empleo de las herramientas tecnológicas digitales marca las tendencias de la nueva industria y aporta a la solución de las problemáticas que la ingeniería debe afrontar día a día. Conocer dichas tendencias y emplear las tecnologías apropiadas mantiene a las organizaciones en la vanguardia de la nueva Revolución Industrial 4.0.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividad de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Wilber Alberto Gil Moreno<br />
+                David Herney Bernal García</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Carolina Llanos Tobón</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Mariana Múnera Manco</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br/>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                    <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                </div>
+            </div>
+
+            <div class="editions">
+                1ª edición: Noviembre de 2019
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>D. Cearley, Top 10 Strategic Technology Trends for 2019.</li>
+                <li>Colciencias, Niveles de madurez tecnológica, 2017. Disponible en <a href="https://www.colciencias.gov.co/sites/default/files/upload/convocatoria/anexo-13-niveles-madurez-tecnologica-conv.pdf" target="_blank">https://www.colciencias.gov.co/[...]</a>
+                </li>
+                <li>I. Duque Márquez, M. L. Ramírez Blanco, Bases del Plan Nacional de Desarrollo 2018-2022. 2019. Disponible en <a href="https://www.dnp.gov.co/DNPN/Paginas/Plan-Nacional-de-Desarrollo.aspx" target="_blank">https://www.dnp.gov.co/[...]</a>
+                </li>
+                <li>Gartner Inc., Magic Quadrant for Robotic Process Automation Software, 2019. Disponible en <a herf="https://www.gartner.com/en/documents/3947184" target="_blank">https://www.gartner.com/[...]</a>
+                </li>
+                <li>E. Piedrahita, La evaluación de la tecnología: un proceso estratégico y estocástico, Revista EIA, 3(14), 69 - 81, 2005. Disponible en <a href="http://www.scielo.org.co/scielo.php?script=sci_arttext&pid=S1794-12372005000100006" target="_blank">http://www.scielo.org.co/[...]</a>
+                </li>
+                <li>B. Tratz-Ryan, M. Duerst, Accelerating Digitalization in Manufacturing Industries Primer for 2018. </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+#pag-experiencias .ctrl-pagination {
+    background-color: #fff;
+}
+
+#pag-experiencias .ctrl-pagination .col-2:nth-child(2),
+#pag-experiencias .ctrl-pagination .col-2:nth-child(2) > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pag-cuadrante .mouse-over-one {
+    background: url(../content/02_grafico_1.png) no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+#pag-cuadrante .mouse-over-one div {
+    position: absolute;
+    width: 38%;
+    padding-bottom: 38%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#pag-cuadrante .mouse-over-one div.current,
+#pag-cuadrante .mouse-over-one div:hover {
+    background-color: transparent;
+}
+
+#pag-cuadrante .mouse-over-one div:nth-child(1) {
+    left: 17%;
+    top: 5%;
+}
+
+#pag-cuadrante .mouse-over-one div:nth-child(2) {
+    left: 57%;
+    top: 5%;
+}
+
+#pag-cuadrante .mouse-over-one div:nth-child(3) {
+    left: 17%;
+    top: 44%;
+}
+
+#pag-cuadrante .mouse-over-one div:nth-child(4) {
+    left: 57%;
+    top: 44%;
+}
+
+
+/*******************************************
+ Actividad 1
+/********************************************/
+#act-1 {
+    display: inline-block;
+    padding-bottom: 400px;
+}
+
+#act-1 .draggable {
+    border: 1px solid #73C8D1;
+    border-radius: 15px;
+    width: 160px;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background-color: #DFE9EF;
+}
+
+#act-1 .origenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#act-1 .origenes .draggable {
+    margin: 10px;
+}
+
+#act-1 .draggable i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+#act-1 .draggable i:hover {
+    color: #EAA000;
+}
+
+#act-1 table {
+    margin: auto;
+}
+
+#act-1 th div {
+    border-radius: 15px;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+#act-1 th:nth-child(1) div {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+#act-1 th:nth-child(2) div {
+    background-color: #dcdcdd;
+    border: 2px solid #879592;
+}
+
+#act-1 th:nth-child(3) div {
+    background-color: #e2f3f4;
+    border: 2px solid #0054b3;
+}
+
+#act-1 .droppable {
+    border: 1px solid #888;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: #eee;
+    min-height: 50px;
+}
+
+#act-1 .droppable .draggable {
+    background-color: transparent;
+    border: none;
+    width: auto;
+}
+
+#act-1 .box_end .correct {
+    max-width: unset;
+    padding: 10px;
+}
+
+#act-1 .box_end .correct:after {
+    display: none;
+}
+
+/*******************************************
+ Ecuación
+/********************************************/
+#ecuacion {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+#ecuacion div {
+    position: absolute;
+    border-radius: 1em;
+    border: 2px solid #d79f21;
+    background-color: rgba(250, 200, 160, 0.3);
+    height: 6%;
+}
+
+#ecuacion div:nth-child(1) {
+    left: 35%;
+    top: 17%;
+    width: 6%;
+}
+
+#ecuacion div:nth-child(2) {
+    left: 35%;
+    top: 26%;
+    width: 8%;
+}
+
+#ecuacion div:nth-child(3) {
+    left: 5%;
+    top: 18%;
+    width: 14%;
+    height: 10%;
+}
+
+#ecuacion div:nth-child(4) {
+    left: 25%;
+    top: 10%;
+    width: 3%;
+}
