@@ -127,6 +127,7 @@ header .avatar img {
     padding: 1%;
 }
 
+.estado_cerrada .pararesponder,
 .paraapoyame .pararesponder {
     display: none;
 }

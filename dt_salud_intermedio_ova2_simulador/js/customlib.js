@@ -296,10 +296,6 @@
                     return;
                 }
 
-                if(teapoyo && row.estado != "Abierta") {
-                    return;
-                }
-
                 var $tr = $('<tr></tr>');
 
                 $tpl = teapoyo ? $('#tpl-teapoyo-row') : $('#tpl-solicitud-row');
@@ -342,9 +338,13 @@
         $('#borrarsolicitud').hide();
 
         if (data.solicitanteid == _sessionData.userid) {
-            $('#borrarsolicitud').show();
 
             if (data.estado == 'Abierta') {
+
+                if (data.conceptos.length == 0 && data.comentarios.length == 0) {
+                    $('#borrarsolicitud').show();
+                }
+
                 $('#cerrarsolicitud').show();
             }
         }
@@ -376,6 +376,18 @@
             $('#solicitud-detalles .comentarios').append($item);
 
         });
+
+        $('#solicitud-detalles').removeClass('estado_abierta');
+        $('#solicitud-detalles').removeClass('estado_cerrada');
+        switch(data.estado) {
+            case "Abierta":
+                $('#solicitud-detalles').addClass('estado_abierta');
+            case "Cerrada":
+            case "":
+                $('#solicitud-detalles').addClass('estado_cerrada');
+            break;
+        }
+
 
         if (event.data && event.data.responder) {
             $('#solicitud-detalles').removeClass('paraapoyame');
