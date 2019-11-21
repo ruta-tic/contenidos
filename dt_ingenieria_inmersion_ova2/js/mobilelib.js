@@ -1481,6 +1481,11 @@ dhbgApp.mobile.start = function() {
         dhbgApp.actions.activityForm($this);
     });
 
+    $('.jpit-activities-view').each(function(){
+        var $this = $(this);
+        dhbgApp.actions.activityView($this);
+    });
+
     // ==============================================================================================
     // Open URL
     // This is processed on the end in order to not be disabled for another dynamic html and include
@@ -3699,6 +3704,52 @@ dhbgApp.mobile.load_operations = function() {
 
         $this.append($buttons);
 
+    };
+
+    dhbgApp.actions.activityView = function ($this) {
+        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'view';
+
+        if (dhbgApp.scorm) {
+            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
+        }
+
+        if (dhbgApp.scorm.activities[scorm_id].length > 0) {
+            $this.addClass('visited');
+            return;
+        }
+
+        // Load custom feedback, if exists.
+        var feedbacktrue = null, feedbackfalse = null;
+
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct').html();
+        }
+
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong').html();
+        }
+
+        $this.find('feedback').empty();
+        // End feedback.
+
+        $this.on('click', function() {
+            var weight = 100;
+
+            if (dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(scorm_id, weight);
+            }
+
+            dhbgApp.printProgress();
+
+            $this.addClass('visited');
+
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
+        });
+
+        $(dhbgApp).trigger('jpit:activity:rendered', [$this, { id: scorm_id }]);
     };
 
     $('[data-offset="true"]').each(function(){

@@ -1,0 +1,139 @@
+#escenario {
+    background: url(../content/02ciudad.png) no-repeat;
+    background-size: contain;
+    width: 100%;
+    padding-bottom: 82%;
+    position: relative;
+}
+
+#escenario > div {
+    width: 3%;
+    height: 3.8%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    border: 1px solid #fff;
+    filter: grayscale(1);
+}
+
+#escenario > div.visited,
+#escenario > div:hover {
+    filter: grayscale(0);
+}
+
+#escenario > div:nth-child(6n) {
+    background-color: #34c0bc;
+}
+
+#escenario > div:nth-child(6n+1) {
+    background-color: #114a5a;
+}
+
+#escenario > div:nth-child(6n+2) {
+    background-color: #f09b1d;
+}
+
+#escenario > div:nth-child(6n+3) {
+    background-color: #bfdcd9;
+}
+
+#escenario > div:nth-child(6n+4) {
+    background-color: #00a6e6;
+}
+
+#escenario > div:nth-child(6n+5) {
+    background-color: #588797;
+}
+
+#escenario > div:nth-child(6n+6) {
+    background-color: #214595;
+}
+
+#escenario > div:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 60%;
+    border: 1px solid #fff;
+    left: 50%;
+    bottom: -70%;
+}
+
+#escenario > div span {
+    background-color: #fff;
+    color: #000;
+    font-size: 1.5vw;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#escenario > div.visited:nth-child(6n) span,
+#escenario > div:nth-child(6n):hover span {
+    background-color: #34c0bc;
+}
+
+#escenario > div.visited:nth-child(6n+1) span,
+#escenario > div:nth-child(6n+1):hover span {
+    background-color: #114a5a;
+}
+
+#escenario > div.visited:nth-child(6n+2) span,
+#escenario > div:nth-child(6n+2):hover span {
+    background-color: #f09b1d;
+}
+
+#escenario > div.visited:nth-child(6n+3) span,
+#escenario > div:nth-child(6n+3):hover span {
+    background-color: #bfdcd9;
+}
+
+#escenario > div.visited:nth-child(6n+4) span,
+#escenario > div:nth-child(6n+4):hover span {
+    background-color: #00a6e6;
+}
+
+#escenario > div.visited:nth-child(6n+5) span,
+#escenario > div:nth-child(6n+5):hover span {
+    background-color: #588797;
+}
+
+#escenario > div.visited:nth-child(6n+6) span,
+#escenario > div:nth-child(6n+6):hover span {
+    background-color: #214595;
+}
+
+#escenario > div.visited span,
+#escenario > div:hover span {
+    color: #fff;
+}
+
+div[data-content="#FarmBeats"] { left: 66%; top: 62%; }
+div[data-content="#IBMCloudPakforData"] { left: 50%; top: 50%; }
+div[data-content="#Dockio"] { left: 49%; top: 70%; }
+div[data-content="#CloudAutoML"] { left: 43%; top: 51%; }
+div[data-content="#OpenStack"] { left: 39%; top: 31%; }
+div[data-content="#AzureDigitalTwins"] { left: 23%; top: 31%; }
+div[data-content="#Liferay"] { left: 35%; top: 8%; }
+div[data-content="#Touch"] { left: 72%; top: 50%; }
+div[data-content="#Corda"] { left: 14%; top: 47%; }
+div[data-content="#GPGSuite"] { left: 30%; top: 54%; }
+div[data-content="#Sycamore"] { left: 66%; top: 29%; }
+div[data-content="#GoogleAssistant"] { left: 41%; top: 71%; }
+div[data-content="#Elasticsearch"] { left: 60%; top: 25%; }
+div[data-content="#Keepass"] { left: 10%; top: 40%; }
+div[data-content="#SiataApp"] { left: 29%; top: 47%; }
+div[data-content="#JuiceSSH"] { left: 44%; top: 74%; }
+div[data-content="#Docker"] { left: 52%; top: 74%; }
+div[data-content="#PlantNet"] { left: 38%; top: 72%; }
+div[data-content="#Traduccion"] { left: 46%; top: 33%; }
+div[data-content="#AWSGlacier"] { left: 33.5%; top: 37%; }
+div[data-content="#GoogleMaps"] { left: 84%; top: 36%; }
+div[data-content="#GooglePrimer"] { left: 50%; top: 61%; }
+div[data-content="#GoogleKeep"] { left: 34%; top: 48%; }
+div[data-content="#Ansible"] { left: 66%; top: 12%; }
