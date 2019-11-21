@@ -1,0 +1,243 @@
+/********************************************************************************/
+/* Actividad 1
+/********************************************************************************/
+.jpit-activities-cloze input[type="text"] {
+    background-color: #fff;
+    border: 1px solid #999;
+    width: 18px;
+    font-size: 22px;
+}
+
+.jpit-activities-cloze span.correct::after,
+.jpit-activities-cloze input.correct::after {
+    right: -23px;
+    top: -18px;
+    transform: scale(0.5);
+}
+
+.jpit-activities-cloze span.wrong::after, .jpit-activities-cloze input.wrong::after {
+    right: -14px;
+    top: -17px;
+    transform: scale(0.5);
+}
+
+.jpit-activities-cloze span.space {
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+
+#pag-definicion .ctrl-pagination li.layer {
+    padding: 5px 10px 15px 10px;
+}
+
+.jpit-activities-cloze .box_end .correct,
+.jpit-activities-cloze .box_end .wrong {
+    display: none;
+}
+
+.wifi-strike {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    transform: rotate(45deg);
+    overflow: hidden;
+    padding: 5px;
+    margin: -25px auto auto auto;
+}
+
+.wifi-strike div {
+    border: 30px solid #73c8d1;
+    position: relative;
+    background-color: transparent;
+    padding: 20px;
+    margin: 0;
+    border-radius: 50%;
+    box-shadow: -2px -2px 0px #999;
+    background-color: #fff;
+}
+
+.wifi-strike .strike1 {
+    width: 100%;
+    height: 100%;
+}
+
+.wifi-strike .strike2 {
+    width: 25%;
+    height: 25%;
+}
+
+.wifi-strike .strike3 {
+    width: 0;
+    height: 0;
+    border: none;
+    background-color: #73c8d1;
+}
+
+div[strike="1"] .strike1,
+div[strike="2"] .strike1,
+div[strike="3"] .strike1 {
+    border-color: transparent;
+}
+
+div[strike="2"] .strike2,
+div[strike="3"] .strike2 {
+    border-color: transparent;
+}
+
+div[strike="3"] .strike3 {
+    background-color: transparent;
+}
+
+div[strike="0"] .data_list li:nth-child(2),
+div[strike="0"] .data_list li:nth-child(3) {
+    display: none;
+}
+
+div[strike="1"] .data_list li:nth-child(3) {
+    display: none;
+}
+
+.jpit-activities-cloze .row > .col-2 {
+    min-height: 140px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    text-align: center;
+}
+
+.jpit-activities-cloze .palabra {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/********************************************************************************/
+/* Página TIC
+/********************************************************************************/
+#pag-tic .row {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-evenly;
+}
+.herramientas {
+    display: flex;
+}
+.herramientas .item {
+    align-items: flex-start;
+    display: flex;
+    justify-items: center;
+    margin: 0 1em;
+}
+.herramientas .item button {
+    min-width: 67px;
+}
+/********************************************************************************/
+/* Página Salud Móvil
+/********************************************************************************/
+.act3-item {
+    align-items: flex-start;
+    display: flex;
+}
+.otras-formas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.otras-formas .item {
+    align-items: flex-start;
+    display: flex;
+    margin: 1em 0;
+    width: 45%;
+}
+.otras-formas .item p {
+    margin: 0;
+}
+.otras-formas .item p {
+    margin: 0 0.5em;
+}
+/********************************************************************************/
+/* Página Aplicaciones
+/********************************************************************************/
+.apps-mov .item {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1em 0;
+}
+.apps-mov .item img {
+    margin: 0 0.5em;
+}
+#apps-drag .droppable {
+    background-color: #d7d8dc;
+    border: 1px dashed gray;
+    border-radius: 1em;
+    margin: 0 auto;
+    width: 50%;
+}
+#apps-drag .draggable {
+    background-color: #e2f3f4;
+    border: 2px solid #2199d1;
+    border-radius: 1em;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 200px;
+    word-wrap: break-word;
+}
+#apps-drag .recursos-opts {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#apps-drag .jpit_activities_jpitdroppable_dropped {
+    color: #000;
+    width: auto;
+}
+/********************************************************************************/
+/* Página Trabajo colaborativo
+/********************************************************************************/
+.tabajo-colaborativo .item {
+    align-items: flex-start;
+    display: flex;
+}
+.tabajo-colaborativo .item img {
+    margin: 1em;
+}
+/********************************************************************************/
+/* Página ¿Cuál app es mejor?
+/********************************************************************************/
+#podio-apps.jpit-activities-droppable table {
+    empty-cells: show;
+    border-spacing: 0 5px;
+}
+
+#podio-apps.jpit-activities-droppable th {
+    padding: 5px;
+    text-align: right;
+    border-right: none;
+}
+
+#podio-apps.jpit-activities-droppable td {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px dashed #777777;
+    text-align: left;
+    width: 200px;
+}
+
+#podio-apps.jpit-activities-droppable .draggable {
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+#podio-apps.jpit-activities-droppable .wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+    background-color: transparent;
+}
+
+.calificacion {
+    height: 35px;
+}

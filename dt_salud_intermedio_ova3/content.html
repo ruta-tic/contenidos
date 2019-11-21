@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OVA. Aplicativos y dispositivos móviles en salud</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Aplicativos y dispositivos móviles en salud</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Definición de términos" data-page="pag-definicion"></menuitem>
+                    <menuitem label="TIC" data-page="pag-tic"></menuitem>
+                    <menuitem label="Salud móvil">
+                        <menu>
+                            <menuitem label="Salud móvil y atención sanitaria" data-page="pag-salud-movil"></menuitem>
+                        </menu>
+                    </menuitem>
+                    <menuitem label="Dispositivos y aplicativos móviles">
+                        <menu>
+                            <menuitem label="Necesidades sanitarias (Aplicaciones)" data-page="pag-disp-app"></menuitem>
+                        </menu>
+                    </menuitem>
+                    <menuitem label="Trabajo colaborativo" data-page="pag-w-colaborativo"></menuitem>
+                    <menuitem label="¿Son seguras las app?" data-page="pag-app-seguras"></menuitem>
+                    <menuitem label="¿Cuál app es mejor?" data-page="pag-mejor-app"></menuitem>
+                    <menuitem label="Foro: ¿Cómo integrar apps?" data-page="pag-integrar-apps"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-definicion" ptitle="Definición de términos">
+                <div class="subpage">
+
+                    <div class="box-text activity" label="Ejercicio 1: Definición de términos">
+                        <p>A continuación, se presentan cuatro definiciones de términos clave que serán de utilidad para transitar a lo largo de esta actividad. Si encuentra dificultad con los términos, se sugiere revisar el documento <a href="https://www.fda.gov/media/80958/download" target="_blank">"Guidance for Industry and Food and Drug Administration Staff"</a> (pág. 8-10).</p>
+
+                        <strong>Tenga presente:</strong>
+                        <ul class="data_list">
+                            <li>Se le brindarán algunas definiciones y pistas con el objetivo de que encuentre el término al que aluden.</li>
+                            <li>La intención de este ejercicio es que no esté aislado del mundo digital y continúe con la conectividad inalámbrica, por lo que iniciará con tres rayas de WiFi.</li>
+                            <li>Le aparecerá en blanco el número de palabras y el número de letras de cada palabra a adivinar.</li>
+                            <li>Con cada intento le aparecerá una nueva pistas de la definición, sinónimos o ejemplos de los términos a adivinar.</li>
+                            <li>Con cada pista, tendrá la posibilidad de encontrar el término correcto.</li>
+                            <li>Tendrá tres intentos para dar con la respuesta.</li>
+                            <li>Con cada intento fallido se le irá restando una línea del WiFi hasta que quede desconectado.</li>
+                            <li>Las letras no son sensibles a mayúsculas/minúsculas pero sí consideran la tilde.</li>
+                        </ul>
+
+
+                        <div class="ctrl-pagination" data-orientation="sides">
+                            <li>
+                                <div class="box_targets jpit-activities-cloze" data-act-id="1a-cloze" data-act-title="Ejercicio 1.1: Definición de términos" data-parent-mark-selector="span">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div>
+                                                <h3>Término</h3>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="s" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="u" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="d" maxlength="1" /></span>
+                                                </div>
+                                                <span class="space"></span>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="m" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="ó" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="v" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="wifi-strike">
+                                                <div class="strike1">
+                                                    <div class="strike2">
+                                                        <div class="strike3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="data_list">
+                                        <li>Componente de la salud electrónica o eHealth.</li>
+                                        <li>Práctica de la salud soportada por dispositivos móviles como teléfonos móviles, dispositivos de monitorización de pacientes, asistentes personales digitales y otros dispositivos inalámbricos.</li>
+                                        <li>En inglés se le dice mHealth.</li>
+                                    </ul>
+                                    <div class="box_end"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box_targets jpit-activities-cloze" data-act-id="1b-cloze" data-act-title="Ejercicio 1.2: Definición de términos" data-parent-mark-selector="span">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div>
+                                                <h3>Término</h3>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="p" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="t" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="f" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="o" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="r" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="m" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                </div>
+                                                <span class="space"></span>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="m" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="ó" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="v" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="wifi-strike">
+                                                <div class="strike1">
+                                                    <div class="strike2">
+                                                        <div class="strike3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="data_list">
+                                        <li>Sistema computarizado y portátil con tecnología dura y blanda que funciona con lo que es compatible.</li>
+                                        <li>Puede o no usar conexión inalámbrica.</li>
+                                        <li>Algunos ejemplos son el teléfono inteligente, la tableta, asistente digital personal (PDA: Personal Digital Assistant)  y el computador portátil.</li>
+                                    </ul>
+                                    <div class="box_end"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box_targets jpit-activities-cloze" data-act-id="1c-cloze" data-act-title="Ejercicio 1.3: Definición de términos" data-parent-mark-selector="span">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div>
+                                                <h3>Término</h3>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="d" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="s" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="p" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="o" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="s" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="t" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="v" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="o" maxlength="1" /></span>
+                                                </div>
+                                                <span class="space">en</span>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="s" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="u" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="d" maxlength="1" /></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="wifi-strike">
+                                                <div class="strike1">
+                                                    <div class="strike2">
+                                                        <div class="strike3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="data_list">
+                                        <li>Instrumento, aparato, implemento, máquina, implante o accesorio.</li>
+                                        <li>Fue creado para usarse en el diagnóstico de una enfermedad o condición, y en la cura, mitigación, tratamiento o prevención de la enfermedad.</li>
+                                        <li>Sirve también para afectar la estructura o función de un órgano, o sistema humano o animal.</li>
+                                    </ul>
+                                    <div class="box_end"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="box_targets jpit-activities-cloze" data-act-id="1d-cloze" data-act-title="Ejercicio 1.4: Definición de términos" data-parent-mark-selector="span">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div>
+                                                <h3>Término</h3>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="p" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="c" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="c" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="ó" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="n" maxlength="1" /></span>
+                                                </div>
+                                                <span class="space"></span>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="m" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="ó" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="v" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="i" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                </div>
+                                                <span class="space">en</span>
+                                                <div class="palabra">
+                                                    <span><input type="text" data-response="s" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="a" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="l" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="u" maxlength="1" /></span>
+                                                    <span><input type="text" data-response="d" maxlength="1" /></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="wifi-strike">
+                                                <div class="strike1">
+                                                    <div class="strike2">
+                                                        <div class="strike3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="data_list">
+                                        <li>Usa tecnología blanda, puede ejecutarse en una plataforma móvil o en un servidor si se usa desde internet; permite efectuar un conjunto de tareas encaminadas a promover la salud, prevenir la enfermedad o para evaluación, diagnóstico, tratamiento o rehabilitación de esta.</li>
+                                        <li>Puede usarse como accesorio de dispositivo médico o para transformar una plataforma móvil.</li>
+                                        <li>Funciona en teléfonos inteligentes y es distribuida a partir de tiendas virtuales para iOS y Android.</li>
+                                    </ul>
+                                    <div class="box_end"></div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-tic" ptitle="TIC">
+                <div class="subpage">
+                    <h3>Tecnología de la Información y la Comunicación (TIC)</h3>
+                    <p>El uso de las TIC ha modificado la forma de vivir y de ver la realidad en el mundo. Los sujetos acuden cada vez con mayor frecuencia a las telecomunicaciones para relacionarse con el medio que les rodea. Aspectos operativos como pagar las obligaciones del mes son reemplazados por los pagos en línea, o  por comprar en tiendas virtuales o por catálogo. Hay reportes en Colombia de que uno de cada cuatro colombianos usan el internet para realizar este tipo de transacciones (1).</p>
+                    <p>Del mismo modo sucede con el relacionamiento social, donde las redes sociales como Twitter, Instagram, Facebook, WhatsApp, entre otros, permiten conocer al otro sin necesidad o prelación de la interacción física. Así mismo, con las TIC, se puede estudiar a distancia, lo que elimina barreras espacio temporales ya que se permite el acceso universal a medios de aprendizaje desde cualquier lado y a cualquier hora (2). En Colombia, un 44% de los colombianos usan el internet con fines formativos (1).</p>
+                    <p>Según datos del DANE (3) cerca de 7 de cada 10 personas reportaron usar celular siendo mayor el uso de teléfonos inteligentes (78,1%); el principal uso que le dan es para comunicarse con otras personas o familiares en un 94,5%, seguido de navegación por internet en un 63,9%. Respecto a otras plataformas móviles, las cifras reportadas fueron menores, el 28,8% y 10,9% de hogares reportaron contar con computador portátil y tableta respectivamente.</p>
+
+                    <div class="row">
+                        <div class="box_media">
+                            <img src="content/2_tecnologia_de_la_informacion-03.png" alt="Principales usos teléfono inteligente">
+                            <div class="about">
+                                <strong>Figura 2.</strong> Porcentaje de uso computador y tableta. DANE (2019).
+                            </div>
+                        </div>
+                        <div class="box_media">
+                            <img src="content/2_tecnologia_de_la_informacion-02.png" alt="Porcentaje de uso computador y tableta">
+                            <div class="about">
+                                <strong>Figura 1.</strong> Principales usos teléfono inteligente. DANE (2019).
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Comparativamente, con los datos reportados de tenencia y uso de teléfonos celulares, el MinTIC (4) reportó datos de planes de telefonía celular donde se evidencia alta penetración de la telefonía celular. Según cifras preliminares para finales de 2018, existían 64.513.977 planes de telefonía celular, la mayoría en plan prepago (79,4%), con un índice de penetración de 129,5%. Cifras que muestran mayor número de planes de telefonía celular que habitantes colombianos según proyección demográfica de 48.258.494 habitantes (5).</p>
+
+                    <div class="box_media">
+                        <img src="content/2_tecnologia_de_la_informacion-03.png" alt="Principales usos teléfono inteligente">
+                        <div class="about">
+                            <strong>Figura 3.</strong> Participación de los tipos de planes de telefonía celular en  Colombia. MinTIC (2018).
+                        </div>
+                    </div>
+
+                    <p>Respecto a la conexión a internet, casi el 84,9% de los colombianos refieren usarlo desde su celular y el 31,4% desde su computador portátil. El mayor uso que le da al internet es para revisar redes sociales (82,2%) (3).</p>
+
+                    <div class="box_media">
+                        <img src="content/2_tecnologia_de_la_informacion-03.png" alt="Principales usos teléfono inteligente">
+                        <div class="about">
+                            <strong>Figura 4.</strong> Distribución porcentual de la forma de conexión a internet en Colombia. DANE (2018).
+                        </div>
+                    </div>
+                    <div class="box-text note" label="Nota">
+                        <p>
+                                Respecto al personal de salud, se encuentran datos de mayor tenencia y uso de plataformas móviles. En julio de 2007, se realizó un estudio con profesionales del área de la salud en el cual participaron médicos, enfermeras, auxiliares de enfermería, terapuetas respiratorios y estudiantes, sobre el uso y percepciones que tienen trabajadores del sector salud sobre las TIC. Se encontró que el 98% manifestó tener teléfono celular, el 97,6% de los encuestados refirió tener acceso a internet, de esos el 60,4% refirió usarlo diariamente. Con respecto al uso de internet en las instituciones de salud, el 90% o más, refirió como positivo o muy positivo el hecho de poder consultar sus citas médicas, revisar resultados de exámenes, poder consultar a otros profesionales y, adicionalmente, prestar un mejor servicio (2).
+                        </p>
+                    </div>
+                    <div class="box_media">
+                        <img src="content/2_tecnologia_de_la_informacion-03.png" alt="Principales usos teléfono inteligente">
+                        <div class="about">
+                            <strong>Figura 5.</strong> Uso y percepciones que tienen trabajadores del sector salud sobre las TIC. Valenzuela y otros (2009).
+                        </div>
+                    </div>
+                    <p>Herramientas tecnológicas como teléfonos inteligentes, computadores y tabletas con conexión a internet permiten:</p>
+
+                    <div>
+                        <div class="herramientas">
+                            <div class="item"><button class="right_pointer"></button> Revisar libre y autónomamente diferentes aspectos de la relación salud y enfermedad.</div>
+                            <div class="item"><button class="right_pointer"></button> Consultar diferentes páginas web donde se encuentran preguntas y respuestas de la comunidad general a diversas afecciones en salud, o la receta para promover una alimentación saludable.</div>
+                            <div class="item"><button class="right_pointer"></button> Revisar la oferta de aplicaciones móviles para promover hábitos de vida saludables; prevenir enfermedades mediante la promoción del cese del tabaquismo; evaluación de lesiones para diagnosticar problemas en la piel; ordenar medicamentos para el tratamiento de procesos mórbidos, etc.</div>
+                            <div class="item"><button class="right_pointer"></button> Reconocer la oferta en dispositivos o accesorios que se le conectan al celular o al computador para amplificar, mejorar la resolución y/o enviar resultados de exámenes tipo audio, imágen o texto, a centros autorizados, tal es el caso de la toma de electrocardiogramas en casa, fotografías de lesiones, entre otros, para ser evaluados por especialistas.</div>
+                            <div class="item"><button class="right_pointer"></button> Realizar consultas virtuales con profesionales en salud.</div>
+                        </div>
+                        <div class="box_media">
+                            <img src="content/2_tecnologia_de_la_informacion-08.png" alt="Herramientas tecnológicas">
+                        </div>
+                    </div>
+
+                    <p>Por tanto, se puede resumir la aplicación de las TIC en salud en servicios dirigidos a la educación, la prestación de servicios de salud y la entrega de información dirigida a personal sanitario y a la comunidad, con lo cual se beneficia la comunicación y la educación para la salud entre profesionales y demás ciudadanos.</p>
+                    <p>Es por esto que las TIC pueden convertirse en herramientas fundamentales para la educación en temas de salud, como también en un medio de comunicación versátil para la transmisión de información de impacto individual (alertas de variables fisiológicas) y poblacional (alertas en salud pública) (2).</p>
+                </div>
+            </section>
+
+            <section id="pag-salud-movil" ptitle="Salud móvil y atención sanitaria">
+                <div class="subpage">
+                    <div class="videobox">
+                        <video controls>
+                            <source src="https://boa.udea.edu.co/api/c/ruta-tic/resources/MUNFMEMxQkMtNDJGMS00NzIzLTg2NjEtREZBQ0IwQzM1RkVEQGJvYS51ZGVhLmVkdS5jbw==/!/dt_salud_intermedio_ova3_animacion.mp4" type="video/mp4">
+                            El reproductor de video no es soportado por el navegador
+                        </video>
+                    </div>
+                    <h3>Ejercicio 2: ¿En qué aspectos la salud móvil modifica la atención sanitaria?</h3>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A continuación, encontrará cinco aplicaciones móviles con su nombre y una reseña de sus características principales. Al otro lado de la pantalla le aparecerán los cinco aspectos a los que se hizo referencia en la animación:</p>
+
+                        <ul>
+                            <li>Empoderamiento del paciente</li>
+                            <li>Modificación de hábitos</li>
+                            <li>Cambio de relaciones y procesos</li>
+                            <li>Monitorización </li>
+                            <li>Almacenamiento de datos. </li>
+                        </ul>
+
+                        <p>Usted deberá seleccionar, para cada una de las aplicaciones móviles, en qué aspectos modifica la atención sanitaria. En caso de requerir ahondar en la información de cada una de las aplicaciones, puede dirigirse al <a href="https://play.google.com/store/apps" target="_blank">Play Store de Google</a> o al <a href="http://www.app-store.es/" target="_blank">App Store de Apple</a>.</p>
+                    </div>
+                    <div class="jpit-activities-selection" data-act-id="atencion-sanitaria" data-act-title="Atención sanitaria" data-mode="multi">
+                        <div class="ctrl-pagination" data-labelcurrent="true" >
+                        <li>
+                            <div class="act3-item">
+                                <img src="content/3_salud_movil-02.png" alt="SocialDiabetes">
+                                <div>
+                                    <p><strong>Reseña:</strong> registra información relevante para ayudar a mejorar el control metabólico de la diabetes. El usuario ingresa información sobre exámenes de laboratorio (glucemias; alimentos ingeridos; dosis y nombres de medicamentos utilizados; actividad física realizada; medidas antropométricas; signos vitales, etc.). A partir de esta información, calcula la dosis de insulina a aplicar y la cantidad de carbohidratos ingeridos. Adicionalmente, se conecta a dispositivos (glucómetros) para generar reportes de control metabólico y permite la conexión remota con el profesional sanitario.</p>
+                                    <ul class="writers data_list">
+                                        <li data-group="1" data-correct="true"><div class="check"></div> Empoderamiento del paciente</li>
+                                        <li data-group="1" data-correct="true"><div class="check"></div> Modificación de hábitos</li>
+                                        <li data-group="1" data-correct="true"><div class="check"></div> Cambio de relaciones y procesos</li>
+                                        <li data-group="1"><div class="check"></div> Monitorización</li>
+                                        <li data-group="1" data-correct="true"><div class="check"></div> Almacenamiento de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="act3-item">
+                                <img src="content/3_salud_movil-05.png" alt="Endomondo">
+                                <div>
+                                    <p><strong>Reseña:</strong> funciona como entrenador personal gamificado. Entre sus funciones está rastrear la duración, distancia, velocidad y calorías quemadas de toda actividad física del usuario. Registra signos vitales como frecuencia cardíaca y guarda información sobre rutas y las compara con otros que hayan realizado la misma.</p>
+                                    <ul class="writers data_list">
+                                        <li data-group="2"><div class="check"></div> Empoderamiento del paciente</li>
+                                        <li data-group="2" data-correct="true"><div class="check"></div> Modificación de hábitos</li>
+                                        <li data-group="2"><div class="check"></div> Cambio de relaciones y procesos</li>
+                                        <li data-group="2" data-correct="true"><div class="check"></div> Monitorización</li>
+                                        <li data-group="2" data-correct="true"><div class="check"></div> Almacenamiento de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="act3-item">
+                                <img src="content/3_salud_movil-04.png" alt="Diario del dolor de cabeza">
+                                <div>
+                                    <p><strong>Reseña:</strong> permite supervisar las características del dolor de cabeza en términos de intensidad, síntomas asociados, factores desencadenantes, duración, ubicación del dolor y los efectos del tratamiento. Realiza análisis sobre el dolor y genera recomendaciones acerca de qué medicamento usar según las características de este. Genera reportes diarios, semanales y mensuales sobre el dolor, y envía datos al médico tratante que guiará el tratamiento.</p>
+                                    <ul class="writers data_list">
+                                        <li data-group="3"><div class="check"></div> Empoderamiento del paciente</li>
+                                        <li data-group="3"><div class="check"></div> Modificación de hábitos</li>
+                                        <li data-group="3" data-correct="true"><div class="check"></div> Cambio de relaciones y procesos</li>
+                                        <li data-group="3"><div class="check"></div> Monitorización</li>
+                                        <li data-group="3" data-correct="true"><div class="check"></div> Almacenamiento de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="act3-item">
+                                <img src="content/3_salud_movil-06.png" alt="MediSafe">
+                                <div>
+                                    <p><strong>Reseña:</strong> por medio de notificaciones visuales y auditivas, recuerda al usuario la toma de medicación. Permite enviar notificaciones a un cuidador en caso de que el usuario no haya registrado la toma de la medicación. Además, puede sincronizarse con los pastilleros familiares. Es útil para seguir el tratamiento de enfermedades crónicas.</p>
+                                    <ul class="writers data_list">
+                                        <li data-group="4" data-correct="true"><div class="check"></div> Empoderamiento del paciente</li>
+                                        <li data-group="4"><div class="check"></div> Modificación de hábitos</li>
+                                        <li data-group="4" data-correct="true"><div class="check"></div> Cambio de relaciones y procesos</li>
+                                        <li data-group="4"><div class="check"></div> Monitorización</li>
+                                        <li data-group="4"><div class="check"></div> Almacenamiento de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="act3-item">
+                                <img src="content/3_salud_movil-03.png" alt="Pregunta por tu salud">
+                                <div>
+                                    <p><strong>Reseña:</strong> orientada a disminuir riesgos con la atención sanitaria. Tiene cerca de 200 preguntas que pueden ser de utilidad al usuario para planificar la consulta, elaborar listados de preguntas sobre diagnóstico, exámenes, tratamientos farmacológicos y quirúrgicos, con la finalidad de mejorar la calidad y fomentar la seguridad en la atención al paciente.</p>
+                                    <ul class="writers data_list">
+                                        <li data-group="5" data-correct="true"><div class="check"></div> Empoderamiento del paciente</li>
+                                        <li data-group="5"><div class="check"></div> Modificación de hábitos</li>
+                                        <li data-group="5" data-correct="true"><div class="check"></div> Cambio de relaciones y procesos</li>
+                                        <li data-group="5"><div class="check"></div> Monitorización</li>
+                                        <li data-group="5"><div class="check"></div> Almacenamiento de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                    <div class="subpage">
+                        <p>En la literatura se encuentran otras formas de clasificar la salud móvil según el campo de acción (6):</p>
+                        <div class="otras-formas">
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-01.png" alt="">
+                                <p>Comunicación entre pacientes y servicios de salud mediante el uso de líneas telefónicas con mensajes pregrabados, o el uso en el contexto de emergencias.</p>
+                            </div>
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-02.png" alt="">
+                                <p>Comunicación entre los servicios de salud y las personas, por medio del envío de mensajes de texto o de voz, para la recordación de citas, toma de medicamentos y  campañas de sensibilización sobre diferentes temas en salud.</p>
+                            </div>
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-03.png" alt="">
+                                <p>Comunicación entre profesionales mediante la telemedicina.</p>
+                            </div>
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-04.png" alt="">
+                                <p>Comunicación intersectorial en casos de emergencias, por medio del uso de dispositivos móviles para controlar desastres naturales o brotes de enfermedades.</p>
+                            </div>
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-05.png" alt="">
+                                <p>Monitoreo y vigilancia de enfermedades de interés en salud pública mediante el uso de dispositivos móviles para recopilación y transmisión de información sensible.</p>
+                            </div>
+                            <div class="item">
+                                <img src="content/3_otras_formas_de_clasificar-06.png" alt="">
+                                <p>Acceso a información desde el lugar de atención, por medio de dispositivos móviles para la consignación de información de registros de pacientes o su visualización.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-disp-app" ptitle="Necesidades sanitarias (Aplicaciones)">
+                <div class="subpage">
+                    <p>Los profesionales de salud asistenciales que laboran en hospitales, clínicas y otros centros de salud requieren recursos para desarrollar su labor. Entre estos se encuentran recursos comunicacionales como llamadas de voz, videoconferencia, texto, mensajería, correo electrónico; sistemas de información en salud como registros electrónicos en salud como archivos para registrar y consultar las historias clínicas, los resultados de laboratorio e imágenes; recursos informáticos como libros, guías, otra literatura en salud; y aplicaciones clínicas para apoyar en el diagnóstico, calculadoras para apoyar en el tratamiento (7).</p>
+                    <p>Antes del desarrollo de los teléfonos inteligentes, las necesidades eran suplidas por teléfonos, computadores de escritorio, archivos de historia clínica en físico y libros en versión impresa, entre otros. Sin embargo, las demandas actuales del mundo globalizado exigen a los profesionales de la salud una actualización constante para dar respuesta inmediata a las necesidades de la población, por lo cual los teléfonos inteligentes, las tabletas y otros dispositivos de bolsillo, cobran un papel importante en la atención sanitaria y en la educación continua.</p>
+                    <h3>Ejercicio 3: Ubique la aplicación que más se ajuste a la necesidad sanitaria</h3>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            A continuación, aparecen recursos necesarios para la prestación de la atención en salud en escenarios relacionados con la atención clínica y/o quirúrgica, y unas aplicaciones con su nombre y corta reseña. Usted deberá emparejar las necesidades con las aplicaciones móviles correspondientes.
+                        </p>
+                    </div>
+                    <div id="apps-drag" class="jpit-activities-droppable" data-orientation="horizontal" data-act-id="arrastrar-suma">
+                        <div class="ctrl-pagination" data-labelcurrent="true" >
+                            <li>
+                                <div class="apps-mov">
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-03.png" alt="Universal Doctor Speaker">
+                                        <p><strong>Universal Doctor Speaker</strong> permite la traducción de consultas.</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-04.png" alt="Small Talk Intensive Care">
+                                        <p><strong>Small Talk Intensive Care</strong> contiene un listado de frases o imágenes que permiten la comunicación de necesidades de pacientes al equipo sanitario.</p>
+                                    </div>
+                                </div>
+                                <div data-target-group="1"></div>
+                            </li>
+                            <li>
+                                <div class="apps-mov">
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-05.png" alt="MappyHealth">
+                                        <p><strong>MappyHealth</strong> es una aplicación basada en la web que permite detectar brotes de enfermedades antes que los métodos convencionales.</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-06.png" alt="ColombiaSIVigila">
+                                        <p><strong>ColombiaSIVigila</strong> ofrece información sobre aspectos del sistema de vigilancia epidemiológica, como eventos de interés en salud pública, protocolos y directorio de instituciones.</p>
+                                    </div>
+                                </div>
+                                <div data-target-group="2"></div>
+                            </li>
+                            <li>
+                                <div class="apps-mov">
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-07.png" alt="30 años con VIH">
+                                        <p><strong>30 años con VIH</strong> permite acceder a información técnica y descargable sobre dicho virus.</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-08.png" alt="iDoctus">
+                                        <p><strong>iDoctus</strong> contiene documentación científica y revisión bibliográfica de medicamentos para la toma de decisiones asistenciales.</p>
+                                    </div>
+                                </div>
+                                <div data-target-group="3"></div>
+                            </li>
+                            <li>
+                                <div class="apps-mov">
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-09.png" alt="Brush DJ">
+                                        <p><strong>Brush DJ</strong> ofrece información sobre el tiempo correcto del cepillado de dientes.</p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="content/4_1_arrastrar_y_soltar-10.png" alt="Dermomap">
+                                        <p><strong>Dermomap</strong> apoya en el diagnóstico de enfermedades de la piel.</p>
+                                    </div>
+                                </div>
+                                <div data-target-group="4"></div>
+                            </li>
+                        </div>
+                        <div class="recursos-opts">
+                            <div data-group="2">Acceso a sistemas de información</div>
+                            <div data-group="1">Recursos comunicacionales</div>
+                            <div data-group="3">Recursos informáticos</div>
+                            <div data-group="4">Aplicaciones que orientan la promoción de la salud, la prevención de la enfermedad y la evaluación, diagnóstico, tratamiento y rehabilitación de la enfermedad</div>
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                    <div class="subpage">
+                        <h3>Retroalimentación</h3>
+                        <p>Ventola (2014) define los dispositivos móviles como los PDA, teléfonos inteligentes, computadoras tipo tabletas y iPad que tienen tamaño de bolsillo, combinan la computación y aspectos de la comunicación, y ofrecen fácil acceso en lugares como hospitales, clínicas, universidad y demás sitios de práctica. Mientras que Food & Drug Administration denomina plataformas móviles a estos dispositivos, siempre y cuando tengan un empleo destinado a promover la salud, prevenir la enfermedad o a evaluar, diagnosticar, tratar o paliar estados mórbidos (8). Por tanto, existen autores que se refieren a dispositivos móviles y a plataformas móviles de manera indistinta.</p>
+                        <p>Los aplicativos móviles o apps, como se les denomina comúnmente, son desarrollos de tecnología blanda que permiten alcanzar determinados objetivos y pueden ser generadas por desarrolladores de tecnologías móviles o por individuos u organizaciones (9). Se adquieren en tiendas virtuales, según reportes en la literatura, su inicio se remonta al año 2008, cuando Appstore de la empresa Apple realizó el lanzamiento de los aplicativos móviles, algunas de pago y otras gratuitas. En el año 2011 creó una sección dirigida a profesionales de salud y en el año 2013 dividió esta sección en subcategorías: referencia, educación médica, registros médicos electrónicos, monitorización de pacientes, cuidados de enfermería, imágenes, educación para el paciente y cuidado personal (7).</p>
+                        <div class="box-text connection">
+                            <p>
+                                Ya se han mencionado las apps y los dispositivos móviles en función de estas, sin embargo, existen otros dispositivos desarrollados para su uso en salud que no son exclusivamente mediados por los teléfonos inteligentes. Tal es el caso de dispositivos empleados para el telemonitoreo o para la teleasistencia domiciliaria.
+                            </p>
+                        </div>
+                        <p>Los dispositivos utilizados tienen como objetivo apoyar a pacientes, usualmente de la tercera edad o con enfermedades crónicas, para contactar de manera expedita al personal sanitario en caso de urgencias, o cuando tengan dudas.</p>
+                        <p>Adicionalmente, suele prestarse el servicio de recordación de citas, agendamiento de citas prioritarias y orientación en la prestación de servicios sanitarios oportuna y segura. Los dispositivos son entregados a las personas en sus hogares y permiten monitorizar signos vitales, enviar información a un centro de acopio de información, emitir alarmas y comunicar a los pacientes y personal de salud en tiempo real para orientar acerca de la utilización de servicios de salud de manera oportuna y segura. Existen experiencias locales como la desarrollada por la Cruz Roja Colombiana Seccional Antioquia “Cercanos - Teleasistencia domiciliaria”. Si desea ampliar la información haga clic <a href="https://www.crantioquia.org.co/teleasistencia" target="_blank">aquí.</a></p>
+                        <p>Así mismo, hay experiencias como la Digital Inclusion in Health and Higher Education (DIKAHE), una innovación tecnológica que promueve la investigación y el desarrollo en Latinoamérica. Usa telemedicina y conexión de dispositivos móviles portables que permiten el registro e inclusión a la historia clínica de electrocardiogramas y tomas de presión arterial vía bluetooth. Si desea ampliar la información haga clic <a href="https://www-2.dc.uba.ar/grupinv/lsc/DIKAHE.html" target="_blank">aquí.</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-w-colaborativo" ptitle="Trabajo colaborativo">
+                <div class="subpage">
+                    <h3>Trabajo colaborativo en salud móvil</h3>
+                    <p>En las últimas décadas, se ha avanzado en temas de salud móvil debido, en gran medida, al interés de gobiernos y organismos internacionales. A continuación, encontrará algunas redes de trabajo colaborativo o experiencias personales con énfasis en trabajo colaborativo que puede tener presente para su práctica profesional:</p>
+                    <div class="tabajo-colaborativo">
+                        <div class="item">
+                            <img src="content/5_retroalimentacion-02_red_iberoamericana.png" alt="Red Iberoamericana">
+                            <div>
+                                <h5>Red Iberoamericana</h5>
+                                <p>Red RITMO-CYTED: es un esfuerzo de red internacional de conocimiento en Iberoamérica la cual está conformada por grupos de investigación colaborativa entre países como Argentina, Bolivia, Chile, Colombia, Ecuador, México, Perú, y España, con la presencia de entes internacionales como la Organización Panamericana de la Salud / Organización Mundial de la Salud (OPS/OMS), Médicos sin fronteras y empresas privadas como Telefónica y Fundación Mobile World Capital. Su intencionalidad está dirigida a incentivar la investigación y el desarrollo de la salud móvil en Iberoamérica por medio de interacciones e intercambio científico estable, continuo y de mutuo interés; intercambio y movilidad de personal; capacitación técnica y metodológica; elaboración de propuestas de investigación; entre otros. Se invita a ver el siguiente video donde se presenta un ejercicio tipo congreso realizado en Colombia el año anterior:</p>
+                                <ul>
+                                    <li><a href="https://www.youtube.com/watch?v=mmientsfaZM" target="_blank">https://www.youtube.com/watch?v=mmientsfaZM</a></li>
+                                    <li>De igual manera, se invita a navegar en las páginas <a href="http://www.cyted.org/es/cyted" target="_blank">http://www.cyted.org/es/cyted</a>, en la cual encontrará convocatorias sobre temas relacionados con las enfermedades cardiovasculares y técnicas avanzadas para el tratamiento de agua: vida y sotenibilidad; y en https://sites.google.com/a/uoc.edu/ritmos/home, donde puede encontrar mayor información e incluso animarse a participar en la red.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="content/5_retroalimentacion-03_reflexion.png" alt="Reflexión sobre la salud móvil y evaluación de apps">
+                            <div>
+                                <h5>Reflexión sobre la salud móvil y evaluación de apps</h5>
+                                <ul>
+                                    <li>Informe de las 50 mejores apps de salud en español realizado por The app intelligence con la intención de generar reflexión acerca del papel de las apps en la actualidad. Adicionalmente, se revisaron las funcionalidades, temáticas, diseño y aporte al sector sanitario para seleccionar aquellas que cumplen con buenas prácticas.</li>
+                                    <li>The Myhealthapps Directory 2015-2016 es una revisión realizada por pacientes y consumidores empoderados sobre las apps que permite a los usuarios potenciales de estas tomar decisiones mediante la información comprehensiva de la funcionalidad, el desempeño y las características de las apps relacionadas con la salud.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="content/5_retroalimentacion-04_charla.png" alt="Charla">
+                            <div>
+                                <h5>Charla</h5>
+                                <p>"Soluciones en salud global con colaboración y tecnología" dada por Juan Sebastián Osorio Valencia, ingeniero biomédico y magíster en computación biomédica; co creador de clubes de ciencia Colombia (<a href="https://clubesdeciencia.co/" target="_blanl">https://clubesdeciencia.co/</a>). Describe experiencias sobre dispositivos móviles como  "monitoreo inteligente de pacientes" orientada a detectar y clasificar episodios de apneas para diagnosticar y tratar de manera oportuna apneas del recién nacido; apps de vigilancia epidemiológica para disminuir y controlar la infección de Ebola; la app Sana Mobile (<a href="http://dev.sanamobile.org/" target="_blank">http://dev.sanamobile.org/</a>), permite acceder a telemedicina desde sitios remotos; MIMIC base de datos para registro y análisis de registros médicos. Enfatiza sobre el uso de las TIC para democratizar el acceso a salud y fortalecer la colaboración, co creación y generación de capacidades. Puede acceder a la charla en <a href="https://www.youtube.com/watch?v=a-yq8a-tfZU" target="_blank">https://www.youtube.com/watch?v=a-yq8a-tfZU</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-app-seguras" ptitle="¿Son seguras las app?">
+                <div class="subpage">
+                    <h3>¿Qué tan seguras son las apps?</h3>
+                    <div class="box-text note" label="Nota">
+                        <p>¿Ha pensado antes de usar una app qué tan segura es? ¿Se ha cuestionado acerca de lo que hacen las apps con la información a la que acceden? ¿Se ha preguntado si es  correcta la información que brinda la app? ¿Existe algún ente regulador o controlador de las apps? ¿Quién puede desarrollar y lanzar una app?</p>
+                    </div>
+                    <p>Varios autores han identificado riesgos relacionados con las apps en el sector sanitario y algunos de los aspectos de estas que acarrean riesgos son el pobre involucramiento del personal sanitario en el desarrollo; potenciales daños secundarios a conflictos de interés que pueden surgir debido al patrocinio o desarrollo de apps por empresas farmaceúticas; pobre o nula regulación de las apps; e incierta calidad y seguridad de la información que ofrecen (10).</p>
+                    <ul>
+                        <li><strong>Respecto al pobre involucramiento de personal sanitario en las apps</strong>, donde aspectos como ocultar nombres de desarrolladores, referencias bibliográficas o fechas de actualización pueden dar indicio de este aspecto. Adicionalmente, mencionan que posterior a una revisión de apps dirigidas a dermatología y microbiología, se encontró que menos de 35% de ellas tienen la participación de expertos en salud durante el desarrollo.</li>
+                        <li><strong>En el aspecto de potenciales daños</strong> se evidencia que al momento de hacer cálculos para diagnóstico o tratamiento, estos pueden estar errados o, por el contrario, pueden existir sesgos de prescripción o favorecimiento de medicamentos propios si fue una industria farmaceútica quien patrocinó o desarrollo las apps.</li>
+                        <li><strong>En tercer aspecto está relacionado con la regulación</strong>; las apps tienen un origen abierto y la regulación aún es un tema poco explorado. Por ahora, se cuenta con una guía de regulación por la FDA donde se estipula qué tipo de apps y/o dispositivos son objeto de regulación. Sin embargo, las sociedades científicas deberían realizar la regulación de manera directa o producir apps dirigidas por expertos en salud para tal fin.</li>
+                        <li><strong>El último aspecto destacado fue sobre la calidad y seguridad</strong>, donde se recomienda que las apps tengan contenido basado en la evidencia científica, se cuente con protocolo de revisión por pares externos profesionales de la salud y se actualice la información de manera constante.</li>
+                    </ul>
+                    <p>Por otro lado, es necesario mencionar que las apps no solo generan un riesgo potencial relacionado con el funcionamiento seguro sin afección negativa a la salud, sino que hay aspectos inherentes al uso de las TIC, como protección y seguridad de datos, que pueden implicar riesgos para usuarios de las apps.</p>
+                    <div class="box-text note" label="Nota">
+                        <p>Al dar permisos a cámara, contactos, calendario, micrófono, ubicación, entre otros datos, se pueden exponer datos sensibles como información financiera, en salud o datos personales, permitiendo robos de identidad o fraudes financieros. Adicionalmente, se puede tener riesgo de pérdida de control de acceso, es decir, problemas con las restricciones de uso y acceso de forma no autorizada a datos, cuentas y archivos sensibles.</p>
+                    </div>
+                    <p>Esto evidencia la necesidad de una política de confidencialidad y seguridad de los datos donde el desarrollador garantice que otras personas no van a poder acceder a su información personal (11).</p>
+                    <p>Para la evaluación de seguridad de las apps existen fundaciones como Open Web Application Security Project (OWASP), quienes han producido materiales como los 10 riesgos de seguridad más críticos de las aplicaciones web y los 10 riesgos de la seguridad móvil. Si desea ampliar la información haga clic <a href="https://www.owasp.org/index.php/Main_Page" target="_blank">aquí.</a></p>
+                </div>
+            </section>
+
+            <section id="pag-mejor-app" ptitle="¿Cuál app es mejor?">
+                <div class="subpage">
+                    <h3>Ejercicio 4 : ¿Cuál app es mejor?</h3>
+                    <p>Se le solicitó a un equipo de trabajo identificar las aplicaciones disponibles para determinada tarea en salud y seleccionar tres finalistas. Posterior a la búsqueda y caracterización, seleccionaron las mejores aplicaciones que cumplían con las necesidades requeridas y realizaron la ficha técnica con las características principales que aparecen en el cuadro comparativo.</p>
+                    <p>Como dato adicional, el equipo informó que:</p>
+                    <ul>
+                        <li>La opción 1 la seleccionaron porque uno de ellos la tenía instalada y le funcionaba bien.</li>
+                        <li>La opción 2 fue seleccionada porque fue patrocinada por el laboratorio farmacéutico que financió el estudio.</li>
+                        <li>La opción 3 la seleccionaron porque la realizó el Ministerio de Salud.</li>
+                    </ul>
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>A partir de la información anterior escoja, para cada característica, la mejor opción y al finalizar haga un selección jerárquica entre las tres opciones otorgando el primer puesto a la que considere mejor, segundo puesto y el tercer puesto respectivamente.</p>
+                    </div>
+                    <div id="apps-opciones" class="jpit-activities-selection" data-act-id="apps-opciones" data-parent-mark-selector="false" data-mode="single">
+                        <table class="datatable">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Opción 1</th>
+                                    <th>Opción 2</th>
+                                    <th>Opción 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd">
+                                    <td>Nombre</td>
+                                    <td>App A</td>
+                                    <td>App B</td>
+                                    <td>App C</td>
+                                </tr>
+                                <tr>
+                                    <td>Calificación de usuarios y review cada 6 meses</td>
+                                    <td data-group="1"><div class="calificacion"><span class="icon_approved"></span><span class="icon_approved"></span><span class="icon_approved"></span></div><div class="radio"></div></td>
+                                    <td data-group="1" data-correct="true"><div class="calificacion"><span class="icon_approved"></span><span class="icon_approved"></span><span class="icon_approved"></span><span class="icon_approved"></span></div><div class="radio"></div></td>
+                                    <td data-group="1"><div class="calificacion"><span class="icon_approved"></span><span class="icon_approved"></span></div><div class="radio"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Personal experto en salud</td>
+                                    <td data-group="2"><p>Aparece personal de salud involucrado como consultor durante el desarrollo de la app.</p><div class="radio"></div></td>
+                                    <td data-group="2"><p>No hay información relacionada con inclusión de personal de salud en el desarrollo de la app.</p><div class="radio"></div></td>
+                                    <td data-group="2" data-correct="true"><p>El desarrollador de la aplicación fue el Ministerio de Salud.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td></td><p>Política de actualización de contenido en salud</p></td>
+                                    <td data-group="3"><p>No aparece información relacionada.</p><div class="radio"></div></td>
+                                    <td data-group="3" data-correct="true"><p>Aparece una política de actualización de contenido cada 3 meses.</p><div class="radio"></div></td>
+                                    <td data-group="3"><p>La última actualización fue reportada a principios del año presente.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Permisos</p></td>
+                                    <td data-group="4"><p>Esta aplicación tiene acceso a calendario, contactos, cámara, datos, fotos, multimedia, micrófono y ubicación.</p><div class="radio"></div></td>
+                                    <td data-group="4"><p>Esta aplicación tiene acceso a sensores corporales y ubicación.</p><div class="radio"></div></td>
+                                    <td data-group="4" data-correct="true"><p>Esta aplicación no tiene acceso a ninguna herramienta del dispositivo.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><p>Financiamiento</p></td>
+                                    <td data-group="5"><p>Con pautas publicitarias dentro de la app.</p><div class="radio"></div></td>
+                                    <td data-group="5"><p>Empresa farmaceútica.</p><div class="radio"></div></td>
+                                    <td data-group="5" data-correct="true"><p>Recursos públicos.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Par externo revisor</p></td>
+                                    <td data-group="6"><p>Desarrolladores informan que hubo consultoría externa, pero no mencionan información adicional.</p><div class="radio"></div></td>
+                                    <td data-group="6"><p>No hay evidencia de este aspecto.</p><div class="radio"></div></td>
+                                    <td data-group="6" data-correct="true"><p>Aplicación avalada por entes internacionales como Organización Panamericana de la Salud / Organización Mundial de la Salud.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr class="odd">
+                                    <td><p>Política de privacidad y seguridad</p></td>
+                                    <td data-group="7" data-correct="true"><p>Hay una política de privacidad y seguridad de manera explícita en el apartado de términos y condiciones.</p><div class="radio"></div></td>
+                                    <td data-group="7"><p>Se accede a la política posterior a solicitud a los desarrolladores.</p><div class="radio"></div></td>
+                                    <td data-group="7"><p>No hay evidencia de política de privacidad y seguridad.</p><div class="radio"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Acceso a la aplicación</p></td>
+                                    <td data-group="8"><p>Se descargó la app en internet desde la página.</p><div class="radio"></div></td>
+                                    <td data-group="8"><p>Se descargó la app de la tienda de Google Play.</p><div class="radio"></div></td>
+                                    <td data-group="8" data-correct="true"><p>Se descargó la app de la tienda de Apple.</p><div class="radio"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="box_end"></div>
+                    </div>
+                    <div id="podio-apps" class="jpit-activities-droppable" data-droppable-content-inner="true" data-act-id="podio-apps">
+                        <div>
+                            Puestos
+                            <table>
+                                <tr>
+                                    <th>Puesto 1</th>
+                                    <td data-target-group="1">...</td>
+                                </tr>
+                                <tr>
+                                    <th>Puesto 2</th>
+                                    <td data-target-group="2">...</td>
+                                </tr>
+                                <tr>
+                                    <th>Puesto 3</th>
+                                    <td data-target-group="3">...</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h4>Aplicaciones</h4>
+                            <div>
+                                <div data-group="1">Opción 3</div>
+                                <div data-group="3">Opción 1</div>
+                                <div data-group="2">Opción 2</div>
+                            </div>
+                            <br class="clear" />
+                        </div>
+                        <div class="box_end"></div>
+                    </div>
+                    <h5>Retroalimentación</h5>
+                    <p>A la hora de elegir una aplicación, tenga presente las características anteriores encaminadas a buscar apps que puedan darle mayor seguridad y confianza. La aplicación debería mencionar información relacionada con responsabilidad de la protección de datos, política de privacidad y seguridad; atención al usuario; nombre de la institución, empresa o persona responsable de la app con datos de contacto; actualizaciones continuas; aval por sociedades científicas o entes gubernamentales; estar disponible en tiendas virtuales lo que puede ayudar a la garantía del funcionamiento seguro sin afección negativa a la salud; y requerir los permisos mínimos necesarios para la ejecución de esta.</p>
+                </div>
+            </section>
+
+            <section id="pag-integrar-apps" ptitle="Foro: ¿Cómo integrar apps?">
+                <div class="subpage">
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <p>
+                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+            </p>
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Catalina Echeverry Querubín</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Sigifredo Escobar Gómez</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>&lt; &gt;</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García<br>
+                    Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <cite>Departamento Administrativo de Ciencia, Tecnología e Innovación<br>
+                    COLCIENCIAS<br>
+                    Gobierno de Colombia</cite>
+                <p class="logos">
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
+                    <br />
+                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
+                    <br />
+                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
+                </p>
+            </div>
+
+            <div class="editions">
+                1ª edición: diciembre 2013<br />
+                2ª edición: octubre 2015<br />
+                3ª edición: febrero 2016<br />
+                4ª edición: junio 2017
+            </div>
+            <div>
+                <br />
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+            </div>
+
+            <p>
+                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
+            </p>
+            <p>
+                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>MinTIC. Primera Gran Encuesta TIC/2017: Estudio de acceso, uso y retos de las TIC en Colombia [en línea]. 2017. Disponible en <a href="https://colombiatic.mintic.gov.co/679/w3-article-74002.html" target="_blank">https://colombiatic.mintic.gov.co/679/w3-article-74002.html</a></li>
+                <li>Valenzuela JI, Camacho JC, Argüello A, Cendales JG, Fajardo R. Percepciones de los trabajadores del sector salud frente a Internet y las tecnologías móviles en Colombia. Rev Panam Salud Pública. 2009;25(4):367–74. Disponible en <a href="https://www.scielosp.org/article/ssm/content/raw/?resource_ssm_path=/media/assets/rpsp/v25n4/12.pdf" target="_blank">https://www.scielosp.org/article/ssm/content/raw/?resource_ssm_path=/media/assets/rpsp/v25n4/12.pdf</a></li>
+                <li>DANE. Boletín Técnico: Indicadores básicos de tenencia y uso de Tecnologías de la Información y Comunicación – TIC en hogares y personas de 5 y más años de edad. Año 2018. Bogotá D.C. 2019. Disponible en <a href="https://www.dane.gov.co/files/investigaciones/boletines/tic/bol_tic_hogares_departamental_2018.pdf" target="_blank">https://www.dane.gov.co/files/investigaciones/boletines/tic/bol_tic_hogares_departamental_2018.pdf</a></li>
+                <li>MinTIC. Boletín Trimestral de las TIC: Cifras Cuarto Trimestre de 2018 [en línea]. 2019. Disponible en: <a href="https://colombiatic.mintic.gov.co/679/w3-article-100444.html" target="_blank">https://colombiatic.mintic.gov.co/679/w3-article-100444.html</a></li>
+                <li>DANE. Censo Nacional de población y vivienda 2018 Colombia [en línea]. Disponible en <a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/censo-nacional-de-poblacion-y-vivenda-2018/cuantos-somos" target="_blank">https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/censo-nacional-de-poblacion-y-vivenda-2018/cuantos-somos</a></li>
+                <li>Ruiz EF, Proaño A., Ponce OJ., Curioso WH. Tecnologías móviles para la salud pública en el Perú: lecciones aprendidas. Rev Peru Med Exp Salud Publica. 2015;32(2):364-72. Disponible en <a href="http://www.scielo.org.pe/pdf/rins/v32n2/a24v32n2.pdf" target="_blank">http://www.scielo.org.pe/pdf/rins/v32n2/a24v32n2.pdf</a></li>
+                <li>Ventola CL. Mobile Devices and Apps for HealthCare Professionals: Uses and Benefits. P&T. 2014;39(5):356-64. Disponible en <a href="" target="_blank">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4029126/pdf/ptj3905356.pdf</a></li>
+                <li>FDA. Mobile Medical Applications: Guidance for Industry and Food and Drug Administration Staff [en línea]. 2015. Disponible en: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4029126/pdf/ptj3905356.pdf" target="_blank">https://www.fda.gov/media/80958/download</a>.</li>
+                <li>Santamaría Puerto G, Hernández Rincón E. Aplicaciones Médicas Móviles: definiciones, beneficios y riesgos. Salud Uninorte. 2015;31(3):599-607. Disponible en <a href="http://www.redalyc.org/articulo.oa?id=81745378016" target="_blank">http://www.redalyc.org/articulo.oa?id=81745378016</a></li>
+                <li>Buijink AWG, Visser BJ, Marshall L. Medical apps for smartphones: lack of evidence undermines quality and safety. Evidence-Based Medicine. 2012.</li>
+                <li>Alonso Arévalo J, Mirón Canelo J. Aplicaciones móviles en salud: potencial, normativa de seguridad y regulación. Revista Cubana de Información en Ciencias de la Salud. 2017;28(3).</li>
+                <li>De la Serna JL. Las apps como motor de innovación en salud. Informe 50 mejores Apps de Salud en español. 2014. Disponible en <a href="http://boletines.prisadigital.com/Informe-TAD-50-Mejores-Apps-de-Salud.pdf" target="_blank">http://boletines.prisadigital.com/Informe-TAD-50-Mejores-Apps-de-Salud.pdf</a></li>
+                <li>PatienView. The myhealthapps directory 2015-2016 of health apps. London: PatienView. 2016. Disponible en: <a href="http://www.patient-view.com/uploads/6/5/7/9/6579846/_the_myhealthapps_directory_2015-2016.pdf" target="_blank">http://www.patient-view.com/uploads/6/5/7/9/6579846/_the_myhealthapps_directory_2015-2016.pdf</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
