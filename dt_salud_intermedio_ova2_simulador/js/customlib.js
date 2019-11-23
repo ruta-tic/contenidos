@@ -382,6 +382,7 @@
         switch(data.estado) {
             case "Abierta":
                 $('#solicitud-detalles').addClass('estado_abierta');
+            break;
             case "Cerrada":
             case "":
                 $('#solicitud-detalles').addClass('estado_cerrada');
