@@ -2929,6 +2929,8 @@ dhbgApp.standard.load_operations = function() {
             feedbackfalse = $this.find('feedback wrong').html();
         }
 
+        $this.find('feedback').empty();
+
         var set_position = $this.attr('data-set-position') ? $this.attr('data-set-position') : false;
 
         // Build the board.
@@ -2954,11 +2956,12 @@ dhbgApp.standard.load_operations = function() {
 
             var msg;
             if (weight >= dhbgApp.evaluation.approve_limit) {
-                msg = '<div class="correct">' + dhbgApp.s('all_correct_percent', weight) + '</div>';
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
             }
             else {
-                msg = '<div class="wrong">' + dhbgApp.s('wrong_percent', (100 - weight)) + '</div>';
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
             }
+
             $box_end.append(msg).show();
 
             activity.disable();
@@ -3295,10 +3298,10 @@ dhbgApp.standard.load_operations = function() {
         var $msg_end = $('<div class="msg"></div>');
         $box_end.append($msg_end);
 
-        var $button_check = $('<button class="general">' + dhbgApp.s('verify') + '</button>');
+        var $button_check = $('<button class="general btn-check">' + dhbgApp.s('verify') + '</button>');
         $box_end.append($button_check);
 
-        var $button_again = $('<button class="general">' + dhbgApp.s('restart_activity') + '</button>');
+        var $button_again = $('<button class="general btn-again">' + dhbgApp.s('restart_activity') + '</button>');
         $box_end.append($button_again);
         $button_again.hide();
 
@@ -3416,6 +3419,7 @@ dhbgApp.standard.load_operations = function() {
         });
 
         $button_again.on('click', function() {
+            $(dhbgApp).trigger('jpit:activity:again', [$this, { id: scorm_id }]);
             $this.find('.correct').removeClass('correct');
             $this.find('.wrong').removeClass('wrong');
             $this.find('.selected').removeClass('selected');

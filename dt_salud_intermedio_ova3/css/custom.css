@@ -1,3 +1,7 @@
+#expand_image_content {
+    display: block;
+}
+
 /********************************************************************************/
 /* Actividad 1
 /********************************************************************************/
@@ -115,129 +119,170 @@ div[strike="1"] .data_list li:nth-child(3) {
 /********************************************************************************/
 /* Página TIC
 /********************************************************************************/
-#pag-tic .row {
-    align-items: flex-start;
-    display: flex;
-    justify-content: space-evenly;
-}
-.herramientas {
+#pag-tic .herramientas .col-2 {
     display: flex;
 }
-.herramientas .item {
-    align-items: flex-start;
-    display: flex;
-    justify-items: center;
-    margin: 0 1em;
+
+#pag-tic .herramientas .col-2 p {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
 }
-.herramientas .item button {
-    min-width: 67px;
+
+#pag-tic .herramientas .ctrl-pagination ul.pagination.arrows {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 /********************************************************************************/
 /* Página Salud Móvil
 /********************************************************************************/
-.act3-item {
-    align-items: flex-start;
+#act-2 .ctrl-pagination {
+    background-color: #fff;
+}
+
+#act-2 .ctrl-pagination .col-2:nth-child(1) {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
-.otras-formas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+
+#act-2 .writers li {
+    cursor: pointer;
 }
-.otras-formas .item {
-    align-items: flex-start;
-    display: flex;
-    margin: 1em 0;
-    width: 45%;
+
+#act-2 .writers li:hover {
+    background-color: #eee;
 }
-.otras-formas .item p {
-    margin: 0;
+
+#act-2 .expand-image {
+    margin: auto;
 }
-.otras-formas .item p {
-    margin: 0 0.5em;
+
+#pag-salud-movil .formas {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
 }
+
+#pag-salud-movil .formas p {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#pag-salud-movil .formas .row > .col-2 {
+    width: auto;
+}
+
 /********************************************************************************/
 /* Página Aplicaciones
 /********************************************************************************/
-.apps-mov .item {
-    align-items: flex-start;
-    display: flex;
-    justify-content: flex-start;
-    margin: 1em 0;
+#act-3 .col-2:nth-child(1) {
+    width: 110px;
+    text-align: right;
 }
-.apps-mov .item img {
-    margin: 0 0.5em;
-}
-#apps-drag .droppable {
+
+#act-3 .droppable {
     background-color: #d7d8dc;
     border: 1px dashed gray;
     border-radius: 1em;
     margin: 0 auto;
-    width: 50%;
+    width: 400px;
+    min-height: 80px;
+    padding: 0;
 }
-#apps-drag .draggable {
+
+#act-3 .draggable {
     background-color: #e2f3f4;
     border: 2px solid #2199d1;
     border-radius: 1em;
     margin: 1em;
     padding: 1em;
     text-align: center;
-    width: 200px;
-    word-wrap: break-word;
+    width: 318px;
+    min-height: 58px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
-#apps-drag .recursos-opts {
+
+#act-3 .droppable .draggable {
+    margin: 0;
+}
+
+#act-3 .recursos-opts {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-#apps-drag .jpit_activities_jpitdroppable_dropped {
+#act-3 .jpit_activities_jpitdroppable_dropped {
     color: #000;
     width: auto;
 }
+
 /********************************************************************************/
 /* Página Trabajo colaborativo
 /********************************************************************************/
-.tabajo-colaborativo .item {
-    align-items: flex-start;
+#pag-w-colaborativo h5 {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+#pag-w-colaborativo .col-2 {
+    width: auto;
+    margin-bottom: 30px;
+}
+
+#pag-w-colaborativo .col-2:first-child {
     display: flex;
+    align-items: center;
 }
-.tabajo-colaborativo .item img {
-    margin: 1em;
+
+/********************************************************************************/
+/* Página Apps seguras
+/********************************************************************************/
+#pag-app-seguras .destacado {
+    margin-bottom: 30px;
 }
+
+#pag-app-seguras .destacado strong {
+    font-size: 20px;
+}
+
+#pag-app-seguras .destacado p {
+    font-size: 18px;
+    line-height: 25px;
+}
+
 /********************************************************************************/
 /* Página ¿Cuál app es mejor?
 /********************************************************************************/
-#podio-apps.jpit-activities-droppable table {
-    empty-cells: show;
-    border-spacing: 0 5px;
+#act-4 td[data-group]:hover {
+    cursor: pointer;
+    background-color: #f9f5e1;
 }
 
-#podio-apps.jpit-activities-droppable th {
-    padding: 5px;
-    text-align: right;
-    border-right: none;
+#act-4 td.selected {
+    background-color: #fff1bb!important;
 }
 
-#podio-apps.jpit-activities-droppable td {
-    padding: 5px;
-    border: none;
-    border-bottom: 1px dashed #777777;
-    text-align: left;
-    width: 200px;
+#act-4.solucion td[data-correct="true"] {
+    background-color: #44c5d0!important;
 }
 
-#podio-apps.jpit-activities-droppable .draggable {
-    float: left;
-    margin: 0 5px 5px 0;
+#pag-mejor-app .sortable-item {
+    background-color: #5da3e2;
+    padding: 20px;
+    margin: 5px 0;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
 }
 
-#podio-apps.jpit-activities-droppable .wrong {
-    border-color: #D60C1B;
-    color: #D60C1B;
-    background-color: transparent;
-}
-
-.calificacion {
-    height: 35px;
+.jpit-activities-sortable .state-highlight {
+    padding: 20px;
 }

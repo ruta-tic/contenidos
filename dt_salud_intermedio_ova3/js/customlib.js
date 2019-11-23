@@ -19,6 +19,19 @@
                 $el.attr("strike", strike);
             }
         }
+        else if (/2-select/.test(args.id)) {
+            $('#retro-act2').show();
+
+            $('#btn-solucion-act2').on('click', function() {
+                $el.find('li.selected').removeClass('selected');
+                $el.find('li[data-correct="true"]').addClass('selected');
+                $el.find('.btn-check').trigger('click');
+                $el.find('.box_end').hide();
+            });
+        }
+        else if (/4a-select/.test(args.id)) {
+            $el.addClass("solucion");
+        }
     }
 
     /**
@@ -39,6 +52,9 @@
                 });
             }
         }
+        else if (/4a-select/.test(args.id)) {
+            $el.removeClass("solucion");
+        }
     }
 
     /**
@@ -58,7 +74,6 @@
 
                 $this.on('keypress', function() {
                     var m = Number($this.attr('data-pos')) + 1;
-                    console.log(m);
                     var next = $this.parents('.col-2').find('input[data-pos="' + m + '"]');
                     if (next) {
                         next.focus();
