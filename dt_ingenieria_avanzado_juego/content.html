@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>SmartCity</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+    <link href="components/swiperjs/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="components/clock/clock.css" rel="stylesheet" type="text/css">
+    <link href="css/sprites.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/swiperjs/swiper.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/clock/clock.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030221">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-game" ptitle="Juego SmartCity">
+                <div class="subpage">
+                    <div class="game-container loading" data-act-id="1-tp-juego-smartcity">
+                        <div class="chat-container">
+                            <div class="chat-container-wrapper">
+                                <div class="chat-header">
+                                    <div class="avatar"></div>
+                                    <div class="roles">
+                                        <strong></strong>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <ul class="chat-history"></ul>
+                                <div class="chat-box">
+                                    <div class="chat-input" contenteditable="true"></div>
+                                    <button class="btn send"><i class="ion-android-send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gamezone-container">
+                            <div class="game-home">
+                                <div class="instructions-container"></div>
+                                <div class="game-history"></div>
+                            </div>
+                            <div class="game-board">
+                                <div class="clock-box">
+                                    <label>Tiempo estimado para agotar los recursos</lavel><br />
+                                    <div class="clock"></div>
+                                    <div class="clock"></div>
+                                    <!--div class="clock-display"></div-->
+                                </div>
+                                <div class="healthy-box resource-box">
+                                    <label>Recursos</lavel><br />
+                                    <span class="display">20%</span>
+                                </div>
+                                <div class="human-resources-box resource-box">
+                                    <label>Personal</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="physical-resources-box resource-box">
+                                    <label>Infraestructura</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="energy-resources-box resource-box">
+                                    <label>Energía</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="content-box game-map-container">
+                                    <div class="game-zones"></div>
+                                    <div class="health-update-notice"></div>
+                                </div>
+                                <div class="content-box files">
+                                    <div class="title">Archivos</div>
+                                    <div class="content"></div>
+                                </div>
+                                <div class="execution-box applications">
+                                    <div class="title">Tecnologías</div>
+                                    <div class="horizontal-menu">
+                                        <dl>
+                                            <dt>Disponibles</dt>
+                                            <dd>
+                                                <div class="box-content available"></div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>En ejecución</dt>
+                                            <dd>
+                                                <div class="box-content running"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="capacity-resources-box">Capacidad disponible: <label class="display"></label></div>
+                                </div>
+                                <div class="execution-box actions">
+                                    <div class="title">Políticas</div>
+                                    <div class="horizontal-menu">
+                                        <dl>
+                                            <dt>Disponibles</dt>
+                                            <dd>
+                                                <div class="box-content available"></div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>En ejecución</dt>
+                                            <dd>
+                                                <div class="box-content running"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="toolbar">
+                                    <label>La partida terminará el 2019-12-09 08:00</label>
+                                    <div>
+                                        <button class="general btn-timeframe">5x</button>
+                                        <button class="general btn-endgame">Finalizar partida</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="asset-viewer">
+                                <div class="header">
+                                    <i class="icon"></i>
+                                    <label class="title"></label>
+                                    <button class="btn execute">Ejecutar</button>
+                                    <button class="btn stop">Detener</button>
+                                </div>
+                                <div class="description-wrapper content-box">
+                                    <div class="description"></div>
+                                </div>
+                                <div class="footer">
+                                    <div class="technical-details content-box">
+                                        <label>Ficha técnica</label>
+                                        <div class="details"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+<script id="instructions" type="text/html">
+    <div id="instructions">
+        <strong>¡Bienvenido!</strong>
+        <p>
+            En equipo, deben ayudar a los profesores a resolver los casos. Hay que conseguir <strong>300 TIC puntos</strong> para ganar el juego. ¡Adelante!
+        </p>
+        <p>
+            <button class="wf-content-controler general button" data-content="#full-instructions">Ver instrucciones completas</button>
+        </p>
+    </div>
+    <div id="full-instructions" class="wf-content" title="Instrucciones">
+        <h2>Instrucciones del juego</h2>
+        <div class="instructions-wrapper accordion">
+            <h3>Elementos del juego</h3>
+            <ul class="data_list">
+                <li><strong>Anfitrión</strong> (sistema): responsable de hacer cumplir las reglas y asignar las cartas. Se hace automáticamente al inicio de cada caso.</li>
+                <li><strong>Chat</strong>: espacio disponible durante la partida para que los jugadores discutan y tomen decisiones sobre el caso. Además, muestra información sobre las acciones de los jugadores, tales como: ingresar al juego, jugar una carta, finalizar una partida, entre otros.</li>
+                <li><strong>Carta de reglas</strong>: una única carta disponible por cada caso y solamente la tendrá el <em>Máster</em>. En esta se dan todas las claves para solucionar las preguntas.</li>
+                <li><strong>Kit de cartas</strong>: 5 cartas de dones para cada uno de los jugadores que asuma el rol <em>Tech</em>, <em>Red</em> o <em>Media</em>. En la imagen 3 se puede apreciar el caso asignado, las preguntas para cada rol y las cartas para la solución.</li>
+                <li><strong>Botón de validación</strong>: permite terminar una partida. Solamente lo tiene disponible el <em>Planner</em> y estará habilitado únicamente cuando las cinco cartas estén en su lugar, como lo muestra la imagen 4.</li>
+                <li><strong>Ágora</strong> (medio elegido por los participantes para comunicarse): espacio en donde se realizan los “Consejos de profesores”. Si no se desea utilizar una herramienta externa, se cuenta con el chat en el juego.</li>
+            </ul>
+
+            <h3>Reglas de la misión</h3>
+            <ul class="data_list">
+                <li>El juego está conformado por cinco partidas. Una partida se entiende como la resolución de un caso por medio de la asesoría en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
+                <li>El número máximo de partidas a jugar son cinco y durante cada una habrá dos oportunidades para plantear una respuesta acertada.</li>
+                <li>Al fallar en una oportunidad, la partida se bloquea durante media hora. Los participantes deberán asistir al <strong>Ágora</strong> para reflexionar acerca de cómo mejorar el proceso de asesoría.</li>
+                <li>Los 100 TIC puntos se obtienen en la primera oportunidad cuando la estrategia didáctica planteada por el equipo es adecuada para cumplir con el objetivo de aprendizaje planteado en el caso. Si sucede en la segunda oportunidad, entonces la puntuación será de 60 TIC puntos.</li>
+                <li>El equipo que obtenga 300 TIC puntos completa la misión y gana el juego. Sin embargo, si todavía le quedan partidas disponibles, pueden seguir poniendo a prueba sus habilidades como asesores.</li>
+                <li>Con cada 100 TIC puntos el grupo de estudiantes asciende uno de los tres niveles del juego.</li>
+            </ul>
+
+            <h3>Mecánica: ¿Cómo se desenvuelve el juego?</h3>
+            <ul class="data_list">
+                <li>Al ingresar al juego, el <strong>Anfitrión</strong> recibe a los participantes y podrán leer y descargar las instrucciones del juego. El caso activo se ve como un indicador de ubicación amarillo. Al ingresar al caso el <strong>Anfitrión</strong> asigna, aleatoriamente, uno de los roles posibles (<em>Máster</em>, <em>Tech</em>, <em>Media</em>, <em>Red</em> o <em>Planner</em>) a cada jugador. El rol se podrá ver al lado del avatar en la parte superior del chat. Ver imagen 1.
+
+                </li>
+                <li>El rol <em>Máster</em> solo recibe una carta. Este es el iniciador de la partida, pues es quien conoce de primera mano las condiciones que deben cumplirse para solucionar el caso correctamente.
+                </li>
+                <li>Según el rol asignado, cada participante recibe las tarjetas con los dones.
+                </li>
+                <li>El rol <em>Planner</em> es el encargado de motivar a su equipo para que resuelvan el caso propuesto en cada partida. Dentro de sus funciones se encuentran: estar atento al cumplimiento de los tiempos establecidos para la partida; recordar al <em>Máster</em> que inicie el juego; de ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso y <em>finalizar la partida</em> cuando todas las cartas hayan sido jugadas y considere completado el caso. Además, podrá ver en el chat qué jugadores han terminado y confirmar qué cartas están jugadas, deslizándose por la zona de las preguntas, las cuales ya tendrán la carta con la respuesta que corresponde. Si alguno considera que se equivocó puede remover la carta. Cuando los jugadores han terminado, se puede pasar a la validación como aparece en la imagen 4.
+
+                    <p>Al finalizar la partida, si están correctas todas las cartas asignadas a las preguntas, saldrá un mensaje de realimentación, como el que aparece en la imagen 5, además, se sumarán 100 TIC puntos en caso de que sea el primer intento. </p>
+
+
+                    <p>En caso de que haya un error en las cartas jugadas saldrá el siguiente mensaje y se podrá retomar en media hora.</p>
+
+                    <p>Al entrar al juego se ve una caja azul en la parte inferior derecha. Cada vez que se termine de resolver un caso de manera exitosa los estudiantes podrán avanzar de nivel, tal como se aprecia en la imagen 7; el reto es lograr que los estudiantes cumplan la meta.  Cada que se avanza en un nivel verá en ese lugar a los estudiantes completando su tarea.</p>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script id="game-entry" type="text/html">
+    <div class="game-entry">
+        <div class="header"><h2 class="title"></h2></div>
+        <div class="game-map">
+            <div class="frame"></div>
+            <div class="map"></div>
+        </div>
+        <div class="footer">
+            <div class="btn failed"><h2>Partida pérdida</h2><span>La ciudad no logró ser sostenible</span></div>
+            <div class="btn passed"><h2>Partida ganada</h2><span>Se ha logrado una ciudad inteligente sostenible</span></div>
+            <div class="btn locked"><h2>Iniciar Partida</h2></div>
+        </div>
+    </div>
+</script>
+<script id="file-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right">Fecha de creación</th>
+            <td class="left">{creationtime}</td>
+        </tr>
+        <tr>
+            <th class="right">Tipo</th>
+            <td class="left">{type}</td>
+        </tr>
+    </table>
+</script>
+<script id="tech-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right">Capacidad requerida</th>
+            <td class="left">{capacity}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Finalización</th>
+            <td class="left">{endmode}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Resultados en</th>
+            <td class="left">{duration}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Requiere</th>
+            <td class="left">{infiles}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Genera</th>
+            <td class="left">{outfiles}</td>
+        </tr>
+    </table>
+</script>
+
+<script id="action-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right" rowspan="2">Capacidad requerida</th>
+            <th>Personal</th>
+            <th>Infraestructura</th>
+            <th>Energía</th>
+        </tr>
+        <tr>
+            <td>{human}</td>
+            <td>{physical}</td>
+            <td>{energy}</td>
+        </tr>
+        <tr class="divider">
+            <th rowspan="2">&nbsp;</th>
+            <th>Finalización</th>
+            <th>Resultados en</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>{endmode}</td>
+            <td>{duration}</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr class="divider">
+            <th class="right" rowspan="4">Impacto</th>
+            <th>Salud</th>
+            <th>Educación</th>
+            <th>Urbanismo</th>
+        </tr>
+        <tr>
+            <td>{zone_0}</td>
+            <td>{zone_1}</td>
+            <td>{zone_2}</td>
+        </tr>
+        <tr class="divider">
+            <th>Medio ambiente</th>
+            <th>Gobierno</th>
+            <th>Seguridad</th>
+        </tr>
+        <tr>
+            <td>{zone_3}</td>
+            <td>{zone_4}</td>
+            <td>{zone_5}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Tecnologías</th>
+            <td class="left" colspan="3">{techs}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Archivos</th>
+            <td class="left" colspan="3">{files}</td>
+        </tr>
+    </table>
+</script>
+<script id="" type="text/html">
+                            <div class="clock-box">
+                                <label>Podrá realizar un nuevo intento en:</lavel>
+                                <br />
+                                <div class="clock"></div>
+                            </div>
+                            <div class="instructions-container"></div>
+                            <div class="role-box"></div>
+                            <div class="deck-container">
+                                <div id="play-deck" class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                    </div>
+                                    <!-- Add Arrows -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <div id="deck-viewer" class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                    </div>
+                                    <!-- Add Arrows -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <div id="gotohome" class="button"><i title="Regresar al mapa" class="ion-location"></i></div>
+                            </div>
+                            <div class="case-progress">
+                                <div id="ticpoints">En este momento tienen: <span>0</span> TIC puntos.</div>
+                                <div class="case case-01 sprite case-locked">
+                                    <div class="case-number">01</div>
+                                    <div class="case-label">caso</div>
+                                </div>
+                                <div class="case case-02 sprite case-locked">
+                                    <div class="case-number">02</div>
+                                    <div class="case-label">caso</div>
+                                </div>
+                                <div class="case case-03 sprite case-locked">
+                                    <div class="case-number">03</div>
+                                    <div class="case-label">caso</div>
+                                </div>
+                                <div class="case case-04 sprite case-locked">
+                                    <div class="case-number">04</div>
+                                    <div class="case-label">caso</div>
+                                </div>
+                                <div class="case case-05 sprite case-locked">
+                                    <div class="case-number">05</div>
+                                    <div class="case-label">caso</div>
+                                </div>
+                            </div>
+
+                        <div class="podio-container"></div>
+
+</script>
+<script id="" type="text/html">
+                    <div id="game-assets" style="display: none">
+
+                        <!--Case 01-->
+
+                        <div id="case-john" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="case-box swiper-slide">
+                                    <div class="case-header-box">
+                                        <div class="case-number"></div>
+                                        <div class="case-label">caso</div>
+                                        <div class="avatar john"></div>
+                                    </div>
+                                    <p>
+                                        El profesor <em>John</em> fue invitado, la primera semana de octubre, a un congreso que se realizará por fuera del país. Él no desea dejar de dictar clase, pues esto retrasaría el calendario académico de su curso. Ayúdele al profesor <em>John</em> a planear una actividad de aprendizaje.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone master swiper-slide" data-target-group="john">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    Condiciones
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card master swiper-slide" data-group="john">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="card-content">
+                                <h2>Condiciones</h2>
+                                <p>- El profesor debe reunirse con los estudiantes en la hora de clase.</p>
+                                <p>- El encuentro debe quedar grabado para que los estudiantes que no asistan puedan repetirlo.</p>
+                                <p>- Previo al encuentro, el profesor debe enviar una explicación gráfica sobre el tema.</p>
+                                <p>- El producto entregado por los estudiantes debe construirse de forma colaborativa.</p>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone media swiper-slide" data-target-group="john">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta de comunicación debería utilizar el profesor para lograr su objetivo?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card media swiper-slide" data-group="john">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Herramientas de comunicación<br/>
+                                <strong>Herramienta</strong>: Zoom<br/>
+                                <strong>Espacio</strong>: Videoconferencia<br/>
+                                <strong>Tipo</strong>: Sincrónica<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone network swiper-slide" data-target-group="john">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Con qué recurso educativo debería apoyarse el profesor para la explicación?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card network swiper-slide" data-group="john">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Contenidos<br/>
+                                <strong>Recurso</strong>: Infografía<br/>
+                                <strong>Formato</strong>: Imagen<br/>
+                                <strong>Lenguaje</strong>: Visual<br/>
+                                <strong>Licencia</strong>: Creative Commons<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone tech swiper-slide" data-target-group="john">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta tecnológica debería utilizar el profesor para la actividad propuesta a los estudiantes?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card tech swiper-slide" data-group="john">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Actividades de aprendizaje y evaluación<br/>
+                                <strong>Recurso</strong>: Herramientas ofimáticas en la nube<br/>
+                                <strong>Herramienta</strong>: Google Drive<br/>
+                                <strong>Modalidad</strong>: Equipos<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="john" data-state="passed" data-title="Intento aprobado">
+                            <p>Con la asesoría de tu equipo, el profesor <b>John</b> ha podido dictar su clase sin necesidad de tener un encuentro presencial con sus estudiantes, logrando los objetivos de aprendizaje propuestos para esta.</p>
+                            <p><b>John</b>, previo al encuentro virtual, envió una infografía para introducirlos al tema que trataría y propiciar que llegaran con preguntas o inquietudes sobre el mismo. Al utilizar la licencia de <b>Zoom</b> que le ofrece su universidad, pudo grabar
+                                la clase para que quienes no pudieron asistir la vean después. También, sus estudiantes construyeron de forma colaborativa el producto de la actividad usando Google drive.</p>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="john" data-state="failed" data-title="Intento fallido">
+                            <p>De acuerdo a las condiciones dadas en el caso el profesor <b>John</b>, podría dictar su clase sin tener un encuentro presencial con sus estudiantes y lograr los objetivos de aprendizaje propuestos si propone un encuentro virtual y realiza lo siguiente:<br></p>
+                            <ul class="data_list">
+                                <li>Previo al encuentro virtual envía una <b>infografía</b> para introducir a los estudiantes al tema que tratará y propiciar que lleguen con preguntas o inquietudes sobre el mismo.</li>
+                                <li>Utiliza la licencia de <b>Zoom</b> que le ofrece su universidad, y graba la clase para que quienes no puedan asistir la vean después.</li>
+                                <li>Sus estudiantes construyen de forma colaborativa el producto de la actividad usando <b>Google drive</b>.</li>
+                            </ul>
+                        </div>
+
+                        <!--Case 02-->
+
+                        <div id="case-natalia" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="case-box swiper-slide">
+                                    <div class="case-header-box">
+                                        <div class="case-number"></div>
+                                        <div class="case-label">caso</div>
+                                        <div class="avatar natalia"></div>
+                                    </div>
+                                    <p>
+                                        La profesora <em>Natalia</em> dicta el curso <em>Inglés I</em> en la modalidad virtual. Ella ha notado que, últimamente, sus estudiantes no participan en los encuentros virtuales y tiene la duda de si comprendieron el tema o no. Ayúdele a la profesora <em>Natalia</em> a planear una actividad evaluativa en su próximo encuentro.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone master swiper-slide" data-target-group="natalia">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    Condiciones
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card master swiper-slide" data-group="natalia">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="card-content">
+                                <h2>Condiciones</h2>
+                                <p>- La prueba corresponde a preguntas relacionadas con un material que la profesora enviará a los estudiantes previo al encuentro, y que tiene como propósito favorecer la competencia de escucha.</p>
+                                <p>- La evaluación se realizará por medio de un concurso.</p>
+                                <p>- Al final, la profesora le propondrá a los estudiantes que se se reúnan en grupos para que opinen y reflexionen sobre algunas preguntas problematizadoras relacionadas con el tema evaluado.</p>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone media swiper-slide" data-target-group="natalia">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta de comunicación deberían usar los estudiantes para discutir y resolver la segunda evaluación?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card media swiper-slide" data-group="natalia">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Herramientas de comunicación<br/>
+                                <strong>Herramienta</strong>: Google Hangout<br/>
+                                <strong>Espacio</strong>: Mensajería instantánea y videoconferencia<br/>
+                                <strong>Tipo</strong>: Sincrónica<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone network swiper-slide" data-target-group="natalia">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué tipo de lenguaje debería tener el recurso educativo que la profesora envía en el material previo?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card network swiper-slide" data-group="natalia">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Contenidos<br/>
+                                <strong>Recurso</strong>: Podcast<br/>
+                                <strong>Formato</strong>: Audio<br/>
+                                <strong>Lenguaje</strong>: Sonoro / Radiofónico<br/>
+                                <strong>Licencia</strong>: Creative Commons<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone tech swiper-slide" data-target-group="natalia">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta tecnológica debería usar la profesora para la prueba?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card tech swiper-slide" data-group="natalia">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Actividades de aprendizaje y evaluación<br/>
+                                <strong>Recurso</strong>: Concursos<br/>
+                                <strong>Herramienta</strong>: Kahoot<br/>
+                                <strong>Modalidad</strong>: Individual<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="natalia" data-state="passed" data-title="Intento aprobado">
+                            <p>¡Enhorabuena!<br><br>La actividad propuesta por la profesora <strong>Natalia</strong> ha propiciado la participación activa de los estudiantes en su aprendizaje a través del uso de las TIC y el trabajo colaborativo en la modalidad virtual.<br><br>De acuerdo
+                                a los objetivos de aprendizaje, la profesora envío un <strong>podcast</strong> para favorecer el desarrollo de la competencia auditiva de sus estudiantes. En la clase, propuso un concurso, en equipos, utilizando la herramienta <strong>Kahoot</strong> (modo equipos) e
+                                hizo que sus estudiantes se reunieran para resolverlo utilizando una herramienta de comunicación como <strong>Hangout</strong>.
+                            </p>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="natalia" data-state="failed" data-title="Intento fallido">
+                            <p>Para propiciar la participación activa de los estudiantes en su aprendizaje a través del uso de las TIC y el trabajo colaborativo en la modalidad virtual, la profesora <strong>Natalia</strong> debe:</p>
+                            <ul class="data_list">
+                                <li>Enviar un <strong>podcast</strong> que favorezca el desarrollo de la competencia auditiva para que los estudiantes lo escuchen y se familiaricen con el tema que se abordará.</li>
+                                <li>Proponer un concurso, en la clase, utilizando la herramienta <strong>Kahoot</strong> y configurar esta herramienta para que puedan hacerlo en equipos.</li>
+                            </ul>
+                            <p>Los estudiantes para resolver las preguntas del concurso deberán reunirse utilizando una herramienta de comunicación como <strong>Hangout</strong>.</p>
+                        </div>
+
+                        <!--Case 03-->
+
+                        <div id="case-hermes" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="case-box swiper-slide">
+                                    <div class="case-header-box">
+                                        <div class="case-number"></div>
+                                        <div class="case-label">caso</div>
+                                        <div class="avatar hermes"></div>
+                                    </div>
+                                    <p>
+                                        El profesor <em>Hermes</em> dicta el curso <em>Historia de las Ciencias Sociales en Colombia y América Latina</em> en la modalidad presencial, y desea que sus estudiantes reconozcan y analicen los patrimonios de la humanidad declarados en Colombia. Ayúdele a los estudiantes a elaborar la actividad propuesta por el profesor <em>Hermes</em>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone master swiper-slide" data-target-group="hermes">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    Condiciones
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card master swiper-slide" data-group="hermes">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="card-content">
+                                <h2>Condiciones</h2>
+                                <p>- Los estudiantes deben trabajar en equipos.</p>
+                                <p>- Los estudiantes deben producir, para cada patrimonio, un material educativo que pueda conectarse con otros productos a través de un mismo relato usando narrativa transmedia.</p>
+                                <p>- Una vez terminados los productos, cada equipo debe publicarlos en un sitio en línea para que los visitantes puedan geolocalizar los patrimonios y visualizar el material multimodal que ellos elaboraron.</p>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone media swiper-slide" data-target-group="hermes">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta de comunicación asincrónica deberían usar los estudiantes para discutir y llegar a acuerdos?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card media swiper-slide" data-group="hermes">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Herramientas de comunicación<br/>
+                                <strong>Herramienta</strong>: Foro LMS<br/>
+                                <strong>Espacio</strong>: Foro<br/>
+                                <strong>Tipo</strong>: Asincrónica<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone network swiper-slide" data-target-group="hermes">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué tipo de contenidos deberían crear los estudiantes?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card network swiper-slide" data-group="hermes">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Contenidos<br/>
+                                <strong>Recurso</strong>: Reporte en vivo<br/>
+                                <strong>Formato</strong>: Video<br/>
+                                <strong>Lenguaje</strong>: Audiovisual<br/>
+                                <strong>Licencia</strong>: Creative Commons<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone tech swiper-slide" data-target-group="hermes">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta tecnológica deberían usar los estudiantes para ubicar los patrimonios históricos y cumplir con la condición del profesor Hermes?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card tech swiper-slide" data-group="hermes">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Actividades de aprendizaje y evaluación<br/>
+                                <strong>Recurso</strong>: Júntate, piensa y comparte<br/>
+                                <strong>Herramienta</strong>: Google Maps<br/>
+                                <strong>Modalidad</strong>: Equipos<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="hermes" data-state="passed" data-title="Intento aprobado">
+                            <p>¡Enhorabuena!<br><br>La asesoría de tu equipo ha permitido a los estudiantes del curso de <em>Historia de las Ciencias Sociales en Colombia y América Latina</em> realizar la actividad y aprender con otros mediante el uso de diferentes herramientas
+                                de georeferenciación, comunicación y contenidos audiovisuales.</p>
+                            <p>A través del uso de <strong>Google Maps</strong>, todos los estudiantes pudieron ubicar georeferencialmente los patrimonios de la humanidad declarados en Colombia y utilizando el foro que su profesor utiliza en el LMS de la institución, acordaron la forma de realizar la narrativa que enmarcará el proyecto central y la producción de los reportes en vivo.</p>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="hermes" data-state="failed" data-title="Intento fallido">
+                            <p>Para que los estudiantes del curso de
+                                <em>Historia de las Ciencias Sociales en Colombia y América Latina</em> realicen la actividad y aprendan con otros mediante el uso de diferentes herramientas de georeferenciación, comunicación y contenidos audiovisuales, deben:</p>
+                            <ul class="data_list">
+                                <li>Usar <strong>Google Maps</strong> para ubicar georeferencialmente los patrimonios de la humanidad declarados en Colombia.</li>
+                                <li>Utilizar el foro que su profesor utiliza en el <strong>LMS</strong> de la institución, para acordar la forma de realizar la narrativa que enmarcará el proyecto central y la producción de los reportes en vivo.</li>
+                            </ul>
+                        </div>
+
+                        <!--Case 04-->
+
+                        <div id="case-santiago" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="case-box swiper-slide">
+                                    <div class="case-header-box">
+                                        <div class="case-number"></div>
+                                        <div class="case-label">caso</div>
+                                        <div class="avatar santiago"></div>
+                                    </div>
+                                    <p>
+                                        El profesor <em>Santiago</em>, en su curso <em>Procesos Industriales del pregrado en Ingeniería Industrial</em>, desea proponer que los estudiantes hagan una exposición virtual de los productos que se generan para que estudiantes de otros cursos puedan visualizarlos y conocer aquellos aspectos importantes que tuvieron para su diseño.
+                                    </p>
+                                    <p>
+                                        Al final, desea tener un espacio de interacción virtual en donde otros puedan comentar y valorar la exposición, ya que está interesado en fomentar la conformación de comunidades y grupos de aprendizaje para facilitar el desarrollo de las actividades colaborativas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone master swiper-slide" data-target-group="santiago">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    Condiciones
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card master swiper-slide" data-group="santiago">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="card-content">
+                                <h2>Condiciones</h2>
+                                <p>- Todos los productos deben conectarse a través del uso de una misma expresión o palabra clave que les permita hacer seguimiento y clasificar los contenidos publicados (Hashtag).</p>
+                                <p>- La herramienta tecnológica debe facilitar la creación de una colección sistemática y organizada de las diversas producciones académicas de los participantes.</p>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone media swiper-slide" data-target-group="santiago">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta de comunicación asincrónica deberían usar los estudiantes para facilitar la creación de la comunidad?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card media swiper-slide" data-group="santiago">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Herramientas de comunicación<br/>
+                                <strong>Herramienta</strong>: Twitter<br/>
+                                <strong>Espacio</strong>: Redes sociales<br/>
+                                <strong>Tipo</strong>: Asincrónica<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone network swiper-slide" data-target-group="santiago">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué tipo de contenidos deberían usar los estudiantes para describir brevemente los aspectos clave del diseño del su producto?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card network swiper-slide" data-group="santiago">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Contenidos<br/>
+                                <strong>Recurso</strong>: Mensaje digital enviado a través de la red<br/>
+                                <strong>Formato</strong>: Texto<br/>
+                                <strong>Lenguaje</strong>: Escrito<br/>
+                                <strong>Licencia</strong>: Creative Commons<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone tech swiper-slide" data-target-group="santiago">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta tecnológica deberían utilizar los estudiantes para su exposición virtual?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card tech swiper-slide" data-group="santiago">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Actividades de aprendizaje y evaluación<br/>
+                                <strong>Recurso</strong>: Portafolio<br/>
+                                <strong>Herramienta</strong>: Mahara<br/>
+                                <strong>Modalidad</strong>: Individual<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="santiago" data-state="passed" data-title="Intento aprobado">
+                            <p>¡Enhorabuena!<br><br>Los estudiantes del curso <em>Procesos Industriales mediante el uso de TIC</em> han llevado a cabo la exposición virtual de sus productos, poniéndolos a disposición de otros para que puedan consultarlos, comentarlos y referenciarlos para próximos trabajos, y han iniciado la construcción de una comunidad de aprendizaje mediante el uso de una <strong>red social</strong> que les permite divulgar lo que han hecho e invitar a otros para que los usen y compartan sus creaciones alrededor de las diferentes temáticas que han acordado para la clasificación de los productos.<br><br>La creación de un <strong>portafolio en Mahara</strong> ha permitido la organización sistemática de las diversas producciones académicas de los participantes y el uso de la red social <strong>Twitter</strong> ha propiciado la divulgación mediante mensajes textuales cortos sobre la descripción de sus productos, y promovido la creación de una comunidad alrededor de los temas definidos, por los estudiantes, para la clasificación de sus productos utilizando un mismo <strong>Hashtag</strong>.</p>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="santiago" data-state="failed" data-title="Intento fallido">
+
+                            <p>Para que los estudiantes del curso <em>Procesos Industriales</em> puedan realizar la exposición virtual de sus productos y ponerlos a disposición de otros para que puedan consultarlos, comentarlos y referenciarlos para próximos trabajos e iniciar una comunidad de aprendizaje a través de una red social que les permite divulgar lo que han hecho e invitar a otros para que los usen y compartan sus creaciones alrededor de las diferentes temáticas que han acordado para la clasificación de los productos, ellos deben:</p>
+                            <ul class="data_list">
+                                <li>Crear un portafolio para la organización sistemática de las diversas producciones académicas usando <strong>Mahara</strong>.</li>
+                                <li>Usar la red social <strong>Twitter</strong> para divulgar, mediante mensajes textuales cortos sobre la descripción de sus productos, lo que han hecho.</li>
+                                <li>Promover la creación de una comunidad alrededor de los temas definidos para la clasificación de sus productos utilizando un mismo <strong>Hashtag</strong>.<br></li>
+                            </ul>
+                        </div>
+
+                        <!--Case 05-->
+
+                        <div id="case-nairobi" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="case-box swiper-slide">
+                                    <div class="case-header-box">
+                                        <div class="case-number"></div>
+                                        <div class="case-label">caso</div>
+                                        <div class="avatar nairobi"></div>
+                                    </div>
+                                    <p>
+                                        La profesora <em>Nairobi</em> dicta el curso <em>Técnicas Quirúrgicas</em>, y en el módulo de <em>Traumatología y ortopedia</em> ha asignado a cada uno de sus estudiantes un caso sobre alguno de los temas que se abordan en la asignatura. Puesto que el tiempo de la clase es limitado y abordar cada uno de los temas es importante, propone que previo al encuentro presencial cada uno elabore un material que incorpore textos, audios y videos, y en el cual expliquen el tema a sus compañeros respondiendo cinco preguntas clave.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone master swiper-slide" data-target-group="nairobi">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    Condiciones
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card master swiper-slide" data-group="nairobi">
+                            <div class="card-header"><span>Máster</span><i class="sprite master"></i></div>
+                            <div class="card-content">
+                                <h2>Condiciones</h2>
+                                <p>- La profesora desea valorar algunos aspectos clave de los casos a través de una serie de preguntas que se puedan contestar en línea y, al final, tener un informe consolidado tanto individual, como grupal.</p>
+                                <p>- Los estudiantes deben usar una herramienta móvil que permita mantener una comunicación constante y en donde todos estén al tanto de los mensajes.</p>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone media swiper-slide" data-target-group="nairobi">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta de comunicación asincrónica deberían usar los estudiantes para facilitar la creación de la comunidad?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card media swiper-slide" data-group="nairobi">
+                            <div class="card-header"><span>Media</span><i class="sprite media"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Herramientas de comunicación<br/>
+                                <strong>Herramienta</strong>: Whatsapp<br/>
+                                <strong>Espacio</strong>: Mensajería instantánea<br/>
+                                <strong>Tipo</strong>: Sincrónica/Asincrónica<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone network swiper-slide" data-target-group="nairobi">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué tipo de contenidos deberían usar los estudiantes para explicar el caso a sus compañeros por medio de fotografías, clips de videos y explicaciones en texto?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card network swiper-slide" data-group="nairobi">
+                            <div class="card-header"><span>Red</span><i class="sprite network"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Contenidos<br/>
+                                <strong>Recurso</strong>: Presentación interactiva<br/>
+                                <strong>Formato</strong>: Multimedia<br/>
+                                <strong>Lenguaje</strong>: Hipermedia<br/>
+                                <strong>Licencia</strong>: Creative Commons<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="dropzone tech swiper-slide" data-target-group="nairobi">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="dropzone-content">
+                                <div class="content">
+                                    ¿Qué herramienta tecnológica debería utilizar la profesora para realizar la valoración de los aprendizajes?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card tech swiper-slide" data-group="nairobi">
+                            <div class="card-header"><span>Tech</span><i class="sprite tech"></i></div>
+                            <div class="card-content">
+                                <strong>Variable</strong>: Actividades de aprendizaje y evaluación<br/>
+                                <strong>Recurso</strong>: Quices<br/>
+                                <strong>Herramienta</strong>: Google Form<br/>
+                                <strong>Modalidad</strong>: Individual<br/>
+                            </div>
+                            <button class="card-play" title="Jugar"><i class="ion-eject"></i></button>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="nairobi" data-state="passed" data-title="Intento aprobado">
+                            <p>¡Enhorabuena!<br><br>Gracias a la asesoría de tu equipo, tanto la profesora <strong>Nairoby</strong> como sus estudiantes lograron los objetivos de aprendizaje propuestos. <br><br>Los estudiantes presentaron los casos asignados a sus compañeros mediante una presentación interactiva y estuvieron conectados entre ellos y con su profesora a través de un grupo en <strong>Whatsapp</strong>.<br><br>La profesora valoro los aprendizajes adquiridos en las exposiciones haciendo uso de la herramienta <strong>Google Form</strong>    que le permitió plantear preguntas de tipo abierto, selección múltiple con única y varias respuestas, entre otras.</p>
+                        </div>
+
+                        <div class="w-content" data-property-width="600" data-case="nairobi" data-state="failed" data-title="Intento fallido">
+                            <p>Para lograr los objetivos propuestos en el caso:</p>
+                            <ul class="data_list">
+                                <li>Los estudiantes deben presentar el caso asignado mediante una presentación interactiva y estar comunicados con sus compañeros y su profesora a través de un grupo en <strong>Whatsapp</strong>.</li>
+                                <li>La profesora debe valorar los aprendizajes adquiridos en las exposiciones haciendo uso de la herramienta <strong>Google Form</strong> que le permite plantear preguntas de tipo abierto, selección múltiple con única y varias respuestas, entre otras.<br></li>
+                            </ul>
+                        </div>
+
+                        <!--Planner-->
+
+                        <div class="card planner swiper-slide">
+                            <div class="card-header"><span>Eres el <strong>Planner</strong>, recuerda...</span><i class="sprite planner"></i></div>
+                            <div class="card-content">
+                                <p>- Estar atento a cumplir los tiempos establecidos para la partida.</p>
+                                <p>- Recordar al <strong>Máster</strong> que inicie el juego.</p>
+                                <p>- <strong>Finalizar la partida</strong> cuando todas las cartas hayan sido jugadas y consideren completado el caso.</p>
+                                <p>- De ser necesario, se deben proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso.</p>
+                                <p>- Promover el trabajo colaborativo entre los miembros del equipo.</p>
+                                <p>- Brindar apoyo a los participantes del equipo.</p>
+                            </div>
+                            <button class="end-case">Finalizar y validar partida &nbsp;<i class="ion-power"></i></button>
+                        </div>
+
+                        <div id="feedback-attempt1-failed" class="w-content" data-property-width="600">
+                            <p><strong>¡Sigue intentándolo!</strong></p>
+                            <p>La solución dada al caso no responde a las condiciones dadas por el <strong>Máster</strong>. Se sugiere que nuevamente se reúna con sus compañeros de equipo (ir al <strong>Ágora</strong>) para reflexionar y discutir acerca de cómo mejorar el proceso de asesoría.</p>
+                        </div>
+
+                        <div id="feedback-game-passed">
+                            <h3>Ha terminado el juego...</h3>
+                            <p>Felicitaciones, a través del trabajo colaborativo tu equipo ha resuelto los casos que se le&nbsp; presentan a profesores y estudiantes universitarios al momento de integrar las TIC en sus procesos de enseñanza y aprendizaje. Esto ha permitido que el grupo de estudiantes haya encendido la luz de la sabiduría que ilumina su camino en el uso de TIC para apoyar sus actividades académicas.<br><br>Ahora, realicen la actividad propuesta en el <em>Foro. Plantear una estrategia de enseñanza y aprendizaje</em>.</p>
+                        </div>
+
+                        <div id="feedback-game-failed">
+                            <h3>Ha terminado el juego...</h3>
+                            <p>Tu equipo no ha podido resolver los casos que se le presentan a profesores y estudiantes universitarios al momento de integrar las TIC en sus procesos de enseñanza y aprendizaje.<br><br>No se desanimen pues están en un proceso de aprendizaje y lo importante es que reflexionen sobre el proceso experimentado y que puedan llegar a conclusiones para aplicar en sus cursos. Se sugiere volver a revisar el OVA <em>Guía para integrar tecnologías en los procesos de enseñanza y aprendizaje Modelo SAMR</em>    con el propósito de aclarar los conceptos en el uso de TIC en los procesos de formación.<br><br>Ahora, realicen la actividad propuesta en el <em>Foro. Plantear una estrategia de enseñanza y aprendizaje</em>.<br><br></p>
+                        </div>
+                    </div>
+<script>
+</html>

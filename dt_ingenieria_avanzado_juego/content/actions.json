@@ -1,0 +1,1106 @@
+[{
+    "id": "a1",
+    "name": "Transporte público ecológico",
+    "endmode": "manual",
+    "description": "Con la implementación de medios de transporte basados en energías alternativas se logra un gran desarrollo urbanístico y ambiental, sin embargo esto conlleva a cierto descontento por parte de un sector de la población que no estaría conforme con los cambios.",
+    "endtime": 22,
+    "newresources": 0,
+    "zones": [0, 0, 8, 2, -2, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 20
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a2",
+    "name": "Educación ambiental",
+    "endmode": "auto",
+    "description": "Campaña desarrollada de forma tradicional que procura mejorar hábitos y desarrollar conciencia para el cuidado del ecosistema y el medio ambiente en general.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [1, 1, 0, 2, 1, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a3",
+    "name": "Educación ambiental virtual",
+    "endmode": "manual",
+    "description": "Campaña basada en tecnología para aumentar la conciencia ambiental en la población, llegando a una gran cantidad de personas y modificando su comportamiento gracias al alcance obtenido por el uso de herramientas tecnológicas. Esta acción requiere la tecnología \"Educatel\".",
+    "endtime": 20,
+    "newresources": 0,
+    "zones": [1, 2, 0, 2, 1, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 2
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": ["t24" ],
+    "files": []
+},{
+    "id": "a4",
+    "name": "Mejoramiento de bibliotecas",
+    "endmode": "auto",
+    "description": "Con esta política las bibliotecas tendrán material multimedia y de consulta vigente, y material bibliográfico reciente.",
+    "endtime": 4,
+    "newresources": 0,
+    "zones": [0, 5, 1, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 2
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a5",
+    "name": "Implementación de bibliotecas digitales",
+    "endmode": "auto",
+    "description": "Con esta política las bibliotecas tendrán información digital, acceso a bases de datos bibliográficas y material multimedia y de consulta vigente en línea. Esta acción requiere la tecnología de \"Big Data\".",
+    "endtime": 4,
+    "newresources": 0,
+    "zones": [0, 5, 2, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 4
+        },
+        {
+            "type": "physical",
+            "value": 2
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t4" ],
+    "files": []
+},{
+    "id": "a6",
+    "name": "Domotización de viviendas",
+    "endmode": "manual",
+    "description": "Hogares con dispositivos electrónicos que se comuniquen entre sí y asistentes virtuales que faciliten el uso tendrá un impacto positivo en temas de urbanismo, seguridad y mejor administración de recursos. Esta acción requiere la tecnología \"Interconnect\".",
+    "endtime": 15,
+    "newresources": 0,
+    "zones": [0, 0, 4, 1, 0, 1],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": ["t21" ],
+    "files": []
+},{
+    "id": "a7",
+    "name": "Educación a distancia",
+    "endmode": "manual",
+    "description": "Facilitar la comunicación y el acceso a la información, así como educar a un mayor número de ciudadanos, tendrá impactos positivos en los índices de formación, y evitará algunos problemas surgidos por el desplazamiento de estudiantes a sus aulas. Esta acción requiere la tecnología \"Educatel\".",
+    "endtime": 12,
+    "newresources": 0,
+    "zones": [0, 3, 0, 0, 0, 2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 15
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t24" ],
+    "files": []
+},{
+    "id": "a8",
+    "name": "Aulas inteligentes",
+    "endmode": "manual",
+    "description": "El equipamientos de aulas con herramientas tecnologicas y la interacción con diferentes dispositivos educativos, mejorará los índices de educación y la percepción de las decisiones gubernamentales.",
+    "endtime": 15,
+    "newresources": 0,
+    "zones": [0, 6, 0, 0, 2, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 20
+        },
+        {
+            "type": "physical",
+            "value": 15
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a9",
+    "name": "Aulas inteligentes con contenido en línea",
+    "endmode": "manual",
+    "description": "Además de un equipamiento adecuado de las aulas, adquirir contenido y consultar información en línea tendrá un impacto positivo en la educación y en la percepción de las deciciones gubernamentales. Esta acción requiere la tecnología de \"Contenidos por streaming\".",
+    "endtime": 15,
+    "newresources": 0,
+    "zones": [0, 6, 0, 0, 2, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 12
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": ["t5" 
+],
+    "files": []
+},{
+    "id": "a10",
+    "name": "Computadores para enseñar",
+    "endmode": "manual",
+    "description": "Además del equipamento adecuado de las aulas, con el uso de Esta acción requiere la tecnología \"Password Secure\" o \"Paralely\".",
+    "endtime": 15,
+    "newresources": 0,
+    "zones": [0, 3, 0, 0, 1, 1],
+    "resources": [
+        {
+            "type": "human",
+            "value": 9
+        },
+        {
+            "type": "physical",
+            "value": 8
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t22", "t23" ],
+    "files": []
+},{
+    "id": "a11",
+    "name": "Capacitar en uso de herramienta de almacenamiento de datos en la nube",
+    "endmode": "auto",
+    "description": "Es importante enseñarle a la población y ayudarle a utilizar los servicios y beneficios que tiene la computación en la nube, pero de una manera no obligante. Lograrlo aumenta el nivel educativo y la percepción de los ciudadanos hacia sus dirigentes.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 1, 0, 0, 2, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 3
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a12",
+    "name": "Campaña para emplear los pagos electrónicos",
+    "endmode": "auto",
+    "description": "Jornadas y estrategias para invitar a la comunidad a realizar pagos a través de su dispositivo móvil o el computador, invitándole a emplear nuevas tecnologías pero sin obligación. El propósito es aumentar la velocidad y seguridad en las transacciones y disminuir la emisión y circulación de billetes y monedas.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 2, 0, 2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 8
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 4
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a13",
+    "name": "Optimización de rutas de transporte",
+    "endmode": "auto",
+    "description": "Un transporte público eficiente genera comodidad, confianza y promueve su utilización. Es por esto que el uso de las tecnologías para mejorar este sistema de transporte incrementa el nivel de urbanismo, la percepción hacia los dirigentes y disminuye aspectos negativos como la contaminación y desperdicio de energía. Esta acción requiere como insumo el archivo \"Plan de rutas\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 4, 3, 1, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 13
+        },
+        {
+            "type": "physical",
+            "value": 8
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t3" ],
+    "files": ["f2"]
+},{
+    "id": "a14",
+    "name": "Ciclorutas",
+    "endmode": "auto",
+    "description": "Optar por medios de transportes alternativos que fomenten el deporte y eviten la emisión de agentes contaminantes son políticas de muy buena aceptación para una ciudad inteligente; no obstante si no se adquiere la cultura adecuada por parte de los ciudadanos, pueden generarse un mayor número de accidentes.",
+    "endtime": 5,
+    "newresources": 0,
+    "zones": [3, 0, 5, 6, 5, -2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 8
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a15",
+    "name": "Energías alternativas",
+    "endmode": "manual",
+    "description": "Apostarle a la generación de energía desde fuentes no fósiles aporta en sobremanera a la preservación del medio ambiente, aunque puede afectar un poco el aspecto urbanístico de la ciudad al requerir espacios que pueden ser destinados a otros propósitos. Sin embargo, la adopción de estas alternativas produce nuevos recursos energéticos.",
+    "endtime": 10,
+    "newresources": 1,
+    "zones": [2, 0, -3, 5, 2, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 15
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a16",
+    "name": "Implementar red de pantallas de información",
+    "endmode": "manual",
+    "description": "Es importante mantener informada a la población y esto puede lograrse a través de una red de pantallas que muestre datos de interés para la seguridad y movilidad de los ciudadanos. No obstante puede generarse cierto tipo de contaminación visual.",
+    "endtime": 7,
+    "newresources": 0,
+    "zones": [0, 0, 3, -2, 0, 4],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 15
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a17",
+    "name": "Purificación de las aguas",
+    "endmode": "manual",
+    "description": "El agua es un recurso vital para la vida, y mantener fuentes de agua potable define la sostenibilidad de una ciudad y un ecosistema, además que permite la producción de nuevos recursos que dependen de este líquido vital.",
+    "endtime": 28,
+    "newresources": 1,
+    "zones": [10, 0, 0, 5, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 15
+        },
+        {
+            "type": "physical",
+            "value": 20
+        },
+        {
+            "type": "energy",
+            "value": 20
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a18",
+    "name": "Renovación del parque automotor",
+    "endmode": "auto",
+    "description": "Reemplazar vehículos viejos contaminantes y grandes consumidores de energía por vehículos ecológicos y amigables con el medio ambiente produce grandes beneficios; no obstante puede generarse una percepción negativa hacia los dirigentes debido a los costos y tiempos requeridos para el cambio.",
+    "endtime": 6,
+    "newresources": 0,
+    "zones": [3, 0, 5, 8, -1, 3],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a19",
+    "name": "Red de estaciones de servicio de carga eléctrica",
+    "endmode": "manual",
+    "description": "Vehículos de energía electrica requieren de una red de estaciones de carga para poder fomentar su uso, pero lograrlo será muy beneficioso para el medio ambiente.",
+    "endtime": 10,
+    "newresources": 0,
+    "zones": [0, 0, 0, 5, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 12
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a20",
+    "name": "Juntas virtuales de gobierno",
+    "endmode": "auto",
+    "description": "Lograr un acercamiento entre los ciudadanos y sus dirigentes aumenta la confianza entre ellos, y a través de las juntas virtuales se puede lograr ya que reduce costos, necesidad de desplazamientos muy largos y tiempos. Esta acción requiere la tecnología de \"Computación en la nube\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 5, 1],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t1" ],
+    "files": []
+},{
+    "id": "a21",
+    "name": "Campaña para mejorar calidad del aire",
+    "endmode": "auto",
+    "description": "Así como el agua es necesaria para la vida, también lo es un aire puro. Una ciudad no será sostenible si no garantiza la habitabilidad de sus habitantes, por lo que campañas para generar conciencia y cuidar los recursos que se tienen son fundamentales, y no solo ayudan a la conservación del ecosistema sino que mejoran el aspecto urbanístico de la ciudad. Esta acción requiere el archivo que presente el \"Informe ambiental\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 1, 5, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 3
+        }
+    ],
+    "technologies": [],
+    "files": ["f3"]
+},{
+    "id": "a22",
+    "name": "Control inteligente de servicios públicos",
+    "endmode": "manual",
+    "description": "Ayudar a las personas a controlar y ahorrar en el consumo de los servicios públicos mejorará el uso de los recursos y evitará desperdicio excesivo de los mismos; sin embargo algunos ciudadanos pueden no sentirse cómodos con este tipo de acciones",
+    "endtime": 8,
+    "newresources": 0,
+    "zones": [0, 0, 3, 3, 0, -2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 7
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a23",
+    "name": "Automatización de la red de semáforos",
+    "endmode": "auto",
+    "description": "Ayudar al control del tráfico a través de una red de semáforos inteligentes ayudará a la movilidad y desplazamientos de los ciudadanos, y habrá reducción de accidentes.",
+    "endtime": 3,
+    "newresources": 0,
+    "zones": [0, 0, 5, 0, 0, 2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 7
+        },
+        {
+            "type": "energy",
+            "value": 8
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a24",
+    "name": "Red de cámaras de seguridad",
+    "endmode": "manual",
+    "description": "Un circuito de vigilancia permitirá una rápida respuesta ante determinados incidentes y aumentar la sensación de protección por parte de los pobladores.",
+    "endtime": 13,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 1, 5],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 12
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a25",
+    "name": "Basureros inteligentes",
+    "endmode": "manual",
+    "description": "Ayudar a clasificar los desechos de los elementos reciclables ayuda a la producción de nuevos recursos justamente por el proceso de reutilización. De allí que sistemas de basureros que ayuden a las personas a hacer esta clasificación, e incluso que lo hagan de manera automática, es un aporte importante para la sostenibilidad.",
+    "endtime": 14,
+    "newresources": 1,
+    "zones": [0, 0, 1, 4, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 8
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a26",
+    "name": "Fotodetección de buenas conductas ciudadanas",
+    "endmode": "manual",
+    "description": "Premiar las buenas conductas es una forma de incentivar buenos comportamientos en las personas, que al no sentirse \"castigadas\" sentirán mayor confianza en el Estado.",
+    "endtime": 16,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 2, 4],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a27",
+    "name": "Transmisión en línea de eventos deportivos, culturales o académicos.",
+    "endmode": "manual",
+    "description": "Brindarle espacios de diversión y esparcimiento a los ciudadanos mejorará el indicador de felicidad en ellos, prevendrá ciertas enfermedades como el estrés y mejorará la relación entre el ciudadano y su dirigente. No obstante, la tecnología requerida puede afectar un poco la contaminación visual y el consumo de recursos.",
+    "endtime": 20,
+    "newresources": 0,
+    "zones": [3, 5, 0, -5, 3, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 8
+        },
+        {
+            "type": "physical",
+            "value": 8
+        },
+        {
+            "type": "energy",
+            "value": 12
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a28",
+    "name": "Implementación de cabina de monitoreo de salud",
+    "endmode": "manual",
+    "description": "Ayudar a que las personas conozcan su estado de salud y puedan monitorar su progreso será fundamental para promover la salud preventiva.",
+    "endtime": 8,
+    "newresources": 0,
+    "zones": [5, 0, 0, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 12
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a29",
+    "name": "Puesto de información de asistente virtual",
+    "endmode": "manual",
+    "description": "Brindarle a la población la oportunidad de responder sus inquietudes y orientarles sobre ciertos aspectos relativos a la ciudad mejorará su habitabilidad y brindará soluciones a los ciudadanos, haciéndolos sentir tranquilos. Esta acción requiere el archivo con los \"resultados de búsqueda\".",
+    "endtime": 8,
+    "newresources": 0,
+    "zones": [0, 0, 2, 0, 0, 2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 7
+        }
+    ],
+    "technologies": ["t7" ],
+    "files": ["f4"]
+},{
+    "id": "a30",
+    "name": "Adoptar aplicación para transporte público local",
+    "endmode": "auto",
+    "description": "Sentirse protegidos y seguros al tomar el transporte público puede lograrse a través de una aplicación que permita la interacción entre el conductor y los pasajeros, tenga claro los destinos y tiempos aproximados de llegada, e informe también los costos. Y más aún si está legalizada y respaldada. Esta acción requiere la tecnología \"Urbatrans\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 0, 3],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 3
+        },
+        {
+            "type": "energy",
+            "value": 2
+        }
+    ],
+    "technologies": ["t8" ],
+    "files": []
+},{
+    "id": "a31",
+    "name": "Inversión en políticas de gobierno",
+    "endmode": "auto",
+    "description": "Es importante destinar recursos a estrategias que mejore la relación entre la población y sus dirigentes, y más luego de conocer a través de un estudio cuáles son los aspectos de mayor influencia en este sentido. Esta acción requiere el archivo \"Indicadores de gobierno\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 5, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t9" ],
+    "files": ["f5"]
+},{
+    "id": "a32",
+    "name": "Inversión en los aspectos más influyentes para aumentar la calidad educativa",
+    "endmode": "auto",
+    "description": "Es importante destinar recursos para la formación y educación de la población, en especial si la inversión apunta a los factores de mayor incidencia de acuerdo a lo reflejado en un estudio. Esta acción requiere el archivo \"Indicadores de educación\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 5, 0, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t10" ],
+    "files": ["f6"]
+},{
+    "id": "a33",
+    "name": "Adopción de medidas preventivas para disminuir los factores de riesgo en la salud de la población",
+    "endmode": "auto",
+    "description": "Para garantizar la sostenibilidad debe invertirse en la salud preventiva de sus ciudadanos, y esta inversión será mucho más efectiva si se identifican los factores de mayor riesgo luego de un estudio en la población. Esta acción requiere el archivo \"Indicadores de salud\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [5, 0, 0, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t11" ],
+    "files": ["f7"]
+},{
+    "id": "a34",
+    "name": "Adopción de sistemas modernos de seguridad que aumente la confianza de la población",
+    "endmode": "auto",
+    "description": "Es importante que la ciudadanía sienta la compañía y el apoyo del Estado, así como contar con inversión para garantizar la habitabilidad. PEro para ello es importante contar con un estudio que informe cuáles son los aspectos más relevantes para la población en este sentido. Esta acción requiere el archivo \"Indicadores de seguridad\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 0, 5],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t12" ],
+    "files": ["f8"]
+},{
+    "id": "a35",
+    "name": "Participación en eventos urbanísticos de ciudades modernas",
+    "endmode": "auto",
+    "description": "Promover modelos urbanísticos a través de concursos o fomentando su implementación motivará a los ciudadanos a la mejora continua y cuidado de la ciudad. Se requiere un estudio que identifique los factores que miden este desarrollo. Esta acción requiere el archivo \"Indicadores de urbanismo\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 5, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t13" ],
+    "files": ["f9"]
+},{
+    "id": "a36",
+    "name": "Mejoramiento de las condiciones ambientales para la implemetación de un ecosistema sostenible",
+    "endmode": "auto",
+    "description": "Se requiere inversión para el mejoramiento y mantenimiento de los recursos ambientales de la ciudad para permitir su sostenibilidad. Es importante identificar cuáles son los puntos críticos para que la inversión sea efectiva y eficiente, y para ello se requiere un estudio. Esta acción requiere el archivo \"Indicadores de medio ambiente\" como insumo.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 5, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 6
+        }
+    ],
+    "technologies": ["t14" ],
+    "files": ["f10"]
+},{
+    "id": "a37",
+    "name": "Implementar sistema de simulación para clases de conducción",
+    "endmode": "manual",
+    "description": "Tener conductores bien formados y respetuosos con las reglas de movilidad disminuirá el número de accidentes y ayudará a contar con ciudadanos más educados, y esto puede lograrse a través de capacitaciones en simuladores. No obstante también puede promover la adquisición de un mayor número de vehículos lo que afectaría el urbanismo de la ciudad. Esta acción requiere la tecnología \"Conductor experto\".",
+    "endtime": 15,
+    "newresources": 0,
+    "zones": [0, 9, -3, 0, 0, 2],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 14
+        },
+        {
+            "type": "energy",
+            "value": 15
+        }
+    ],
+    "technologies": ["t15" ],
+    "files": []
+},{
+    "id": "a38",
+    "name": "Implementar voto electrónico",
+    "endmode": "auto",
+    "description": "Una ciudad sostenible requiere de una buena participación ciudadana y confianza en dicha participación. Emplear tecnología moderna permite lograrlo, y de esta forma se mejoraría la gobernabilidad y la confianza en la misma. Esta acción requiere la tecnología del \"Blockchain\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 0, 0, 5, 5],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 15
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t16" ],
+    "files": []
+},{
+    "id": "a39",
+    "name": "Predicción de lluvias",
+    "endmode": "auto",
+    "description": "Pronósticar las lluvias y su intensidad trae grandes beneficios tanto para la prevención de accidentes así como para la planeación de cambios urbanísticos. Esta acción requiere la tecnología \"Computación cuántica\" o la tecnología de \"Computación en la nube\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [0, 0, 3, 0, 0, 3],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 8
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": ["t17", "t1" ],
+    "files": []
+},{
+    "id": "a40",
+    "name": "Prevención y atención de desastres",
+    "endmode": "auto",
+    "description": "Para mantener la habitabilidad de una zona es importante que sus ciudadanos se sientan seguros, más si se trata de una zona de riesgo. Por ello es importante implementar tecnologías para la prevención de desastres, y con ello no solo mejora la seguridad sino también la gobernabilidad y los índices de salud preventiva. Sin embargo, debido al equipo requerido, puede afectarse un poco el urbanismo. Esta acción requiere la tecnología \"PrevenGlobal\" o \"SmartPrevention\".",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [3, 0, -2, 0, 2, 8],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 15
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": ["t19", "t20"],
+    "files": []
+},{
+    "id": "a41",
+    "name": "Préstamo de vehículos ecológicos",
+    "endmode": "manual",
+    "description": "Facilitar a los ciudadanos transportarse en vehículos ecológicos ayudará a la disminución de gases contaminantes y por ende en el mejoramienta de la calidad del aire.",
+    "endtime": 10,
+    "newresources": 0,
+    "zones": [1, 0, 0, 3, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 10
+        },
+        {
+            "type": "energy",
+            "value": 5
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a42",
+    "name": "Adopción de sistema para el reporte de incidentes o accidentes",
+    "endmode": "auto",
+    "description": "El emplear un sistema de monitoreo y reporte de incidentes permitirá una respuesta rápida y oportuna ante situaciones de emergencia, lo que puede evitar que se tengan consecuencias fatales y la población sentirá cierto apoyo en seguridad.",
+    "endtime": 2,
+    "newresources": 0,
+    "zones": [1, 0, 0, 0, 0, 3],
+    "resources": [
+        {
+            "type": "human",
+            "value": 6
+        },
+        {
+            "type": "physical",
+            "value": 6
+        },
+        {
+            "type": "energy",
+            "value": 4
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a43",
+    "name": "Disminución del desempleo",
+    "endmode": "manual",
+    "description": "El tema del desempleo ha sido un factor fundamental del buen gobierno. Emplear tecnología moderna para brindar una buena oferta y atender la demanda correspondiente brindará no solo una solución para este factor, sino también que aumentará la confianza de los ciudadanos por sentirse respaldados y escuchados. Esta acción requiere el archivo \"Bolsa de empleo\" como insumo.",
+    "endtime": 14,
+    "newresources": 0,
+    "zones": [2, 0, 0, 0, 5, 1],
+    "resources": [
+        {
+            "type": "human",
+            "value": 12
+        },
+        {
+            "type": "physical",
+            "value": 12
+        },
+        {
+            "type": "energy",
+            "value": 10
+        }
+    ],
+    "technologies": [],
+    "files": ["f11"]
+},{
+    "id": "a44",
+    "name": "Apoyar huertos urbanos",
+    "endmode": "auto",
+    "description": "Poder cultivar productos de consumo común en los hogares aumentará la obtención de recursos necesarios para la sostenibilidad. Además aumentaría el \"verde\" de la ciudad y su aspecto físico.",
+    "endtime": 3,
+    "newresources": 1,
+    "zones": [0, 0, 3, 4, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 8
+        },
+        {
+            "type": "physical",
+            "value": 8
+        },
+        {
+            "type": "energy",
+            "value": 3
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a45",
+    "name": "Salud preventiva",
+    "endmode": "auto",
+    "description": "Apostarle al cuidado de la población de manera preventiva es una inversión que, con la ayuda de herramientas tecnológicas adecuadas, brindará a corto plazo beneficios en cuanto al nivel de vida y disminución de costos para tratamientos de enfermedades de alto riesgo.",
+    "endtime": 3,
+    "newresources": 0,
+    "zones": [5, 0, 0, 0, 0, 0],
+    "resources": [
+        {
+            "type": "human",
+            "value": 5
+        },
+        {
+            "type": "physical",
+            "value": 7
+        },
+        {
+            "type": "energy",
+            "value": 2
+        }
+    ],
+    "technologies": [],
+    "files": []
+},{
+    "id": "a46",
+    "name": "Estrategia de compartir viaje - transporte al trabajo",
+    "endmode": "auto",
+    "description": "Esta acción permitiría disminuír la circulación de vehículos y por ende mejora el hábitat. Así mismo puede brindar seguridad a quienes optén por esta opción de transporte.",
+    "endtime": 3,
+    "newresources": 0,
+    "zones": [0, 0, 0, 3, 0, 3],
+    "resources": [
+        {
+            "type": "human",
+            "value": 10
+        },
+        {
+            "type": "physical",
+            "value": 5
+        },
+        {
+            "type": "energy",
+            "value": 2
+        }
+    ],
+    "technologies": [],
+    "files": []
+}]
