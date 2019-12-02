@@ -22,7 +22,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a2",
     "name": "Educación ambiental",
     "endmode": "auto",
@@ -46,11 +46,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a3",
     "name": "Educación ambiental virtual",
     "endmode": "manual",
-    "description": "Campaña basada en tecnología para aumentar la conciencia ambiental en la población, llegando a una gran cantidad de personas y modificando su comportamiento gracias al alcance obtenido por el uso de herramientas tecnológicas. Esta acción requiere la tecnología \"Educatel\".",
+    "description": "Campaña basada en tecnología para aumentar la conciencia ambiental en la población, llegando a una gran cantidad de personas y modificando su comportamiento gracias al alcance obtenido por el uso de herramientas tecnológicas.<br/><required>Esta acción requiere la tecnología \"Educatel\".</required>",
     "endtime": 20,
     "newresources": 0,
     "zones": [1, 2, 0, 2, 1, 0],
@@ -70,7 +70,7 @@
     ],
     "technologies": ["t24" ],
     "files": []
-},{
+}, {
     "id": "a4",
     "name": "Mejoramiento de bibliotecas",
     "endmode": "auto",
@@ -94,11 +94,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a5",
     "name": "Implementación de bibliotecas digitales",
     "endmode": "auto",
-    "description": "Con esta política las bibliotecas tendrán información digital, acceso a bases de datos bibliográficas y material multimedia y de consulta vigente en línea. Esta acción requiere la tecnología de \"Big Data\".",
+    "description": "Con esta política las bibliotecas tendrán información digital, acceso a bases de datos bibliográficas y material multimedia y de consulta vigente en línea.<br/><required>Esta acción requiere la tecnología de \"Big Data\".</required>",
     "endtime": 4,
     "newresources": 0,
     "zones": [0, 5, 2, 0, 0, 0],
@@ -118,11 +118,11 @@
     ],
     "technologies": ["t4" ],
     "files": []
-},{
+}, {
     "id": "a6",
     "name": "Domotización de viviendas",
     "endmode": "manual",
-    "description": "Hogares con dispositivos electrónicos que se comuniquen entre sí y asistentes virtuales que faciliten el uso tendrá un impacto positivo en temas de urbanismo, seguridad y mejor administración de recursos. Esta acción requiere la tecnología \"Interconnect\".",
+    "description": "Hogares con dispositivos electrónicos que se comuniquen entre sí y asistentes virtuales que faciliten el uso tendrá un impacto positivo en temas de urbanismo, seguridad y mejor administración de recursos.<br/><required>Esta acción requiere la tecnología \"Interconnect\".</required>",
     "endtime": 15,
     "newresources": 0,
     "zones": [0, 0, 4, 1, 0, 1],
@@ -142,11 +142,11 @@
     ],
     "technologies": ["t21" ],
     "files": []
-},{
+}, {
     "id": "a7",
     "name": "Educación a distancia",
     "endmode": "manual",
-    "description": "Facilitar la comunicación y el acceso a la información, así como educar a un mayor número de ciudadanos, tendrá impactos positivos en los índices de formación, y evitará algunos problemas surgidos por el desplazamiento de estudiantes a sus aulas. Esta acción requiere la tecnología \"Educatel\".",
+    "description": "Facilitar la comunicación y el acceso a la información, así como educar a un mayor número de ciudadanos, tendrá impactos positivos en los índices de formación, y evitará algunos problemas surgidos por el desplazamiento de estudiantes a sus aulas.<br/><required>Esta acción requiere la tecnología \"Educatel\".</required>",
     "endtime": 12,
     "newresources": 0,
     "zones": [0, 3, 0, 0, 0, 2],
@@ -166,7 +166,7 @@
     ],
     "technologies": ["t24" ],
     "files": []
-},{
+}, {
     "id": "a8",
     "name": "Aulas inteligentes",
     "endmode": "manual",
@@ -190,11 +190,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a9",
     "name": "Aulas inteligentes con contenido en línea",
     "endmode": "manual",
-    "description": "Además de un equipamiento adecuado de las aulas, adquirir contenido y consultar información en línea tendrá un impacto positivo en la educación y en la percepción de las deciciones gubernamentales. Esta acción requiere la tecnología de \"Contenidos por streaming\".",
+    "description": "Además de un equipamiento adecuado de las aulas, adquirir contenido y consultar información en línea tendrá un impacto positivo en la educación y en la percepción de las deciciones gubernamentales.<br/><required>Esta acción requiere la tecnología de \"Contenidos por streaming\".</required>",
     "endtime": 15,
     "newresources": 0,
     "zones": [0, 6, 0, 0, 2, 0],
@@ -215,11 +215,11 @@
     "technologies": ["t5" 
 ],
     "files": []
-},{
+}, {
     "id": "a10",
     "name": "Computadores para enseñar",
     "endmode": "manual",
-    "description": "Además del equipamento adecuado de las aulas, con el uso de Esta acción requiere la tecnología \"Password Secure\" o \"Paralely\".",
+    "description": "Brindar acceso a las herramientas tecnológicas para permitir realizar pruebas y demostraciones de investigaciones en el campo de la tecnología es el propósito de esta acción, permitiendo un acceso seguro y confiable a la información. Brindar estos laboratorios tecnológicos aumentan la calidad educativa y la confianza en el uso de la tecnología.<br/><required>Esta acción requiere la tecnología \"Password Secure\" o \"Paralely\".</required>",
     "endtime": 15,
     "newresources": 0,
     "zones": [0, 3, 0, 0, 1, 1],
@@ -239,7 +239,7 @@
     ],
     "technologies": ["t22", "t23" ],
     "files": []
-},{
+}, {
     "id": "a11",
     "name": "Capacitar en uso de herramienta de almacenamiento de datos en la nube",
     "endmode": "auto",
@@ -263,7 +263,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a12",
     "name": "Campaña para emplear los pagos electrónicos",
     "endmode": "auto",
@@ -287,11 +287,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a13",
     "name": "Optimización de rutas de transporte",
     "endmode": "auto",
-    "description": "Un transporte público eficiente genera comodidad, confianza y promueve su utilización. Es por esto que el uso de las tecnologías para mejorar este sistema de transporte incrementa el nivel de urbanismo, la percepción hacia los dirigentes y disminuye aspectos negativos como la contaminación y desperdicio de energía. Esta acción requiere como insumo el archivo \"Plan de rutas\".",
+    "description": "Un transporte público eficiente genera comodidad, confianza y promueve su utilización. Es por esto que el uso de las tecnologías para mejorar este sistema de transporte incrementa el nivel de urbanismo, la percepción hacia los dirigentes y disminuye aspectos negativos como la contaminación y desperdicio de energía.<br/><required>Esta acción requiere como insumo el archivo \"Plan de rutas\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 4, 3, 1, 0],
@@ -311,7 +311,7 @@
     ],
     "technologies": [],
     "files": ["f2"]
-},{
+}, {
     "id": "a14",
     "name": "Ciclorutas",
     "endmode": "auto",
@@ -335,7 +335,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a15",
     "name": "Energías alternativas",
     "endmode": "manual",
@@ -359,7 +359,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a16",
     "name": "Implementar red de pantallas de información",
     "endmode": "manual",
@@ -383,7 +383,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a17",
     "name": "Purificación de las aguas",
     "endmode": "manual",
@@ -407,7 +407,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a18",
     "name": "Renovación del parque automotor",
     "endmode": "auto",
@@ -431,7 +431,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a19",
     "name": "Red de estaciones de servicio de carga eléctrica",
     "endmode": "manual",
@@ -455,11 +455,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a20",
     "name": "Juntas virtuales de gobierno",
     "endmode": "auto",
-    "description": "Lograr un acercamiento entre los ciudadanos y sus dirigentes aumenta la confianza entre ellos, y a través de las juntas virtuales se puede lograr ya que reduce costos, necesidad de desplazamientos muy largos y tiempos. Esta acción requiere la tecnología de \"Computación en la nube\".",
+    "description": "Lograr un acercamiento entre los ciudadanos y sus dirigentes aumenta la confianza entre ellos, y a través de las juntas virtuales se puede lograr ya que reduce costos, necesidad de desplazamientos muy largos y tiempos.<br/><required>Esta acción requiere la tecnología de \"Computación en la nube\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 0, 5, 1],
@@ -479,11 +479,11 @@
     ],
     "technologies": ["t1" ],
     "files": []
-},{
+}, {
     "id": "a21",
     "name": "Campaña para mejorar calidad del aire",
     "endmode": "auto",
-    "description": "Así como el agua es necesaria para la vida, también lo es un aire puro. Una ciudad no será sostenible si no garantiza la habitabilidad de sus habitantes, por lo que campañas para generar conciencia y cuidar los recursos que se tienen son fundamentales, y no solo ayudan a la conservación del ecosistema sino que mejoran el aspecto urbanístico de la ciudad. Esta acción requiere el archivo que presente el \"Informe ambiental\".",
+    "description": "Así como el agua es necesaria para la vida, también lo es un aire puro. Una ciudad no será sostenible si no garantiza la habitabilidad de sus habitantes, por lo que campañas para generar conciencia y cuidar los recursos que se tienen son fundamentales, y no solo ayudan a la conservación del ecosistema sino que mejoran el aspecto urbanístico de la ciudad.<br/><required>Esta acción requiere el archivo que presente el \"Informe ambiental\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 1, 5, 0, 0],
@@ -503,7 +503,7 @@
     ],
     "technologies": [],
     "files": ["f3"]
-},{
+}, {
     "id": "a22",
     "name": "Control inteligente de servicios públicos",
     "endmode": "manual",
@@ -527,7 +527,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a23",
     "name": "Automatización de la red de semáforos",
     "endmode": "auto",
@@ -551,7 +551,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a24",
     "name": "Red de cámaras de seguridad",
     "endmode": "manual",
@@ -575,7 +575,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a25",
     "name": "Basureros inteligentes",
     "endmode": "manual",
@@ -599,7 +599,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a26",
     "name": "Fotodetección de buenas conductas ciudadanas",
     "endmode": "manual",
@@ -623,7 +623,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a27",
     "name": "Transmisión en línea de eventos deportivos, culturales o académicos.",
     "endmode": "manual",
@@ -647,7 +647,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a28",
     "name": "Implementación de cabina de monitoreo de salud",
     "endmode": "manual",
@@ -671,11 +671,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a29",
     "name": "Puesto de información de asistente virtual",
     "endmode": "manual",
-    "description": "Brindarle a la población la oportunidad de responder sus inquietudes y orientarles sobre ciertos aspectos relativos a la ciudad mejorará su habitabilidad y brindará soluciones a los ciudadanos, haciéndolos sentir tranquilos. <br/>Esta acción requiere el archivo con los \"resultados de búsqueda\" y la tecnología de BigData para el preanálisis de los datos.",
+    "description": "Brindarle a la población la oportunidad de responder sus inquietudes y orientarles sobre ciertos aspectos relativos a la ciudad mejorará su habitabilidad y brindará soluciones a los ciudadanos, haciéndolos sentir tranquilos.<br/><required>Esta acción requiere el archivo con los \"resultados de búsqueda\" y la tecnología de BigData para el preanálisis de los datos.</required>",
     "endtime": 8,
     "newresources": 0,
     "zones": [0, 0, 2, 0, 0, 2],
@@ -695,11 +695,11 @@
     ],
     "technologies": ["t4"],
     "files": ["f4"]
-},{
+}, {
     "id": "a30",
     "name": "Adoptar aplicación para transporte público local",
     "endmode": "auto",
-    "description": "Sentirse protegidos y seguros al tomar el transporte público puede lograrse a través de una aplicación que permita la interacción entre el conductor y los pasajeros, tenga claro los destinos y tiempos aproximados de llegada, e informe también los costos. Y más aún si está legalizada y respaldada. Esta acción requiere la tecnología \"Urbatrans\".",
+    "description": "Sentirse protegidos y seguros al tomar el transporte público puede lograrse a través de una aplicación que permita la interacción entre el conductor y los pasajeros, tenga claro los destinos y tiempos aproximados de llegada, e informe también los costos. Y más aún si está legalizada y respaldada.<br/><required>Esta acción requiere la tecnología \"Urbatrans\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 0, 0, 3],
@@ -719,11 +719,11 @@
     ],
     "technologies": ["t8" ],
     "files": []
-},{
+}, {
     "id": "a31",
     "name": "Inversión en políticas de gobierno",
     "endmode": "auto",
-    "description": "Es importante destinar recursos a estrategias que mejore la relación entre la población y sus dirigentes, y más luego de conocer a través de un estudio cuáles son los aspectos de mayor influencia en este sentido. Esta acción requiere el archivo \"Indicadores de gobierno\" como insumo.",
+    "description": "Es importante destinar recursos a estrategias que mejore la relación entre la población y sus dirigentes, y más luego de conocer a través de un estudio cuáles son los aspectos de mayor influencia en este sentido.<br/><required>Esta acción requiere el archivo \"Indicadores de gobierno\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 0, 5, 0],
@@ -743,11 +743,11 @@
     ],
     "technologies": [],
     "files": ["f5"]
-},{
+}, {
     "id": "a32",
     "name": "Inversión en los aspectos más influyentes para aumentar la calidad educativa",
     "endmode": "auto",
-    "description": "Es importante destinar recursos para la formación y educación de la población, en especial si la inversión apunta a los factores de mayor incidencia de acuerdo a lo reflejado en un estudio. Esta acción requiere el archivo \"Indicadores de educación\" como insumo.",
+    "description": "Es importante destinar recursos para la formación y educación de la población, en especial si la inversión apunta a los factores de mayor incidencia de acuerdo a lo reflejado en un estudio.<br/><required>Esta acción requiere el archivo \"Indicadores de educación\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 5, 0, 0, 0, 0],
@@ -767,11 +767,11 @@
     ],
     "technologies": [],
     "files": ["f6"]
-},{
+}, {
     "id": "a33",
     "name": "Adopción de medidas preventivas para disminuir los factores de riesgo en la salud de la población",
     "endmode": "auto",
-    "description": "Para garantizar la sostenibilidad debe invertirse en la salud preventiva de sus ciudadanos, y esta inversión será mucho más efectiva si se identifican los factores de mayor riesgo luego de un estudio en la población. Esta acción requiere el archivo \"Indicadores de salud\" como insumo.",
+    "description": "Para garantizar la sostenibilidad debe invertirse en la salud preventiva de sus ciudadanos, y esta inversión será mucho más efectiva si se identifican los factores de mayor riesgo luego de un estudio en la población.<br/><required>Esta acción requiere el archivo \"Indicadores de salud\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [5, 0, 0, 0, 0, 0],
@@ -791,11 +791,11 @@
     ],
     "technologies": [],
     "files": ["f7"]
-},{
+}, {
     "id": "a34",
     "name": "Adopción de sistemas modernos de seguridad que aumente la confianza de la población",
     "endmode": "auto",
-    "description": "Es importante que la ciudadanía sienta la compañía y el apoyo del Estado, así como contar con inversión para garantizar la habitabilidad. PEro para ello es importante contar con un estudio que informe cuáles son los aspectos más relevantes para la población en este sentido. Esta acción requiere el archivo \"Indicadores de seguridad\" como insumo.",
+    "description": "Es importante que la ciudadanía sienta la compañía y el apoyo del Estado, así como contar con inversión para garantizar la habitabilidad. PEro para ello es importante contar con un estudio que informe cuáles son los aspectos más relevantes para la población en este sentido.<br/><required>Esta acción requiere el archivo \"Indicadores de seguridad\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 0, 0, 5],
@@ -815,11 +815,11 @@
     ],
     "technologies": [],
     "files": ["f8"]
-},{
+}, {
     "id": "a35",
     "name": "Participación en eventos urbanísticos de ciudades modernas",
     "endmode": "auto",
-    "description": "Promover modelos urbanísticos a través de concursos o fomentando su implementación motivará a los ciudadanos a la mejora continua y cuidado de la ciudad. Se requiere un estudio que identifique los factores que miden este desarrollo. Esta acción requiere el archivo \"Indicadores de urbanismo\" como insumo.",
+    "description": "Promover modelos urbanísticos a través de concursos o fomentando su implementación motivará a los ciudadanos a la mejora continua y cuidado de la ciudad. Se requiere un estudio que identifique los factores que miden este desarrollo.<br/><required>Esta acción requiere el archivo \"Indicadores de urbanismo\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 5, 0, 0, 0],
@@ -839,11 +839,11 @@
     ],
     "technologies": [],
     "files": ["f9"]
-},{
+}, {
     "id": "a36",
     "name": "Mejoramiento de las condiciones ambientales para la implemetación de un ecosistema sostenible",
     "endmode": "auto",
-    "description": "Se requiere inversión para el mejoramiento y mantenimiento de los recursos ambientales de la ciudad para permitir su sostenibilidad. Es importante identificar cuáles son los puntos críticos para que la inversión sea efectiva y eficiente, y para ello se requiere un estudio. Esta acción requiere el archivo \"Indicadores de medio ambiente\" como insumo.",
+    "description": "Se requiere inversión para el mejoramiento y mantenimiento de los recursos ambientales de la ciudad para permitir su sostenibilidad. Es importante identificar cuáles son los puntos críticos para que la inversión sea efectiva y eficiente, y para ello se requiere un estudio.<br/><required>Esta acción requiere el archivo \"Indicadores de medio ambiente\" como insumo.</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 5, 0, 0],
@@ -863,11 +863,11 @@
     ],
     "technologies": [],
     "files": ["f10"]
-},{
+}, {
     "id": "a37",
     "name": "Implementar sistema de simulación para clases de conducción",
     "endmode": "manual",
-    "description": "Tener conductores bien formados y respetuosos con las reglas de movilidad disminuirá el número de accidentes y ayudará a contar con ciudadanos más educados, y esto puede lograrse a través de capacitaciones en simuladores. No obstante también puede promover la adquisición de un mayor número de vehículos lo que afectaría el urbanismo de la ciudad. Esta acción requiere la tecnología \"Conductor experto\".",
+    "description": "Tener conductores bien formados y respetuosos con las reglas de movilidad disminuirá el número de accidentes y ayudará a contar con ciudadanos más educados, y esto puede lograrse a través de capacitaciones en simuladores. No obstante también puede promover la adquisición de un mayor número de vehículos lo que afectaría el urbanismo de la ciudad.<br/><required>Esta acción requiere la tecnología \"Conductor experto\".</required>",
     "endtime": 15,
     "newresources": 0,
     "zones": [0, 9, -3, 0, 0, 2],
@@ -887,11 +887,11 @@
     ],
     "technologies": ["t15" ],
     "files": []
-},{
+}, {
     "id": "a38",
     "name": "Implementar voto electrónico",
     "endmode": "auto",
-    "description": "Una ciudad sostenible requiere de una buena participación ciudadana y confianza en dicha participación. Emplear tecnología moderna permite lograrlo, y de esta forma se mejoraría la gobernabilidad y la confianza en la misma. Esta acción requiere la tecnología del \"Blockchain\".",
+    "description": "Una ciudad sostenible requiere de una buena participación ciudadana y confianza en dicha participación. Emplear tecnología moderna permite lograrlo, y de esta forma se mejoraría la gobernabilidad y la confianza en la misma.<br/><required>Esta acción requiere la tecnología del \"Blockchain\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 0, 0, 5, 5],
@@ -911,11 +911,11 @@
     ],
     "technologies": ["t16" ],
     "files": []
-},{
+}, {
     "id": "a39",
     "name": "Predicción de lluvias",
     "endmode": "auto",
-    "description": "Pronósticar las lluvias y su intensidad trae grandes beneficios tanto para la prevención de accidentes así como para la planeación de cambios urbanísticos. Esta acción requiere la tecnología \"Computación cuántica\" o la tecnología de \"Computación en la nube\".",
+    "description": "Pronósticar las lluvias y su intensidad trae grandes beneficios tanto para la prevención de accidentes así como para la planeación de cambios urbanísticos.<br/><required>Esta acción requiere la tecnología \"Computación cuántica\" o la tecnología de \"Computación en la nube\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [0, 0, 3, 0, 0, 3],
@@ -935,11 +935,11 @@
     ],
     "technologies": ["t17", "t1" ],
     "files": []
-},{
+}, {
     "id": "a40",
     "name": "Prevención y atención de desastres",
     "endmode": "auto",
-    "description": "Para mantener la habitabilidad de una zona es importante que sus ciudadanos se sientan seguros, más si se trata de una zona de riesgo. Por ello es importante implementar tecnologías para la prevención de desastres, y con ello no solo mejora la seguridad sino también la gobernabilidad y los índices de salud preventiva. Sin embargo, debido al equipo requerido, puede afectarse un poco el urbanismo. Esta acción requiere la tecnología \"PrevenGlobal\" o \"SmartPrevention\".",
+    "description": "Para mantener la habitabilidad de una zona es importante que sus ciudadanos se sientan seguros, más si se trata de una zona de riesgo. Por ello es importante implementar tecnologías para la prevención de desastres, y con ello no solo mejora la seguridad sino también la gobernabilidad y los índices de salud preventiva. Sin embargo, debido al equipo requerido, puede afectarse un poco el urbanismo.<br/><required>Esta acción requiere la tecnología \"PrevenGlobal\" o \"SmartPrevention\".</required>",
     "endtime": 2,
     "newresources": 0,
     "zones": [3, 0, -2, 0, 2, 8],
@@ -959,7 +959,7 @@
     ],
     "technologies": ["t19", "t20"],
     "files": []
-},{
+}, {
     "id": "a41",
     "name": "Préstamo de vehículos ecológicos",
     "endmode": "manual",
@@ -983,7 +983,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a42",
     "name": "Adopción de sistema para el reporte de incidentes o accidentes",
     "endmode": "auto",
@@ -1007,11 +1007,11 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a43",
     "name": "Disminución del desempleo",
     "endmode": "manual",
-    "description": "El tema del desempleo ha sido un factor fundamental del buen gobierno. Emplear tecnología moderna para brindar una buena oferta y atender la demanda correspondiente brindará no solo una solución para este factor, sino también que aumentará la confianza de los ciudadanos por sentirse respaldados y escuchados. Esta acción requiere el archivo \"Bolsa de empleo\" como insumo.",
+    "description": "El tema del desempleo ha sido un factor fundamental del buen gobierno. Emplear tecnología moderna para brindar una buena oferta y atender la demanda correspondiente brindará no solo una solución para este factor, sino también que aumentará la confianza de los ciudadanos por sentirse respaldados y escuchados.<br/><required>Esta acción requiere el archivo \"Bolsa de empleo\" como insumo además del análisis a través de la tecnología \"Big Data\".</required>",
     "endtime": 14,
     "newresources": 0,
     "zones": [2, 0, 0, 0, 5, 1],
@@ -1029,9 +1029,9 @@
             "value": 10
         }
     ],
-    "technologies": [],
+    "technologies": ["t4"],
     "files": ["f11"]
-},{
+}, {
     "id": "a44",
     "name": "Apoyar huertos urbanos",
     "endmode": "auto",
@@ -1055,7 +1055,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a45",
     "name": "Salud preventiva",
     "endmode": "auto",
@@ -1079,7 +1079,7 @@
     ],
     "technologies": [],
     "files": []
-},{
+}, {
     "id": "a46",
     "name": "Estrategia de compartir viaje - transporte al trabajo",
     "endmode": "auto",
