@@ -431,7 +431,7 @@ html.single #full-instructions h2 {
     grid-column: span 3;
 }
 
-.health-update-notice, .capacity-resources-box {
+.health-update-notice, .capacity-resources-box, .current-week {
     padding: 2px;
     text-align: center;
     background: #fff;
@@ -450,7 +450,15 @@ html.single #full-instructions h2 {
 }
 
 .health-update-notice.warning {
-    color: #925653;
+    color: red;
+}
+
+.current-week {
+    margin-top: 10px;
+}
+
+.current-week span {
+    font-weight: bold;
 }
 
 .human-resources-box {
@@ -693,9 +701,24 @@ html.single #full-instructions h2 {
     margin: 5px 0;
     flex: 1;
 }
+
 .asset-viewer .description-wrapper .description {
     color: #88868B;
     margin: 10px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.asset-viewer .description-wrapper .description required {
+    font-weight: bold;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: block;
+    background-color: #ddf0f0;
+    box-shadow: 0 -3px 6px #bbb;
+    text-align: center;
 }
 
 .asset-viewer .content-box {
@@ -803,7 +826,7 @@ html.single #full-instructions h2 {
 }
 
 .asset-viewer .header .btn {
-    display: 'block';
+    display: block;
     margin: 5px auto;
     width: 150px;
     height: 45px;
@@ -812,7 +835,9 @@ html.single #full-instructions h2 {
     flex: none;
 }
 
-
+.asset-viewer .header .btn:hover {
+    color: #fff;
+}
 
 /************************************************/
 /************************************************/

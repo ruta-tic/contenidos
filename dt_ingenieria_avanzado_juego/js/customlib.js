@@ -291,7 +291,7 @@
     }
 
     function onGameStart(msg) {
-        //call the game state    
+        //call the game state
         gameOverReason = '';
         gameOverLapse = undefined;
         $(".game-entry .btn").off('click');
@@ -434,6 +434,7 @@
 
     function onLapseChanged(msg) {
         gameState.currentlapse = msg.data.lapse;
+        updateCurrentLapse(gameState.currentlapse);
         gameState.updatelapses = gameState.currentlapse - gameState.lastmeasured;
         updateHealthNotice();
     }
@@ -467,7 +468,7 @@
         };
 
         loading = false;
-        var feedback = $('#feedback-game'+gameOverReason).html();        
+        var feedback = $('#feedback-game'+gameOverReason).html();
         feedback = feedback.replace('{timelapse}', state.endlapse);
 
         // Report to scorm.
@@ -495,7 +496,7 @@
                 activeGame = it;
             }
             if (it.state == 'locked') {
-                if (!activeGame) {                    
+                if (!activeGame) {
                     $('.btn.level').on('click', startGame);
                     activeGame = it;
                 }
@@ -602,6 +603,7 @@
             ));
         });
         updateHealth(gameState.health);
+        updateCurrentLapse(gameState.currentlapse);
         var $files = $gameBoard.find('.content-box.files .content');
         //load files
         loadCollection($files, gameState.files, setup.files, 'file', 'file');
@@ -628,9 +630,14 @@
         $gameBoard.find('.toolbar .duedate').html(toDateTime(duedate, { seconds: false }));
     }
 
+    function updateCurrentLapse(lapse) {
+        $gameBoard.find('.current-week span').html(lapse);
+    }
+
     function updateBtnTimeframeLabel() {
         $gameBoard.find('.toolbar .btn.timeframe label').html(gameState.timeframe == 1 ? 'Acelerar' : 'Desacelerar');
     }
+
     function updateHealth(health) {
         if ('details' in health) {
             $.each(health.details, function(i, it) {
@@ -640,7 +647,7 @@
                 $zone.find('.progress').html(it.value + ' %');
             });
         }
-        
+
         if ('general' in health) {
             $gameBoard.find('.healthy-box .display').html(health.general+'%');
         }
@@ -653,7 +660,7 @@
 
     function updateHealthNotice() {
         //lastmeasured: timestamp
-        var week = (gameState.updatelapses == 0) ? 'justo ahora' : 
+        var week = (gameState.updatelapses == 0) ? 'justo ahora' :
             (gameState.updatelapses == 1) ? ' hace una semana' : 'hace ' + gameState.updatelapses + ' semanas';
         var $notice = $('.health-update-notice').html('Actualizado por última vez ' + week).removeClass('warning');
 
@@ -663,7 +670,7 @@
 
         var weeks = gameState.lapses - gameState.currentlapse;
         var text = weeks == 1 ? ' una semana ' : weeks + ' semanas';
-        $(".clock-display").html() 
+        $(".clock-display").html()
     }
 
     function updateResourceBoxes(resources) {
@@ -727,15 +734,19 @@
         //Check technologies
         if (action.technologies.length) {
             var missingTechs = [];
+            var hasOneTech = false;
             $.each(action.technologies, function(i, it) {
                 if (!gameState.technologies.running.find(findById(it))) {
                     var tech = setup.techs.find(findById(it));
                     missingTechs.push(tech.name);
+                } else {
+                    hasOneTech = true;
                 }
             });
-            if (missingTechs.length) {
-                var suffix = missingTechs.length == 1 ? 'la siguiente tecnología: ' : 'las siguientes tecnologías: ';
-                missingRequirements.push('Para ejecutar está política debe estar ejecutando ' + suffix + missingTechs.join(', '));
+
+            if (!hasOneTech) {
+                var suffix = missingTechs.length == 1 ? 'la siguiente tecnología: ' : 'una de las siguientes tecnologías: ';
+                missingRequirements.push('Para ejecutar está política debe estar ejecutando ' + suffix + missingTechs.join(', ') + '.');
             }
         }
         //Check files
@@ -770,7 +781,7 @@
             action: actions.PLAYACTION,
             data: { id: action.id }
         };
-        socketSendMsg(msg);        
+        socketSendMsg(msg);
         $assetViewer.dialog('close');
     }
 
@@ -824,7 +835,7 @@
             stopFn = stopTech;
             confirmation = 'Al detener la tecnología se liberarán los recursos de ejecución de la misma, pero las políticas que dependen de ella no se pueden ejecutar. ¿Desea continuar?'
         }
-        
+
         confirmDlg(confirmation).then(function() {
             stopFn.apply(null, [asset]);
         });
@@ -963,11 +974,17 @@
     function techAssetInfo(asset) {
         var infoTpl = $('#tech-card').html();
         $.each(asset.resources, function(i, it) {
-            infoTpl = infoTpl.replace('{'+it.type+'}', it.value + ' %');
+            infoTpl = infoTpl.replace('{'+it.type+'}', it.value + '%');
         });
 
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
-        infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+
+        if (!asset.endtime || asset.endtime == "0") {
+            infoTpl = infoTpl.replace('{duration}', 'Siguiente semana');
+        }
+        else {
+            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+        }
 
         var infiles = $.map(asset.files.in || [], function(it, i) {
             var file = setup.files.find(findById(it));
@@ -998,7 +1015,14 @@
         });
 
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
-        infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+
+        if (!asset.endtime || asset.endtime == "0") {
+            infoTpl = infoTpl.replace('{duration}', 'Siguiente semana');
+        }
+        else {
+            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+        }
+
         $.each(asset.zones, function(i, it) {
             infoTpl = infoTpl.replace('{zone_'+i+'}', it + ' %');
         });
