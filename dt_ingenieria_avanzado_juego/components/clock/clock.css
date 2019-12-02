@@ -34,6 +34,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: var(--ledHeight);
+
 }
 
 /*Lighting up the correct leds to make the digits.*/
@@ -71,6 +72,12 @@
 }
 
 .inactive .led::after { border-color: transparent; }
+
+.segment {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
 
 .number {
     width: calc(var(--ledHeight) * 2.5);

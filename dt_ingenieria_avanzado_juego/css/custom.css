@@ -397,11 +397,16 @@ html.single #full-instructions h2 {
     border: solid 1px gray;
     background-color:#222;
     text-align:center;
-    padding: 10px;
+    padding: 4px;
     --ledWidth: 4px;
     --ledHeight: 12px;
     --ledOn: #ccc;
     display: inline-block;
+}
+
+.clock-box .clock .segment label {
+    font-size: 11px;
+    font-weight: normal;
 }
 
 .resource-box {

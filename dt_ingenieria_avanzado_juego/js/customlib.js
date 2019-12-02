@@ -66,6 +66,10 @@
     var zones = ['Salud', 'Educación', 'Urbanismo', 'Medio Ambiente', 'Gobierno', 'Seguridad'];
     var assetTypeLabels = { action: 'Politica', 'tech': 'Tecnología', 'file': 'Archivo' };
     var gameOverReason = '';
+    var gameOverLapse;
+    var clock;
+    var countdown;
+    var countdownInterval;
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTART] = onGameStart;
@@ -289,6 +293,7 @@
     function onGameStart(msg) {
         //call the game state    
         gameOverReason = '';
+        gameOverLapse = undefined;
         $(".game-entry .btn").off('click');
         if (app.scorm) {
             var scorm_id = `${scorm_id_prefix}-${msg.data.level}`;
@@ -304,7 +309,7 @@
         gameState = data;
         serverTime = data.currenttime;
 
-        setInterval(updateClock, 1000);
+        //setInterval(updateClock, 1000);
         //Set user info
         $.each(data.team, function (i, it) { //ToDo: process the team as required
             if (it.id == sessionData.userid) {
@@ -344,6 +349,9 @@
         gameState.timeframe = msg.data.timeframe;
         updateBtnTimeframeLabel();
         updateDuedate(msg.data.duedate);
+        gameState.health.lifetime = msg.data.lifetime;
+        initializeCountdown();
+        clock.refresh();
     }
 
     function onPlayAction(msg) {
@@ -437,6 +445,7 @@
     function onGameOver(msg) {
         //ddd
         gameOverReason = msg.data.reason;
+        gameOverLapse = msg.data.endlapse;
         loading = true;
         socketSendMsg({ action: actions.GAMESTATE });
     }
@@ -454,14 +463,13 @@
             starttime: gameState.starttime,
             score: gameState.health.general,
             duedate: gameState.duedate,
-            currentlapse: gameState.currentlapse,
+            endlapse: gameOverLapse || gameState.currentlapse,
             timeelapsed: gameState.timeelapsed
         };
 
         loading = false;
-        console.log(gameOverReason);
         var feedback = $('#feedback-game'+gameOverReason).html();        
-        feedback = feedback.replace('{timelapse}', gameState.currentlapse);
+        feedback = feedback.replace('{timelapse}', state.endlapse);
 
         // Report to scorm.
         if (app.scorm) {
@@ -895,7 +903,6 @@
         var assetView = $asset.data();
 
         if (assetView.itemId == 'help' && assetView.type == 'file') {
-            console.log('hhhhh');
             return;
         }
 
@@ -1026,23 +1033,71 @@
         socketSendMsg(msg);
     }
 
+    function initializeCountdown() {
+        var period = gameState.timelapse / Math.pow(2, gameState.timeframe - 1);
+        var weeks = Math.floor(gameState.health.lifetime / period, 0);
+        var days = Math.floor((gameState.health.lifetime % period) * 7 / period);
+        if (days < 6) {
+            days++;
+        }
+        else {
+            days = 0;
+            weeks++;
+        }
+        countdown = {
+            hours: 0,
+            minutes: weeks,
+            seconds: days //Math.floor(days * 7 / period)
+        };
+    }
+
     function showClock() {
-        var elapsedTime = new Date(1970, 0, 1, 0, 2, 0).getTime() / 1000;
-        var clock = new Countdown({
+        initializeCountdown();
+        clock = new Countdown({
             onComplete: onCountDownComplete,
-            showMinutes: false
+            separator: '&nbsp;',
+            showLabels: true,
+            labels: {
+                minutes: 'Semanas',
+                seconds: 'Días'
+            },
+            timer: createCountdownTimer
         });
         var $clock = $('.clock-box').show();
-        clock.init($clock.find('.clock').get(0), new Date(elapsedTime * 1000));
-        clock.init($clock.find('.clock').get(1), new Date(elapsedTime * 1000));
+        clock.init($clock.find('.clock').get(0), new Date());
     }
 
     function onCountDownComplete() {
-        //$('.clock-box').hide();
     }
 
-    function updateCountDown() {
+    function createCountdownTimer(updateDisplay) {
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+        }
+        updateDisplay(countdown);
+        var period = gameState.timelapse / Math.pow(2, gameState.timeframe - 1);
+        updateCountdown(updateDisplay);
+        countdownInterval = setInterval(function() {
+            updateCountdown(updateDisplay);
+        }, 1000 * period / 7);
+    }
 
+    function updateCountdown(updateDisplay) {
+        var minute = countdown.minutes;
+        var seconds = countdown.seconds;
+        if (seconds == 0) {
+            seconds = 6;
+            minute--;
+        }
+        else {
+            seconds--;
+        }
+        countdown.minutes = minute;
+        countdown.seconds = seconds;
+        updateDisplay(countdown);
+        if (minute == 0) {
+            clearInterval(countdownInterval);
+        }
     }
 
     function loadChatHistory() {
