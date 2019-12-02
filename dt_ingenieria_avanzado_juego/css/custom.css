@@ -235,11 +235,6 @@ header {
     background-color: #fff;
 }
 
-/*.instructions-container:hover {
-    height: 50%;
-    z-index: 2;
-}*/
-
 
 #instructions {
     font-size: 14px;
@@ -274,6 +269,17 @@ html.single #full-instructions h2 {
     display: flex;
     flex-flow: row;
     justify-content: center;
+}
+
+.level-button-list {
+    display: flex;
+    margin: 10px;
+    flex-flow: column;
+}
+
+.level-button-list .btn {
+    margin: 5px;
+    outline: none;
 }
 
 .game-entry {
@@ -477,9 +483,26 @@ html.single #full-instructions h2 {
     font-size: 14px;
 }
 
+.game-board .toolbar .button-group {
+    flex: none;
+}
+
 .game-board .toolbar button {
     margin: 2px;
     font-size: 12px;
+}
+
+.game-board .toolbar button i {
+    font-size: 18px;
+}
+
+.toolbar .duedate {
+    white-space: nowrap;
+}
+
+.toolbar .btn.general[disabled]:hover:after {
+    content: none;
+    cursor: default;
 }
 
 .execution-box .title, .content-box .title {
@@ -562,6 +585,7 @@ html.single #full-instructions h2 {
 
 .box-content .icon:hover, .content .icon:hover {
     transform: scale(1.2);
+    transform-origin: bottom;
     opacity: 1;
 }
 

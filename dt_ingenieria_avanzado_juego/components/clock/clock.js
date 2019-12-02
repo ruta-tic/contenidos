@@ -1,11 +1,12 @@
 (function(app){
-    function Countdown(onComplete, showHours) {
+    function Countdown(options) {
+        options = options || {};
         var _element;
         var _updater;
         var _timeLeft;
-        var _showHours = showHours === true;
-        var _showMinutes = false;
-        var _onComplete = onComplete;
+        var _showHours = options.showHours === true;
+        var _showMinutes = !(options.showMinutes === false);
+        var _onComplete = options.onComplete;
 
         function createDigit(extraClass) {
             var digit = document.createElement('div');
@@ -90,7 +91,7 @@
 
             if (_timeLeft == 0) {
                 clearInterval(_updater);
-                onComplete && onComplete();
+                _onComplete && _onComplete();
             }
         }
 
@@ -103,7 +104,6 @@
             _timeLeft = timeLeft
             _timeLeft.setSeconds(_timeLeft.getSeconds() + 1);
             timer();
-
             //_updater = setInterval(timer, 1000);
         }
     }

@@ -309,7 +309,7 @@
             "value": 5
         }
     ],
-    "technologies": ["t3" ],
+    "technologies": [],
     "files": ["f2"]
 },{
     "id": "a14",
@@ -675,7 +675,7 @@
     "id": "a29",
     "name": "Puesto de información de asistente virtual",
     "endmode": "manual",
-    "description": "Brindarle a la población la oportunidad de responder sus inquietudes y orientarles sobre ciertos aspectos relativos a la ciudad mejorará su habitabilidad y brindará soluciones a los ciudadanos, haciéndolos sentir tranquilos. Esta acción requiere el archivo con los \"resultados de búsqueda\".",
+    "description": "Brindarle a la población la oportunidad de responder sus inquietudes y orientarles sobre ciertos aspectos relativos a la ciudad mejorará su habitabilidad y brindará soluciones a los ciudadanos, haciéndolos sentir tranquilos. <br/>Esta acción requiere el archivo con los \"resultados de búsqueda\" y la tecnología de BigData para el preanálisis de los datos.",
     "endtime": 8,
     "newresources": 0,
     "zones": [0, 0, 2, 0, 0, 2],
@@ -693,7 +693,7 @@
             "value": 7
         }
     ],
-    "technologies": ["t7" ],
+    "technologies": ["t4"],
     "files": ["f4"]
 },{
     "id": "a30",
@@ -741,7 +741,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t9" ],
+    "technologies": [],
     "files": ["f5"]
 },{
     "id": "a32",
@@ -765,7 +765,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t10" ],
+    "technologies": [],
     "files": ["f6"]
 },{
     "id": "a33",
@@ -789,7 +789,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t11" ],
+    "technologies": [],
     "files": ["f7"]
 },{
     "id": "a34",
@@ -813,7 +813,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t12" ],
+    "technologies": [],
     "files": ["f8"]
 },{
     "id": "a35",
@@ -837,7 +837,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t13" ],
+    "technologies": [],
     "files": ["f9"]
 },{
     "id": "a36",
@@ -861,7 +861,7 @@
             "value": 6
         }
     ],
-    "technologies": ["t14" ],
+    "technologies": [],
     "files": ["f10"]
 },{
     "id": "a37",

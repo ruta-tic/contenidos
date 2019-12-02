@@ -53,6 +53,7 @@
     var $podioCnr;
     var $chatCnr;
     var $chatHist;
+    var $levelSelector;
     var playedcards = [];
     var actionHandlers = {};
     var scorm_id_prefix;
@@ -64,6 +65,7 @@
     var $assetViewer;
     var zones = ['Salud', 'Educación', 'Urbanismo', 'Medio Ambiente', 'Gobierno', 'Seguridad'];
     var assetTypeLabels = { action: 'Politica', 'tech': 'Tecnología', 'file': 'Archivo' };
+    var gameOverReason = '';
     actionHandlers[actions.CHATMSG] = onChatMessage;
     actionHandlers[actions.CHATHISTORY] = onChatHistory;
     actionHandlers[actions.GAMESTART] = onGameStart;
@@ -91,7 +93,8 @@
         return str.substring(str.length-2);
     }
 
-    function toDateTime(timestamp) {
+    function toDateTime(timestamp, options) {
+        options = options || {};
         var date = new Date(timestamp * 1000),
             year = date.getFullYear(),
             month = padNumber(date.getMonth()+1),
@@ -99,12 +102,17 @@
             hours = padNumber(date.getHours()),
             minutes = padNumber(date.getMinutes()),
             seconds = padNumber(date.getSeconds());
+        var segments = [year, '-', month, '-', day, ' ', hours, ':', minutes];
 
-        return [year, '-', month, '-', day, ' ', hours, ':', minutes, ':', seconds].join('');
+        if (!(options.seconds === false)) {
+            segments.push(':', seconds);
+        }
+
+        return segments.join('');
     }
 
-    function toDate(timestamp) {
-        return toDateTime(timestamp).substring(0, 10);
+    function toDate(timestamp, options) {
+        return toDateTime(timestamp, options).substring(0, 10);
     }
 
     function getAuthUrl() {
@@ -155,12 +163,10 @@
         var pactions = $.getJSON('content/actions.json');
         var pfiles = $.getJSON('content/files.json');
         $.when(ptechs, pactions, pfiles).done(function(rtechs, ractions, rfiles) {
-            console.log(rtechs);
             setup.techs = rtechs[0] || [];
             setup.actions = ractions[0] || [];
             setup.files = rfiles[0] || [];
         }).fail(function(err1, err2, err3) {
-            console.log('err');
             console.log(err1);
             console.log(err2);
             console.log(err3);
@@ -231,7 +237,9 @@
         try {
             var msg = JSON.parse(e.data);
             if (handleSocketError(msg)) return;
-            console.log(msg);
+            if (dhbgApp.socketLog) {
+                console.log(msg);
+            }
             var method = actionHandlers[msg.action];
             method && method.apply(this, [msg]);
         }
@@ -280,16 +288,21 @@
 
     function onGameStart(msg) {
         //call the game state    
+        gameOverReason = '';
         $(".game-entry .btn").off('click');
+        if (app.scorm) {
+            var scorm_id = `${scorm_id_prefix}-${msg.data.level}`;
+            if (!app.scorm.activities[scorm_id]) { app.scorm.activities[scorm_id] = []; }
+        }
+
+        closeDialog($levelSelector);
         socketSendMsg({ action: actions.GAMESTATE });
     }
 
     function onGameState(msg) {
         var data = msg.data;
-        console.log(data);
         gameState = data;
         serverTime = data.currenttime;
-        currentServerPoints = data.points;
 
         setInterval(updateClock, 1000);
         //Set user info
@@ -302,6 +315,15 @@
         //Load game history
         activeGame = null;
         loadGameHistory(data.games);
+
+        if (gameOverReason != '') {
+            closeDialog($assetViewer);
+            closeDialog($levelSelector);
+            onGameFinished();
+            gameOverReason = '';
+            return;
+        }
+
         if (activeGame && activeGame.state == 'active') {
             loadGameBoard();
             showClock();
@@ -309,59 +331,19 @@
         else {
             loadHome();
         }
-        //Load cases
-        /*
-        currentCase = undefined;
-        $.each(data.cases, function(i, it) {
-            $levelCnr.find('.case-0'+(i+1))
-                .removeClass(function (idx, className) { return (className.match (/(^|\s)case-(active|locked|failed|passed)+/g) || []).join(' ');})
-                .addClass('case-'+it.state)
-                .on('click', { "id": it.id, "state": it.state, "attempt": it.attempt }, onCaseFeedback);
-
-            if (it.state == 'active') {
-                currentCase = it;
-                currentCase.ordinal = i + 1;
-            }
-        });
-
-        //Prepare played cards
-        playedcards = data.playedcards || [];
-        currentTeam = data.team;
-
-        var meRoles = [];
-        $.each(currentTeam, function(k, item) {
-
-            if (item.id == sessionData.userid) {
-                $.each(item.roles, function (m, role) {
-                    meRoles[meRoles.length] = roleName(role);
-                });
-            }
-        });
-        */
-        //$('.chat-header .roles div').html(meRoles.join(', '));
-        //Update the scorm value if required
-        /*
-        var lastCase = currentCase ? currentCase.ordinal - 1 : cases.length;
-        console.log(lastCase);
-        if (app.scorm && lastCase > 0) {
-            var prevCase = data.cases[lastCase - 1];
-            var key = `${scorm_id_prefix}-${prevCase.id}`;
-            var values = app.scorm.getActivityValue(key);
-            if (values && values.length < prevCase.attempt) {
-                app.scorm.activityAttempt(key, getCaseValue(prevCase, prevCase.state == 'passed'));
-            }
-        }
-
-        if (currentCase == undefined || getTotalPoints() >= 300) {
-            gameState = 'ended';
-        }
-        */
         $gameCnr.removeClass('loading');
     }
 
+    function closeDialog($dialog) {
+        if ($dialog.dialog('isOpen')) {
+            $dialog.dialog('close');
+        }
+    }
+
     function onChangeTimeFrame(msg) {
-        console.log('onChangeTimeFrame');
-        console.log(msg);
+        gameState.timeframe = msg.data.timeframe;
+        updateBtnTimeframeLabel();
+        updateDuedate(msg.data.duedate);
     }
 
     function onPlayAction(msg) {
@@ -454,38 +436,8 @@
 
     function onGameOver(msg) {
         //ddd
-    }
-
-    function onEndCase(msg) {
-        //Disable all actions
-        var correct = playedcards.length == MINREQPLAYEDCARDS &&
-            playedcards.find(function(it) { return it.cardcode != currentCase.id }) == undefined;
-
-        var weight = getCaseValue(currentCase, correct);
-        var state = {
-            team: $.map(currentTeam, function(it) { return { id: it.id, name: it.name, roles: it.roles }; }),
-            playedcards: playedcards,
-            case: currentCase
-        };
-
-        if (weight > 0) {
-            $('[data-case="' + currentCase.id + '"][data-state="passed"]').dialog('open');
-        }
-        else {
-            if (currentCase.attempt == 1) {
-                $('#feedback-attempt1-failed').dialog('open');
-            }
-            else {
-                $('[data-case="' + currentCase.id + '"][data-state="failed"]').dialog('open');
-            }
-        }
-
-        // Report to scorm.
-        if (app.scorm) {
-            var scorm_id = `${scorm_id_prefix}-${currentCase.id}`;
-            app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
-        }
-
+        gameOverReason = msg.data.reason;
+        loading = true;
         socketSendMsg({ action: actions.GAMESTATE });
     }
 
@@ -493,6 +445,34 @@
     }
 
     function onPlayerDisconnected(msg) {
+    }
+
+    function onGameFinished() {
+        var weight = (gameOverReason == 'passed') ? 100 : 70;
+        var state = {
+            level: gameState.level,
+            starttime: gameState.starttime,
+            score: gameState.health.general,
+            duedate: gameState.duedate,
+            currentlapse: gameState.currentlapse,
+            timeelapsed: gameState.timeelapsed
+        };
+
+        loading = false;
+        console.log(gameOverReason);
+        var feedback = $('#feedback-game'+gameOverReason).html();        
+        feedback = feedback.replace('{timelapse}', gameState.currentlapse);
+
+        // Report to scorm.
+        if (app.scorm) {
+            var scorm_id = `${scorm_id_prefix}-${state.level}`;
+            app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
+        }
+
+        showMsg(INFO, feedback, 600).then(function() {
+            hideAll();
+            loadHome();
+        });
     }
 
     function loadGameHistory(games) {
@@ -507,9 +487,14 @@
             if (it.state == 'active') {
                 activeGame = it;
             }
-            if (it.state == 'locked' && !activeGame) {
-                $entry.find('.btn.locked').on('click', startGame);
-                activeGame = it;
+            if (it.state == 'locked') {
+                if (!activeGame) {                    
+                    $('.btn.level').on('click', startGame);
+                    activeGame = it;
+                }
+                else {
+                    $entry.find('.btn.locked').css('visibility', 'hidden');
+                }
             }
         });
     }
@@ -589,11 +574,9 @@
         hideAll();
 
         $gameHome.toggle(true);
-        points = getTotalPoints();
         loadTemplate('#instructions', function($cnr) {
             app.floatingWindow($cnr.find('.wf-content'));
         });
-
 
         $gameCnr.removeClass('loading');
     }
@@ -628,10 +611,19 @@
         //action resources
         updateResourceBoxes(gameState.technologies.resources);
         updateResourceBoxes(gameState.actions.resources);
-
+        //Update duedate
+        updateDuedate(gameState.duedate);
+        updateBtnTimeframeLabel();
         $gameBoard.toggle(true);
     }
 
+    function updateDuedate(duedate) {
+        $gameBoard.find('.toolbar .duedate').html(toDateTime(duedate, { seconds: false }));
+    }
+
+    function updateBtnTimeframeLabel() {
+        $gameBoard.find('.toolbar .btn.timeframe label').html(gameState.timeframe == 1 ? 'Acelerar' : 'Desacelerar');
+    }
     function updateHealth(health) {
         if ('details' in health) {
             $.each(health.details, function(i, it) {
@@ -677,6 +669,9 @@
 
     function loadCollection($container, collection, store, type, className) {
         $container.empty();
+        if (type == 'file') {
+            collection.splice(0, 0, { id: "help", creationtime: "" });
+        }
         $.each(collection, function (i, it) {
             var creationtime = type == 'file' ? it.creationtime : it.starttime;
             var id = typeof(it) == 'object' ? it.id : it;
@@ -685,7 +680,9 @@
     }
 
     function appendCollectionItem($container, id, type, store, className, creationtime) {
-        var item = store.find(findById(id));
+        var isHelp = type == 'file' && id == 'help';
+        var item = isHelp ? { id: 'help', name: 'Ayuda' } : store.find(findById(id));
+
         if (!item) return true;
         item = $.extend({}, item);
         var html = ['<i class="asset icon ', item.id, ' ',
@@ -701,6 +698,10 @@
         if ($item.is('.running')) {
             var $avail = $item.closest('.execution-box').find('.available .asset.icon.'+item.id);
             if ($avail.length) $avail.hide();
+        }
+
+        if (isHelp) {
+            $item.addClass('f12 wf-content-controler').attr('data-content', '#full-instructions');
         }
     }
 
@@ -762,7 +763,7 @@
             action: actions.PLAYACTION,
             data: { id: action.id }
         };
-        socketSendMsg(msg);
+        socketSendMsg(msg);        
         $assetViewer.dialog('close');
     }
 
@@ -800,7 +801,6 @@
             action: actions.PLAYTECHNOLOGY,
             data: { id: tech.id }
         };
-        console.log('running tech');
         socketSendMsg(msg);
         $assetViewer.dialog('close');
     }
@@ -850,8 +850,6 @@
             return;
         }
 
-        //Confirm????
-
         var msg = {
             action: actions.STOPTECHNOLOGY,
             data: { id: tech.id }
@@ -861,9 +859,46 @@
         $assetViewer.dialog('close'); //Close???
     }
 
+    function changeTimeframe () {
+        var confirmation = '¿Está seguro que desea cambiar la velocidad del juego?';
+        confirmDlg(confirmation).then(function() {
+            changeTimeframeFn();
+        });
+    }
+
+    function changeTimeframeFn() {
+        var msg = {
+            action: actions.CHANGETIMEFRAME,
+            data: { timeframe: gameState.timeframe == 1 ? 5 : 1 }
+        };
+        socketSendMsg(msg);
+        $('.toolbar .button-group .btn').attr('disabled', true);
+        setTimeout(function() {
+            $('.toolbar .button-group .btn').removeAttr('disabled');
+        }, 5000);
+    }
+
+    function endGame() {
+        var confirmation = '¿Está seguro que desea detener el juego?';
+        confirmDlg(confirmation).then(function() {
+            stopGame();
+        });
+    }
+
+    function stopGame() {
+        var msg = { action: actions.GAMEOVER };
+        socketSendMsg(msg);
+    }
+
     function openAssetViewer($event) {
         var $asset = $($event.target)
         var assetView = $asset.data();
+
+        if (assetView.itemId == 'help' && assetView.type == 'file') {
+            console.log('hhhhh');
+            return;
+        }
+
         var source = setup[assetView.itemType+'s'];
         if (!source) return;
         var asset = source.find(findById(assetView.itemId));
@@ -981,17 +1016,22 @@
         return function(it) { return it.id == id; };
     }
 
-    function startGame() {
+    function startGame(event) {
+        var level = $(event.target).data().level;
         var msg = {
             action: actions.GAMESTART,
-            data: { level: 0 }
+            data: { level: level || 1 }
         };
+        $levelSelector.dialog('close');
         socketSendMsg(msg);
     }
 
     function showClock() {
         var elapsedTime = new Date(1970, 0, 1, 0, 2, 0).getTime() / 1000;
-        var clock = new Countdown(onCountDownComplete);
+        var clock = new Countdown({
+            onComplete: onCountDownComplete,
+            showMinutes: false
+        });
         var $clock = $('.clock-box').show();
         clock.init($clock.find('.clock').get(0), new Date(elapsedTime * 1000));
         clock.init($clock.find('.clock').get(1), new Date(elapsedTime * 1000));
@@ -1018,22 +1058,6 @@
 
     function btnSendOnClick(event) {
         sendChatMsg();
-    }
-
-    function btnPlayCardOnClick(event) {
-        var $card = $(event.target).closest('.card');
-        if (!$card.hasClass(activeRole)) return; //This should never happend, but just in case
-
-        $card.find('.card-header,.card-content').hide();
-        var group = $card.data().group;
-        var card = { cardtype: activeRole, cardcode: group };
-        dropCard(card);
-        $(deckViewer.el).find('.swiper-slide').removeClass('can-play');
-        playedcards.push(card);
-        socketSendMsg({
-            action: actions.PLAYCARD,
-            data: card
-        });
     }
 
     function btnGoToHomeOnClick(event) {
@@ -1066,6 +1090,7 @@
         $gameCnr = $('.game-container');
         $chatCnr = $(".chat-container");
         $chatHist = $(".chat-history");
+        $levelSelector = $('#game-level-selector');
 
         //bind event handlers
         $('.btn.send').on('click', btnSendOnClick);
@@ -1075,18 +1100,13 @@
         $gameBoard.on('click', '.asset', openAssetViewer);
         $gameCnr.on('click', '.btn.execute', startEngine);
         $gameCnr.on('click', '.btn.stop', stopEngine);
+        $gameCnr.on('click', '.btn.timeframe', changeTimeframe);
+        $gameCnr.on('click', '.btn.endgame', endGame);
         $chatHist.on('scroll', onChatHistScroll);
 
         //register for scorm
-        /*
-        scorm_id_prefix = $gameCnr.data().actId || 'game-pandemia';
-        if (app.scorm) {
-            $.each(cases, function(i, it) {
-                var scorm_id = `${scorm_id_prefix}-${it}`;
-                if (!app.scorm.activities[scorm_id]) { app.scorm.activities[scorm_id] = []; }
-            });
-        }
-        */
+        scorm_id_prefix = $gameCnr.data().actId || 'game-startcity';
+
         if (sessionData.userpicture) {
             $(`<img src="${sessionData.userpicture}" alt="" />`).appendTo($chatCnr.find('.chat-header .avatar'));
         }
@@ -1095,35 +1115,10 @@
         loadChatHistory();
     }
 
-    function sortByRol(a, b) {
-        var roles = ["planner", "master", "media", "network", "tech"];
-        var scoreA = -1,
-            scoreB = -1,
-            $a = $(a),
-            $b = $(b);
-        for(var i = 0; i < roles.length; i++) {
-            if ($a.hasClass(roles[i])) scoreA = i;
-            if ($b.hasClass(roles[i])) scoreB = i;
-            if (scoreA >= 0 && scoreB >= 0) break;
-        }
-
-        return scoreA - scoreB;
-    }
-
-    function roleName(key) {
-        var roles = [];
-            roles["planner"] = 'Planner';
-            roles["master"] = 'Máster';
-            roles["media"] = 'Media';
-            roles["network"] = 'Red';
-            roles["tech"] = 'Tech';
-
-            return roles[key];
-    }
-
     function showMsg(type, msg) {
         var title = type == ERROR ? "Error" : "Información";
         var $dlg = $(`<div title="${title}"></div>`).html(msg);
+        var deferred = $.Deferred();
         $dlg.dialog({
             modal: true,
             autoOpen: true,
@@ -1131,10 +1126,12 @@
                 "ui-dialog": "game-message-dialog"
             },
             close: function() {
+                deferred.resolve();
                 $dlg.dialog('destroy').remove();
             },
             position: { my: 'center', at: 'center', of: '.gamezone-container' }
         });
+        return deferred.promise();
     }
 
     function confirmDlg(msg) {
@@ -1169,34 +1166,12 @@
         $(".game-board, .game-home").hide();
     }
 
-    function getTotalPoints() {
-        var progress = 0;
-        /*
-        if (currentServerPoints || currentServerPoints === 0) {
-            progress = currentServerPoints;
-        }
-        else if (app.scorm && app.scorm.lms) {
-            progress = app.scorm.getProgress() * 3;
-        }
-        else {
-            progress = Math.min(300, currentCase.ordinal * 100);
-        }
-        */
-        return progress;
-    }
-
-    function onCaseFeedback(event) {
-        if (event.data.state == 'passed' || event.data.state == 'failed') {
-            $('[data-case="' + event.data.id + '"][data-state="' + event.data.state + '"]').dialog('open');
-        }
-    }
-
     /**
      * Create scorm hook getActivityWeight
      */
-    app.scorm.getActivityWeight = function (activity_id) {
+    /*app.scorm.getActivityWeight = function (activity_id) {
         return 100 / 3;
-    }
+    }*/
 
     /**
      * Runs when all dom objects have been rendered.
@@ -1221,6 +1196,8 @@
             dialogClass: 'asset-viewer-dialog'
         });
     });
+
+    dhbgApp.socketSendMsg = socketSendMsg;
 
 })(dhbgApp);
 

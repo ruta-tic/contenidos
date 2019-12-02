@@ -316,6 +316,7 @@ dhbgApp.standard.start = function() {
         var $this = $(this);
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
+        var $dialog = $($this.attr('data-content'));
 
         if (w) {
             if (w.indexOf('%') >= 0) {
@@ -326,7 +327,7 @@ dhbgApp.standard.start = function() {
                 }
             }
 
-            $($this.attr('data-content')).dialog('option', 'width', w);
+            $dialog.dialog('option', 'width', w);
         }
 
         if (h) {
@@ -338,10 +339,17 @@ dhbgApp.standard.start = function() {
                 }
             }
 
-            $($this.attr('data-content')).dialog('option', 'height', h);
+            $dialog.dialog('option', 'height', h);
         }
 
-        $($this.attr('data-content')).dialog('open');
+        var dlgData = $dialog.data();
+        if (dlgData.position) {
+            $dialog.dialog('option', {
+                position: { my: dlgData.positionMy || 'center', at: dlgData.positionAt || 'center', of: dlgData.position }
+            });
+        }
+
+        $dialog.dialog('open');
         $('body').addClass('dhbgapp_fullview');
     });
 
