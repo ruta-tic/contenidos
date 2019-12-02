@@ -819,11 +819,11 @@
         var confirmation;
         if (asset.itemType == 'action') {
             stopFn = stopAction;
-            confirmation = 'Esta seguro?'
+            confirmation = 'Al detener una política se dejarán de generar los recursos correspondientes, pero se liberará el personal, infraestructura y energía requerida para su ejecución. ¿Desea continuar?'
         }
         else if (asset.itemType == 'tech') {
             stopFn = stopTech;
-            confirmation = 'Esta seguro?'
+            confirmation = 'Al detener la tecnología se liberarán los recursos de ejecución de la misma, pero las políticas que dependen de ella no se pueden ejecutar. ¿Desea continuar?'
         }
         
         confirmDlg(confirmation).then(function() {
@@ -887,7 +887,7 @@
     }
 
     function endGame() {
-        var confirmation = '¿Está seguro que desea detener el juego?';
+        var confirmation = 'Ya que ha decidido finalizar la partida, se hará una proyección con base en el estado actual del juego para determinar el resultado del mismo. ¿Desea continuar con la finalización?';
         confirmDlg(confirmation).then(function() {
             stopGame();
         });
