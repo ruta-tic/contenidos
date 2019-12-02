@@ -443,7 +443,6 @@
     }
 
     function onGameOver(msg) {
-        //ddd
         gameOverReason = msg.data.reason;
         gameOverLapse = msg.data.endlapse;
         loading = true;
