@@ -60,9 +60,9 @@
 </head>
 
 <body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030221">
-    <div id="top-decoration" class="not_print"></div>
 
     <div id="body" class="not_print">
+        <header></header>
         <div id="not_scorm_msg" style="display: none;"></div>
 
         <nav label="Características globales" class="globals">
@@ -74,9 +74,6 @@
                 <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
             </menu>
         </nav>
-
-        <header>
-        </header>
 
         <main style="display: none;">
 
@@ -176,8 +173,8 @@
                                 <div class="toolbar">
                                     <label>La partida terminará el 2019-12-09 08:00</label>
                                     <div>
-                                        <button class="general btn-timeframe">5x</button>
-                                        <button class="general btn-endgame">Finalizar partida</button>
+                                        <button class="general btn-timeframe"><i title="Velocidad del juego" class="ion-clock"></i> 5x</button>
+                                        <button class="general btn-endgame"><i title="Finalizar partida" class="ion-power"></i> Finalizar partida</button>
                                     </div>
                                 </div>
                             </div>
@@ -209,57 +206,44 @@
 </body>
 <script id="instructions" type="text/html">
     <div id="instructions">
-        <strong>¡Bienvenido!</strong>
+        <strong>¡Bienvenido a SmartCity!</strong>
         <p>
-            En equipo, deben ayudar a los profesores a resolver los casos. Hay que conseguir <strong>300 TIC puntos</strong> para ganar el juego. ¡Adelante!
+            El objetivo del juego es lograr el desarrollo sostenible de una ciudad a través de la implementación de políticas que la conviertan en una ciudad inteligente ¡Adelante!
         </p>
         <p>
             <button class="wf-content-controler general button" data-content="#full-instructions">Ver instrucciones completas</button>
         </p>
     </div>
     <div id="full-instructions" class="wf-content" title="Instrucciones">
-        <h2>Instrucciones del juego</h2>
-        <div class="instructions-wrapper accordion">
+        <h2>Reglas básicas</h2>
+        <div class="instructions-wrapper">
             <h3>Elementos del juego</h3>
             <ul class="data_list">
-                <li><strong>Anfitrión</strong> (sistema): responsable de hacer cumplir las reglas y asignar las cartas. Se hace automáticamente al inicio de cada caso.</li>
-                <li><strong>Chat</strong>: espacio disponible durante la partida para que los jugadores discutan y tomen decisiones sobre el caso. Además, muestra información sobre las acciones de los jugadores, tales como: ingresar al juego, jugar una carta, finalizar una partida, entre otros.</li>
-                <li><strong>Carta de reglas</strong>: una única carta disponible por cada caso y solamente la tendrá el <em>Máster</em>. En esta se dan todas las claves para solucionar las preguntas.</li>
-                <li><strong>Kit de cartas</strong>: 5 cartas de dones para cada uno de los jugadores que asuma el rol <em>Tech</em>, <em>Red</em> o <em>Media</em>. En la imagen 3 se puede apreciar el caso asignado, las preguntas para cada rol y las cartas para la solución.</li>
-                <li><strong>Botón de validación</strong>: permite terminar una partida. Solamente lo tiene disponible el <em>Planner</em> y estará habilitado únicamente cuando las cinco cartas estén en su lugar, como lo muestra la imagen 4.</li>
-                <li><strong>Ágora</strong> (medio elegido por los participantes para comunicarse): espacio en donde se realizan los “Consejos de profesores”. Si no se desea utilizar una herramienta externa, se cuenta con el chat en el juego.</li>
+                <li>El juego tiene una duración de un “año virtual” y se representa por medio de las 52 semanas del año.</li>
+                <li>Cada semana corresponde a una hora real, es decir, el juego puede durar máximo 52 horas reales.</li>
+                <li>Para facilitar la jugada de una partida en los casos que se requiera agilidad, los jugadores pueden acelerar el paso del tiempo en 5X, es decir, una semana virtual durará poco menos de 4 minutos y un juego completo duraría aproximadamente 3 horas y media.</li>
+                <li>La duración del juego puede ser mucho menor si se terminan los recursos, en ese caso se pierde el juego.</li>
+                <li>El juego tiene tres niveles de dificultad: bajo, medio y alto.</li>
+                <li>En el juego se tienen tres tipos de cartas o fichas de juego: las políticas, las tecnologías y los archivos.</li>
+                <li>Las cartas de políticas y de tecnología se reparten aleatoriamente al inicio entre todos los jugadores procurando que tengan el mismo número o un número cercano de cartas.</li>
+                <li>No hay turnos, los jugadores de manera síncrona pueden jugar sus cartas siempre y cuando dispongan de los recursos y requerimientos de cada una. Una carta se juega “ejecutando” la política o la tecnología.</li>
+                <li>Solo el jugador que juega determinada carta puede quitarla de las opciones en ejecución. Sin embargo, si la carta es de finalización automática, una vez que pase el tiempo necesario se retirará automáticamente de las cartas en ejecución y quedará disponible de nuevo.</li>
+                <li>Si una política depende de una tecnología, la tecnología no puede quitarse sin antes cancelar la política.</li>
+                <li>En cualquier momento los jugadores pueden “finalizar el juego”. Cuando se finaliza el juego, se hace una proyección de los recursos con base en lo generado hasta el momento, para determinar si se ganó o se perdió el juego.</li>
+                <li>Una vez finalizada la primera partida, se puede iniciar una segunda. Solamente se tienen dos partidas disponibles por grupo.</li>
             </ul>
 
-            <h3>Reglas de la misión</h3>
-            <ul class="data_list">
-                <li>El juego está conformado por cinco partidas. Una partida se entiende como la resolución de un caso por medio de la asesoría en la aplicación de elementos pedagógicos, didácticos, comunicacionales y tecnológicos en el proceso de enseñanza y aprendizaje.</li>
-                <li>El número máximo de partidas a jugar son cinco y durante cada una habrá dos oportunidades para plantear una respuesta acertada.</li>
-                <li>Al fallar en una oportunidad, la partida se bloquea durante media hora. Los participantes deberán asistir al <strong>Ágora</strong> para reflexionar acerca de cómo mejorar el proceso de asesoría.</li>
-                <li>Los 100 TIC puntos se obtienen en la primera oportunidad cuando la estrategia didáctica planteada por el equipo es adecuada para cumplir con el objetivo de aprendizaje planteado en el caso. Si sucede en la segunda oportunidad, entonces la puntuación será de 60 TIC puntos.</li>
-                <li>El equipo que obtenga 300 TIC puntos completa la misión y gana el juego. Sin embargo, si todavía le quedan partidas disponibles, pueden seguir poniendo a prueba sus habilidades como asesores.</li>
-                <li>Con cada 100 TIC puntos el grupo de estudiantes asciende uno de los tres niveles del juego.</li>
-            </ul>
+            <div class="box-text important" label="Proyecciones">
+                <div class="title">Proyecciones</div>
+                <div class="box_body">
+                    <p>Las proyecciones que se muestran al usuario (tiempo y recursos) se hacen con base en las estimaciones o valores obtenidos al momento de la proyección, sin embargo no necesariamente así se comportará el juego dado que se ignoran las acciones que realizarán los jugadores.</p>
+                </div>
+            </div>
 
-            <h3>Mecánica: ¿Cómo se desenvuelve el juego?</h3>
-            <ul class="data_list">
-                <li>Al ingresar al juego, el <strong>Anfitrión</strong> recibe a los participantes y podrán leer y descargar las instrucciones del juego. El caso activo se ve como un indicador de ubicación amarillo. Al ingresar al caso el <strong>Anfitrión</strong> asigna, aleatoriamente, uno de los roles posibles (<em>Máster</em>, <em>Tech</em>, <em>Media</em>, <em>Red</em> o <em>Planner</em>) a cada jugador. El rol se podrá ver al lado del avatar en la parte superior del chat. Ver imagen 1.
+            <h3>Fin del juego</h3>
+            <p>El juego termina cuando el tiempo llega a 0, es decir, después de las 52 semanas virtuales del año, o cuando los recursos llegan a cero (0).</p>
+            <p><strong>El juego se gana sí:</strong> el porcentaje de recursos es superior a 0 cuando finalice el juego.</p>
 
-                </li>
-                <li>El rol <em>Máster</em> solo recibe una carta. Este es el iniciador de la partida, pues es quien conoce de primera mano las condiciones que deben cumplirse para solucionar el caso correctamente.
-                </li>
-                <li>Según el rol asignado, cada participante recibe las tarjetas con los dones.
-                </li>
-                <li>El rol <em>Planner</em> es el encargado de motivar a su equipo para que resuelvan el caso propuesto en cada partida. Dentro de sus funciones se encuentran: estar atento al cumplimiento de los tiempos establecidos para la partida; recordar al <em>Máster</em> que inicie el juego; de ser necesario, proponer las herramientas para reunirse y acordar la forma en que se resolverá el caso y <em>finalizar la partida</em> cuando todas las cartas hayan sido jugadas y considere completado el caso. Además, podrá ver en el chat qué jugadores han terminado y confirmar qué cartas están jugadas, deslizándose por la zona de las preguntas, las cuales ya tendrán la carta con la respuesta que corresponde. Si alguno considera que se equivocó puede remover la carta. Cuando los jugadores han terminado, se puede pasar a la validación como aparece en la imagen 4.
-
-                    <p>Al finalizar la partida, si están correctas todas las cartas asignadas a las preguntas, saldrá un mensaje de realimentación, como el que aparece en la imagen 5, además, se sumarán 100 TIC puntos en caso de que sea el primer intento. </p>
-
-
-                    <p>En caso de que haya un error en las cartas jugadas saldrá el siguiente mensaje y se podrá retomar en media hora.</p>
-
-                    <p>Al entrar al juego se ve una caja azul en la parte inferior derecha. Cada vez que se termine de resolver un caso de manera exitosa los estudiantes podrán avanzar de nivel, tal como se aprecia en la imagen 7; el reto es lograr que los estudiantes cumplan la meta.  Cada que se avanza en un nivel verá en ese lugar a los estudiantes completando su tarea.</p>
-
-                </li>
-            </ul>
         </div>
     </div>
 </script>
@@ -272,9 +256,9 @@
             <div class="map"></div>
         </div>
         <div class="footer">
-            <div class="btn failed"><h2>Partida pérdida</h2><span>La ciudad no logró ser sostenible</span></div>
+            <div class="btn failed"><h2>Partida perdida</h2><span>La ciudad no logró ser sostenible</span></div>
             <div class="btn passed"><h2>Partida ganada</h2><span>Se ha logrado una ciudad inteligente sostenible</span></div>
-            <div class="btn locked"><h2>Iniciar Partida</h2></div>
+            <div class="btn locked"><h2>Iniciar partida</h2></div>
         </div>
     </div>
 </script>

@@ -1,4 +1,4 @@
-/*  
+/*
  * Clock Leds identification
  *  0
  *  --
@@ -16,12 +16,6 @@
     --ledOff: rgba(90,225,255,0.025);
     --ledOnShadow: rgba(90,225,255,0.025);
     --ledInactive: rgba(90,225,255,0.025);
-}
-body {
-    background: rgb(44,44,55);
-    height: 100%;
-    display: flex;
-    align-items: center;
 }
 .led {
   display: block;
@@ -94,4 +88,3 @@ body {
     justify-content: space-around;
     align-items: center;
 }
-  

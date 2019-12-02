@@ -559,8 +559,8 @@ dhbgApp.standard.start = function() {
         });
     }
     else {
-        $('[data-global="return"]').hide();
-        $('[data-global="close_all"]').hide();
+        //$('[data-global="return"]').hide();
+        //$('[data-global="close_all"]').hide();
     }
 
     // Results control.
