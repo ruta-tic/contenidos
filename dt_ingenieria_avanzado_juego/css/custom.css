@@ -2,6 +2,10 @@ header {
     background-color: #7c8f8c;
 }
 
+.box_media img {
+    max-width: 100%;
+}
+
 .game-container {
     border: solid 1px blue;
     min-width: 960px; /*100%;*/
@@ -301,7 +305,7 @@ html.single #full-instructions h2 {
     background: #EAAA3C;
     color: #3D392A;
     width: 200px;
-    height: 50px;
+    min-height: 50px;
     margin: 0 auto;
     text-align: center;
     box-shadow: 1px 1px 2px 1px rgba(255, 255, 255, 0.5);
@@ -323,15 +327,29 @@ html.single #full-instructions h2 {
     color: #fff;
 }
 
-.game-entry .btn span, .asset-viewer .header .btn span {
+.game-entry .btn span {
+    font-size: 12px;
+    margin: 0;
+}
+
+.asset-viewer .header .btn span {
     font-size: 10px;
     margin: 0;
 }
 
 .game-entry .btn.failed {
-    opacity: 0.5;
     cursor: default;
     box-shadow: none;
+    color: red;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.game-entry .btn.passed {
+    cursor: default;
+    box-shadow: none;
+    background-color: #fff;
+    font-size: 12px;
 }
 
 .game-entry.failed .btn.failed, .game-entry.passed .btn.passed, .game-entry.locked .btn.locked, .game-entry.active .btn.active {
@@ -431,34 +449,47 @@ html.single #full-instructions h2 {
     grid-column: span 3;
 }
 
-.health-update-notice, .capacity-resources-box, .current-week {
+.health-update-notice,
+.capacity-resources-box,
+.current-week,
+.lifetime-week {
     padding: 2px;
     text-align: center;
     background: #fff;
     color: #000;
     border-radius: 10px;
     margin: 0 5px 5px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .capacity-resources-box {
-    margin-top: -6px;
+    margin-top: -20px;
+    z-index: 2;
 }
 
 .capacity-resources-box label {
     display: inline;
 }
 
-.health-update-notice.warning {
+.health-update-notice span.warning {
     color: red;
 }
 
-.current-week {
-    margin-top: 10px;
+.health-update-notice i.tooltip {
+    font-size: 20px;
+    line-height: 10px;
+    float: right;
+    color: darkorange;
 }
 
+.lifetime-week {
+    font-size: 14px;
+}
+
+.lifetime-week span,
 .current-week span {
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .human-resources-box {
@@ -494,6 +525,7 @@ html.single #full-instructions h2 {
 .game-board .toolbar label {
     margin: 2px 5px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .game-board .toolbar .button-group {
@@ -828,8 +860,8 @@ html.single #full-instructions h2 {
 .asset-viewer .header .btn {
     display: block;
     margin: 5px auto;
-    width: 150px;
-    height: 45px;
+    min-width: 150px;
+    min-height: 45px;
     outline: none;
     align-self: flex-end;
     flex: none;
@@ -837,6 +869,18 @@ html.single #full-instructions h2 {
 
 .asset-viewer .header .btn:hover {
     color: #fff;
+}
+
+.asset-viewer .header .btn label {
+    font-size: 13px;
+    display: block;
+    line-height: 11px;
+    padding: 4px 0 0 0;
+}
+
+.asset-viewer .header .btn label span {
+    font-weight: bold;
+    font-size: 13px;
 }
 
 /************************************************/

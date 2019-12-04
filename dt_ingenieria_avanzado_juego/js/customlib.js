@@ -10,7 +10,7 @@
     var MINREQPLAYEDCARDS = 4;
     var ERROR = 'error';
     var INFO = 'info';
-    var MODEDEBUG = true;
+    var MODEDEBUG = false;
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
@@ -331,7 +331,8 @@
 
         if (activeGame && activeGame.state == 'active') {
             loadGameBoard();
-            showClock();
+            updateLifetime(data.health.lifetime);
+            //showClock();
         }
         else {
             loadHome();
@@ -350,8 +351,9 @@
         updateBtnTimeframeLabel();
         updateDuedate(msg.data.duedate);
         gameState.health.lifetime = msg.data.lifetime;
-        initializeCountdown();
-        clock.refresh();
+        //initializeCountdown();
+        updateLifetime(msg.data.lifetime);
+        //clock.refresh();
     }
 
     function onPlayAction(msg) {
@@ -434,9 +436,12 @@
 
     function onLapseChanged(msg) {
         gameState.currentlapse = msg.data.lapse;
+
+        $gameBoard.find('.healthy-box .display').html(msg.data.score + '%');
         updateCurrentLapse(gameState.currentlapse);
         gameState.updatelapses = gameState.currentlapse - gameState.lastmeasured;
         updateHealthNotice();
+        updateLifetime(msg.data.lifetime);
     }
 
     function onAutoGameOver(msg) {
@@ -468,7 +473,7 @@
         };
 
         loading = false;
-        var feedback = $('#feedback-game'+gameOverReason).html();
+        var feedback = $('#feedback-game' + gameOverReason).html();
         feedback = feedback.replace('{timelapse}', state.endlapse);
 
         // Report to scorm.
@@ -634,6 +639,13 @@
         $gameBoard.find('.current-week span').html(lapse);
     }
 
+    function updateLifetime(lifetime) {
+        var period = gameState.timelapse / Math.pow(2, gameState.timeframe - 1);
+        var weeks = Math.floor(lifetime / period, 0);
+        var label = ' semana' + (weeks == 1 ? '' : 's');
+        $gameBoard.find('.lifetime-week span').html(weeks + label);
+    }
+
     function updateBtnTimeframeLabel() {
         $gameBoard.find('.toolbar .btn.timeframe label').html(gameState.timeframe == 1 ? 'Acelerar' : 'Desacelerar');
     }
@@ -656,13 +668,18 @@
             gameState.updatelapses = gameState.currentlapse - health.lastmeasured;
             updateHealthNotice();
         }
+
+        if ('lifetime' in health) {
+            updateLifetime(health.lifetime);
+        }
+
     }
 
     function updateHealthNotice() {
         //lastmeasured: timestamp
         var week = (gameState.updatelapses == 0) ? 'justo ahora' :
             (gameState.updatelapses == 1) ? ' hace una semana' : 'hace ' + gameState.updatelapses + ' semanas';
-        var $notice = $('.health-update-notice').html('Actualizado por última vez ' + week).removeClass('warning');
+        var $notice = $('.health-update-notice span').html('Actualizado por última vez ' + week).removeClass('warning');
 
         if (gameState.updatelapses > 2) {
             $notice.addClass('warning');
@@ -670,7 +687,8 @@
 
         var weeks = gameState.lapses - gameState.currentlapse;
         var text = weeks == 1 ? ' una semana ' : weeks + ' semanas';
-        $(".clock-display").html()
+
+        //$(".clock-display").html()
     }
 
     function updateResourceBoxes(resources) {
@@ -939,6 +957,11 @@
         if (!isFile) {
             $assetViewer.find('.header .btn.execute').toggle(!isRunning);
             $assetViewer.find('.header .btn.stop').toggle(isRunning && isMine);
+
+            if ('creationtime' in assetView) {
+                var week = Math.floor(assetView.creationtime / gameState.timelapse, 0);
+                $assetViewer.find('.header .btn.stop').find('span').html(week);
+            }
         }
 
         var $techdetails = $assetViewer.find('.technical-details .details').empty();
@@ -1023,6 +1046,8 @@
             infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
         }
 
+        infoTpl = infoTpl.replace('{newresources}', asset.newresources == 0 ? 'No' : asset.newresources + '%');
+
         $.each(asset.zones, function(i, it) {
             infoTpl = infoTpl.replace('{zone_'+i+'}', it + ' %');
         });
@@ -1048,15 +1073,17 @@
 
     function startGame(event) {
         var level = $(event.target).data().level;
+
         var msg = {
             action: actions.GAMESTART,
-            data: { level: level || 1 }
+            data: { level: level }
         };
         $levelSelector.dialog('close');
         socketSendMsg(msg);
     }
 
     function initializeCountdown() {
+
         var period = gameState.timelapse / Math.pow(2, gameState.timeframe - 1);
         var weeks = Math.floor(gameState.health.lifetime / period, 0);
         var days = Math.floor((gameState.health.lifetime % period) * 7 / period);

@@ -15,7 +15,7 @@
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
-    <script src="components/interact/interact.min.js"></script>
+    <!--script src="components/interact/interact.min.js"></script-->
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
@@ -104,11 +104,11 @@
                             </div>
                             <div class="game-board">
                                 <div class="clock-box">
-                                    <label>Tiempo estimado para agotar los recursos</label><br />
-                                    <div class="clock"></div>
+                                    <!--label>Tiempo estimado para agotar los recursos</label><br /-->
                                     <!--div class="clock"></div-->
                                     <!--div class="clock-display"></div-->
                                     <div class="current-week">Semana actual: <span></span>.</div>
+                                    <div class="lifetime-week">A este ritmo, los recursos se agotarán en aproximadamente <span></span>.</div>
                                 </div>
                                 <div class="healthy-box resource-box">
                                     <label>Recursos</lavel><br />
@@ -129,7 +129,7 @@
                                 <div class="content-box game-map-container">
                                     <div class="title">Ejes de trabajo</div>
                                     <div class="game-zones"></div>
-                                    <div class="health-update-notice"></div>
+                                    <div class="health-update-notice"><span></span><i class="ion-help-circled tooltip" title="Existe una tecnología llamada <strong>“Visor en tiempo real del estado de la ciudad”</strong>. Se recomienda jugar esta tecnología para mantener actualizada la información del porcentaje de desarrollo de cada uno de los ejes de trabajo."></i></div>
                                 </div>
                                 <div class="content-box files">
                                     <div class="title">Archivos</div>
@@ -184,7 +184,7 @@
                                     <i class="icon"></i>
                                     <label class="title"></label>
                                     <button class="btn execute">Ejecutar</button>
-                                    <button class="btn stop">Detener</button>
+                                    <button class="btn stop"><label>Ejecutado en la semana <span></span></label>Detener</button>
                                 </div>
                                 <div class="description-wrapper content-box">
                                     <div class="description"></div>
@@ -211,30 +211,164 @@
                 <div id="full-instructions" class="wf-content" title="Instrucciones">
                     <h2>Reglas básicas</h2>
                     <div class="instructions-wrapper">
-                        <h3>Elementos del juego</h3>
+                        <h3>“SmartCity” - Juego colaborativo de cartas y tablero</h3>
+                        <h4>Objetivo</h4>
+                        <p>Lograr el desarrollo sostenible de una ciudad a través de la implementación de políticas que la conviertan en una ciudad inteligente.</p>
+
+                        <h4>Indicaciones</h4>
+                        <p>Smartcity es un juego en el que el equipo de jugadores debe lograr, de manera colaborativa, el desarrollo sostenible de una ciudad inteligente en un tiempo simulado de 52 semanas. En la medida en que van pasando las semanas, el equipo debe ir agregando y verificando “políticas” soportadas en determinadas “tecnologías” con el fin de lograr que los recursos de la ciudad no sólo se mantengan durante todo el tiempo de juego, sino que incluso lleguen a aumentar. A continuación se enuncian las indicaciones generales para jugar:</p>
+
+
+                        <ul class="data_list">
+                            <li>El juego ofrece la oportunidad de jugar hasta dos partidas.</li>
+                            <li>Al iniciar una partida se ofrece la posibilidad de seleccionar el nivel de dificultad, entre: fácil, normal o difícil.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_1.png" />
+                                </div>
+                            </li>
+                            <li>Cuando se inicia la partida a cada jugador se le presenta un tablero de juego con las siguientes secciones:
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_2.png" />
+                                </div>
+                            </li>
+                            <li>Cada integrante del equipo comienza con una serie de cartas que representan las “políticas” y las “tecnologías”. Dichas cartas se han repartido aleatoriamente entre los integrantes y no hay cartas repetidas, por lo que la comunicación es muy importante para definir la estrategia de qué cartas jugar. Cada jugador puede conocer el detalle de las políticas y tecnologías disponibles haciendo clic sobre cada una de ellas y viendo su ficha técnica.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_3.png" />
+                                    <div class="about">
+                                        Ficha técnica de una política.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Desde el inicio del juego cada integrante del equipo tiene las mismas posibilidades de jugar sus cartas; no hay turnos de juego.</li>
+                        </ul>
+                        <h5>Jugar una Política:</h5>
+                        <p>Cuando un jugador desee activar una política debe considerar lo siguiente:</p>
+                        <ul class="data_list">
+                            <li>En la ficha técnica de la política observar que cuente con la capacidad requerida de personal, infraestructura y energía necesarios para jugar la política.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_4.png" />
+                                    <div class="about">
+                                        Ejemplo de capacidad requerida por una política.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Observar que la política no requiera una tecnología o un archivo específico, o en caso que lo requiera que dicho archivo ya esté disponible en la ventana de archivos, o que la tecnología ya esté en ejecución, así haya sido jugada por otro compañero del equipo.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_5.png" />
+                                    <div class="about">
+                                        Ejemplo de tecnología y archivo requeridos en una política.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                Considerar el tiempo que tarda la política en generar recursos y su tipo de finalización: manual o automática.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_6.png" />
+                                    <div class="about">
+                                        Ejemplo de política con finalización manual y resultados a partir de la semana 14.
+                                    </div>
+                                </div>
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Toda política que se retire de la ventana de ejecución liberará la capacidad requerida para su ejecución, permitiendo así aumentar dicha capacidad para jugar otras políticas.</p>
+                                </div>
+                            </li>
+                            <li>Considerar el impacto que tiene la política cuando genere resultados:
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_7.png" />
+                                    <div class="about">
+                                        Ejemplo de impacto de una política en los ejes de trabajo.
+                                    </div>
+                                </div>
+
+                                <p>Cuando una política cumpla en ejecución el tiempo definido en “Resultados en”, generarán un impacto en los “Ejes de trabajo” de acuerdo a lo que se muestra en la ficha. Algunas pueden tener incluso impacto negativo en algunos ejes. Así mismo, algunas políticas comenzarán a generar nuevos recursos.</p>
+
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Es importante jugar políticas cuyo resultado sea antes del tiempo estimado de finalización de los recursos.</p>
+                                </div>
+
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Procurar jugar políticas que tengan un alto impacto positivo en la mayoría de ejes, y mucho mejor si son políticas que generan nuevos recursos.</p>
+                                </div>
+
+                            </li>
+                            <li>Una vez considerados los puntos anteriores, presionar el botón <strong>“Ejecutar”</strong>. El sistema validará y pondrá la acción en ejecución.</li>
+                        </ul>
+                        <div class="box-text note" label="Nota">
+                            <p>Existen dos tipos de finalización para las políticas. La finalización “Manual” indica que, una vez la política está en ejecución, permanecerá en dicho estado hasta que un jugador decida “Detenerla” en la pestaña de “Ejecución”. Por el contrario, si la finalización es “Automática”, la política dejará de estar en ejecución automáticamente una vez cumpla su tiempo de generación de resultados.</p>
+                        </div>
+
+                        <div class="box-text example" label="Tip de juego">
+                            <p>Si una política está generando buenos resultados y no se requiere liberar la capacidad requerida de la misma, lo mejor es dejarla en ejecución.</p>
+                        </div>
+                        <h5>Jugar una Tecnología:</h5>
+                        <p>Cuando un jugador desee activar una tecnología debe considerar lo siguiente:</p>
+                        <ul class="data_list">
+                            <li>
+                                <p>En la ficha técnica de la tecnología observar que cuente con la capacidad requerida necesaria.</p>
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_8.png" />
+                                    <div class="about">
+                                        Ejemplo de capacidad requerida por una tecnología.
+                                    </div>
+                                </div>
+
+                                <p>La capacidad disponible se observa bajo la ventana de las tecnologías disponibles o en ejecución:</p>
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_9.png" />
+                                    <div class="about">
+                                        En la imagen se ve que todavía queda 85% de capacidad para ejecutar tecnologías.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Observar qué archivos requiere.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_smartcity_10.png" />
+                                    <div class="about">
+                                        Ejemplo de una tecnología que requiere el archivo "Datos de GPS" y genera el archivo "Plan de Rutas".
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Identificar los archivos que genera y el tiempo que tarda en generarlos.</li>
+                            <li>Una vez considerados los puntos anteriores, presionar el botón <strong>“Ejecutar”</strong>. El sistema validará y pondrá la acción en ejecución.</li>
+                        </ul>
+                        <div class="box-text note" label="Nota">
+                            <p>Existen dos tipos de finalización para las tecnologías. La finalización “Manual” indica que la tecnología se mantendrá en ejecución hasta que se decida detenerla; si una política depende de la tecnología que se desea detener, primero debe ser detenida la política. Si la finalización es “Automática”, la tecnología dejará de estar en ejecución automáticamente una vez cumpla su tiempo de generación de resultados. Los archivos que genere seguirán disponibles sin importar que la tecnología ya no esté en ejecución.</p>
+                        </div>
+
+                        <div class="box-text example" label="Tip de juego">
+                            <p>Es útil jugar aquellas tecnologías que estén asociadas a la producción de archivos o den soportes a políticas que se haya decidido jugar, para evitar consumir capacidad en tecnologías no requeridas.</p>
+                        </div>
+
+                        <div class="box-text important" label="Importante">
+                            <p>Existe una tecnología llamada <strong>“Visor en tiempo real del estado de la ciudad”</strong>. Se recomienda jugar esta tecnología para mantener actualizada la información del porcentaje de desarrollo de cada uno de los ejes de trabajo.</p>
+                        </div>
+
+                        <h5>Generar archivos</h5>
+                        <p>Algunas políticas tienen como prerrequisito determinados archivos. Estos archivos son generados por las tecnologías. Para generar un archivo específico se deben mirar las fichas técnicas de las tecnologías y poner en ejecución aquella que genere dicho archivo. La tecnología producirá el archivo de manera automática al momento de generar resultados, y dicho archivo quedará disponible hasta finalizar la partida.</p>
+
+                        <h5>Detención o retiro de cartas en ejecución</h5>
+                        <p>Solo el jugador que juega determinada carta puede detener su ejecución. Sin embargo, si la carta es de finalización automática, una vez que pase el tiempo necesario se retirará automáticamente de las cartas en ejecución y quedará disponible de nuevo. Si en ejecución hay una política que requiere una tecnología que también está ejecutándose, dicha tecnología no puede detenerse hasta que no finalicen la política.</p>
+
+                        <div class="box_media">
+                            <img src="content/instructivo_juego_smartcity_11.png" />
+                            <div class="about">
+                                El botón "Detener" reemplaza el de "Ejecutar" y muestra, además, la semana en la que se ejecutó la política o la tecnología.
+                            </div>
+                        </div>
+
+                        <div class="box-text important" label="Proyecciones">
+                            <p>Las proyecciones que se muestran al usuario (tiempo y recursos) se hacen con base en las estimaciones o valores obtenidos al momento de la proyección, sin embargo no necesariamente así se comportará el juego, pueden haber modificaciones con cada cambio de semana.</p>
+                        </div>
+
+                        <h3>Otras reglas y condiciones a considerar:</h3>
                         <ul class="data_list">
                             <li>El juego tiene una duración de un “año virtual” y se representa por medio de las 52 semanas del año.</li>
                             <li>Cada semana corresponde a una hora real, es decir, el juego puede durar máximo 52 horas reales.</li>
                             <li>Para facilitar la jugada de una partida en los casos que se requiera agilidad, los jugadores pueden acelerar el paso del tiempo en 5X, es decir, una semana virtual durará poco menos de 4 minutos y un juego completo duraría aproximadamente 3 horas y media.</li>
                             <li>La duración del juego puede ser mucho menor si se terminan los recursos, en ese caso se pierde el juego.</li>
-                            <li>El juego tiene tres niveles de dificultad: bajo, medio y alto.</li>
-                            <li>En el juego se tienen tres tipos de cartas o fichas de juego: las políticas, las tecnologías y los archivos.</li>
-                            <li>Las cartas de políticas y de tecnología se reparten aleatoriamente al inicio entre todos los jugadores procurando que tengan el mismo número o un número cercano de cartas.</li>
-                            <li>No hay turnos, los jugadores de manera síncrona pueden jugar sus cartas siempre y cuando dispongan de los recursos y requerimientos de cada una. Una carta se juega “ejecutando” la política o la tecnología.</li>
-                            <li>Solo el jugador que juega determinada carta puede quitarla de las opciones en ejecución. Sin embargo, si la carta es de finalización automática, una vez que pase el tiempo necesario se retirará automáticamente de las cartas en ejecución y quedará disponible de nuevo.</li>
-                            <li>Si una política depende de una tecnología, la tecnología no puede quitarse sin antes cancelar la política.</li>
-                            <li>En cualquier momento los jugadores pueden “finalizar el juego”. Cuando se finaliza el juego, se hace una proyección de los recursos con base en lo generado hasta el momento, para determinar si se ganó o se perdió el juego.</li>
+                            <li>En cualquier momento los jugadores pueden “finalizar la partida”. Cuando se finaliza una partida, se hace una proyección de los recursos con base en lo generado hasta el momento, para determinar si se ganó o se perdió el juego.</li>
                             <li>Una vez finalizada la primera partida, se puede iniciar una segunda. Solamente se tienen dos partidas disponibles por grupo.</li>
                         </ul>
-
-                        <div class="box-text important" label="Proyecciones">
-                            <p>Las proyecciones que se muestran al usuario (tiempo y recursos) se hacen con base en las estimaciones o valores obtenidos al momento de la proyección, sin embargo no necesariamente así se comportará el juego dado que se ignoran las acciones que realizarán los jugadores.</p>
-                        </div>
-
-                        <h3>Fin del juego</h3>
-                        <p>El juego termina cuando el tiempo llega a 0, es decir, después de las 52 semanas virtuales del año, o cuando los recursos llegan a cero (0).</p>
-                        <p><strong>El juego se gana sí:</strong> el porcentaje de recursos es superior a 0 cuando finalice el juego.</p>
-
                     </div>
                 </div>
             </section>
@@ -322,12 +456,12 @@
             <th rowspan="2">&nbsp;</th>
             <th>Finalización</th>
             <th>Resultados en</th>
-            <th>&nbsp;</th>
+            <th>Produce nuevos recursos</th>
         </tr>
         <tr>
             <td>{endmode}</td>
             <td>{duration}</td>
-            <td>&nbsp;</td>
+            <td>{newresources}</td>
         </tr>
         <tr class="divider">
             <th class="right" rowspan="4">Impacto</th>
