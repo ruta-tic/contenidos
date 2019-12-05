@@ -998,7 +998,7 @@
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
 
         if (!asset.endtime || asset.endtime == "0") {
-            infoTpl = infoTpl.replace('{duration}', 'Siguiente semana');
+            infoTpl = infoTpl.replace('{duration}', 'Mientras se ejecuta');
         }
         else {
             infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' semana', asset.endtime == 1 ? '' : 's'].join(''));
