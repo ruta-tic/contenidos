@@ -14,21 +14,21 @@
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
-        GAMESTART: 'sc_gamestart',
         GAMESTATE: 'gamestate',
+        PLAYERCONNECTED: 'playerconnected',
+        PLAYERDISCONNECTED: 'playerdisconnected',
+        ACTIONCOMPLETED: 'cron_actioncompleted',
+        TECHNOLOGYCOMPLETED: 'cron_technologycompleted',
+        HEALTHUPDATE: 'cron_healthupdate',
+        LAPSECHANGED: 'cron_lapsechanged',
+        AUTOGAMEOVER: 'cron_autogameover',
+        GAMEOVER: 'sc_gameover',
+        GAMESTART: 'sc_gamestart',
         CHANGETIMEFRAME: 'sc_changetimeframe',
         PLAYACTION: 'sc_playaction',
         STOPACTION: 'sc_stopaction',
-        ACTIONCOMPLETED: 'sc_actioncompleted',
         PLAYTECHNOLOGY: 'sc_playtechnology',
-        STOPTECHNOLOGY: 'sc_stoptechnology',
-        TECHNOLOGYCOMPLETED: 'sc_technologycompleted',
-        HEALTHUPDATE: 'sc_healthupdate',
-        LAPSECHANGED: 'sc_lapsechanged',
-        GAMEOVER: 'sc_gameover',
-        AUTOGAMEOVER: 'sc_autogameover',
-        PLAYERCONNECTED: 'playerconnected',
-        PLAYERDISCONNECTED: 'playerdisconnected'
+        STOPTECHNOLOGY: 'sc_stoptechnology'
     };
     var socket;
     var connectD;
@@ -64,7 +64,7 @@
     var setup = { actions: [], techs: [], files: [] };
     var $assetViewer;
     var zones = ['Salud', 'Educación', 'Urbanismo', 'Medio Ambiente', 'Gobierno', 'Seguridad'];
-    var assetTypeLabels = { action: 'Politica', 'tech': 'Tecnología', 'file': 'Archivo' };
+    var assetTypeLabels = { action: 'Política', 'tech': 'Tecnología', 'file': 'Archivo' };
     var gameOverReason = '';
     var gameOverLapse;
     var clock;
@@ -295,10 +295,6 @@
         gameOverReason = '';
         gameOverLapse = undefined;
         $(".game-entry .btn").off('click');
-        if (app.scorm) {
-            var scorm_id = `${scorm_id_prefix}-${msg.data.level}`;
-            if (!app.scorm.activities[scorm_id]) { app.scorm.activities[scorm_id] = []; }
-        }
 
         closeDialog($levelSelector);
         socketSendMsg({ action: actions.GAMESTATE });
@@ -478,8 +474,7 @@
 
         // Report to scorm.
         if (app.scorm) {
-            var scorm_id = `${scorm_id_prefix}-${state.level}`;
-            app.scorm.activityAttempt(scorm_id, weight, null, JSON.stringify(state));
+            app.scorm.activityAttempt(scorm_id_prefix, weight, null, JSON.stringify(state));
         }
 
         showMsg(INFO, feedback, 600).then(function() {
@@ -602,7 +597,7 @@
             $zones.append($([
                 '<div class="zone zone_'+i+'"><div class="icon eje', i+1, '"',
                 ' title="', it, '">',
-                '<span class="progress">', 50, ' %</span>',
+                '<span class="progress">', 50, '%</span>',
                 '</div></div>'
                 ].join('')
             ));
@@ -656,7 +651,7 @@
                 var $zone = $gameBoard.find('.zone_'+i+' .icon');
                 var percentage = ((100-it.value)/100)+'';
                 $zone.css('filter', 'grayscale('+percentage.substring(0,4)+')');
-                $zone.find('.progress').html(it.value + ' %');
+                $zone.find('.progress').html(it.value + '%');
             });
         }
 
@@ -764,7 +759,7 @@
 
             if (!hasOneTech) {
                 var suffix = missingTechs.length == 1 ? 'la siguiente tecnología: ' : 'una de las siguientes tecnologías: ';
-                missingRequirements.push('Para ejecutar está política debe estar ejecutando ' + suffix + missingTechs.join(', ') + '.');
+                missingRequirements.push('Para ejecutar esta política debe estar ejecutando ' + suffix + missingTechs.join(', ') + '.');
             }
         }
         //Check files
@@ -778,7 +773,7 @@
             });
             if (missingFiles.length) {
                 var suffix = missingFiles.length == 1 ? 'el siguiente archivo es requerido: ' : 'los siguientes archivos son requeridos: ';
-                missingRequirements.push('Para ejecutar está política ' + suffix + missingFiles.join(', '));
+                missingRequirements.push('Para ejecutar esta política ' + suffix + missingFiles.join(', '));
             }
         }
         //Check resources
@@ -786,7 +781,7 @@
         $.each(action.resources, function(i, it) {
             var data = $(['.',it.type, '-resources-box .display'].join('')).data();
             if (data && data.value < it.value) {
-                missingRequirements.push(['No cuenta con los recursos ', oftype[it.type], ' necesarios para ejecutar está política.'].join(''));
+                missingRequirements.push(['No cuenta con los recursos ', oftype[it.type], ' necesarios para ejecutar esta política.'].join(''));
             }
         });
 
@@ -1006,7 +1001,7 @@
             infoTpl = infoTpl.replace('{duration}', 'Siguiente semana');
         }
         else {
-            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' semana', asset.endtime == 1 ? '' : 's'].join(''));
         }
 
         var infiles = $.map(asset.files.in || [], function(it, i) {
@@ -1034,7 +1029,7 @@
     function actionAssetInfo(asset) {
         var infoTpl = $('#action-card').html();
         $.each(asset.resources, function(i, it) {
-            infoTpl = infoTpl.replace('{'+it.type+'}', it.value + ' %');
+            infoTpl = infoTpl.replace('{'+it.type+'}', it.value + '%');
         });
 
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
@@ -1043,13 +1038,13 @@
             infoTpl = infoTpl.replace('{duration}', 'Siguiente semana');
         }
         else {
-            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' Semana', asset.endtime == 1 ? '' : 's'].join(''));
+            infoTpl = infoTpl.replace('{duration}', [asset.endtime || 0, ' semana', asset.endtime == 1 ? '' : 's'].join(''));
         }
 
         infoTpl = infoTpl.replace('{newresources}', asset.newresources == 0 ? 'No' : asset.newresources + '%');
 
         $.each(asset.zones, function(i, it) {
-            infoTpl = infoTpl.replace('{zone_'+i+'}', it + ' %');
+            infoTpl = infoTpl.replace('{zone_'+i+'}', it + '%');
         });
 
         var techs = $.map(asset.technologies, function(it, i) {
@@ -1211,6 +1206,10 @@
 
         //register for scorm
         scorm_id_prefix = $gameCnr.data().actId || 'game-startcity';
+
+        if (app.scorm) {
+            if (!app.scorm.activities[scorm_id_prefix]) { app.scorm.activities[scorm_id_prefix] = []; }
+        }
 
         if (sessionData.userpicture) {
             $(`<img src="${sessionData.userpicture}" alt="" />`).appendTo($chatCnr.find('.chat-header .avatar'));
