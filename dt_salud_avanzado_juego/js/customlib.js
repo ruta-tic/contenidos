@@ -860,15 +860,18 @@
     function stopTech(tech) {
         var canStop = true;
         var dependenciesRunning = [];
-        $.each(gameState.technologies.running, function(i, it) {
-            if (it.technologies.findIndex(function(it1) { return it1 == tech.id; }) >= 0) {
-                var tech = setup.techs.find(findById(tech.id));
-                dependenciesRunning.push(tech.name);
+
+        $.each(gameState.actions.running, function(i, act) {
+            var action = setup.actions.find(findById(act.id));
+
+            var used = $.inArray(tech.id, action.technologies);
+            if (used >= 0) {
+                dependenciesRunning.push(action.name);
             }
         });
 
         if (dependenciesRunning.length) {
-            var suffix = missingTechs.length == 1 ? 'la siguiente acción: ' : 'las siguientes acciones: ';
+            var suffix = dependenciesRunning.length == 1 ? 'la siguiente acción: ' : 'las siguientes acciones: ';
             var msg = 'Para poder detener está tecnología es necesario detener ' + suffix + dependenciesRunning.join(', ');
             showMsg(INFO, msg);
             return;
@@ -990,6 +993,7 @@
 
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
 
+        console.log(asset.endtime);
         if (!asset.endtime || asset.endtime == "0") {
             infoTpl = infoTpl.replace('{duration}', 'Mientras se ejecuta');
         }

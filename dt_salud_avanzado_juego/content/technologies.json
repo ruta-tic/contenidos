@@ -4,6 +4,7 @@
         "name":"Plataforma de videoconferencias",
         "description":"Tecnología que facilita la recepción de la información a través de los sentidos visual y auditivos. Permite hacer explicaciones sobre la higienización de manos por medio de expertos en el tema. Disponibles 24/7 siempre y cuando se tenga acceso a internet.",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -24,6 +25,7 @@
         "name":"Teleconsultoria diagnóstica sincrónica",
         "description":"Tecnología que permite realización de teleconsulta en tiempo real a humanos y a animales. Por medio de esta consulta se pueden observar las características actuales de los pacientes y responder a dudas, inquietudes de sus acompañantes.",
         "endmode":"auto",
+        "endtime":5,
         "resources":[
             {
                 "type":"capacity",
@@ -44,6 +46,7 @@
         "name":"Teleconsultoría encaminada al tratamiento",
         "description":"Tecnología que permite teleconceptos de especialistas relacionados con enfermedades infecciosas a nivel mundial. El uso de esta tecnología le permite generar múltiples reportes que podrá mezclar con otras tecnologías según su interés.",
         "endmode":"auto",
+        "endtime":5,
         "resources":[
             {
                 "type":"capacity",
@@ -64,6 +67,7 @@
         "name":"Telesalud: Teleconsulta",
         "description":"Tecnología que permite acceso a teleconsulta y teleconcepto por profesional en salud experto que puede disipar dudas y generar recomendaciones",
         "endmode":"auto",
+        "endtime":2,
         "resources":[
             {
                 "type":"capacity",
@@ -84,6 +88,7 @@
         "name":"Videoconferencia caso índice: BigBang",
         "description":"Tecnología que permite ver las condiciones y características de la primera persona que se contagió. Esta información le permite generar difusión de información y comunicación dirigida a población general para prevenir la enfermedad.",
         "endmode":"auto",
+        "endtime":3,
         "resources":[
             {
                 "type":"capacity",
@@ -104,6 +109,7 @@
         "name":"Base de datos bibliográficas",
         "description":"Plataformas que permiten la búsqueda de información científica indexada en revistas",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -124,6 +130,7 @@
         "name":"Telemonitoreo de imágenes",
         "description":"Tecnología que permite la transmisión en tiempo real de imágenes, videos y otros datos similares.",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -144,6 +151,7 @@
         "name":"Big data - historias clínicas",
         "description":"Tecnología que permite el análisis de extensas cantidades de historias clínicas electrónicas emitiendo recomendaciones generales acerca de tratamiento",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -164,6 +172,7 @@
         "name":"Telemonitoreo de pruebas de tamizaje",
         "description":"Tecnología que permite la realización de pruebas de tamizaje “pruebas de sangre a personas que no tienen síntomas y están expuestas a una enfermedad”, haciendo una clasificación rápida de sanos y enfermos. Transmitiendo esta información en tiempo real a una plataforma donde se almacena la información.",
         "endmode":"auto",
+        "endtime":1,
         "resources":[
             {
                 "type":"capacity",
@@ -184,6 +193,7 @@
         "name":"Historia clínica electrónica",
         "description":"Banco de historias clínicas de todos los pacientes que han sido atendidos en diferentes centros de salud, clínicas y hospitales con infección compatible con evento de salud agudo",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -204,6 +214,7 @@
         "name":"App móvil con distribución geográfica de la pandemia",
         "description":"Aplicativo visual con la distribución espacial del evento en salud con casos enfermos y fallecidos en tiempo real",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -224,6 +235,7 @@
         "name":"Big data - ¿exámenes a quién?",
         "description":"Tecnología que analiza extensa cantidad de artículos científicos publicados con información relacionada con tratamiento & pandemia",
         "endmode":"auto",
+        "endtime":3,
         "resources":[
             {
                 "type":"capacity",
@@ -244,6 +256,7 @@
         "name":"Inteligencia artificial para procesar videos",
         "description":"Tecnología que analiza extensa cantidad de videos y genera informes sobre recomendaciones en el tratamiento para mujeres sexualmente activas a lo largo y ancho del mundo",
         "endmode":"auto",
+        "endtime":1,
         "resources":[
             {
                 "type":"capacity",
@@ -264,6 +277,7 @@
         "name":"Inteligencia artificial para procesar historias electrónicas",
         "description":"Tecnología que mediante el big data permite analizar extensa cantidad de información sobre historias clínicas en formato electrónico tipo texto, audio o video y generar resumenes de la información con recomendaciones acerca de tratamiento preventivo y/o curativo",
         "endmode":"auto",
+        "endtime":1,
         "resources":[
             {
                 "type":"capacity",
@@ -284,6 +298,7 @@
         "name":"Big data - lo más recomendado para prevenir",
         "description":"Tecnología de realidad virtual y realidad aumentada para facilitar la práctica y educación vial y de conductores.",
         "endmode":"auto",
+        "endtime":2,
         "resources":[
             {
                 "type":"capacity",
@@ -304,6 +319,7 @@
         "name":"Big data - factores de riesgo",
         "description":"Plataforma de transacciones descentralizada que permite la vigilancia y comprobación de cada transacción por parte de cada uno de los integrantes de la red.",
         "endmode":"auto",
+        "endtime":2,
         "resources":[
             {
                 "type":"capacity",
@@ -324,6 +340,7 @@
         "name":"App para lectura de datos y arrojar información demográfica",
         "description":"Tecnología de procesadores cuánticos que permite el análisis y administración de grandes cantidades de datos en un período muy reducido de tiempo.",
         "endmode":"auto",
+        "endtime":3,
         "resources":[
             {
                 "type":"capacity",
@@ -344,6 +361,7 @@
         "name":"Guías de práctica basada en la evidencia",
         "description":"Tecnología que condensa información científica y recomendaciones guiadas según población sujeto de análisis.",
         "endmode":"auto",
+        "endtime":2,
         "resources":[
             {
                 "type":"capacity",
@@ -364,6 +382,7 @@
         "name":"Big data - signos vitales",
         "description":"Tecnología que permite generar reportes sobre el hallazgo inicial de alteración en los signos vitales más frecuentes en los enfermos",
         "endmode":"auto",
+        "endtime":2,
         "resources":[
             {
                 "type":"capacity",
@@ -384,6 +403,7 @@
         "name":"Big data - ¿a quienes tratar?",
         "description":"Tecnología que permite el análisis de grandes cantidades de información obtenidas a partir de búsqueda masiva de información aunada de concepto de expertos para proponer aspectos claves en el diagnóstico tratamiento preventivo y/o curativo",
         "endmode":"auto",
+        "endtime":1,
         "resources":[
             {
                 "type":"capacity",
@@ -404,6 +424,7 @@
         "name":"App móvil - libros enfermedades infecciosas",
         "description":"Tecnología que permite acceso a biblioteca para ampliar información sobre enfermedades infecciosas",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -424,6 +445,7 @@
         "name":"App móvil para comunicar información en múltiples idiomas",
         "description":"Tecnología que permite la transferencia de información con selección de lenguaje, permitiendo mayor alcance e impacto",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -444,6 +466,7 @@
         "name":"Big data - ¿en qué momento tratar?",
         "description":"Servidores en la nube dispuestos de forma tal que compartan información y procesos entre ellos, garantizando velocidad de procesamiento y seguridad en la información gracias a su sistema de respaldos.",
         "endmode":"auto",
+        "endtime":5,
         "resources":[
             {
                 "type":"capacity",
@@ -464,6 +487,7 @@
         "name":"App móvil - Pandemia al día",
         "description":"App móvil que con brinda información actualizada con últimos avances sobre la enfermedad infecciosa que genera la pandemia",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -484,6 +508,7 @@
         "name":"App móviles para toma de signos vitales",
         "description":"Aplicativo móvil que permite transmitir en tiempo real los signos vitales. Esta aplicación genera grandes cantidades de puede ser analizada por otras tecnologías como la minería de datos",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -504,6 +529,7 @@
         "name":"Inteligencia artifical encaminada a la evaluación de la calidad de agua para el consumo humano",
         "description":"Tecnología que permite realizar minería de datos a partir de todos los resultados emitidos por entidades gubernamentales sobre calidad de agua para consumo humano rural y urbano",
         "endmode":"auto",
+        "endtime":3,
         "resources":[
             {
                 "type":"capacity",
@@ -524,6 +550,7 @@
         "name":"Geolocalizador de agua potable",
         "description":"Aplicativo móvil para la geolocalización de plantas de tratamiento de agua y centros de distribución de agua potable",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -544,6 +571,7 @@
         "name":"Minería de datos - tratamiento de agua",
         "description":"Tecnología que permite el análisis de grandes cantidades de información obtenidas a partir de datos gubernamentales de diversos indicadores sociales, económicos, geográficos y en salud. Genera un informe sobre lugares geográficos con peor y mejor calidad de agua para consumo humano",
         "endmode":"auto",
+        "endtime":3,
         "resources":[
             {
                 "type":"capacity",
@@ -564,6 +592,7 @@
         "name":"App móvil - uso del tapabocas",
         "description":"Aplicativo móvil diseñado para promover el uso adecuado del tapabocas personalizada y ajustada a las necesidades del usuario",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -584,6 +613,7 @@
         "name":"Minería de datos - aproximación a prevención y tratamiento en humanos",
         "description":"Tecnología que permite el análisis de grandes cantidades de información obtenidas a partir de concepto de expertos para proponer un tratamiento preventivo y/o curativo",
         "endmode":"auto",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",
@@ -604,6 +634,7 @@
         "name":"App móvil - Quickly",
         "description":"App móvil que permite envío de domicilio sin contacto directo con los enfermos",
         "endmode":"manual",
+        "endtime":0,
         "resources":[
             {
                 "type":"capacity",

@@ -867,15 +867,18 @@
     function stopTech(tech) {
         var canStop = true;
         var dependenciesRunning = [];
-        $.each(gameState.technologies.running, function(i, it) {
-            if (it.technologies.findIndex(function(it1) { return it1 == tech.id; }) >= 0) {
-                var tech = setup.techs.find(findById(tech.id));
-                dependenciesRunning.push(tech.name);
+
+        $.each(gameState.actions.running, function(i, act) {
+            var action = setup.actions.find(findById(act.id));
+
+            var used = $.inArray(tech.id, action.technologies);
+            if (used >= 0) {
+                dependenciesRunning.push(action.name);
             }
         });
 
         if (dependenciesRunning.length) {
-            var suffix = missingTechs.length == 1 ? 'la siguiente política: ' : 'las siguientes políticas: ';
+            var suffix = dependenciesRunning.length == 1 ? 'la siguiente política: ' : 'las siguientes políticas: ';
             var msg = 'Para poder detener está tecnología es necesario detener ' + suffix + dependenciesRunning.join(', ');
             showMsg(INFO, msg);
             return;
