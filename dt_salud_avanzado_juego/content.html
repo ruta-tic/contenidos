@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Pandemia</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+    <link href="components/clock/clock.css" rel="stylesheet" type="text/css">
+    <link href="css/sprites.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--script src="components/interact/interact.min.js"></script-->
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/clock/clock.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1" data-manifest-id="MANIFEST-20190729000000000000000000030321">
+
+    <div id="body" class="not_print">
+        <header></header>
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <!--section id="pag-game" ptitle="Juego Pandemia">
+                <div class="subpage">
+                    <div class="box-text activity" label="Informe ejecutivo OMS">
+                        <p>A nivel mundial se ha detectado una amenaza. Entidades sanitarias de todo el mundo notificaron la aparición de un nuevo fenómeno infeccioso a la Organización Mundial de la Salud (OMS). Dicho fenómeno se ha expandido rápidamente a lo largo y ancho del mundo y ha empezado a contar con víctimas mortales.</p>
+                        <p>Según estudios preliminares realizados por investigadores en Oceanía, parece indicar que se trata de un agente viral, cuyo modo de transmisión es por vía respiratoria, con período de incubación de hasta seis horas. Investigadores europeos, han identificado que el modo de transmisión es por vía hematógena, con período de incubación de hasta 4 horas. Equipos múltiples africanos refieren que el probable modo de transmisión es por vía fecal - oral, con período de incubación de 8 horas. Mientras que equipos de trabajo americanos y asiáticos refieren que existen múltiples modos de transmisión. </p>
+                        <p>Según proyecciones realizadas, parece que la infección afecta de manera exponencial a la población.</p>
+                        <p>A partir de la observación de personas infectadas se ha detectado que la infección compromete diversos sistemas a lo largo del tiempo. Al parecer, el comportamiento de la población cambia durante el tiempo de evolución de la infección y la gravedad de los síntomas se incrementa hasta llegar a la muerte pasadas 48 horas de iniciada la sintomatología.</p>
+                        <p>Un aspecto destacado que han reportado algunos investigadores, sin que sea concluyente, es que este evento no hace distinción por sexo, raza, situación económica ni latitud.</p>
+                        <p>Estudiar el fenómeno, encontrar la causa de la infección y aplicar el tratamiento adecuado y oportuno podría controlar la pandemia y salvar a la humanidad. </p>
+                        <p>Se realizó una búsqueda expresa de tecnologías en salud, disponibles a nivel mundial al momento, que pudieran ser de apoyo para el equipo experto encontrando un pool de tecnologías y de acciones que pudieran utilizar. Estas acciones y tecnologías están relacionadas con: </p>
+                        <ul class="data_list">
+                            <li>Guías de práctica basadas en la evidencia</li>
+                            <li>Telesalud</li>
+                            <li>Aplicativos y dispositivos móviles</li>
+                            <li>Inteligencia artificial y big data </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>Es momento entonces de empezar a articular y poner en práctica conocimientos, de trabajar con pares y de controlar la pandemia.</p>
+                        <div class="buttons-box">
+                            <button class="general" data-page="pag-game">Iniciar</button>
+                        </div>
+                    </div>
+                </div>
+            </section-->
+
+            <section id="pag-game" ptitle="Juego Pandemia">
+                <div class="subpage">
+                    <div class="game-container loading" data-act-id="1-dt-juego-pandemia">
+                        <div class="chat-container">
+                            <div class="chat-container-wrapper">
+                                <div class="chat-header">
+                                    <div class="avatar"></div>
+                                    <div class="roles">
+                                        <strong></strong>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <ul class="chat-history"></ul>
+                                <div class="chat-box">
+                                    <div class="chat-input" contenteditable="true"></div>
+                                    <button class="btn send"><i class="ion-android-send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gamezone-container">
+                            <div class="game-home">
+                                <div class="instructions-container"></div>
+                                <div class="game-history"></div>
+                            </div>
+                            <div class="game-board">
+                                <div class="clock-box">
+                                    <!--label>Tiempo estimado para agotar los recursos</label><br /-->
+                                    <!--div class="clock"></div-->
+                                    <!--div class="clock-display"></div-->
+                                    <div class="current-week">Día: <span></span>.</div>
+                                    <div class="lifetime-week">A este ritmo, la población fallecerá en aproximadamente <span></span>.</div>
+                                </div>
+                                <div class="healthy-box resource-box">
+                                    <label>Decesos</lavel><br />
+                                    <span class="display">20%</span>
+                                </div>
+                                <div class="human-resources-box resource-box">
+                                    <label>Personal</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="physical-resources-box resource-box">
+                                    <label>Infraestructura</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="energy-resources-box resource-box">
+                                    <label>Energía</lavel><br />
+                                    <span class="display"></span>
+                                </div>
+                                <div class="content-box game-map-container">
+                                    <div class="title">Propagación de la infección</div>
+                                    <div class="game-zones"></div>
+                                    <div class="health-update-notice"><span></span><i class="ion-help-circled tooltip" title="Existe una tecnología llamada <strong>“App móvil - Pandemia al día”</strong>. Se recomienda jugar esta tecnología para mantener actualizada la información del porcentaje de desarrollo de cada uno de los ejes de trabajo."></i></div>
+                                </div>
+                                <div class="content-box files">
+                                    <div class="title">Archivos</div>
+                                    <div class="content"></div>
+                                </div>
+                                <div class="execution-box applications">
+                                    <div class="title">Tecnologías</div>
+                                    <div class="horizontal-menu">
+                                        <dl>
+                                            <dt>Disponibles</dt>
+                                            <dd>
+                                                <div class="box-content available"></div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>En ejecución</dt>
+                                            <dd>
+                                                <div class="box-content running"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="capacity-resources-box">Capacidad disponible: <label class="display"></label></div>
+                                </div>
+                                <div class="execution-box actions">
+                                    <div class="title">Acciones</div>
+                                    <div class="horizontal-menu">
+                                        <dl>
+                                            <dt>Disponibles</dt>
+                                            <dd>
+                                                <div class="box-content available"></div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>En ejecución</dt>
+                                            <dd>
+                                                <div class="box-content running"></div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="toolbar">
+                                    <label>A la velocidad actual la partida terminará el <strong class="duedate"></strong></label>
+                                    <div class="button-group">
+                                        <button class="general btn timeframe"><i title="Velocidad del juego" class="ion-clock"></i><label>Acelerar</label></button>
+                                        <button class="general btn endgame"><i title="Finalizar partida" class="ion-power"></i> Finalizar partida</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="asset-viewer">
+                                <div class="header">
+                                    <i class="icon"></i>
+                                    <label class="title"></label>
+                                    <button class="btn execute">Ejecutar</button>
+                                    <button class="btn stop"><label>Ejecutado en el día <span></span></label>Detener</button>
+                                </div>
+                                <div class="description-wrapper content-box">
+                                    <div class="description"></div>
+                                </div>
+                                <div class="footer">
+                                    <div class="technical-details content-box">
+                                        <label>Ficha técnica</label>
+                                        <div class="details"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="game-level-selector" class="w-content" title="Seleccionar nivel" data-position=".gamezone-container">
+                                <p>Seleccione el nivel de dificultad en el que desea jugar.</p>
+                                <div class="level-button-list">
+                                    <button class="general btn level" data-level="0">Fácil</button>
+                                    <button class="general btn level" data-level="1">Normal</button>
+                                    <button class="general btn level" data-level="2">Difícil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="full-instructions" class="wf-content" title="Instrucciones">
+                    <h2>Reglas básicas</h2>
+                    <div class="instructions-wrapper">
+                        <h3>“Pandemia” - Juego colaborativo de cartas y tablero</h3>
+
+                        <p>Este juego pretende lograr la aplicación de tecnologías en salud en un escenario simulado: una pandemia. Es producto de un escenario simulado y ficticio cuya finalidad es incentivar el uso y apropiación de herramientas tecnológicas en diferentes escenarios del proceso salud-enfermedad, por tanto, no está a prueba el razonamiento ni juicio clínico. La pandemia progresivamente irá generando contagio y fallecimiento a la población mundial. Los participantes deberán aplicar diversas estrategias y tomar decisiones en tiempo real que les permitirá encontrar soluciones parciales o definitivas para controlar la infección y así salvar a la población restante o por el contrario dará al traste la vida humana en el planeta.</p>
+
+                        <h4>Instrucciones generales del juego</h4>
+                        <p>Se parte de una problemática que está afectando la vida como la conocemos; esta problemática fue detectada por las entidades sanitarias de diversos países en diversos continentes y notificada a la Organización Mundial de la Salud (OMS). Los dirigentes de la OMS a su vez realizan una reunión extraordinaria con la información obtenida y generan un informe resumido acerca de lo que está sucediendo en el mundo.</p>
+                        <p>Usted se encuentra trabajando para la OMS y es seleccionado para asesorar, planificar, gestar y ejecutar un plan de acción que controle este evento en salud particular y ojalá prevenga situaciones similares en salud venideras. De igual manera, son seleccionados otros miembros con los que deberá trabajar. La OMS considera que un equipo conformado por entre 3 y 5 expertos podrá revisar la información y ejecutar el plan de acción.</p>
+                        <p>Dadas las condiciones de gravedad de la pandemia, deben trabajar al interior de un laboratorio, no tendrán contacto físico con otras personas pensando en su protección. Contarán como herramienta con un chat pero podrán comunicarse de manera virtual con el resto del equipo de trabajo por otros canales si lo consideran necesario.</p>
+                        <p>La OMS generó una alerta a nivel mundial informando que se avecina la peor problemática en salud que se conoce al momento, dio parte de tranquilidad sobre que tiene un personal experto trabajando las 24 horas del día y generando acciones encaminadas a salvar la población. Así que, progresivamente el equipo definirá acciones a desarrollar que deberán ser acatadas por la población.</p>
+                        <p>Adicionalmente, emitirá informes periódicos para actualizar el estado de salud mundial.</p>
+
+                        <p><strong>La tarea:</strong> salvar la vida humana mediante el control de la pandemia en el mundo.</p>
+                        <p><strong>¿Cómo se hace?:</strong> los jugadores disponen de 48 días para controlar la pandemia del mundo porque si no lo hacen, la pandemia entrará en fase de no retorno y acabará con toda la población humana.</p>
+
+                        <h4>Tenga en consideración:</h4>
+                        <p>Cuando inicien la partida se activará un conteo regresivo que irá mostrando cuántos días restan. Al finalizar la partida, en caso de no haber logrado la meta propuesta, tendrán un intento adicional. Cada grupo cuenta con 2 intentos.</p>
+
+                        <p>En el tablero de juego, le aparecerá a cada participante tres elementos diferentes:</p>
+                        <ul class="data_list">
+                            <li>Una imagen de los efectos de la pandemia por continente.</li>
+                            <li>Un elemento para comunicación compartida: tipo chat.</li>
+                            <li>Una carpeta tipo biblioteca de recursos: en la cual podrán compartir información como resultados de las herramientas empleadas: exámenes, imágenes u otros. En esta carpeta no subirán información real sino archivos que se generan en el juego.</li>
+                            <li>Un panel inferior donde aparecerán acciones y tecnologías. Al ingresar en ellos podrán ver las características de cada uno.</li>
+                        </ul>
+
+
+                        <h4>Componentes del juego:</h4>
+                        <ul class="data_list">
+                            <li>Al iniciar una partida se ofrece la posibilidad de seleccionar el nivel de dificultad, entre: fácil, normal o difícil.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_1.png" />
+                                </div>
+                            </li>
+                            <li>Cuando se inicia la partida a cada jugador se le presenta un tablero de juego con las siguientes secciones:
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_2.png" />
+                                </div>
+                            </li>
+                            <li>Cada integrante del equipo comienza con una serie de cartas que representan las “acciones” y las “tecnologías”. Dichas cartas se han repartido aleatoriamente entre los integrantes y no hay cartas repetidas, por lo que la comunicación es muy importante para definir la estrategia de qué cartas jugar. Cada jugador puede conocer el detalle de las acciones y tecnologías disponibles haciendo clic sobre cada una de ellas y viendo su ficha técnica.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_3.png" />
+                                    <div class="about">
+                                        Ficha técnica de una acción.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Desde el inicio del juego cada integrante del equipo tiene las mismas posibilidades de jugar sus cartas; no hay turnos de juego.</li>
+                        </ul>
+
+                        <h5>Jugar una acción:</h5>
+
+                        <p>Cuando un jugador desee activar una acción debe considerar lo siguiente:</p>
+                        <ul class="data_list">
+                            <li>En la ficha técnica observar que cuente con los recursos requeridos de personal, infraestructura y energía.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_4.png" />
+                                    <div class="about">
+                                        Ejemplo de recursos requeridos por una acción.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Observar que la acción no requiera una tecnología o un archivo específico o, en caso que lo requiera, que dicho archivo ya esté disponible en la ventana de archivos, o que la tecnología ya esté en ejecución, así haya sido jugada por otro compañero del equipo.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_5.png" />
+                                    <div class="about">
+                                        Ejemplo de tecnología y archivo requeridos en una acción.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                Considerar el tiempo que tarda la acción en generar recursos y su tipo de finalización: manual o automática.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_6.png" />
+                                    <div class="about">
+                                        Ejemplo de acción con finalización manual y resultados a partir de la semana 14.
+                                    </div>
+                                </div>
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Toda acción que se retire de la ventana de ejecución liberará los recursos requeridos para su ejecución, permitiendo así aumentar dichos recursos para jugar otras acciones.</p>
+                                </div>
+                            </li>
+                            <li>Considerar el impacto que tiene la acción cuando genere resultados:
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_7.png" />
+                                    <div class="about">
+                                        Ejemplo de impacto de una acción en los diferentes continentes.
+                                    </div>
+                                </div>
+
+                                <p>El impacto de la acción se genera cuando cumple en ejecución el tiempo definido en “Resultados en”. Las acciones de finalización manual siguen generando el impacto a partir de ese momento.</p>
+
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Es importante jugar acciones cuyo resultado sea antes del tiempo estimado de finalización de los recursos.</p>
+                                </div>
+
+                                <div class="box-text example" label="Tip de juego">
+                                    <p>Procure jugar acciones que tengan un alto impacto positivo en la mayoría de continentes o en aquellos que más contagios presenta.</p>
+                                </div>
+
+                            </li>
+                            <li>Una vez considerados los puntos anteriores, presione el botón <strong>“Ejecutar”</strong>. El sistema validará y pondrá la acción en ejecución.</li>
+                        </ul>
+
+                        <div class="box-text note" label="Nota">
+                            <p>Existen dos tipos de finalización para las acciones. La finalización “Manual” indica que, una vez la acción está en ejecución, permanecerá en dicho estado hasta que un jugador decida “Detenerla” en la pestaña de “Ejecución”. Por el contrario, si la finalización es “Automática”, la acción dejará de estar en ejecución automáticamente una vez cumpla su tiempo de generación de resultados.</p>
+                        </div>
+
+                        <div class="box-text example" label="Tip de juego">
+                            <p>Si una acción está generando buenos resultados y no se requieren los recursos que utiliza, lo mejor es dejarla en ejecución.</p>
+                        </div>
+
+                        <h5>Jugar una tecnología:</h5>
+                        <p>Cuando un jugador desee activar una tecnología debe considerar lo siguiente:</p>
+                        <ul class="data_list">
+                            <li>
+                                <p>En la ficha técnica de la tecnología observar que cuente con la capacidad requerida necesaria.</p>
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_8.png" />
+                                    <div class="about">
+                                        Ejemplo de capacidad requerida por una tecnología.
+                                    </div>
+                                </div>
+
+                                <p>La capacidad disponible se observa bajo la ventana de las tecnologías disponibles o en ejecución:</p>
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_9.png" />
+                                    <div class="about">
+                                        En la imagen se ve que todavía queda 85% de capacidad para ejecutar tecnologías.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Observar qué archivos requiere.
+                                <div class="box_media">
+                                    <img src="content/instructivo_juego_pandemia_10.png" />
+                                    <div class="about">
+                                        Ejemplo de una tecnología que no requiere archivo y genera el archivo "Guía práctica".
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Identificar los archivos que genera y el tiempo que tarda en generarlos.</li>
+                            <li>Una vez considerados los puntos anteriores, presionar el botón <strong>“Ejecutar”</strong>. El sistema validará y pondrá la tecnología en ejecución.</li>
+                        </ul>
+                        <div class="box-text note" label="Nota">
+                            <p>Existen dos tipos de finalización para las tecnologías. La finalización “Manual” indica que la tecnología se mantendrá en ejecución hasta que se decida detenerla; si una acción depende de la tecnología que se desea detener, primero debe ser detenida la acción. Si la finalización es “Automática”, la tecnología dejará de estar en ejecución automáticamente una vez cumpla su tiempo de generación de resultados. Los archivos que genere seguirán disponibles sin importar que la tecnología ya no esté en ejecución.</p>
+                        </div>
+
+                        <div class="box-text example" label="Tip de juego">
+                            <p>Es útil jugar aquellas tecnologías que estén asociadas a la producción de archivos o den soportes a acciones que se haya decidido jugar, para evitar consumir capacidad en tecnologías no requeridas.</p>
+                        </div>
+
+                        <div class="box-text important" label="Importante">
+                            <p>Existe una tecnología llamada <strong>“App móvil - Pandemia al día”</strong>. Se recomienda jugar esta tecnología para mantener actualizada la información de la propagación de la infección.</p>
+                        </div>
+
+                        <h5>Generar archivos</h5>
+                        <p>Algunas acciones tienen como prerrequisito determinados archivos. Estos archivos son generados por las tecnologías. Para generar un archivo específico se deben mirar las fichas técnicas de las tecnologías y poner en ejecución aquella que genere dicho archivo. La tecnología producirá el archivo de manera automática al momento de generar resultados y dicho archivo quedará disponible hasta finalizar la partida.</p>
+
+                        <h5>Detención o retiro de cartas en ejecución</h5>
+                        <p>Solo el jugador que juega determinada carta puede detener su ejecución. Sin embargo, si la carta es de finalización automática, una vez que pase el tiempo necesario se retirará automáticamente de las cartas en ejecución y quedará disponible de nuevo.</p>
+
+                        <div class="box_media">
+                            <img src="content/instructivo_juego_pandemia_11.png" />
+                            <div class="about">
+                                El botón "Detener" reemplaza el de "Ejecutar" y muestra, además, el día en el que se ejecutó la acción o la tecnología.
+                            </div>
+                        </div>
+
+                        <div class="box-text important" label="Proyecciones">
+                            <p>Las proyecciones que se muestran al usuario (tiempo, infección y decesos) se hacen con base en estimaciones o valores obtenidos al momento de la proyección, sin embargo no necesariamente así se comportará el juego, pueden haber modificaciones con cada cambio de día.</p>
+                        </div>
+
+                        <h3>Otras reglas y condiciones a considerar:</h3>
+                        <ul class="data_list">
+                            <li>El juego tiene una duración de <strong>48</strong> “días virtuales”.</li>
+                            <li>Cada día corresponde a una hora real, es decir, el juego puede durar máximo 48 horas reales.</li>
+                            <li>Para facilitar la jugada de una partida en los casos que se requiera agilidad, los jugadores pueden acelerar el paso del tiempo en 5X, es decir, un día virtual durará poco menos de 4 minutos y un juego completo duraría aproximadamente 3 horas.</li>
+                            <li>La duración del juego puede ser mucho menor si todas las personas mueren, en ese caso se pierde el juego.</li>
+                            <li>En cualquier momento los jugadores pueden “finalizar la partida”. Cuando se finaliza una partida, se hace una proyección de los resultados con base en lo generado hasta el momento, para determinar si se ganó o se perdió el juego.</li>
+                            <li>Una vez finalizada la primera partida, se puede iniciar una segunda. Solamente se tienen dos partidas disponibles por grupo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+<script id="instructions" type="text/html">
+    <div id="instructions">
+        <strong>¡Bienvenido a Pandemia!</strong>
+        <p>
+            Este juego pretende lograr la aplicación de tecnologías en salud en un escenario simulado: una pandemia. Es producto de un escenario simulado y ficticio cuya finalidad es incentivar el uso y apropiación de herramientas tecnológicas en diferentes escenarios del proceso salud-enfermedad, por tanto, no está a prueba el razonamiento ni juicio clínico. La pandemia progresivamente irá generando contagio y fallecimiento a la población mundial. Los participantes deberán aplicar diversas estrategias y tomar decisiones en tiempo real que les permitirá encontrar soluciones parciales o definitivas para controlar la infección y así salvar a la población restante o por el contrario dará al traste la vida humana en el planeta.
+        </p>
+        <p>
+            Este juego pondrá a prueba el trabajo en equipo y la toma de decisiones bajo condiciones de estrés.
+        </p>
+        <p>
+            <button class="wf-content-controler general button" data-content="#full-instructions">Ver instrucciones completas</button>
+        </p>
+    </div>
+</script>
+
+<script id="game-entry" type="text/html">
+    <div class="game-entry">
+        <div class="header"><h2 class="title"></h2></div>
+        <div class="game-map">
+            <div class="frame"></div>
+            <div class="map"></div>
+        </div>
+        <div class="footer">
+            <div class="btn failed"><h2>Partida perdida</h2><span>El equipo de expertos no ha logrado salvar a la humanidad.</span></div>
+            <div class="btn passed"><h2>Partida ganada</h2><span>El equipo de expertos ha conseguido salvar a la humanidad de la pandemia.</span></div>
+            <div class="btn locked w-content-controler" data-content="#game-level-selector"><h2>Iniciar partida</h2></div>
+        </div>
+    </div>
+</script>
+<script id="file-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right">Fecha de creación</th>
+            <td class="left">{creationtime}</td>
+        </tr>
+        <tr>
+            <th class="right">Tipo</th>
+            <td class="left">{type}</td>
+        </tr>
+    </table>
+</script>
+<script id="tech-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right">Capacidad requerida</th>
+            <td class="left">{capacity}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Finalización</th>
+            <td class="left">{endmode}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Resultados en</th>
+            <td class="left">{duration}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Requiere</th>
+            <td class="left">{infiles}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Genera</th>
+            <td class="left">{outfiles}</td>
+        </tr>
+    </table>
+</script>
+
+<script id="action-card" type="text/html">
+    <table>
+        <tr>
+            <th class="right" rowspan="2">Capacidad requerida</th>
+            <th>Personal</th>
+            <th>Infraestructura</th>
+            <th>Energía</th>
+        </tr>
+        <tr>
+            <td>{human}</td>
+            <td>{physical}</td>
+            <td>{energy}</td>
+        </tr>
+        <tr class="divider">
+            <th rowspan="2">&nbsp;</th>
+            <th>Finalización</th>
+            <th>Resultados en</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>{endmode}</td>
+            <td>{duration}</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr class="divider">
+            <th class="right" rowspan="4">Impacto</th>
+            <th>África</th>
+            <th>América del Norte</th>
+            <th>Asia</th>
+        </tr>
+        <tr>
+            <td>{zone_0}</td>
+            <td>{zone_1}</td>
+            <td>{zone_2}</td>
+        </tr>
+        <tr class="divider">
+            <th>Europa</th>
+            <th>Oceanía</th>
+            <th>América del Sur</th>
+        </tr>
+        <tr>
+            <td>{zone_3}</td>
+            <td>{zone_4}</td>
+            <td>{zone_5}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Tecnologías</th>
+            <td class="left" colspan="3">{techs}</td>
+        </tr>
+        <tr class="divider">
+            <th class="right">Archivos</th>
+            <td class="left" colspan="3">{files}</td>
+        </tr>
+    </table>
+</script>
+<script id="feedback-gamepassed" type="text/html">
+    <div id="feedback-game-passed">
+        <h3>Ha terminado el juego...</h3>
+        <p>¡Felicitaciones! a través del trabajo colaborativo su equipo ha conseguido salvar a la humanidad de la pandemia que la amenazaba.</p>
+    </div>
+</script>
+<script id="feedback-gamefailed" type="text/html">
+    <div id="feedback-game-failed">
+        <h3>Ha terminado el juego...</h3>
+        <p>Tu equipo no ha logrado salvar a la humanidad. La población fue exterminada en {timelapse} días.</p>
+    </div>
+</script>
+</html>

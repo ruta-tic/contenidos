@@ -1,0 +1,116 @@
+[
+    {
+        "id":"f1",
+        "name":"Banco de información sobre indicadores gubernamentales",
+        "type":"data",
+        "description":"Base de datos con información a nivel mundial sobre calidad de agua para consumo humano"
+    },
+    {
+        "id":"f2",
+        "name":"Indicadores calidad de agua",
+        "type":"data",
+        "description":"Informe sobre lugares geográficos con peor y mejor calidad de agua para consumo humano"
+    },
+    {
+        "id":"f3",
+        "name":"Datos GPS",
+        "type":"data",
+        "description":"Base de datos con información que almacena las coordenadas geográficas de las ubicaciones de interés."
+    },
+    {
+        "id":"f4",
+        "name":"Banco de conceptos sobre tratamiento",
+        "type":"data",
+        "description":"Base de datos con múltiples reportes de expertos sobre información encaminada al tratamiento"
+    },
+    {
+        "id":"f5",
+        "name":"Características principales niños y ancianos",
+        "type":"text-format",
+        "description":"Recomendación de potencial tratamiento preventivo y/o curativo de enfermedad infecciosa en niños y ancianos"
+    },
+    {
+        "id":"f6",
+        "name":"Características femeninas en común",
+        "type":"text-format",
+        "description":"Recomendación de potencial tratamiento preventivo y/o curativo de enfermedad infecciosa en mujeres sexualmente activas a partir del análisis en minería de datos de vídeos"
+    },
+    {
+        "id":"f7",
+        "name":"e-salud canina y felina",
+        "type":"video",
+        "description":"Base de datos con información de las teleconsultas sincrónicas de los últimos seis meses a caninos y felinos a nivel mundial"
+    },
+    {
+        "id":"f8",
+        "name":"Características caninas y felinas",
+        "type":"text-format",
+        "description":"Recomendación de potencial tratamiento preventivo y/o curativo de enfermedad infecciosa en contactos de felinos y caninos"
+    },
+    {
+        "id":"f9",
+        "name":"¿Positivo o negativo?",
+        "type":"data",
+        "description":"Banco de información con personas positivas y negativas para el evento de salud"
+    },
+    {
+        "id":"f10",
+        "name":"Teleconcepto",
+        "type":"data",
+        "description":"Banco de información con recomendaciones personalizadas"
+    },
+    {
+        "id":"f11",
+        "name":"Recomendación - exámenes",
+        "type":"text",
+        "description":"“Para esta guía se recomienda realizar exámenes de manera prioritaria a la población de países pobres”. Recomendación débil a favor."
+    },
+    {
+        "id":"f12",
+        "name":"Recomendación - factores de riesgo",
+        "type":"text",
+        "description":"“Para esta guía se considera un factor de riesgo pertenecer a población vulnerable inmunológicamente o en extremos de la vida”. Recomendación fuerte a favor."
+    },
+    {
+        "id":"f13",
+        "name":"Recomendación - prevención",
+        "type":"text",
+        "description":"“Para esta guía se considera que la forma más efectiva para prevenir el evento de salud es mediante el consumo de agua potable, el lavado de manos y la limpieza de fuentes de agua”. Recomendación débil a favor."
+    },
+    {
+        "id":"f14",
+        "name":"Recomendación - tratamiento",
+        "type":"text",
+        "description":"“Para esta guía se considera que el momento para iniciar el tratamiento es lo antes posible, dado que hay evidencia que muestra que una vez la población atraviesa las 48 horas de iniciada la infección atraviesan punto de no retorno”. Recomendación débil a favor."
+    },
+    {
+        "id":"f15",
+        "name":"Guía práctica",
+        "type":"video",
+        "description":"Orientan sobre la prevención, diagnóstico y tratamiento en población afectada por eventos de salud de los diferentes continentes"
+    },
+    {
+        "id":"f16",
+        "name":"Informe caso índice",
+        "type":"video",
+        "description":"Video con entrevista a caso índice"
+    },
+    {
+        "id":"f17",
+        "name":"Signo vital más alterado",
+        "type":"image",
+        "description":"Según el análisis de los signos vitales se encontró que la alteración más evidente en los signos vitales de la población general es la temperatura."
+    },
+    {
+        "id":"f18",
+        "name":"Aproximación a prevención y tratamiento en humanos",
+        "type":"text-format",
+        "description":"Recomendación sobre el tratamiento de manera prioritaria en niños y adultos mayores"
+    },
+    {
+        "id":"f20",
+        "name":"Recomendación - diagnóstico",
+        "type":"text",
+        "description":"“Para esta guía se recomienda no focalizar los recursos en el tratamiento de la población sexualmente activa”. Recomendación fuerte a favor."
+    }
+]
