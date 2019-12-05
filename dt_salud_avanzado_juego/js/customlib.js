@@ -10,7 +10,7 @@
     var MINREQPLAYEDCARDS = 4;
     var ERROR = 'error';
     var INFO = 'info';
-    var MODEDEBUG = true;
+    var MODEDEBUG = false;
     var actions = {
         CHATMSG: 'chatmsg',
         CHATHISTORY: 'chathistory',
