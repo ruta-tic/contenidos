@@ -1,0 +1,11 @@
+[{ "id": "f1", "name": "Datos de GPS", "description": "Base de datos que almacena las coordenadas geográficas de las ubicaciones de interés.", "type": "data" },
+{ "id": "f2", "name": "Plan de Rutas", "description": "Archivo de video interactivo que muestra los posibles recorridos que pueden hacerse para ir de un punto a otro.", "type": "video" },
+{ "id": "f3", "name": "Informe ambiental", "description": "Documento que presenta el resultado de un estudio en torno al impacto ambiental de las políticas implementadas, y sugerencias para mejorar las condiciones", "type": "text" },
+{ "id": "f4", "name": "Resultados de búsqueda", "description": "Documento estructurado que presenta de manera organizada los resultados de una consulta.", "type": "text-format" },
+{ "id": "f5", "name": "Indicadores de gobierno", "description": "Informe gráfico del estudio realizado para determinar los aspectos críticos y más influyentes en las políticas gubernamentales", "type": "image" },
+{ "id": "f6", "name": "Indicadores de educación", "description": "Informe gráfico de los aspectos que definen el nivel de calidad del nivel educativo de la población.", "type": "image" },
+{ "id": "f7", "name": "Indicadores de Salud", "description": "Informe gráfico de análisis diagnósticos de factores que definen el nivel de salud promedio de la población.", "type": "image" },
+{ "id": "f8", "name": "Indicadores de Seguridad", "description": "Informe gráfico que muestra los niveles de confianza reportados por la población con respecto a medidas tomadas en torno a aspectos de seguridad y respuesta a emergencias.", "type": "image" },
+{ "id": "f9", "name": "Indicadores de Urbanismo", "description": "Informe gráfico del avance en la infraestructura y espacios en la ciudad para la satisfacción de las necesidades de su población.", "type": "image" },
+{ "id": "f10", "name": "Indicadores de Medio Ambiente", "description": "Informe gráfico de las condiciones ambientales que reportan los diferentes medidores de la ciudad", "type": "image" },
+{ "id": "f11", "name": "Bolsa de empleo: Base de datos de empleos y empleados disponibles", "description": "Base de datos con información de una bolsa de empleo, presentando la oferta y la demanda de empleos y aspirantes.", "type": "data" }]

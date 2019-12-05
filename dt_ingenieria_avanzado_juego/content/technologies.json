@@ -1,0 +1,326 @@
+[{
+    "id": "t1",
+    "name": "Computación en la nube",
+    "description": "Tecnología que permite el acceso a información y servicios disponibles 24/7 siempre y cuando se tenga acceso a internet.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 15 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t2",
+    "name": "Localízate: Sistema GPS",
+    "description": "Sistema de geolocalización que indica las posiciones en las coordenadas en las que se encuentra un objeto específico.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f1"]
+    }
+}, {
+    "id": "t3",
+    "name": "Optitravel: Optimizador de rutas de viaje",
+    "description": "Aplicación para identificar la ruta óptima de un punto a otro",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": ["f1"],
+        "out": ["f2"]
+    }
+}, {
+    "id": "t4",
+    "name": "Big Data",
+    "description": "Tecnología para el almacenamiento y análisis de grandes cantidades de datos",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 15 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t5",
+    "name": "Contenidos por Streaming",
+    "description": "Tecnología para la distribución de contenido multimedia de manera contínua sin necesidad de descargarlo.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t6",
+    "name": "SICOA: Sistema de control ambiental",
+    "description": "Sistema que analiza variables ambientales para indicar situaciones de alerta y otras condiciones ambientales.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f3"]
+    }
+}, {
+    "id": "t7",
+    "name": "Tu solución: Asistente virtual",
+    "description": "Tecnología que informa, responde preguntas, asesora y orienta de manera interactiva.",
+    "endmode": "auto",
+    "endtime": "2",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f4"]
+    }
+}, {
+    "id": "t8",
+    "name": "Urbatrans: Aplicación transporte público",
+    "description": "Sistema que informa las rutas, tiempos y otros datros del servicio de transporte público.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t9",
+    "name": "Plataforma de informe en línea de indicadores de gobierno",
+    "description": "Sistema de análisis de gestión gubernamental que permite ver el progreso o impacto de las políticas tomadas con respecto a la administración y percepción del Estado por parte de los ciudadanos.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f5"]
+    }
+}, {
+    "id": "t10",
+    "name": "Análisis de datos de pruebas educativas",
+    "description": "Sistema de medición del nivel educativo general de la población.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f6"]
+    }
+}, {
+    "id": "t11",
+    "name": "Diagnóstico de estados de salud de la población",
+    "description": "Sistema de análisis del diagnóstico de la salud de los pobladores.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f7"]
+    }
+}, {
+    "id": "t12",
+    "name": "Análisis de datos de percepción de la seguridad poblacional",
+    "description": "Sistema de análisis de indicadores de la seguridad brindada y percibida por parte de la población y la confianza en las decisiones y políticas implementadas.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f8"]
+    }
+}, {
+    "id": "t13",
+    "name": "Modelos de análisis de desarrollo urbanístico",
+    "description": "Sistema de análisis de indicadores de progreso urbanístico y desarrollo físico de la ciudad.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f9"]
+    }
+}, {
+    "id": "t14",
+    "name": "Medición de magnitudes relevantes para el medio ambiente",
+    "description": "Sistema de análisis de factores relevantes para el medio ambiente y su sostenibilidad como ecosistema.",
+    "endmode": "auto",
+    "endtime": "1",
+    "resources": [
+        { "type": "capacity", "value": 5 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f10"]
+    }
+}, {
+    "id": "t15",
+    "name": "Conductor experto: Simulador de conducción",
+    "description": "Tecnología de realidad virtual y realidad aumentada para facilitar la práctica y educación vial y de conductores.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 7 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t16",
+    "name": "Blockchain",
+    "description": "Plataforma de transacciones descentralizada que permite la vigilancia y comprobación de cada transacción por parte de cada uno de los integrantes de la red.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 8 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t17",
+    "name": "Computación cuántica",
+    "description": "Tecnología de procesadores cuánticos que permite el análisis y administración de grandes cantidades de datos en un período muy reducido de tiempo.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 15 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t18",
+    "name": "Análisis de base de datos",
+    "description": "Sistema de computación en paralelo que permite obtener informes importantes de grandes cantidades de datos.",
+    "endmode": "auto",
+    "endtime": "2",
+    "resources": [
+        { "type": "capacity", "value": 15 }
+    ],
+    "files": {
+        "in": [],
+        "out": ["f11"]
+    }
+}, {
+    "id": "t19",
+    "name": "PrevenGlobal: Sistema de prevención de desastres",
+    "description": "Sistema de registro y monitoreo para alertar sobre posibles deslizamientos de tierra, explosiones volcánicas, inundaciones y otros fenómenos naturales. Emplea Computación en la nube.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 8 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t20",
+    "name": "SmartPrevention: Sistema de prevención de desastres",
+    "description": "Sistema de registro y monitoreo para alertar sobre posibles deslizamientos de tierra, explosiones volcánicas, inundaciones y otros fenómenos naturales. Emplea computación cuántica.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 8 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t21",
+    "name": "Interconnect: Empowered edge",
+    "description": "Tecnología que establece un protocolo de comunicación entre electrodomécticos y dispositivos móviles",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 8 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t22",
+    "name": "Password Secure: Protección de contraseñas",
+    "description": "Sistema de protección, gestión y almacenamiento de contraseñas.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 8 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t23",
+    "name": "Paralely: Computación en paralelo",
+    "description": "Servidores en la nube dispuestos de forma tal que compartan información y procesos entre ellos, garantizando velocidad de procesamiento y seguridad en la información gracias a su sistema de respaldos.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t24",
+    "name": "Educatel: E-Learning",
+    "description": "Plataforma para la gestión de cursos en línea",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}, {
+    "id": "t25",
+    "name": "Visor en tiempo real del estado de la ciudad",
+    "description": "Conjunto de sistemas y tecnologías necesarias para reportar semanalmente los datos urbanísticos, geográficos, económicos y demás, para saber cuál es el desarrollo actual de la ciudad y sus habitantes.",
+    "endmode": "manual",
+    "endtime": "0",
+    "resources": [
+        { "type": "capacity", "value": 10 }
+    ],
+    "files": {
+        "in": [],
+        "out": []
+    }
+}]
