@@ -993,7 +993,6 @@
 
         infoTpl = infoTpl.replace('{endmode}', asset.endmode == 'manual' ? 'Manual' : 'Automática');
 
-        console.log(asset.endtime);
         if (!asset.endtime || asset.endtime == "0") {
             infoTpl = infoTpl.replace('{duration}', 'Mientras se ejecuta');
         }
