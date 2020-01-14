@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="single">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Rúbrica: Ajuste programa del curso habilidades comunicativas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="100" data-mobile-mode="1">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Rúbrica: Ajuste programa del curso habilidades comunicativas" class="globals">
+            <menu>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-rubrica" ptitle="Autoevaluacion. Participación en el foro">
+                <div class="subpage">
+                    <div class="box-text activity" label="Autoevaluacion. Participación en el foro">
+                        <p>Una vez haya participado con su equipo en el foro <em>Ajuste programa del curso habilidades comunicativas</em> realice la siguiente autoevaluación:</p>
+                        <div class="jpit-activities-selection" data-act-id="seleccionar" data-act-title="Autoevaluación" data-parent-mark-selector="false" data-mode="single" data-min="4" data-max="8">
+                            <table>
+                                <colgroup>
+                                    <col width="70%" />
+                                    <col width="15%" />
+                                    <col width="15%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Criterios</th>
+                                        <th>Sí</th>
+                                        <th>No</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd">
+                                        <th>¿Realizaron el estudio del material antes de participar en el foro?</th>
+                                        <td class="button" data-group="1" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                        <td class="button" data-group="1" data-group-value="1"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <th>¿Enlazaron en el foro los dos documentos trabajados en equipo? </th>
+                                        <td class="button" data-group="2" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                        <td class="button" data-group="2" data-group-value="1"><div class="radio"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <th>¿La respuesta dada a la pregunta del foro recoge el punto de vista de todos los integrantes del equipo?</th>
+                                        <td class="button" data-group="3" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                        <td class="button" data-group="3" data-group-value="1"><div class="radio"></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>¿Realizaron las participaciones individuales a las respuestas dadas por los otros equipos? </th>
+                                        <td class="button" data-group="4" data-group-value="2" data-correct="true"><div class="radio"></div></td>
+                                        <td class="button" data-group="4" data-group-value="1"><div class="radio"></div></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="box_end"></div>
+                            <feedback>
+                                <correct>
+                                    <h5>¡Felicitaciones!</h5>
+                                    <p>Ha finalizado la autoevaluación de la actividad <em>Ajuste programa del curso habilidades comunicativas</em>. Ahora regrese al componente para continuar con las actividades.</p>
+                                </correct>
+                                <wrong>
+                                    <h5>¡Felicitaciones!</h5>
+                                    <p>Ha finalizado la autoevaluación de la actividad <em>Ajuste programa del curso habilidades comunicativas</em>. Ahora regrese al componente para continuar con las actividades.</p>
+                                </wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
