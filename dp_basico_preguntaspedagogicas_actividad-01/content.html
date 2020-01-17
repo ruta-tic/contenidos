@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Preguntas pedagógicas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+        
+        body.loading {
+            text-align: center;
+        }
+        
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Preguntas pedagógicas</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="¿Qué entendemos por pedagogía?" data-page="pag-entendemos"></menuitem>
+                    <menuitem label="Responda" data-page="pag-responda"></menuitem>
+                    <menuitem label="¿Qué responden los expertos?" data-page="pag-responden"></menuitem>
+                    <menuitem label="Identifique a qué concepto" data-page="pag-identifique"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-entendemos" ptitle="¿Qué entendemos por pedagogía?">
+                <div class="subpage">
+
+                    <!--Este video aún no está subido-->
+                    <div class="videobox">
+                        <video controls>
+                                <source src="content/videos/Componente_pedagogia_educacion.mp4" type="video/mp4">
+                            </video>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-responda" ptitle="Responda las cuatro grandes preguntas que se hace la pedagogía">
+                <div class="subpage">
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            La pedagogía se hace cuatro grandes preguntas, lo invitamos a que las responda desde su experiencia
+                        </p>
+                    </div>
+
+                    <!--Para implementación: se plantea que el estudiante pueda escribir su respuesta en el espacio y la tenga a la mano cuando estudie la actividad, que aparezca un botón durante toda la actividad que lleve a la respuesta en una ventana emergente para que el estudiante la pueda consultar mientras recorre el OVA-->
+                    <!--Lo siguiente puede ir en actividad tipo cuestionario pero debe tener un botón que lleve a comparar las respuestas de más abajo, las de los expertos-->
+
+
+
+                    <ol>
+                    	<li>¿Es posible ser educador?
+                    		<textarea name="respuesta" class="tooltip" title="Escribe aquí tu respuesta"
+		                    data-position-at="right bottom"></textarea></li>
+                    	<li>¿Es posible ser educado?
+                    		<textarea name="respuesta" class="tooltip" title="Escribe aquí tu respuesta"
+		                    data-position-at="right bottom"></textarea></li>
+                    	<li>¿Qué se puede enseñar?
+                    		<textarea name="respuesta" class="tooltip" title="Escribe aquí tu respuesta"
+		                    data-position-at="right bottom"></textarea></li>
+                    	<li>¿Cómo se puede enseñar?
+                    		<textarea name="respuesta" class="tooltip" title="Escribe aquí tu respuesta"
+		                    data-position-at="right bottom"></textarea></li>
+                    </ol>
+
+                </div>
+            </section>
+            <section id="pag-responden" ptitle="¿Qué responden los expertos?">
+                <div class="subpage">
+                    <p>A continuación, lo invitamos a observar las respuestas a estas preguntas desde la mirada de un experto. Es de suma importancia que las compare con las respuestas que usted brindó anteriormente:</p>
+
+                    <h3>¿Es posible ser educador? (Educabilidadatividad)</h3>
+                    <div class="respuestas">
+	                    <img src="content/educador.png">
+	                    <div>
+		                    <p>
+		                        Al preguntarnos por esto, nos preguntamos por la <strong>educatividad</strong>. Esta se refiere a la posibilidad que una persona tiene para ser educador. Sobre el tema hay, por lo menos, dos miradas: la de quienes afirman que no
+		                        toda persona puede educar, y la de quienes dicen que cualquier persona tiene la capacidad de hacerlo.
+		                    </p>
+		                    <div class="comparar"></div>
+	                    </div>
+                    </div>
+
+                    <h3>¿Es posible ser educado? (Educabilidad)</h3>
+                    <div class="respuestas">
+	                    <img src="content/educado.png">
+	                    <div>
+	                    	<p>
+	                    		Al preguntarnos por esto, nos preguntamos por la educabilidad, la cual se refiere a la posibilidad que tiene una persona para ser educada. Para algunos, todo ser humano puede ser educado; para otros, las posibilidades de ser educado son restringidas. Los primeros creen que sí se puede educar; los segundos piensan que uno mismo es el que se educa.
+	                    	</p>
+	                    	<div class="comparar"></div>
+	                    </div>
+	                </div>
+
+                    
+                    <h3>¿Qué se puede enseñar? (Enseñabilidad)</h3>
+                    <div class="respuestas">
+	                    <img src="content/ensenar.png">
+	                    <div>
+	                    	<p>Al preguntarnos por esto, nos preguntamos por la enseñabilidad, referida a la posibilidad que tiene un saber de ser enseñado. Últimamente, este concepto ha tomado mucha fuerza a raíz del debate que se ha dado en el ámbito de la educación sobre los contenidos que se enseñan. </p>
+                    		<p>El asunto es: ¿Qué se puede enseñar? y ¿Qué debo enseñar en la asignatura que está a mi cargo? Para algunos cualquier saber es enseñable; para otros, lo único que se puede enseñar es el saber que sirva para resolver las necesidades del estudiante. Otros afirman que solo es posible enseñar el método para construir el saber, no sus construcciones.</p>
+	                    	<div class="comparar"></div>
+	                    </div>
+	                </div>
+                    
+                    <h3>¿Cómo se puede enseñar? (Didáctica)</h3>
+                    <div class="respuestas">
+	                    <img src="content/didactica.png">
+	                    <div>
+	                    	<p>Al preguntarnos por esto, nos preguntamos por la didáctica. Este término procede del griego “didaskein” que significa enseñar. En su sentido clásico, es la ciencia y el arte de la enseñanza, de los métodos de instrucción. La pedagogía contemporánea la sigue definiendo como disciplina de los métodos de enseñanza e instrucción, y de transmisión intelectual. El objeto de la didáctica es la dirección del aprendizaje.</p>
+		                    <p>La didáctica se divide en dos ramas: la primera es la <strong>General</strong>, que se preocupa de los principios del método instructivo y de los recursos que facilitan su aplicación. La segunda es la <strong>Específica</strong>, que estudia las cuestiones y los métodos para la transmisión y asimilación de los contenidos propios de cada una de las asignaturas del programa o plan educativo.</p>
+	                    	<div class="comparar"></div>
+	                    </div>
+	                </div>
+		                    
+                </div>
+
+            </section>
+            <section id="pag-identifique" ptitle="Identifique a qué concepto se hace referencia">
+                <div class="subpage">
+
+                	<div id="arrastrar1" class="jpit-activities-droppable actrelacionar" data-act-id="identifique" data-act-title="Identifique a qué concepto se hace referencia" data-shuffle="false">
+
+                        <div class="instruction onlymobile">Presione por dos segundos un área <em>destino</em> para seleccionar la opción sin tener que arrastrar.</div>
+                        <div class="box_end"></div>
+                        <div class="bloque1">
+
+                            <div class="opciones opciones1">
+                                <div class="item item1">
+                                    <span>Educatividad</span>
+                                </div>
+                                <div class="item item2">
+                                    <span>Didáctica</span>
+                                </div>
+                                <div class="item item3">
+                                    <span>Educabilidad</span>
+                                </div>
+                                <div class="item item4">
+                                    <span>Enseñabilidad</span>
+                                </div>
+                                <div data-group="1" class="item item1" data-value="educatividad">
+                                    <span>Educatividad</span>
+                                </div>
+                                <div data-group="2" class="item item2" data-value="didactica">
+                                    <span>Didáctica</span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="educabilidad">
+                                    <span>Educabilidad</span>
+                                </div>
+                                <div data-group="4" class="item item4" data-value="ensenabilidad">
+                                    <span>Enseñabilidad</span>
+                                </div>
+                                <div data-group="1" class="item item1" data-value="educatividad">
+                                    <span>Educatividad</span>
+                                </div>
+                                <div data-group="2" class="item item2" data-value="didactica">
+                                    <span>Didáctica</span>
+                                </div>
+                                <div data-group="3" class="item item3" data-value="educabilidad">
+                                    <span>Educabilidad</span>
+                                </div>
+                                <div data-group="4" class="item item4" data-value="ensenabilidad">
+                                    <span>Enseñabilidad</span>
+                                </div>
+
+                            </div>
+                            <div class="cajones ctrl-pagination" data-orientation="sides">
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <p>
+                                        “Nadie educa a nadie, nadie se educa así mismo, los hombres se educan entre sí con la mediación del mundo.” Paulo Freire.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <p>
+                                        La educación debe entenderse como una acción comunicativa, cuya finalidad se centra en establecer una estructura de comunicación que haga posible la adquisición de facultades para el discurso.” Klaus Mollenhauer.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="1"></div>
+                                    <p>
+                                        “El educador puede ser cualquier hombre en grado de llevar a cabo unas acciones sociales que tienen la finalidad de mejorar la personalidad de otros hombres o conservar sus componentes valiosos.” Wolfgang Brezinka.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="2"></div>
+                                    <p>
+                                        “Una praxis educativa debe favorecer las experiencias personales del ser humano para apoyar el crecimiento de actitudes creativas en el mismo alumno, tanto en el campo de la ciencia como del arte.” Alexandre Sanvisens.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <p>
+                                        “Todo fin educativo y todos sus medios educativos, en cualquier género de institución educativa, deben considerarse ‘en función’ del hombre o persona, cualquiera que sea su edad. Considerada la persona ‘centro’ y fin de toda la ayuda educativa subordina la familia, la escuela y la sociedad a la persona.” Alexandre Sanvisens.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="4"></div>
+                                    <p>
+                                    	“Debido a la agitación que existe en la educación, las propuestas sobre lo que debe incluirse en el currículo o excluir de él emanan de una diversidad de fuentes basadas en varias consideraciones diferentes, algunas de las cuales son insuficientes o irracionales, o bien ambas cosas a la vez. Los mismos educadores parecen hallarse confundidos en cuanto a los criterios por medio de los cuales decidir qué contenido debe incluir el currículo o las maneras de organizar y manejar el aprendizaje.” Hilda Taba.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="4"></div>
+                                    <p>
+                                    	“No alcanza solo con la visita al museo o leer diez libros. Lo que establece la verdadera diferencia en relación con la construcción de significados, es la intermediación en la experiencia del niño por parte de los adultos.” Reuven Feuerstein.
+                                    </p>
+                                </li>
+                                <li class="contenedor">
+                                    <div class="cajon" data-target-group="3"></div>
+                                    <p>
+                                    	“El hombre se propone una meta y con ello se convierte en meta la ordenación de su sistema personal-, es decir, el hombre se pone así mismo en desorden y no descansa ni se detiene hasta que se ha alcanzado la meta propuesta y establecido también de este modo la homeostasia psicofísico-espiritual. Ponerse a sí mismo en desorden para liberar los impulsos de la acción (voluntad) y mantener esto, a menudo durante años, es algo que solo está dado al hombre, no al animal.” Philip R. Reininger.
+                                    </p>
+                                </li>
+                            </div>
+                            <br class="clear" />
+                        </div>
+                        <feedback>
+                            <correct>¡Muy bien! Realizó un excelente análisis del fragmento con respecto a los conceptos estudiados.</correct>
+                            <wrong>Revise de nuevo los conceptos y haga el análisis con un poco más de calma. ¡Ánimo!</wrong>
+                        </feedback>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+
+        <!--Créditos-->
+        <div id="pag-creditos" style="display:none;">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+
+                <p>
+                    Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta
+                    a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
+                </p>
+                <div>
+                    <h3>Expertos temáticos</h3>
+                    <cite>Mónica Deossa Quintero<br />
+                        Manuel Unigarro</cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Marcela Palacio Ortíz</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Guionista</h3>
+                    <cite>Laura Pérez González</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite>Elizabeth Hernandez Gonzalez</cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite>Felipe Quintana</cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>Mariana Múnera Manco</cite>
+                </div>
+                <div>
+                    <h3>Gestión Administrativa</h3>
+                    <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada</cite>
+                </div>
+
+
+                <div>
+                    <h3>Producción</h3>
+                    <div class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                        <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                    </div>
+                </div>
+
+                <div class="editions">
+                    1ª edición: Diciembre de 2019
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                </div>
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+                </div>
+            </div>
+            <!-- Bibliografía -->
+            <div id="library-page" style="display:none;">
+                <div id="library_subpage">
+                    <h2>Referencias bibliográficas</h2>
+
+                    <ol class="counterlist">
+                        <li>Ávila, R. (1990) ¿Qué es Pedagogia ? (2da ed.). Bogotá: Nueva América.</li>
+                        <li>Brezinka, W. (1990). Conceptos básicos de la ciencia de la educación. Barcelona: Herder.</li>
+                        <li>Dienelt, K. (1980). Antropología pedagógica. Madrid: Aguilar.</li>
+                        <li>Nassif, R. (1992). Pedagogía general. Bogotá: Cincel.</li>
+                        <li>Sanvisens, A. (1992). Introducción a la pedagogía (3rd ed.). Barcelona: Barcanova.</li>
+                        <li>Siciliani, N. (2016). 100 razones para no ir a la escuela. Buenos Aires: SB Editorial.</li>
+                        <li>Taba, H. (1991). Elaboración del currículo. Buenos Aires: Troquel.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="printent_content" style="display:none;">
+                <div class="content"></div>
+                <div class="button_container">
+                    <button class="general button" onclick="window.print();">Imprimir</button>
+                    <button id="printent_back" class="general button">Volver</button>
+                </div>
+            </div>
+
+
+</body>
+
+</html>
