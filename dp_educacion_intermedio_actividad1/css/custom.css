@@ -1,0 +1,9 @@
+#pag-dis-cie-pro .horizontal-menu .chalkboard_content {
+    height: 300px;
+}
+
+.jpit-activities-selection li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
