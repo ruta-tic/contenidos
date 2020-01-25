@@ -7,3 +7,18 @@
     cursor: pointer;
     padding: 2px 5px;
 }
+
+#pag-relacion img {
+    margin-right: 20px;
+    float: left;
+}
+
+#pag-dis-cie-pro .izq {
+    margin: 20px;
+    float: left;
+}
+
+#pag-dis-cie-pro .der {
+    margin: 20px;
+    float: right;
+}
