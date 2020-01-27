@@ -1,0 +1,55 @@
+#pag-medios img {
+    max-width: 100%;
+    
+}
+
+#pag-medios .tipos {
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+#pag-medios .tipos div {
+    max-width: 95%;
+    height: 50px;
+    border: solid 1px #fff;
+    padding: 10px;
+}
+
+#pag-medios .titulo {
+    background-color: #c5c3c5;
+    border-radius: 15px 15px 0 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#pag-medios .herramientas {
+    font-size: 12px;
+    background-color: #f0efed;
+}
+
+#pag-medios .herramientas:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+.datatable button {
+    font-weight: normal;
+    background-color: transparent;
+    border: transparent;
+    color: #003543;
+    font-size: 14px;
+    padding: 0;
+    text-align: left;
+}
+
+.datatable button:hover:after {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.datatable .check {
+    width: 15px;
+    height: 15px;
+    border: solid;
+    margin: auto;
+}
