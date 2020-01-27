@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="single">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Clasificando herramientas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+    <!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js">
+    </script>
+    <script src="components/scorm/scorm_api.js">
+    </script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>OVA. Didáctica de la enseñanza por competencias en el área de la salud</h2>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title">Clasificando herramientas</h2>
+
+            <section id="pag-evolucion" ptitle="Clasificando herramientas">
+                <div class="subpage">
+
+                    <p>Para ejecutar las estrategias didácticas en un curso, es indispensable contar con algunas herramientas tecnológicas. Una misma herramienta puede servir para varias estrategias didácticas, pero nunca servirá para todas. Si la selección de la herramienta es correcta, la estrategia didáctica dará resultado, de lo contrario, la estrategia fracasará. Muchas estrategias didácticas pertinentes y bien planeadas no llegan a feliz término por una selección inadecuada de las herramientas.</p>
+
+                    <p>A continuación, se presentan algunas estrategias didácticas y herramientas que se usan en educación.</p>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Usted debe consultar en la web la herramienta, entender su funcionamiento y, posteriormente, arrastrarla a la estrategia (o estrategias) que considere más apropiada:
+                        </p>
+                    </div>
+                    
+                    <table class="datatable">
+                        <thead>
+                            <th>Estrategia</th>
+                            <th>Herramienta</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ensayo</td>
+                                <td></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Organizadores gráficos</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Ilustraciones</td>
+                                <td></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Cómics, historietas</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Debate</td>
+                                <td></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Blogs</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Infografías</td>
+                                <td></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>Lluvia de ideas</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Rompecabezas</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Herramientas</h3>
+                    <div>Puzzle Out</div>
+                    <div>Loomio</div>
+                    <div>Piktochart</div>
+                    <div>Mindomo</div>
+                    <div>Word</div>
+                    <div>Medibang Paint</div>
+                    <div>GoAnimate</div>
+                    <div>Canva</div>
+                    <div>RealWorld Paint</div>
+                    <div>Blogger</div>
+                    <div>Cmaptools</div>
+                    <div>MindMap</div>
+                    <div>Stromboard</div>
+                    <div>Capzles</div>
+                    <div>Prezi</div>
+                    <div>Rememble</div>
+                    <div>Xmind</div>
+                    <div>Creately</div>
+                    <div>Timeline</div>
+                    <div>FotoJet</div>
+                    <div>phpBB</div>
+                    <div>Pixton</div>
+                    <div>Mindmeister</div>
+                    <div>Stack Exchange</div>
+                    <div>Vizualize.me</div>
+                    <div>pTools</div>
+                    <div>Canva</div>
+                    <div>FireAlpaca</div>
+                    <div>WordPress</div>
+                    <div>Tiki-Toki</div>
+                    <div>Storybird</div>
+                    <div>Foros Google</div>
+                    <div>Medibang Paint</div>
+                    <div>Hot Potatoes</div>
+                    <div>Bubbl.us</div>
+                    <div>Crear rompecabezas</div>
+                    <div>Paint</div>
+
+                    <p>Existen herramientas específicas pensadas para disciplinas concretas. El curso que usted enseña está inscrito en alguna de las grandes áreas del conocimiento; para optimizar los resultados de aprendizaje, se puede apoyar con alguna herramientas TIC.</p>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Clasifique las siguientes herramientas según el área disciplinar a las que puede apoyar. Puedes dar clic en cada una de ellas para ampliar la información.
+                        </p>
+                    </div>
+
+                    <div id="areas_disciplinares" class="jpit-activities-multidroppable" data-act-title="Areas disciplinares" data-act-id="act_areas_disciplinares">
+                        <table class="box_targets">
+                            <tbody>
+                                <tr>
+                                    <td><h5>Ciencias sociales</h5><div data-target-group="1" class="target"></div></td>
+                                    <td><h5>Ciencias naturales</h5><div data-target-group="2" class="target"></div></td>
+                                    <td><h5>Humanidades</h5><div data-target-group="3" class="target"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="box_end"></div>
+                        <div class="sources">
+                            <div data-group="1">GeoCube</div>
+                            <div data-group="2">Geogebra</div>
+                            <div data-group="2">Web 2.0 Calc</div>
+                            <div data-group="1">Google Earth</div>
+                            <div data-group="3">EarTeach</div>
+                            <div data-group="1">MapMaker</div>
+                            <div data-group="2">Descartes</div>
+                            <div data-group="3">Juego Online ¿Cómo dice que dijo?</div>
+                            <div data-group="1">Azahar</div>
+                            <div data-group="2">Full Experimentos</div>
+                            <div data-group="3">Duolingo</div>
+                            <div data-group="3">Aplicación online Spreaker</div>
+                            <div data-group="3">WordReference</div>
+                            <div data-group="1">Timeline</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+        </div>
+
+        <div id="results_page" style="display:none;">
+            <h2>Resumen de su avance en la lectura del documento</h2>
+            <h3>Páginas visitadas</h3>
+            <p>En verde, aquellas páginas que ya ha visitado.</p>
+            <div id="results_page_visited" class="container"></div>
+            <br class="clear" />
+            <h3>Actividades de aprendizaje</h3>
+            <div id="results_page_activities"></div>
+        </div>
+
+        <!--Créditos-->
+        <div id="credits-page" style="display:none;">
+            <div id="credits_subpage">
+                <h2>Créditos</h2>
+                <div>
+                    <h3>Investigación y desarrollo de contenidos</h3>
+                    <cite>Mónica Deossa Quintero <br />
+                    Manuel Unigarro</cite>
+                </div>
+                <div>
+                    <h3>Asesoría pedagógica</h3>
+                    <cite>Marcela Palacio Ortíz</cite>
+                </div>
+                <div>
+                    <h3>Guionización</h3>
+                    <cite>Laura Pérez González</cite>
+                </div>
+                <div>
+                    <h3>Corrección de estilo</h3>
+                    <cite>María José Mercado Castrillón</cite>
+                </div>
+                <div>
+                    <h3>Diseño gráfico</h3>
+                    <cite></cite>
+                </div>
+                <div>
+                    <h3>Ilustración</h3>
+                    <cite></cite>
+                </div>
+                <div>
+                    <h3>Integración de contenidos</h3>
+                    <cite>Santiago Bernal García</cite>
+                </div>
+                <div>
+                    <h3>Revisión de calidad</h3>
+                    <cite></cite>
+                </div>
+                <div>
+                    <h3>Gestión Administrativa</h3>
+                    <cite>David Herney Bernal García <br />
+                        Maribel Salazar Estrada
+                    </cite>
+                </div>
+                <div>
+                    <h3>Producción</h3>
+                    <div class="logos">
+                        <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio"></a>
+                        <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA"></a>
+                        <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias"></a>
+                        <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia"></a>
+                        <p>Financiado por el Fondo de Ctel del Sistema General de Regalías</p>
+                    </div>
+                </div>
+
+                <div class="editions">
+                    1ª edición: octubre de 2019
+                </div>
+                <div>
+                    <br />
+                    <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
+                <img src="img/cc.png" alt="Creative Commons" /></a><br />
+                </div>
+                <div>
+                    <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div id="library-page" style="display:none;">
+            <div id="library_subpage">
+                <h2>Referencias bibliográficas</h2>
+
+                <ul class="data_list">
+                    <li>Aula Planeta. (2019). Recursos TIC Archivos. Disponible en <a href="https://www.aulaplaneta.com/categoria/recursos-tic/" target="_blank"><em>https://www.aulaplaneta.com/[...]</em></a></li>
+                    <li>Universidad Icesi. (2019). Bienvenidos a Eduteka [Sitio Web Oficial]. Disponible en <a href="http://eduteka.icesi.edu.co/" target="_blank"><em>http://eduteka.icesi.edu.co/</em></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="printent_content" style="display:none;">
+            <div class="content"></div>
+            <div class="button_container">
+                <button class="general button" onclick="window.print();">Imprimir</button>
+                <button id="printent_back" class="general button">Volver</button>
+            </div>
+        </div>
+
+</body>
+
+</html>
