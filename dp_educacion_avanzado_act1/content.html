@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="single">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ajustando el programa del curso</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Ajustando el programa del curso</h2>
+        </header>
+
+        <main style="display: none;">
+
+
+            <section id="pag-pedagogia" ptitle="Ajustando el programa del curso">
+                <div class="subpage">
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Lea con atención el siguiente caso
+                        </p>
+                    </div>
+
+                    <img src="content/img01.png" alt="Estudiante leyendo" />
+
+                    <p>En la “Universidad UCTA” se viene ofreciendo un curso de Habilidades comunicativas para todos los estudiantes de todas las carreras que ingresan al primer semestre. Estos alumnos en promedio están entre los 17 y 24 años, son de estrato 1, 2 y 3, y presentan dificultades en el desarrollo de sus competencias comunicativas. Justamente este curso está pensado para activar el desarrollo de las habilidades de escritura, lectura y expresión oral. En la reforma curricular que adelanta la Universidad decidieron contratar un equipo de expertos para ajustar este curso, el equipo seleccionado es el de ustedes.</p>
+                    <p>Para realizarlo les proponemos dos momentos:</p>
+
+                    <h3>Momento 1</h3>
+                </div>
+
+                <div class="subpage">
+                    <h3>Momento 2</h3>
+
+                    <p>Ahora deben definir <strong>¿cómo se va a enseñar?</strong> La respuesta a esta pregunta se llama <strong>didáctica.</strong></p>
+
+                    <div class="box-text link" label="Enlace">
+                        <p>
+                            En este momento, la “Universidad UCTA” le entrega a su equipo el <a href="content/habilidades_comunicativas.docx" target="_blank">programa de curso</a> que se pretende ajustar. 
+                        </p>
+                    </div>
+
+                    <p>De aquí en adelante, deben trabajar haciendo los ajustes en el documento en línea del programa del curso y tener en cuenta las siguientes indicaciones y precisiones conceptuales:</p>
+
+                    <h4>Didáctica</h4>
+
+                    <p>“La didáctica, en primera instancia, cobija el proceso de enseñanza aprendizaje en tanto relaciona el maestro con sus alumnos a través de la cultura” (Álvarez de Zayas y González Agudelo, 2003).</p>
+
+                    <p>Existen algunos principios de la didáctica que se deben tener en cuenta:</p>
+
+                    <div class="vertical-menu">
+                        <dl>
+                            <dt>Sistematización</dt>
+                            <dd>
+                                <img src="content/img02.png" alt="Estudiante" />
+                                <h5>Sistematización</h5>
+                                <p>tiene que ver con mostrar cómo se relacionan o encadenan los contenidos y las actividades que se desarrollan, y debe comprender <strong>un orden lógico</strong> para el abordaje de los mismos. Usualmente, lo más indicado es un proceso inductivo; ir de lo simple a lo complejo.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Enlace entre la práctica y la teoría</dt>
+                            <dd>
+                                <img src="content/img03.png" alt="Estudiante de medicina" />
+                                <h5>Enlace entre la práctica y la teoría</h5>
+                                <p>una tradición pedagógica hizo que en el imaginario general de los educadores se definiera que primero es la teoría y luego la práctica, pero esta premisa  (que se extendió a todas las esferas) no es la más acertada en todos los casos. Anteriormente, se mencionó que una manera de sistematizar era la inducción. Esto tiene que ver con la idea de teorizar, ya que es fundamental tener un referente <strong>práctico</strong>. En otras palabras, a la teoría la precede la práctica, por eso se recomienda entonces que siempre exista una <strong>práctica</strong> y una <strong>teoría</strong>, y que en ningún caso todo sea absolutamente práctico o absolutamente teórico.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Unidad de lo concreto y lo abstracto</dt>
+                            <dd>
+                                <img src="content/img04.png" alt="Estudiante" />
+                                <h5>Unidad de lo concreto y lo abstracto</h5>
+                                <p>así como es indispensable la articulación entre la práctica y la teoría, también es fundamental la relación armónica entre lo concreto y lo abstracto. <strong>La práctica</strong> es a lo concreto, lo que la teoría a lo abstracto. Lo <strong>más abstracto</strong> usualmente viene dado por el lenguaje científico o técnico. Una buena didáctica hará que el profesor traduzca ese lenguaje abstracto a un lenguaje concreto que le permita al aprendiz irse introduciendo en la complejidad del lenguaje científico o disciplinario.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Trabajo consciente y creador</dt>
+                            <dd>
+                                <img src="content/img05.png" alt="Estudiantes y profesor" />
+                                <h5>Trabajo consciente y creador</h5>
+                                <p>el aprendizaje solamente ocurre si la persona sabe qué aprende y para qué lo aprende. Si existe <strong>conciencia del qué</strong> y el <strong>para qué</strong>, los alumnos pueden construir conocimiento. La consciencia de lo que se aprende y para qué permite que los aprendices puedan intentar otras opciones. Solamente la consciencia del aprendizaje abre paso a la creación. La creación solamente ocurre cuando existe <strong>conciencia del qué</strong> y el <strong>para qué</strong>.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Comprensibilidad</dt>
+                            <dd>
+                                <img src="content/img06.png" alt="Profesor y estudiante felices" />
+                                <h5>Comprensibilidad</h5>
+                                <p>una de las características de un buen profesor es que sepa traducir el conocimiento elaborado o el conocimiento por construir. Un buen profesor tiene entre sus características obrar como un diccionario; poner en categorías del estudiante aquello que está puesto en categorías superiores, que aquello que científicos y académicos han construido pueda ser aprehensible por quienes apenas se acercan a esas construcciones.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>La atención individual</dt>
+                            <dd>
+                                <img src="content/img07.png" alt="Profesor y estudiante en oficina" />
+                                <h5>La atención individual</h5>
+                                <p>es bien sabido que no todos los alumnos son iguales, que existen diferentes inteligencias y estilos de aprendizaje. Pero también hay situaciones particulares que afectan el aprendizaje de algunos; tener en cuenta <strong>estos</strong> aspectos hace posible orientar adecuadamente cada caso. Nunca será posible hacer una educación absolutamente individualizada, pero sí es importante que el profesor tenga una mirada perspicaz para detectar casos individuales que requieran atención especial.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Evaluación</dt>
+                            <dd>
+                                <img src="content/img08.png" alt="Examen" />
+                                <h5>Evaluación</h5>
+                                <p>la evaluación del aprendizaje es, en sí misma, una estrategia para aprender. Muchos aprendizajes son consolidados por los alumnos al momento de preparar y/o desarrollar las actividades de evaluación. En este sentido, un sector de la pedagogía entiende que la evaluación no solamente permite verificar el aprendizaje, sino que también permite aprender. Para lograr este efecto es muy importante que sea el primer paso de la preparación de un curso.</p>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Revisemos la claridad obtenida sobre didáctica, emparejen cada término con su concepto.
+                        </p>
+                    </div>
+
+                    <div id="arrastrar" class="jpit-activities-droppable row" data-verify-type="target" data-act-id="conceptos">
+                        
+                        <table>
+                            <tr>
+                                <th>Mostrar cómo se relacionan o encadenan los contenidos y las actividades que se desarrollan.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="1"></td>
+                            </tr>
+                            <tr>
+                                <th>El aprendizaje solamente ocurre si la persona sabe qué aprende y para qué lo aprende.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="2"></td>
+                            </tr>
+                            <tr>
+                                <th>Una de las características de un buen profesor es que sepa traducir el conocimiento elaborado o el conocimiento por construir.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="3"></td>
+                            </tr>
+                            <tr>
+                                <th>Tiene que ver con la idea de teorizar como un referente práctico fundamental.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="4"></td>
+                            </tr>
+                            <tr>
+                                <th>Un sector de la pedagogía entiende que la evaluación no solamente permite verificar el aprendizaje, sino que también permite aprender. Para lograr este efecto es muy importante que sea el primer paso de la preparación de un curso.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="5"></td>
+                            </tr>
+                            <tr>
+                                <th>Una buena didáctica hará que el profesor traduzca ese lenguaje abstracto a un lenguaje concreto que le permita al aprendiz irse introduciendo en la complejidad del lenguaje científico o disciplinario.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="6"></td>
+                            </tr>
+                            <tr>
+                                <th>Nunca será posible hacer una educación absolutamente individualizada, pero sí es importante que el profesor tenga una mirada perspicaz para detectar casos individuales que requieran atención especial.</th>
+                                <td class="conection"><span class="icon_horizontal_arrow"></span></td>
+                                <td data-target-group="7"></td>
+                            </tr>
+                        </table>
+
+                        <div class="items">
+                        <h4>Conceptos para arrastrar:</h4>
+                            <div data-group="6" class="item_1">Unidad de lo concreto y lo abstracto</div>
+                            <div data-group="4" class="item_2">Enlace entre la práctica y la teoría</div>
+                            <div data-group="7" class="item_3">La atención individual</div>
+                            <div data-group="3" class="item_4">Comprensibilidad</div>
+                            <div data-group="1" class="item_5">Sistematización</div>
+                            <div data-group="5" class="item_6">Evaluación</div>
+                            <div data-group="2" class="item_7">Trabajo consciente y creador</div>
+                            <br class="clear" />
+                            <div class="box_end"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Lina María González Duque<br />
+                Heberto Tapias García</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Diana Patricia Ospina Pineda</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Betsabé Lema Ospina</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+             <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>R. Flórez Ochoa, Evaluación, pedagogía y cognición, Editorial McGrawHill: Bogotá, 1999.</li>
+
+                <li>C. M. Álvarez de Zayas, E. M. González Agudelo, Lecciones de Didáctica General, Editorial Magisterio, 1998.</li>
+
+                <li>J. Gimeno Sacristán, Saberes e incertidumbres sobre el currículum, Editorial Morata, 2010.</li>
+
+                <li>F. Díaz Barriga, Cognición situada y estrategias para el aprendizaje significativo. Revista electrónica de investigación educativa, 2003, 5(2), 1-13. Disponible en <a href="https://redie.uabc.mx/redie/article/view/85" target="_blank">https://redie.uabc.mx/redie/[...]</a></li>
+
+                <li>A. Gutiérrez, Lecciones de didáctica general [recurso en línea], 2016. Disponible en <a href="https://es.slideshare.net/aguty08/lecciones-de-didacticageneral" target="_blank">https://es.slideshare.net/[...]</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

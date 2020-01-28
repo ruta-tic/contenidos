@@ -1,0 +1,42 @@
+#pag-pedagogia .vertical-menu img {
+	float: left;
+	margin-right: 10px; 
+}
+
+#arrastrar.jpit-activities-droppable .words_container {
+    height: 50px;
+}
+
+#arrastrar.jpit-activities-droppable table {
+    empty-cells: show;
+    clear: both;
+}
+
+#arrastrar.jpit-activities-droppable th {
+    color: #000;
+    padding: 5px;
+    text-align: right;
+    max-width: 500px;
+}
+
+#arrastrar.jpit-activities-droppable td.droppable {
+    height: 16px;
+    min-width: 100px;
+}
+
+#arrastrar.jpit-activities-droppable td.conection {
+    width: 30px;
+    border: none;
+    padding: 5px 10px;
+}
+
+#arrastrar.jpit-activities-droppable .draggable {
+    margin: 0 5px 5px 0;
+}
+
+#arrastrar .items {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	text-align: center;
+}
