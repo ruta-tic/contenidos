@@ -1,3 +1,11 @@
+#pag-evolucion img {
+    float: left;
+}
+
+#pag-evolucion .docente {
+    min-height: 283px;
+}
+
 #areas_disciplinares table {
     margin: auto;
     max-width: 590px;
