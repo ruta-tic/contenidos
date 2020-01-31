@@ -1,0 +1,123 @@
+#pag-evolucion img {
+    max-width: 100%;
+}
+
+#pag-evolucion .docente {
+    min-height: 283px;
+}
+
+#arrastrar.jpit-activities-multidroppable .target {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 50px;
+    min-width: 100px;
+    max-width: 80%;
+}
+
+#arrastrar.jpit-activities-multidroppable .words_container {
+    height: 50px;
+}
+
+#arrastrar.jpit-activities-multidroppable table {
+    empty-cells: show;
+    clear: both;
+}
+
+#arrastrar.jpit-activities-multidroppable th {
+    color: #000;
+    padding: 5px;
+    max-width: 500px;
+}
+
+#arrastrar.jpit-activities-multidroppable td.multidroppable {
+    height: 16px;
+    min-width: 100px;
+}
+
+#arrastrar.jpit-activities-multidroppable td.conection {
+    width: 30px;
+    border: none;
+    padding: 5px 10px;
+}
+
+#arrastrar.jpit-activities-multidroppable .draggable {
+    margin: 0 5px 5px 0;
+}
+
+#arrastrar .items {
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+}
+
+#pag-pedagogia .datatable {
+    margin: 10px auto;
+}
+
+#pag-pedagogia .box-text {
+    margin-top: 40px;
+}
+
+#areas_disciplinares table {
+    margin: auto;
+    max-width: 590px;
+}
+
+#areas_disciplinares h5 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 2px dotted #95B0CB;
+}
+
+#areas_disciplinares td {
+    min-height: 30px;
+    vertical-align: top;
+}
+
+#areas_disciplinares td .target {
+    min-height: 30px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#areas_disciplinares.jpit-activities-multidroppable .sources {
+    width: 100%;
+    height: 150px;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#areas_disciplinares.jpit-activities-multidroppable .draggable {
+    width: 130px;
+    flex-direction: row;
+    margin: 0 1px 5px;
+}
+
+#areas_disciplinares table .draggable.disabled {
+    cursor: default;
+}
+
+#areas_disciplinares.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+#areas_disciplinares.jpit-activities-multidroppable table {
+   width:100%;
+}
+
+#areas_disciplinares.jpit-activities-multidroppable tbody td {
+   display: block;
+   text-align:center;
+}
+#areas_disciplinares.jpit-activities-multidroppable tbody td:before {
+   content: attr(data-th);
+   display: block;
+   text-align:center;
+}
