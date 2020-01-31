@@ -1,4 +1,8 @@
-#pag-pedagogia .vertical-menu img {
+#pag-pedagogia .caso {
+	min-height: 208px;
+}
+
+#pag-pedagogia img {
 	float: left;
 	margin-right: 10px; 
 }
@@ -39,4 +43,12 @@
 	flex-direction: column;
 	margin: auto;
 	text-align: center;
+}
+
+#pag-pedagogia .datatable {
+	margin: 10px auto;
+}
+
+#pag-pedagogia .box-text {
+	margin-top: 40px;
 }

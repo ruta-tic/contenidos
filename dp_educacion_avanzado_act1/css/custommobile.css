@@ -1,29 +1,49 @@
-.jpit-activities-selection table {
-    border-collapse: collapse;
+#pag-pedagogia img {
+    max-width: 100%;
 }
 
-.jpit-activities-selection thead tr:nth-child(odd),
-.jpit-activities-selection tbody tr:nth-child(even),
-.jpit-activities-selection tbody th
- {
-    border-bottom: solid 1px #dedede;
+#arrastrar.jpit-activities-droppable .words_container {
+    height: 50px;
 }
 
-.jpit-activities-selection th,
-.jpit-activities-selection td {
-    text-align: center;
+#arrastrar.jpit-activities-droppable table {
+    empty-cells: show;
+    clear: both;
+}
+
+#arrastrar.jpit-activities-droppable th {
+    color: #000;
     padding: 5px;
+    text-align: right;
+    max-width: 500px;
 }
 
-.jpit-activities-selection td[data-group] {
-    text-align: center;
-    padding-left: 10px;
+#arrastrar.jpit-activities-droppable td.droppable {
+    height: 16px;
+    min-width: 100px;
 }
 
-.jpit-activities-selection table .odd {
-    background-color: #dde5f0;
+#arrastrar.jpit-activities-droppable td.conection {
+    width: 30px;
+    border: none;
+    padding: 5px 10px;
 }
 
-.box_end .wrong:after {
-    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+#arrastrar.jpit-activities-droppable .draggable {
+    margin: 0 5px 5px 0;
+}
+
+#arrastrar .items {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	text-align: center;
+}
+
+#pag-pedagogia .datatable {
+	margin: 10px auto;
+}
+
+#pag-pedagogia .box-text {
+	margin-top: 40px;
 }
