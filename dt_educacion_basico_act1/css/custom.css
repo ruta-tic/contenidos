@@ -59,3 +59,11 @@
     border: solid;
     margin: auto;
 }
+
+.jpit-activities-selection .selected .check {
+    text-align: center;
+}
+
+.jpit-activities-selection .selected .check:before {
+    content: "X";
+}
