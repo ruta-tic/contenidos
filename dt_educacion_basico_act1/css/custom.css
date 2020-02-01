@@ -1,6 +1,21 @@
-#pag-medios img {
+#pag-medios .medios-tecnologias img {
     float: left;
     margin: 15px;
+}
+
+#pag-medios .medios-tecnologias {
+    min-height: 271px;
+}
+
+#pag-medios .medios {
+    width: 100%;
+    text-align: center;
+}
+
+#pag-medios .formularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #pag-medios .tecnologias {

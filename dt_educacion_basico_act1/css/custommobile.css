@@ -1,6 +1,11 @@
+#pag-medios .formularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 #pag-medios img {
-    max-width: 100%;
-    
+    max-width: 100%;   
 }
 
 #pag-medios .tipos {

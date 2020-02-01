@@ -24,6 +24,7 @@
     <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
     <script src="components/pit/activity/check/jpit_activity_check.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
 
 
     <script src="js/app.js"></script>
@@ -109,18 +110,103 @@
                         </p>
                     </div>
 
+                    <div class="formularios">
+
+                        <div class="jpit-activities-form jpit-activities-selection" data-save="true" data-act-id="medios" data-act-title="Medios utilizados" data-mode="single">
+                            <table class="datatable">
+                                <thead>
+                                    <th>Medios utilizados</th>
+                                    <th>Expositivos</th>
+                                    <th>Activos</th>
+                                    <th>Interactivos</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="medio" placeholder="Escriba un medio" /></td>
+                                        <td data-group="1"><div class="check"></div></td>
+                                        <td data-group="1"><div class="check"></div></td>
+                                        <td data-group="1"><div class="check"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="medio" placeholder="Escriba un medio" /></td>
+                                        <td data-group="2"><div class="check"></div></td>
+                                        <td data-group="2"><div class="check"></div></td>
+                                        <td data-group="2"><div class="check"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="medio" placeholder="Escriba un medio" /></td>
+                                        <td data-group="3"><div class="check"></div></td>
+                                        <td data-group="3"><div class="check"></div></td>
+                                        <td data-group="3"><div class="check"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="medio" placeholder="Escriba un medio" /></td>
+                                        <td data-group="4"><div class="check"></div></td>
+                                        <td data-group="4"><div class="check"></div></td>
+                                        <td data-group="4"><div class="check"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="medio" placeholder="Escriba un medio" /></td>
+                                        <td data-group="5"><div class="check"></div></td>
+                                        <td data-group="5"><div class="check"></div></td>
+                                        <td data-group="5"><div class="check"></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="jpit-activities-form jpit-activities-selection" data-save="true" data-act-id="tecnologias" data-act-title="Tecnologías utilizadas" data-mode="single">
+                            <table class="datatable">
+                                <thead>
+                                    <th>Tecnologías utilizadas</th>
+                                    <th>Unidireccional</th>
+                                    <th>Bidireccional</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia" placeholder="Escriba una tecnología" /></td>
+                                        <td data-group="1"><div class="check"></div></td>
+                                        <td data-group="1"><div class="check"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="tecnologia" placeholder="Escriba una tecnología" /></td>
+                                        <td data-group="2"><div class="check"></div></td>
+                                        <td data-group="2"><div class="check"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia" placeholder="Escriba una tecnología" /></td>
+                                        <td data-group="3"><div class="check"></div></td>
+                                        <td data-group="3"><div class="check"></div></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="tecnologia" placeholder="Escriba una tecnología" /></td>
+                                        <td data-group="4"><div class="check"></div></td>
+                                        <td data-group="4"><div class="check"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia" placeholder="Escriba una tecnología" /></td>
+                                        <td data-group="5"><div class="check"></div></td>
+                                        <td data-group="5"><div class="check"></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
                     <h3>Distinción entre medios y tecnologías</h3>
 
-                    <img src="content/img01.png" alt="medios y tecnología" />
-                    <p>Dado que tienen múltiples significados, es necesario mostrar cómo se entienden aquí y cuál es la distinción entre los conceptos de <strong>medio</strong> y <strong>tecnología</strong>: el primero, hace referencia a lo que está entre dos extremos y los une; lo que permite que los elementos de una polaridad puedan encontrarse. Para que un emisor y un receptor puedan comunicarse, requieren de un medio que los una, un medio de comunicación. El medio opera como un puente y en el caso de la educación virtual, es el puente entre los profesores, los estudiantes y el conocimiento. De otra parte, la tecnología tiene que ver con las herramientas que utiliza el medio; es el vehículo que nos permite cruzar el puente.  Cada medio puede utilizar varias tecnologías. La televisión, por ejemplo, es un medio de comunicación que puede usar distintas tecnologías tales como la fibra óptica o las microondas.</p>
-                    <p>Los medios que se utilizan en la educación, teniendo en cuenta el énfasis que ponen en uno u otro de los actores, pueden categorizarse de la siguiente manera:</p>
+                    <div class="medios-tecnologias">
+                        <img src="content/img01.png" alt="medios y tecnología" />
+                        <p>Dado que tienen múltiples significados, es necesario mostrar cómo se entienden aquí y cuál es la distinción entre los conceptos de <strong>medio</strong> y <strong>tecnología</strong>: el primero, hace referencia a lo que está entre dos extremos y los une; lo que permite que los elementos de una polaridad puedan encontrarse. Para que un emisor y un receptor puedan comunicarse, requieren de un medio que los una, un medio de comunicación. El medio opera como un puente y en el caso de la educación virtual, es el puente entre los profesores, los estudiantes y el conocimiento. De otra parte, la tecnología tiene que ver con las herramientas que utiliza el medio; es el vehículo que nos permite cruzar el puente.  Cada medio puede utilizar varias tecnologías. La televisión, por ejemplo, es un medio de comunicación que puede usar distintas tecnologías tales como la fibra óptica o las microondas.</p>
+                        <p>Los medios que se utilizan en la educación, teniendo en cuenta el énfasis que ponen en uno u otro de los actores, pueden categorizarse de la siguiente manera:</p>
+                    </div>
 
-
-
-
-
-
-
+                    <div class="medios">
+                        <img src="content/img02.png" alt="Medios" />
+                    </div>
 
                     <p>Por otra parte, y teniendo en cuenta lo que se pretende con los mensajes que se hacen circular, las herramientas puede ser de dos tipos:</p>
 
