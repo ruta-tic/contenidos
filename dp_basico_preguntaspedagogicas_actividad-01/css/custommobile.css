@@ -1,0 +1,249 @@
+.wf-content {
+    overflow: auto;
+}
+
+.jpit-activities-droppable {
+    display: inline-block;
+}
+
+#pag-responda .jpit-activities-form .sheet {
+    background: url(../img/bg_papel.png) repeat-x left top;
+    max-width: 600px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+#pag-responda .jpit-activities-form .sheet_body {
+    background-color: #f6f5f2;
+    padding: 10px 5px;
+    box-shadow: 3px 3px 0px #cbcccc;
+}
+
+#pag-responda .jpit-activities-form ol {
+    padding: 0 5px 0 20px;
+    margin: 0;
+}
+
+#pag-responda .jpit-activities-form textarea {
+    width: 94%;
+    height: 50px;
+    padding: 3%;
+    border: 2px dotted #aaaaaa;
+}
+
+#pag-responden .respuestas .col-2:first-child {
+    text-align: center;
+}
+
+#pag-responden .respuestas .col-2 img {
+    max-width: 100%;
+}
+
+#pag-responden .respuestas .col-2 {
+    position: relative;
+}
+
+#pag-responden .comparar {
+    width: 240px;
+    height: 64px;
+    background: url(../content/comparar_respuesta.png) no-repeat center;
+    margin: auto;
+    cursor: pointer;
+}
+
+#pag-responden .comparar:hover {
+    background: url(../content/comparar_respuesta_hover.png) no-repeat center;
+}
+
+.actrelacionar .bloque1 {
+    width: 420px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+}
+
+.actrelacionar .contenedor {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 2px solid #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+    background-color: #f3f3f3;
+    overflow: auto;
+}
+
+.actrelacionar .cajon {
+    border: 1px dashed #0089A9;
+    border-radius: 15px;
+    width: 140px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #dcdcdd;
+    padding: 0;
+}
+
+.actrelacionar .item {
+    border-radius: 15px;
+    width: 130px;
+    height: 50px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.actrelacionar .item1,
+.actrelacionar .item4 {
+    background-color: #f5e7ae;
+    border: 2px solid #d79f21;
+}
+
+.actrelacionar .item2 {
+    background-color: #dcdcdd;
+    border: 2px solid #859390;
+}
+
+.actrelacionar .item3 {
+    background-color: #e2f3f4;
+    border: 2px solid #17809d;
+}
+
+.actrelacionar .ctrl-pagination {
+    background-color: transparent;
+    border: none;
+    width: 250px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.actrelacionar .opciones1 {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 0;
+    width: 150px;
+}
+
+.actrelacionar .opciones1 .item {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+}
+
+.actrelacionar .opciones1 .item1 {
+    top: 0;
+}
+
+.actrelacionar .opciones1 .item2 {
+    top: 100px;
+}
+
+.actrelacionar .opciones1 .item3 {
+    top: 200px;
+}
+
+.actrelacionar .opciones1 .item4 {
+    top: 300px;
+}
+
+.actrelacionar .opciones1 .item.draggable {
+    z-index: 3;
+}
+
+.actrelacionar .opciones1 .item.draggable:after {
+    content: unset;
+}
+
+.actrelacionar .opciones1 .item.draggable:before {
+    content: "\f263";
+    font-family: "Ionicons";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.actrelacionar .cajon .item {
+    position: unset !important;
+    margin: -1px 0 0 -1px;
+}
+
+.actrelacionar .contenedor.educatividad:after,
+.actrelacionar .contenedor.didactica:after,
+.actrelacionar .contenedor.educabilidad:after,
+.actrelacionar .contenedor.ensenabilidad:after {
+    content: "";
+    position: absolute;
+    left: -128px;
+    width: 125px;
+    border: 1px solid #d79f21;
+}
+
+.actrelacionar .contenedor.educatividad {
+    border: 2px solid #d79f21;
+}
+
+.actrelacionar .contenedor.didactica {
+    border: 2px solid #859390;
+}
+
+.actrelacionar .contenedor.educabilidad {
+    border: 2px solid #17809d;
+}
+
+.actrelacionar .contenedor.ensenabilidad {
+    border: 2px solid #d79f21;
+}
+
+.actrelacionar .contenedor.educatividad:after {
+    top: 50px;
+    border: 1px solid #d79f21;
+}
+
+.actrelacionar .contenedor.didactica:after {
+    top: 150px;
+    border: 1px solid #859390;
+}
+
+.actrelacionar .contenedor.educabilidad:after {
+    top: 250px;
+    border: 1px solid #17809d;
+}
+
+.actrelacionar .contenedor.ensenabilidad:after {
+    top: 350px;
+    border: 1px solid #d79f21;
+}
+
+.actrelacionar .ctrl-pagination.sides .position {
+    z-index: 2;
+}
+
+.actrelacionar .ctrl-pagination.sides .button.previous {
+    left: 10px;
+}
+
+.actrelacionar .draggable.wrong {
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+.actrelacionar .ctrl-pagination li.layer {
+    padding: 5px 20px 0;
+}
+
+#pag-amplie .expand-image {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+#pag-amplie .expand-image .ion-arrow-expand {
+    color: #333;
+    right: 5px;
+    left: unset;
+}
