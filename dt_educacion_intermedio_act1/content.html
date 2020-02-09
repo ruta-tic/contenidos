@@ -8,55 +8,26 @@
     <title>Clasificando herramientas</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
     <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
 
-    <!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-    <!--End jQuery components -->
-
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
     <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
-    <script src="components/scorm/SCORM_12_APIWrapper.js">
-    </script>
-    <script src="components/scorm/scorm_api.js">
-    </script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
 
     <style type='text/css'>
         body {
@@ -101,7 +72,7 @@
         </nav>
 
         <header>
-            <h2>OVA. Didáctica de la enseñanza por competencias en el área de la salud</h2>
+            <h2>OVA. Clasificando herramientas</h2>
         </header>
 
         <main style="display: none;">
@@ -111,26 +82,32 @@
             <section id="pag-evolucion" ptitle="Clasificando herramientas">
                 <div class="subpage">
 
-                    <div class="docente">
-                        <img src="content/img01.png" alt="Docente" />
+                    <div class="docente row">
+                        <div class="col-2">
+                            <div class="box_media">
+                                <img src="content/img01.png" alt="Docente" />
+                            </div>
+                        </div>
+                        <div class="col-2">
 
-                        <p>Para ejecutar las estrategias didácticas en un curso, es indispensable contar con algunas herramientas tecnológicas. Una misma herramienta puede servir para varias estrategias didácticas, pero nunca servirá para todas. Si la selección de la herramienta es correcta, la estrategia didáctica dará resultado, de lo contrario, la estrategia fracasará. Muchas estrategias didácticas pertinentes y bien planeadas no llegan a feliz término por una selección inadecuada de las herramientas.</p>
+                            <p>Para ejecutar las estrategias didácticas en un curso, es indispensable contar con algunas herramientas tecnológicas. Una misma herramienta puede servir para varias estrategias didácticas, pero nunca servirá para todas. Si la selección de la herramienta es correcta, la estrategia didáctica dará resultado, de lo contrario, la estrategia fracasará. Muchas estrategias didácticas pertinentes y bien planeadas no llegan a feliz término por una selección inadecuada de las herramientas.</p>
+                        </div>
                     </div>
 
                     <p>A continuación, se presentan algunas estrategias didácticas y herramientas que se usan en educación.</p>
 
                     <div class="box-text activity" label="Actividad de aprendizaje">
                         <p>
-                            Usted debe consultar en la web la herramienta, entender su funcionamiento y, posteriormente, arrastrarla a la estrategia (o estrategias) que considere más apropiada:
+                            Usted debe consultar en la web la herramienta, entender su funcionamiento y, posteriormente, arrastrarla a la estrategia (o estrategias) que considere más apropiada.
                         </p>
                     </div>
 
-                    <div id="arrastrar" class="jpit-activities-multidroppable row" data-verify-type="target" data-act-id="Conceptos">
-                        
-                        <table>
+                    <div id="arrastrar" class="jpit-activities-multidroppable row" data-act-id="1-herramientas" data-act-title="Herramientas">
+
+                        <table class="box_targets">
                             <thead>
                                 <th>Estrategia</th>
-                                <th></th>
+                                <th class="conection"><span class="icon_horizontal_arrow"></span></th>
                                 <th>Herramienta</th>
                             </thead>
                             <tbody>
@@ -181,15 +158,14 @@
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                         <div class="items">
-                        <h4>Herramientas</h4>
+                            <h4>Herramientas</h4>
                             <div data-group="9" class="item_1">Puzzle Out</div>
                             <div data-group="5" class="item_2">Loomio</div>
                             <div data-group="7" class="item_3">Piktochart</div>
                             <div data-group="2" class="item_4">Mindomo</div>
                             <div data-group="1" class="item_5">Word</div>
-                            <div data-group="3" class="item_6">Medibang Paint</div>
                             <div data-group="4" class="item_7">GoAnimate</div>
                             <div data-group="4" class="item_8">Medibang Paint</div>
                             <div data-group="2" class="item_9">Canva</div>
@@ -211,7 +187,6 @@
                             <div data-group="5" class="item_25">Stack Exchange</div>
                             <div data-group="7" class="item_26">Vizualize.me</div>
                             <div data-group="2" class="item_27">pTools</div>
-                            <div data-group="7" class="item_28">Canva</div>
                             <div data-group="3" class="item_29">FireAlpaca</div>
                             <div data-group="6" class="item_30">WordPress</div>
                             <div data-group="2" class="item_31">Tiki-Toki</div>
@@ -221,6 +196,9 @@
                             <div data-group="8" class="item_35">Bubbl.us</div>
                             <div data-group="9" class="item_36">Crear rompecabezas</div>
                             <div data-group="3" class="item_37">Paint</div>
+
+                            <br class="clear" />
+                            <div class="box_end"></div>
                             <div class="buttons">
                                 <button class="general verify">Verificar</button>
                                 <button class="general continue" style="display: none;">Continuar intentando</button>
@@ -228,7 +206,7 @@
                         </div>
 
                     </div>
-                    
+
                     <p>Existen herramientas específicas pensadas para disciplinas concretas. El curso que usted enseña está inscrito en alguna de las grandes áreas del conocimiento; para optimizar los resultados de aprendizaje, se puede apoyar con alguna herramientas TIC.</p>
 
                     <div class="box-text activity" label="Actividad de aprendizaje">
@@ -237,7 +215,7 @@
                         </p>
                     </div>
 
-                    <div id="areas_disciplinares" class="jpit-activities-multidroppable" data-act-title="Areas disciplinares" data-act-id="act_areas_disciplinares">
+                    <div id="areas_disciplinares" class="jpit-activities-multidroppable" data-act-title="Herramientas según el área disciplinar" data-act-id="2-act_areas_disciplinares">
                         <table class="box_targets">
                             <tbody>
                                 <tr>
@@ -253,21 +231,23 @@
                         </div>
                         <div class="box_end"></div>
                         <div class="sources">
-                            <div data-group="1">GeoCube</div>
-                            <div data-group="2">Geogebra</div>
-                            <div data-group="2">Web 2.0 Calc</div>
-                            <div data-group="1">Google Earth</div>
-                            <div data-group="3">EarTeach</div>
-                            <div data-group="1">MapMaker</div>
-                            <div data-group="2">Descartes</div>
-                            <div data-group="3">Juego Online ¿Cómo dice que dijo?</div>
-                            <div data-group="1">Azahar</div>
-                            <div data-group="2">Full Experimentos</div>
-                            <div data-group="3">Duolingo</div>
-                            <div data-group="3">Aplicación online Spreaker</div>
-                            <div data-group="3">WordReference</div>
-                            <div data-group="1">Timeline</div>
+                            <div data-group="1">GeoCube <a href="http://www.geo-cube.eu/index_spanish.html" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="2">Geogebra <a href="https://www.geogebra.org/classic?lang=es" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="2">Web 2.0 Calc <a href="http://web2.0calc.es/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="1">Google Earth <a href="https://www.google.com/intl/es/earth/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="3">EarTeach <a href="http://www.earteach.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="1">MapMaker <a href="https://mapmaker.nationalgeographic.org/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="2">Descartes <a href="http://descartesjs.org/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="3">Juego Online ¿Cómo dice que dijo? <a href="http://www.comodicequedijo.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="1">Azahar <a href="http://www.fundacionorange.es/aplicaciones/azahar/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="2">Full Experimentos <a href="http://www.fullexperimentos.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="3">Duolingo <a href="https://es.duolingo.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="3">Aplicación online Spreaker <a href="http://www.spreaker.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="3">WordReference <a href="https://www.wordreference.com/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="1">Timeline <a href="http://www.readwritethink.org/files/resources/interactives/timeline_2/" target="_blank"><i class="ion-share"></i></a></div>
+                            <div data-group="2">Ptable <a href="https://www.ptable.com/?lang=es" target="_blank"><i class="ion-share"></i></a></div>
                         </div>
+                        <br class="clear" />
                     </div>
 
                 </div>
@@ -300,10 +280,6 @@
 
         <div id="results_page" style="display:none;">
             <h2>Resumen de su avance en la lectura del documento</h2>
-            <h3>Páginas visitadas</h3>
-            <p>En verde, aquellas páginas que ya ha visitado.</p>
-            <div id="results_page_visited" class="container"></div>
-            <br class="clear" />
             <h3>Actividades de aprendizaje</h3>
             <div id="results_page_activities"></div>
         </div>
@@ -331,11 +307,11 @@
                 </div>
                 <div>
                     <h3>Diseño gráfico</h3>
-                    <cite></cite>
+                    <cite>Elizabeth Hernández González</cite>
                 </div>
                 <div>
                     <h3>Ilustración</h3>
-                    <cite></cite>
+                    <cite>Felipe Quintana</cite>
                 </div>
                 <div>
                     <h3>Integración de contenidos</h3>
@@ -343,7 +319,7 @@
                 </div>
                 <div>
                     <h3>Revisión de calidad</h3>
-                    <cite></cite>
+                    <cite>Mauricio Arboleda</cite>
                 </div>
                 <div>
                     <h3>Gestión Administrativa</h3>
