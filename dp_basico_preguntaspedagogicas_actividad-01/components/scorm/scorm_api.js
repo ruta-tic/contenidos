@@ -153,7 +153,6 @@ dhbgApp.scorm.saveVisit = function(index) {
 };
 
 dhbgApp.scorm.saveProgress = function() {
-
     if (dhbgApp.scorm.lms != null) {
         var scale_sco = 0;
         var progress = '';
@@ -176,6 +175,8 @@ dhbgApp.scorm.saveProgress = function() {
         // Build the activity data.
         var data_activity = "";
         var activities_length = 0;
+        var weighted_progress = 0;
+        var use_weighted_progress = ('getActivityWeight' in dhbgApp.scorm && dhbgApp.scorm.isFunction(dhbgApp.scorm.getActivityWeight));
         for (var activity_key in dhbgApp.scorm.activities) {
             if (dhbgApp.scorm.activities[activity_key]) {
                 if (typeof dhbgApp.scorm.activities[activity_key] == 'string') {
@@ -195,8 +196,10 @@ dhbgApp.scorm.saveProgress = function() {
                         }
                     }
 
+                    if (use_weighted_progress) {
+                        weighted_progress += dhbgApp.scorm.getActivityWeight(activity_key) * intents_value / 100;
+                    }
                     scale_activities += intents_value;
-
                     activities_length++;
                 }
             }
@@ -205,9 +208,13 @@ dhbgApp.scorm.saveProgress = function() {
         var progress_value;
         if (activities_length > 0) {
             progress_value = Math.round((scale_sco / max_sco_value)*(100 - dhbgApp.scorm.options.activities_percentage));
-
             // Activities scale is in percentage.
-            progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));
+            if (use_weighted_progress) {
+                progress_value = Math.round(weighted_progress);
+            }
+            else {
+                progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));
+            }
         }
         else {
             progress_value = Math.round((scale_sco / max_sco_value)*100);
@@ -231,8 +238,6 @@ dhbgApp.scorm.saveProgress = function() {
             doLMSSetValue('cmi.core.lesson_status', 'incomplete');
         }
     }
-
-
 };
 
 
@@ -255,6 +260,9 @@ dhbgApp.scorm.getProgress = function() {
     }
 
     var activities_length = 0;
+    var weighted_progress = 0;
+    var use_weighted_progress = ('getActivityWeight' in dhbgApp.scorm && dhbgApp.scorm.isFunction(dhbgApp.scorm.getActivityWeight));
+
     for (var activity_key in dhbgApp.scorm.activities) {
         if (dhbgApp.scorm.activities[activity_key]) {
             if (typeof dhbgApp.scorm.activities[activity_key] == 'string') {
@@ -272,9 +280,11 @@ dhbgApp.scorm.getProgress = function() {
                         }
                     }
                 }
+                if (use_weighted_progress) {
+                    weighted_progress += dhbgApp.scorm.getActivityWeight(activity_key) * intents_value / 100;
+                }
 
                 scale_activities += intents_value;
-
                 activities_length++;
             }
         }
@@ -286,7 +296,12 @@ dhbgApp.scorm.getProgress = function() {
         progress_value = Math.round((scale_sco / max_sco_value)*(100 - dhbgApp.scorm.options.activities_percentage));
 
         // Activities scale is in percentage.
-        progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));
+        if (use_weighted_progress) {
+            progress_value = Math.round(weighted_progress);
+        }
+        else {
+            progress_value += Math.round((scale_activities / activities_length)*(dhbgApp.scorm.options.activities_percentage/100));
+        }
     }
     else {
         progress_value = Math.round((scale_sco / max_sco_value)*100);
@@ -399,6 +414,10 @@ dhbgApp.scorm.getReturnUrl = function() {
 
     return courseurl;
 };
+
+dhbgApp.scorm.isFunction = function (functionToCheck) {
+    return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+}
 
 dhbgApp.scorm.close = function(f) {
     dhbgApp.scorm.saveProgress();

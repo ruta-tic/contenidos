@@ -1021,8 +1021,9 @@ sup.tooltip {
 }
 
 .text_tooltip {
-    padding: 10px;
-    line-height: 10px;
+    padding: 3px;
+    line-height: 16px;
+    font-size: 13px;
 }
 
 .ui-tooltip-content {
@@ -1130,26 +1131,19 @@ sup.tooltip {
     background-color: #44c5d0;
 }
 
-.horizontal-menu >.chalkboard_content {
+.horizontal-menu > .chalkboard_content {
     width: 98%;
     height: auto;
     float: left;
     padding: 1%;
     overflow: auto;
-    background-color: #003543;
-    color: #fff;
+    background-color: #f3f3f3;
+    border: 3px solid #40bcc6;
 }
 
 .horizontal-menu > .chalkboard_content > .element > h5 {
     margin: 0 0 10px;
     font-size: 16px;
-    color: #fff;
-}
-
-.horizontal-menu .chalkboard_content > .element > p > cite,
-.horizontal-menu .chalkboard_content > .element > p > em {
-    color: #fff;
-    font-weight: bold;
 }
 
 /********************************************************************************/
@@ -1217,6 +1211,15 @@ sup.tooltip {
 
 .ctrl-pagination .next:hover {
     background-position: -147px -50px;
+}
+
+.ctrl-pagination .next[disabled] {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.ctrl-pagination .next[disabled]:hover {
+    background-position: -147px 0px;
 }
 
 .ctrl-pagination ul.pagination.numeric li div {
@@ -1287,6 +1290,32 @@ sup.tooltip {
 }
 
 /* End Vertical pagination */
+
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
 
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
@@ -1532,7 +1561,7 @@ sup.tooltip {
     cursor: pointer;
 }
 .jpit_activities_quiz_question_option_answer label:hover, .jpit_activities_quiz_question_option_answer_selected label  {
-    background-color: #003543;
+    background-color: #7bb004;
 }
 
 .jpit_activities_quiz_question_option_answer_selected {
@@ -1632,18 +1661,14 @@ sup.tooltip {
     z-index: 1;
 }
 
-.chalkboard_content .jpit_activities_quiz_question_defineterm .jpit_activities_quiz_question_answers input[type="text"],
-.chalkboard_content .jpit_activities_quiz_question_defineterm .jpit_activities_quiz_question_answers select {
-    border-bottom-color: #fff;
-    color: #fff;
-}
-
 .chalkboard_content .jpit_activities_quiz_question_option_answer label:hover,
 .chalkboard_content .jpit_activities_quiz_question_option_answer_selected label {
-    background-color: #36ff00;
-    color: #003543;
+    background-color: #7bb004;
 }
 
+.jpit_activities_quiz_question_answers input[type="text"] {
+    background-color: transparent;
+}
 
 /********************************************************************************/
 /* SPECIFIC ACTIVITIES: WORDPUZZLE
@@ -1778,6 +1803,8 @@ sup.tooltip {
     border: 1px solid #7c8f8c;
     text-align: left;
     padding: 5px;
+    padding-bottom: 30px; /* This is important so there is always space to touch and select*/
+    user-select: none;
 }
 
 .jpit-activities-droppable .draggable {
@@ -1786,6 +1813,9 @@ sup.tooltip {
     text-align: center;
     cursor: move;
     padding: 5px;
+    -ms-touch-action: none;
+    touch-action: none;
+    user-select: none;
 }
 
 .jpit-activities-droppable .draggable.disabled {
@@ -1826,6 +1856,49 @@ sup.tooltip {
 
 .jpit-activities-droppable {
     padding-bottom: 100px;
+}
+
+.jpitdroppable_select_dialog {
+
+}
+.jpitdroppable_select_dialog.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+.jpitdroppable_select_dialog .ui-dialog-titlebar {
+    display: none;
+}
+
+.jpitdroppable_select_list {
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+}
+
+.jpitdroppable_select_list_item {
+    position: relative;
+    flex: 1;
+    border: solid 1px #cccccc;
+    margin: 1px 0;
+    padding: 10px;
+    user-select: none;
+}
+.jpitdroppable_select_list_item.selected {
+    background-color: #dedede;
+    border-color: #bcbcbc
+}
+
+.jpitdroppable_select_list_item.dropped:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 20px solid #22c1c9;
+    border-bottom: 20px solid transparent;
+    clear: both;
 }
 
 /********************************************************************************/
@@ -1931,8 +2004,11 @@ sup.tooltip {
 }
 
 .chalkboard_content .jpit-activities-cloze input[type="text"] {
-    border-bottom: 1px solid #fff;
-    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 100px;
+    text-align: center;
 }
 
 .jpit-activities-cloze input.wrong {
@@ -2128,8 +2204,17 @@ sup.tooltip {
     text-align: center;
 }
 
+#credits_subpage cite {
+    color: #5A5B5D;
+    font-style: normal;
+}
+
 #credits_subpage .editions {
     font-size: 11px;
+}
+
+#credits_subpage .logos img {
+    max-width: 100%;
 }
 
 /********************************************************************************/
@@ -2194,6 +2279,8 @@ sup.tooltip {
 
 .c100 .bar, .c100.p100 .fill, .c100.p51 .fill, .c100.p52 .fill, .c100.p53 .fill, .c100.p54 .fill, .c100.p55 .fill, .c100.p56 .fill, .c100.p57 .fill, .c100.p58 .fill, .c100.p59 .fill, .c100.p60 .fill, .c100.p61 .fill, .c100.p62 .fill, .c100.p63 .fill, .c100.p64 .fill, .c100.p65 .fill, .c100.p66 .fill, .c100.p67 .fill, .c100.p68 .fill, .c100.p69 .fill, .c100.p70 .fill, .c100.p71 .fill, .c100.p72 .fill, .c100.p73 .fill, .c100.p74 .fill, .c100.p75 .fill, .c100.p76 .fill, .c100.p77 .fill, .c100.p78 .fill, .c100.p79 .fill, .c100.p80 .fill, .c100.p81 .fill, .c100.p82 .fill, .c100.p83 .fill, .c100.p84 .fill, .c100.p85 .fill, .c100.p86 .fill, .c100.p87 .fill, .c100.p88 .fill, .c100.p89 .fill, .c100.p90 .fill, .c100.p91 .fill, .c100.p92 .fill, .c100.p93 .fill, .c100.p94 .fill, .c100.p95 .fill, .c100.p96 .fill, .c100.p97 .fill, .c100.p98 .fill, .c100.p99 .fill, .pie {
     border: 11px solid #44c5d0;
+    width: 43px;
+    height: 43px;
 }
 
 /* Horizontal bar*/

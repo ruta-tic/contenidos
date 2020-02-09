@@ -1,5 +1,41 @@
+.wf-content {
+    overflow: auto;
+}
+
+#pag-responda .jpit-activities-form .sheet {
+    background: url(../img/bg_papel.png) repeat-x left top;
+    max-width: 600px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+#pag-responda .jpit-activities-form .sheet_body {
+    background-color: #f6f5f2;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 0px #cbcccc;
+}
+
+#pag-responda .jpit-activities-form textarea {
+    width: 94%;
+    height: 40px;
+    padding: 3%;
+    border: 2px dotted #aaaaaa;
+}
+
 #pag-responden .respuestas {
     display: flex;
+}
+
+#pag-responden .respuestas .col-2:first-child {
+    text-align: center;
+}
+
+#pag-responden .respuestas .col-2 img {
+    max-width: 100%;
+}
+
+#pag-responden .respuestas .col-2 {
+    position: relative;
 }
 
 #pag-responden .comparar {
@@ -7,6 +43,7 @@
     height: 64px;
     background: url(../content/comparar_respuesta.png) no-repeat center;
     margin: auto;
+    cursor: pointer;
 }
 
 #pag-responden .comparar:hover {
