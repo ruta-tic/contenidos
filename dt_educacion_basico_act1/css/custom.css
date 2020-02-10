@@ -1,0 +1,89 @@
+.withradio {
+    cursor: pointer;
+    text-align: center;
+}
+
+.withradio input[type="radio"]:checked + td {
+    background: red;
+}
+
+#pag-medios .medios-tecnologias img {
+    float: left;
+    margin: 15px;
+}
+
+#pag-medios .medios-tecnologias {
+    min-height: 271px;
+}
+
+#pag-medios .medios {
+    width: 100%;
+    text-align: center;
+}
+
+#pag-medios .formularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#pag-medios .tecnologias {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+#pag-medios .tipos {
+    text-align: center;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+#pag-medios .tipos div {
+    width: 350px;
+    height: 50px;
+    border: solid 1px #fff;
+    padding: 10px;
+}
+
+#pag-medios .titulo {
+    background-color: #c5c3c5;
+    border-radius: 15px 15px 0 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#pag-medios .herramientas {
+    font-size: 12px;
+    background-color: #f0efed;
+}
+
+#pag-medios .herramientas:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+.datatable button {
+    font-weight: normal;
+    background-color: transparent;
+    border: transparent;
+    color: #003543;
+    font-size: 14px;
+    padding: 0;
+    text-align: left;
+}
+
+.datatable button:hover:after {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.datatable .check {
+    width: 15px;
+    height: 15px;
+    border: solid;
+    margin: auto;
+}
+
+#pag-condiciones .w-content-controler:hover {
+    color: #44c5d0;
+}

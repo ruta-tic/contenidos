@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Incorporación de TIC en los procesos de enseñanza</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"></script>
+    <script src="components/scorm/scorm_api.js"></script>
+    <script src="js/customlib.js"></script>
+
+    <style type='text/css'>
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <h2>Incorporación de TIC en los procesos de enseñanza</h2>
+            <nav label="Principal" class="horizontal main" data-offset="true">
+                <menu>
+                    <menuitem label="Medios y herramientas" data-page="pag-medios"></menuitem>
+                    <menuitem label="Condiciones para el uso de herramientas tecnológicas" data-page="pag-condiciones"></menuitem>
+                </menu>
+            </nav>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-medios" ptitle="Medios y herramientas">
+                <div class="subpage">
+
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            Desde sus conocimientos previos responda las siguientes preguntas y clasifique los medios y tecnologías:
+                        </p>
+                        <p>En el curso que acompaña, ¿cuáles son los medios y las principales tecnologías que usa para diseñarlo?</p>
+                        <p class="instruction">
+                            Ubique el medio o la tecnología en la matriz y clasifíquelo. Para realizarlo le proponemos dos momentos.
+                        </p>
+                    </div>
+
+                    <div class="jpit-activities-form jpit-activities-selection" data-act-id="1-mediosytecnologias" data-act-title="Medios y tecnologías utilizadas" data-save="true" data-print="true">
+                        <div class="formularios">
+
+                            <table class="datatable">
+                                <thead>
+                                    <th>Medios utilizados</th>
+                                    <th>Expositivos</th>
+                                    <th>Activos</th>
+                                    <th>Interactivos</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="medio1-txt" ftitle="Medio 1" placeholder="Escriba un medio" /></td>
+                                        <td class="withradio"><input type="radio" name="medio1" ftitle="Tipo" value="Expositivo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio1" ftitle="Tipo" value="Activo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio1" ftitle="Tipo" value="Interactivo" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="medio2-txt" ftitle="Medio 2" placeholder="Escriba un medio" /></td>
+                                        <td class="withradio"><input type="radio" name="medio2" ftitle="Tipo" value="Expositivo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio2" ftitle="Tipo" value="Activo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio2" ftitle="Tipo" value="Interactivo" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="medio3-txt" ftitle="Medio 3" placeholder="Escriba un medio" /></td>
+                                        <td class="withradio"><input type="radio" name="medio3" ftitle="Tipo" value="Expositivo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio3" ftitle="Tipo" value="Activo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio3" ftitle="Tipo" value="Interactivo" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="medio4-txt" ftitle="Medio 4" placeholder="Escriba un medio" /></td>
+                                        <td class="withradio"><input type="radio" name="medio4" ftitle="Tipo" value="Expositivo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio4" ftitle="Tipo" value="Activo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio4" ftitle="Tipo" value="Interactivo" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="medio5-txt" ftitle="Medio 5" placeholder="Escriba un medio" /></td>
+                                        <td class="withradio"><input type="radio" name="medio5" ftitle="Tipo" value="Expositivo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio5" ftitle="Tipo" value="Activo" /></td>
+                                        <td class="withradio"><input type="radio" name="medio5" ftitle="Tipo" value="Interactivo" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="datatable">
+                                <thead>
+                                    <th>Tecnologías utilizadas</th>
+                                    <th>Unidireccional</th>
+                                    <th>Bidireccional</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia1-txt" ftitle="Tecnología 1" placeholder="Escriba una tecnología" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia1" ftitle="Tipo" value="Unidireccional" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia1" ftitle="Tipo" value="Bidireccional" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="tecnologia2-txt" ftitle="Tecnología 2" placeholder="Escriba una tecnología" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia2" ftitle="Tipo" value="Unidireccional" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia2" ftitle="Tipo" value="Bidireccional" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia3-txt" ftitle="Tecnología 3" placeholder="Escriba una tecnología" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia3" ftitle="Tipo" value="Unidireccional" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia3" ftitle="Tipo" value="Bidireccional" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td><input type="text" name="tecnologia4-txt" ftitle="Tecnología 4" placeholder="Escriba una tecnología" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia4" ftitle="Tipo" value="Unidireccional" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia4" ftitle="Tipo" value="Bidireccional" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="tecnologia5-txt" ftitle="Tecnología 5" placeholder="Escriba una tecnología" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia5" ftitle="Tipo" value="Unidireccional" /></td>
+                                        <td class="withradio"><input type="radio" name="tecnologia5" ftitle="Tipo" value="Bidireccional" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <h3>Distinción entre medios y tecnologías</h3>
+
+                    <div class="medios-tecnologias">
+                        <img src="content/img01.png" alt="medios y tecnología" />
+                        <p>Dado que tienen múltiples significados, es necesario mostrar cómo se entienden aquí y cuál es la distinción entre los conceptos de <strong>medio</strong> y <strong>tecnología</strong>: el primero, hace referencia a lo que está entre dos extremos y los une; lo que permite que los elementos de una polaridad puedan encontrarse. Para que un emisor y un receptor puedan comunicarse, requieren de un medio que los una, un medio de comunicación. El medio opera como un puente y en el caso de la educación virtual, es el puente entre los profesores, los estudiantes y el conocimiento. De otra parte, la tecnología tiene que ver con las herramientas que utiliza el medio; es el vehículo que nos permite cruzar el puente.  Cada medio puede utilizar varias tecnologías. La televisión, por ejemplo, es un medio de comunicación que puede usar distintas tecnologías tales como la fibra óptica o las microondas.</p>
+                        <p>Los medios que se utilizan en la educación, teniendo en cuenta el énfasis que ponen en uno u otro de los actores, pueden categorizarse de la siguiente manera:</p>
+                    </div>
+
+                    <div class="medios">
+                        <img src="content/img02.png" alt="Medios" />
+                    </div>
+
+                    <p>Por otra parte, y teniendo en cuenta lo que se pretende con los mensajes que se hacen circular, las herramientas puede ser de dos tipos:</p>
+
+                    <div class="tecnologias">
+                        <div class="medios">
+                            <img src="content/img03.png" alt="Medios" />
+                        </div>
+                    </div>
+
+                    <div class="box-text note" label="Audio">
+                        <div class="box_media">
+                            <audio controls>
+                                <source src="content/sounds/audio1.mp3" type="audio/mp3">
+                                Su navegador no soporta el componente de audio
+                            </audio>
+                        </div>
+                        <p>
+                            Una misma tecnología puede servir de instrumento para diferentes medios. El satélite, para mostrar un caso, puede ser usado para medios de tipo expositivo (transmisión de programas de televisión) y también para medios de tipo interactivo (videoconferencia). Esto va a obligar a realizar un estudio juicioso por parte de los diseñadores de un programa o curso, para determinar cuáles son las herramientas tecnológicas más eficientes y eficaces.
+                        </p>
+                    </div>
+
+                    <div class="box-text note" label="Audio">
+                        <div class="box_media">
+                            <audio controls>
+                                <source src="content/sounds/audio2.mp3" type="audio/mp3">
+                                Su navegador no soporta el componente de audio
+                            </audio>
+                        </div>
+                        <p>
+                            Las tecnologías, en muchos casos, han sido sobredimensionadas y se les ha asignado un valor casi mágico. Algunos creen que ellas, por sí mismas, van a mejorar la educación. Por esta razón, han tomado tanto auge en las instituciones las llamadas “aulas de informática”: salas dotadas de computadores conectados a Internet, y, por el simple hecho de llevar las máquinas a esas aulas, se piensa que la educación ha cambiado y se ha cualificado. No obstante, las tecnologías sin el soporte de reflexión pedagógica no son nada; más bien pueden llegar a convertirse en obstáculos para la formación y en un gasto inútil.
+                        </p>
+                    </div>
+
+                    <div class="box-text connection">
+                        <p>Ahora, le invitamos a revisar las respuestas que inicialmente brindó sobre los diferentes medios y tecnologías que emplea en el acompañamiento de sus cursos. Puede editar, modificar o mejorar sus respuestas.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pag-condiciones" ptitle="Condiciones para el uso de herramientas tecnológicas">
+                <div class="subpage">
+
+
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p>
+                            El uso educativo de las herramientas tecnológicas, según Bates (1999), implica tener en cuenta varios criterios. En el siguiente cuadro podrá revisar cada uno de ellos, haga clic en el nombre del criterio, lea cada criterio con detenimiento y marque con qué frecuencia tiene en cuenta cada uno al momento de seleccionar una herramienta para usar en su curso.
+                        </p>
+                    </div>
+
+                    <div class="jpit-activities-form" data-act-id="2-criterios" data-act-title="Criterios" data-save="true" data-require-all="true">
+                        <div>
+                            <table class="datatable">
+                                <thead>
+                                    <th>Criterio</th>
+                                    <th>Siempre la tengo en cuenta</th>
+                                    <th>A veces la tengo en cuenta</th>
+                                    <th>Nunca la tengo en cuenta</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="w-content-controler general button" data-content="#principios">
+                                                Principios pedagógicos claros
+                                            </span>
+                                            <div id="principios" class="w-content">
+                                                <h4>Principios pedagógicos claros</h4>
+                                                <p>El uso de la tecnología en la educación debe estar soportada en principios pedagógicos claros, de lo contrario, la acción educativa fracasará.  El diseño de programas y cursos debe contemplar una reflexión rigurosa en torno a cuáles van a ser los medios y las tecnologías para usar, y cuál es el sentido de los mismos, es decir, cómo van a favorecer que la comunicación se dé efectivamente. Si los criterios pedagógicos son claros, se pueden superar algunas deficiencias de la tecnología; pero si no hay criterios pedagógicos suficientes, la tecnología no los va a reemplazar, pues en palabras de Bates “una buena enseñanza puede sacar adelante una mala elección en el uso de la tecnología, pero una tecnología nunca salvará una mala enseñanza; por lo regular, ésta empeora” (1999, p. 29).</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio1" ftitle="Criterio 1" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio1" ftitle="Criterio 1" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio1" ftitle="Criterio 1" value="Nunca" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#estetica">
+                                                Estética de los medios
+                                            </span>
+                                            <div id="estetica" class="w-content">
+                                                <h4>Estética de los medios</h4>
+                                                <p>Cada medio tiene su propia estética; por lo tanto, es necesario que el diseño y la producción sean acordes con sus características particulares.  Un programa de televisión, por ejemplo, debe realizarse bajos los parámetros del lenguaje propio que es ella misma.  La televisión es imagen, movimiento y cambio de perspectiva. Un programa que muestre a un profesor “dictando” una clase, no es más que ir contra la estética misma del medio, lo que provoca en el espectador el inmediato deseo de cambiar a otro canal.  Las páginas electrónicas, otro ejemplo, no pueden ir recargadas de texto; las personas no leen 20 o 30 páginas en la pantalla del computador. La página web debe ser dinámica, de poco texto y, por supuesto, con animaciones, imágenes, color y de fácil navegación.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio2" ftitle="Criterio 2" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio2" ftitle="Criterio 2" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio2" ftitle="Criterio 2" value="Nunca" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#tec_flex">
+                                                Las tecnologías son flexibles e intercambiables
+                                            </span>
+                                            <div id="tec_flex" class="w-content">
+                                                <h4>Las tecnologías son flexibles e intercambiables</h4>
+                                                <p>Las tecnologías son flexibles y, por lo tanto, intercambiables. Es perfectamente posible reemplazar una por otra cuando surgen imponderables. De esta forma, si el correo electrónico se ha inutilizado y no es posible enviar alguna comunicación, se puede realizar la misma actividad usando otro servicio de mensajería. Claro está que no todas las tecnologías sirven para todo; hay que establecer hasta dónde pueden intercambiarse por otras. Esto dependerá de la intencionalidad en la acción educativa correspondiente.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio3" ftitle="Criterio 3" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio3" ftitle="Criterio 3" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio3" ftitle="Criterio 3" value="Nunca" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#supertecnologia">
+                                                No existe una “supertecnología”
+                                            </span>
+                                            <div id="supertecnologia" class="w-content">
+                                                <h4>No existe una “supertecnología”</h4>
+                                                <p>Por lo menos hasta la fecha no hay alguna que sea omnipotente y que realice lo que todas las demás hacen.  Circunscribir el proceso educativo a una sola tecnología lleva a limitarlo, exclusivamente, a las posibilidades que ella tiene y a sus falencias. Por lo tanto, hay que saber combinar diversas tecnologías atendiendo a las fortalezas y debilidades que cada una de ellas posee.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio4" ftitle="Criterio 4" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio4" ftitle="Criterio 4" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio4" ftitle="Criterio 4" value="Nunca" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#diversos">
+                                                Usar diversos medios y tecnologías
+                                            </span>
+                                            <div id="diversos" class="w-content">
+                                                <h4>Usar diversos medios y tecnologías</h4>
+                                                <p>Usar diversos medios y tecnologías favorece atender a la singularidad de las personas; a sus maneras de aprender, sus intereses y motivaciones. Es posible que un medio y su tecnología respectiva le causen malestar al estudiante, por lo que se produce un obstáculo epistemológico, una barrera para el aprendizaje; una razón más para combinar diferentes medios y tecnologías.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio5" ftitle="Criterio 5" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio5" ftitle="Criterio 5" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio5" ftitle="Criterio 5" value="Nunca" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#variedad">
+                                                Balance entre la variedad de medios y tecnologías con los compromisos económicos
+                                            </span>
+                                            <div id="variedad" class="w-content">
+                                                <h4>Balance entre la variedad de medios y tecnologías con los compromisos económicos</h4>
+                                                <p>Hay que mantener un balance entre la variedad de medios y tecnologías con los compromisos económicos que ello demanda. El diseño y producción de materiales se hace más costoso entre más sean las tecnologías y los medios a usar.  De igual manera, hay tecnologías que se hacen más costosas en tanto existan más estudiantes y otras que disminuyen su precio en tanto aumente el número de participantes. Entonces, no siempre es posible combinar todo lo que se quisiera, ya que el estudio económico ha de preceder a la elaboración de materiales.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio6" ftitle="Criterio 6" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio6" ftitle="Criterio 6" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio6" ftitle="Criterio 6" value="Nunca" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#interaccion">
+                                                Los medios y las tecnologías deben favorecer la interacción
+                                            </span>
+                                            <div id="interaccion" class="w-content">
+                                                <h4>Los medios y las tecnologías deben favorecer la interacción</h4>
+                                                <p>Hemos dicho que es perfectamente posible y, hasta deseable, que existan momentos expositivos.  Pero lo que sí resulta francamente imprescindible es que el proceso educativo se realice a partir de la comunicación entre los actores. Los medios y las tecnologías serán admitidos en tanto favorezcan el encuentro.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio7" ftitle="Criterio 7" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio7" ftitle="Criterio 7" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio7" ftitle="Criterio 7" value="Nunca" /></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#mejores">
+                                                Las tecnologías nuevas no son necesariamente mejores que las viejas
+                                            </span>
+                                            <div id="mejores" class="w-content">
+                                                <h4>Las tecnologías nuevas no son necesariamente mejores que las viejas</h4>
+                                                <p>Este aspecto es bien importante; un imaginario bastante extendido cree que, a mayor novedad tecnológica, mejores alternativas educativas, pero no siempre esto resulta así. La clave, entonces, no está en la novedad de la tecnología sino en los espacios de comunicación que pueda generar.  ¿De qué nos sirve organizar sesiones de videoconferencia si los estudiantes no poseen la tecnología que la hace posible, o si la tecnología existente no posee los anchos de banda para que la comunicación fluya?</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio8" ftitle="Criterio 8" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio8" ftitle="Criterio 8" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio8" ftitle="Criterio 8" value="Nunca" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="w-content-controler general" data-content="#capacitacion">
+                                                Capacitación para emplear con eficiencia las tecnologías
+                                            </span>
+                                            <div id="capacitacion" class="w-content">
+                                                <h4>Capacitación para emplear con eficiencia las tecnologías</h4>
+                                                <p>Los profesores necesitan capacitación para emplear con eficiencia las tecnologías.  La mejor de las tecnologías o el mejor de los medios puede terminar siendo un absoluto fracaso si los profesores no los manejan correctamente e inclusive, pueden llegar a generar todo lo contrario de lo que se espera del proceso de formación.  Es preferible la utilización de una tecnología menos poderosa pero conocida por los profesores, que la utilización de una tecnología de punta desconocida para quienes deben usarla con fines educativos.  Lo dicho aquí también aplica para los estudiantes.</p>
+                                            </div>
+                                        </td>
+                                        <td class="withradio"><input type="radio" name="criterio9" ftitle="Criterio 9" value="Siempre" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio9" ftitle="Criterio 9" value="A veces" /></td>
+                                        <td class="withradio"><input type="radio" name="criterio9" ftitle="Criterio 9" value="Nunca" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <span id="labelmeasuringprogress">Avance</span>
+            <div class="measuring-progress" data-type="circle"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+            <div id="page_number"></div>
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Mónica Deossa Quintero<br />
+                Manuel Unigarro</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Laura Pérez González</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernandez Gonzalez</cite>
+            </div>
+            <div>
+                <h3>Ilustración</h3>
+                <cite>Felipe Quintana</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García
+                    <br />Maribel Salazar Estrada</cite>
+            </div>
+
+            <div>
+                <h3>Producción</h3>
+                <p class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="./img/logoperceptio.png" alt="UdeM" /></a>
+                    <a href="http://www.udea.edu.co/" target="_blank"><img src="./img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="./img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co" target="_blank"><img src="./img/logoberna.png" alt="Gobernación" /></a>
+                </p>
+                <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+            </div>
+
+            <div class="editions">
+                1ª edición: Octubre 2019<br />
+            </div>
+            <div>
+                <p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución 4.0 Internacional<br /><br />
+                        <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div id="library-page" style="display:none;">
+        <div id="library_subpage">
+            <h2>Referencias bibliográficas</h2>
+
+            <ul class="data_list">
+                <li>Bates, A. (1999). La Tecnología en la Enseñanza Abierta y la Educación a Distancia.  México: Trillas.</li>
+                <li>Unigarro, M. (2004). Educación Virtual, encuentro formativo en el ciberespacio. Bucaramanga: Editorial UNAB.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button">Volver</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
