@@ -1,4 +1,4 @@
-# OVA - Rúbrica: Creando una estrategia de enseñanza y aprendizaje incorporando TIC
+# OVA - Ajustando el programa del curso
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
