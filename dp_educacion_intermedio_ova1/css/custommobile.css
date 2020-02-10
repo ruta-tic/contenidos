@@ -1,0 +1,55 @@
+#pag-dis-cie-pro .horizontal-menu .chalkboard_content {
+    height: auto;
+}
+
+.jpit-activities-selection li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+#pag-relacion img,
+#pag-dis-cie-pro img {
+    max-width: 100%;
+}
+
+.horizontal-menu .ctrl-pagination {
+    background-color: #fff;
+}
+
+.horizontal-menu .ctrl-pagination .col-2 {
+    display: flex;
+    align-items: center;
+}
+
+#pag-resuelve .ctrl-pagination {
+    padding-bottom: 35px;
+}
+
+#pag-resuelve .ctrl-pagination ul.pagination.arrows {
+    display: none;
+}
+
+#pag-resuelve .ctrl-pagination li.layer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#pag-resuelve .wf-content{
+    text-align: center;
+}
+
+#pag-clasificacion table {
+    margin: auto;
+}
+
+#pag-clasificacion .datatable th {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pag-clasificacion .datatable .ui-selectmenu-button {
+    margin-left: 10px;
+}

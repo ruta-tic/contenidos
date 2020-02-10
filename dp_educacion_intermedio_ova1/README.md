@@ -1,4 +1,4 @@
-# OVA - Diseño de protocolo de guía práctica basado en la evidencia
+# OVA - Relación entre la propia práctica educativa y la pedagogía
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/

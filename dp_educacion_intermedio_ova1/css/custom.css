@@ -1,0 +1,49 @@
+#pag-relacion .row > .col-2 {
+    width: auto;
+}
+
+#pag-dis-cie-pro .horizontal-menu .chalkboard_content {
+    height: auto;
+}
+
+.jpit-activities-selection li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+#pag-dis-cie-pro .row > .col-2,
+#pag-dis-cie-pro .row > .col-2 {
+    width: auto;
+}
+
+.horizontal-menu .ctrl-pagination {
+    background-color: #fff;
+}
+
+.horizontal-menu .ctrl-pagination .col-2 {
+    display: flex;
+    align-items: center;
+}
+
+#pag-resuelve .ctrl-pagination {
+    padding-bottom: 55px;
+}
+
+#pag-resuelve .ctrl-pagination ul.pagination.arrows {
+    display: none;
+}
+
+#pag-resuelve .ctrl-pagination li.layer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#pag-resuelve .wf-content{
+    text-align: center;
+}
+
+#pag-clasificacion table {
+    margin: auto;
+}

@@ -15,18 +15,10 @@
 
 'use strict';
 
-dhbgApp.mobile = {};
+dhbgApp.standard = {};
 
-dhbgApp.mobile.fullContent = {
-    'main': null,
-    'back': null,
-    'content': null
-};
-
-dhbgApp.mobile.changeSubpage = null;
-
-dhbgApp.mobile.start = function() {
-    dhbgApp.transition = 'slide';
+dhbgApp.standard.start = function() {
+    dhbgApp.transition = 'fade';
     dhbgApp.transitionDuration = 400;
     dhbgApp.transitionOptions = {};
 
@@ -36,74 +28,6 @@ dhbgApp.mobile.start = function() {
 
     if (dhbgApp.scorm) {
         dhbgApp.scorm.initialization({activities_percentage: dhbgApp.evaluation.activities_percentage});
-    }
-    else {
-        $('[data-global-id="results"]').remove();
-    }
-
-    // ==============================================================================================
-    // Full content to Mobile view
-    // ==============================================================================================
-    dhbgApp.mobile.fullContent.main = $('<div id="full_content" class="not_print"></div>');
-    dhbgApp.mobile.fullContent.back = $('<div class="back_label"><button class="backward_button button"></button></div>');
-    dhbgApp.mobile.fullContent.content = $('<div id="dialog_content"></div>');
-    dhbgApp.mobile.fullContent.main.append(dhbgApp.mobile.fullContent.back);
-    dhbgApp.mobile.fullContent.main.append(dhbgApp.mobile.fullContent.content);
-
-    $('body').append(dhbgApp.mobile.fullContent.main);
-    dhbgApp.mobile.fullContent.main.hide();
-
-    dhbgApp.mobile.fullContent.back.on('click', function(){
-        var $content = dhbgApp.mobile.fullContent.main.data('current_child');
-
-        if ($content.data('back_here')) {
-            dhbgApp.showFullContent($content.data('parent_control'));
-        }
-        else {
-            dhbgApp.mobile.fullContent.main.hide('fast', function() {
-                $('#body').show('slide');
-                var offset_return;
-                if (offset_return = dhbgApp.mobile.fullContent.back.data('offset_return')) {
-                    $("body, html").animate({
-                        scrollTop: offset_return
-                    }, 100);
-                }
-            });
-        }
-    });
-
-    // ==============================================================================================
-    // Header rebuild.
-    // ==============================================================================================
-    var $header = $('header');
-    $header.prepend($('.page-title'));
-    $header.on('click', function(){
-        $header.toggleClass('collapsed');
-    });
-
-    var $box_menu = $('<div id="main_menu"></div>');
-
-    var $close_menu = $('<div id="close_menu" class="button"><i class="ion-close-round"></i></div>');
-    $close_menu.on('click', function() { $box_menu.hide( { effect: 'slide', direction: 'right' } ); });
-    $box_menu.append($close_menu);
-
-    var $open_menu = $('<div id="open_menu" class="button"><i class="ion-navicon-round"></i></div>');
-    $open_menu.on('click', function() { $box_menu.show( { effect: 'slide', direction: 'right' } ); });
-
-    $('#body').append($open_menu);
-    $('#body').append($box_menu);
-
-    // ==============================================================================================
-    // Footer rebuild.
-    // ==============================================================================================
-    if (!dhbgApp.FULL_PAGES) {
-        dhbgApp.mobile.changeSubpage = $('<select id="select-choice"></select>');
-        dhbgApp.mobile.changeSubpage.change(function() {
-            dhbgApp.loadSubPage((dhbgApp.DB.currentPage), parseInt($(this).val()));
-
-        });
-        $('[subpages-menu]').before(dhbgApp.mobile.changeSubpage);
-        $('[subpages-menu]').hide();
     }
 
     // ==============================================================================================
@@ -131,7 +55,7 @@ dhbgApp.mobile.start = function() {
         };
 
         f_builditem = function($li) {
-            var $item = $('<li></li>');
+            var $item = $('<li class="button"></li>');
 
             if ($li.attr('label')) {
                 $item.html($li.attr('label'));
@@ -155,9 +79,6 @@ dhbgApp.mobile.start = function() {
             if ($withsub) {
                 $item.addClass('withsubitems');
             }
-            else {
-                $item.addClass('button');
-            }
 
             if ($li.attr('data-page')) {
                 $item.attr('data-page', $li.attr('data-page'));
@@ -166,8 +87,6 @@ dhbgApp.mobile.start = function() {
             if ($li.attr('data-global-id')) {
                 $item.attr('data-global', $li.attr('data-global-id'));
             }
-
-            $item.on('click', function(){ $box_menu.hide( { effect: 'slide', direction: 'right' } ); });
 
             return $item;
         };
@@ -182,9 +101,6 @@ dhbgApp.mobile.start = function() {
 
         $nav.empty();
         $nav.append($menu);
-
-        $box_menu.append($nav);
-        $box_menu.append($('<hr />'))
     });
 
     // ==============================================================================================
@@ -248,6 +164,13 @@ dhbgApp.mobile.start = function() {
             }
         }
     });
+
+    // ==============================================================================================
+    // Actions on buttons
+    // ==============================================================================================
+    $('.button').on('mouseover', dhbgApp.defaultValues.buttonover);
+
+    $('.button').on('mouseout', dhbgApp.defaultValues.buttonout);
 
     // ==============================================================================================
     // Images preload.
@@ -349,9 +272,6 @@ dhbgApp.mobile.start = function() {
         var properties = {
             modal: true,
             autoOpen: false,
-            resizable: true,
-            maxHeight: $(window).height() - 5,
-            maxWidth: $(window).width() - 5,
             close: function( event, ui ) {
                 $('body').removeClass('dhbgapp_fullview');
             }
@@ -360,32 +280,24 @@ dhbgApp.mobile.start = function() {
         if ($this.attr('data-property-width')) {
             properties.width = $this.attr('data-property-width');
 
-            var window_w = $(window).width();
             if (properties.width.indexOf('%') >= 0) {
+                var window_w = $(window).width();
                 var tmp_w = Number(properties.width.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     properties.width = tmp_w * window_w / 100;
                 }
-            }
-
-            if (properties.width > window_w) {
-                properties.width = window_w;
             }
         }
 
         if ($this.attr('data-property-height')) {
             properties.height = $this.attr('data-property-height');
 
-            var window_h = $(window).height();
             if (properties.height.indexOf('%') >= 0) {
+                var window_h = $(window).height();
                 var tmp_h = Number(properties.height.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     properties.height = tmp_h * window_h / 100;
                 }
-            }
-
-            if (properties.height > window_h) {
-                properties.height = window_h;
             }
         }
 
@@ -398,46 +310,34 @@ dhbgApp.mobile.start = function() {
 
     $(document).on('click', '.w-content-controler', function(){
         var $this = $(this);
-        var $dialog = $($this.attr('data-content'));
         var w = $this.attr('data-property-width');
         var h = $this.attr('data-property-height');
 
         if (w) {
-            var window_w = $(window).width();
             if (w.indexOf('%') >= 0) {
+                var window_w = $(window).width();
                 var tmp_w = Number(w.replace('%', ''));
                 if (!isNaN(tmp_w) && tmp_w > 0) {
                     w = tmp_w * window_w / 100;
                 }
             }
 
-            if (w > window_w) {
-                w = window_w;
-            }
-
-            $dialog.dialog('option', 'width', w);
+            $($this.attr('data-content')).dialog('option', 'width', w);
         }
 
         if (h) {
-            var window_h = $(window).height();
             if (h.indexOf('%') >= 0) {
+                var window_h = $(window).height();
                 var tmp_h = Number(h.replace('%', ''));
                 if (!isNaN(tmp_h) && tmp_h > 0) {
                     h = tmp_h * window_h / 100;
                 }
             }
 
-            if (h > window_h) {
-                h = window_h;
-            }
-
-            $dialog.dialog('option', 'height', h);
+            $($this.attr('data-content')).dialog('option', 'height', h);
         }
 
-        $dialog.dialog('option', 'maxHeight', $(window).height() - 5);
-        $dialog.dialog('option', 'maxWidth', $(window).width() - 5);
-
-        $dialog.dialog('open');
+        $($this.attr('data-content')).dialog('open');
         $('body').addClass('dhbgapp_fullview');
     });
 
@@ -493,7 +393,7 @@ dhbgApp.mobile.start = function() {
     $('.mouse-over-one').each(function(){
         var $this = $(this);
 
-        $this.find('[data-ref]').on('click', function() {
+        $this.find('[data-ref]').on('mouseover', function() {
             $this.find('[data-ref]').each(function() {
                 $($(this).attr('data-ref')).hide();
             });
@@ -659,8 +559,8 @@ dhbgApp.mobile.start = function() {
     var $results_modal = $('#results_page').dialog({
         modal: true,
         autoOpen: false,
-        width: $(window).width() - 10,
-        height: $(window).height() - 10,
+        width: dhbgApp.documentWidth - 50,
+        height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -756,18 +656,17 @@ dhbgApp.mobile.start = function() {
         }
 
         $('body').addClass('dhbgapp_fullview');
-        $results_modal.dialog('option', 'height', $(window).height() - 10);
-        $results_modal.dialog('option', 'width', $(window).width() - 10);
         $results_modal.dialog('open');
     });
+
+    var w_global_modal = dhbgApp.documentWidth > 900 ? 900 : dhbgApp.documentWidth - 50;
 
     // Credits control.
     var $credits_modal = $('#credits-page').dialog({
         modal: true,
         autoOpen: false,
-        resize: 'auto',
-        width: $(window).width() - 10,
-        height: $(window).height() - 10,
+        width: w_global_modal,
+        height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "results_page_dialog"
         },
@@ -779,8 +678,6 @@ dhbgApp.mobile.start = function() {
     $('[data-global="credits"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
-        $credits_modal.dialog('option', 'height', $(window).height() - 10);
-        $credits_modal.dialog('option', 'width', $(window).width() - 10);
         $credits_modal.dialog('open');
     });
 
@@ -788,8 +685,8 @@ dhbgApp.mobile.start = function() {
     var $library_modal = $('#library-page').dialog({
         modal: true,
         autoOpen: false,
-        width: $(window).width() - 10,
-        height: $(window).height() - 10,
+        width: w_global_modal,
+        height: dhbgApp.documentHeight - 50,
         classes: {
             "ui-dialog": "library_page_dialog"
         },
@@ -801,8 +698,6 @@ dhbgApp.mobile.start = function() {
     $('[data-global="library"]').on('click', function () {
 
         $('body').addClass('dhbgapp_fullview');
-        $library_modal.dialog('option', 'height', $(window).height() - 10);
-        $library_modal.dialog('option', 'width', $(window).width() - 10);
         $library_modal.dialog('open');
     });
 
@@ -829,87 +724,51 @@ dhbgApp.mobile.start = function() {
     $('.horizontal-menu').each(function(){
 
         var $this = $(this);
-        var $dls = $this.find('>dl');
+        var $chalkboard_items = $('<div class="chalkboard_items board"></div>');
+        var $chalkboard_content = $('<div class="chalkboard_content elements"></div>');
 
-        if($dls.length > 3 ) {
-            var $chalkboard_content = $('<div class="chalkboard_horizontal_content elements"></div>');
-            $dls.each(function() {
-                var $dl = $(this);
+        $this.find('>dl').each(function() {
+            var $dl = $(this);
 
-                var $element_container = $('<div class="element"></div>');
-                var $dd = $dl.find('dd').children();
-                var $dt = $dl.find('dt').children().length > 0 ? $dl.find('dt').children() : $('<span>' + $dl.find('dt').html() + '</span>');
-                $dt.wrap('<div class="button"></div>');
+            var $dd= $('<div class="element rule_1 tab_content"></div>');
+            $dd.append($dl.find('>dd').children());
+            var $dt = $('<div class="chalkboard_item button">' + $dl.find('>dt').html() + '</div>').on('click', function(){
 
-                var $left_element = $('<div class="element_left button"></div>');
-                var $forward_button = $('<div class="forward_button button"></div>');
+                var $item_dt = $(this);
 
-                var $dd_container = $('<div class="horizontal_container"></div>');
+                if (dhbgApp.DB.loadSound) {
+                    dhbgApp.DB.loadSound.pause();
+                    $chalkboard_content.find('audio').each(function(){
+                        this.pause();
+                    });
+                }
 
-                $dd_container.append($dd);
-                $('#full_content #dialog_content').append($dd_container);
+                $chalkboard_content.find('.element').hide();
 
-                $left_element.on('click', function(){
-                    dhbgApp.mobile.fullContent.back.data('offset_return', $left_element.offset().top - 50);
-                    dhbgApp.showFullContent($dd_container);
-                });
-
-                $left_element.append($forward_button);
-                $left_element.append($dt);
-                $element_container.append($left_element);
-                $chalkboard_content.append($element_container);
+                $chalkboard_items.find('.current').removeClass('current');
+                $item_dt.addClass('current');
+                $dd.show();
             });
 
-            $this.empty();
-            $this.append($chalkboard_content);
-            $this.append('<div class="clear"></div>');
-        }
-        else {
-            var $chalkboard_items = $('<div class="chalkboard_items board"></div>');
-            var $chalkboard_content = $('<div class="chalkboard_content elements"></div>');
-            $dls.each(function() {
-                var $dl = $(this);
+            $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
 
-                var $dd= $('<div class="element rule_1 tab_content"></div>');
-                $dd.append($dl.find('>dd').children());
-                var $dt = $('<div class="chalkboard_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
+            $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
 
-                    var $item_dt = $(this);
+            $chalkboard_items.append($dt);
 
-                    if (dhbgApp.DB.loadSound) {
-                        dhbgApp.DB.loadSound.pause();
-                        $chalkboard_content.find('audio').each(function(){
-                            this.pause();
-                        });
-                    }
+            $chalkboard_content.append($dd);
+        });
 
-                    $chalkboard_content.find('.element').hide();
+        $chalkboard_content.find('.element').hide();
+        $chalkboard_items.find(':first-child').addClass('current');
+        $chalkboard_items.find(':last-child').addClass('last-item');
+        $chalkboard_content.find('.element:first-child').show();
+        $this.empty();
 
-                    $chalkboard_items.find('.current').removeClass('current');
-                    $item_dt.addClass('current');
-                    $dd.show();
-                });
-
-                $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
-
-                $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
-
-                $chalkboard_items.append($dt);
-
-                $chalkboard_content.append($dd);
-            });
-
-            $chalkboard_content.find('.element').hide();
-            $chalkboard_items.find(':first-child').addClass('current');
-            $chalkboard_items.find(':last-child').addClass('last-item');
-            $chalkboard_content.find('.element:first-child').show();
-            $this.empty();
-
-            $this.append($chalkboard_items);
-            $this.append('<div class="clear"></div>');
-            $this.append($chalkboard_content);
-            $this.append('<div class="clear"></div>');
-        }
+        $this.append($chalkboard_items);
+        $this.append('<div class="clear"></div>');
+        $this.append($chalkboard_content);
+        $this.append('<div class="clear"></div>');
 
     });
 
@@ -919,35 +778,38 @@ dhbgApp.mobile.start = function() {
     $('.vertical-menu').each(function(){
 
         var $this = $(this);
+        var $chalkboard_items = $('<div class="chalkboard_vertical_items board"></div>');
         var $chalkboard_content = $('<div class="chalkboard_vertical_content elements"></div>');
 
         $this.find('>dl').each(function() {
             var $dl = $(this);
-            var $element_container = $('<div class="element"></div>');
-            var $dd = $dl.find('dd').children();
-            var $dt = $dl.find('dt').children().length > 0 ? $dl.find('dt').children() : $('<span>' + $dl.find('dt').html() + '</span>');
-            $dt.wrap('<div class="button"></div>');
 
-            var $left_element = $('<div class="element_left button"></div>');
-            var $forward_button = $('<div class="forward_button button"></div>');
-
-            var $vertical_container = $('<div class="vertical_container"></div>');
-            $vertical_container.append($dd);
-
-            dhbgApp.mobile.fullContent.content.append($vertical_container);
-
-            $left_element.on('click', function(){
-                dhbgApp.mobile.fullContent.back.data('offset_return', $left_element.offset().top - 50);
-                dhbgApp.showFullContent($vertical_container);
+            var $dd= $('<div class="element rule_1 tab_content"></div>');
+            $dd.append($dl.find('>dd').children());
+            var $dt = $('<div class="chalkboard_vertical_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
+                var $item_dt = $(this);
+                $chalkboard_content.find('> .element').hide();
+                $chalkboard_items.find('.current').removeClass('current');
+                $item_dt.addClass('current');
+                $dd.show();
             });
 
-            $left_element.append($forward_button);
-            $left_element.append($dt);
-            $element_container.append($left_element);
-            $chalkboard_content.append($element_container);
+            $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
+
+            $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
+
+            $chalkboard_items.append($dt);
+
+            $chalkboard_content.append($dd);
         });
 
+        $chalkboard_content.find('> .element').hide();
+        $chalkboard_items.find(':first-child').addClass('current');
+        $chalkboard_items.find(':last-child').addClass('last-item');
+        $chalkboard_content.find('> .element:first-child').show();
         $this.empty();
+
+        $this.append($chalkboard_items);
         $this.append($chalkboard_content);
         $this.append('<div class="clear"></div>');
 
@@ -959,37 +821,78 @@ dhbgApp.mobile.start = function() {
     $('.vertical-menu-both-sides').each(function(){
 
         var $this = $(this);
+        var $chalkboard_items_left = $('<div class="chalkboard_both_items_left board"></div>');
+        var $chalkboard_items_right = $('<div class="chalkboard_both_items_right board"></div>');
         var $chalkboard_content = $('<div class="chalkboard_both_content elements"></div>');
-        $this.find('>dl').each(function() {
-            var $dl = $(this);
 
-            var $element_container = $('<div class="element"></div>');
-            var $dd = $dl.find('dd').children();
-            var $dt = $dl.find('dt').children().length > 0 ? $dl.find('dt').children() : $('<span>' + $dl.find('dt').html() + '</span>');
-            $dt.wrap('<div class="button"></div>');
+        $this.find('left').each(function(){
+            var $left = $(this);
+            $left.find('>dl').each(function() {
+                var $dl = $(this);
 
-            var $left_element = $('<div class="element_left button"></div>');
-            var $forward_button = $('<div class="forward_button button"></div>');
+                var $dd= $('<div class="element rule_1 tab_content"></div>');
+                $dd.append($dl.find('dd').children());
 
-            var $both_container = $('<div class="both_container"></div>');
+                var $dt = $('<div class="chalkboard_both_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
 
-            $both_container.append($dd);
-            $('#full_content #dialog_content').append($both_container);
+                        var $item_dt = $(this);
 
-            $left_element.on('click', function(){
-                dhbgApp.mobile.fullContent.back.data('offset_return', $left_element.offset().top - 50);
-                dhbgApp.showFullContent($both_container);
+                    $chalkboard_content.find('> .element').hide();
+
+                    $this.find('.chalkboard_both_current').removeClass('chalkboard_both_current');
+                    $item_dt.addClass('chalkboard_both_current');
+                    $dd.show();
+                });
+
+                $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
+
+                $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
+
+                $chalkboard_items_left.append($dt);
+
+                $chalkboard_content.append($dd);
             });
-
-            $left_element.append($forward_button);
-            $left_element.append($dt);
-            $element_container.append($left_element);
-            $chalkboard_content.append($element_container);
         });
 
+        $this.find('right').each(function(){
+
+            var $right = $(this);
+            $right.find('>dl').each(function() {
+                var $dl = $(this);
+
+                var $dd= $('<div class="element rule_1 tab_content"> ' + $dl.find('dd').html() + ' </div>');
+
+                var $dt = $('<div class="chalkboard_both_item button">' + $dl.find('dt').html() + '</div>').on('click', function(){
+                    var $item_dt = $(this);
+
+                    $chalkboard_content.find('> .element').hide();
+
+                    $this.find('.chalkboard_both_current').removeClass('chalkboard_both_current');
+                    $item_dt.addClass('chalkboard_both_current');
+                    $dd.show();
+                });
+
+                $dt.on('mouseover', dhbgApp.defaultValues.buttonover);
+
+                $dt.on('mouseout', dhbgApp.defaultValues.buttonout);
+
+                $chalkboard_content.append($dd);
+                $chalkboard_items_right.append($dt);
+            });
+        });
+
+        $chalkboard_content.find('> .element').hide();
+        $chalkboard_items_left.find(':first-child').addClass('chalkboard_both_current');
+        $chalkboard_items_left.find(':last-child').addClass('last-item');
+        $chalkboard_items_right.find(':last-child').addClass('last-item');
+        $chalkboard_content.find(':first-child').show();
         $this.empty();
+
+        $this.append($chalkboard_items_left);
+        $this.append($chalkboard_items_right);
         $this.append($chalkboard_content);
         $this.append('<div class="clear"></div>');
+
     });
 
     // ==============================================================================================
@@ -1177,7 +1080,7 @@ dhbgApp.mobile.start = function() {
         var duration = $this.attr('data-animation-duration') || 400;
         var ontransitionhidden = ".label_current," + $this.attr('data-pagination-transition-hidden') || '';
 
-        function showPage(page, isnext) {
+        function showPage(page, isnext) {
             var $page = $(page),
                 $prev = isnext ? $page.prev() : $page.next();
 
@@ -1189,6 +1092,40 @@ dhbgApp.mobile.start = function() {
 
             slide($page, $prev, isnext ? 'right' : 'left');
         }
+
+        function extShowPage(e, pageindex, isnext) {
+
+            if (pageindex > $items.length) {
+                return;
+            }
+
+            var $nextpage = $($items.get(pageindex));
+
+            var $prev = $($items.get($items.data('current')));
+
+            if (animation == 'none') {
+                $prev.hide();
+                $nextpage.show();
+            }
+            else {
+                slide($nextpage, $prev, isnext ? 'right' : 'left');
+            }
+
+            $items.data('current', pageindex);
+            $position_index_label.text(dhbgApp.s('pagination_label', { 'a': (pageindex + 1), 'b': $items.length } ));
+
+            if (pageindex < $items.length) {
+                $next_button.css('visibility', 'visible');
+            }
+
+            if (pageindex == 0) {
+                $back_button.css('visibility', 'hidden');
+            }
+            $this.trigger('jpit:pagination:changed', pageindex);
+
+        }
+
+        $this.bind('showPage', extShowPage);
 
         function slide($page, $prev, dir, duration) {
             $prev.hide();
@@ -1305,7 +1242,7 @@ dhbgApp.mobile.start = function() {
     }
 
     //Activities
-    dhbgApp.mobile.load_operations();
+    dhbgApp.standard.load_operations();
     dhbgApp.actions.startTimer = function($container, seconds) {
         var format = function (s) {
             var h = Math.floor(s / 3600);
@@ -1366,29 +1303,26 @@ dhbgApp.mobile.start = function() {
         }
 
         if (el.hasAttribute('data-on-demand')) {
-            ondemand = /^(any|mobile)$/.test(el.getAttribute('data-on-demand'));
+            ondemand = /^(any|standard)$/.test(el.getAttribute('data-on-demand'));
         }
 
-        options.ondemand = ondemand;
         if (!ondemand && timer == 0) {
             loader.call(loader, $container, options);
             return;
         }
 
         var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
-
         $container.before($start);
         var parent_class = $container.parent().attr('id');
         $container.addClass(parent_class);
         $container.hide();
         $start.on('click', function() {
-            dhbgApp.mobile.fullContent.back.data('offset_return', $start.offset().top - 50);
             $container.show();
             loader.call(loader, $container, options);
             if (timer > 0) {
                 dhbgApp.actions.startTimer($container, timer);
             }
-            //$start.hide();
+            $start.hide();
         });
 
     };
@@ -1410,30 +1344,12 @@ dhbgApp.mobile.start = function() {
 
     $('.jpit-activities-droppable').each(function(){
         var $this = $(this);
-        if (!this.hasAttribute('data-on-demand')) {
-            this.setAttribute('data-on-demand', 'mobile');
-        }
         dhbgApp.actions.loadActivity($this, 'droppable', dhbgApp.actions.activityDroppable);
     });
 
     $('.jpit-activities-multidroppable').each(function(){
         var $this = $(this);
-
-        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'multidroppable';
-
-        if (dhbgApp.scorm) {
-            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
-        }
-
-        var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
-        $this.before($start);
-        var parent_class = $this.parent().attr('id');
-        $this.addClass(parent_class);
-        $this.hide();
-        $start.on('click', function() {
-            dhbgApp.mobile.fullContent.back.data('offset_return', $start.offset().top - 50);
-            dhbgApp.actions.activityMultidroppable($this, scorm_id);
-        });
+        dhbgApp.actions.activityMultidroppable($this);
     });
 
     $('.jpit-activities-cloze').each(function(){
@@ -1443,22 +1359,7 @@ dhbgApp.mobile.start = function() {
 
     $('.jpit-activities-sortable').each(function(){
         var $this = $(this);
-
-        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'sortable';
-
-        if (dhbgApp.scorm) {
-            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
-        }
-
-        var $start = $('<button class="button general">' + dhbgApp.s('start_activity') + '</button>');
-        $this.before($start);
-        var parent_class = $this.parent().attr('id');
-        $this.addClass(parent_class);
-        $this.hide();
-        $start.on('click', function() {
-            dhbgApp.mobile.fullContent.back.data('offset_return', $start.offset().top - 50);
-            dhbgApp.actions.activitySortable($this, scorm_id);
-        });
+        dhbgApp.actions.activitySortable($this);
     });
 
     $('.jpit-activities-check').each(function(){
@@ -1582,9 +1483,7 @@ dhbgApp.mobile.start = function() {
                 "orientation": orientation,
                 "default_offset_pct": offset,
                 "before_label": s_before,
-                "after_label": s_after,
-                "move_with_handle_only": true,
-                "click_to_move": true
+                "after_label": s_after
             });
         }
     });
@@ -1595,8 +1494,8 @@ dhbgApp.mobile.start = function() {
     var $expand_image_modal = $('<div><div id="expand_image_content"></div></div>').dialog({
         modal: true,
         autoOpen: false,
-        width: $(window).width(),
-        height: $(window).height(),
+        width: dhbgApp.documentWidth,
+        height: dhbgApp.documentHeight,
         classes: {
             "ui-dialog": "expand_image_dialog"
         },
@@ -1622,8 +1521,6 @@ dhbgApp.mobile.start = function() {
             if (title) {
                 $expand_image_modal.dialog('option', 'title', title);
             }
-            $expand_image_modal.dialog('option', 'height', $(window).height());
-            $expand_image_modal.dialog('option', 'width', $(window).width());
             $expand_image_modal.dialog('open');
         };
 
@@ -1681,13 +1578,6 @@ dhbgApp.mobile.start = function() {
             $(this)[0].pause();
         });
     };
-
-    // ==============================================================================================
-    // Actions on buttons
-    // ==============================================================================================
-    $('.button').on('mouseover', dhbgApp.defaultValues.buttonover);
-
-    $('.button').on('mouseout', dhbgApp.defaultValues.buttonout);
 
 
     $('main > section').each(function(index_page, value_page) {
@@ -1755,7 +1645,7 @@ dhbgApp.mobile.start = function() {
 //=========================================================================
 // Init functions
 //=========================================================================
-dhbgApp.mobile.load_operations = function() {
+dhbgApp.standard.load_operations = function() {
 
     dhbgApp.changeSco = function(index) {
         var sco = dhbgApp.scorm.scoList[index];
@@ -1763,26 +1653,6 @@ dhbgApp.mobile.load_operations = function() {
         dhbgApp.scorm.currentSco = index;
 
         dhbgApp.loadPage(sco.page, sco.subpage);
-    };
-
-    dhbgApp.showFullContent = function($content) {
-        dhbgApp.mobile.fullContent.content.children().hide();
-
-        if (dhbgApp.mobile.fullContent.content.is(":visible")) {
-            if (!$content.data('parent_control')) {
-                $content.data('back_here', true);
-                $content.data('parent_control', dhbgApp.mobile.fullContent.main.data('current_child'));
-            }
-        }
-        else {
-            $content.data('back_here', false);
-            dhbgApp.mobile.fullContent.main.show('slide');
-            $('#body').hide('slide');
-            $content.data('parent_control', '#body');
-        }
-
-        dhbgApp.mobile.fullContent.main.data('current_child', $content);
-        $content.show('slide');
     };
 
     dhbgApp.printProgress = function() {
@@ -1829,24 +1699,23 @@ dhbgApp.mobile.load_operations = function() {
         if (npage != dhbgApp.DB.currentPage) {
 
             var page = dhbgApp.pages[npage];
-            $('nav [data-page]').removeClass('current');
+            $('nav [data-page]').removeClass('current').parents().removeClass('current');
 
-            $('nav [data-page="' + page.id + '"]').addClass('current');
+            $('nav [data-page="' + page.id + '"]').addClass('current').parents().addClass('current');
 
             // If subpages mode is enabled.
             if (!dhbgApp.FULL_PAGES) {
+                var $nav = $('[subpages-menu]');
+                var $node;
+
+                $nav.empty();
+
                 if (page.subpages > 1) {
 
-                    dhbgApp.mobile.changeSubpage.css('visibility', 'visible');
-                    dhbgApp.mobile.changeSubpage.empty();//' .spage').remove();
-
                     var sco;
-                    var $node;
-
                     for(var i = 0; i < page.subpages; i++) {
-                        $node = $('<option value="' + i + '">' + (i+1) + '</option>');
-                        $node.addClass('spage spage_' + i);
 
+                        $node = $('<li class="button">' + (i+1) + '</li>');
                         if (i == 0) {
                             $node.addClass('current visited');
                         }
@@ -1860,11 +1729,13 @@ dhbgApp.mobile.load_operations = function() {
                         }
 
                         $node.attr('spage', i);
-                        dhbgApp.mobile.changeSubpage.append($node);
+                        $node.on('mouseover', dhbgApp.defaultValues.buttonover);
+                        $node.on('mouseout', dhbgApp.defaultValues.buttonout);
+
+                        $node.on('click', function() { dhbgApp.loadSubPage(npage, parseInt($(this).attr('spage'))); });
+
+                        $nav.append($node);
                     }
-                }
-                else {
-                    dhbgApp.mobile.changeSubpage.css('visibility', 'hidden');
                 }
             }
 
@@ -1892,19 +1763,8 @@ dhbgApp.mobile.load_operations = function() {
 
         if (dhbgApp.DB.currentSubPage != nsubpage || dhbgApp.DB.currentPage != npage) {
 
-            $('html,body').scrollTop(0);
-
-            var $current_subpage = dhbgApp.mobile.changeSubpage.find('.current');
-
-            var nsubpages = dhbgApp.pages[npage].subpages;
-
-            if (nsubpages > 1) {
-                dhbgApp.mobile.changeSubpage.css('visibility', 'visible');
-                dhbgApp.mobile.changeSubpage.val(nsubpage);
-            }
-            else {
-                dhbgApp.mobile.changeSubpage.css('visibility', 'hidden');
-            }
+            var $nav = $('[subpages-menu]');
+            var $current_subpage = $nav.find('.current');
 
             // Actions before change page.
             $.each(dhbgApp.actions.beforeChangePage, function(i, v){
@@ -1927,7 +1787,7 @@ dhbgApp.mobile.load_operations = function() {
 
             $current_subpage.removeClass('current');
 
-            dhbgApp.mobile.changeSubpage.find('option[spage=' + nsubpage + ']').addClass('current');
+            $nav.find('li[spage=' + nsubpage + ']').addClass('current');
 
             var $current = $('main > section .subpage.current');
 
@@ -2282,8 +2142,8 @@ dhbgApp.mobile.load_operations = function() {
 
                 // If all questions were answered.
                 if(activity.isFullAnswered()){
-
                     $this.data('clock') && $this.data('clock').stop(); //Stop timer if any
+
                     for(var i = 0; i < activity.finalQuestionList.length; i++){
                         if(activity.finalQuestionList[i] != undefined && activity.finalQuestionList[i].isQualifiable()) {
                             activity.finalQuestionList[i].showFeedback();
@@ -2635,355 +2495,347 @@ dhbgApp.mobile.load_operations = function() {
     };
 
     dhbgApp.actions.activityDroppable = function ($this, options) {
+        var activity;
+        var unique_id = 'activity_droppable_' + dhbgApp.rangerand(0, 1000, true);
+        var feedbacktrue = '', feedbackfalse = '';
+        var html_body = $this.html();
+        var scorm_id = options.scorm_id;
 
-        if (!$this.data('loaded')) {
-            var activity;
-            var unique_id = 'activity_droppable_' + dhbgApp.rangerand(0, 1000, true);
-            var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
-            var html_body = $this.html();
-            var scorm_id = options.scorm_id;
+        var helper = '';
+        if ($this.attr('data-droppable-content-inner') && $this.attr('data-droppable-content-helper')) {
+            helper = $this.attr('data-droppable-content-helper');
+        }
 
-            var $box_end = $this.find('.box_end');
-            $box_end.hide();
+        var $box_end = $this.find('.box_end');
+        $box_end.hide();
 
-            if ($this.find('feedback correct').text() != '') {
-                feedbacktrue = $this.find('feedback correct').html();
-            }
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct').html();
+        }
 
-            if ($this.find('feedback wrong').text() != '') {
-                feedbackfalse = $this.find('feedback wrong').html();
-            }
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong').html();
+        }
 
-            $this.find('feedback').empty();
+        $this.find('feedback').empty();
 
-            var activityOptions = {
-                'autoResolve': true,
-                'continueResolve': false,
-                'holdCorrects': false,
-                'multiTarget': 1,
-                'autoAlignNodes': false,
-                'requiredAll': false,
-                'required_all_pairs': true,
-                'draggableContainer': dhbgApp.mobile.fullContent.content
-            };
-            var allowRetry = !($this.attr('data-allow-retry') === 'false');
-            var modalFeedback = true && $this.attr('data-modal-feedback');
+        var activityOptions = {
+            'autoResolve': true,
+            'continueResolve': false,
+            'holdCorrects': false,
+            'multiTarget': 1,
+            'autoAlignNodes': false,
+            'requiredAll': false,
+            'required_all_pairs': true,
+            'draggableContainer': $('#middle')
+        };
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
 
-            var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
+        var type_verification = $this.attr('data-verify-type') ? $this.attr('data-verify-type') : 'source';
 
-            var multi;
-            if (multi = $this.attr('data-target-multi')) {
-                activityOptions.multiTarget = multi;
-            }
+        var multi;
+        if (multi = $this.attr('data-target-multi')) {
+            activityOptions.multiTarget = multi;
+        }
 
-            var autoalign;
-            if (autoalign = $this.attr('data-autoalign')) {
-                activityOptions.autoAlignNodes = autoalign === 'true';
-            }
+        var autoalign;
+        if (autoalign = $this.attr('data-autoalign')) {
+            activityOptions.autoAlignNodes = autoalign === 'true';
+        }
+        // Build the board.
+        var origins = [], targets = [], pairs = [],  pair_indexs = [];
 
-            // Build the board.
-            var origins = [], targets = [], pairs = [],  pair_indexs = [];
+        var i = 0;
+        $this.find('[data-group]').each(function(){
+            var $item = $(this);
+            $item.attr('id', unique_id + '_origin_' + i);
+            $item.addClass('draggable');
+            origins[origins.length] = $item;
 
-            var i = 0;
-            $this.find('[data-group]').each(function(){
-                var $item = $(this);
-                $item.attr('id', unique_id + '_origin_' + i);
-                $item.addClass('draggable');
-                origins[origins.length] = $item;
-
-                $this.find('[data-target-group="' + $item.attr('data-group') + '"]').each(function(){
-                    pairs[pairs.length] = {'origin': $item, 'target': $(this)};
-                });
-
-                $item.removeAttr('data-group');
-                i++;
+            $this.find('[data-target-group="' + $item.attr('data-group') + '"]').each(function(){
+                pairs[pairs.length] = {'origin': $item, 'target': $(this)};
             });
 
-            $this.find('[data-target-group]').each(function(){
-                var $item = $(this);
-                $item.attr('id', unique_id + '_target_' + $item.attr('data-target-group'));
-                $item.addClass('droppable');
-                targets[targets.length] = $item;
-                $item.removeAttr('data-target-group');
-            });
+            $item.removeAttr('data-group');
+            i++;
+        });
 
-            var add_restart_button = function() {
-                if (!allowRetry) return;
-                var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
-                $button_again.on('click', function(){
-                    $(dhbgApp).trigger('jpit:activity:restart', [$this, {
-                        id: scorm_id
-                    }]);
-                    $box_end.empty().hide();
-                    $this.find('.draggable,.droppable').removeClass('wrong correct');
-                    $this.removeClass('completed');
-                    activity.resetStage();
-                    $this.data('clock') && $this.data('clock').restart();
-                });
-                $box_end.append($button_again);
-            };
+        $this.find('[data-target-group]').each(function(){
+            var $item = $(this);
+            $item.attr('id', unique_id + '_target_' + $item.attr('data-target-group'));
+            $item.addClass('droppable');
+            targets[targets.length] = $item;
+            $item.removeAttr('data-target-group');
+        });
 
-            var add_end_button = function () {
-                var $button_end = $('<button class="button general">' + dhbgApp.s('end_activity') + '</button>');
-                $button_end.on('click', function(){
-                    $box_end.empty().hide();
-                    $this.find('.draggable,.droppable').removeClass('wrong correct');
-                    $.each(pairs, function(idx, pair) {
-                        pair.origin.addClass('dropped').appendTo(pair.target);
-                    });
-                    $this.data('clock') && $this.data('clock').hide();
-                });
-                $box_end.append($button_end);
-            }
-
-            activityOptions.onDrop = function($dragEl) {
-                var $dropzone = this;
-                if ($this.attr('data-adjust-size') && $this.attr('data-adjust-size') == 'true') {
-                    $dragEl.width($dropzone.width());
-                    $dragEl.height($dropzone.height());
-                }
-
-                $dragEl.trigger('click');
-
-                var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
-
-                $(dhbgApp).trigger('jpit:activity:drop', [$this, {
-                    id: scorm_id,
-                    dragEl: $dragEl
+        var add_restart_button = function() {
+            if (!allowRetry) return;
+            var $button_again = $('<button class="button general">' + dhbgApp.s('restart_activity') + '</button>');
+            $button_again.on('click', function(){
+                $(dhbgApp).trigger('jpit:activity:restart', [$this, {
+                    id: scorm_id
                 }]);
+                $box_end.empty().hide();
+                $this.find('.draggable,.droppable').removeClass('wrong correct');
+                $this.removeClass('completed');
+                activity.resetStage();
+                $this.data('clock') && $this.data('clock').restart();
+            });
+            $box_end.append($button_again);
+        };
 
-                if (!end) return;
+        var add_end_button = function () {
+            var $button_end = $('<button class="button general">' + dhbgApp.s('end_activity') + '</button>');
+            $button_end.on('click', function(){
+                $box_end.empty().hide();
+                $this.find('.draggable,.droppable').removeClass('wrong correct');
+                $.each(pairs, function(idx, pair) {
+                    pair.origin.addClass('dropped').appendTo(pair.target);
+                });
+                $this.data('clock') && $this.data('clock').hide();
+            });
+            $box_end.append($button_end);
+        }
 
-                $this.data('clock') && $this.data('clock').stop();
+        activityOptions.onDrop = function($dragEl) {
+            $dragEl.trigger('click');
 
-                var weight;
+            var end = type_verification == 'target' ? activity.isComplete() : activity.isFullComplete();
 
-                if (type_verification == 'target') {
-                    weight = Math.round(activity.countCorrect() * 100 / targets.length);
-                }
-                else {
-                    weight = Math.round(activity.countCorrect() * 100 / pairs.length);
-                }
+            $(dhbgApp).trigger('jpit:activity:drop', [$this, {
+                id: scorm_id,
+                dragEl: $dragEl
+            }]);
 
-                activity.disable();
+            if (!end) return;
+
+            var timer = $this.data('clock');
+            if (timer) {
+                timer.stop();
+            }
+
+            var weight;
+
+            if (type_verification == 'target') {
+                weight = Math.round(activity.countCorrect() * 100 / targets.length);
+            }
+            else {
+                weight = Math.round(activity.countCorrect() * 100 / pairs.length);
+            }
+            activity.disable();
+
+            if (dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(scorm_id, weight)
+            }
+            dhbgApp.printProgress();
+
+            var msg;
+            if (weight >= dhbgApp.evaluation.approve_limit) {
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
+            }
+            else {
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
+            }
+
+            var $msg = $(msg);
+            var $close;
+            if ($box_end.attr('data-enable-close-button')) {
+                $close = $('<span class="icon_more button"></span>').on('click', function() {
+                    $box_end.empty().hide();
+                });
+                $msg.append($close);
+            }
+
+            var continueWith = $this.attr('data-continue-with');
+            if (continueWith) {
+                var $continue = $('<button class="general">Continuar</button>').on('click', function() {
+                    $(continueWith).show(200);
+                    $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
+                    $box_end.empty().hide();
+                });
+                $close && $close.remove();
+                $msg.append($continue);
+            }
+
+            $box_end.append($msg).show();
+            $this.addClass('completed');
+
+            if (weight < 99) {
+                add_restart_button();
+            }
+
+            $this.find('.draggable,.droppable').addClass('wrong');
+
+            var corrects = activity.getCorrects();
+
+            if (corrects.length > 0) {
+                $.each(corrects, function(index, correct){
+                    correct.o.removeClass('wrong').addClass('correct');
+                    correct.t.removeClass('wrong').addClass('correct');
+                });
+            }
+
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
+        };
+
+        $this.on('jpit:timer:elapsed', function(){
+            activity.disable();
+            add_restart_button();
+            options.allow_reveal && add_end_button();
+            $box_end.show();
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: 0
+            }]);
+        });
+
+        activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
+    };
+
+    dhbgApp.actions.activityMultidroppable = function ($this) {
+
+        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'multidroppable';
+        var feedbacktrue = '', feedbackfalse = '';
+
+        if (dhbgApp.scorm) {
+            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
+        }
+
+        var activity;
+        var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
+
+        var $box_end = $this.find('.box_end');
+        $box_end.hide();
+
+        if ($this.find('feedback correct').text() != '') {
+            feedbacktrue = $this.find('feedback correct');
+        }
+
+        if ($this.find('feedback wrong').text() != '') {
+            feedbackfalse = $this.find('feedback wrong');
+        }
+
+        $this.find('feedback').empty();
+
+        var $targets = $this.find( ".target" );
+        $targets.sortable({
+            revert: true
+        });
+
+        // Build the board.
+        var origins = [], targets = [], pairs = [],  pair_indexs = [];
+
+        var i = 0;
+        $this.find('[data-group]').each(function(){
+            var $item = $(this);
+            $item.attr('id', unique_id + '_origin_' + i);
+            $item.addClass('draggable');
+            origins[origins.length] = $item;
+
+            $this.find('[data-target-group="' + $item.attr('data-group') + '"]').each(function() {
+                pairs[pairs.length] = {'origin': $item, 'target': $(this)};
+            });
+
+            i++;
+        }).draggable({
+            containment: $this,
+            zIndex: 3,
+            connectToSortable: $targets,
+            revert: "invalid",
+            start: function(event, ui) {
+                $(this).addClass('jpit_activities_jpitdroppable_dragstart');
+            },
+            stop: function(event, ui) {
+                $(this).removeClass('jpit_activities_jpitdroppable_dragstart');
+            }
+        });
+
+        $this.find('[data-target-group]').each(function(){
+            var $item = $(this);
+            $item.attr('id', unique_id + '_target_' + $item.attr('data-target-group'));
+            $item.addClass('droppable');
+            targets[targets.length] = $item;
+        }).droppable({
+            drop: function( event, ui ) {
+            },
+            out: function(event, ui) {
+            }
+        });
+
+        var $verify = $this.find('button.verify');
+        var $continue = $this.find('button.continue');
+
+        $verify.on('click', function () {
+            var dropped = $this.find('.box_targets .draggable');
+
+            if (dropped.length >= origins.length) {
+
+                $this.find('[data-group]').draggable( "disable" );
+                $targets.sortable( "disable" );
+
+                var corrects = 0;
+                $.each(targets, function(i, $k){
+                    corrects += $k.find('[data-group="' + $k.attr('data-target-group') + '"]').addClass('correct disabled').length;
+                    $k.find('[data-group!="' + $k.attr('data-target-group') + '"]').addClass('wrong disabled');
+                });
+
+                $(this).hide();
+
+                var weight = Math.round(corrects * 100 / origins.length);
 
                 if (dhbgApp.scorm) {
                     dhbgApp.scorm.activityAttempt(scorm_id, weight)
                 }
                 dhbgApp.printProgress();
 
-                var msg;
+                var $msg;
                 if (weight >= dhbgApp.evaluation.approve_limit) {
-                    msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
+                    $msg = $('<div class="correct"></div>');
+                    $msg.append(feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight));
                 }
                 else {
-                    msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
+                    $msg = $('<div class="wrong"></div>');
+                    $msg.append(feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight)));
                 }
 
-                var $msg = $(msg);
-                var $close;
-                if ($box_end.attr('data-enable-close-button')) {
-                    $close = $('<span class="icon_more button"></span>').on('click', function() {
-                        $box_end.empty().hide();
-                    });
-                    $msg.append($close);
-                }
-
-                var continueWith = $this.attr('data-continue-with');
-                if (continueWith) {
-                    var $continue = $('<button class="general">Continuar</button>').on('click', function() {
-                        $(continueWith).show(200);
-                        $("html, body").animate({ scrollTop: $(continueWith).offset().top }, 500);
-                        $box_end.empty().hide();
-                    });
-                    $close && $close.remove();
-                    $msg.append($continue);
-                }
+                $msg.find('.expand-image').each(dhbgApp.checkexpandeimage);
 
                 $box_end.append($msg).show();
-                $this.addClass('completed');
 
-                if (weight < 99) {
-                    add_restart_button();
+                if (weight < 100) {
+                    $continue.show();
                 }
-
-                $this.find('.draggable,.droppable').addClass('wrong');
-                var corrects = activity.getCorrects();
-
-                if (corrects.length > 0) {
-                    $.each(corrects, function(index, correct){
-                        correct.o.removeClass('wrong').addClass('correct');
-                        correct.t.removeClass('wrong').addClass('correct');
-                    });
-                }
-
                 $(dhbgApp).trigger('jpit:activity:completed', [$this, {
                     id: scorm_id,
                     weight: weight
                 }]);
-            };
-            activity = new jpit.activities.droppable.board(activityOptions, origins, targets, pairs);
-
-            $this.on('jpit:timer:elapsed', function(){
-                activity.disable();
-                add_restart_button();
-                options.allow_reveal && add_end_button();
-                $box_end.show();
-                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
-                    id: scorm_id,
-                    weight: 0
-                }]);
-            });
-            $this.data('loaded', true);
-        }
-
-        if (options.ondemand) {
-            dhbgApp.mobile.fullContent.content.append($this);
-            dhbgApp.showFullContent($this);
-        }
-    };
-
-    dhbgApp.actions.activityMultidroppable = function ($this, scorm_id) {
-
-        if (!$this.data('loaded')) {
-            var activity;
-            var unique_id = 'activity_multidroppable_' + dhbgApp.rangerand(0, 1000, true);
-            var feedbacktrue = '', feedbackfalse = '';
-
-            var $box_end = $this.find('.box_end');
-            $box_end.hide();
-
-            if ($this.find('feedback correct').text() != '') {
-                feedbacktrue = $this.find('feedback correct').html();
             }
-
-            if ($this.find('feedback wrong').text() != '') {
-                feedbackfalse = $this.find('feedback wrong').html();
+            else {
+                var d_drop_buttons = {};
+                var ok = dhbgApp.s('accept');
+                d_drop_buttons[ok] = function() { $(this).dialog('close'); };
+                $('<div>' + dhbgApp.s('drop_required') + '</div>').dialog({ modal: true, autoOpen: true, buttons: d_drop_buttons });
             }
+        });
 
-            $this.find('feedback').empty();
+        $continue.on('click', function () {
 
-            var $targets = $this.find( ".target" );
-            $targets.sortable({
-                revert: true
-            });
+            $box_end.empty().hide();
+            $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
 
-            // Build the board.
-            var origins = [], targets = [], pairs = [],  pair_indexs = [];
+            $this.find('[data-group]').draggable( "enable" );
+            $targets.sortable( "enable" );
 
-            var i = 0;
-            $this.find('[data-group]').each(function(){
-                var $item = $(this);
-                $item.attr('id', unique_id + '_origin_' + i);
-                $item.addClass('draggable');
-                origins[origins.length] = $item;
-
-                $this.find('[data-target-group="' + $item.attr('data-group') + '"]').each(function() {
-                    pairs[pairs.length] = {'origin': $item, 'target': $(this)};
-                });
-
-                i++;
-            }).draggable({
-                containment: dhbgApp.mobile.fullContent.content,
-                zIndex: 3,
-                connectToSortable: $targets,
-                revert: "invalid",
-                start: function(event, ui) {
-                    $(this).addClass('jpit_activities_jpitdroppable_dragstart');
-                },
-                stop: function(event, ui) {
-                    $(this).removeClass('jpit_activities_jpitdroppable_dragstart');
-                }
-            });
-
-            $this.find('[data-target-group]').each(function(){
-                var $item = $(this);
-                $item.attr('id', unique_id + '_target_' + $item.attr('data-target-group'));
-                $item.addClass('droppable');
-                targets[targets.length] = $item;
-            }).droppable({
-                drop: function( event, ui ) {
-                },
-                out: function(event, ui) {
-                }
-            });
-
-            var $verify = $this.find('button.verify');
-            var $continue = $this.find('button.continue');
-
-            $verify.on('click', function () {
-                var dropped = $this.find('.box_targets .draggable');
-
-                if (dropped.length >= origins.length) {
-
-                    $this.find('[data-group]').draggable( "disable" );
-                    $targets.sortable( "disable" );
-
-                    var corrects = 0;
-                    $.each(targets, function(i, $k){
-                        corrects += $k.find('[data-group="' + $k.attr('data-target-group') + '"]').addClass('correct disabled').length;
-                        $k.find('[data-group!="' + $k.attr('data-target-group') + '"]').addClass('wrong disabled');
-                    });
-
-                    $(this).hide();
-
-                    var weight = Math.round(corrects * 100 / origins.length);
-
-                    if (dhbgApp.scorm) {
-                        dhbgApp.scorm.activityAttempt(scorm_id, weight)
-                    }
-                    dhbgApp.printProgress();
-
-                    var $msg;
-                    if (weight >= dhbgApp.evaluation.approve_limit) {
-                        $msg = $('<div class="correct"></div>');
-                        $msg.append(feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight));
-                    }
-                    else {
-                        $msg = $('<div class="wrong"></div>');
-                        $msg.append(feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight)));
-                    }
-
-                    $msg.find('.expand-image').each(dhbgApp.checkexpandeimage);
-
-                    $box_end.append($msg).show();
-
-                    if (weight < 100) {
-                        $continue.show();
-                    }
-                    $(dhbgApp).trigger('jpit:activity:completed', [$this, {
-                        id: scorm_id,
-                        weight: weight
-                    }]);
-                }
-                else {
-                    var d_drop_buttons = {};
-                    var ok = dhbgApp.s('accept');
-                    d_drop_buttons[ok] = function() { $(this).dialog('close'); };
-                    $('<div>' + dhbgApp.s('drop_required') + '</div>').dialog({ modal: true, autoOpen: true, buttons: d_drop_buttons });
-                }
-            });
-
-            $continue.on('click', function () {
-
-                $box_end.empty().hide();
-                $this.find('.draggable').removeClass('wrong').removeClass('correct').removeClass('disabled');
-
-                $this.find('[data-group]').draggable( "enable" );
-                $targets.sortable( "enable" );
-
-                $continue.hide();
-                $verify.show();
-            });
+            $continue.hide();
+            $verify.show();
+        });
 
 
-            $this.find( ".draggable" ).disableSelection();
-
-            $this.data('loaded', true);
-        }
-
-        dhbgApp.mobile.fullContent.content.append($this);
-        dhbgApp.showFullContent($this);
+        $this.find( ".draggable" ).disableSelection();
     };
 
     dhbgApp.actions.activityCloze = function ($this) {
@@ -3051,6 +2903,7 @@ dhbgApp.mobile.load_operations = function() {
                 else {
                     msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
                 }
+
                 $box_end.append(msg).show();
 
                 activity.disable();
@@ -3083,92 +2936,93 @@ dhbgApp.mobile.load_operations = function() {
 
     };
 
-    dhbgApp.actions.activitySortable = function ($this, scorm_id) {
+    dhbgApp.actions.activitySortable = function ($this) {
 
-        if (!$this.data('loaded')) {
-            var activity;
-            var unique_id = 'activity_sortable_' + dhbgApp.rangerand(0, 1000, true);
-            var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
-            var html_body = $this.html();
-            var $box_end = $this.find('.box_end');
-            var allowRetry = !($this.attr('data-allow-retry') === 'false');
-            var modalFeedback = true && $this.attr('data-modal-feedback');
-            $box_end.hide();
+        var scorm_id = $this.attr('data-act-id') ? $this.attr('data-act-id') : 'sortable';
 
-            if ($this.find('feedback correct').text() != '') {
-                feedbacktrue = $this.find('feedback correct').html();
-            }
-
-            if ($this.find('feedback wrong').text() != '') {
-                feedbackfalse = $this.find('feedback wrong').html();
-            }
-            $this.find('feedback').empty();
-
-            var set_position = $this.attr('data-set-position') ? $this.attr('data-set-position') : false;
-
-            // Build the board.
-            activity = new jpit.activities.sortable.activity($this);
-
-            $this.find('.ui-sortable').on('sortstop', function() {
-                $this.find(set_position).each(function(i, o) { $(this).html(i + 1); });
-            });
-
-            var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
-            $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
-            $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
-
-            $verify.on('click', function() {
-                $verify.hide();
-
-                var weight = Math.round(activity.weight());
-
-                if (dhbgApp.scorm) {
-                    dhbgApp.scorm.activityAttempt(scorm_id, weight)
-                }
-                dhbgApp.printProgress();
-
-                var msg;
-                if (weight >= dhbgApp.evaluation.approve_limit) {
-                    msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
-                }
-                else {
-                    msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
-                }
-
-                var $msg = $(msg);
-                $box_end.append($msg).show();
-
-                activity.disable();
-                activity.highlight('correct', 'wrong');
-
-                if (weight < 100 && allowRetry) {
-                    var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
-                    $button_again.on('click', function(){
-                        $box_end.empty();
-                        $box_end.hide();
-                        $this.find('.correct').removeClass('correct');
-                        $this.find('.wrong').removeClass('wrong');
-                        activity.enable();
-                        $verify.show();
-                    });
-
-                    $box_end.append($button_again);
-                }
-                $(dhbgApp).trigger('jpit:activity:completed', [$this, {
-                    id: scorm_id,
-                    weight: weight
-                }]);
-            });
-
-            var $box_verify = $('<div class="verify_container"></div>');
-            $box_verify.append($verify);
-            $box_verify.insertAfter($box_end);
-
-            $this.data('loaded', true);
+        if (dhbgApp.scorm) {
+            if (!dhbgApp.scorm.activities[scorm_id]) { dhbgApp.scorm.activities[scorm_id] = []; }
         }
 
-        dhbgApp.mobile.fullContent.content.append($this);
-        dhbgApp.showFullContent($this);
+        var activity;
+        var unique_id = 'activity_sortable_' + dhbgApp.rangerand(0, 1000, true);
+        var feedbacktrue = dhbgApp.s('all_correct'), feedbackfalse = dhbgApp.s('all_wrong');
+        var html_body = $this.html();
+        var $box_end = $this.find('> .box_end');
+        var allowRetry = !($this.attr('data-allow-retry') === 'false');
+        var modalFeedback = true && $this.attr('data-modal-feedback');
+
+        $box_end.hide();
+
+        if ($this.find('> feedback correct').text() != '') {
+            feedbacktrue = $this.find('> feedback correct').html();
+        }
+
+        if ($this.find('> feedback wrong').text() != '') {
+            feedbackfalse = $this.find('> feedback wrong').html();
+        }
+        $this.find('> feedback').empty();
+
+        var set_position = $this.attr('data-set-position') ? $this.attr('data-set-position') : false;
+
+        // Build the board.
+        activity = new jpit.activities.sortable.activity($this);
+
+        $this.find('.ui-sortable').on('sortstop', function() {
+            $this.find(set_position).each(function(i, o) { $(this).html(i + 1); });
+        });
+
+        var $verify = $('<button class="button general">' + dhbgApp.s('verify') + '</button>');
+        $verify.on('mouseover', dhbgApp.defaultValues.buttonover);
+        $verify.on('mouseout', dhbgApp.defaultValues.buttonout);
+
+        $verify.on('click', function() {
+            $verify.hide();
+
+            var weight = Math.round(activity.weight());
+
+            if (dhbgApp.scorm) {
+                dhbgApp.scorm.activityAttempt(scorm_id, weight)
+            }
+            dhbgApp.printProgress();
+
+            var msg;
+            if (weight >= dhbgApp.evaluation.approve_limit) {
+                msg = '<div class="correct">' + (feedbacktrue ? feedbacktrue : dhbgApp.s('all_correct_percent', weight)) + '</div>';
+            }
+            else {
+                msg = '<div class="wrong">' + (feedbackfalse ? feedbackfalse : dhbgApp.s('wrong_percent', (100 - weight))) + '</div>';
+            }
+
+            var $msg = $(msg);
+            $box_end.append($msg).show();
+
+            activity.disable();
+            activity.highlight('correct', 'wrong');
+
+            if (weight < 100 && allowRetry) {
+                var $button_again = $('<button class="button general">' + dhbgApp.s('continue_activity') + '</button>');
+                $button_again.on('click', function(){
+                    $box_end.empty();
+                    $box_end.hide();
+                    $this.find('.correct').removeClass('correct');
+                    $this.find('.wrong').removeClass('wrong');
+                    activity.enable();
+                    $verify.show();
+                });
+
+                $box_end.append($button_again);
+            }
+            $(dhbgApp).trigger('jpit:activity:completed', [$this, {
+                id: scorm_id,
+                weight: weight
+            }]);
+        });
+
+        var $box_verify = $('<div class="verify_container"></div>');
+        $box_verify.append($verify);
+        $box_verify.insertAfter($box_end);
+
     };
 
     dhbgApp.actions.activityCheck = function ($this) {
@@ -3352,15 +3206,15 @@ dhbgApp.mobile.load_operations = function() {
         // Load custom feedback, if exists.
         var feedbacktrue = null, feedbackfalse = null;
 
-        if ($this.find('feedback correct').text() != '') {
-            feedbacktrue = $this.find('feedback correct').html();
+        if ($this.find('> feedback correct').text() != '') {
+            feedbacktrue = $this.find('> feedback correct').html();
         }
 
-        if ($this.find('feedback wrong').text() != '') {
-            feedbackfalse = $this.find('feedback wrong').html();
+        if ($this.find('> feedback wrong').text() != '') {
+            feedbackfalse = $this.find('> feedback wrong').html();
         }
 
-        $this.find('feedback').empty();
+        $this.find('> feedback').empty();
         // End feedback.
 
         var mark_parent = $this.attr('data-parent-mark-selector') ? $this.attr('data-parent-mark-selector') : false;
@@ -3606,6 +3460,7 @@ dhbgApp.mobile.load_operations = function() {
             if_shuffle();
             $button_again.hide();
             $button_check.show();
+            $(dhbgApp).trigger('jpit:activity:again', [$this, { id: scorm_id }]);
         });
         $(dhbgApp).trigger('jpit:activity:rendered', [$this, { id: scorm_id }]);
     };
@@ -3681,6 +3536,7 @@ dhbgApp.mobile.load_operations = function() {
             if (typeof scorm_value == 'string') {
                 var unserialize_data = window.atob(scorm_value);
                 activity.load_serialized(unserialize_data);
+                $(dhbgApp).trigger('jpit:activity:loaddata', [$this, { id: scorm_id, data: unserialize_data }]);
             }
 
             $save.on('click', function() {
@@ -3692,6 +3548,7 @@ dhbgApp.mobile.load_operations = function() {
                     var serialize_data = activity.serialize();
                     var encode_serialize_data = window.btoa(serialize_data);
                     var txt_response = activity.txtContent();
+
                     if (txt_response.length > 256) {
                         txt_response = txt_response.substring(0, 250);
                         txt_response += '[...]';
