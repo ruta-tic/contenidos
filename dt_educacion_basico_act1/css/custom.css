@@ -1,3 +1,12 @@
+.withradio {
+    cursor: pointer;
+    text-align: center;
+}
+
+.withradio input[type="radio"]:checked + td {
+    background: red;
+}
+
 #pag-medios .medios-tecnologias img {
     float: left;
     margin: 15px;
@@ -22,7 +31,7 @@
     display: flex;
     justify-content: center;
     margin: 40px;
-} 
+}
 
 #pag-medios .tipos {
     text-align: center;
@@ -75,10 +84,6 @@
     margin: auto;
 }
 
-.jpit-activities-selection .selected .check {
-    text-align: center;
-}
-
-.jpit-activities-selection .selected .check:before {
-    content: "X";
+#pag-condiciones .w-content-controler:hover {
+    color: #44c5d0;
 }

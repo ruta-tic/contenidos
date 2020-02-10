@@ -1,11 +1,24 @@
+.withradio {
+    cursor: pointer;
+    text-align: center;
+}
+
+.withradio input[type="radio"]:checked + td {
+    background: red;
+}
+
 #pag-medios .formularios {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
+#pag-medios .jpit-activities-form {
+    overflow: auto;
+}
+
 #pag-medios img {
-    max-width: 100%;   
+    max-width: 100%;
 }
 
 #pag-medios .tipos {

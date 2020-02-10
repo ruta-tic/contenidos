@@ -3617,6 +3617,7 @@ dhbgApp.mobile.load_operations = function() {
         var activity;
         var unique_id = 'activity_form_' + dhbgApp.rangerand(0, 1000, true);
         var feedbacktrue = dhbgApp.s('form_full'), feedbackfalse = dhbgApp.s('form_required');
+        var data_require_all = $this.attr('data-require-all') == 'true';
 
         if ($this.find('feedback correct').text() != '') {
             feedbacktrue = $this.find('feedback correct').html();
@@ -3678,8 +3679,9 @@ dhbgApp.mobile.load_operations = function() {
 
             $save.on('click', function() {
                 $this.addClass('saving');
-                if (!activity.fullAnswered()){
+                if (data_require_all && !activity.fullAnswered()){
                     $dialog_answer_required.dialog('open');
+                    $this.removeClass('saving');
                 }
                 else {
                     var serialize_data = activity.serialize();
@@ -3695,12 +3697,11 @@ dhbgApp.mobile.load_operations = function() {
 
                     if (dhbgApp.scorm.setActivityValue(scorm_id, encode_serialize_data)) {
                         $dialog_saved.dialog('open');
-                        $this.removeClass('saving');
                     }
                     else {
                         $dialog_save_error.dialog('open');
-                        $this.removeClass('saving');
                     }
+                    $this.removeClass('saving');
                 }
             });
         }

@@ -1,4 +1,4 @@
-# OVA - Tecnologías en ingeniería
+# OVA - Incorporación de TIC en los procesos de enseñanza
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
