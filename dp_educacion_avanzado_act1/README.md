@@ -1,4 +1,4 @@
-# OVA - Ajustando el programa del curso
+# OVA - Didáctica
 
 Producido en **Tepuy** - Template for interactive content editing
 https://github.com/davidherney/tepuy/
