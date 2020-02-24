@@ -1,0 +1,99 @@
+.jpit-activities-droppable {
+    padding-bottom: 140px;
+}
+
+#pag-pedagogia img {
+    max-width: 100%;
+}
+
+#arrastrar table tbody tr td:first-child {
+    background-color: #dcdcdd;
+    border: 1px solid #899794;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+#arrastrar.jpit-activities-droppable .target {
+    height: 30px;
+    min-width: 150px;
+    background-color: #efefef;
+    border-radius: 10px;
+    border: 1px dashed #d8dbdc;
+}
+
+#arrastrar.jpit-activities-droppable .words_container {
+    height: 50px;
+}
+
+#arrastrar.jpit-activities-droppable table {
+    empty-cells: show;
+    clear: both;
+}
+
+#arrastrar.jpit-activities-droppable th {
+    color: #000;
+    background-color: #f2af6b;
+    border: 1px solid #ee9747;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 7px 0;
+}
+
+#arrastrar.jpit-activities-droppable td.droppable {
+    height: 16px;
+    min-width: 100px;
+}
+
+#arrastrar.jpit-activities-droppable td.conection {
+    border: none;
+    padding: 5px 0;
+}
+
+#arrastrar.jpit-activities-droppable .draggable {
+    float: left;
+    margin: 0 1px 5px;
+    background-color: #e2f3f4;
+    border-radius: 10px;
+    border: 1px solid #54abd7;
+    color: unset;
+    font-size: 13px;
+    text-align: center;
+}
+
+#arrastrar .items {
+    margin: auto;
+    text-align: center;
+    padding-left: 20px;
+}
+
+#arrastrar .items h4 {
+    color: #000;
+    padding: 5px;
+    background-color: #f2af6b;
+    border: 1px solid #ee9747;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#arrastrar .items .draggable{
+    margin-right: 10px;
+}
+
+#arrastrar .draggable.wrong {
+    background-color: #ffffff;
+    border-color: #D60C1B;
+    color: #D60C1B;
+}
+
+#pag-pedagogia .datatable {
+	margin: 10px auto;
+}
+
+#pag-pedagogia .box-text {
+	margin-top: 40px;
+}
