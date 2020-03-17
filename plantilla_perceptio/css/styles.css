@@ -330,16 +330,23 @@ nav.horizontal:after {
 
 nav.horizontal.scroll_top {
     position: fixed;
-    top: 0;
     background-color: #fff;
+    min-width: 90%;
+    height: 60px;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #fff url(../img/logo_oscuro.png) no-repeat 70px;
+    background-size: 10%;
+    padding-right: 110px;
 }
 
 nav.horizontal.scroll_top ul.menu > li.active,
 nav.horizontal.scroll_top ul.menu li.current {
-    color: #ebb22a;
+    color: #5fa281;
+    font-size: 16px;
 }
-
-
 
 nav.horizontal ul.menu {
     margin: 0;
@@ -373,10 +380,6 @@ nav.horizontal ul.menu > li.withsubitems:after {
     right: 5px;
 }
 
-nav.horizontal ul.menu > li.last-child {
-    
-}
-
 nav.horizontal ul.menu > li.active,
 nav.horizontal ul.menu li.current {
     color: #fff;
@@ -389,19 +392,6 @@ nav.horizontal ul.submenu > li.current:before {
     content: "";
     height: 6px;
     background-color: #fff;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-nav.horizontal.scroll_top > li.active:before,
-nav.horizontal.scroll_top > li.current:before,
-nav.horizontal.scroll_top > li.active:before,
-nav.horizontal.scroll_top > li.current:before {
-    content: "";
-    height: 6px;
-    background-color: #ebb22a;
     position: absolute;
     left: 0;
     right: 0;
@@ -475,6 +465,7 @@ nav.globals2 {
     z-index: 99;
     margin: auto;
     display: inline-block;
+    margin-left: 360px;
 }
 
 nav.globals2:after {
@@ -503,7 +494,7 @@ nav.globals li {
 }
 
 nav.globals2 li {
-    color: #fff;
+    color: #5fa281;
     position: relative;
     float: left;
     text-align: center;
@@ -513,7 +504,7 @@ nav.globals2 li {
     cursor: pointer;
     font-size: 43px;
     line-height: 11px;
-    margin-top: -5px;
+    margin-top: 10px;
 }
 
 nav.globals li.active, nav.globals li.current {
@@ -521,7 +512,7 @@ nav.globals li.active, nav.globals li.current {
 }
 
 nav.globals2 li.active, nav.globals2 li.current {
-    color: #44c5d0;
+    color: #c6c9df;
 }
 
 nav.globals2 li[data-global="credits"] i {
@@ -607,7 +598,7 @@ footer {
     padding: 5px 0;
     background-color: #eaeaea;
     text-align: left;
-    color: #fff;
+    display: flex;
 }
 
 footer #labelmeasuringprogress {
@@ -928,13 +919,13 @@ footer #labelprogress {
 }
 
 .icon_more {
-    background: url(../img/sprite.png) no-repeat -666px -12px;
-    padding: 8px 14px;
+    background: url(../img/sprite2.png) no-repeat -875px -2px;
+    padding: 20px 27px;
     font-size: 10px;
 }
 
 .icon_more.active {
-    background-position: -666px -52px;
+    background-position: -875px -61px;
 }
 
 .icon_less {
@@ -948,38 +939,38 @@ footer #labelprogress {
 }
 
 .note_pointer_left, .note_pointer_right {
-    background: url(../img/sprite.png) no-repeat;
+    background: url(../img/sprite2.png) no-repeat;
     font-size: 18px;
     font-weight: bold;
     border: none;
-    width: 40px;
-    height: 36px;
+    width: 115px;
+    height: 92px;
     color: #ffffff;
     padding-top: 10px;
     position: absolute;
 }
 
 .note_pointer_right {
-    background-position: -806px -50px;
+    background-position: -1669px -105px;
     padding-left: 15px;
     text-align: left;
 }
 
 .note_pointer_left {
-    background-position: -806px 0;
+    background-position: -1669px -2px;
     padding-right: 15px;
     text-align: right;
 }
 
 .note_pointer_right:hover,
 .note_pointer_left:hover {
-    filter: invert(100%);
+    filter: invert(50%);
 }
 
 div.icondocument, button.icondocument {
-    background: transparent url(../img/sprite.png) no-repeat -461px 0;
-    width: 61px;
-    height: 61px;
+    background: transparent url(../img/sprite2.png) no-repeat -499px -2px;
+    width: 109px;
+    height: 109px;
 }
 
 div.icondocument {
@@ -991,7 +982,7 @@ button.icondocument {
 }
 
 div.icondocument.active, button.icondocument.active {
-    background-position: -461px -65px;
+    background-position: -499px -144px;
 }
 
 /********************************************************************************/
@@ -999,9 +990,9 @@ div.icondocument.active, button.icondocument.active {
 /********************************************************************************/
 
 div.iconsound, button.iconsound {
-    background: transparent url(../img/sprite.png) no-repeat -390px 0;
-    width: 61px;
-    height: 61px;
+    background: transparent url(../img/sprite2.png) no-repeat -374px -2px;
+    width: 109px;
+    height: 109px;
 }
 
 div.iconsound {
@@ -1013,7 +1004,7 @@ button.iconsound {
 }
 
 div.iconsound.active, button.iconsound.active {
-    background-position: -390px -65px;
+    background-position: -374px -144px;
 }
 
 .sound_loading, button.sound_loading {
@@ -1021,9 +1012,9 @@ div.iconsound.active, button.iconsound.active {
 }
 
 div.iconvideo, button.iconvideo {
-    background: transparent url(../img/sprite.png) no-repeat -320px 0;
-    width: 61px;
-    height: 61px;
+    background: transparent url(../img/sprite2.png) no-repeat -250px -2px;
+    width: 109px;
+    height: 109px;
 }
 
 div.iconvideo {
@@ -1035,7 +1026,7 @@ button.iconvideo {
 }
 
 div.iconvideo.active, button.iconvideo.active {
-    background-position: -321px -65px;
+    background-position: -250px -144px;
 }
 
 .videobox {
@@ -1257,7 +1248,6 @@ sup.tooltip {
     text-align: center;
     float: left;
     line-height: 20px;
-    border: 1px solid #fff;
     border-bottom: 0;
     position: relative;
 }
@@ -1304,7 +1294,7 @@ sup.tooltip {
     padding: 10px;
     position: relative;
     margin-bottom: 10px;
-    border: 3px solid #40bcc6;
+    border: 3px solid #5fa281;
 }
 
 .ctrl-pagination ul.layers {
@@ -1373,7 +1363,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination ul.pagination.numeric li div {
-    border: 1px solid #003543;
+    border: 1px solid #5fa281;
     border-radius: 20px;
     height: 21px;
     width: 25px;
@@ -1383,7 +1373,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination ul.pagination.numeric li.active div, .ctrl-pagination ul.pagination.numeric li.current div {
-    background-color: #003543;
+    background-color: #5fa281;
     color: #ffffff;
 }
 
@@ -1392,7 +1382,7 @@ sup.tooltip {
     bottom: 2px;
     left: 2px;
     color: #ffffff;
-    background-color: #003543;
+    background-color: #5fa281;
     font-size: 30px;
     position: absolute;
     text-align: center;
@@ -1433,7 +1423,7 @@ sup.tooltip {
     bottom: -12px;
     left: calc(50% - 50px);
     color: #ffffff;
-    background-color: #003543;
+    background-color: #5fa281;
     padding: 5px 20px;
     border-radius: 9px;
     font-size: 16px;
@@ -1677,7 +1667,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_question_option_answer label {
-    background-color: #39576d;
+    background-color: #c6c9df;
     color: #fff;
     padding: 2px 6px;
     border-radius: 30px;
@@ -1688,7 +1678,7 @@ sup.tooltip {
 
 .jpit_activities_quiz_question_option_answer label:hover,
 .jpit_activities_quiz_question_option_answer_selected label  {
-    background-color: #7bb004;
+    background-color: #5fa281;
 }
 
 .jpit_activities_quiz_question_option_answer_selected {
@@ -1848,13 +1838,13 @@ sup.tooltip {
 }
 
 .jpit-activities-wordpuzzle .layout button.jpit_activity_wordpuzzle_correct {
-    background-color: #7c8f8c;
+    background-color: #5fa281;
     color: #fff;
-    border: 1px solid #7c8f8c;
+    border: 1px solid #5fa281;
 }
 
 .jpit-activities-wordpuzzle .layout button.jpit_activity_wordpuzzle_cell_selected {
-    background-color: #40bcc6;
+    background-color: #c6c9df;
     color: #003543;
 }
 
@@ -1909,7 +1899,7 @@ sup.tooltip {
 
 .jpit-activities-crossword .jpit_activity_crossword_label {
     border-radius: 10px;
-    background-color: #003543;
+    background-color: #5fa281;
     color: #ffffff;
     background-image: none;
 }
@@ -2168,7 +2158,7 @@ sup.tooltip {
 }
 
 .jpit-activities-selection .selected .radio {
-    background-color: #44c5d0;
+    background-color: #5fa281;
 }
 
 .jpit-activities-selection .check {
@@ -2181,7 +2171,7 @@ sup.tooltip {
 }
 
 .jpit-activities-selection .selected .check {
-    background-color: #44c5d0;
+    background-color: #5fa281;
 }
 
 /********************************************************************************/
@@ -2271,7 +2261,7 @@ sup.tooltip {
 }
 
 #results_page .result_sco.visited {
-    background-color: #7bb004;
+    background-color: #5fa281;
 }
 
 /* ----------------- */
@@ -2320,46 +2310,36 @@ sup.tooltip {
 
 /* Horizontal bar*/
 .measuring-progress.horizontal {
-    font-size: 11px;
+    font-size: 24px;
     font-weight: bold;
-    margin-left: 10px;
+    margin: 25px;
+    color: #374051;
 }
 
 .measuring-progress.horizontal .results_value {
-    position: absolute;
-    left: 0px;
-    width: 28px;
-    height: 22px;
-    border-radius: 15px;
-    background-color: #fff;
-    text-align: center;
-    padding-top: 6px;
     line-height: 10px;
     z-index: 2;
 }
 
 .measuring-progress.horizontal .results_level {
     position: absolute;
-    left: 18px;
+    left: 70px;
     top: 10px;
     width: 150px;
-    height: 11px;
-    background-color: #FFF;
-    border-radius: 10px;
+    height: 15px;
+    background-color: #cecece;
     overflow: hidden;
-    padding-left: 10px;
 }
 
 .measuring-progress.horizontal .results_level div {
-    background-color: #7c8f8c;
+    background-color: #a7d692;
     width: 0%;
-    height: 11px;
+    height: 15px;
 }
 
 .measuring-progress.horizontal .progress_text {
     position: absolute;
     top: 25px;
-    left: 50px;
 }
 
 /* Vertical bar*/
