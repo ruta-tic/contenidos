@@ -287,7 +287,7 @@ img.animation, img.play-animation, .animation_image .label {
 /* CONTENT AREA
 /********************************************************************************/
 header {
-    background: url(../img/logo_oscuro.png) no-repeat 50px 10px;
+    background: url(../img/logo_oscuro.png) no-repeat 50px -5px;
     background-size: 12%;
     padding-top: 50px;
     color: #374051;
@@ -339,7 +339,7 @@ nav.horizontal.scroll_top {
     align-items: center;
     background: #fff url(../img/logo_oscuro.png) no-repeat 70px;
     background-size: 10%;
-    padding-right: 110px;
+    padding-right: 130px;
 }
 
 nav.horizontal.scroll_top ul.menu > li.active,
@@ -562,27 +562,27 @@ nav.globals2 li[data-global="credits"] i {
 }
 
 #subpages_menu div.button {
-    width: 99px;
-    height: 99px;
-    margin: 0 2px;
+    width: 48px;
+    height: 48px;
+    margin: 20px 2px;
     float: left;
 }
 
 #subpages_menu div[previous-page] {
-    background: url(../img/sprite2.png) no-repeat -1016px -157px;
+    background: url(../img/sprite2.png) no-repeat -561px -75px;
     margin-right: 10px;
 }
 
 #subpages_menu div[next-page] {
-    background: url(../img/sprite2.png) no-repeat -1016px -3px;
+    background: url(../img/sprite2.png) no-repeat -561px -2px;
 }
 
 #subpages_menu div[previous-page].active {
-    background-position: -1169px -157px;
+    background-position: -487px -75px;
 }
 
 #subpages_menu div[next-page].active {
-    background-position: -1169px -4px;
+    background-position: -487px -2px;
 }
 
 /********************************************************************************/
@@ -651,32 +651,10 @@ footer #labelprogress {
     text-transform: uppercase;
 }
 
-/*.box-text > .title:before {
-    content: "\f10a";
-    font-family: "Ionicons";
-    position: absolute;
-    left: -8px;
-    font-size: 115px;
-    top: -20px;
-    color: #333;
-    line-height: 80px;
-}
-
-.box-text > .title:after {
-    content: "\f149";
-    font-family: "Ionicons";
-    position: absolute;
-    left: 0;
-    font-size: 25px;
-    top: 5px;
-    color: #fff;
-}*/
-
 /********* important ********/
 .box-text.important {
     background: #fff url(../img/cuadro_texto_importante.png) no-repeat;
     background-position: 97% 10%;
-    background-size: 25%;
     padding: 10px;
 }
 
@@ -717,7 +695,6 @@ footer #labelprogress {
 .box-text.example {
     background: #fff url(../img/cuadro_texto_ejemplo.png) no-repeat;
     background-position: right 5px;
-    background-size: 25%;
     padding: 10px;
 }
 
@@ -735,7 +712,6 @@ footer #labelprogress {
 .box-text.note {
     background: #fff url(../img/cuadro_texto_notas.png) no-repeat;
     background-position: right 5px;
-    background-size: 25%;
     padding: 10px;
 
     border-bottom: 10px solid #ffd33a;
@@ -780,7 +756,6 @@ footer #labelprogress {
 .box-text.link {
     background: #fff url(../img/cuadro_texto_enlace.png) no-repeat;
     background-position: right 5px;
-    background-size: 25%;
     padding: 10px;
 }
 
@@ -879,37 +854,37 @@ footer #labelprogress {
 /********************************************************************************/
 
 .icon_horizontal_arrow {
-    background: url(../img/sprite2.png) no-repeat -1353px -2px;
-    padding: 14px 28px;
+    background: url(../img/sprite2.png) no-repeat -649px -1px;
+    padding: 4px 14px;
     font-size: 10px;
 }
 
 .icon_removed {
-    background: url(../img/sprite2.png) no-repeat -1353px -144px;
-    padding: 11px 16px;
+    background: url(../img/sprite2.png) no-repeat -649px -68px;
+    padding: 3px 8px;
     font-size: 10px;
 }
 
 .icon_approved {
-    background: url(../img/sprite2.png) no-repeat -1352px -63px;
-    padding: 17px 27px;
+    background: url(../img/sprite2.png) no-repeat -649px -31px;
+    padding: 5px 14px;
     font-size: 10px;
 }
 
 .down_pointer {
-    background: url(../img/sprite2.png) no-repeat -1540px -3px;
+    background: url(../img/sprite2.png) no-repeat -739px -1px;
     font-size: 10px;
     border: none;
-    width: 48px;
-    height: 33px;
+    width: 24px;
+    height: 16px;
 }
 
 .right_pointer {
-    background: url(../img/sprite2.png) no-repeat -1548px -56px;
+    background: url(../img/sprite2.png) no-repeat -743px -29px;
     font-size: 10px;
     border: none;
-    width: 33px;
-    height: 46px;
+    width: 17px;
+    height: 23px;
 }
 
 .icon_inline {
@@ -919,23 +894,23 @@ footer #labelprogress {
 }
 
 .icon_more {
-    background: url(../img/sprite2.png) no-repeat -875px -2px;
-    padding: 20px 27px;
+    background: url(../img/sprite2.png) no-repeat -420px -1px;
+    padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_more.active {
-    background-position: -875px -61px;
+    background-position: -420px -30px;
 }
 
 .icon_less {
-    background: url(../img/sprite.png) no-repeat -666px -83px;
-    padding: 8px 14px;
+    background: url(../img/sprite2.png) no-repeat -359px -69px;
+    padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_less.active {
-    background-position: -666px -123px;
+    background-position: -359px -97px;
 }
 
 .note_pointer_left, .note_pointer_right {
@@ -943,22 +918,20 @@ footer #labelprogress {
     font-size: 18px;
     font-weight: bold;
     border: none;
-    width: 115px;
-    height: 92px;
+    width: 56px;
+    height: 34px;
     color: #ffffff;
     padding-top: 10px;
     position: absolute;
 }
 
 .note_pointer_right {
-    background-position: -1669px -105px;
-    padding-left: 15px;
+    background-position: -801px -51px;
     text-align: left;
 }
 
 .note_pointer_left {
-    background-position: -1669px -2px;
-    padding-right: 15px;
+    background-position: -801px -1px;
     text-align: right;
 }
 
@@ -968,9 +941,9 @@ footer #labelprogress {
 }
 
 div.icondocument, button.icondocument {
-    background: transparent url(../img/sprite2.png) no-repeat -499px -2px;
-    width: 109px;
-    height: 109px;
+    background: transparent url(../img/sprite2.png) no-repeat -241px -1px;
+    width: 48px;
+    height: 48px;
 }
 
 div.icondocument {
@@ -982,7 +955,7 @@ button.icondocument {
 }
 
 div.icondocument.active, button.icondocument.active {
-    background-position: -499px -144px;
+    background-position: -241px -70px;
 }
 
 /********************************************************************************/
@@ -990,9 +963,9 @@ div.icondocument.active, button.icondocument.active {
 /********************************************************************************/
 
 div.iconsound, button.iconsound {
-    background: transparent url(../img/sprite2.png) no-repeat -374px -2px;
-    width: 109px;
-    height: 109px;
+    background: transparent url(../img/sprite2.png) no-repeat -181px -1px;
+    width: 48px;
+    height: 48px;
 }
 
 div.iconsound {
@@ -1004,7 +977,7 @@ button.iconsound {
 }
 
 div.iconsound.active, button.iconsound.active {
-    background-position: -374px -144px;
+    background-position: -181px -70px;
 }
 
 .sound_loading, button.sound_loading {
@@ -1012,9 +985,9 @@ div.iconsound.active, button.iconsound.active {
 }
 
 div.iconvideo, button.iconvideo {
-    background: transparent url(../img/sprite2.png) no-repeat -250px -2px;
-    width: 109px;
-    height: 109px;
+    background: transparent url(../img/sprite2.png) no-repeat -120px -1px;
+    width: 48px;
+    height: 48px;
 }
 
 div.iconvideo {
@@ -1026,7 +999,7 @@ button.iconvideo {
 }
 
 div.iconvideo.active, button.iconvideo.active {
-    background-position: -250px -144px;
+    background-position: -120px -70px;
 }
 
 .videobox {
@@ -1326,7 +1299,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous {
-    background: url(../img/sprite.png) no-repeat -117px 0;
+    background: url(../img/sprite2.png) no-repeat -57px 0;
     width: 21px;
     height: 21px;
     float: left;
@@ -1336,11 +1309,11 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous:hover {
-    background-position: -117px -50px;
+    background-position: -57px -52px;
 }
 
 .ctrl-pagination .next {
-    background: url(../img/sprite.png) no-repeat -147px 0;
+    background: url(../img/sprite2.png) no-repeat -86px -1px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1350,7 +1323,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .next:hover {
-    background-position: -147px -50px;
+    background-position: -86px -52px;
 }
 
 .ctrl-pagination .next[disabled] {
@@ -1583,7 +1556,7 @@ sup.tooltip {
 
 .box_end .correct:after {
     content: "";
-    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    background: #57dd7f url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1595,7 +1568,7 @@ sup.tooltip {
 
 .box_end .wrong:after {
     content: "";
-    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
+    background: #ef6f6f url(../img/sprite2.png) no-repeat -641px -62px;;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1699,9 +1672,9 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous {
-    background: #f3f3f3 url(../img/sprite.png) no-repeat -117px 0;
-    width: 25px;
-    height: 25px;
+    background: url(../img/sprite2.png) no-repeat -57px 0;
+    width: 21px;
+    height: 21px;
     float: left;
     cursor: pointer;
     margin-top: 2px;
@@ -1709,13 +1682,13 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous:hover {
-    background-position: -117px -50px;
+    background-position: -57px -52px;
 }
 
 .jpit_activities_quiz_paginator_next {
-    background: #f3f3f3 url(../img/sprite.png) no-repeat -144px 0;
-    width: 25px;
-    height: 25px;
+    background: url(../img/sprite2.png) no-repeat -86px -1px;
+    width: 21px;
+    height: 21px;
     float: left;
     cursor: pointer;
     margin-top: 2px;
@@ -1723,7 +1696,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_next:hover {
-    background-position: -144px -50px;
+    background-position: -86px -52px;
 }
 
 .jpit_activities_quiz_question_feedback {
@@ -1746,7 +1719,7 @@ sup.tooltip {
 
 .jpit_activities_quiz_question_feedback_true:after {
     content: "";
-    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    background: #57dd7f url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1758,7 +1731,7 @@ sup.tooltip {
 
 .jpit_activities_quiz_question_feedback_false:after {
     content: "";
-    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
+    background: #ef6f6f url(../img/sprite2.png) no-repeat -641px -62px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -2041,7 +2014,7 @@ sup.tooltip {
 }
 
 .jpit-activities-cloze span.correct:after, .jpit-activities-cloze input.correct:after {
-    background: url(../img/sprite.png) no-repeat -180px 0;
+    background: url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     right: -20px;
     width: 40px;
@@ -2054,7 +2027,7 @@ sup.tooltip {
 .jpit-activities-cloze span.wrong:after,
 .jpit-activities-cloze input.wrong:after {
     content: "";
-    background: url(../img/sprite.png) no-repeat -240px 0;
+    background: url(../img/sprite2.png) no-repeat -641px -62px;;
     position: absolute;
     right: -20px;
     width: 30px;

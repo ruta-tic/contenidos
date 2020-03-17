@@ -201,10 +201,10 @@
 /* Pointers with text
 /********************************************************************************/
 #pag-contenidointeractivo-pointers .box_l { background: url(../content/cuerpo.png) no-repeat center top; margin: auto; width: 117px; height: 240px; position: relative; }
-#pag-contenidointeractivo-pointers .note_1 { left: -80px; top: 5px; }
-#pag-contenidointeractivo-pointers .note_2 { left: 72px; top: 70px; }
-#pag-contenidointeractivo-pointers .note_3 { left: -100px; top: 135px; }
-#pag-contenidointeractivo-pointers .note_4 { left: 75px; top: 170px; }
+#pag-contenidointeractivo-pointers .note_1 { left: -30px; top: 13px; }
+#pag-contenidointeractivo-pointers .note_2 { left: 72px; top: 100px; }
+#pag-contenidointeractivo-pointers .note_3 { left: -45px; top: 155px; }
+#pag-contenidointeractivo-pointers .note_4 { left: 75px; top: 195px; }
 
 /********************************************************************************/
 /* Actividad Quiz
