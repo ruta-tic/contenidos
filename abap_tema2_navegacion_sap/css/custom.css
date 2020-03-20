@@ -115,3 +115,93 @@
 .contenedor .datos .numero {
     border: solid 10px #f18501;
 }
+
+/********************************************************************************/
+/* TEMAS
+/********************************************************************************/
+
+.horizontal-menu img {
+    max-width: 95%;
+}
+
+.horizontal-menu .elementos {
+    background: url(../content/tema_2_elementos_de_pantalla.png) no-repeat;
+    height: 540px;
+    background-size: 720px;
+    position: relative;
+}
+
+.horizontal-menu .elementos .note_pointer_left {
+    background: transparent;
+    background-position: 100px;
+    color: transparent;
+}
+
+.horizontal-menu .elementos .comandos {
+    left: 145px;
+    top: 45px;
+    width: 83px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .menus {
+    left: 549px;
+    top: 10px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .titulo {
+    top: 67px;
+    width: 74px;
+    max-height: 22px;
+    left: 433px;
+}
+
+.horizontal-menu .elementos .pulsadores {
+    top: 91px;
+    left: 345px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .herramientas {
+    top: 47px;
+    left: 534px;
+    width: 151px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .etiquetas {
+    top: 163px;
+    left: 193px;
+    width: 75px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .entrada {
+    top: 209px;
+    left: 244px;
+    width: 85px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .status {
+    top: 505px;
+    left: 477px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .ctrl-pagination li {
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-menu .ctrl-pagination li .comando_text {
+    width: 50%;
+}
+
+.horizontal-menu .ctrl-pagination .comando {
+    height: 200px;
+}
