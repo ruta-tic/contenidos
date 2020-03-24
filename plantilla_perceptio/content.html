@@ -81,39 +81,39 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
-    <div id="top-decoration" class="not_print"></div>
-
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
         <nav label="Características globales" class="globals">
             <menu>
                 <menuitem data-global-id="return">
-                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
-                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
                 </menuitem>
-                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
             </menu>
         </nav>
 
         <header>
-            <h2>Plantilla de producción de contenidos interactivos</h2>
-            <nav label="Principal" class="horizontal main" data-offset="true">
-                <menu>
-                    <menuitem label="Presentación" data-page="pag-inicio"></menuitem>
-                    <menuitem label="Componentes">
-                        <menu>
-                            <menuitem label="1. Textos especiales" data-page="pag-textos"></menuitem>
-                            <menuitem label="2. Multimedia" data-page="pag-media"></menuitem>
-                            <menuitem label="3. Formato de contenido" data-page="pag-contenidointeractivo"></menuitem>
-                            <menuitem label="4. Actividades" data-page="pag-actividades"></menuitem>
-                            <menuitem label="5. Referencias" data-page="pag-referencias"></menuitem>
-                        </menu>
-                    </menuitem>
-                    <menuitem label="Maquetación" data-page="pag-maquetacion"></menuitem>
-                </menu>
-            </nav>
+            <div>
+                <h1>Programación ABAP</h1>
+                <nav label="Principal" class="horizontal main" data-offset="true">
+                    <menu>
+                        <menuitem label="Presentación" data-page="pag-inicio"></menuitem>
+                        <menuitem label="Componentes">
+                            <menu>
+                                <menuitem label="1. Textos especiales" data-page="pag-textos"></menuitem>
+                                <menuitem label="2. Multimedia" data-page="pag-media"></menuitem>
+                                <menuitem label="3. Formato de contenido" data-page="pag-contenidointeractivo"></menuitem>
+                                <menuitem label="4. Actividades" data-page="pag-actividades"></menuitem>
+                                <menuitem label="5. Referencias" data-page="pag-referencias"></menuitem>
+                            </menu>
+                        </menuitem>
+                        <menuitem label="Maquetación" data-page="pag-maquetacion"></menuitem>
+                    </menu>
+                </nav>
+            </div>
         </header>
 
         <main style="display: none;">
@@ -218,7 +218,7 @@
                     <h3>Encabezado de nivel 3 (<em>h3</em>)</h3>
                     <h4>Encabezado de nivel 4 (<em>h4</em>)</h4>
                     <h5>Encabezado de nivel 5 (<em>h5</em>)</h5>
-                    <h5>Encabezado de nivel 6 (<em>h6</em>)</h5>
+                    <h6>Encabezado de nivel 6 (<em>h6</em>)</h6>
 
                     <p>Apariencia de los <a href="#">enlaces</a> (<em>a</em>).</p>
                     <p>Apariencia de un <strong>texto destacado</strong> (<em>strong</em>).</p>
@@ -1443,6 +1443,35 @@
                             <h5>Ejemplo</h5>
 <pre>
 &lt;div class="ctrl-pagination" data-layer-height="180px" <strong class="change">data-orientation="vertical"</strong> &gt;
+  &lt;li&gt;
+    Contenido primera página
+  &lt;/li&gt;
+  &lt;li&gt;
+    Segunda página
+  &lt;/li&gt;
+&lt;/div&gt;
+</pre>
+                        </li>
+                        <li>
+                            <p>Otra página.</p>
+                        </li>
+                    </div>
+                    <div class="instruction">Haga clic sobre las flechas para pasar entre páginas</div>
+                </div>
+
+                <div class="subpage">
+                    <h3>Paginación secuencial a ambos lados</h3>
+
+                    <div class="ctrl-pagination" data-layer-height="230px" data-orientation="sides">
+                        <li>
+                            <p>
+                                La misma paginación secuencial pero sus flechas de desplazamiento se ubican a ambos lados del contenido. Se construye de la misma manera pero se adiciona el atributo <em>data-orientation</em> con el valor <em>sides</em>.
+                            </p>
+                        </li>
+                        <li>
+                            <h5>Ejemplo</h5>
+<pre>
+&lt;div class="ctrl-pagination" data-layer-height="180px" <strong class="change">data-orientation="sides"</strong> &gt;
   &lt;li&gt;
     Contenido primera página
   &lt;/li&gt;
@@ -3694,6 +3723,11 @@
                                                 Opinión:
                                                 <textarea name="opinion" class="tooltip" title="Escribe en este espacio tu opinión" data-position-at="right bottom" ></textarea>
                                             </p>
+                                            <p>
+                                                Decisión:
+                                                <input type="radio" name="decision" ftitle="Decisión" value="Sí" />
+                                                <input type="radio" name="decision" ftitle="Decisión" value="No" />
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -3716,6 +3750,11 @@
                 &lt;textarea name="opinion"
                     class="tooltip" title="Escribe en este espacio tu opinión"
                     data-position-at="right bottom" &gt;&lt;/textarea&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                Decisión:
+                &lt;input type="radio" name="decision" ftitle="Decisión" value="Sí" /&gt;
+                &lt;input type="radio" name="decision" ftitle="Decisión" value="No" /&gt;
             &lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -3754,6 +3793,46 @@
     border: 2px dotted #aaaaaa;
 }
 </pre>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="subpage" id="pag-actividades-view">
+                    <h3>Ver - Abrir</h3>
+
+                    <p>
+                        Esta actividad se define agregando la clase <em>jpit-activities-view</em> a un elemento que ejecuta una acción como mostrar un contenido o abrir una ventana. Al elemento que es "visitado" se le agrega la clase CSS <em>visited</em>.
+                    </p>
+                    <p>
+                        Sirve para controlar que el usuario haya visto un contenido o donde la actividad simplemente sea seleccionar algo. Dado que sólo hay dos estados posibles (sin completar o completada), entonces la posible calificación de la actividad es únicamente "sin completar" o 100%.
+                    </p>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>
+                                Ejemplo
+                            </dt>
+                            <dd>
+                                <p>
+                                    Vea el siguiente contenido: <button class="w-content-controler general jpit-activities-view" data-content="#ventana_act_ver">Abrir contenido</button>
+                                </p>
+                                <div id="ventana_act_ver" class="w-content">
+                                    Acá estaría el contenido. En este momento la actividad ya se marca como completada.
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>HTML</dt>
+                            <dd>
+<pre>
+&lt;p&gt;
+    Vea el siguiente contenido:
+    &lt;button class="w-content-controler general jpit-activities-view" data-content="#ventana_act_ver"&gt;Abrir contenido&lt;/button&gt;
+&lt;/p&gt;
+&lt;div id="ventana_act_ver" class="w-content"&gt;
+    Acá estaría el contenido. En este momento la actividad ya se marca como completada.
+&lt;/div&gt;</pre>
                             </dd>
                         </dl>
                     </div>
@@ -3888,7 +3967,7 @@
                 <ul class="button" subpages-menu></ul>
                 <div class="button" next-page></div>
             </div>
-            
+
 
         </footer>
 

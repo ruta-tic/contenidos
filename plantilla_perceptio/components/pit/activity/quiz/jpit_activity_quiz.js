@@ -461,6 +461,7 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
         "displayFeedback" : false,
         "feedbackIfTrue" : '',
         "feedbackIfFalse" : '',
+        "feedbackAll" : '',
         "control": null,
         "weight":10,
         "key" : null,
@@ -540,6 +541,7 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
             var control = $('<div class="jpit_activities_quiz_question_feedback"></div>');
             control.append($('<div id="' + this.getUniqueId() + '_true" class="jpit_activities_quiz_question_feedback_true" style="display: none;"></div>').html(this.feedbackIfTrue));
             control.append($('<div id="' + this.getUniqueId() + '_false" class="jpit_activities_quiz_question_feedback_false" style="display: none;"></div>').html(this.feedbackIfFalse));
+            control.append($('<div id="' + this.getUniqueId() + '_all" class="jpit_activities_quiz_question_feedback_all" style="display: none;"></div>').html(this.feedbackAll));
             return control;
         },
 
@@ -622,6 +624,10 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
                 else if (this.feedbackIfFalse != '') {
                     $('#' + this.getUniqueId() + '_false').show();
                 }
+
+                if (this.feedbackAll != '') {
+                    $('#' + this.getUniqueId() + '_all').show();
+                }
             }
         },
 
@@ -647,6 +653,10 @@ jpit.activities.quiz.question.simplechoice = function (statement, possibles, cor
         }
         if (options.feedbackIfFalse != 'undefined' && options.feedbackIfFalse != undefined) {
             obj.feedbackIfFalse = options.feedbackIfFalse;
+            obj.displayFeedback = true;
+        }
+        if (options.feedbackAll != 'undefined' && options.feedbackAll != undefined) {
+            obj.feedbackAll = options.feedbackAll;
             obj.displayFeedback = true;
         }
         if (options.classQuestionContainer != 'undefined' && options.classQuestionContainer  != undefined) {
@@ -686,6 +696,7 @@ jpit.activities.quiz.question.multichoice = function (statement, possibles, corr
         "displayFeedback" : false,
         "feedbackIfTrue" : '',
         "feedbackIfFalse" : '',
+        "feedbackAll" : '',
         "control":null,
         "weight":10,
         "key": null,
@@ -765,6 +776,7 @@ jpit.activities.quiz.question.multichoice = function (statement, possibles, corr
             var control = $('<div class="jpit_activities_quiz_question_feedback"></div>');
             control.append($('<div id="' + this.getUniqueId() + '_true" class="jpit_activities_quiz_question_feedback_true" style="display: none;"></div>').html(this.feedbackIfTrue));
             control.append($('<div id="' + this.getUniqueId() + '_false" class="jpit_activities_quiz_question_feedback_false" style="display: none;"></div>').html(this.feedbackIfFalse));
+            control.append($('<div id="' + this.getUniqueId() + '_all" class="jpit_activities_quiz_question_feedback_all" style="display: none;"></div>').html(this.feedbackAll));
             return control;
         },
         "disableQuestion" : function(){
@@ -852,6 +864,10 @@ jpit.activities.quiz.question.multichoice = function (statement, possibles, corr
                 else if (this.feedbackIfFalse != '') {
                     $('#' + this.getUniqueId() + '_false').show();
                 }
+
+                if (this.feedbackAll != '') {
+                    $('#' + this.getUniqueId() + '_all').show();
+                }
             }
         },
 
@@ -877,6 +893,10 @@ jpit.activities.quiz.question.multichoice = function (statement, possibles, corr
         }
         if (options.feedbackIfFalse != 'undefined' && options.feedbackIfFalse != undefined) {
             obj.feedbackIfFalse = options.feedbackIfFalse;
+            obj.displayFeedback = true;
+        }
+        if (options.feedbackAll != 'undefined' && options.feedbackAll != undefined) {
+            obj.feedbackAll = options.feedbackAll;
             obj.displayFeedback = true;
         }
         if (options.classQuestionContainer != 'undefined' && options.classQuestionContainer  != undefined) {
@@ -916,6 +936,7 @@ jpit.activities.quiz.question.trueorfalse = function (statement, correct, option
         "displayFeedback" : false,
         "feedbackIfTrue" : '',
         "feedbackIfFalse" : '',
+        "feedbackAll" : '',
         "textTrue" : 'true',
         "textFalse" : 'false',
         "control":null,
@@ -994,6 +1015,7 @@ jpit.activities.quiz.question.trueorfalse = function (statement, correct, option
             var control = $('<div class="jpit_activities_quiz_question_feedback"></div>');
             control.append($('<div id="' + this.getUniqueId() + '_true" class="jpit_activities_quiz_question_feedback_true" style="display: none;"></div>').html(this.feedbackIfTrue));
             control.append($('<div id="' + this.getUniqueId() + '_false" class="jpit_activities_quiz_question_feedback_false" style="display: none;"></div>').html(this.feedbackIfFalse));
+            control.append($('<div id="' + this.getUniqueId() + '_all" class="jpit_activities_quiz_question_feedback_all" style="display: none;"></div>').html(this.feedbackAll));
             return control;
         },
         "disableQuestion" : function(){
@@ -1079,6 +1101,10 @@ jpit.activities.quiz.question.trueorfalse = function (statement, correct, option
                 else if (this.feedbackIfFalse != '') {
                     $('#' + this.getUniqueId() + '_false').show();
                 }
+
+                if (this.feedbackAll != '') {
+                    $('#' + this.getUniqueId() + '_all').show();
+                }
             }
         },
 
@@ -1108,6 +1134,10 @@ jpit.activities.quiz.question.trueorfalse = function (statement, correct, option
         }
         if (options.textFalse != 'undefined' && options.textFalse != undefined) {
             obj.possibleAnswers[0] = options.textFalse;
+        }
+        if (options.feedbackAll != 'undefined' && options.feedbackAll != undefined) {
+            obj.feedbackAll = options.feedbackAll;
+            obj.displayFeedback = true;
         }
         if (options.textTrue != 'undefined' && options.textTrue != undefined) {
             obj.possibleAnswers[1] = options.textTrue;

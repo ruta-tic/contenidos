@@ -26,26 +26,19 @@ body {
     width: 100%;
     height: 100%;
     background-color: #fff;
+    background: rgba(244, 244, 244, 0.9) url(../img/bg.png);
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 body.dhbgapp_fullview {
     overflow: hidden;
 }
 
-#top-decoration {
-    background: url(../img/cabezote.png) #ebb630 no-repeat;/*rgba(124, 143, 140, 0.7);*/
-    background-size: 100%;
-    min-height: 200px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-
 #body {
     clear: both;
     margin: auto;
-    padding: 0 0 70px;
+    padding: 100px 0 70px;
     position: relative;
     max-width: 1200px;
 }
@@ -56,7 +49,7 @@ a {
 }
 
 a:hover {
-    color: #7c8f8c;
+    color: #374051;
 }
 
 strong {
@@ -65,16 +58,19 @@ strong {
 }
 
 h1 {
-    font-size: 25px;
-    color: #3f637e;
-    font-weight: normal;
+    font-size: 36px;
+    color: #374051;
+    font-weight: bold;
+    border-left: 4px solid #ffb400;
+    padding-left: 15px;
+    margin: 10px 0 10px 5px;
 }
 
 h2 {
     font-size: 36px;
     color: #374051;
     font-weight: bold;
-    border-left: 4px solid #ffb400;
+    border-left: 4px solid #5fa080;
     padding-left: 15px;
     margin-top: 15px;
 }
@@ -98,13 +94,13 @@ h4 {
 }
 
 h5 {
-    font-size: 24px;
+    font-size: 20px;
     color: #374051;
     font-style: normal;
 }
 
 h6 {
-    font-size: 24px;
+    font-size: 18px;
     color: #374051;
     font-style: italic;
     font-weight: normal;
@@ -125,9 +121,9 @@ cite {
 }
 
 em {
-    font-style: italic;
+    font-style: normal;
     text-decoration: underline;
-    color: #ffb400;
+    color: #E88122;
 }
 
 p {
@@ -180,29 +176,19 @@ a:hover {
 }
 
 button.general {
-    color: #333;
-    font-weight: bold;
+    background-color: #5fa281;
+    color: #fff;
     border: 0;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
     position: relative;
 }
 
+button.general.active,
 button.general:hover {
+    background-color: #5fa2814d;
     color: #5fa281;
-    font-size: 16px;
-}
-
-button.general.active:after,
-button.general:hover:after {
-    content: "";
-    width: 100%;
-    height: 6px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #5fa281;
+    border: 0;
 }
 
 blockquote {
@@ -287,25 +273,26 @@ img.animation, img.play-animation, .animation_image .label {
 /* CONTENT AREA
 /********************************************************************************/
 header {
-    background: url(../img/logo_oscuro.png) no-repeat 50px -5px;
-    background-size: 12%;
-    padding-top: 50px;
+    position: fixed;
+    background-color: #fff;
     color: #374051;
-    min-height: 90px;
+    z-index: 99;
+    margin-bottom: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 11px #848586;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
 }
 
 main {
     padding: 15px;
-    border: 1px solid #c9c9c9;
-    background-color: #fff;
-
-    background: rgba(244, 244, 244, 0.9) url(../img/bg.png);
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.page-title {
-    text-align: center;
 }
 
 /********************************************************************************/
@@ -316,36 +303,17 @@ main {
 /* Horizontal menu
 /*--------------------------*/
 
-nav.horizontal {
-    font-size: 14px;
-    z-index: 99;
-    margin-bottom: 10px;
-}
-
 nav.horizontal:after {
     content: "";
     clear: both;
     display: block;
 }
 
-nav.horizontal.scroll_top {
-    position: fixed;
-    background-color: #fff;
-    min-width: 90%;
-    height: 60px;
-    top: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: #fff url(../img/logo_oscuro.png) no-repeat 70px;
-    background-size: 10%;
-    padding-right: 130px;
-}
-
-nav.horizontal.scroll_top ul.menu > li.active,
-nav.horizontal.scroll_top ul.menu li.current {
-    color: #5fa281;
+nav.horizontal {
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-right: 80px;
 }
 
 nav.horizontal ul.menu {
@@ -367,6 +335,14 @@ nav.horizontal ul.menu > li {
     font-weight: bold;
     height: 15px;
     cursor: pointer;
+    border-bottom: 3px solid #fff;
+}
+
+nav.horizontal ul.menu > li.active,
+nav.horizontal ul.menu li.current {
+    color: #5fa281;
+    font-size: 16px;
+    border-color: #5fa281;
 }
 
 nav.horizontal ul.menu > li.withsubitems {
@@ -378,11 +354,6 @@ nav.horizontal ul.menu > li.withsubitems:after {
     font-family: "Ionicons";
     position: absolute;
     right: 5px;
-}
-
-nav.horizontal ul.menu > li.active,
-nav.horizontal ul.menu li.current {
-    color: #fff;
 }
 
 nav.horizontal ul.menu > li.active:before,
@@ -422,10 +393,10 @@ nav.horizontal ul.submenu > li {
     padding: 10px 20px;
     text-align: left;
     list-style: none;
-    font-size: 13px;
-    background-color: #ebb22a;
+    font-size: 14px;
+    background-color: #fff;
     color: #374051;
-    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #5fa281;
     cursor: pointer;
     position: relative;
 }
@@ -439,8 +410,7 @@ nav.horizontal ul.submenu > li.withsubitems:after {
 
 nav.horizontal ul.submenu > li.active,
 nav.horizontal ul.submenu li.current {
-    border: none;
-    border-top: 1px solid #ffffff;
+    color: #5fa281;
 }
 
 /*--------------------------*/
@@ -449,15 +419,12 @@ nav.horizontal ul.submenu li.current {
 nav.globals {
     background-color: #fff;
     font-size: 25px;
-    z-index: 99;
+    z-index: 100;
     margin: auto;
     display: inline-block;
     position: fixed;
     right: 0;
     top: 0;
-    border-bottom: 1px solid #7c8f8c;
-    border-left: 1px solid #7c8f8c;
-    border-radius: 0 0 0 10px;
 }
 
 nav.globals2 {
@@ -483,7 +450,7 @@ nav.globals2 ul {
 }
 
 nav.globals li {
-    color: #7c8f8c;
+    color: #374051;
     position: relative;
     float: left;
     text-align: center;
@@ -494,7 +461,7 @@ nav.globals li {
 }
 
 nav.globals2 li {
-    color: #5fa281;
+    color: #374051;
     position: relative;
     float: left;
     text-align: center;
@@ -504,15 +471,11 @@ nav.globals2 li {
     cursor: pointer;
     font-size: 43px;
     line-height: 11px;
-    margin-top: 10px;
 }
 
-nav.globals li.active, nav.globals li.current {
-    color: #333;
-}
-
+nav.globals li.active, nav.globals li.current,
 nav.globals2 li.active, nav.globals2 li.current {
-    color: #c6c9df;
+    color: #5fa281;
 }
 
 nav.globals2 li[data-global="credits"] i {
@@ -564,25 +527,25 @@ nav.globals2 li[data-global="credits"] i {
 #subpages_menu div.button {
     width: 48px;
     height: 48px;
-    margin: 20px 2px;
+    margin: 10px 2px;
     float: left;
 }
 
 #subpages_menu div[previous-page] {
-    background: url(../img/sprite2.png) no-repeat -561px -75px;
+    background: url(../img/sprite2.png) no-repeat -487px -75px;
     margin-right: 10px;
 }
 
 #subpages_menu div[next-page] {
-    background: url(../img/sprite2.png) no-repeat -561px -2px;
+    background: url(../img/sprite2.png) no-repeat -487px -2px;
 }
 
 #subpages_menu div[previous-page].active {
-    background-position: -487px -75px;
+    background-position: -561px -75px;
 }
 
 #subpages_menu div[next-page].active {
-    background-position: -487px -2px;
+    background-position: -561px -2px;
 }
 
 /********************************************************************************/
@@ -590,7 +553,6 @@ nav.globals2 li[data-global="credits"] i {
 /********************************************************************************/
 footer {
     z-index: 4;
-    height: 90px;
     position: fixed;
     left: 0;
     right: 0;
@@ -613,6 +575,13 @@ footer #labelprogress {
     display: block;
 }
 
+footer .globals2 li label {
+    font-size: 15px;
+    font-weight: normal;
+    margin: -2px 5px;
+    display: block;
+}
+
 #page_number {
     background-color: transparent;
     width: 40px;
@@ -620,7 +589,7 @@ footer #labelprogress {
     font-size: 20px;
     text-align: center;
     float: left;
-    padding-top: 35px;
+    padding-top: 22px;
     color: #000;
 }
 
@@ -654,7 +623,7 @@ footer #labelprogress {
 /********* important ********/
 .box-text.important {
     background: #fff url(../img/cuadro_texto_importante.png) no-repeat;
-    background-position: 97% 10%;
+    background-position: 97% center;
     padding: 10px;
 }
 
@@ -670,7 +639,7 @@ footer #labelprogress {
 
 .box-text.important > .title:before {
     content: "";
-    border: 5px solid #e78021;
+    border: 3px solid #e78021;
     width: 0px;
     height: 40px;
     position: absolute;
@@ -679,7 +648,7 @@ footer #labelprogress {
 }
 
 .box-text.important .box_body {
-    padding: 15px 200px 10px 30px;
+    padding: 15px 180px 10px 30px;
 }
 
 .box-text.important .box_body:after {
@@ -694,31 +663,32 @@ footer #labelprogress {
 
 .box-text.example {
     background: #fff url(../img/cuadro_texto_ejemplo.png) no-repeat;
-    background-position: right 5px;
+    background-position: right center;
     padding: 10px;
 }
 
 .box-text.example .title {
     color: #66a281;
     padding: 30px 30px 10px;
+    text-align: left;
 }
 
 .box-text.example .box_body {
     color: #788e93;
-    padding: 15px 200px 10px 30px;
+    padding: 15px 165px 10px 30px;
 }
 
 /********* box_note ********/
 .box-text.note {
     background: #fff url(../img/cuadro_texto_notas.png) no-repeat;
-    background-position: right 5px;
+    background-position: right center;
     padding: 10px;
 
     border-bottom: 10px solid #ffd33a;
 }
 
 .box-text.note .box_body {
-    padding: 0 200px 5px 30px;
+    padding: 0 165px 5px 30px;
 }
 
 .box-text.note .title {
@@ -755,12 +725,12 @@ footer #labelprogress {
 
 .box-text.link {
     background: #fff url(../img/cuadro_texto_enlace.png) no-repeat;
-    background-position: right 5px;
+    background-position: right center;
     padding: 10px;
 }
 
 .box-text.link .box_body {
-    padding: 15px 200px 10px 30px;
+    padding: 15px 165px 10px 30px;
 }
 
 .box-text.link .title {
@@ -778,20 +748,25 @@ footer #labelprogress {
 /********* box activity ********/
 .box-text.activity {
     display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: none;
     background-color: transparent;
+    max-width: unset;
 }
 
 .box-text.activity .title {
     color: #374051;
-    padding: 50px 10px 8px 20px;
+    padding: 10px;
     text-transform: uppercase;
     text-align: left;
+    max-width: 250px;
+    position: relative;
 }
 
 .box-text.activity .title:before {
     content: "";
-    width: 6px;
+    width: 4px;
     height: 35px;
     left: 0;
     position: absolute;
@@ -894,23 +869,23 @@ footer #labelprogress {
 }
 
 .icon_more {
-    background: url(../img/sprite2.png) no-repeat -420px -1px;
+    background: url(../img/sprite2.png) no-repeat -420px -30px;
     padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_more.active {
-    background-position: -420px -30px;
+    background-position: -420px -1px;
 }
 
 .icon_less {
-    background: url(../img/sprite2.png) no-repeat -359px -69px;
+    background: url(../img/sprite2.png) no-repeat -359px -97px;
     padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_less.active {
-    background-position: -359px -97px;
+    background-position: -359px -69px;
 }
 
 .note_pointer_left, .note_pointer_right {
@@ -937,11 +912,11 @@ footer #labelprogress {
 
 .note_pointer_right:hover,
 .note_pointer_left:hover {
-    filter: invert(50%);
+    filter: grayscale(1);
 }
 
 div.icondocument, button.icondocument {
-    background: transparent url(../img/sprite2.png) no-repeat -241px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -241px -70px;
     width: 48px;
     height: 48px;
 }
@@ -955,7 +930,7 @@ button.icondocument {
 }
 
 div.icondocument.active, button.icondocument.active {
-    background-position: -241px -70px;
+    background-position: -241px -1px;
 }
 
 /********************************************************************************/
@@ -963,7 +938,7 @@ div.icondocument.active, button.icondocument.active {
 /********************************************************************************/
 
 div.iconsound, button.iconsound {
-    background: transparent url(../img/sprite2.png) no-repeat -181px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -181px -70px;
     width: 48px;
     height: 48px;
 }
@@ -977,7 +952,7 @@ button.iconsound {
 }
 
 div.iconsound.active, button.iconsound.active {
-    background-position: -181px -70px;
+    background-position: -181px -1px;
 }
 
 .sound_loading, button.sound_loading {
@@ -985,7 +960,7 @@ div.iconsound.active, button.iconsound.active {
 }
 
 div.iconvideo, button.iconvideo {
-    background: transparent url(../img/sprite2.png) no-repeat -120px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -120px -70px;
     width: 48px;
     height: 48px;
 }
@@ -999,7 +974,7 @@ button.iconvideo {
 }
 
 div.iconvideo.active, button.iconvideo.active {
-    background-position: -120px -70px;
+    background-position: -120px -1px;
 }
 
 .videobox {
@@ -1147,6 +1122,8 @@ sup.tooltip {
     height: 300px;
     overflow: auto;
     padding: 10px;
+    border-left: 3px solid #5fa281;
+    border-right: 3px solid #5fa281;
 }
 
 .vertical-menu-both-sides .chalkboard_both_items_left {
@@ -1299,7 +1276,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous {
-    background: url(../img/sprite2.png) no-repeat -57px 0;
+    background: url(../img/sprite2.png) no-repeat -57px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1309,11 +1286,11 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous:hover {
-    background-position: -57px -52px;
+    background-position: -57px -1px;
 }
 
 .ctrl-pagination .next {
-    background: url(../img/sprite2.png) no-repeat -86px -1px;
+    background: url(../img/sprite2.png) no-repeat -86px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1323,7 +1300,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .next:hover {
-    background-position: -86px -52px;
+    background-position: -86px -1px;
 }
 
 .ctrl-pagination .next[disabled] {
@@ -1404,6 +1381,32 @@ sup.tooltip {
 
 /* End Vertical pagination */
 
+/* Left and right pagination */
+.ctrl-pagination.sides .button.previous {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .button.next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.ctrl-pagination.sides .position {
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 50px);
+    color: #ffffff;
+    background-color: #003543;
+    padding: 5px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+/* End Left and right pagination */
+
 /********************************************************************************/
 /* SPECIAL CONTENT: Data tables
 /********************************************************************************/
@@ -1411,7 +1414,7 @@ sup.tooltip {
     border: 1px solid #003543;
     border-spacing: 0;
     border-collapse: none;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
 }
 
 .datatable th {
@@ -1428,9 +1431,14 @@ sup.tooltip {
 .datatable td {
     color: #003543;
     padding: 10px;
-    border: 1px solid #003543;
+    border-right: 1px solid #003543;
     border-top-width: 0;
     empty-cells: show;
+    background-color: #fff;
+}
+
+.datatable td:last-child {
+    border: none;
 }
 
 .datatable .odd td {
@@ -1480,6 +1488,12 @@ sup.tooltip {
 
 .view-first .view-content {
     padding: 0 5px;
+}
+
+.view-first .view-content h2 {
+    color: #fff;
+    border: none;
+    font-size: 22px;
 }
 
 /********************************************************************************/
@@ -1548,7 +1562,6 @@ sup.tooltip {
     position: relative;
     margin: 0 auto 10px;
     color: #002236;
-    background-color: #b9eaed;
     border-radius: 10px;
     padding: 20px 40px 20px 60px;
     max-width: 400px;
@@ -1672,7 +1685,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous {
-    background: url(../img/sprite2.png) no-repeat -57px 0;
+    background: url(../img/sprite2.png) no-repeat -57px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1682,11 +1695,11 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous:hover {
-    background-position: -57px -52px;
+    background-position: -57px -1px;
 }
 
 .jpit_activities_quiz_paginator_next {
-    background: url(../img/sprite2.png) no-repeat -86px -1px;
+    background: url(../img/sprite2.png) no-repeat -86px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1696,7 +1709,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_next:hover {
-    background-position: -86px -52px;
+    background-position: -86px -1px;
 }
 
 .jpit_activities_quiz_question_feedback {
@@ -1712,7 +1725,6 @@ sup.tooltip {
     margin: auto;
     display: inline;
     color: #002236;
-    background-color: #b9eaed;
     border-radius: 10px;
     padding: 20px 40px 20px 60px;
 }
@@ -2029,7 +2041,7 @@ sup.tooltip {
     content: "";
     background: url(../img/sprite2.png) no-repeat -641px -62px;;
     position: absolute;
-    right: -20px;
+    right: -10px;
     width: 30px;
     height: 30px;
     top: -5px;
@@ -2222,15 +2234,16 @@ sup.tooltip {
 /********************************************************************************/
 /* GLOBALS
 /********************************************************************************/
-.globals i.maximize { display: none; }
-.globals .minimized i.minimize { display: none; }
-.globals .minimized i.maximize { display: inline; }
+.globals .maximize { display: none; }
+.globals .minimized .minimize { display: none; }
+.globals .minimized .maximize { display: inline; }
 
 /********************************************************************************/
 /* RESULTS
 /********************************************************************************/
 #results_page .result_sco {
     margin: 0 5px 5px 0;
+    background-color: #374051;
 }
 
 #results_page .result_sco.visited {
@@ -2283,7 +2296,7 @@ sup.tooltip {
 
 /* Horizontal bar*/
 .measuring-progress.horizontal {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin: 25px;
     color: #374051;
@@ -2294,11 +2307,15 @@ sup.tooltip {
     z-index: 2;
 }
 
+.measuring-progress.horizontal .results_value br {
+    display: none;
+}
+
 .measuring-progress.horizontal .results_level {
     position: absolute;
     left: 70px;
     top: 10px;
-    width: 150px;
+    width: 200px;
     height: 15px;
     background-color: #cecece;
     overflow: hidden;
@@ -2312,7 +2329,8 @@ sup.tooltip {
 
 .measuring-progress.horizontal .progress_text {
     position: absolute;
-    top: 25px;
+    top: 15px;
+    font-size: 15px;
 }
 
 /* Vertical bar*/

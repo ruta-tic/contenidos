@@ -1,7 +1,8 @@
 /********************************************************************************/
 /* SPECIFIC LAYER STYLES
 /********************************************************************************/
-#pag-textos-infografia .note_pointer_left, #pag-textos-infografia .note_pointer_right {
+#pag-textos-infografia .note_pointer_left,
+#pag-textos-infografia .note_pointer_right {
     display: inline-table;
     position: relative;
 }
@@ -205,6 +206,7 @@
 #pag-contenidointeractivo-pointers .note_2 { left: 72px; top: 100px; }
 #pag-contenidointeractivo-pointers .note_3 { left: -45px; top: 155px; }
 #pag-contenidointeractivo-pointers .note_4 { left: 75px; top: 195px; }
+#pag-contenidointeractivo-pointers .box_l .tooltip { text-align: center; }
 
 /********************************************************************************/
 /* Actividad Quiz
