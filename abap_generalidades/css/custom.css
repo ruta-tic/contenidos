@@ -1,0 +1,103 @@
+.horizontal-menu > .chalkboard_content {
+    height: auto;
+}
+
+.horizontal-menu img {
+    float: right;
+    width: 400px;
+    padding: 15px;
+}
+
+.horizontal-menu .objetivos {
+    background-color: #77c4d0;
+    color: #fff;
+    padding: 15px;
+}
+
+.horizontal-menu .objetivos h4 {
+    color: #fff;
+}
+
+.esquema .contenido {
+    display: flex;
+    justify-content: space-between;
+}
+
+.esquema .conceptos li {
+    list-style-type: lower-latin;
+}
+
+.esquema .titulo {
+    margin: 10px auto;
+    text-align: center;
+    width: 250px;
+}
+
+.esquema .conceptos div {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 180px;
+}
+
+.esquema .conceptos .concepto {
+    text-align: center;
+    position: relative;
+    height: 30px;
+}
+
+.esquema .arquitectura div,
+.esquema .sql div {
+    border-left: 3px solid #4ab060;
+}
+
+.esquema .navegacion div {
+    border-left: 3px solid #e67400;   
+}
+
+.esquema .diccionario div {
+    border-left: 3px solid #fdc300;   
+}
+
+.esquema .tipos div {
+    border-left: 3px solid #73c7dd;
+}
+
+.esquema .conceptos .preguntas ol {
+    padding-left: 15px;
+}
+
+.esquema .conceptos .flecha {
+    background-color: transparent;
+    border-left: 0px;
+    text-align: center;
+}
+
+.esquema .contenido {
+    padding-top: 20px;
+}
+
+.esquema .conceptos .concepto:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    bottom: 50px;
+    border-left: 1px solid #c1c0c3;
+}
+
+.esquema .conceptos .concepto:before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    right: -30px;
+    top: -21px;
+    border-top: 1px solid #c1c0c3;
+}
+
+.esquema .arquitectura .concepto:before {
+    left: 50%;
+}
+
+.esquema .sql .concepto:before {
+    right: 50%;
+}
