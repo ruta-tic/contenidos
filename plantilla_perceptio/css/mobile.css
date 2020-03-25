@@ -45,7 +45,7 @@ a {
 }
 
 a:hover {
-    color: #7c8f8c;
+    color: #374051;
 }
 
 strong {
@@ -54,18 +54,22 @@ strong {
 }
 
 h1 {
-    font-size: 25px;
-    color: #3f637e;
-    font-weight: normal;
-}
-
-h2 {
-    font-size: 36px;
+    font-size: 28px;
     color: #374051;
     font-weight: bold;
     border-left: 4px solid #ffb400;
     padding-left: 15px;
-    margin-top: 15px;
+    margin: 10px 0 10px 5px;
+}
+
+h2 {
+    font-size: 23px;
+    color: #374051;
+    font-weight: bold;
+    border-left: 4px solid #5fa080;
+    padding-left: 10px;
+    padding-right: 35px;
+    margin: 0;
 }
 
 .ui-dialog-content h2 {
@@ -74,26 +78,26 @@ h2 {
 }
 
 h3 {
-    font-size: 36px;
+    font-size: 24px;
     color: #374051;
     margin-top: 15px;
     font-weight: normal;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: 21px;
     color: #374051;
     font-weight: bold;
 }
 
 h5 {
-    font-size: 24px;
+    font-size: 19px;
     color: #374051;
     font-style: normal;
 }
 
 h6 {
-    font-size: 24px;
+    font-size: 18px;
     color: #374051;
     font-style: italic;
     font-weight: normal;
@@ -114,9 +118,9 @@ cite {
 }
 
 em {
-    font-style: italic;
+    font-style: normal;
     text-decoration: underline;
-    color: #ffb400;
+    color: #E88122;
 }
 
 p {
@@ -169,24 +173,19 @@ a:hover {
 }
 
 button.general {
-    color: #333;
-    font-weight: bold;
+    background-color: #5fa281;
+    color: #fff;
     border: 0;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
     position: relative;
 }
 
-button.general.active:after,
-button.general:hover:after {
-    content: "";
-    width: 100%;
-    height: 6px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #5fa281;
+button.general.active,
+button.general:hover {
+    background-color: #5fa2814d;
+    color: #5fa281;
+    border: 0;
 }
 
 blockquote {
@@ -283,12 +282,7 @@ img.animation, img.play-animation, .animation_image .label {
 /********************************************************************************/
 main {
     padding: 5px;
-    border: 1px solid #c9c9c9;
-    background-color: #fff;
-}
-
-.page-title {
-    text-align: center;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -331,7 +325,7 @@ header.collapsed:after {
     right: 0;
     z-index: 5;
     background-color: #5fa281;
-    padding: 0px 0px 0 7px;
+    padding: 0 0 0 7px;
     color: #fff;
     font-size: 30px;
     line-height: 30px;
@@ -450,7 +444,7 @@ nav ul.menu > li.active {
 }
 
 nav ul.menu > li.current {
-    color: #40bcc6;
+    color: #5fa281;
     background-color: #fff;
 }
 
@@ -571,19 +565,20 @@ nav.globals2 li[data-global=credits] i {
 }
 
 #subpages_menu div[previous-page] {
-    background: url(../img/sprite2.png) no-repeat -561px -75px;
+    background: url(../img/sprite2.png) no-repeat -487px -75px;
+    margin-right: 10px;
 }
 
 #subpages_menu div[next-page] {
-    background: url(../img/sprite2.png) no-repeat -561px -2px;
+    background: url(../img/sprite2.png) no-repeat -487px -2px;
 }
 
 #subpages_menu div[previous-page].active {
-    background-position: -487px -75px;
+    background-position: -561px -75px;
 }
 
 #subpages_menu div[next-page].active {
-    background-position: -487px -2px;
+    background-position: -561px -2px;
 }
 
 #subpages_menu #select-choice {
@@ -606,15 +601,10 @@ footer {
     text-align: left;
 }
 
-footer #labelmeasuringprogress {
-    margin: 0 10px 0 0;
-    font-size: 18px;
-}
-
 footer #labelprogress {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: normal;
-    margin-top: -5px;
+    margin: -2px 5px;
     display: block;
 }
 
@@ -639,27 +629,21 @@ footer #labelprogress {
     background: #fff;
     position: relative;
     margin: 20px auto;
-    text-align: justify;
     font-size: 14px;
-
-    -webkit-box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
-    -moz-box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
-    box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
+    -webkit-box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
+    -moz-box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
+    box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
 }
 
 .box-text .box_body {
-    padding: 50px 15px 10px;
+    padding: 5px 5px 0;
 }
 
 .box-text > .title {
-    font-size: 18px;
+    font-size: 20px;
     margin: 0 0 5px 0;
-    font-weight: bold;
-    border-radius: 0 0 50px 0;
-    float: left;
-    padding: 8px 30px 8px 50px;
-    min-width: 40%;
-    position: relative;
+    padding: 7px 5px 0 20px;
+    text-transform: uppercase;
     text-align: left;
 }
 
@@ -669,10 +653,6 @@ footer #labelprogress {
     background-position: center;
     background-size: 35%;
     padding: 10px;
-}
-
-.box-text.important > .title {
-    padding: 15px 10px 5px 30px;
 }
 
 .box-text.important:before {
@@ -688,7 +668,7 @@ footer #labelprogress {
 .box-text.important > .title:before {
     content: "";
     border: 5px solid #e78021;
-    width: 0px;
+    width: 0;
     height: 30px;
     position: absolute;
     top: 10px;
@@ -713,7 +693,7 @@ footer #labelprogress {
 
 .box-text.example .title {
     color: #66a281;
-    padding: 15px 10px 5px 30px;
+    padding: 7px 5px 0 0;
 }
 
 .box-text.example .box_body {
@@ -769,13 +749,17 @@ footer #labelprogress {
 
 .box-text.link .title {
     color: #7bcadd;
-    padding: 15px 10px 5px 30px;
+    padding: 7px 5px 0 0;
 }
 
 /********* box connection ********/
 .box-text.connection {
     background-color: #cee6e9;
     box-shadow: none;
+}
+
+.box-text.connection .box_body {
+    padding-bottom: 5px;
 }
 
 /********* box activity ********/
@@ -788,9 +772,7 @@ footer #labelprogress {
 
 .box-text.activity .title {
     color: #374051;
-    padding: 15px 10px 5px 30px;
     text-transform: uppercase;
-    text-align: left;
     margin-bottom: 15px;
 }
 
@@ -809,9 +791,9 @@ footer #labelprogress {
     border: 1px solid #7bcadd;
     background-color: #fff;
 
-    -webkit-box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
-    -moz-box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
-    box-shadow: 0px 6px 10px 0px rgba(199,191,199,1);
+    -webkit-box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
+    -moz-box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
+    box-shadow: 0 6px 10px 0 rgba(199,191,199,1);
 }
 
 /********************************************************************************/
@@ -900,23 +882,23 @@ footer #labelprogress {
 }
 
 .icon_more {
-    background: url(../img/sprite2.png) no-repeat -420px -1px;
+    background: url(../img/sprite2.png) no-repeat -420px -30px;
     padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_more.active {
-    background-position: -420px -30px;
+    background-position: -420px -1px;
 }
 
 .icon_less {
-    background: url(../img/sprite2.png) no-repeat -359px -69px;
+    background: url(../img/sprite2.png) no-repeat -359px -97px;
     padding: 7px 13px;
     font-size: 10px;
 }
 
 .icon_less.active {
-    background-position: -359px -97px;
+    background-position: -359px -69px;
 }
 
 .note_pointer_left, .note_pointer_right {
@@ -943,11 +925,11 @@ footer #labelprogress {
 
 .note_pointer_right:hover,
 .note_pointer_left:hover {
-    filter: invert(50%);
+    filter: grayscale(1);
 }
 
 div.icondocument, button.icondocument {
-    background: transparent url(../img/sprite2.png) no-repeat -241px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -241px -70px;
     width: 48px;
     height: 48px;
 }
@@ -961,7 +943,7 @@ button.icondocument {
 }
 
 div.icondocument.active, button.icondocument.active {
-    background-position: -241px -70px;
+    background-position: -241px -1px;
 }
 
 /********************************************************************************/
@@ -969,7 +951,7 @@ div.icondocument.active, button.icondocument.active {
 /********************************************************************************/
 
 div.iconsound, button.iconsound {
-    background: transparent url(../img/sprite2.png) no-repeat -181px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -181px -70px;
     width: 48px;
     height: 48px;
 }
@@ -983,7 +965,7 @@ button.iconsound {
 }
 
 div.iconsound.active, button.iconsound.active {
-    background-position: -181px -70px;
+    background-position: -181px -1px;
 }
 
 .sound_loading, button.sound_loading {
@@ -995,7 +977,7 @@ audio {
 }
 
 div.iconvideo, button.iconvideo {
-    background: transparent url(../img/sprite2.png) no-repeat -120px -1px;
+    background: transparent url(../img/sprite2.png) no-repeat -120px -70px;
     width: 48px;
     height: 48px;
 }
@@ -1009,7 +991,7 @@ button.iconvideo {
 }
 
 div.iconvideo.active, button.iconvideo.active {
-    background-position: -120px -70px;
+    background-position: -120px -1px;
 }
 
 video {
@@ -1096,7 +1078,6 @@ sup.tooltip {
 .vertical-menu-both-sides .element {
     padding: 8px;
     margin: 0;
-    border: 1px solid #fff;
     border-bottom: 1px solid #003543;
     line-height: 20px;
     position: relative;
@@ -1160,7 +1141,7 @@ sup.tooltip {
     height: auto;
     float: left;
     padding: 1%;
-    margin-top: 30px;
+    margin-top: 10px;
     overflow: auto;
     border-left: 3px solid #5fa281;
 }
@@ -1210,7 +1191,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous {
-    background: url(../img/sprite2.png) no-repeat -57px 0;
+    background: url(../img/sprite2.png) no-repeat -57px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1220,11 +1201,11 @@ sup.tooltip {
 }
 
 .ctrl-pagination .previous:hover {
-    background-position: -57px -52px;
+    background-position: -57px -1px;
 }
 
 .ctrl-pagination .next {
-    background: url(../img/sprite2.png) no-repeat -86px -1px;
+    background: url(../img/sprite2.png) no-repeat -86px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1234,7 +1215,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .next:hover {
-    background-position: -86px -52px;
+    background-position: -86px -1px;
 }
 
 .ctrl-pagination .next[disabled] {
@@ -1243,7 +1224,7 @@ sup.tooltip {
 }
 
 .ctrl-pagination .next[disabled]:hover {
-    background-position: -147px 0px;
+    background-position: -147px 0;
 }
 
 .ctrl-pagination ul.pagination.numeric li div {
@@ -1266,12 +1247,12 @@ sup.tooltip {
     bottom: 2px;
     left: 2px;
     color: #ffffff;
-    background-color: #003543;
-    font-size: 30px;
+    background-color: #5fa281;
+    font-size: 26px;
     position: absolute;
     text-align: center;
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     padding: 5px;
 }
 
@@ -1333,7 +1314,7 @@ sup.tooltip {
     bottom: -12px;
     left: calc(50% - 50px);
     color: #ffffff;
-    background-color: #003543;
+    background-color: #5fa281;
     padding: 5px 20px;
     border-radius: 9px;
     font-size: 16px;
@@ -1348,7 +1329,7 @@ sup.tooltip {
     border: 1px solid #003543;
     border-spacing: 0;
     border-collapse: none;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
 }
 
 .datatable th {
@@ -1364,13 +1345,18 @@ sup.tooltip {
 .datatable td {
     color: #003543;
     padding: 5px;
-    border: 1px solid #003543;
+    border-right: 1px solid #003543;
     border-top-width: 0;
     empty-cells: show;
+    background-color: #fff;
+}
+
+.datatable td:last-child {
+    border: none;
 }
 
 .datatable .odd td {
-    background-color: #eaeaea;
+    background-color: #e9eff0;
 }
 
 .datatable tfoot td {
@@ -1416,6 +1402,12 @@ sup.tooltip {
 
 .view-first .view-content {
     padding: 0 5px;
+}
+
+.view-first .view-content h2 {
+    color: #fff;
+    border: none;
+    font-size: 22px;
 }
 
 /********************************************************************************/
@@ -1484,15 +1476,13 @@ sup.tooltip {
     position: relative;
     margin: 0 auto 10px;
     color: #002236;
-    background-color: #b9eaed;
     border-radius: 10px;
-    padding: 20px 40px 20px 60px;
-    max-width: 400px;
+    padding: 10px 10px 0 45px;
 }
 
 .box_end .correct:after {
     content: "";
-    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    background: #57dd7f url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1504,7 +1494,7 @@ sup.tooltip {
 
 .box_end .wrong:after {
     content: "";
-    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
+    background: #ef6f6f url(../img/sprite2.png) no-repeat -641px -62px;;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1584,7 +1574,9 @@ sup.tooltip {
     font-weight: bold;
     cursor: pointer;
 }
-.jpit_activities_quiz_question_option_answer label:hover, .jpit_activities_quiz_question_option_answer_selected label  {
+
+.jpit_activities_quiz_question_option_answer label:hover,
+.jpit_activities_quiz_question_option_answer_selected label  {
     background-color: #5fa281;
 }
 
@@ -1606,7 +1598,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous {
-    background: url(../img/sprite2.png) no-repeat -57px 0;
+    background: url(../img/sprite2.png) no-repeat -57px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1616,11 +1608,11 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_previous:hover {
-    background-position: -57px -52px;
+    background-position: -57px -1px;
 }
 
 .jpit_activities_quiz_paginator_next {
-    background: url(../img/sprite2.png) no-repeat -86px -1px;
+    background: url(../img/sprite2.png) no-repeat -86px -52px;
     width: 21px;
     height: 21px;
     float: left;
@@ -1630,7 +1622,7 @@ sup.tooltip {
 }
 
 .jpit_activities_quiz_paginator_next:hover {
-    background-position: -86px -52px;
+    background-position: -86px -1px;
 }
 
 .jpit_activities_quiz_question_feedback {
@@ -1646,14 +1638,13 @@ sup.tooltip {
     margin: auto;
     display: inline;
     color: #002236;
-    background-color: #b9eaed;
     border-radius: 10px;
     padding: 20px 40px 20px 60px;
 }
 
 .jpit_activities_quiz_question_feedback_true:after {
     content: "";
-    background: #57dd7f url(../img/sprite.png) no-repeat -927px -116px;
+    background: #57dd7f url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1665,7 +1656,7 @@ sup.tooltip {
 
 .jpit_activities_quiz_question_feedback_false:after {
     content: "";
-    background: #ef6f6f url(../img/sprite.png) no-repeat -927px -78px;
+    background: #ef6f6f url(../img/sprite2.png) no-repeat -641px -62px;
     position: absolute;
     left: 10px;
     width: 32px;
@@ -1740,7 +1731,7 @@ sup.tooltip {
 }
 
 .jpit-activities-wordpuzzle .layout button {
-    margin: 1px;
+    margin: 0;
     border: 1px solid #000;
     color: #000;
     border-radius: 2px;
@@ -1879,7 +1870,7 @@ sup.tooltip {
 }
 
 .jpit-activities-droppable {
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 
 .jpitdroppable_select_dialog {
@@ -1997,7 +1988,7 @@ sup.tooltip {
 }
 
 .jpit-activities-cloze span.correct:after, .jpit-activities-cloze input.correct:after {
-    background: url(../img/sprite.png) no-repeat -180px 0;
+    background: url(../img/sprite2.png) no-repeat -645px -25px;
     position: absolute;
     right: -20px;
     width: 40px;
@@ -2010,9 +2001,9 @@ sup.tooltip {
 .jpit-activities-cloze span.wrong:after,
 .jpit-activities-cloze input.wrong:after {
     content: "";
-    background: url(../img/sprite.png) no-repeat -240px 0;
+    background: url(../img/sprite2.png) no-repeat -641px -62px;;
     position: absolute;
-    right: -20px;
+    right: -10px;
     width: 30px;
     height: 30px;
     top: -5px;
@@ -2194,7 +2185,7 @@ sup.tooltip {
     overflow: visible;
     width: 840px;
     border: 1px solid #ddd;
-    box-shadow: 5px 5px 0px #ccc;
+    box-shadow: 5px 5px 0 #ccc;
     padding: 50px 50px 20px;
     color: #222;
     background-color: #fff;
@@ -2228,11 +2219,6 @@ sup.tooltip {
     text-align: center;
 }
 
-#credits_subpage cite {
-    color: #5A5B5D;
-    font-style: normal;
-}
-
 #credits_subpage .editions {
     font-size: 11px;
 }
@@ -2244,23 +2230,20 @@ sup.tooltip {
 /********************************************************************************/
 /* GLOBALS
 /********************************************************************************/
-.globals i.maximize { display: none; }
-.globals .minimized i.minimize { display: none; }
-.globals .minimized i.maximize { display: inline; }
+.globals .maximize { display: none; }
+.globals .minimized .minimize { display: none; }
+.globals .minimized .maximize { display: inline; }
 
 /********************************************************************************/
 /* RESULTS
 /********************************************************************************/
 #results_page .result_sco {
     margin: 0 5px 5px 0;
+    background-color: #374051;
 }
 
 #results_page .result_sco.visited {
-    background-color: #7bb004;
-}
-
-#results_page ul.data_list {
-    padding: 0 10px;
+    background-color: #5fa281;
 }
 
 /* ----------------- */
@@ -2309,46 +2292,41 @@ sup.tooltip {
 
 /* Horizontal bar*/
 .measuring-progress.horizontal {
-    font-size: 11px;
+    font-size: 25px;
     font-weight: bold;
-    margin-left: 10px;
+    margin: 10px 0 0 5px;
+    color: #374051;
 }
 
 .measuring-progress.horizontal .results_value {
-    position: absolute;
-    left: 0px;
-    width: 28px;
-    height: 22px;
-    border-radius: 15px;
-    background-color: #fff;
-    text-align: center;
-    padding-top: 6px;
     line-height: 10px;
     z-index: 2;
 }
 
+.measuring-progress.horizontal .results_value br {
+    display: none;
+}
+
 .measuring-progress.horizontal .results_level {
     position: absolute;
-    left: 18px;
-    top: 10px;
+    left: 70px;
+    top: 0;
     width: 100px;
-    height: 11px;
-    background-color: #FFF;
-    border-radius: 10px;
+    height: 25px;
+    background-color: #cecece;
     overflow: hidden;
-    padding-left: 10px;
 }
 
 .measuring-progress.horizontal .results_level div {
-    background-color: #7c8f8c;
+    background-color: #a7d692;
     width: 0%;
-    height: 11px;
+    height: 25px;
 }
 
 .measuring-progress.horizontal .progress_text {
     position: absolute;
-    top: 25px;
-    left: 50px;
+    top: 15px;
+    font-size: 15px;
 }
 
 /* Vertical bar*/
@@ -2407,7 +2385,7 @@ sup.tooltip {
     left: 0;
     bottom: 0;
     overflow: auto;
-    background-color: #fff;
+    background-color: #f4f4f4;
 }
 
 #full_content {

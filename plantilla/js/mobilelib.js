@@ -960,7 +960,7 @@ dhbgApp.mobile.start = function() {
 
         var $this = $(this);
         var $chalkboard_content = $('<div class="chalkboard_both_content elements"></div>');
-        $this.find('>dl').each(function() {
+        $this.find('left > dl, right > dl').each(function() {
             var $dl = $(this);
 
             var $element_container = $('<div class="element"></div>');
