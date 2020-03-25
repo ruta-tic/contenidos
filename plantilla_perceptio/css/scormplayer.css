@@ -78,11 +78,11 @@ h2.subtitle2 {
     text-transform: uppercase;
     background-color: #fff;
     height: 20px;
-    width: 165px;
     line-height: 0px;
     margin-top: 20px;
     margin-left: 10px;
     position: relative;
+    display: inline-block;
 }
 
 header div {
