@@ -1,0 +1,247 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url('fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'),
+        url('fonts/Montserrat/Montserrat-Regular.woff') format('woff')
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin: 0 0 30px 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg.png);
+}
+
+#body {
+    max-width: 968px;
+    margin: auto;
+}
+
+header {
+    background: url(../img/cabezote.png) no-repeat;
+    position: relative;
+    min-height: 150px;
+    padding: 0px 500px 10px 70px;
+    background-size: 100% 100%;
+}
+
+header img.logo {
+    margin-left: -50px;
+}
+
+header img.portada {
+    position: absolute;
+    right: 70px;
+    bottom: -40px;
+    z-index: 1;
+    width: 450px;
+}
+
+#content {
+    position: relative;
+    padding: 35px 0 15px 50px;
+    padding-bottom: 80px;
+}
+
+h2.subtitle1 {
+    font-size: 28px;
+    font-weight: normal;
+    padding-left: 5px;
+    text-transform: uppercase;
+    color: #163d4e;
+    margin: 0;
+    position: relative;
+}
+
+h2.subtitle1:before {
+    content: "";
+    width: 4px;
+    height: 30px;
+    background-color: #76c4d0;
+    left: -5px;
+    top: 0;
+    position: absolute;
+}
+
+h2.subtitle2 {
+    font-size: 33px;
+    color: #163d4e;
+    margin: 0;
+    text-transform: uppercase;
+    background-color: #fff;
+    height: 20px;
+    line-height: 0px;
+    margin-top: 20px;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 0 15px;
+}
+
+h3 {
+    font-size: 27px;
+    margin: 20px 0 0;
+    color: #ffb400;
+    font-weight: normal;
+}
+
+h4 {
+    color: #8f9593;
+}
+
+pre {
+    background:#F8F8FF;
+    border: #000 dashed 1px;
+    padding: 6px;
+    overflow: auto;
+}
+
+em {
+    color: #b24926;
+}
+
+ol li {
+    padding-bottom: 10px;
+}
+
+ul.data_list {
+    list-style: none;
+}
+
+ul.data_list li {
+    padding-bottom: 10px;
+}
+
+ul.data_list li:before {
+    content: "\f109";
+    font-family: "Ionicons";
+    position: relative;
+    left: -5px;
+    color: #44c5d0;
+    font-weight: bold;
+}
+
+ol.ol_counter li {
+    padding-bottom: 10px;
+}
+
+button.general {
+    background-color: #5fa281;
+    color: #fff;
+    border: 0;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+button.general.active, button.general:hover {
+    background-color: #5fa2814d;
+    color: #5fa281;
+    border: 0;
+}
+
+#presentacion {
+    display: flex;
+}
+
+#presentacion .level span {
+    background-color: #374051;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 30px;
+    margin: 5px;
+}
+
+#presentacion .level {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#presentacion .presentacion {
+    background-color: #76c4d0;
+    color: #fff;
+    padding: 40px;
+    margin: 10px 0 10px 50px;
+}
+
+#duracion {
+    color: #109a4c;
+    font-size: 22px;
+}
+
+#play_scorm {
+    text-align: center;
+}
+
+.ui-state-error, .ui-state-highlight {
+    padding: 10px;
+}
+
+@media (max-width:750px) {
+    #play_scorm {
+        max-width: 100%;
+    }
+
+    header img.portada {
+        position: unset;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    header img.logo {
+        margin: 0;
+    }
+
+    header {
+        padding: 20px 20px 0;
+        min-height: unset;
+        background-size: 100% 100%;
+    }
+
+    #content {
+        padding: 10px;
+    }
+
+    h2.subtitle1 {
+        font-size: 20px;
+    }
+
+    h2.subtitle2 {
+        font-size: 26px;
+        height: 14px;
+        width: 120px;
+        margin-top: 14px;
+    }
+
+    h3,
+    #duracion {
+        font-size: 20px;
+    }
+
+    #presentacion {
+        display: block;
+    }
+
+    #presentacion .presentacion {
+        padding: 10px;
+        margin: 0 10px;
+    }
+
+    #presentacion .level span {
+        font-size: 20px;
+    }
+}
