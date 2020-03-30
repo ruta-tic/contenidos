@@ -101,9 +101,14 @@
             <h2>Tema 2. Navegación SAP</h2>
             <nav label="Principal" class="horizontal main" data-offset="true">
                 <menu>
-                    <menuitem label="¿Cómo se navega por el sistema SAP?" data-page="pag-navegacion"></menuitem>
-                    <menuitem label="¿Cuáles son los elementos comunes de una pantalla SAP?" data-page="pag-elementos"></menuitem>
-                    <menuitem label="¿Qué ayudas del sistema tengo disponibles?" data-page="pag-ayudas"></menuitem>
+                    <menuitem label="Indicaciones" data-page="pag-indicaciones"></menuitem>
+                    <menuitem label="Componentes">
+                        <menu>
+                            <menuitem label="¿Cómo se navega por el sistema SAP?" data-page="pag-navegacion"></menuitem>
+                            <menuitem label="¿Cuáles son los elementos comunes de una pantalla SAP?" data-page="pag-elementos"></menuitem>
+                            <menuitem label="¿Qué ayudas del sistema tengo disponibles?" data-page="pag-ayudas"></menuitem>
+                        </menu>
+                    </menuitem>
                 </menu>
             </nav>
         </header>
@@ -112,13 +117,10 @@
 
             <h2 class="page-title"></h2>
 
-            <section id="pag-navegacion" ptitle="¿Cómo se navega por el sistema SAP?">
-                <div class="subpage">
-                    <p>
-                        Siga estas indicaciones para cumplir con el propósito de la actividad:
-                    </p>
-
-                    <img src="content/tema_2_esquema_de_contenidos.png" alt="Esquema de contenidos" width=90% />
+            <section id="pag-indicaciones" ptitle="Indicaciones">
+                <div class="subpage" id="indicaciones">
+                    <p>Siga estas indicaciones para cumplir con el propósito de la actividad:</p>
+                    <div><img src="content/tema_2_esquema_de_contenidos.png" alt="Indicaciones" /></div>
                 </div>
             </section>
 
