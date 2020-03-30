@@ -12,27 +12,42 @@
 /********************************************************************************/
 /* MENU
 /********************************************************************************/
-.contenedor {
+#pag-navegacion .contenedor {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 70px;
+    min-height: 400px;
 }
 
-.contenedor .descarga {
+#pag-navegacion .contenedor .contenido:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -100%;
+    border: 1px solid #878a90;
+}
+
+#pag-navegacion .contenedor .contenido:first-child:before {
+    left: 50%;
+} 
+
+#pag-navegacion .contenedor .contenido:last-child:before {
+    right: 50%;
+} 
+
+#pag-navegacion .contenedor .contenido {
+    position: relative;
     width: 200px;
-    height: 180px;
-    background-color: #40adb0;
-    color: #fff;
     text-align: center;
-    padding: 0 20px;
 }
 
-.contenedor .descarga .numero {
+#pag-navegacion .contenedor .descarga .b1 {
     border: solid 10px #009081;
 }
 
-.contenedor .numero {
+#pag-navegacion .contenedor .numero {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,87 +58,92 @@
     background-color: #fff;
     width: 80px;
     height: 80px;
-    margin: 0 auto;
+    position: absolute;
+    top: -50px;
+    left: 70px;
 }
 
-.contenedor .boton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+#pag-navegacion .contenedor .boton {
+    padding: 10px 15px;
+    width: 80%;
     height: 40px;
-    margin-bottom: -30px;
+    color: #fff;
+    text-decoration:none;
+    text-align: center;
 }
 
-.contenedor .descarga .boton {
+#pag-navegacion .contenedor .descarga .boton {
     background-color: #78bdbf;
 }
 
-.contenedor .descarga .boton:hover {
+#pag-navegacion .contenedor .descarga .boton:hover {
     background-color: #3a9d9e;   
     cursor: pointer;
 }
 
-.contenedor .ubicacion {
-    position: relative;
-    top: -45px;   
-}
-
-.contenedor .imagen {
+#pag-navegacion .contenedor .contenido .contenido_sobre {
     width: 200px;
-    height: 180px;
-    background-color: #60a381;
     color: #fff;
-    text-align: center;
-    padding: 0 20px;
+    padding: 50px 20px 30px;
 }
 
-.contenedor .imagen .numero {
+#pag-navegacion .contenedor .descarga .contenido_sobre {
+    background-color: #40adb0;
+}
+
+#pag-navegacion .contenedor .imagen .contenido_sobre {
+    background-color: #60a381;
+}
+
+#pag-navegacion .contenedor .imagen .numero {
     border: solid 10px #0b8053;
 }
 
-.contenedor .imagen img {
+#pag-navegacion .imagen .more-less .icon_more {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 6px 13px 6px 12px;
+}
+
+#pag-navegacion .contenedor .imagen img {
     max-width: 400px;
 }
 
-.contenedor .udemy .boton {
-    background-color: #bbd9a9;
+#pag-navegacion .contenedor .udemy .contenido_sobre {
+    background-color: #a7d092;
+    text-align: left;
+    padding: 50px 20px 0px;
 }
 
-.contenedor .udemy .boton:hover {
+#pag-navegacion .contenedor .udemy .boton div {
+    background-color: #bbd9a9;
+    padding: 10px 15px;
+}
+
+#pag-navegacion .contenedor .udemy .boton div:hover {
     background-color: #9bbc86;
     cursor: pointer;
 }
 
-.contenedor .udemy {
-    width: 200px;
-    background-color: #a7d092;
-    color: #fff;
-    padding: 0 20px;
-}
-
-.contenedor .udemy .numero {
+#pag-navegacion .contenedor .udemy .numero {
     border: solid 10px #5eb55f;
 }
 
-.contenedor .datos .boton {
+#pag-navegacion .contenedor .datos .boton {
     background-color: #fcc253;
+    padding: 10px 5px;
 }
 
-.contenedor .datos .boton:hover {
+#pag-navegacion .contenedor .datos .boton:hover {
     background-color: #dc9919;
     cursor: pointer;
 }
 
-.contenedor .datos {
-    width: 200px;
-    height: 180px;
+#pag-navegacion .contenedor .datos .contenido_sobre {
     background-color: #f9b21a;
-    color: #fff;
-    padding: 0 20px;
 }
 
-.contenedor .datos .numero {
+#pag-navegacion .contenedor .datos .numero {
     border: solid 10px #f18501;
 }
 
@@ -132,7 +152,7 @@
 /********************************************************************************/
 
 .horizontal-menu img {
-    max-width: 95%;
+    max-width: 720px;
 }
 
 .horizontal-menu .elementos {
@@ -140,6 +160,7 @@
     height: 540px;
     background-size: 720px;
     position: relative;
+    margin: auto;
 }
 
 .horizontal-menu .elementos .note_pointer_left {

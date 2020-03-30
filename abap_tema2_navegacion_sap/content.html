@@ -81,36 +81,36 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
-    <div id="top-decoration" class="not_print"></div>
-
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
         <nav label="Características globales" class="globals">
             <menu>
                 <menuitem data-global-id="return">
-                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
-                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
                 </menuitem>
-                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
             </menu>
         </nav>
 
         <header>
-            <h2>Tema 2. Navegación SAP</h2>
-            <nav label="Principal" class="horizontal main" data-offset="true">
-                <menu>
-                    <menuitem label="Indicaciones" data-page="pag-indicaciones"></menuitem>
-                    <menuitem label="Componentes">
-                        <menu>
-                            <menuitem label="¿Cómo se navega por el sistema SAP?" data-page="pag-navegacion"></menuitem>
-                            <menuitem label="¿Cuáles son los elementos comunes de una pantalla SAP?" data-page="pag-elementos"></menuitem>
-                            <menuitem label="¿Qué ayudas del sistema tengo disponibles?" data-page="pag-ayudas"></menuitem>
-                        </menu>
-                    </menuitem>
-                </menu>
-            </nav>
+            <div>
+                <h2>Programación ABAP</h2>
+                <nav label="Principal" class="horizontal main" data-offset="true">
+                    <menu>
+                        <menuitem label="Indicaciones" data-page="pag-indicaciones"></menuitem>
+                        <menuitem label="Componentes">
+                            <menu>
+                                <menuitem label="¿Cómo se navega por el sistema SAP?" data-page="pag-navegacion"></menuitem>
+                                <menuitem label="¿Cuáles son los elementos comunes de una pantalla SAP?" data-page="pag-elementos"></menuitem>
+                                <menuitem label="¿Qué ayudas del sistema tengo disponibles?" data-page="pag-ayudas"></menuitem>
+                            </menu>
+                        </menuitem>
+                    </menu>
+                </nav>
+            </div>
         </header>
 
         <main style="display: none;">
@@ -127,35 +127,37 @@
             <section id="pag-navegacion" ptitle="¿Cómo se navega por el sistema SAP?">
 
                 <div class="subpage">
-                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada paso para conocer las indicaciones</div>
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada paso para conocer las indicaciones</div>
 
-                    <div class="contenedor">
-                        <div class="descarga">
-                            <div class="ubicacion">
-                                <div class="numero">01</div>
+                    <div class="contenedor mouse-over-one">
+
+                        <div class="contenido descarga">
+                            <div class="numero button b1" data-ref="#pag-navegacion .descarga .contenido_sobre">01</div>
+                            <div class="contenido_sobre" style="display: none;">
                                 <p>Link de descarga del SAP LOGON:</p>
-                                <div class="boton">Descargar SAP LOGON</div>
+                                <a class="boton" href="https://www.google.com/url?q=https://www.dropbox.com/s/osz85t0y8dqi20h/SAP%2520GUI%2520for%2520Windows%25207.50%2520-%2520Compilation%25201%2520-%2520Presentation%25201.zip?dl%3D0&sa=D&ust=1585587961367000&usg=AFQjCNFh4vnUY0_5vf5D1E5VaMq-gDAIHg" target="_blank">Descargar SAP LOGON</a>
                             </div>
                         </div>
 
-                        <div class="imagen">
-                            <div class="ubicacion">
-                                <div class="numero">02</div>
+
+                        <div class="contenido imagen">
+                            <div class="numero button b2" data-ref="#pag-navegacion .imagen .contenido_sobre">02</div>
+                            <div class="contenido_sobre" style="display: none;">
                                 <p>Imagen de datos para conexión:</p>
                                 <div class="more-less viewless" data-ref="#ocultarmostrar" data-effect="explode">
                                     <span class="icon_more button">
                                     </span><span class="icon_less button"></span>
                                 </div>
-
-                                <div id="ocultarmostrar" style="display: none;">
-                                    <img src="content/tema_2_ventana_emergente_punto_02.png" alt="Propiedades de entrada de sistema" />
-                                </div>
                             </div>
+                            <div id="ocultarmostrar" style="display: none;">
+                                <img src="content/tema_2_ventana_emergente_punto_02.png" alt="Propiedades de entrada de sistema" />
+                            </div>
+                            
                         </div>
 
-                        <div class="udemy">
-                            <div class="ubicacion">
-                                <div class="numero">03</div>
+                        <div class="contenido udemy">
+                            <div class="numero button b3" data-ref="#pag-navegacion .udemy .contenido_sobre">03</div>
+                            <div class="contenido_sobre" style="display: none;">
                                 <p>Crear cuenta en UDEMY:</p>
                                 <ul>
                                     <li>Busque el curso “SAP ABAP Iniciación a la programación”.</li>
@@ -165,15 +167,17 @@
                                         <li>Obtener acceso servidor SAP.</li>
                                     </ul>
                                 </ul>
-                                <div class="boton">Ingresar a UDEMY</div>
+                                <a class="boton" href="https://www.udemy.com/sap-abap-iniciacion-a-la-programacion/learn/lecture/7808046#overview" target="_blank"><div>Ingresar a UDEMY</div></a>
                             </div>
                         </div>
 
-                        <div class="datos">
+                        <div class="contenido datos">
                             <div class="ubicacion">
-                                <div class="numero">04</div>
-                                <p>Link para obtener los datos del servidor:</p>
-                                <div class="boton">Obtener datos del servidor</div>
+                                <div class="numero button b3" data-ref="#pag-navegacion .datos .contenido_sobre">04</div>
+                                <div class="contenido_sobre" style="display: none;">
+                                    <p>Link para obtener los datos del servidor:</p>
+                                    <a class="boton" href="https://www.google.com/url?q=https://sap4practice.com/my-account/&sa=D&ust=1585587961338000&usg=AFQjCNFHXX0kLz0IY_Qn5xnvqMwB8aba1Q" target="_blank">Obtener datos del servidor</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -184,7 +188,7 @@
 
                 <div class="subpage">
 
-                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
 
                     <div class="horizontal-menu">
                         <dl>
@@ -197,7 +201,7 @@
                         <dl>
                             <dt>Elementos de una pantalla</dt>
                             <dd>
-                                <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada apuntador para leer su información</div>
+                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada apuntador para leer su información</div>
 
                                 <div class="elementos">
                                     <div class="note_pointer_left comandos">
@@ -236,7 +240,7 @@
 
                 <div class="subpage">
 
-                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
 
                     <div class="horizontal-menu">
                         <dl>
@@ -255,7 +259,7 @@
                         <dl>
                             <dt>Comandos</dt>
                             <dd>
-                                <div class="ctrl-pagination" data-layer-height="180px" data-labelcurrent="true" >
+                                <div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" >
                                     <li>
                                         <div class="comando_text">
                                             <h3>/N</h3>
@@ -315,24 +319,23 @@
         </main>
 
         <footer class="not_print">
-            <span id="labelmeasuringprogress">Avance</span>
-            <div class="measuring-progress" data-type="circle"></div>
+            <div class="measuring-progress" data-type="horizontal"></div>
 
             <nav label="General" class="globals2">
                 <menu>
                     <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
                     <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
-                    <menuitem data-global-id="library"><span><i class="ion-ios-book" data-position-at="right top"></i> <br /><label id="labelprogress">Bibliografía</label></span></menuitem>
                 </menu>
             </nav>
 
             <div id="subpages_menu">
                 <div class="button" previous-page></div>
+                <div id="page_number"></div>
                 <ul class="button" subpages-menu></ul>
                 <div class="button" next-page></div>
             </div>
 
-            <div id="page_number"></div>
+
         </footer>
 
     </div>
@@ -352,80 +355,66 @@
         <div id="credits_subpage">
             <h2>Créditos</h2>
 
-            <p>
-                Esta plantilla ha sido creada con el aporte de varias personas e instituciones, principalmente las que se definen más abajo. No obstante, utiliza varias liberías OpenSource y sus fuentes son liberadas bajo la licencia GNU/GPL v3, la cual debe estar adjunta a este paquete. Cada librería externa utilizada en este proyecto posee unas licencias y autorías particulares que deben ser respetadas. A su vez, la documentación posee una licencia Creative Commons como se denota al pie de esta página.
-            </p>
             <div>
-                <h3>Expertos temáticos</h3>
-                <cite>David Herney Bernal García<br />
-                Leidy Cristina Madrigal Arrieta</cite>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Luis Guillermo Castiblanco<br />
+                Ingeniero en Informática <br /><br />
+                Jorge Alberto Jaramillo<br />
+                Gerente técnico. Consultor SAP</cite>
             </div>
             <div>
                 <h3>Asesoría pedagógica</h3>
-                <cite>David Herney Bernal García</cite>
+                <cite>Leidy Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Carolina Llanos Tobón</cite>
             </div>
             <div>
                 <h3>Corrección de estilo</h3>
-                <cite>David Herney Bernal García</cite>
-            </div>
-            <div>
-                <h3>Traducción de contenidos</h3>
-                <cite>David Herney Bernal García</cite>
-            </div>
-            <div>
-                <h3>Gestión Administrativa</h3>
-                <cite>David Herney Bernal García</cite>
+                <cite>María José Mercado Castrillón</cite>
             </div>
             <div>
                 <h3>Diseño gráfico</h3>
-                <cite>Elizabeth Hernandez Gonzalez</cite>
+                <cite>Elizabeth Hernández González</cite>
             </div>
             <div>
                 <h3>Integración de contenidos</h3>
-                <cite>David Herney Bernal García</cite>
+                <cite>Santiago Bernal García</cite>
             </div>
-
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
             <div>
                 <h3>Producción</h3>
-                <p class="logos">
-                    <a href="http://www.udea.edu.co/" target="_blank"><img src="content/logo_udea.png" alt="UdeA" /></a>
-                    <br />
-                    <a href="http://www.udem.edu.co" target="_blank"><img src="content/logo_udem.png" alt="UdeM" /></a>
-                    <br />
-                    <a href="https://bambuco.co/" target="_blank"><img src="content/logo_bambuco.png" alt="BambuColectivo" /></a>
-                </p>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
             </div>
 
-            <div class="editions">
-                1ª edición: diciembre 2013<br />
-                2ª edición: octubre 2015<br />
-                3ª edición: febrero 2016<br />
-                4ª edición: junio 2017
+             <div class="editions">
+                1ª edición: Octubre 2019<br />
             </div>
             <div>
-                <br />
-                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Contenido publicado bajo licencia:<br />Creative Commons Atribución-Compartir Igual 4.0 Internacional<br /><br />
-                <img src="img/cc.png" alt="Creative Commons" /></a><br />
-                El software está regido por licencias específicas, siendo la por defecto GNU/GPL v3 (se incluye una copia).
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
             </div>
-
-            <p>
-                Este proyecto pretende ser útil en ambientes educativos, pero por su naturaleza también será utilizado en ambientes comerciales. Si considera que se incluye algo de su propiedad o de la institución que representa y que no desea que sea utilizado, por favor indicarlo en la página del proyecto o al correo <a href="mailto:david.bernal@bambuco.co">david.bernal@bambuco.co</a> para que se analice y, en caso de que se requiera, sea retirado.
-            </p>
-            <p>
-                Los logos y/o nombres presentes en estos créditos no pueden ser utilizados para indicar autoría de contenidos por fuera de los originales y no se atribuye ninguna responsabilidad por su utilización fuera de los agradecimientos que se otorgan en esta plantilla. Así mismo, los desarrolladores e instituciones involucradas entregan esta herramienta "como es" y no se hacen responsables por lo que se haga con ella ni por errores, fallas u otros perjuicios derivados de su utilización.
-            </p>
-        </div>
-    </div>
-
-    <!-- Bibliografía -->
-    <div id="library-page" style="display:none;">
-        <div id="library_subpage">
-            <h2>Referencias bibliográficas</h2>
-
-            <ul class="data_list">
-                <li></li>
-            </ul>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
         </div>
     </div>
 
