@@ -54,7 +54,7 @@ dhbgApp.strings = {
 
     'form_required': 'Debe diligenciar todos los campos.',
 
-    'horizontal': 'Horizontal',
+    'horizontal': 'Horizontales',
 
     'loading': 'Cargando...',
 
@@ -99,7 +99,7 @@ dhbgApp.strings = {
 
     'verify': 'Verificar',
 
-    'vertical': 'Vertical',
+    'vertical': 'Verticales',
 
     'wrong_continue': 'La actividad es incorrecta en un {0}%. Continua la actividad hasta completarla correctamente.',
 
