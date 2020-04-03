@@ -1,3 +1,8 @@
+#body {
+    padding: 0 20px;
+    max-width: 1150px;
+}
+
 .horizontal-menu > .chalkboard_content {
     height: auto;
 }
@@ -51,11 +56,11 @@
 }
 
 .esquema .navegacion div {
-    border-left: 3px solid #e67400;   
+    border-left: 3px solid #e67400;
 }
 
 .esquema .diccionario div {
-    border-left: 3px solid #fdc300;   
+    border-left: 3px solid #fdc300;
 }
 
 .esquema .tipos div {

@@ -1,3 +1,7 @@
+#open_menu {
+    display: none;
+}
+
 .horizontal-menu img {
     width: 100%;
 }
@@ -49,11 +53,11 @@
 }
 
 .esquema .navegacion div {
-    border-left: 3px solid #e67400;   
+    border-left: 3px solid #e67400;
 }
 
 .esquema .diccionario div {
-    border-left: 3px solid #fdc300;   
+    border-left: 3px solid #fdc300;
 }
 
 .esquema .tipos div {
