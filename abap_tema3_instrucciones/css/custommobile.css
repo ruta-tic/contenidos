@@ -1,0 +1,52 @@
+#body {
+    padding-top: 10px;
+}
+
+/********************************************************************************/
+/* INSTRUCCIONES
+/********************************************************************************/
+#pag-instrucciones .infografico {
+    width: 720px;
+    height: 400px;
+    background: url(../content/tema_3.png) no-repeat;
+    background-size: 100%;
+    margin: auto;
+    position: relative;
+}
+
+#pag-instrucciones .infografico .tooltip {
+    width: 145px;
+    height: 145px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+#pag-instrucciones .infografico .paso1 {
+    top: 24px;
+    left: 136px;
+}
+
+#pag-instrucciones .infografico .paso2 {
+    top: 26px;
+    left: 335px;
+}
+
+#pag-instrucciones .infografico .paso3 {
+    top: 24px;
+    left: 539px;
+}
+
+#pag-instrucciones .infografico .paso4 {
+    top: 195px;
+    left: 438px;
+}
+
+#pag-instrucciones .infografico .paso5 {
+    top: 198px;
+    left: 238px;
+}
+
+#pag-instrucciones .infografico .paso6 {
+    top: 195px;
+    left: 33px;
+}

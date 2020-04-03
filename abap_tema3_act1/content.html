@@ -4,54 +4,25 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/icon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Tema 3. Diccionario ABAP</title>
+    <title>Diccionario ABAP</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
-    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
-    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
 
@@ -97,19 +68,14 @@
 
         <header>
             <div>
-                <h1>Programación ABAP</h1>
+                <h1>Diccionario ABAP</h1>
                 <nav label="Principal" class="horizontal main" data-offset="true">
                     <menu>
-                        <menuitem label="Instrucciones" data-page="pag-instrucciones"></menuitem>
-                        <menuitem label="Componentes">
-                            <menu>
-                                <menuitem label="1. ¿Qué es el diccionario y cuáles son sus ventajas?" data-page="pag-definicion"></menuitem>
-                                <menuitem label="2. Tablas de base de datos" data-page="pag-tablas"></menuitem>
-                                <menuitem label="3. Dominio" data-page="pag-dominio"></menuitem>
-                                <menuitem label="4. Elemento de datos" data-page="pag-elemento"></menuitem>
-                                <menuitem label="5. Estructura" data-page="pag-estructura"></menuitem>
-                            </menu>
-                        </menuitem>
+                        <menuitem label="¿Qué es?" data-page="pag-definicion"></menuitem>
+                        <menuitem label="Tablas de base de datos" data-page="pag-tablas"></menuitem>
+                        <menuitem label="Dominio" data-page="pag-dominio"></menuitem>
+                        <menuitem label="Elemento de datos" data-page="pag-elemento"></menuitem>
+                        <menuitem label="Estructura" data-page="pag-estructura"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -118,21 +84,6 @@
         <main style="display: none;">
 
             <h2 class="page-title"></h2>
-
-            <section id="pag-instrucciones" ptitle="Instrucciones">
-                <div class="subpage">
-                    <p>Siga estas indicaciones para cumplir con el propósito de la actividad:</p>
-                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Ubique el cursor en</span> cada paso para ampliar la información</div>
-                    <div class="infografico">
-                        <div class="tooltip paso1" title="Lea todo el material propuesto en la actividad."></div>
-                        <div class="tooltip paso2" title="Acceda al sistema SAP."></div>
-                        <div class="tooltip paso3" title="Cree una tabla que tenga, por lo menos, 3 campos:<ol type='a'><li>La tabla debe comenzar por Z.</li><li>Luego de la Z, el nombre y apellido separados por un “_”.</li></ol>"></div>
-                        <div class="tooltip paso4" title="<ol type='a'><li>Cree un dominio.</li><li>Cree un elemento de datos.</li></ol>"></div>
-                        <div class="tooltip paso5" title="<ol type='a'><li> Realice la presentación de los objetos creados.</li><li>Comparta en el foro de socialización la presentación sobre cómo fue su realización y evidencie los objetos creados.</li></ol>"></div>
-                        <div class="tooltip paso6" title="Si no logra realizar la creación del objeto, debe ponerse en contacto con otros compañeros que hayan terminado para que logre el objetivo."></div>
-                    </div>
-                </div>
-            </section>
 
             <section id="pag-definicion" ptitle="Definición">
                 <div class="subpage">
@@ -158,23 +109,25 @@
                         </p>
                     </div>
 
-                    <span>El diccionario ofrece las siguientes ventajas:</span>
-                    <ul>
+                    <p>El diccionario ofrece las siguientes ventajas:</p>
+
+                    <div class="ctrl-pagination" data-numeric-pagination="true" data-type="a">
                         <li>Integridad de los datos.</li>
                         <li>Consistencia de los datos.</li>
                         <li>Seguridad de los datos.</li>
                         <li>Reutilización de los objetos.</li>
                         <li>Mantenimiento centralizado de los objetos.</li>
-                    </ul>
+                    </div>
 
                     <div class="box-text connection">
                         <p>A continuación, se ampliará a ampliar la información de los siguientes objetos:</p>
-                        <ul>
+                        <ul class="data_list">
                             <li>Tablas de base de datos</li>
                             <li>Dominio</li>
                             <li>Elemento de datos</li>
                             <li>Estructura</li>
                         </ul>
+
                     </div>
 
                 </div>
@@ -183,20 +136,24 @@
             <section id="pag-tablas" ptitle="Tablas de base de datos">
                 <div class="subpage">
                     <p>Son contenedores de datos que existen en la base de datos relacional subyacente. En la mayoría de los casos, hay una relación 1 a 1 entre la definición de la tabla en el diccionario ABAP y la definición de la misma tabla en la base de datos (mismo nombre, mismas columnas, etc.). Estas tablas se conocen como <strong>transparentes</strong>.</p>
-                    <span>Hay dos tipos de tablas no transparentes:</span>
+
+                    <p>Hay dos tipos de tablas no transparentes:</p>
                     <div class="accordion">
                         <h3>Pooled</h3>
                         <div>
-                            <p>Las tablas pooled son aquellas que existen como entidades independientes dentro del diccionario pero que se agrupan en unas tablas físicas largas a nivel de base de datos.</p>
+                            <p>Las tablas <strong>pooled</strong> son aquellas que existen como entidades independientes dentro del diccionario pero que se agrupan en unas tablas físicas largas a nivel de base de datos.</p>
                             <p>Las tablas combinadas son normalmente tablas pequeñas que mantienen, por ejemplo, datos de configuración.</p>
                         </div>
                         <h3>Clustered</h3>
-                        <div>Las tablas clustered están físicamente agrupadas en clusters basados en claves primarias.</div>
+                        <div>Las tablas <strong>clustered</strong> están físicamente agrupadas en clusters basados en claves primarias.</div>
                     </div>
-                    <h4>Pasos para crear una tabla transparente</h4>
+
+                    <h3>Pasos para crear una tabla transparente</h3>
+
+                    <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los seis pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
-                            
+
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
 
                             <div class="paso1">
@@ -226,15 +183,15 @@
                                     <div class="tooltip" title="La clase de entrega se selecciona en función de los tipos de datos que va contener la tabla.">4</div>
                                 </div>
                             </div>
-                            <p>Quedaría así:</p>
+                            <h4>Quedaría así:</h4>
                             <div class="centrar_img"><img src="content/tema_3-07.png" alt="Tabla" /></div>
                         </li>
                         <li>
-                            <p>En la pestaña “campos”, se añade los campos de la tabla.</p>
+                            <h4>En la pestaña “campos”, se añade los campos de la tabla.</h4>
                             <div class="centrar_img"><img src="content/tema_3-08.png" alt="Campos" /></div>
                         </li>
                         <li>
-                            <p>Antes de activar la tabla en base de datos debe configurar las opciones técnicas.</p>
+                            <h4>Antes de activar la tabla en base de datos debe configurar las opciones técnicas.</h4>
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
 
                             <div class="view-first">
@@ -247,7 +204,7 @@
                             <div class="centrar_img"><img src="content/tema_3-09b.png" alt="Propiedades generales" /></div>
                         </li>
                         <li>
-                            <p>En este momento, se puede activar la tabla en base de datos. Para no tener advertencias en la activación, configure las categorías de ampliación que puede encontrar en el menú “detalles”.</p>
+                            <h4>En este momento, se puede activar la tabla en base de datos. Para no tener advertencias en la activación, configure las categorías de ampliación que puede encontrar en el menú “detalles”.</h4>
 
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
 
@@ -282,19 +239,22 @@
                                     <div class="tooltip" title="Observe que la tabla esté activa">2</div>
                                 </div>
                             </div>
-                            <div class="box-text important" label="Importante">
-                                <p>
-                                    ¡Muy bien! Con estos pasos ya ha aprendido a crear una tabla transparente en SAP.
-                                </p>
-                            </div>
                         </li>
+                    </div>
+
+                    <div class="box-text important" label="¡Muy bien!">
+                        <p>
+                            Con estos pasos ya ha aprendido a crear una tabla transparente en SAP.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <section id="pag-dominio" ptitle="Dominio">
                 <div class="subpage">
-                    <p>Define las características estructurales de los elementos anteriormente mencionados. Por ejemplo, el elemento “precio” puede poseer un dominio que lo define como un campo numérico con dos decimales. Los dominios también pueden proporcionar contenido semántico y una posible lista de valores.</p>
+                    <div class="box-text note" label="">
+                        <p>Define las características estructurales de los elementos anteriormente mencionados. Por ejemplo, el elemento “precio” puede poseer un dominio que lo define como un campo numérico con dos decimales. Los dominios también pueden proporcionar contenido semántico y una posible lista de valores.</p>
+                    </div>
                 </div>
             </section>
 
@@ -302,9 +262,10 @@
                 <div class="subpage">
                     <p>Proporciona contenido semántico a una tabla o campo estructurado. Por ejemplo, una docena de tablas y estructuras pueden contener un campo que da un precio. Todos estos campos pueden tener el mismo elemento.</p>
 
+                    <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
-                            <ol>
+                            <ol class="ol_counter">
                                 <li>Ingrese a la transacción SE11.</li>
                                 <li>Seleccione el dominio y dé un nombre (por ejemplo, ZNOMBRE)</li>
                                 <li>Haga clic en crear.</li>
@@ -312,9 +273,10 @@
                             <div class="centrar_img"><img src="content/tema_3-13.png" alt="Seleccionar dominio" /></div>
                         </li>
                         <li>
-                            <ol start="4">
+                            <ol class="ol_counter" start="4">
                                 <li>Dé una descripción al dominio y estableza un tipo de datos y longitud del mismo.</li>
                             </ol>
+
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
                             <div class="view-first">
                                 <img src="content/tema_3-14.png" />
@@ -337,9 +299,10 @@
 
                     <h3>Pasos para crear un elemento de datos</h3>
 
+                    <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los diferentes pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
-                            <ol>
+                            <ol class="ol_counter">
                                 <li>Ingrese a la transacción SE11.</li>
                                 <li>Seleccione la opción tipo de datos, establezca un nombre y haga clic en crear. A continuación, se mostrará un una ventana emergente en la que debe seleccionar la opción elemento de datos.</li>
                             </ol>
@@ -347,7 +310,7 @@
                             <img class="tipo" src="content/tema_3-18.png" alt="Crear elemento de datos" />
                         </li>
                         <li>
-                            <ol start="3">
+                            <ol class="ol_counter" start="3">
                                 <li>Asigne una descripción y un dominio. En este caso, se asignará el que se había creado previamente.</li>
                             </ol>
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
@@ -359,7 +322,7 @@
                             </div>
                         </li>
                         <li>
-                            <ol start="4">
+                            <ol class="ol_counter" start="4">
                                 <li>En la pestaña “Denom.campo” debe crear la definición del campo al que irá asociado en la tabla. Esta descripción será la que se mostrará en la cabecera de la tabla. No olvide guardar y activar.</li>
                             </ol>
                             <div class="centrar_img"><img src="content/tema_3-23.png" alt="Crear definición" /></div>
@@ -373,9 +336,10 @@
                 <div class="subpage">
                     <p>Son tipos de datos complejos que contienen varios campos (como los struct en C/C++). Para el caso de las estructuras, se crean de igual forma que las tablas y solo cambian los siguientes pasos:</p>
 
+                    <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los diferentes pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
-                            <ol>
+                            <ol class="ol_counter">
                                 <li>Ingrese a la transacción SE11.</li>
                                 <li>Seleccione tipo de datos y escriba Z más el nombre de la estructura.</li>
                                 <li>Haga en crear y aparecerá una ventana emergente en la cual debe seleccionar la opción estructura.</li>
@@ -383,7 +347,7 @@
                             <div class="centrar_img"><img src="content/tema_3-24.png" alt="Crear estructura" /></div>
                         </li>
                         <li>
-                            <ol start="4">
+                            <ol class="ol_counter" start="4">
                                 <li>Aparecerá una pantalla similar a la de creación de tablas y, de aquí en adelante, son las mismas opciones.</li>
                             </ol>
                             <div class="centrar_img"><img src="content/tema_3-25.png" alt="Pantalla de creación de estructura" /></div>
@@ -422,8 +386,6 @@
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
         <br class="clear" />
-        <h3>Actividades de aprendizaje</h3>
-        <div id="results_page_activities"></div>
     </div>
 
     <!--Créditos-->
@@ -479,7 +441,7 @@
             </div>
 
              <div class="editions">
-                1ª edición: Octubre 2019<br />
+                1ª edición: Marzo 2020<br />
             </div>
             <div>
                 <p>
