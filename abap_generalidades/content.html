@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Presentación del curso</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
+    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+<!--jQuery components -->
+    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
+
+    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
+<!--End jQuery components -->
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
+    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
+    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512" autoload="true">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
+            </menu>
+        </nav>
+
+        <main style="display: none;">
+
+            <h1>Presentación del curso</h1>
+
+            <section id="pag-inicio" ptitle="Presentación del curso">
+
+                <div class="subpage">
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>Justificación</dt>
+                            <dd>
+                                <img src="content/presentacion.png" alt="Presentación" />
+                                <p>Con este curso, enfocado en los conceptos básicos del lenguaje de programación ABAP, se espera que los estudiantes afiancen conocimientos y se familiaricen con este nuevo entorno tecnológico que deviene con el software SAP. Adicionalmente, se aspira a que estén preparados para continuar con el proceso de formación ABAP y, posteriormente, con la certificación SAP, los cuales se realizarán en las instalaciones de Perceptio de manera presencial.</p>
+                                <p>Este curso virtual es una plataforma de lanzamiento profesional que abre las puertas del mundo laboral a sus estudiantes. Es el punto de partida para obtener todo el espectro de conocimiento ABAP y la vinculación directa a SAP mediante la certificación oficial. Este curso permitirá que los estudiantes obtengan una preparación más balanceada, lo que hará que su rendimiento para la empresa sea mejor.</p>
+                                <p>La experiencia de cohortes anteriores permite asegurar que las personas que han recorrido este camino, avalan con satisfacción sus resultados a nivel de posicionamiento en el mercado laboral y desde la mejora salarial, lo cual ha impactado sus vidas de forma positiva en el ámbito personal y profesional.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Objetivos de aprendizaje</dt>
+                            <dd>
+                                <div class="objetivos">
+                                    <h4>Objetivo general</h4>
+                                    <p>Enseñar los conceptos básicos del lenguaje de programación ABAP mediante un curso virtual en el cual los estudiantes se preparen para continuar el proceso de certificación SAP con nuestra empresa Perceptio.</p>
+
+                                    <h4>Objetivos específicos</h4>
+                                    <ul>
+                                        <li>Mostrar la ruta y el material específico para lograr la certificación SAP.</li>
+                                        <li>Explicar la arquitectura, las tecnologías de comunicación, la integración y la navegación en SAP.</li>
+                                        <li>Explicar el significado de una transacción y las variables del sistema disponibles durante la ejecución.</li>
+                                        <li>Enseñar el diccionario de datos, sus elementos y su alcance en un sistema SAP.</li>
+                                        <li>Enunciar los tipos de programas disponibles y hacer énfasis en el programa ejecutable (Tipo 1).</li>
+                                        <li>Enseñar las sentencias Open SQL y su aplicación en operaciones con bases de datos.</li>
+                                    </ul>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Esquema de contenidos</dt>
+                            <dd>
+                                <p>Los temas que se abordarán en este curso son:</p>
+                                <div class="esquema">
+                                    <div class="titulo"><h4>Introducción a la programación ABAP</h4></div>
+                                    <div class="contenido">
+                                        <div class="conceptos arquitectura">
+                                            <div class="concepto">Arquitectura</div>
+                                            <div class="flecha"><button class="down_pointer"></button></div>
+                                            <div class="preguntas">
+                                                <ol class="ol_counter">
+                                                    <li>¿Opciones de instalación para un servidor SAP?</li>
+                                                    <li>¿Qué son las capas en la Arquitectura SAP?</li>
+                                                    <li>¿Cómo funcionan los procesos de trabajo?</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                        <div class="conceptos navegacion">
+                                            <div class="concepto">Navegación</div>
+                                            <div class="flecha"><button class="down_pointer"></button></div>
+                                            <div class="preguntas">
+                                                <ol class="ol_counter">
+                                                    <li>¿Cómo se navega por el sistema SAP?</li>
+                                                    <li>¿Cuáles son los elementos comunes de una pantalla SAP?</li>
+                                                    <li>¿Qué ayudas del sistema tengo disponibles?</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                        <div class="conceptos diccionario">
+                                            <div class="concepto">Diccionario ABAP</div>
+                                            <div class="flecha"><button class="down_pointer"></button></div>
+                                            <div class="preguntas">
+                                                <ol class="ol_counter">
+                                                    <li>¿Qué es el diccionario y cuáles son sus ventajas?</li>
+                                                    <li>¿Qué es una tabla?</li>
+                                                    <li>¿Qué es un elemento de datos?</li>
+                                                    <li>¿Qué es un dominio?</li>
+                                                    <li>¿Qué es una estructura?</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                        <div class="conceptos tipos">
+                                            <div class="concepto">Tipos de programas</div>
+                                            <div class="flecha"><button class="down_pointer"></button></div>
+                                            <div class="preguntas">
+                                                <ol class="ol_counter">
+                                                    <li>¿Cuáles son los tipos de programas ABAP?</li>
+                                                    <li>¿Cómo crear un programa ABAP?</li>
+                                                    <li>¿Qué eventos tiene un programa?</li>
+                                                    <li>¿Cómo puedo crear una pantalla con sentencias ABAP?</li>
+                                                    <li>¿Cómo activar programas ABAP?</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                        <div class="conceptos sql">
+                                            <div class="concepto">Open SQL</div>
+                                            <div class="flecha"><button class="down_pointer"></button></div>
+                                            <div class="preguntas">
+                                                <ol class="ol_counter">
+                                                    <li>¿Qué es OPEN SQL?</li>
+                                                    <li>¿Cuáles son las sentencias OPEN SQL?</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
