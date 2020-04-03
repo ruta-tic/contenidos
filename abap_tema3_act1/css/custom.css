@@ -1,0 +1,175 @@
+.centrar_img {
+    text-align: center;
+}
+
+nav.horizontal ul.menu > li {
+    display: flex;
+    align-items: self-end;
+    justify-content: center;
+}
+
+.view-first .mask {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-first .mask p {
+    font-size: 25px;
+    line-height: 35px;
+}
+
+/********************************************************************************/
+/* DEFINICION
+/********************************************************************************/
+#pag-definicion .view-first {
+    max-width: 500px;
+    margin: auto;
+}
+
+#pag-definicion .view-first img {
+    width: 100%;
+}
+
+#pag-definicion .ctrl-pagination li.layer {
+    font-size: 26px;
+    text-align: center;
+}
+
+/********************************************************************************/
+/* TABLAS DE BASE DE DATOS
+/********************************************************************************/
+#pag-tablas .ctrl-pagination .paso1 {
+    background: url(../content/tema_3-05.png) no-repeat;
+    background-size: 500px;
+    width: 500px;
+    height: 450px;
+    margin: auto;
+    position: relative;
+}
+
+#pag-tablas .ctrl-pagination .note_pointer_right,
+#pag-tablas .ctrl-pagination .note_pointer_left {
+    text-align: center;
+}
+
+#pag-tablas .ctrl-pagination .paso1 .note_1 {
+    top: 100px;
+    left: 340px;
+}
+
+#pag-tablas .ctrl-pagination .paso1 .note_2 {
+    top: 370px;
+    left: 430px;
+}
+
+#pag-tablas .ctrl-pagination .paso2 {
+    background: url(../content/tema_3-06.png) no-repeat;
+    background-size: 700px;
+    width: 700px;
+    height: 370px;
+    margin: auto;
+    position: relative;
+}
+
+#pag-tablas .ctrl-pagination .paso2 .note_1 {
+    top: 75px;
+    left: 210px;
+}
+
+#pag-tablas .ctrl-pagination .paso2 .note_2 {
+    top: 125px;
+    left: 125px;
+}
+
+#pag-tablas .ctrl-pagination .paso2 .note_3 {
+    top: 152px;
+    left: 657px;
+}
+
+#pag-tablas .ctrl-pagination .paso2 .note_4a {
+    top: 152px;
+    left: 413px;
+}
+
+#pag-tablas .ctrl-pagination .paso2 .note_4b {
+    top: 152px;
+    left: 400px;
+}
+
+#pag-tablas .ctrl-pagination img {
+    max-width: 600px;
+}
+
+#pag-tablas .ctrl-pagination .paso5a {
+    background: url(../content/tema_3-10.png) no-repeat;
+    background-size: 500px;
+    width: 500px;
+    height: 190px;
+    margin: auto;
+    position: relative;
+}
+
+#pag-tablas .ctrl-pagination .paso5a .note_1 {
+    top: -3px;
+    left: 158px;
+}
+
+#pag-tablas .ctrl-pagination .paso5a .note_2 {
+    top: 105px;
+    left: 311px;
+}
+
+#pag-tablas .ctrl-pagination .paso5b {
+    background: url(../content/tema_3-11.png) no-repeat;
+    background-size: 500px;
+    width: 500px;
+    height: 240px;
+    margin: auto;
+    position: relative;
+}
+
+#pag-tablas .ctrl-pagination .paso5b .note_1 {
+    top: 62px;
+    left: 154px;
+}
+
+#pag-tablas .ctrl-pagination .paso5b .note_2 {
+    top: 187px;
+    left: 325px;
+}
+
+#pag-tablas .ctrl-pagination .paso6 {
+    background: url(../content/tema_3-12.png) no-repeat;
+    background-size: 600px;
+    width: 600px;
+    height: 365px;
+    margin: auto;
+    position: relative;
+}
+
+#pag-tablas .ctrl-pagination .paso6 .note_1 {
+    top: 25px;
+    left: 97px;
+}
+
+#pag-tablas .ctrl-pagination .paso6 .note_2 {
+    top: 68px;
+    left: 320px;
+}
+
+/********************************************************************************/
+/* ELEMENTO DE DATOS - ESTRUCTURA
+/********************************************************************************/
+
+#pag-estructura .ctrl-pagination img,
+#pag-elemento .ctrl-pagination img {
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+#pag-estructura .ctrl-pagination .tipo,
+#pag-elemento .ctrl-pagination .tipo {
+    max-width: 400px;
+}
+
