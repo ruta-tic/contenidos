@@ -103,3 +103,44 @@
 .esquema .sql .concepto:before {
     right: 50%;
 }
+
+.tutores {
+    background-color: #e5e5e5;
+}
+
+.tutores .col-2 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.tutores .col-2 > div {
+    padding-right: 10px;
+}
+
+.tutores h4 {
+    margin: 0;
+}
+
+.tutores img {
+    min-width: 40%;
+}
+
+.tutores i {
+    font-size: 37px;
+    line-height: 0;
+    margin: 0 10px 0 0;
+}
+
+.tutores .correo,
+.tutores .telefono {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.tutores .telefono strong {
+    font-style: normal;
+}
