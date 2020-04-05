@@ -4,54 +4,25 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/icon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Tema 2. Navegación SAP</title>
+    <title>Navegación SAP</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
-    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
-    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
 
@@ -97,17 +68,12 @@
 
         <header>
             <div>
-                <h2>Programación ABAP</h2>
+                <h2>Navegación SAP</h2>
                 <nav label="Principal" class="horizontal main" data-offset="true">
                     <menu>
-                        <menuitem label="Indicaciones" data-page="pag-indicaciones"></menuitem>
-                        <menuitem label="Componentes">
-                            <menu>
-                                <menuitem label="¿Cómo se navega por el sistema SAP?" data-page="pag-navegacion"></menuitem>
-                                <menuitem label="¿Cuáles son los elementos comunes de una pantalla SAP?" data-page="pag-elementos"></menuitem>
-                                <menuitem label="¿Qué ayudas del sistema tengo disponibles?" data-page="pag-ayudas"></menuitem>
-                            </menu>
-                        </menuitem>
+                        <menuitem label="Navegación" data-page="pag-navegacion"></menuitem>
+                        <menuitem label="Elementos de pantalla" data-page="pag-elementos"></menuitem>
+                        <menuitem label="Ayudas del sistema" data-page="pag-ayudas"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -116,13 +82,6 @@
         <main style="display: none;">
 
             <h2 class="page-title"></h2>
-
-            <section id="pag-indicaciones" ptitle="Indicaciones">
-                <div class="subpage" id="indicaciones">
-                    <p>Siga estas indicaciones para cumplir con el propósito de la actividad:</p>
-                    <div><img src="content/tema_2_esquema_de_contenidos.png" alt="Indicaciones" /></div>
-                </div>
-            </section>
 
             <section id="pag-navegacion" ptitle="¿Cómo se navega por el sistema SAP?">
 
@@ -133,7 +92,7 @@
 
                         <div class="contenido descarga">
                             <div class="numero button b1" data-ref="#pag-navegacion .descarga .contenido_sobre">01</div>
-                            <div class="contenido_sobre" style="display: none;">
+                            <div class="contenido_sobre">
                                 <p>Link de descarga del SAP LOGON:</p>
                                 <a class="boton" href="https://www.google.com/url?q=https://www.dropbox.com/s/osz85t0y8dqi20h/SAP%2520GUI%2520for%2520Windows%25207.50%2520-%2520Compilation%25201%2520-%2520Presentation%25201.zip?dl%3D0&sa=D&ust=1585587961367000&usg=AFQjCNFh4vnUY0_5vf5D1E5VaMq-gDAIHg" target="_blank">Descargar SAP LOGON</a>
                             </div>
@@ -144,25 +103,19 @@
                             <div class="numero button b2" data-ref="#pag-navegacion .imagen .contenido_sobre">02</div>
                             <div class="contenido_sobre" style="display: none;">
                                 <p>Imagen de datos para conexión:</p>
-                                <div class="more-less viewless" data-ref="#ocultarmostrar" data-effect="explode">
-                                    <span class="icon_more button">
-                                    </span><span class="icon_less button"></span>
-                                </div>
+                                <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                <div class="expand-image" data-src="content/tema_2_ventana_emergente_punto_02.png" title="Propiedades de entrada de sistema"></div>
                             </div>
-                            <div id="ocultarmostrar" style="display: none;">
-                                <img src="content/tema_2_ventana_emergente_punto_02.png" alt="Propiedades de entrada de sistema" />
-                            </div>
-                            
                         </div>
 
                         <div class="contenido udemy">
                             <div class="numero button b3" data-ref="#pag-navegacion .udemy .contenido_sobre">03</div>
                             <div class="contenido_sobre" style="display: none;">
                                 <p>Crear cuenta en UDEMY:</p>
-                                <ul>
+                                <ul class="data_list">
                                     <li>Busque el curso “SAP ABAP Iniciación a la programación”.</li>
                                     <li>Seleccione:</li>
-                                    <ul>
+                                    <ul class="data_list">
                                         <li>Sección 2: ABAP – Conceptos.</li>
                                         <li>Obtener acceso servidor SAP.</li>
                                     </ul>
@@ -194,8 +147,10 @@
                         <dl>
                             <dt>Menú easy screen</dt>
                             <dd>
+                                <div class="box-text note" label="">
+                                    <p>Esta es la primera pantalla que se observa al conectarse a un sistema SAP.</p>
+                                </div>
                                 <img src="content/tema_2-06.png" alt="Primera pantalla SAP" />
-                                <p>Esta es la primera pantalla que se observa al conectarse a un sistema SAP.</p>
                             </dd>
                         </dl>
                         <dl>
@@ -252,8 +207,10 @@
                         <dl>
                             <dt>SE80</dt>
                             <dd>
+                                <div class="box-text note" label="">
+                                    <p>Por la SE80 se ingresa al Object Navigator. Esta es la transacción central donde se puede acceder a la parte técnica de SAP.</p>
+                                </div>
                                 <img src="content/tema_2_se80.png" alt="SE80" />
-                                <p>Por la SE80 se ingresa al Object Navigator. Esta es la transacción central donde se puede acceder a la parte técnica de SAP.</p>
                             </dd>
                         </dl>
                         <dl>
@@ -346,8 +303,6 @@
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
         <br class="clear" />
-        <h3>Actividades de aprendizaje</h3>
-        <div id="results_page_activities"></div>
     </div>
 
     <!--Créditos-->
@@ -403,7 +358,7 @@
             </div>
 
              <div class="editions">
-                1ª edición: Octubre 2019<br />
+                1ª edición: Marzo 2020<br />
             </div>
             <div>
                 <p>

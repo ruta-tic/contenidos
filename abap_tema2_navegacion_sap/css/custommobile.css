@@ -1,3 +1,11 @@
+#expand_image_content {
+    display: block;
+}
+
+.expand-image {
+    margin: auto;
+}
+
 /********************************************************************************/
 /* INSTRUCCIONES
 /********************************************************************************/
@@ -13,24 +21,19 @@
 /* MENU
 /********************************************************************************/
 #pag-navegacion .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 70px;
-    min-height: 400px;
+    margin-top: 10px;
 }
 
 #pag-navegacion .contenedor .contenido:first-child:before {
     left: 50%;
-} 
+}
 
 #pag-navegacion .contenedor .contenido:last-child:before {
     right: 50%;
-} 
+}
 
 #pag-navegacion .contenedor .contenido {
     position: relative;
-    width: 200px;
     text-align: center;
 }
 
@@ -42,16 +45,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 40px;
     color: #000;
     border-radius: 50%;
     background-color: #fff;
     width: 80px;
     height: 80px;
-    position: absolute;
-    top: -50px;
-    left: 70px;
+    margin: 10px auto 0;
 }
 
 #pag-navegacion .contenedor .boton {
@@ -68,7 +68,7 @@
 }
 
 #pag-navegacion .contenedor .descarga .boton:hover {
-    background-color: #3a9d9e;   
+    background-color: #3a9d9e;
     cursor: pointer;
 }
 
@@ -76,6 +76,7 @@
     width: 200px;
     color: #fff;
     padding: 50px 20px 30px;
+    margin: auto;
 }
 
 #pag-navegacion .contenedor .descarga .contenido_sobre {
@@ -97,18 +98,28 @@
 }
 
 #pag-navegacion .contenedor .imagen img {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 #pag-navegacion .contenedor .udemy .contenido_sobre {
     background-color: #a7d092;
     text-align: left;
     padding: 50px 20px 0px;
+    color: #374051;
+}
+
+#pag-navegacion .contenedor .udemy .contenido_sobre > ul {
+    padding-left: 5px;
+}
+
+#pag-navegacion .contenedor .udemy .contenido_sobre > ul ul {
+    padding-left: 30px;
 }
 
 #pag-navegacion .contenedor .udemy .boton div {
     background-color: #bbd9a9;
     padding: 10px 15px;
+    color: #374051;
 }
 
 #pag-navegacion .contenedor .udemy .boton div:hover {
