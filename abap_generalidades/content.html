@@ -7,51 +7,22 @@
     <title>Presentación del curso</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
-    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
-    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
 
@@ -84,16 +55,6 @@
 <body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512" autoload="true">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
-
-        <nav label="Características globales" class="globals">
-            <menu>
-                <menuitem data-global-id="return">
-                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
-                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
-                </menuitem>
-                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
-            </menu>
-        </nav>
 
         <main style="display: none;">
 
@@ -212,24 +173,6 @@
 
         </main>
 
-    </div>
-
-    <div id="results_page" style="display:none;">
-        <h2>Resumen de su avance en la lectura del documento</h2>
-        <h3>Páginas visitadas</h3>
-        <p>En verde, aquellas páginas que ya ha visitado.</p>
-        <div id="results_page_visited" class="container"></div>
-        <br class="clear" />
-        <h3>Actividades de aprendizaje</h3>
-        <div id="results_page_activities"></div>
-    </div>
-
-    <div id="printent_content" style="display:none;">
-        <div class="content"></div>
-        <div class="button_container">
-            <button class="general button" onclick="window.print();">Imprimir</button>
-            <button id="printent_back" class="general button" >Volver</button>
-        </div>
     </div>
 
 </body>
