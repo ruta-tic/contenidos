@@ -1,3 +1,7 @@
+nav.globals2 {
+    margin-left: auto;
+}
+
 html.single h2 {
     padding-left: 15px;
 }
@@ -5,29 +9,42 @@ html.single h2 {
 .centrar-img {
     text-align: center;
 }
-/********************************************************************************/
-/* INSTRUCCIONES
-/********************************************************************************/
-#indicaciones div {
-    text-align: center;
+
+pre {
+    background-color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #f9ebb2;
+    display: inline-block;
 }
 
-#indicaciones img {
-    max-width: 720px;
+pre em {
+    color: #3365ab;
+    text-decoration: none;
 }
 
+pre b {
+    color: #43b6ff;
+    font-weight: normal;
+}
+
+pre string {
+    color: #79bf5d;
+    display: inline;
+}
 /********************************************************************************/
 /* DEFINICION
 /********************************************************************************/
-#definicion .definicion {
+#definicion .definicion > div {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 #definicion .definicion p {
-    max-width: 680px;
-    padding-right: 10px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 28px;
 }
 
 #definicion .logo_sql {
@@ -40,7 +57,7 @@ html.single h2 {
 #definicion .logo_sql span {
     padding: 10px;
     font-size: 16px;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 

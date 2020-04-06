@@ -1,57 +1,28 @@
 <!DOCTYPE html>
-<html class="single"><!-- class="single"-->
+<html class="single">
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/icon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Tema 5. OPEN SQL, la llave de la base de datos</title>
+    <title>OPEN SQL, la llave de la base de datos</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_quiz.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_mark.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_wordpuzzle.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
-    <link href="components/pit/css/jpit_zoom.css" rel="stylesheet" type="text/css">
-    <link href="components/csscircle/circle.min.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
-
-<!--jQuery components -->
-    <script src="components/twentytwenty/js/jquery.event.move.js" type="text/javascript"></script>
-    <script src="components/twentytwenty/js/jquery.twentytwenty.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/twentytwenty/css/twentytwenty.css" type="text/css" media="screen" />
-
-    <script src="components/mediaelementjs/mediaelement-and-player.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="components/mediaelementjs/mediaelementplayer.css" type="text/css" />
-
-    <script src="components/maphilight/jquery.maphilight.min.js" type="text/javascript"></script>
-<!--End jQuery components -->
 
     <script src="components/interact/interact.min.js"></script>
     <script src="components/pit/jpit_api.js"></script>
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
-    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
-    <script src="components/pit/activity/mark/jpit_activity_mark.js"></script>
-    <script src="components/pit/activity/wordpuzzle/jpit_activity_wordpuzzle.js"></script>
-    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
-    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
-    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
-    <script src="components/pit/activity/form/jpit_activity_form.js"></script>
-    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
-    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
-    <script src="components/pit/resources/movi/jpit_resource_movi.js"></script>
-    <script src="components/pit/resources/zoom/jpit_resource_zoom.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
     <script src="js/lang.es.js"></script>
     <script src="js/lib.js"></script>
     <script src="js/mobilelib.js"></script>
-    <script src="js/stories.js"></script>
     <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
     <script src="components/scorm/scorm_api.js"> </script>
 
@@ -97,8 +68,7 @@
 
         <header>
             <div>
-                <h1>Programación ABAP</h1>
-                
+                <h1>OPEN SQL, la llave de la base de datos</h1>
             </div>
         </header>
 
@@ -107,58 +77,77 @@
             <h2 class="page-title"></h2>
 
             <section>
-                <div class="subpage" id="indicaciones">
-                    <p>Siga estas indicaciones para cumplir con el propósito de la actividad:</p>
-                    <div class="centrar-img"><img src="content/tema_5_infografico.png" alt="Indicaciones" /></div>
-                </div>
-            
-                <div class="subpage" id="definicion">
-                        <h2>1. ¿Qué es OPEN SQL?</h2>
-                    <div class="definicion">
-                        <div class="logo_sql">
-                            <div></div>
-                            <span>OPEN SQL</span>
-                        </div>
-                        <p>OPEN SQL es un derivado SQL patentado que proviene de la compañía SAP. Esta última tiene la intención de proporcionar un dialecto SQL unificado para todas las bases de datos compatibles con SAP. OPEN SQL es parte del lenguaje de programación ABAP y también cuenta con una versión para Java.</p>
-                    </div>
 
+                <div class="subpage" id="definicion">
+                    <h2>¿Qué es OPEN SQL?</h2>
+
+                    <div class="row definicion">
+                        <div class="col-2">
+                            <div class="logo_sql">
+                                <div></div>
+                                <span>OPEN SQL</span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <p>OPEN SQL es un derivado SQL patentado que proviene de la compañía SAP. Esta última tiene la intención de proporcionar un dialecto SQL unificado para todas las bases de datos compatibles con SAP. OPEN SQL es parte del lenguaje de programación ABAP y también cuenta con una versión para Java.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="subpage" id="sentencias">
-                    <h2>2. ¿Cuáles son las sentencias OPEN SQL?</h2>
+                    <h2>¿Cuáles son las sentencias OPEN SQL?</h2>
                     <h3>Sentencias OPEN SQL</h3>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
-                            <p>Estas sentencias permiten manipular datos dentro de las tablas.</p>
-                            <p>El MODIFY y el INSERT, ingresan nuevos registros a la base de datos, sin embargo, la diferencia está en que el MODIFY lo crea si no existe y, si existe, lo modifica.</p>
+                            <p>Estas sentencias permiten consultar valores en la base de datos.</p>
+                            <p>Luego del FROM, debe ir la tabla de la cual se quiere consultar.</p>
                             <div class="centrar-img"><img src="content/tema_5-02.png" alt="SELECT" /></div>
                         </li>
                         <li>
-                            <p>Estas sentencias permiten consultar valores en la base de datos.</p>
-                            <p>Luego del FROM, debe ir la tabla de la cual se quiere consultar.</p>
+                            <p>Estas sentencias permiten manipular datos dentro de las tablas.</p>
+                            <p>El MODIFY y el INSERT, ingresan nuevos registros a la base de datos, sin embargo, la diferencia está en que el MODIFY lo crea si no existe y, si existe, lo modifica.</p>
                             <div class="centrar-img"><img src="content/tema_5-03.png" alt="INSERT, UPDATE, MODIFY y DELETE" /></div>
                         </li>
                     </div>
+                    <p>&nbsp;</p>
                     <h3>Sentencias para el manejo de datos en ejecución</h3>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
                             <h4>Work Areas</h4>
                             <p>Es un grupo de varios campos que sirven para manejar información en ejecución (capa de aplicación), por ejemplo, un arreglo en Java.</p>
                             <p>Estructura que puede crearse en el programa ABAP o Ser Global en el diccionario.</p>
-                            <div class="centrar-img"><img src="content/tema_5-04.png" alt="Estructura que puede crearse en el programa ABAP o Ser Global en el diccionario" /></div>
+<pre>
+<em>TYPES</em>: <em>BEGIN OF</em> lty_prueba,
+        nombre(<b>30</b>)     <em>TYPE</em> c,
+        apellidos(<b>30</b>)  <em>TYPE</em> c,
+        dni(<b>30</b>)        <em>TYPE</em> c,
+    <em>END OF</em> lty_prueba.
+</pre>
                             <p>Work Area del tipo de la estructura:</p>
-                            <div class="centrar-img"><img src="content/tema_5-05.png" alt="Work Area del tipo de la estructura" /></div>
+
+<pre>
+<em>DATA</em>: lwa_prueba <em>TYPE</em> lty_prueba.
+</pre>
                         </li>
                         <li>
                             <h4>Tablas internas</h4>
-                            <div class="centrar-img"><img src="content/tema_5-06.png" alt="Tabla" /></div>
+<pre>
+<em>DATA</em>: lti_prueba <em>TYPE STANDARD TABLE OF</em> lty_prueba.
+</pre>
                             <p>Las tablas internas son variables dinámicas compuestas de N líneas del mismo tipo. Cualquier tipo de datos ABAP puede ser usado para hacer un tipo de línea de la tabla interna.</p>
                             <p>En esta podemos almacenar cada uno de los registros traídos de la tabla de base de datos Se realiza así:</p>
-                            <div class="centrar-img"><img src="content/tema_5-07.png" alt="Tabla" /></div>
+<pre>
+<em>SELECT</em> campos
+    <em>FROM</em> Tabla
+    <em>INTO TABLE</em> lti_prueba
+    <em>WHERE</em> condicion.
+</pre>
                         </li>
                         <li>
                             <h4>Write</h4>
-                            <div class="centrar-img"><img src="content/tema_5-10.png" alt="Write" /></div>
+<pre>
+<em>WRITE</em>: <string>'Estos son los datos de salida'</string>, lwa_prueba-campo1, lwa_prueba-campo2, lwa_prueba-campo3.
+</pre>
                             <p>Esta sentencia permite imprimir datos en un programa, sin embargo, para imprimir los registros de la base de datos, es necesario consultarlos con un SELECT y luego leerlos con un READ.</p>
                             <p>Para ver los registros de una tabla debe ingresar en la transacción SE16N, hacer clic en ENTER, ingresar el nombre de la tabla y hacer clic en F8.</p>
                             <div class="centrar-img"><img src="content/tema_5-08.png" alt="Ver registros" /></div>
@@ -169,15 +158,13 @@
                 </div>
 
             </section>
-            
+
         </main>
 
         <footer class="not_print">
-            <div class="measuring-progress" data-type="horizontal"></div>
 
             <nav label="General" class="globals2">
                 <menu>
-                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
                     <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
                 </menu>
             </nav>
@@ -199,9 +186,6 @@
         <h3>Páginas visitadas</h3>
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
-        <br class="clear" />
-        <h3>Actividades de aprendizaje</h3>
-        <div id="results_page_activities"></div>
     </div>
 
     <!--Créditos-->
@@ -257,7 +241,7 @@
             </div>
 
              <div class="editions">
-                1ª edición: Octubre 2019<br />
+                1ª edición: Marzo 2020<br />
             </div>
             <div>
                 <p>

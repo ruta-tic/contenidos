@@ -1,6 +1,30 @@
 .centrar-img img {
     width: 100%;
 }
+
+pre {
+    background-color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #f9ebb2;
+    display: inline-block;
+}
+
+pre em {
+    color: #3365ab;
+    text-decoration: none;
+}
+
+pre b {
+    color: #43b6ff;
+    font-weight: normal;
+}
+
+pre string {
+    color: #79bf5d;
+    display: inline;
+}
+
 /********************************************************************************/
 /* INSTRUCCIONES
 /********************************************************************************/
@@ -35,7 +59,7 @@
 #definicion .logo_sql span {
     padding: 10px;
     font-size: 16px;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 
