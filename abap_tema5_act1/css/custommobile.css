@@ -1,0 +1,72 @@
+.centrar-img img {
+    width: 100%;
+}
+
+pre {
+    background-color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #f9ebb2;
+    display: inline-block;
+}
+
+pre em {
+    color: #3365ab;
+    text-decoration: none;
+}
+
+pre b {
+    color: #43b6ff;
+    font-weight: normal;
+}
+
+pre string {
+    color: #79bf5d;
+    display: inline;
+}
+
+/********************************************************************************/
+/* INSTRUCCIONES
+/********************************************************************************/
+#indicaciones div {
+    text-align: center;
+}
+
+#indicaciones img {
+    max-width: 720px;
+}
+/********************************************************************************/
+/* DEFINICION
+/********************************************************************************/
+#definicion .definicion {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#definicion .definicion p {
+    max-width: 680px;
+    padding-right: 10px;
+}
+
+#definicion .logo_sql {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+#definicion .logo_sql span {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+#definicion .logo_sql div {
+    background: #fa7564 url(../content/tema_5_open_sql.png) no-repeat 0 10px;
+    background-size: 120px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
