@@ -30,8 +30,19 @@ html.single h2 {
 }
 
 #definicion img {
-    float: right;
-    width: 400px;
+    max-width: 100%;
+}
+
+#definicion .col-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#definicion .col-2:first-child p {
+    font-size: 28px;
+    line-height: 32px;
+    text-align: center;
 }
 /********************************************************************************/
 /* ¿Cómo crear un programa en SAP con ABAP?
@@ -102,7 +113,7 @@ html.single h2 {
 
 #crear .contenido_sobre {
     padding: 60px 20px 10px;
-    text-align: justify;
+    text-align: center;
     top: 60px;
     position: absolute;
     width: 180px;
@@ -257,8 +268,8 @@ html.single h2 {
     background-color: #b3cf94;
 }
 
-#tipo .element { 
+#tipo .element {
     padding: 25px;
-    height: 270px; 
-    overflow: auto; 
+    height: 270px;
+    overflow: auto;
 }

@@ -29,6 +29,12 @@
     max-width: 100%;
 }
 
+#definicion .col-2:first-child p {
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+}
+
 /********************************************************************************/
 /* ¿Cómo crear un programa en SAP con ABAP?
 /********************************************************************************/
@@ -97,7 +103,7 @@
 
 #crear .contenido_sobre {
     padding: 60px 20px 10px;
-    text-align: justify;
+    text-align: center;
     top: 60px;
     position: absolute;
     width: 180px;
@@ -224,6 +230,6 @@
     background-color: #b3cf94;
 }
 
-#tipo .element { 
+#tipo .element {
     padding: 25px;
 }
