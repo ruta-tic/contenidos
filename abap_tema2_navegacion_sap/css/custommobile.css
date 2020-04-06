@@ -1,0 +1,243 @@
+#expand_image_content {
+    display: block;
+}
+
+.expand-image {
+    margin: auto;
+}
+
+/********************************************************************************/
+/* INSTRUCCIONES
+/********************************************************************************/
+#indicaciones div {
+    text-align: center;
+}
+
+#indicaciones img {
+    max-width: 720px;
+}
+
+/********************************************************************************/
+/* MENU
+/********************************************************************************/
+#pag-navegacion .contenedor {
+    margin-top: 10px;
+}
+
+#pag-navegacion .contenedor .contenido:first-child:before {
+    left: 50%;
+}
+
+#pag-navegacion .contenedor .contenido:last-child:before {
+    right: 50%;
+}
+
+#pag-navegacion .contenedor .contenido {
+    position: relative;
+    text-align: center;
+}
+
+#pag-navegacion .contenedor .descarga .b1 {
+    border: solid 10px #009081;
+}
+
+#pag-navegacion .contenedor .numero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #000;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 80px;
+    height: 80px;
+    margin: 10px auto 0;
+}
+
+#pag-navegacion .contenedor .boton {
+    padding: 10px 15px;
+    width: 80%;
+    height: 40px;
+    color: #fff;
+    text-decoration:none;
+    text-align: center;
+}
+
+#pag-navegacion .contenedor .descarga .boton {
+    background-color: #78bdbf;
+}
+
+#pag-navegacion .contenedor .descarga .boton:hover {
+    background-color: #3a9d9e;
+    cursor: pointer;
+}
+
+#pag-navegacion .contenedor .contenido .contenido_sobre {
+    width: 200px;
+    color: #fff;
+    padding: 50px 20px 30px;
+    margin: auto;
+}
+
+#pag-navegacion .contenedor .descarga .contenido_sobre {
+    background-color: #40adb0;
+}
+
+#pag-navegacion .contenedor .imagen .contenido_sobre {
+    background-color: #60a381;
+}
+
+#pag-navegacion .contenedor .imagen .numero {
+    border: solid 10px #0b8053;
+}
+
+#pag-navegacion .imagen .more-less .icon_more {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 6px 13px 6px 12px;
+}
+
+#pag-navegacion .contenedor .imagen img {
+    max-width: 600px;
+}
+
+#pag-navegacion .contenedor .udemy .contenido_sobre {
+    background-color: #a7d092;
+    text-align: left;
+    padding: 50px 20px 0px;
+    color: #374051;
+}
+
+#pag-navegacion .contenedor .udemy .contenido_sobre > ul {
+    padding-left: 5px;
+}
+
+#pag-navegacion .contenedor .udemy .contenido_sobre > ul ul {
+    padding-left: 30px;
+}
+
+#pag-navegacion .contenedor .udemy .boton div {
+    background-color: #bbd9a9;
+    padding: 10px 15px;
+    color: #374051;
+}
+
+#pag-navegacion .contenedor .udemy .boton div:hover {
+    background-color: #9bbc86;
+    cursor: pointer;
+}
+
+#pag-navegacion .contenedor .udemy .numero {
+    border: solid 10px #5eb55f;
+}
+
+#pag-navegacion .contenedor .datos .boton {
+    background-color: #fcc253;
+    padding: 10px 5px;
+}
+
+#pag-navegacion .contenedor .datos .boton:hover {
+    background-color: #dc9919;
+    cursor: pointer;
+}
+
+#pag-navegacion .contenedor .datos .contenido_sobre {
+    background-color: #f9b21a;
+}
+
+#pag-navegacion .contenedor .datos .numero {
+    border: solid 10px #f18501;
+}
+
+/********************************************************************************/
+/* TEMAS
+/********************************************************************************/
+
+.horizontal-menu img {
+    max-width: 100%;
+}
+
+.horizontal-menu .elementos {
+    background: url(../content/tema_2_elementos_de_pantalla.png) no-repeat;
+    width: 720px;
+    height: 540px;
+    background-size: 720px;
+    position: relative;
+    margin: auto;
+}
+
+.horizontal-menu .elementos .note_pointer_left {
+    background: transparent;
+    background-position: 100px;
+    color: transparent;
+}
+
+.horizontal-menu .elementos .comandos {
+    left: 145px;
+    top: 45px;
+    width: 83px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .menus {
+    left: 549px;
+    top: 10px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .titulo {
+    top: 67px;
+    width: 74px;
+    max-height: 22px;
+    left: 433px;
+}
+
+.horizontal-menu .elementos .pulsadores {
+    top: 91px;
+    left: 345px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .herramientas {
+    top: 47px;
+    left: 534px;
+    width: 151px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .etiquetas {
+    top: 163px;
+    left: 193px;
+    width: 75px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .entrada {
+    top: 209px;
+    left: 244px;
+    width: 85px;
+    max-height: 22px;
+}
+
+.horizontal-menu .elementos .status {
+    top: 505px;
+    left: 477px;
+    width: 74px;
+    max-height: 22px;
+}
+
+.horizontal-menu .ctrl-pagination li {
+    display: flex;
+}
+
+.horizontal-menu .ctrl-pagination li .comando_text {
+    width: 50%;
+}
+
+.horizontal-menu .ctrl-pagination .comando {
+    max-width: 50%;
+    position: absolute;
+    right: 0;
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Navegación SAP</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <div>
+                <h2>Navegación SAP</h2>
+                <nav label="Principal" class="horizontal main" data-offset="true">
+                    <menu>
+                        <menuitem label="Navegación" data-page="pag-navegacion"></menuitem>
+                        <menuitem label="Elementos de pantalla" data-page="pag-elementos"></menuitem>
+                        <menuitem label="Ayudas del sistema" data-page="pag-ayudas"></menuitem>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-navegacion" ptitle="¿Cómo se navega por el sistema SAP?">
+
+                <div class="subpage">
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada paso para conocer las indicaciones</div>
+
+                    <div class="contenedor mouse-over-one">
+
+                        <div class="contenido descarga">
+                            <div class="numero button b1" data-ref="#pag-navegacion .descarga .contenido_sobre">01</div>
+                            <div class="contenido_sobre">
+                                <p>Link de descarga del SAP LOGON:</p>
+                                <a class="boton" href="https://www.dropbox.com/s/osz85t0y8dqi20h/SAP%20GUI%20for%20Windows%207.50%20-%20Compilation%201%20-%20Presentation%201.zip?dl=0" target="_blank">Descargar SAP LOGON</a>
+                            </div>
+                        </div>
+
+
+                        <div class="contenido imagen">
+                            <div class="numero button b2" data-ref="#pag-navegacion .imagen .contenido_sobre">02</div>
+                            <div class="contenido_sobre" style="display: none;">
+                                <p>Imagen de datos para conexión:</p>
+                                <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                <div class="expand-image" data-src="content/tema_2_ventana_emergente_punto_02.png" title="Propiedades de entrada de sistema"></div>
+                            </div>
+                        </div>
+
+                        <div class="contenido udemy">
+                            <div class="numero button b3" data-ref="#pag-navegacion .udemy .contenido_sobre">03</div>
+                            <div class="contenido_sobre" style="display: none;">
+                                <p>Crear cuenta en UDEMY:</p>
+                                <ul class="data_list">
+                                    <li>Busque el curso “SAP ABAP Iniciación a la programación”.</li>
+                                    <li>Seleccione:</li>
+                                    <ul class="data_list">
+                                        <li>Sección 2: ABAP – Conceptos.</li>
+                                        <li>Obtener acceso servidor SAP.</li>
+                                    </ul>
+                                </ul>
+                                <a class="boton" href="https://www.udemy.com/sap-abap-iniciacion-a-la-programacion/learn/lecture/7808046#overview" target="_blank"><div>Ingresar a UDEMY</div></a>
+                            </div>
+                        </div>
+
+                        <div class="contenido datos">
+                            <div class="ubicacion">
+                                <div class="numero button b3" data-ref="#pag-navegacion .datos .contenido_sobre">04</div>
+                                <div class="contenido_sobre" style="display: none;">
+                                    <p>Link para obtener los datos del servidor:</p>
+                                    <a class="boton" href="https://sap4practice.com/my-account/" target="_blank">Obtener datos del servidor</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-elementos" ptitle="¿Cuáles son los elementos comunes de una pantalla SAP?">
+
+                <div class="subpage">
+
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>Menú easy screen</dt>
+                            <dd>
+                                <div class="box-text note" label="">
+                                    <p>Esta es la primera pantalla que se observa al conectarse a un sistema SAP.</p>
+                                </div>
+                                <img src="content/tema_2-06.png" alt="Primera pantalla SAP" />
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Elementos de una pantalla</dt>
+                            <dd>
+                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada apuntador para leer su información</div>
+
+                                <div class="elementos">
+                                    <div class="note_pointer_left comandos">
+                                        <div class="tooltip" title="Sirve para ingresar todas las transacciones a fin de navegar en diferentes programas.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left menus">
+                                        <div class="tooltip" title="Muestra los botones de cerrar, minimizar y maximizar.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left titulo">
+                                        <div class="tooltip" title="Muestra el título de la transacción o proceso que se está trabajando.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left pulsadores">
+                                        <div class="tooltip" title="Muestra aquellos botones que, luego de ser presionados, generan una acción determinada (por ejemplo: imprimir).">.</div>
+                                    </div>
+                                    <div class="note_pointer_left herramientas">
+                                        <div class="tooltip" title="Muestra los botones atrás, cancelar y salir, y las herramientas varias.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left etiquetas">
+                                        <div class="tooltip" title="Se identifican como pestañas.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left entrada">
+                                        <div class="tooltip" title="Sirve para ingresar parámetros.">.</div>
+                                    </div>
+                                    <div class="note_pointer_left status">
+                                        <div class="tooltip" title="Indica los datos del sistema en el que se está conectado.">.</div>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pag-ayudas" ptitle="¿Qué ayudas del sistema tengo disponibles?">
+
+                <div class="subpage">
+
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tema para leer su información</div>
+
+                    <div class="horizontal-menu">
+                        <dl>
+                            <dt>Transacciones para navegar</dt>
+                            <dd>
+                                <img src="content/tema_2_transacciones_para_navegar.png" alt="Transacciones para navegar" />
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>SE80</dt>
+                            <dd>
+                                <div class="box-text note" label="">
+                                    <p>Por la SE80 se ingresa al Object Navigator. Esta es la transacción central donde se puede acceder a la parte técnica de SAP.</p>
+                                </div>
+                                <img src="content/tema_2_se80.png" alt="SE80" />
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>Comandos</dt>
+                            <dd>
+                                <div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" >
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/N</h3>
+                                            <p>Para cancelar la transacción en curso.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_1.png" alt="/N" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/Nxxxx</h3>
+                                            <p>Para llamar la transacción xxxx directamente desde otra transacción. Sin el prefijo solo se puede llamar xxxx desde la pantalla SAP Easy Access.</p>
+                                        </div>
+                                        <img class="comando"  src="content/tema_2_comando1.png" alt="/Nxxxx" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/o</h3>
+                                            <p>Para visualizar el resumen de las sesiones de SAP GUI en su ordenador.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_comando2.png" alt="/o" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/oxxxx</h3>
+                                            <p>Para llamar la transacción xxxx en una ventana nueva.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_comando3.png" alt="/oxxxx" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/NEND</h3>
+                                            <p>Para finalizar la sesión con una ventana de diálogo de confirmación.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_comando4.png" alt="/NEND" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>INEX</h3>
+                                            <p>Para finalizar la sesión sin una ventana de diálogo de confirmación.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_comando5.png" alt="INEX" />
+                                    </li>
+                                    <li>
+                                        <div class="comando_text">
+                                            <h3>/l</h3>
+                                            <p>Para borrar la ventana que se está utilizando actualmente.</p>
+                                        </div>
+                                        <img class="comando" src="content/tema_2_comando6.png" alt="/l" />
+                                    </li>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <div id="page_number"></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Luis Guillermo Castiblanco<br />
+                Ingeniero en Informática <br /><br />
+                Jorge Alberto Jaramillo<br />
+                Gerente técnico. Consultor SAP</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Leidy Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Carolina Llanos Tobón</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+             <div class="editions">
+                1ª edición: Marzo 2020<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
