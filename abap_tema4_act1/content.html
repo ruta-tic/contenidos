@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html><!-- class="single"-->
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tipos de programas</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand maximize"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink minimize"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled"></i></menuitem>
+            </menu>
+        </nav>
+
+        <header>
+            <div>
+                <h1>Tipos de programas ABAP</h1>
+                <nav label="Principal" class="horizontal main" data-offset="true">
+                    <menu>
+                        <menuitem label="Definición" data-page="pag-def"></menuitem>
+                        <menuitem label="Crear un programa" data-page="pag-crear"></menuitem>
+                        <menuitem label="Tipos de programas " data-page="pag-tipos"></menuitem>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-def" ptitle="¿Qué es un programa ABAP?">
+
+                <div class="subpage" id="definicion">
+
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Es una secuencia de instrucciones escritas para realizar una tarea específica en una computadora mediante sentencias de lenguaje ABAP.</p>
+                        </div>
+                        <div class="col-2">
+                            <img src="content/03imagen.png" alt="Secuencia de instrucciones" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pag-crear" ptitle="¿Cómo crear un programa en SAP con ABAP?">
+                <div class="subpage" id="crear">
+                    <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
+                        <li>
+                            <ol class="ol_counter">
+                                <li>Ingrese a SAP por medio del SAP LOGON.</li>
+                                <li>Escriba en el campo de comandos la <a href="http://www.cvosoft.com/acceso/index.php?c=2#transacci%C3%B3n" target="_blank">transacción SE38</a> y presione enter.</li>
+                            </ol>
+                            <div class="gif"><img src="content/gif1.gif" alt="Secuencia de instrucciones" /></div>
+                        </li>
+                        <li>
+                            <ol class="ol_counter" start="3">
+                                <li>Visualice el editor ABAP y escriba allí el nombre del programa que va a crear. Recuerde que debe empezar con Z, luego presione el botón <em>Create</em>.</li>
+                            </ol>
+                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
+                            <div class="programa">
+                                <div class="note_pointer_left note_1">
+                                    <div class="tooltip" title="Escribir el nombre del programa, el cual debe empezar con <strong>Z</strong>.">1</div>
+                                </div>
+                                <div class="note_pointer_left note_2">
+                                    <div class="tooltip" title="Hacer clic en este botón.">2</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ol class="ol_counter" start="4">
+                                <li>Aparecerá una ventana que le va a pedir:</li>
+                            </ol>
+
+                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada elemento para conocer su descripción.</div>
+                            <div class="creacion">
+                                <h4>Título y tipo en la creación de un programa ABAP</h4>
+                                <div class="titulo">
+                                    <div class="mouse-over" data-ref="#crear .titulo .contenido_sobre">Título</div>
+                                    <div class="contenido_sobre" style="display: none;">
+                                        <p>Debe ser lo más descriptivo posible. En este caso será “Mi primer programa ABAP”.</p>
+                                    </div>
+                                </div>
+                                <div class="tipo">
+                                    <div class="mouse-over"  data-ref="#crear .tipo .contenido_sobre">Tipo</div>
+                                    <div class="contenido_sobre" style="display: none;">
+                                        <p>Se refiere al tipo de objeto que se está creando. Generalmente, será “Programa ejecutable”.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ol class="ol_counter" start="5">
+                                <li>Presione grabar y el sistema, en una nueva ventana, le solicitará que ingrese el paquete o clase de desarrollo. Luego, haga clic en el botón objeto local, que es lo mismo que escribir $TMP y presione grabar de nuevo.</li>
+                                <li>Escriba el siguiente código en el editor: <strong>WRITE: “Este es mi primer programa en ABAP”.</strong></li>
+                                <div class="gif"><img src="content/gif2.gif" alt="Este es mi primer programa en ABAP" /></div>
+                                <li>Luego, presione el botón <em>Activate</em>, el cual compilará y activará el programa.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <div class="box-text important" label="Tenga en cuenta que:">
+                                <ul class="data_list">
+                                    <li>Todas las sentencias en ABAP terminan con un punto.</li>
+                                    <li>ABAP no distingue entre minúsculas y mayúsculas.</li>
+                                    <li>Una sentencia ABAP puede ocupar más de una línea.</li>
+                                    <li>Las cadenas de texto se escriben entre comillas simples.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <ol class="ol_counter" start="8">
+                                <li>Una vez compilado y sin errores, ejecútelo con el botón correspondiente o presione la tecla F8. </li>
+                                <div class="gif"><img src="content/gif3.gif" alt="Ejecutar" /></div>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol class="ol_counter" start="9">
+                                <li>La pantalla de salida que visualizará será la siguiente:</li>
+                                <div class="centrar-img"><img src="content/06captura2.png" alt="Mi primer programa ABAP"></div>
+                            </ol>
+                        </li>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-tipos" ptitle="¿Qué tipos de programas ABAP existen?">
+                <div class="subpage" id="tipo">
+
+                    <p>Existen dos tipos de programas: los ejecutables y los no ejecutables.</p>
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada elemento para conocer su descripción.</div>
+                    <div class="contenedor">
+                        <h3>Tipos de programas <strong>ABAP</strong></h3>
+                        <div class="mouse-over-one">
+                            <div class="titulo"><div>Programas</div></div>
+                            <div class="button b1 current" data-ref="#tipo .ejec">Ejecu-<br />tables</div>
+                            <div class="button b2" data-ref="#tipo .no-ejec">No ejecu-<br />tables</div>
+                            <img src="content/07_infografia_imagen.png" alt="Programas" />
+                        </div>
+                        <div class="contenido_sobre">
+                            <div class="element ejec" style="display: none">
+                                <h4>Reportes</h4>
+                                <p>Siguen un modelo de programación relativamente simple, donde el usuario introduce una serie de parámetros y el programa los usa para producir reportes en forma de lista interactiva. El término reportes puede llevar a un equívoco, puesto que los reportes pueden ser diseñados para modificar datos. La razón por la que estos programas se llaman reportes es la “lista-orientada” que producen como salida.</p>
+                                <h4>Module pool</h4>
+                                <p>Definen patrones más complejos de interacción con el usuario a través de una colección de pantallas. El término pantalla se refiere a la imagen física que los usuarios pueden ver. Cada pantalla tiene un flujo lógico, el cual se refiere al código implícito de ABAP invocado por esta. Así mismo, cada flujo se divide en PBO (Process Before Output) y PAI (Process after Input). En la documentación de SAP el término dynpro (programa dinámico) se refiere a la combinación entre las pantallas y el flujo lógico.</p>
+                            </div>
+                            <div class="element no-ejec" style="display: none">
+                                <h4>Include module</h4>
+                                <p>Incluye el tiempo de generación en la unidad de llamada. Esto es usado en ocasiones para subdividir programas muy largos. </p>
+                                <h4>Subroutine pools</h4>
+                                <p>Contienen subrutinas ABAP (bloques de código cerrados por FORM/ENDFORM e invocados por PERFORM).</p>
+                                <h4>Functions groups</h4>
+                                <p>Son librerías de módulos de funciones (encerradas entre FUNCTION/ENDFUNCTION e invocadas por CALL FUNCTION).</p>
+                                <h4>Object clases e interfaces</h4>
+                                <p>Son similares a las clases e interfaces de Java. Las primeras definen una serie de métodos y atributos, y las segundas contienen la definición de los métodos. Para cada una de las clases implementadas se debe ofrecer el código de la misma.</p>
+                                <h4>Type pools</h4>
+                                <p>Definen una colección de datos, tipos y constantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
+
+            <nav label="General" class="globals2">
+                <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
+                    <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
+                </menu>
+            </nav>
+
+            <div id="subpages_menu">
+                <div class="button" previous-page></div>
+                <div id="page_number"></div>
+                <ul class="button" subpages-menu></ul>
+                <div class="button" next-page></div>
+            </div>
+
+
+        </footer>
+
+    </div>
+
+    <div id="results_page" style="display:none;">
+        <h2>Resumen de su avance en la lectura del documento</h2>
+        <h3>Páginas visitadas</h3>
+        <p>En verde, aquellas páginas que ya ha visitado.</p>
+        <div id="results_page_visited" class="container"></div>
+        <br class="clear" />
+    </div>
+
+    <!--Créditos-->
+    <div id="credits-page" style="display:none;">
+        <div id="credits_subpage">
+            <h2>Créditos</h2>
+
+            <div>
+                <h3>Investigación y desarrollo de contenidos</h3>
+                <cite>Luis Guillermo Castiblanco<br />
+                Ingeniero en Informática <br /><br />
+                Jorge Alberto Jaramillo<br />
+                Gerente técnico. Consultor SAP</cite>
+            </div>
+            <div>
+                <h3>Asesoría pedagógica</h3>
+                <cite>Marcela Palacio Ortíz</cite>
+            </div>
+            <div>
+                <h3>Guionización</h3>
+                <cite>Carolina Llanos Tobón</cite>
+            </div>
+            <div>
+                <h3>Corrección de estilo</h3>
+                <cite>María José Mercado Castrillón</cite>
+            </div>
+            <div>
+                <h3>Diseño gráfico</h3>
+                <cite>Elizabeth Hernández González</cite>
+            </div>
+            <div>
+                <h3>Integración de contenidos</h3>
+                <cite>Santiago Bernal García</cite>
+            </div>
+            <div>
+                <h3>Revisión de calidad</h3>
+                <cite>Mauricio Arboleda</cite>
+            </div>
+            <div>
+                <h3>Gestión técnica y administrativa</h3>
+                <cite>David Herney Bernal García <br />
+                Maribel Salazar Estrada </cite>
+            </div>
+            <div>
+                <h3>Producción</h3>
+                <div class="logos">
+                    <a href="https://www.perceptio.co/" target="_blank"><img src="img/logoperceptio.png" alt="Perceptio" /></a>
+                    <a href="https://www.udea.edu.co/" target="_blank"><img src="img/logo-udea.png" alt="UdeA" /></a>
+                    <a href="https://www.colciencias.gov.co/" target="_blank"><img src="img/colciencias.png" alt="Colciencias" /></a>
+                    <a href="https://antioquia.gov.co/" target="_blank"><img src="img/logoberna.png" alt="Gobernación de Antioquia" /></a>
+                    <p>Financiado por el Fondo de CTeI del Sistema General de Regalías.</p>
+                </div>
+            </div>
+
+             <div class="editions">
+                1ª edición: Marzo 2020<br />
+            </div>
+            <div>
+                <p>
+                    Contenido publicado bajo licencia:<br />
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribución 4.0 Internacional<br /><br />
+                    <img src="img/cc.png" alt="Creative Commons" /></a>
+                </p>
+            </div>
+            <div>
+                <p>OVA producido en <a href="https://github.com/davidherney/tepuy/" target="_blank">Tepuy - Plantilla para contenido interactivo</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
