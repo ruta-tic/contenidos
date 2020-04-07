@@ -3,9 +3,15 @@
 }
 
 nav.horizontal ul.menu > li {
-    display: flex;
-    align-items: self-end;
-    justify-content: center;
+    display: inline-table;
+    float: none;
+}
+
+nav.horizontal ul.menu > li.active:before,
+nav.horizontal ul.menu li.current:before,
+nav.horizontal ul.submenu > li.active:before,
+nav.horizontal ul.submenu > li.current:before {
+    background-color: transparent;
 }
 
 .view-first .mask {
@@ -162,12 +168,14 @@ nav.horizontal ul.menu > li {
 /* ELEMENTO DE DATOS - ESTRUCTURA
 /********************************************************************************/
 
+#pag-dominio .ctrl-pagination img,
 #pag-estructura .ctrl-pagination img,
 #pag-elemento .ctrl-pagination img {
     max-width: 600px;
     margin: 10px auto;
 }
 
+#pag-dominio .ctrl-pagination .tipo,
 #pag-estructura .ctrl-pagination .tipo,
 #pag-elemento .ctrl-pagination .tipo {
     max-width: 400px;
