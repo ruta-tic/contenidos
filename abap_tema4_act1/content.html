@@ -72,8 +72,8 @@
                 <nav label="Principal" class="horizontal main" data-offset="true">
                     <menu>
                         <menuitem label="Definición" data-page="pag-def"></menuitem>
-                        <menuitem label="Crear un programa" data-page="pag-crear"></menuitem>
                         <menuitem label="Tipos de programas " data-page="pag-tipos"></menuitem>
+                        <menuitem label="Crear un programa" data-page="pag-crear"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -97,6 +97,44 @@
                     </div>
 
                 </div>
+            </section>
+
+            <section id="pag-tipos" ptitle="¿Qué tipos de programas ABAP existen?">
+                <div class="subpage" id="tipo">
+
+                    <p>Existen dos tipos de programas: los ejecutables y los no ejecutables.</p>
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada elemento para conocer su descripción.</div>
+                    <div class="contenedor">
+                        <h3>Tipos de programas <strong>ABAP</strong></h3>
+                        <div class="mouse-over-one">
+                            <div class="titulo"><div>Programas</div></div>
+                            <div class="button b1 current" data-ref="#tipo .ejec">Ejecu-<br />tables</div>
+                            <div class="button b2" data-ref="#tipo .no-ejec">No ejecu-<br />tables</div>
+                            <img src="content/07_infografia_imagen.png" alt="Programas" />
+                        </div>
+                        <div class="contenido_sobre">
+                            <div class="element ejec" style="display: none">
+                                <h4>Reportes</h4>
+                                <p>Siguen un modelo de programación relativamente simple, donde el usuario introduce una serie de parámetros y el programa los usa para producir reportes en forma de lista interactiva. El término reportes puede llevar a un equívoco, puesto que los reportes pueden ser diseñados para modificar datos. La razón por la que estos programas se llaman reportes es la “lista-orientada” que producen como salida.</p>
+                                <h4>Module pool</h4>
+                                <p>Definen patrones más complejos de interacción con el usuario a través de una colección de pantallas. El término pantalla se refiere a la imagen física que los usuarios pueden ver. Cada pantalla tiene un flujo lógico, el cual se refiere al código implícito de ABAP invocado por esta. Así mismo, cada flujo se divide en PBO (Process Before Output) y PAI (Process after Input). En la documentación de SAP el término dynpro (programa dinámico) se refiere a la combinación entre las pantallas y el flujo lógico.</p>
+                            </div>
+                            <div class="element no-ejec" style="display: none">
+                                <h4>Include module</h4>
+                                <p>Incluye el tiempo de generación en la unidad de llamada. Esto es usado en ocasiones para subdividir programas muy largos. </p>
+                                <h4>Subroutine pools</h4>
+                                <p>Contienen subrutinas ABAP (bloques de código cerrados por FORM/ENDFORM e invocados por PERFORM).</p>
+                                <h4>Functions groups</h4>
+                                <p>Son librerías de módulos de funciones (encerradas entre FUNCTION/ENDFUNCTION e invocadas por CALL FUNCTION).</p>
+                                <h4>Object clases e interfaces</h4>
+                                <p>Son similares a las clases e interfaces de Java. Las primeras definen una serie de métodos y atributos, y las segundas contienen la definición de los métodos. Para cada una de las clases implementadas se debe ofrecer el código de la misma.</p>
+                                <h4>Type pools</h4>
+                                <p>Definen una colección de datos, tipos y constantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
             <section id="pag-crear" ptitle="¿Cómo crear un programa en SAP con ABAP?">
@@ -177,44 +215,6 @@
                         </li>
                     </div>
                 </div>
-            </section>
-
-            <section id="pag-tipos" ptitle="¿Qué tipos de programas ABAP existen?">
-                <div class="subpage" id="tipo">
-
-                    <p>Existen dos tipos de programas: los ejecutables y los no ejecutables.</p>
-                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada elemento para conocer su descripción.</div>
-                    <div class="contenedor">
-                        <h3>Tipos de programas <strong>ABAP</strong></h3>
-                        <div class="mouse-over-one">
-                            <div class="titulo"><div>Programas</div></div>
-                            <div class="button b1 current" data-ref="#tipo .ejec">Ejecu-<br />tables</div>
-                            <div class="button b2" data-ref="#tipo .no-ejec">No ejecu-<br />tables</div>
-                            <img src="content/07_infografia_imagen.png" alt="Programas" />
-                        </div>
-                        <div class="contenido_sobre">
-                            <div class="element ejec" style="display: none">
-                                <h4>Reportes</h4>
-                                <p>Siguen un modelo de programación relativamente simple, donde el usuario introduce una serie de parámetros y el programa los usa para producir reportes en forma de lista interactiva. El término reportes puede llevar a un equívoco, puesto que los reportes pueden ser diseñados para modificar datos. La razón por la que estos programas se llaman reportes es la “lista-orientada” que producen como salida.</p>
-                                <h4>Module pool</h4>
-                                <p>Definen patrones más complejos de interacción con el usuario a través de una colección de pantallas. El término pantalla se refiere a la imagen física que los usuarios pueden ver. Cada pantalla tiene un flujo lógico, el cual se refiere al código implícito de ABAP invocado por esta. Así mismo, cada flujo se divide en PBO (Process Before Output) y PAI (Process after Input). En la documentación de SAP el término dynpro (programa dinámico) se refiere a la combinación entre las pantallas y el flujo lógico.</p>
-                            </div>
-                            <div class="element no-ejec" style="display: none">
-                                <h4>Include module</h4>
-                                <p>Incluye el tiempo de generación en la unidad de llamada. Esto es usado en ocasiones para subdividir programas muy largos. </p>
-                                <h4>Subroutine pools</h4>
-                                <p>Contienen subrutinas ABAP (bloques de código cerrados por FORM/ENDFORM e invocados por PERFORM).</p>
-                                <h4>Functions groups</h4>
-                                <p>Son librerías de módulos de funciones (encerradas entre FUNCTION/ENDFUNCTION e invocadas por CALL FUNCTION).</p>
-                                <h4>Object clases e interfaces</h4>
-                                <p>Son similares a las clases e interfaces de Java. Las primeras definen una serie de métodos y atributos, y las segundas contienen la definición de los métodos. Para cada una de las clases implementadas se debe ofrecer el código de la misma.</p>
-                                <h4>Type pools</h4>
-                                <p>Definen una colección de datos, tipos y constantes.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </section>
 
         </main>
