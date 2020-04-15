@@ -169,14 +169,12 @@ nav.horizontal ul.submenu > li.current:before {
 /********************************************************************************/
 
 #pag-dominio .ctrl-pagination img,
-#pag-estructura .ctrl-pagination img,
 #pag-elemento .ctrl-pagination img {
     max-width: 600px;
     margin: 10px auto;
 }
 
 #pag-dominio .ctrl-pagination .tipo,
-#pag-estructura .ctrl-pagination .tipo,
 #pag-elemento .ctrl-pagination .tipo {
     max-width: 400px;
 }
