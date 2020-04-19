@@ -17,6 +17,9 @@
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/check/jpit_activity_check.js"></script>
+    <script src="components/pit/activity/quiz/jpit_activity_quiz.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
@@ -52,7 +55,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
@@ -91,45 +94,169 @@
                     <div class="contenedor mouse-over-one">
 
                         <div class="contenido descarga">
-                            <div class="numero button b1" data-ref="#pag-navegacion .descarga .contenido_sobre">01</div>
-                            <div class="contenido_sobre">
-                                <p>Link de descarga del SAP LOGON:</p>
+                            <div class="numero button b1" data-ref="#pag-navegacion .descarga .contenido_sobre"><span>Paso <strong>1</strong></span></div>
+                            <div class="contenido_sobre" style="display: none;">
+                                <h4>Paso 1. Descargar SAP LOGON</h4>
+                                <p>Para comenzar, descargue SAP LOGON haciendo clic en el siguiente botón:</p>
                                 <a class="boton" href="https://www.dropbox.com/s/osz85t0y8dqi20h/SAP%20GUI%20for%20Windows%207.50%20-%20Compilation%201%20-%20Presentation%201.zip?dl=0" target="_blank">Descargar SAP LOGON</a>
                             </div>
                         </div>
 
 
                         <div class="contenido imagen">
-                            <div class="numero button b2" data-ref="#pag-navegacion .imagen .contenido_sobre">02</div>
+                            <div class="numero button b2" data-ref="#pag-navegacion .imagen .contenido_sobre"><span>Paso <strong>2</strong></span></div>
                             <div class="contenido_sobre" style="display: none;">
-                                <p>Imagen de datos para conexión:</p>
-                                <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
-                                <div class="expand-image" data-src="content/tema_2_ventana_emergente_punto_02.png" title="Propiedades de entrada de sistema"></div>
-                            </div>
-                        </div>
+                                <div class="ctrl-pagination ">
+                                    <li>
+                                        <h4>Paso 2. Configurar datos del servidor de SAP en el SAP Logon</h4>
+                                        <p>Para configurar los datos del servidor de SAP en el SAP Logon, ejecute las siguientes instrucciones:</p>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <ul class="data_list">
+                                                    <li>Ingrese al enlace: <a href="https://www.udemy.com/course/sap-abap-iniciacion-a-la-programacion/learn/lecture/7119832#overview" target="_blank">https://www.udemy.com/[...]</a></li>
+                                                    <li>Suscríbase con el correo personal.</li>
+                                                    <li>Busque el curso SAP ABAP Iniciación a la programación.</li>
+                                                    <li>Seleccione “Sección 2: ABAP – conceptos” / “Obtener acceso servidor SAP”.</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-2">
+                                                <p>Observará lo que se muestra en la siguiente imagen:</p>
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
 
-                        <div class="contenido udemy">
-                            <div class="numero button b3" data-ref="#pag-navegacion .udemy .contenido_sobre">03</div>
-                            <div class="contenido_sobre" style="display: none;">
-                                <p>Crear cuenta en UDEMY:</p>
-                                <ul class="data_list">
-                                    <li>Busque el curso “SAP ABAP Iniciación a la programación”.</li>
-                                    <li>Seleccione:</li>
-                                    <ul class="data_list">
-                                        <li>Sección 2: ABAP – Conceptos.</li>
-                                        <li>Obtener acceso servidor SAP.</li>
-                                    </ul>
-                                </ul>
-                                <a class="boton" href="https://www.udemy.com/sap-abap-iniciacion-a-la-programacion/learn/lecture/7808046#overview" target="_blank"><div>Ingresar a UDEMY</div></a>
-                            </div>
-                        </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <ul class="data_list">
+                                                    <li>Siga los pasos para establecer los datos del servidor.</li>
+                                                    <li>Ingrese al SAP Logon y configúrelo de la siguiente manera: Ubíquese en la carpeta Local, haga clic derecho y seleccione la opción “Añadir nueva subcarpeta”.</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Aparecerá una ventana para agregar la subcarpeta, debe escribir el nombre de la nueva carpeta como se muestra en la imagen:</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box_media">
+                                                    <img src="content/.png" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Una vez creada la nueva carpeta, haga clic derecho sobre ella y elija la opción “Añadir nueva entrada” / “Conexión”</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Aparecerá la pantalla para crear una nueva entrada de sistema. Haga clic en el botón “Continuar”.</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Llene los datos que ha entregado Udemy para el servidor.</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Haga clic en terminar.</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="box-text note" label="Nota">
+                                            <p>
+                                                Los datos de la imagen son de referencia. Para obtener sus datos de conexión debe realizar el proceso usted mismo.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Ingrese al SAP Logon con su usuario y contraseña nuevos, así:</p>
+                                                <ul class="data_list">
+                                                    <li>Haga doble clic en la nueva conexión creada.</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>Aparecerá la pantalla de ingreso. Ingrese el usuario y contraseña que le dio Udemy, como se observa en la imagen:</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                                <div class="expand-image" data-src="content/.png" title=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="box-text example" label="Ejemplo">
+                                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
+                                            <div class="expand-image" data-src="content/.png" title=""></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <p>El sistema pedirá cambio de clave.</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="box_media">
+                                                    <img src="content/.png" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box-text important" label="¡Recuerde!">
+                                            <p>
+                                                La nueva clave debe ser con una letra mayúscula, números y debe contar con un mínimo de 8 caracteres.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>Al cambiar la contraseña, podrá ver la pantalla inicial conectada al sistema SAP.</p>
+                                        <div class="box_media">
+                                            <img src="content/.png" alt="" />
+                                        </div>
+                                    </li>
 
-                        <div class="contenido datos">
-                            <div class="ubicacion">
-                                <div class="numero button b3" data-ref="#pag-navegacion .datos .contenido_sobre">04</div>
-                                <div class="contenido_sobre" style="display: none;">
-                                    <p>Link para obtener los datos del servidor:</p>
-                                    <a class="boton" href="https://sap4practice.com/my-account/" target="_blank">Obtener datos del servidor</a>
                                 </div>
                             </div>
                         </div>
@@ -147,10 +274,9 @@
                         <dl>
                             <dt>Menú easy screen</dt>
                             <dd>
-                                <div class="box-text note" label="">
-                                    <p>Esta es la primera pantalla que se observa al conectarse a un sistema SAP.</p>
-                                </div>
-                                <img src="content/tema_2-06.png" alt="Primera pantalla SAP" />
+                                <p>Después de iniciar sesión en un sistema SAP, la primera pantalla siempre será SAP Easy Access, la cual tiene en el lado izquierdo los menús correspondientes en una estructura de árbol. Veamos en qué consiste cada menú:</p>
+<!-- Ajustar imagen con tooltip -->                                
+                                <img src="content/.png" alt="Primera pantalla SAP" />
                             </dd>
                         </dl>
                         <dl>
@@ -191,7 +317,7 @@
                 </div>
             </section>
 
-            <section id="pag-ayudas" ptitle="¿Cómo ejecutar una transacción?">
+            <section id="pag-ayudas" ptitle="¿Qué ayudas del sistema tengo disponibles?">
 
                 <div class="subpage">
 
@@ -201,21 +327,99 @@
                         <dl>
                             <dt>Transacciones para navegar</dt>
                             <dd>
-                                <img src="content/tema_2_transacciones_para_navegar.png" alt="Transacciones para navegar" />
+                                <p>
+                                    Una transacción es un nombre o código único que se asigna a un programa ABAP y se utiliza para la ejecución de este. Puede ser de dos tipos:
+                                </p>
+                                <img src="content/.png" alt="Transacciones para navegar" />
+<!-- Ajustar imagen con tooltip 
+                                <p><strong>Transacción Estándar:</strong> fue creada por SAP y viene instalada en el sistema.</p>
+                                <p><strong>Transacción Personalizada:</strong> fue creada por la organización y se identifica porque debe iniciar por las letras Y o Z.</p>
+-->
+                                <p>Las transacciones técnicas más comunes y utilizadas por un consultor ABAP son:</p>
+                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada nombre para leer su descripción</div>
+                                <div class="accordion">
+                                    <h3>SE80 Navegador de objetos:</h3>
+                                    <div>
+                                        <p>sirve para crear, modificar y visualizar los objetos técnicos ABAP, tales como programas, paquetes, clases, servicios web, módulos de funciones, entre otros.</p>
+                                    </div>
+                                    <h3>SE38 Editor ABAP:</h3>
+                                    <div>
+                                        <p>sirve para crear, modificar y visualizar programas ABAP.</p>
+                                    </div>
+                                    <h3>SE93 Mantenimiento de transacciones:</h3>
+                                    <div>
+                                        <p>sirve para crear, modificar y visualizar transacciones.</p>
+                                    </div>
+                                    <h3>SE11 Diccionario ABAP:</h3>
+                                    <div>
+                                        <p>sirve para crear, modificar y visualizar los objetos centrales y globales del sistema SAP, tales como tablas de base de datos, vistas, elementos de datos, estructuras, dominios, entre otros.</p>
+                                    </div>
+                                    <h3>SE16N Visor de tablas de base de datos:</h3>
+                                    <div>
+                                        <p>sirve para visualizar los datos almacenados en las tablas que componen la base de datos.</p>
+                                    </div>
+                                </div>
+
+                                <div class="box-text note" label="Nota">
+                                    <p>
+                                        Ingrese a su sistema SAP, ejecute las transacciones mencionadas y navegue por las opciones para que empiece a reconocerlas.
+                                    </p>
+                                </div>
                             </dd>
                         </dl>
                         <dl>
-                            <dt>SE80</dt>
+                            <dt>Ayudas al sistema</dt>
                             <dd>
-                                <div class="box-text note" label="">
-                                    <p>Por la SE80 se ingresa al Object Navigator. Esta es la transacción central donde se puede acceder a la parte técnica de SAP.</p>
+                                <p>Tiene disponible varias ayudas en la entrada de las transacciones de SAP. Así funcionan algunas ayudas importantes:</p>
+                                <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> cada tecla para leer su descripción</div>
+                                <img src="content/.png" alt="" />
+<!-- Ajustar imagen con tooltip 
+                                <div>
+                                    <h4>F1</h4>
+                                    <p>SAP tiene disponible documentación de ayuda en casi todas las transacciones y campos del sistema. Solo debe situar el cursor sobre el campo a consultar y  teclear  F1. Las ayudas pueden ser muy simples, desde el nombre completo de un campo o la descripción técnica de una sentencia, hasta extensas explicaciones sobre el uso y configuración de un proceso. Veamos cómo se comportan las ayudas en la siguiente imagen:</p>
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada apuntador para leer su información</div>
+                                    <img src="content/.png" alt="" />
+                                    <div>
+                                        <div>Ejecutar la transacción SE80.</div>
+                                        <div>Elegir el tipo Clase/Interface, el objeto CL_TREE_MODEL. </div>
+                                        <div>Dar clic en el botón visualizar.</div>
+                                        <div>Dar doble clic en la carpeta CL_TREE_MODEL.</div>
+                                        <div>Posicionar el cursor en método y presionar F1.</div>
+                                        <div>Se abrirá un pop-up con la ayuda correspondiente.</div>
+                                    </div>
                                 </div>
-                                <img src="content/tema_2_se80.png" alt="SE80" />
+                                <div>
+                                    <h4>F4</h4>
+                                    <p>Es la ayuda de búsqueda que se utiliza en las pantallas de las transacciones y sirve para buscar posibles valores de un campo.</p>
+                                    <div class="box-text example" label="Ejemplo">
+                                        <p>
+                                            Si quiere encontrar el código numérico de un proveedor, puede buscar por nombre, país, ciudad o código postal.
+                                        </p>
+                                    </div>
+                                    <p>
+                                        Veamos una aplicación específica: ¿Cómo buscar todas las tablas personalizadas (creadas por la organización)?
+                                    </p>
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada apuntador para leer su información</div>
+                                    <img src="content/.png" alt="" />
+                                    <div>
+                                        <div>Ejecutar la transacción “SE11 - Diccionario de datos”.</div>
+                                        <div>Ingresar el valor Z en el campo “Tabla base de datos”.</div>
+                                        <div>Posicionar el cursor y presionar F4.</div>
+                                        <div>Se abrirá un pop-up con la lista de tablas de base de datos que empiezan por Z.</div>
+                                    </div>
+                                </div>
+                                
+-->                                
                             </dd>
                         </dl>
                         <dl>
                             <dt>Comandos</dt>
                             <dd>
+                                <div class="box-text note" label="Nota">
+                                    <p>
+                                        Estos comandos permiten navegar de forma fácil y rápida en SAP.
+                                    </p>
+                                </div>
                                 <div class="ctrl-pagination" data-layer-height="auto" data-labelcurrent="true" >
                                     <li>
                                         <div class="comando_text">
@@ -267,8 +471,178 @@
                                         <img class="comando" src="content/tema_2_comando6.png" alt="/l" />
                                     </li>
                                 </div>
+                                <div class="box-text connection">
+                                    <p>
+                                        Ahora te invitamos a realizar las siguiente actividad que te permitirá validar los contenidos abordados. Es importante leer con atención las instrucciones para resolverla correctamente.
+                                    </p>
+                                </div>
                             </dd>
                         </dl>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad teórica">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar conceptos importantes a tener en cuenta en la navegación en SAP.</p>
+                        <p><strong>Indicaciones:</strong> para cada enunciado, seleccione si es correcto o incorrecto según los temas estudiados.</p>
+                    </div>
+                    <div class="jpit-activities-check" data-act-title="Actividad teórica" data-act-id="1-check">
+                        <words>
+                            <li data-val="true">F1 se usa en las pantallas de las transacciones</li>
+                            <li>F1 sirve para buscar posibles valores de un campo</li>
+                            <li>F4 ayuda con la descripción técnica de una sentencia</li>
+                            <li data-val="true">F1 ofrece  explicaciones la configuración de un proceso</li>
+                            <li>En el menú SAP se pueden agregar carpetas y direcciones web de uso frecuente</li>
+                            <li data-val="true">En el menú SAP se encuentran los elementos necesarios para ejecutar transacciones</li>
+                            <li>Transacción Estándar  viene instalada en el sistema e inicia con una letra Y o Z </li>
+                        </words>
+                        <div class="board">
+                            <div class="check_left">
+                                <div class="play">
+                                    <p>Seleccione si es correcto o incorrecto.</p>
+                                    <div class="word_content"> </div>
+                                    <div class="buttons">
+                                        <button class="yes general">Correcto</button>
+                                        <button class="not general">Incorrecto</button>
+                                    </div>
+                                </div>
+                                <div class="box_end"></div>
+                                <div class="box_conclution">
+                        
+                                    <h3>¡Ha finalizado!</h3>
+                                    
+                                    <div class="buttons">
+                                        <button class="general reload">Volver a responder las opciones incorrectas</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check_right">
+                                <div class="box_result">
+                                    <div class="correct">
+                                        <div class="hits">0</div>
+                                        <div class="text">Aciertos</div>
+                                    </div>
+                                    <div class="wrong">
+                                        <div class="miss">0</div>
+                                        <div class="text">Desaciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad interactiva">
+                        <p><strong>Objetivo de aprendizaje:</strong> aplicar el uso correcto de los comandos de navegación en SAP.</p>
+                        <p><strong>Enunciado:</strong> dada una situación específica, escriba el comando que resuelve la situación.</p>
+                    </div>
+                    <div div class="jpit-activities-cloze" data-parent-mark-selector="span" data-act-title="Actividad interactiva" data-act-id="2_cuestionario">
+                        <div class="ctrl-pagination" >
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Me encuentro en la ventana de xxxx y necesito borrarla porque ya no la voy a utilizar más.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/l" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Ejecuté la transacción SE16N para visualizar los datos almacenados en una tabla de base de datos pero me he percatado de que debo ejecutar previamente otra transacción, la cual está agregada en mi Menú Favoritos de la SAP Easy Screen. ¿Cómo puedo ir directamente a la SAP Easy Screen utilizando un comando?</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/N" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy en la transacción SE38 y terminé de modificar programa tipo Module Pool, ahora necesito ejecutar la transacción SE80 para modificar un servicio web. ¿Cómo puedo ejecutar la transacción SE80 de una forma simple y sin necesidad de abrir una nueva ventana?</p>
+                                        <p>He finalizado la revisión y activación de todos los objetos ABAP de un paquete propio en la transacción SE80 y ya debo continuar con la gestión de su transporte al sistema de pruebas (QAS). ¿Cómo puedo ejecutar la transacción SE10 de una forma simple y sin necesidad de abrir una nueva ventana?.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/NXXX" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy trabajando en varias transacciones de forma paralela y ya tengo 6 ventanas abiertas, en este punto, quiero validar que no esté ejecutando transacciones repetidas. ¿Cómo puedo obtener un resumen rápido de las transacciones que estoy ejecutando actualmente?.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/O" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy en la transacción SE93 creando una transacción propia para un programa, pero no recuerdo el nombre completo de este, por lo tanto, debo ejecutar la transacción SE38 para obtenerlo.¿Cómo puedo ejecutar la transacción SE38 sin tener que cerrar la ventana actual?</p>
+                                        <p>Por medio de una vista de base de datos estoy parametrizando todos los datos de configuración del nuevo programa de validación de pedidos de compra, y un compañero me pide que verifique en la transacción SM37 si un JOB finalizó correctamente. ¿Cómo puedo ejecutar la transacción SM37 sin perder el trabajo que llevo?.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/OXXXX" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy trabajando en un proyecto de desarrollo que incluye la modificación de los siguientes objetos ABAP: 1 programa tipo ejecutable, 2 tablas de base de datos y 1 transacción. Justo es la hora de salida y debo cerrar el sistema SAP. ¿Cómo puedo hacerlo rápidamente y asegurando que no pierda ningún cambio realizado?.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/NEND" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy ejecutando únicamente la transacción SE38 para visualizar el código de un programa estándar de SAP y así entender su funcionamiento. Repentinamente, mi sistema operativo requiere que instale algunas actualizaciones, así que necesito cerrar el sistema SAP. ¿Cómo puedo hacerlo rápidamente y asegurando que no pierda ningún cambio realizado?</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/NEX" /></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h4>Situación</h4>
+                                        <p>Estoy en la transacción SE11 y ya terminé de crear los dominios y elementos de datos necesarios para la creación de una tabla de base de datos propia. ¿Cómo puedo cerrar únicamente la ventana de la transacción SE11?</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>El comando para resolver esta situación es</h4>
+                                        <span><input type="text" data-response="/l" /></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                        <div class="box_end">
+                        </div>
+                        <feedback>
+                            <wrong>¡Bien! Aunque identificó algunos conceptos de la navegación en SAP, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                            <correct>¡Excelente! Ha hecho un uso correcto de los comandos de navegación en SAP.</correct>
+                        </feedback>
                     </div>
                 </div>
             </section>
