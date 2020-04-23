@@ -413,15 +413,15 @@
 .w-content .ayudaf4 .note_3 {
     top: 160px;
     left: 567px;
-}
-
-.w-content .ayudaf4 .note_4 {
-    top: 90px;
-    left: 505px;
-}
+} 
 /********************************************************************************/
 /* ACTIVIDAD COMANDOS
 /********************************************************************************/
+#pag-ayudas .comandos.ctrl-pagination li {
+    display: flex;
+    flex-direction: column;
+}
+
 #pag-ayudas .jpit-activities-cloze  .fondo {
     background: url(../content/tema_2_comando_vacio.png) no-repeat;
     background-size: 100%;
