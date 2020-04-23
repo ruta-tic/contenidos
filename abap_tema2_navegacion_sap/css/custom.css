@@ -420,3 +420,22 @@
     top: 90px;
     left: 505px;
 }
+/********************************************************************************/
+/* ACTIVIDAD COMANDOS
+/********************************************************************************/
+#pag-ayudas .jpit-activities-cloze  .fondo {
+    background: url(../content/tema_2_comando_vacio.png) no-repeat;
+    background-size: 100%;
+    width: 200px;
+    height: 140px;
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+#pag-ayudas .jpit-activities-cloze input[type="text"] {
+    position: absolute;
+    left: 50px;
+    top: 45px;
+    font-size: 27px;
+}
