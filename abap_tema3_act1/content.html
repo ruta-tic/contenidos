@@ -7,6 +7,7 @@
     <title>Diccionario ABAP</title>
     <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="components/pit/css/jpit_crossword.css" rel="stylesheet" type="text/css">
 
     <script src="components/jquery/jquery.min.js"></script>
     <script src="components/jquery/jquery-ui.min.js"></script>
@@ -17,6 +18,8 @@
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/crossword/jpit_activity_crossword.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
@@ -52,7 +55,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
@@ -76,6 +79,7 @@
                         <menuitem label="Dominio" data-page="pag-dominio"></menuitem>
                         <menuitem label="Elemento de datos" data-page="pag-elemento"></menuitem>
                         <menuitem label="Estructura" data-page="pag-estructura"></menuitem>
+                        <menuitem label="Actividades" data-page="pag-actividades"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -120,7 +124,7 @@
                     </div>
 
                     <div class="box-text connection">
-                        <p>A continuación, se ampliará a ampliar la información de los siguientes objetos:</p>
+                        <p>A continuación, se ampliará la información de los siguientes objetos:</p>
                         <ul class="data_list">
                             <li>Tablas de base de datos</li>
                             <li>Dominio</li>
@@ -166,42 +170,54 @@
                             </div>
                         </li>
                         <li>
-                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
+                            <div class="row">
+                                <div class="col_2">
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
 
-                            <div class="paso2">
-                                <div class="note_pointer_left note_1">
-                                    <div class="tooltip" title="Informe el campo descripción con el texto: Tabla Facturas.">1</div>
+                                    <div class="paso2">
+                                        <div class="note_pointer_left note_1">
+                                            <div class="tooltip" title="Informe el campo descripción con el texto: Tabla Facturas.">1</div>
+                                        </div>
+                                        <div class="note_pointer_right note_2">
+                                            <div class="tooltip" title="En la pestaña “entrega y actualización”, seleccione la clase de entrega A y el tipo de actualización visualización/actualización permitida.">2</div>
+                                        </div>
+                                        <div class="note_pointer_left note_3">
+                                            <div class="tooltip" title="Para este ejemplo, cree una tabla que va contener información y seleccione la primera opción “Tabla aplicación A”, donde se evidencia que, con esta clase, se pueden tener datos maestros y datos de movimientos.">3</div>
+                                        </div>
+                                        <div class="note_pointer_right note_4a"></div>
+                                        <div class="note_pointer_left note_4b">
+                                            <div class="tooltip" title="La clase de entrega se selecciona en función de los tipos de datos que va contener la tabla.">4</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="note_pointer_right note_2">
-                                    <div class="tooltip" title="En la pestaña “entrega y actualización”, seleccione la clase de entrega A y el tipo de actualización visualización/actualización permitida.">2</div>
-                                </div>
-                                <div class="note_pointer_left note_3">
-                                    <div class="tooltip" title="Para este ejemplo, cree una tabla que va contener información y seleccione la primera opción “Tabla aplicación A”, donde se evidencia que, con esta clase, se pueden tener datos maestros y datos de movimientos.">3</div>
-                                </div>
-                                <div class="note_pointer_right note_4a"></div>
-                                <div class="note_pointer_left note_4b">
-                                    <div class="tooltip" title="La clase de entrega se selecciona en función de los tipos de datos que va contener la tabla.">4</div>
+                                <div class="col_2">
+                                    <h4>Quedaría así:</h4>
+                                    <div class="centrar_img"><img src="content/tema_3-07.png" alt="Tabla" /></div>
                                 </div>
                             </div>
-                            <h4>Quedaría así:</h4>
-                            <div class="centrar_img"><img src="content/tema_3-07.png" alt="Tabla" /></div>
                         </li>
                         <li>
                             <h4>En la pestaña “campos”, se añade los campos de la tabla.</h4>
                             <div class="centrar_img"><img src="content/tema_3-08.png" alt="Campos" /></div>
                         </li>
                         <li>
-                            <h4>Antes de activar la tabla en base de datos debe configurar las opciones técnicas.</h4>
-                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
+                            <div class="row">
+                                <div class="col_2">
+                                    <h4>Antes de activar la tabla en base de datos debe configurar las opciones técnicas.</h4>
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
 
-                            <div class="view-first">
-                                <img src="content/tema_3-09.png" />
-                                <div class="view-content">
-                                    <p>Las opciones técnicas optimizan los requisitos de almacenamiento y el comportamiento de acceso de las tablas de base de datos.</p>
+                                    <div class="view-first">
+                                        <img src="content/tema_3-09.png" />
+                                        <div class="view-content">
+                                            <p>Las opciones técnicas optimizan los requisitos de almacenamiento y el comportamiento de acceso de las tablas de base de datos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col_2">
+                                    <p>Como opciones técnicas, seleccione la Clase de datos APPL 0 – Datos maestros, tablas transparentes y la Categoría de tamaño 0 – Registros de datos esperados 0 a 11000. Grabe las modificaciones y regrese con la flecha atrás o con la tecla F3.</p>
+                                    <div class="centrar_img"><img src="content/tema_3-09b.png" alt="Propiedades generales" /></div>
                                 </div>
                             </div>
-                            <p>Como opciones técnicas, seleccione la Clase de datos APPL 0 – Datos maestros, tablas transparentes y la Categoría de tamaño 0 – Registros de datos esperados 0 a 11000. Grabe las modificaciones y regrese con la flecha atrás o con la tecla F3.</p>
-                            <div class="centrar_img"><img src="content/tema_3-09b.png" alt="Propiedades generales" /></div>
                         </li>
                         <li>
                             <h4>En este momento, se puede activar la tabla en base de datos. Para no tener advertencias en la activación, configure las categorías de ampliación que puede encontrar en el menú “detalles”.</h4>
@@ -353,6 +369,99 @@
                             <div class="centrar_img"><img src="content/tema_3-25.png" alt="Pantalla de creación de estructura" /></div>
                         </li>
                     </div>
+                    <div class="box-text connection">
+                        <p>
+                            Ahora te invitamos a realizar las siguientes actividades que te permitirán validar los contenidos abordados. Es importante leer con atención las instrucciones para resolverlas correctamente.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="pag-actividades" ptitle="Actividades">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad teórica">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar los conceptos importantes a tener en cuenta sobre el diccionario de datos.</p>
+                        <p><strong>Indicaciones:</strong> para cada enunciado, escriba la respuesta correcta en el crucigrama.</p>
+                    </div>
+                    <div class="jpit-activities-crossword" data-act-id="1-crossword" data-act-title="Actividad teórica">
+                        <horizontal>
+                            <li data-row="9" data-col="4" data-term="reutilizar">El diccionario permite ___________ objetos.</li>
+                            <li data-row="13" data-col="0" data-term="transparente">La tabla _________ es la más común y simple del diccionario.</li>
+                            <li data-row="3" data-col="4" data-term="cluster">Tipo de tabla que permite varias tablas con coincidencia en sus valores claves.</li>
+                            <li data-row="1" data-col="4" data-term="dominio">Se usa para ampliar la definición técnica de un campo.</li>
+                        </horizontal>
+                        <vertical>
+                            <li data-row="0" data-col="5" data-term="diccionario">Permite administrar las definiciones de objetos globales usados en SAP.</li>
+                            <li data-row="5" data-col="7" data-term="seguridad">Una de las principales ventajas del diccionario.</li>
+                            <li data-row="11" data-col="12" data-term="se11">Transacción que se debe ejecutar para acceder al diccionario.</li>
+                            <li data-row="5" data-col="10" data-term="pool">Tipo de tabla que permite agrupar varias tablas indistintas.</li>
+                            <li data-row="2" data-col="3" data-term="reusabilidad">Es una de las principales ventajas del elemento de datos.</li>
+                            <li data-row="5" data-col="14" data-term="estructura">Línea de campos que se ve como una línea de una tabla transparente.</li>
+                        </vertical>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>¡Excelente! Ha identificado conceptos importantes abordados en este objeto.</correct>
+                            <wrong>¡Bien! Aunque identificó algunos conceptos asociados al diccionario, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                        </feedback>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aplicación">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar los pasos principales para crear los elementos abordados en este documento.</p>
+                        <p><strong>Enunciado:</strong> dada cada situación específica, ordene los pasos que se deben llevar a cabo para resolver la situación.</p>
+                    </div>
+                    <div class="jpit-activities-sortable" data-set-position="span" data-act-id="2-ordenar" data-act-title="Actividad de aplicación">
+                        <div class="row">
+                            <div class="col_2">
+                                <h4>Pasos para crear una tabla transparente</h4>
+                                <ul class="sortable">
+                                    <li data-position="4">(<span>1</span>) Configurar las categorías de ampliación.</li>
+                                    <li data-position="1">(<span>2</span>) Definir el  nombre de la tabla que se crea.</li>
+                                    <li data-position="0">(<span>3</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-position="3">(<span>4</span>) Configurar las opciones técnicas.</li>
+                                    <li data-position="5">(<span>5</span>) Activar la tabla.</li>
+                                    <li data-position="2">(<span>6</span>) Añadir los campos de la tabla.</li>
+                                </ul>
+                            </div>
+                            <div class="col_2">
+                                <h4>Pasos para crear un dominio</h4>
+                                <ul class="sortable">
+                                    <li data-position="9">(<span>1</span>) Establecer tipo de datos y longitud del dominio.</li>
+                                    <li data-position="8">(<span>2</span>) Asignar una descripción al dominio.</li>
+                                    <li data-position="11">(<span>3</span>) Grabar y activar.</li>
+                                    <li data-position="10">(<span>4</span>) Definir los valores que puede tomar el campo.</li>
+                                    <li data-position="7">(<span>5</span>) Seleccionar el dominio, asignarle un nombre y crearlo.</li>
+                                    <li data-position="6">(<span>6</span>) Ingresar a la transacción SE11.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col_2">
+                                <h4>Pasos para crear un elemento de datos</h4>
+                                <ul class="sortable">
+                                    <li data-position="12">(<span>1</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-position="14">(<span>2</span>) Establecer un nombre y crear.</li>
+                                    <li data-position="15">(<span>3</span>) Seleccionar elemento de datos, asignar una descripción y un dominio.</li>
+                                    <li data-position="16">(<span>4</span>) Crear la definición del campo al que irá asociado en la tabla.</li>
+                                    <li data-position="13">(<span>5</span>) Seleccionar la opción tipo de datos.</li>
+                                    <li data-position="17">(<span>6</span>) Grabar y activar.</li>
+                                </ul>
+                            </div>
+                            <div class="col_2">
+                                <h4>Pasos para crear una estructura</h4>
+                                <ul class="sortable">
+                                    <li data-position="19">(<span>1</span>) Seleccionar tipo de datos y escribir Z más el nombre de la estructura.</li>
+                                    <li data-position="21">(<span>2</span>) Seguir las mismas opciones de creación de tablas.</li>
+                                    <li data-position="18">(<span>3</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-position="20">(<span>4</span>) Crear y seleccionar la opción estructura.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="box_end"></div>
+                        <feedback>
+                            <correct>¡Excelente! Ha identificado correctamente los pasos principales para crear los elementos abordados en este documento.</correct>
+                            <wrong>¡Bien! Aunque identificó algunos pasos correctamente, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                        </feedback>
+                    </div>
                 </div>
             </section>
 
@@ -386,6 +495,8 @@
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
         <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
     </div>
 
     <!--Créditos-->
@@ -466,3 +577,4 @@
 
 </body>
 </html>
+

@@ -45,6 +45,16 @@ nav.horizontal ul.submenu > li.current:before {
 /********************************************************************************/
 /* TABLAS DE BASE DE DATOS
 /********************************************************************************/
+#pag-tablas .view-first p {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#pag-tablas .col_2 {
+    margin: 20px;
+    width: 50%
+}
+
 #pag-tablas .ctrl-pagination .paso1 {
     background: url(../content/tema_3-05.png) no-repeat;
     background-size: 500px;
@@ -71,40 +81,40 @@ nav.horizontal ul.submenu > li.current:before {
 
 #pag-tablas .ctrl-pagination .paso2 {
     background: url(../content/tema_3-06.png) no-repeat;
-    background-size: 700px;
-    width: 700px;
-    height: 370px;
+    background-size: 100%;
+    width: 100%;
     margin: auto;
     position: relative;
+    padding-top: 53%;
 }
 
 #pag-tablas .ctrl-pagination .paso2 .note_1 {
-    top: 75px;
-    left: 210px;
+    top: 18%;
+    left: 41%;
 }
 
 #pag-tablas .ctrl-pagination .paso2 .note_2 {
-    top: 125px;
-    left: 125px;
+    top: 32%;
+    left: 12%;
 }
 
 #pag-tablas .ctrl-pagination .paso2 .note_3 {
-    top: 152px;
-    left: 657px;
+    top: 39%;
+    left: 94%;
 }
 
 #pag-tablas .ctrl-pagination .paso2 .note_4a {
-    top: 152px;
-    left: 413px;
+    top: 39%;
+    left: 52%;
 }
 
 #pag-tablas .ctrl-pagination .paso2 .note_4b {
-    top: 152px;
-    left: 400px;
+    top: 39%;
+    left: 49%;
 }
 
 #pag-tablas .ctrl-pagination img {
-    max-width: 600px;
+    max-width: 100%;
 }
 
 #pag-tablas .ctrl-pagination .paso5a {
@@ -179,3 +189,19 @@ nav.horizontal ul.submenu > li.current:before {
     max-width: 400px;
 }
 
+#pag-estructura .centrar_img img {
+    width: 100%;
+}
+
+/********************************************************************************/
+/* ACTIVIDADES
+/********************************************************************************/
+#pag-actividades .col_2 {
+    width: 48%;
+    border: 1px solid #5fa281;
+    padding: 2%;
+}
+
+#pag-actividades ul.sortable span {
+    font-weight: bold;
+}
