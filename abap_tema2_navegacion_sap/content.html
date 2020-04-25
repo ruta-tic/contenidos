@@ -77,6 +77,7 @@
                         <menuitem label="Navegación" data-page="pag-navegacion"></menuitem>
                         <menuitem label="Elementos de pantalla" data-page="pag-elementos"></menuitem>
                         <menuitem label="Transacciones" data-page="pag-ayudas"></menuitem>
+                        <menuitem label="Actividades" data-page="pag-actividades"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -229,8 +230,9 @@
                                             </div>
                                         </div>
                                         <div class="box-text example" label="Ejemplo">
-                                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Haga clic en</span> la imagen para ampliar</div>
-                                            <div class="expand-image" data-src="content/img_09.png" title="Datos de acceso"></div>
+                                            <div class="box_media">
+                                                <img src="content/img_09.png" alt="Datos de acceso" />
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -388,7 +390,7 @@
                                     <button class="w-content-controler f1" data-content="#f1">f1</button>
                                     <button class="w-content-controler f4" data-content="#f4">f4</button>
                                 </div>
-                                <div id="f1" class="w-content" data-property-width="95%" data-property-height="95%">
+                                <div id="f1" class="w-content" data-property-width="auto" data-property-height="95%">
                                     <h4>F1</h4>
                                     <p>SAP tiene disponible documentación de ayuda en casi todas las transacciones y campos del sistema. Solo debe situar el cursor sobre el campo a consultar y  teclear  F1. Las ayudas pueden ser muy simples, desde el nombre completo de un campo o la descripción técnica de una sentencia, hasta extensas explicaciones sobre el uso y configuración de un proceso. Veamos cómo se comportan las ayudas en la siguiente imagen:</p>
                                     <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada apuntador para leer su información</div>
@@ -413,7 +415,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="f4" class="w-content" data-property-width="95%" data-property-height="95%">
+                                <div id="f4" class="w-content" data-property-width="auto" data-property-height="95%">
                                     <h4>F4</h4>
                                     <p>Es la ayuda de búsqueda que se utiliza en las pantallas de las transacciones y sirve para buscar posibles valores de un campo.</p>
                                     <div class="box-text example" label="Ejemplo">
@@ -501,13 +503,15 @@
                                 </div>
                                 <div class="box-text connection">
                                     <p>
-                                        Ahora te invitamos a realizar las siguiente actividad que te permitirá validar los contenidos abordados. Es importante leer con atención las instrucciones para resolverla correctamente.
+                                        Ahora te invitamos a realizar las siguientes actividades que te permitirán validar los contenidos abordados. Es importante leer con atención las instrucciones para resolverlas correctamente.
                                     </p>
                                 </div>
                             </dd>
                         </dl>
                     </div>
                 </div>
+            </section>
+            <section id="pag-actividades" ptitle="Actividades">
                 <div class="subpage">
                     <div class="box-text activity" label="Actividad teórica">
                         <p><strong>Objetivo de aprendizaje:</strong> identificar conceptos importantes a tener en cuenta en la navegación en SAP.</p>
@@ -516,28 +520,28 @@
                     <div class="jpit-activities-selection" data-parent-mark-selector="false" data-mode="single" data-act-title="Actividad teórica"   data-act-id="1-selection">
                         <div class="ctrl-pagination" >
                             <li>
-                                <p>F1 se usa en las pantallas de las transacciones</p>
+                                <p><strong>F1</strong> se usa en las pantallas de las transacciones</p>
                                 <ul class="data_list">
                                     <li data-group="1" data-correct="true"><div class="radio"></div>Correcto</li>
                                     <li data-group="1"><div class="radio"></div>Incorrecto</li>
                                 </ul>
                             </li>
                             <li>
-                                <p>F1 sirve para buscar posibles valores de un campo</p>
+                                <p><strong>F1</strong> sirve para buscar posibles valores de un campo</p>
                                 <ul class="data_list">
                                     <li data-group="2"><div class="radio"></div>Correcto</li>
                                     <li data-group="2" data-correct="true"><div class="radio"></div>Incorrecto</li>
                                 </ul>
                             </li>
                             <li>
-                                <p>F4 ayuda con la descripción técnica de una sentencia</p>
+                                <p><strong>F4</strong> ayuda con la descripción técnica de una sentencia</p>
                                 <ul class="data_list">
                                     <li data-group="3"><div class="radio"></div>Correcto</li>
                                     <li data-group="3" data-correct="true"><div class="radio"></div>Incorrecto</li>
                                 </ul>
                             </li>
                             <li>
-                                <p>F1 ofrece  explicaciones la configuración de un proceso</p>
+                                <p><strong>F1</strong> ofrece  explicaciones la configuración de un proceso</p>
                                 <ul class="data_list">
                                     <li data-group="4" data-correct="true"><div class="radio"></div>Correcto</li>
                                     <li data-group="4"><div class="radio"></div>Incorrecto</li>
@@ -558,7 +562,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <p>Transacción Estándar  viene instalada en el sistema e inicia con una letra Y o Z</p>
+                                <p>Transacción Estándar viene instalada en el sistema e inicia con una letra Y o Z</p>
                                 <ul class="data_list">
                                     <li data-group="7"><div class="radio"></div>Correcto</li>
                                     <li data-group="7" data-correct="true"><div class="radio"></div>Incorrecto</li>
@@ -727,6 +731,9 @@
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
         <br class="clear" />
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
+    </div>
     </div>
 
     <!--Créditos-->

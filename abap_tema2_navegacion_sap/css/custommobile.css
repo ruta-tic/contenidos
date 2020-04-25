@@ -238,6 +238,29 @@
     margin-right: 5px;
 }
 
+.jpit-activities-selection li.selected.wrong {
+    color: #ef6f6f !important;
+}
+
+.jpit-activities-selection li.selected.wrong .radio {
+    background-color: #ef6f6f;
+}
+
+.jpit-activities-selection li.selected.wrong:after {
+    font-family: "Ionicons";
+    content: "\f129";
+    color: #ef6f6f;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.jpit-activities-selection li.selected.correct:after {
+    font-family: "Ionicons";
+    content: "\f121";
+    color: #38ca82;
+    margin-left: 10px;
+    font-size: 24px;
+}
 /********************************************************************************/
 /* ELEMENTOS
 /********************************************************************************/
@@ -345,8 +368,10 @@
 .w-content .ayudaf1 {
     background: url(../content/ayudaf1.jpg) no-repeat;
     background-size: 100%;
-    width: 700px;
-    height: 320px;
+    width: 100%;
+    min-width: 500px;
+    height: 0;
+    padding-top: 46%;
     margin: auto;
     position: relative;
 }
@@ -357,40 +382,43 @@
  }
 
 .w-content .ayudaf1 .note_1 {
-    left: 108px;
-    top: 13px;
+    left: 15%;
+    top: 5%;
 }
 
 .w-content .ayudaf1 .note_2 {
-    top: 175px;
-    left: 71px;
+    top: 55%;
+    left: 10%;
 }
 
 .w-content .ayudaf1 .note_3 {
-    left: 164px;
-    top: 182px;
+    left: 23%;
+    top: 57%;
 }
 
 .w-content .ayudaf1 .note_4 {
-    top: 232px;
-    left: 94px;
+    top: 72%;
+    left: 13%;
 }
 
 .w-content .ayudaf1 .note_5 {
-    left: 292px;
-    top: 151px;
+    left: 41.5%;
+    top: 47%;
 }
 
  .w-content .ayudaf1 .note_6 {
-    left: 484px;
-    top: 198px;
+    left: 69.2%;
+    top: 62.5%;
  }
 
  .w-content .ayudaf4 {
     background: url(../content/ayudaf4.jpg) no-repeat;
     background-size: 100%;
-    width: 700px;
-    height: 555px;
+    width: 100%;
+    min-width: 500px;
+    height: 0;
+    padding-top: 70%;
+
     margin: auto;
     position: relative;
 }
@@ -401,28 +429,28 @@
  }
 
 .w-content .ayudaf4 .note_1 {
-    left: 156px;
-    top: 21px;
+    left: 22%;
+    top: 4%;
 }
 
 .w-content .ayudaf4 .note_2 {
-    top: 142px;
-    left: 173px;
+    top: 28.5%;
+    left: 24.2%;
 }
 
 .w-content .ayudaf4 .note_3 {
-    top: 160px;
-    left: 567px;
+    top: 33%;
+    left: 80.5%;
 } 
 /********************************************************************************/
 /* ACTIVIDAD COMANDOS
 /********************************************************************************/
-#pag-ayudas .comandos.ctrl-pagination li {
+#pag-actividades .comandos.ctrl-pagination li {
     display: flex;
     flex-direction: column;
 }
 
-#pag-ayudas .jpit-activities-cloze  .fondo {
+#pag-actividades .jpit-activities-cloze  .fondo {
     background: url(../content/tema_2_comando_vacio.png) no-repeat;
     background-size: 100%;
     width: 200px;
@@ -432,7 +460,7 @@
     margin-top: 20px;
 }
 
-#pag-ayudas .jpit-activities-cloze input[type="text"] {
+#pag-actividades .jpit-activities-cloze input[type="text"] {
     position: absolute;
     left: 50px;
     top: 45px;
