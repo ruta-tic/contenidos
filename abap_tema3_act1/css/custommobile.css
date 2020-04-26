@@ -9,6 +9,14 @@
     line-height: 35px;
 }
 
+.ui-accordion .ui-accordion-header {
+    font-size: 17px;
+}
+
+.jpit-activities-sortable {
+    padding-bottom: 170px;
+}
+
 /********************************************************************************/
 /* DEFINICION
 /********************************************************************************/

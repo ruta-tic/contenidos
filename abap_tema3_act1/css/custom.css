@@ -25,6 +25,10 @@ nav.horizontal ul.submenu > li.current:before {
     line-height: 35px;
 }
 
+.ui-accordion .ui-accordion-header {
+    font-size: 20px;
+}
+
 /********************************************************************************/
 /* DEFINICION
 /********************************************************************************/
@@ -191,6 +195,7 @@ nav.horizontal ul.submenu > li.current:before {
 
 #pag-estructura .centrar_img img {
     width: 100%;
+    max-width: 800px;
 }
 
 /********************************************************************************/
@@ -204,4 +209,8 @@ nav.horizontal ul.submenu > li.current:before {
 
 #pag-actividades ul.sortable span {
     font-weight: bold;
+}
+
+.box_words li {
+    margin-bottom: 7px;
 }

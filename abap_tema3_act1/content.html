@@ -109,7 +109,7 @@
 
                     <div class="box-text example" label="Ejemplo">
                         <p>
-                            Desde programas, funciones, ayudas de búsqueda, etc. En sesiones posteriores verá cómo aplicar este concepto.
+                            Los objetos del diccionario sirven como referencia para la creación de pantallas de programas, interfaces de módulos de funciones y elementos del lenguaje ABAP.
                         </p>
                     </div>
 
@@ -139,17 +139,20 @@
 
             <section id="pag-tablas" ptitle="Tablas de base de datos">
                 <div class="subpage">
-                    <p>Son contenedores de datos que existen en la base de datos relacional subyacente. En la mayoría de los casos, hay una relación 1 a 1 entre la definición de la tabla en el diccionario ABAP y la definición de la misma tabla en la base de datos (mismo nombre, mismas columnas, etc.). Estas tablas se conocen como <strong>transparentes</strong>.</p>
+                    <p>Una tabla de base de datos es un objeto del diccionario de datos que almacena información de forma permanente. En ellas se guarda toda la información de datos maestros, parametrización del sistema y los registros transaccionales de los procesos empresariales.</p>
 
-                    <p>Hay dos tipos de tablas no transparentes:</p>
+                    <p>Hay 3 tipos de tablas de bases de datos:</p>
                     <div class="accordion">
-                        <h3>Pooled</h3>
+                        <h3>Transparentes</h3>
                         <div>
-                            <p>Las tablas <strong>pooled</strong> son aquellas que existen como entidades independientes dentro del diccionario pero que se agrupan en unas tablas físicas largas a nivel de base de datos.</p>
-                            <p>Las tablas combinadas son normalmente tablas pequeñas que mantienen, por ejemplo, datos de configuración.</p>
+                            Son tablas simples y su representación física coincide exactamente con la definición que se realiza en el diccionario de datos al momento de crearlas. En palabras sencillas, es una representación de filas y columnas, por lo tanto, es la tabla más común y será que la que crearemos en este curso.
                         </div>
-                        <h3>Clustered</h3>
-                        <div>Las tablas <strong>clustered</strong> están físicamente agrupadas en clusters basados en claves primarias.</div>
+                        <h3>Pool</h3>
+                        <div>
+                            Son un tipo especial de tablas y su objetivo es agrupar varias tablas indistintas. Estas tablas son normalmente tablas pequeñas que mantienen, por ejemplo, datos de configuración o parametrizaciones.
+                        </div>
+                        <h3>Cluster</h3>
+                        <div>También son un tipo especial de tablas que buscan agrupar varias tablas que tengan coincidencia en sus valores de sus claves primarias.</div>
                     </div>
 
                     <h3>Pasos para crear una tabla transparente</h3>
@@ -204,7 +207,7 @@
                             <div class="row">
                                 <div class="col_2">
                                     <h4>Antes de activar la tabla en base de datos debe configurar las opciones técnicas.</h4>
-                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para ampliar la información.</div>
 
                                     <div class="view-first">
                                         <img src="content/tema_3-09.png" />
@@ -214,8 +217,13 @@
                                     </div>
                                 </div>
                                 <div class="col_2">
-                                    <p>Como opciones técnicas, seleccione la Clase de datos APPL 0 – Datos maestros, tablas transparentes y la Categoría de tamaño 0 – Registros de datos esperados 0 a 11000. Grabe las modificaciones y regrese con la flecha atrás o con la tecla F3.</p>
-                                    <div class="centrar_img"><img src="content/tema_3-09b.png" alt="Propiedades generales" /></div>
+                                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para ampliar la información.</div>
+                                    <div class="view-first">
+                                        <img src="content/tema_3-09b.png" alt="Propiedades generales" />
+                                        <div class="view-content">
+                                            <p>Como opciones técnicas, seleccione la Clase de datos APPL 0 – Datos maestros, tablas transparentes y la Categoría de tamaño 0 – Registros de datos esperados 0 a 11000. Grabe las modificaciones y regrese con la flecha atrás o con la tecla F3.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -245,7 +253,7 @@
                             </div>
                         </li>
                         <li>
-                            <p>Active la tabla utilizando la opción de la barra de herramientas.</p>
+                            <h4>Active la tabla utilizando la opción de la barra de herramientas.</h4>
                             <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada apuntador para leer su información.</div>
                             <div class="paso6">
                                 <div class="note_pointer_right note_1">
@@ -268,9 +276,9 @@
 
             <section id="pag-dominio" ptitle="Dominio">
                 <div class="subpage">
-                    <div class="box-text note" label="">
-                        <p>Define las características estructurales de los elementos anteriormente mencionados. Por ejemplo, el elemento “precio” puede poseer un dominio que lo define como un campo numérico con dos decimales. Los dominios también pueden proporcionar contenido semántico y una posible lista de valores.</p>
-                    </div>
+                    <p>El dominio se usa para la definición técnica de un campo de una tabla. Allí se puede elegir el tipo y la longitud del campo, ampliar su contenido semántico y agregar lista de valores posibles.</p>
+                    <p>Un dominio puede pertenecer a uno o más elementos de datos, por lo tanto, sus ventajas principales son la reusabilidad y el mantenimiento central.</p>
+
                     <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
                         <li>
@@ -286,7 +294,7 @@
                                 <li>Dé una descripción al dominio y estableza un tipo de datos y longitud del mismo.</li>
                             </ol>
 
-                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
+                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para ampliar la información.</div>
                             <div class="view-first">
                                 <img src="content/tema_3-14.png" />
                                 <div class="view-content">
@@ -296,7 +304,7 @@
                         </li>
                         <li>
                             <p>En la pestaña “ámbito de valores” se definen los valores que puede tomar el campo (grabar y activar).</p>
-                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
+                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para ampliar la información.</div>
                             <div class="view-first">
                                 <img src="content/tema_3-15.png" />
                                 <img src="content/tema_3-16.png" />
@@ -311,7 +319,8 @@
 
             <section id="pag-elemento" ptitle="Elemento de datos">
                 <div class="subpage">
-                    <p>Proporciona contenido semántico a una tabla o campo estructurado. Por ejemplo, una docena de tablas y estructuras pueden contener un campo que da un precio. Todos estos campos pueden tener el mismo elemento.</p>
+                    <p>Los elementos de datos describen los campos individuales en el diccionario de datos ABAP y se utilizan para definir el tipo de campo de tabla o el componente de una estructura.</p>
+                    <p>Un elemento de datos puede pertenecer a una o más tablas, por lo tanto sus ventajas principales son la reusabilidad y el mantenimiento central.</p>
 
                     <h3>Pasos para crear un elemento de datos</h3>
 
@@ -329,7 +338,7 @@
                             <ol class="ol_counter" start="3">
                                 <li>Asigne una descripción y un dominio. En este caso, se asignará el que se había creado previamente.</li>
                             </ol>
-                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para leer su información.</div>
+                            <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> la imagen para ampliar la información.</div>
                             <div class="view-first">
                                 <img src="content/tema_3-19.png" />
                                 <div class="view-content">
@@ -350,7 +359,8 @@
 
             <section id="pag-estructura" ptitle="Estructura">
                 <div class="subpage">
-                    <p>Son tipos de datos complejos que contienen varios campos (como los struct en C/C++). Para el caso de las estructuras, se crean de igual forma que las tablas y solo cambian los siguientes pasos:</p>
+                    <p>Una estructura es una línea de campos (similar a los struct de C/C++) que, físicamente, se ven como una línea de una tabla transparente. Se utilizan para definir los tipos de referencia en las pantallas de los programas, los tipos de parámetros de los módulos de funciones y clases, y objetos en tiempo de ejecución en el lenguaje ABAP.</p>
+                    <p>Las estructuras se crean de igual forma que las tablas y solo cambian los siguientes pasos:</p>
 
                     <div class="instruction" type="info">Utilice las flechas a cada lado para pasar entre los diferentes pasos.</div>
                     <div class="ctrl-pagination" data-orientation="sides" data-layer-height="auto" data-labelcurrent="false" >
@@ -376,7 +386,7 @@
                     </div>
                 </div>
             </section>
-            <section id="pag-actividades" ptitle="Actividades">
+            <section id="pag-actividades" ptitle="Actividades de aprendizaje">
                 <div class="subpage">
                     <div class="box-text activity" label="Actividad teórica">
                         <p><strong>Objetivo de aprendizaje:</strong> identificar los conceptos importantes a tener en cuenta sobre el diccionario de datos.</p>
@@ -384,17 +394,17 @@
                     </div>
                     <div class="jpit-activities-crossword" data-act-id="1-crossword" data-act-title="Actividad teórica">
                         <horizontal>
+                            <li data-row="1" data-col="4" data-term="dominio">Se usa para ampliar la definición técnica de un campo.</li>
+                            <li data-row="3" data-col="4" data-term="cluster">Tipo de tabla que permite varias tablas con coincidencia en sus valores claves.</li>
                             <li data-row="9" data-col="4" data-term="reutilizar">El diccionario permite ___________ objetos.</li>
                             <li data-row="13" data-col="0" data-term="transparente">La tabla _________ es la más común y simple del diccionario.</li>
-                            <li data-row="3" data-col="4" data-term="cluster">Tipo de tabla que permite varias tablas con coincidencia en sus valores claves.</li>
-                            <li data-row="1" data-col="4" data-term="dominio">Se usa para ampliar la definición técnica de un campo.</li>
                         </horizontal>
                         <vertical>
+                            <li data-row="2" data-col="3" data-term="reusabilidad">Es una de las principales ventajas del elemento de datos.</li>
                             <li data-row="0" data-col="5" data-term="diccionario">Permite administrar las definiciones de objetos globales usados en SAP.</li>
                             <li data-row="5" data-col="7" data-term="seguridad">Una de las principales ventajas del diccionario.</li>
-                            <li data-row="11" data-col="12" data-term="se11">Transacción que se debe ejecutar para acceder al diccionario.</li>
                             <li data-row="5" data-col="10" data-term="pool">Tipo de tabla que permite agrupar varias tablas indistintas.</li>
-                            <li data-row="2" data-col="3" data-term="reusabilidad">Es una de las principales ventajas del elemento de datos.</li>
+                            <li data-row="11" data-col="12" data-term="se11">Transacción que se debe ejecutar para acceder al diccionario.</li>
                             <li data-row="5" data-col="14" data-term="estructura">Línea de campos que se ve como una línea de una tabla transparente.</li>
                         </vertical>
                         <div class="box_end"></div>
@@ -414,23 +424,23 @@
                             <div class="col_2">
                                 <h4>Pasos para crear una tabla transparente</h4>
                                 <ul class="sortable">
-                                    <li data-position="4">(<span>1</span>) Configurar las categorías de ampliación.</li>
-                                    <li data-position="1">(<span>2</span>) Definir el  nombre de la tabla que se crea.</li>
-                                    <li data-position="0">(<span>3</span>) Ingresar a la transacción SE11.</li>
-                                    <li data-position="3">(<span>4</span>) Configurar las opciones técnicas.</li>
-                                    <li data-position="5">(<span>5</span>) Activar la tabla.</li>
-                                    <li data-position="2">(<span>6</span>) Añadir los campos de la tabla.</li>
+                                    <li data-group="1" data-position="4">(<span>1</span>) Configurar las categorías de ampliación.</li>
+                                    <li data-group="1" data-position="1">(<span>2</span>) Definir el  nombre de la tabla que se crea.</li>
+                                    <li data-group="1" data-position="0">(<span>3</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-group="1" data-position="3">(<span>4</span>) Configurar las opciones técnicas.</li>
+                                    <li data-group="1" data-position="5">(<span>5</span>) Activar la tabla.</li>
+                                    <li data-group="1" data-position="2">(<span>6</span>) Añadir los campos de la tabla.</li>
                                 </ul>
                             </div>
                             <div class="col_2">
                                 <h4>Pasos para crear un dominio</h4>
                                 <ul class="sortable">
-                                    <li data-position="9">(<span>1</span>) Establecer tipo de datos y longitud del dominio.</li>
-                                    <li data-position="8">(<span>2</span>) Asignar una descripción al dominio.</li>
-                                    <li data-position="11">(<span>3</span>) Grabar y activar.</li>
-                                    <li data-position="10">(<span>4</span>) Definir los valores que puede tomar el campo.</li>
-                                    <li data-position="7">(<span>5</span>) Seleccionar el dominio, asignarle un nombre y crearlo.</li>
-                                    <li data-position="6">(<span>6</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-group="2" data-position="9">(<span>1</span>) Establecer tipo de datos y longitud del dominio.</li>
+                                    <li data-group="2" data-position="8">(<span>2</span>) Asignar una descripción al dominio.</li>
+                                    <li data-group="2" data-position="11">(<span>3</span>) Grabar y activar.</li>
+                                    <li data-group="2" data-position="10">(<span>4</span>) Definir los valores que puede tomar el campo.</li>
+                                    <li data-group="2" data-position="7">(<span>5</span>) Seleccionar el dominio, asignarle un nombre y crearlo.</li>
+                                    <li data-group="2" data-position="6">(<span>6</span>) Ingresar a la transacción SE11.</li>
                                 </ul>
                             </div>
                         </div>
@@ -438,21 +448,21 @@
                             <div class="col_2">
                                 <h4>Pasos para crear un elemento de datos</h4>
                                 <ul class="sortable">
-                                    <li data-position="12">(<span>1</span>) Ingresar a la transacción SE11.</li>
-                                    <li data-position="14">(<span>2</span>) Establecer un nombre y crear.</li>
-                                    <li data-position="15">(<span>3</span>) Seleccionar elemento de datos, asignar una descripción y un dominio.</li>
-                                    <li data-position="16">(<span>4</span>) Crear la definición del campo al que irá asociado en la tabla.</li>
-                                    <li data-position="13">(<span>5</span>) Seleccionar la opción tipo de datos.</li>
-                                    <li data-position="17">(<span>6</span>) Grabar y activar.</li>
+                                    <li data-group="3" data-position="12">(<span>1</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-group="3" data-position="14">(<span>2</span>) Establecer un nombre y crear.</li>
+                                    <li data-group="3" data-position="15">(<span>3</span>) Seleccionar elemento de datos, asignar una descripción y un dominio.</li>
+                                    <li data-group="3" data-position="16">(<span>4</span>) Crear la definición del campo al que irá asociado en la tabla.</li>
+                                    <li data-group="3" data-position="13">(<span>5</span>) Seleccionar la opción tipo de datos.</li>
+                                    <li data-group="3" data-position="17">(<span>6</span>) Grabar y activar.</li>
                                 </ul>
                             </div>
                             <div class="col_2">
                                 <h4>Pasos para crear una estructura</h4>
                                 <ul class="sortable">
-                                    <li data-position="19">(<span>1</span>) Seleccionar tipo de datos y escribir Z más el nombre de la estructura.</li>
-                                    <li data-position="21">(<span>2</span>) Seguir las mismas opciones de creación de tablas.</li>
-                                    <li data-position="18">(<span>3</span>) Ingresar a la transacción SE11.</li>
-                                    <li data-position="20">(<span>4</span>) Crear y seleccionar la opción estructura.</li>
+                                    <li data-group="4" data-position="19">(<span>1</span>) Seleccionar tipo de datos y escribir Z más el nombre de la estructura.</li>
+                                    <li data-group="4" data-position="21">(<span>2</span>) Seguir las mismas opciones de creación de tablas.</li>
+                                    <li data-group="4" data-position="18">(<span>3</span>) Ingresar a la transacción SE11.</li>
+                                    <li data-group="4" data-position="20">(<span>4</span>) Crear y seleccionar la opción estructura.</li>
                                 </ul>
                             </div>
                         </div>
