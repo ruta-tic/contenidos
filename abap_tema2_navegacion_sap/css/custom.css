@@ -367,11 +367,15 @@
     overflow: auto;
 }
 
+.w-content .ayudaf1box {
+    max-width: 1400px;
+    margin: auto;
+}
+
 .w-content .ayudaf1 {
     background: url(../content/ayudaf1.jpg) no-repeat;
     background-size: 100%;
     width: 100%;
-    max-width: 1400px;
     height: 0;
     padding-top: 46%;
     margin: auto;
@@ -443,7 +447,7 @@
 .w-content .ayudaf4 .note_3 {
     top: 33%;
     left: 80.5%;
-} 
+}
 /********************************************************************************/
 /* ACTIVIDAD COMANDOS
 /********************************************************************************/
