@@ -21,37 +21,52 @@
 /* MENU
 /********************************************************************************/
 #pag-navegacion .contenedor {
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    position: relative;
 }
 
-#pag-navegacion .contenedor .contenido:first-child:before {
-    left: 50%;
-}
-
-#pag-navegacion .contenedor .contenido:last-child:before {
-    right: 50%;
+#pag-navegacion .contenedor .contenido:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 30%;
+    right: 30%;
+    border: 1px solid #878a90;
 }
 
 #pag-navegacion .contenedor .contenido {
-    position: relative;
-    text-align: center;
+    width: 200px;
 }
 
 #pag-navegacion .contenedor .descarga .b1 {
-    border: solid 10px #009081;
+    border: solid 10px #f18501;
+    left: 20px;
+}
+
+#pag-navegacion .contenedor .numero strong {
+    color: #000;
+    font-style: normal;
+    font-size: 40px;
 }
 
 #pag-navegacion .contenedor .numero {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+
+    font-size: 26px;
     color: #000;
     border-radius: 50%;
     background-color: #fff;
     width: 80px;
     height: 80px;
-    margin: 10px auto 0;
+    position: absolute;
+    top: -50px;
+    z-index: 2;
+    text-align: center;
+    line-height: 30px;
 }
 
 #pag-navegacion .contenedor .boton {
@@ -64,31 +79,42 @@
 }
 
 #pag-navegacion .contenedor .descarga .boton {
-    background-color: #78bdbf;
+    background-color: #fcc253;
 }
 
 #pag-navegacion .contenedor .descarga .boton:hover {
-    background-color: #3a9d9e;
+    background-color: #d99719;
     cursor: pointer;
 }
 
 #pag-navegacion .contenedor .contenido .contenido_sobre {
-    width: 200px;
-    color: #fff;
     padding: 50px 20px 30px;
-    margin: auto;
+    position: absolute;
 }
 
 #pag-navegacion .contenedor .descarga .contenido_sobre {
-    background-color: #40adb0;
+    background-color: #ffb400;
+    width: 200px;
+    color: #fff;
+    left: 10px;
+    text-align: center;
 }
 
 #pag-navegacion .contenedor .imagen .contenido_sobre {
-    background-color: #60a381;
+    width: 100%;
+    left: 0;
+    padding: 0;
+    padding-top: 50px;
+}
+
+#pag-navegacion .contenedor .imagen .contenido_sobre .ctrl-pagination {
+    border-top: 48px solid #5fa281;
+    top: -48px;
 }
 
 #pag-navegacion .contenedor .imagen .numero {
     border: solid 10px #0b8053;
+    right: 20px;
 }
 
 #pag-navegacion .imagen .more-less .icon_more {
@@ -99,59 +125,15 @@
 
 #pag-navegacion .contenedor .imagen img {
     max-width: 600px;
-}
-
-#pag-navegacion .contenedor .udemy .contenido_sobre {
-    background-color: #a7d092;
-    text-align: left;
-    padding: 50px 20px 0px;
-    color: #374051;
-}
-
-#pag-navegacion .contenedor .udemy .contenido_sobre > ul {
-    padding-left: 5px;
-}
-
-#pag-navegacion .contenedor .udemy .contenido_sobre > ul ul {
-    padding-left: 30px;
-}
-
-#pag-navegacion .contenedor .udemy .boton div {
-    background-color: #bbd9a9;
-    padding: 10px 15px;
-    color: #374051;
-}
-
-#pag-navegacion .contenedor .udemy .boton div:hover {
-    background-color: #9bbc86;
-    cursor: pointer;
-}
-
-#pag-navegacion .contenedor .udemy .numero {
-    border: solid 10px #5eb55f;
-}
-
-#pag-navegacion .contenedor .datos .boton {
-    background-color: #fcc253;
-    padding: 10px 5px;
-}
-
-#pag-navegacion .contenedor .datos .boton:hover {
-    background-color: #dc9919;
-    cursor: pointer;
-}
-
-#pag-navegacion .contenedor .datos .contenido_sobre {
-    background-color: #f9b21a;
-}
-
-#pag-navegacion .contenedor .datos .numero {
-    border: solid 10px #f18501;
+    width: 100%;
 }
 
 /********************************************************************************/
 /* TEMAS
 /********************************************************************************/
+.horizontal-menu > .chalkboard_content {
+    height: unset;
+}
 
 .horizontal-menu img {
     max-width: 100%;
@@ -159,11 +141,11 @@
 
 .horizontal-menu .elementos {
     background: url(../content/tema_2_elementos_de_pantalla.png) no-repeat;
-    width: 720px;
     height: 540px;
     background-size: 720px;
     position: relative;
     margin: auto;
+    min-width: 720px;
 }
 
 .horizontal-menu .elementos .note_pointer_left {
@@ -230,14 +212,257 @@
 
 .horizontal-menu .ctrl-pagination li {
     display: flex;
+    justify-content: center;
 }
 
 .horizontal-menu .ctrl-pagination li .comando_text {
-    width: 50%;
+    max-width: 500px;
+}
+
+.horizontal-menu .ctrl-pagination li .comando_text p {
+    font-size: 30px;
+    line-height: 30px;
 }
 
 .horizontal-menu .ctrl-pagination .comando {
-    max-width: 50%;
+    height: 200px;
+}
+
+.jpit-activities-selection li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.jpit-activities-selection li .radio {
+    margin-right: 5px;
+}
+
+.jpit-activities-selection li.selected.wrong {
+    color: #ef6f6f !important;
+}
+
+.jpit-activities-selection li.selected.wrong .radio {
+    background-color: #ef6f6f;
+}
+
+.jpit-activities-selection li.selected.wrong:after {
+    font-family: "Ionicons";
+    content: "\f129";
+    color: #ef6f6f;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.jpit-activities-selection li.selected.correct:after {
+    font-family: "Ionicons";
+    content: "\f121";
+    color: #38ca82;
+    margin-left: 10px;
+    font-size: 24px;
+}
+/********************************************************************************/
+/* ELEMENTOS
+/********************************************************************************/
+#pag-elementos .easyscreen {
+    position: relative;
+    background: url(../content/tema_2_transacciones_para_navegar.png) no-repeat;
+    background-size: 100%;
+    width: 695px;
+    height: 457px;
+}
+
+#pag-elementos .easyscreen div {
     position: absolute;
-    right: 0;
+    width: 377px;
+    left: 8px;
+}
+
+#pag-elementos .favoritos {
+    top: 137px;
+    height: 84px;
+}
+
+#pag-elementos .sap {
+    top: 222px;
+    height: 178px;
+}
+
+#pag-elementos .easyscreen .tooltip {
+    height: 100%;
+    color: #fff;
+}
+
+.horizontal-menu .chalkboard_items >.chalkboard_item.active, 
+.horizontal-menu .chalkboard_items >.chalkboard_item.current {
+    font-size: 14px;
+}
+
+/********************************************************************************/
+/* TRANSACCIONES
+/********************************************************************************/
+#pag-ayudas .transacciones {
+    position: relative;
+    background: url(../content/tema_2_tipo_de_transacciones.png) no-repeat;
+    background-size: 100%;
+    width: 370px;
+    height: 200px;
+    margin: auto;
+}
+
+#pag-ayudas .transacciones div {
+    position: absolute;
+    width: 124px;
+    height: 124px;
+    top: 65px;
+    border-radius: 50%;
+}
+
+#pag-ayudas .estandar {
+    left: 10px;
+}
+
+#pag-ayudas .personalizada {
+    left: 231px;
+}
+
+#pag-ayudas .transacciones .tooltip {
+    color: transparent;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+#pag-ayudas .ayudas_sistema {
+    margin: auto;
+    background: url(../content/tema_2_ayudas_del_sistema.png) no-repeat;
+    background-size: 100%;
+    width: 372px;
+    height: 176px;
+    position: relative;
+}
+
+#pag-ayudas .ayudas_sistema .f1,
+#pag-ayudas .ayudas_sistema .f4 {
+    width: 146px;
+    height: 126px;
+    position: absolute;
+    top: 25px;
+    color: transparent;
+    background: transparent;
+    border: none;
+}
+
+#pag-ayudas .ayudas_sistema .f1 {
+    left: 30px;
+}
+
+#pag-ayudas .ayudas_sistema .f4 {
+    left: 201px;
+}
+
+#pag-ayudas .w-content {
+    overflow: auto;
+}
+
+.w-content .ayudaf1 {
+    background: url(../content/ayudaf1.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    min-width: 500px;
+    height: 0;
+    padding-top: 46%;
+    margin: auto;
+    position: relative;
+}
+
+ .w-content .ayudaf1 .note_pointer_left {
+    text-align: center;
+    position: absolute;
+ }
+
+.w-content .ayudaf1 .note_1 {
+    left: 15%;
+    top: 5%;
+}
+
+.w-content .ayudaf1 .note_2 {
+    top: 55%;
+    left: 10%;
+}
+
+.w-content .ayudaf1 .note_3 {
+    left: 23%;
+    top: 57%;
+}
+
+.w-content .ayudaf1 .note_4 {
+    top: 72%;
+    left: 13%;
+}
+
+.w-content .ayudaf1 .note_5 {
+    left: 41.5%;
+    top: 47%;
+}
+
+ .w-content .ayudaf1 .note_6 {
+    left: 69.2%;
+    top: 62.5%;
+ }
+
+ .w-content .ayudaf4 {
+    background: url(../content/ayudaf4.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    min-width: 500px;
+    height: 0;
+    padding-top: 70%;
+
+    margin: auto;
+    position: relative;
+}
+
+ .w-content .ayudaf4 .note_pointer_left {
+    text-align: center;
+    position: absolute;
+ }
+
+.w-content .ayudaf4 .note_1 {
+    left: 22%;
+    top: 4%;
+}
+
+.w-content .ayudaf4 .note_2 {
+    top: 28.5%;
+    left: 24.2%;
+}
+
+.w-content .ayudaf4 .note_3 {
+    top: 33%;
+    left: 80.5%;
+} 
+/********************************************************************************/
+/* ACTIVIDAD COMANDOS
+/********************************************************************************/
+#pag-actividades .comandos.ctrl-pagination li {
+    display: flex;
+    flex-direction: column;
+}
+
+#pag-actividades .jpit-activities-cloze  .fondo {
+    background: url(../content/tema_2_comando_vacio.png) no-repeat;
+    background-size: 100%;
+    width: 200px;
+    height: 140px;
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+}
+
+#pag-actividades .jpit-activities-cloze input[type="text"] {
+    position: absolute;
+    left: 50px;
+    top: 45px;
+    font-size: 27px;
 }
