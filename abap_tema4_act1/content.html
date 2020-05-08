@@ -17,6 +17,9 @@
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/sortable/jpit_activity_sortable.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
@@ -52,7 +55,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="page" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
@@ -74,6 +77,7 @@
                         <menuitem label="Definición" data-page="pag-def"></menuitem>
                         <menuitem label="Tipos de programas " data-page="pag-tipos"></menuitem>
                         <menuitem label="Crear un programa" data-page="pag-crear"></menuitem>
+                        <menuitem label="Actividades" data-page="pag-actividades"></menuitem>
                     </menu>
                 </nav>
             </div>
@@ -120,13 +124,13 @@
                                 <p>Definen patrones más complejos de interacción con el usuario a través de una colección de pantallas. El término pantalla se refiere a la imagen física que los usuarios pueden ver. Cada pantalla tiene un flujo lógico, el cual se refiere al código implícito de ABAP invocado por esta. Así mismo, cada flujo se divide en PBO (Process Before Output) y PAI (Process after Input). En la documentación de SAP el término dynpro (programa dinámico) se refiere a la combinación entre las pantallas y el flujo lógico.</p>
                             </div>
                             <div class="element no-ejec" style="display: none">
-                                <h4>Include module</h4>
+                                <h4>Include programs</h4>
                                 <p>Incluye el tiempo de generación en la unidad de llamada. Esto es usado en ocasiones para subdividir programas muy largos. </p>
                                 <h4>Subroutine pools</h4>
                                 <p>Contienen subrutinas ABAP (bloques de código cerrados por FORM/ENDFORM e invocados por PERFORM).</p>
                                 <h4>Functions groups</h4>
                                 <p>Son librerías de módulos de funciones (encerradas entre FUNCTION/ENDFUNCTION e invocadas por CALL FUNCTION).</p>
-                                <h4>Object clases e interfaces</h4>
+                                <h4>Class pools</h4>
                                 <p>Son similares a las clases e interfaces de Java. Las primeras definen una serie de métodos y atributos, y las segundas contienen la definición de los métodos. Para cada una de las clases implementadas se debe ofrecer el código de la misma.</p>
                                 <h4>Type pools</h4>
                                 <p>Definen una colección de datos, tipos y constantes.</p>
@@ -170,25 +174,39 @@
                             <div class="creacion">
                                 <h4>Título y tipo en la creación de un programa ABAP</h4>
                                 <div class="titulo">
-                                    <div class="mouse-over" data-ref="#crear .titulo .contenido_sobre">Título</div>
-                                    <div class="contenido_sobre" style="display: none;">
+                                    <div class="mouse-over" data-ref=".contenido_sobre.tit">Título</div>
+                                    <div class="contenido_sobre tit" style="display: none;">
                                         <p>Debe ser lo más descriptivo posible. En este caso será “Mi primer programa ABAP”.</p>
                                     </div>
                                 </div>
                                 <div class="tipo">
-                                    <div class="mouse-over"  data-ref="#crear .tipo .contenido_sobre">Tipo</div>
-                                    <div class="contenido_sobre" style="display: none;">
+                                    <div class="mouse-over"  data-ref=".contenido_sobre.tip">Tipo</div>
+                                    <div class="contenido_sobre tip" style="display: none;">
                                         <p>Se refiere al tipo de objeto que se está creando. Generalmente, será “Programa ejecutable”.</p>
                                     </div>
+                                </div>
+                                <div class="apoyo">
+                                    <img src="content/tema_4-13.png" />
+                                    <div class="contenido_sobre tit resaltador" style="display: none;"></div>
+                                    <div class="contenido_sobre tip resaltador" style="display: none;"></div>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <ol class="ol_counter" start="5">
-                                <li>Presione grabar y el sistema, en una nueva ventana, le solicitará que ingrese el paquete o clase de desarrollo. Luego, haga clic en el botón objeto local, que es lo mismo que escribir $TMP y presione grabar de nuevo.</li>
-                                <li>Escriba el siguiente código en el editor: <strong>WRITE: “Este es mi primer programa en ABAP”.</strong></li>
-                                <div class="gif"><img src="content/gif2.gif" alt="Este es mi primer programa en ABAP" /></div>
-                                <li>Luego, presione el botón <em>Activate</em>, el cual compilará y activará el programa.</li>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <li>Presione grabar y el sistema, en una nueva ventana, le solicitará que ingrese el paquete o clase de desarrollo. Luego, haga clic en el botón objeto local, que es lo mismo que escribir $TMP y presione grabar de nuevo.</li>
+                                        <div class="box_media">
+                                            <img src="content/tema_4-14.png" alt="Grabar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <li>Escriba el siguiente código en el editor: <strong>WRITE: “Este es mi primer programa en ABAP”.</strong></li>
+                                        <li>Luego, presione el botón <em>Activate</em>, el cual compilará y activará el programa.</li>
+                                        <div class="gif"><img src="content/gif2.gif" alt="Este es mi primer programa en ABAP" /></div>
+                                    </div>
+                                </div>
                             </ol>
                         </li>
                         <li>
@@ -213,6 +231,229 @@
                                 <div class="centrar-img"><img src="content/06captura2.png" alt="Mi primer programa ABAP"></div>
                             </ol>
                         </li>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pag-actividades" ptitle="Actividades">
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar los conceptos importantes a tener en cuenta sobre el programa ABAP.</p>
+                        <p><strong>Indicaciones:</strong> para cada tipo, arrastre las opciones correspondientes.</p>
+                    </div>
+                    <div id="ejecutables" class="jpit-activities-multidroppable" data-act-title="Programas ejecutables y no ejecutables" data-act-id="1-arrastrar">
+                        <div class="box_targets">
+                            <div class="receptor ejec"><h5>Programas ejecutables</h5><div data-target-group="1" class="target"></div></div>
+                            <div class="receptor no_ejec"><h5>Programas no ejecutables</h5><div data-target-group="2" class="target"></div></div>
+                        </div>
+                        <div class="buttons">
+                            <button class="general verify">Verificar</button>
+                            <button class="general continue" style="display: none;">Continuar intentando</button>
+                        </div>
+                        <div class="box_end">
+                            <feedback>
+                                <correct>¡Excelente! Ha identificado conceptos importantes abordados en este objeto. </correct>
+                                <wrong>¡Bien! Aunque identificó algunos conceptos asociados a los programas ABAP, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                            </feedback>
+                        </div>
+                        <div class="sources">
+                            <div data-group="2">Subroutine pools</div>
+                            <div data-group="1">Reportes</div>
+                            <div data-group="2">Include programs</div>
+                            <div data-group="2">Class pools</div>
+                            <div data-group="1">Module pool</div>
+                            <div data-group="2">Function groups</div>
+                            <div data-group="2">Type pools</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p><strong>Indicaciones:</strong> según el enunciado, seleccione la respuesta correcta de la lista desplegable.</p>
+                    </div>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span" data-act-id="2-cloze" data-act-title="Seleccione el programa">
+                        <ul class="data_list">
+                            <li>
+                                Son programas que producen como salida una “lista-orientada”. 
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option data-response="true">Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Incluyen en su funcionamiento flujos divididos en procesos antes del resultado (conocidos como pbo) y procesos después del resultado (pai).
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option data-response="true">Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Se utiliza para subdividir programas muy largos.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option data-response="true">Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Contiene subrutinas ABAP.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option data-response="true">Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Otorgan informes en forma de lista interactiva.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option data-response="true">Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Son librerías de módulos de funciones.
+                                <span>
+                                    <select>
+                                        <option data-response="true">Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Serie de métodos y atributos similares a las clases de Java.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option data-response="true">Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Definen métodos similares a las interfaces de Java.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option data-response="true">Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Definen una colección de datos, tipos y constantes.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option>Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option data-response="true">Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                Definen patrones de interacción con el usuario, a través de una colección de pantallas que tienen un flujo lógico.
+                                <span>
+                                    <select>
+                                        <option>Functions groups</option>
+                                        <option>Include module</option>
+                                        <option>Interfaces</option>
+                                        <option data-response="true">Module pool</option>
+                                        <option>Object clases</option>
+                                        <option>Reportes</option>
+                                        <option>Subroutine pools</option>
+                                        <option>Type pools</option>
+                                    </select>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="box_end">
+                            <feedback>
+                                <correct>¡Excelente! Ha identificado conceptos importantes abordados en este objeto.</correct>
+                                <wrong>¡Bien! Aunque identificó algunos conceptos asociados a los programas ABAP, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                            </feedback>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aplicación">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar los pasos principales para crear los elementos abordados en este documento.</p>
+                        <p><strong>Enunciado:</strong> ordene los pasos que se deben llevar a cabo para para crear un programa ABAP.</p>
+                    </div>
+                    <div class="jpit-activities-sortable" data-set-position="span" data-act-id="3-sortable" data-act-title="Ordene los pasos">
+                        <ul class="sortable">
+                            <li data-position="9">(<span>1</span>) Escribir el código en el editor WRITE nombre del programa</li>
+                            <li data-position="2">(<span>2</span>) Escribir el nombre del programa a crear en el editor</li>
+                            <li data-position="0">(<span>3</span>) Ingresar con SAP LOGON</li>
+                            <li data-position="4">(<span>4</span>) Escribir “Título” y “Tipo”</li>
+                            <li data-position="3">(<span>5</span>) Presionar el botón <img src="content/tema_4-17.png" alt="Create" /></li>
+                            <li data-position="6">(<span>6</span>) Ingresar el paquete o clase de desarrollo</li>
+                            <li data-position="10">(<span>7</span>) Presionar el botón “Activate” para compilar y activar el programa</li>
+                            <li data-position="7">(<span>8</span>) Hacer clic en el botón “Objeto local” o escribir $TMP</li>
+                            <li data-position="11">(<span>9</span>) Validar posibles errores</li>
+                            <li data-position="12">(<span>10</span>) Ejecutar el programa <img src="content/tema_4-18.png" alt="Ejecutar" /></li>
+                            <li data-position="8">(<span>11</span>) Grabar nuevamente</li>
+                            <li data-position="5">(<span>12</span>) Grabar</li>
+                            <li data-position="1">(<span>13</span>) Escribir la transacción SE38 y entrar</li>
+                        </ul>
+                        <div class="box_end"></div>
                     </div>
                 </div>
             </section>
