@@ -17,6 +17,7 @@
     <script src="components/pit/utilities/jpit_utilities.js"></script>
     <script src="components/pit/activity/jpit_activity.js"></script>
     <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/cloze/jpit_activity_cloze.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/init.js"></script>
@@ -52,7 +53,7 @@
     </style>
 
 </head>
-<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="100" data-activities-percentaje="60" data-mobile-mode="512">
     <div id="body" class="not_print">
         <div id="not_scorm_msg" style="display: none;"></div>
 
@@ -89,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-2">
-                            <p>OPEN SQL es un derivado SQL patentado que proviene de la compañía SAP. Esta última tiene la intención de proporcionar un dialecto SQL unificado para todas las bases de datos compatibles con SAP. OPEN SQL es parte del lenguaje de programación ABAP y también cuenta con una versión para Java.</p>
+                            <p>OPEN SQL es un lenguaje que permite insertar, modificar, actualizar y eliminar registros en las tablas de bases de datos, ya que estos objetos son los únicos que guardan información. Los demás, como los vimos anteriormente, sirven de referencia para definir otros objetos.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +106,7 @@
                         </li>
                         <li>
                             <p>Estas sentencias permiten manipular datos dentro de las tablas.</p>
-                            <p>El MODIFY y el INSERT, ingresan nuevos registros a la base de datos, sin embargo, la diferencia está en que el MODIFY lo crea si no existe y, si existe, lo modifica.</p>
+                            <p>El MODIFY y el INSERT ingresan nuevos registros a la base de datos, sin embargo, la diferencia está en que el MODIFY lo crea si no existe y, si existe, lo modifica.</p>
                             <div class="centrar-img"><img src="content/tema_5-03.png" alt="INSERT, UPDATE, MODIFY y DELETE" /></div>
                         </li>
                     </div>
@@ -115,24 +116,29 @@
                         <li>
                             <h4>Work Areas</h4>
                             <p>Es un grupo de varios campos que sirven para manejar información en ejecución (capa de aplicación), por ejemplo, un arreglo en Java.</p>
-                            <p>Estructura que puede crearse en el programa ABAP o Ser Global en el diccionario.</p>
+                            <p>Work Area del tipo de la tabla que creamos.</p>
 <pre>
-<em>TYPES</em>: <em>BEGIN OF</em> lty_prueba,
-        nombre(<b>30</b>)     <em>TYPE</em> c,
-        apellidos(<b>30</b>)  <em>TYPE</em> c,
-        dni(<b>30</b>)        <em>TYPE</em> c,
-    <em>END OF</em> lty_prueba.
+<em>DATA</em>: lwa_prueba <em>TYPE</em> zfact_logali.
 </pre>
-                            <p>Work Area del tipo de la estructura:</p>
 
+                            <p>Podemos ingresar un registro a nuestra tabla con las siguientes sentencias:</p>
 <pre>
-<em>DATA</em>: lwa_prueba <em>TYPE</em> lty_prueba.
-</pre>
+lwa_prueba-factura      =   <b>'1234567890'</b>.
+lwa_prueba-cls_fact     =   <b>'OTRO'</b>.
+lwa_prueba-tp_fact      =   <b>'N'</b>.
+lwa_prueba-tp_doc       =   <b>'N'</b>.
+lwa_prueba-ejercicio    =   <b>'2020'</b>.
+lwa_prueba-per_CNTB     =   <b>'003'</b>.
+
+<EM>MODIFY</EM> zfact_logali <em>FROM</em> lwa_prueba.
+</pre>                            
+
                         </li>
+
                         <li>
                             <h4>Tablas internas</h4>
 <pre>
-<em>DATA</em>: lti_prueba <em>TYPE STANDARD TABLE OF</em> lty_prueba.
+<em>DATA</em>: lti_prueba <em>TYPE STANDARD TABLE OF</em> zfact_logali.
 </pre>
                             <p>Las tablas internas son variables dinámicas compuestas de N líneas del mismo tipo. Cualquier tipo de datos ABAP puede ser usado para hacer un tipo de línea de la tabla interna.</p>
                             <p>En esta podemos almacenar cada uno de los registros traídos de la tabla de base de datos Se realiza así:</p>
@@ -141,6 +147,15 @@
     <em>FROM</em> Tabla
     <em>INTO TABLE</em> lti_prueba
     <em>WHERE</em> condicion.
+</pre>
+
+                            <p>Otra forma de hacer el Select es con un solo registro que se almacene en una Work Área:</p>
+
+<pre>
+<em>SELECT SINGLE</em> *
+    <em>INTO</em> Work Area
+    <em>FROM</em> Tabla_Base_de_datos
+    <em>WHERE</em> campo <em>EQ</em> condicion.
 </pre>
                         </li>
                         <li>
@@ -157,14 +172,180 @@
                     </div>
                 </div>
 
+                <div class="subpage">
+                    <div class="box-text activity" label="Actividad de aprendizaje">
+                        <p><strong>Objetivo de aprendizaje:</strong> identificar elementos importantes abordados en este documento y asociados a las sentencias OPEN SQL.</p>
+                        <p><strong>Enunciado:</strong> de acuerdo con cada situación específica, seleccione los elementos correctos a ubicar para completar la sentencia SQL.</p>
+                    </div>
+                    <div class="jpit-activities-cloze" data-parent-mark-selector="span" data-act-id="1-cloze" data-act-title="Completar las sentencias SQL.">
+                        <div class="row">
+                            <div class="col-2">
+                                <h4>1.</h4>
+                                <ul class="data_list">
+                                    <li>
+                                        SELECT 
+                                        <span>
+                                            <select>
+                                                <option data-response="true">CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option data-response="true">FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                        ZFACT_LOGALI
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option data-response="true">INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                        LTI_PRUEBA
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option data-response="true">WHERE</option>
+                                            </select>
+                                        </span>
+                                        CONDICIÓN
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <h4>2.</h4>
+                                <ul class="data_list">
+                                    <li>
+                                        SELECT 
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option data-response="true">SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                        CAMPOS
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option data-response="true">FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                        ZFACT_LOGALI
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option data-response="true">INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option>WHERE</option>
+                                            </select>
+                                        </span>
+                                        LWA_PRUEBA
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <select>
+                                                <option>CAMPOS</option>
+                                                <option>FROM</option>
+                                                <option>INSERT</option>
+                                                <option>INTO</option>
+                                                <option>INTO TABLE</option>
+                                                <option>MODIFY</option>
+                                                <option>SINGLE</option>
+                                                <option>TABLA POOLED</option>
+                                                <option>UPDATE</option>
+                                                <option data-response="true">WHERE</option>
+                                            </select>
+                                        </span>
+                                        CONDICIÓN
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="box_end">
+                            <feedback>
+                                <correct>¡Excelente! Ha identificado correctamente los elementos para las sentencias SQL abordados en esta actividad.</correct>
+                                <wrong>¡Bien! Aunque identificó algunos elementos correctamente, le falta reconocer todos los de esta actividad. Estudie un poco más y reintente hasta que pueda responder correctamente a todos los enunciados.</wrong>
+                            </feedback>
+                        </div>
+                        
+                    </div>
+                </div>
             </section>
 
         </main>
 
         <footer class="not_print">
+            <div class="measuring-progress" data-type="horizontal"></div>
 
             <nav label="General" class="globals2">
                 <menu>
+                    <menuitem data-global-id="results"><span><i class="ion-speedometer" data-position-at="right top"></i> <br /><label id="labelprogress">Progreso</label></span></menuitem>
                     <menuitem data-global-id="credits"><span><i class="ion-information-circled" data-position-at="right top"></i> <br /><label id="labelprogress">Créditos</label></span></menuitem>
                 </menu>
             </nav>
@@ -186,6 +367,8 @@
         <h3>Páginas visitadas</h3>
         <p>En verde, aquellas páginas que ya ha visitado.</p>
         <div id="results_page_visited" class="container"></div>
+        <h3>Actividades de aprendizaje</h3>
+        <div id="results_page_activities"></div>
     </div>
 
     <!--Créditos-->
