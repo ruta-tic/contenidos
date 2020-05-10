@@ -2,6 +2,18 @@ html.single h2 {
     padding-left: 15px;
 }
 
+nav.horizontal ul.menu > li {
+    display: inline-table;
+    float: none;
+}
+
+nav.horizontal ul.menu > li.active:before,
+nav.horizontal ul.menu li.current:before,
+nav.horizontal ul.submenu > li.active:before,
+nav.horizontal ul.submenu > li.current:before {
+    background-color: transparent;
+}
+
 .ctrl-pagination .note_pointer_right,
 .ctrl-pagination .note_pointer_left {
     text-align: center;
@@ -9,6 +21,10 @@ html.single h2 {
 
 .centrar-img {
     text-align: center;
+}
+
+nav.horizontal ul.menu > li {
+    width: 160px;
 }
 /********************************************************************************/
 /* INSTRUCCIONES
@@ -272,4 +288,124 @@ html.single h2 {
     padding: 25px;
     height: 270px;
     overflow: auto;
+}
+
+.apoyo {
+    width: 400px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.apoyo img {
+    width: 100%;
+}
+
+.resaltador {
+    width: 195px !important;
+    height: 17px !important;
+    padding: 0 !important;
+    left: 63px !important;
+    position: absolute;
+    border: 2px solid red;
+}
+
+.resaltador.tit {
+    top: 133px !important;
+}
+
+.resaltador.tip {
+    top: 255px !important;
+}
+
+/********************************************************************************/
+/* Actividad de arrastre
+/********************************************************************************/
+#ejecutables.jpit-activities-multidroppable .box_targets {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+#ejecutables h5 {
+    text-align: center;
+    font-size: 17px;
+    color: #000029;
+    background-color: #fff;
+    position: absolute;
+    top: -55px;
+    left: 10%;
+    right: 10%;
+}
+
+#ejecutables .receptor {
+    min-height: 150px;
+    vertical-align: top;
+    margin: 10px;
+    padding: 40px 15px 15px;
+    position: relative;
+}
+
+#ejecutables .receptor .target {
+    min-height: 150px;
+    width: 220px;
+    overflow: auto;
+    margin: auto;
+    border: 2px dotted #dae2d0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#ejecutables.jpit-activities-multidroppable .sources {
+    width: 100%;
+    min-height: 65px;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#ejecutables.jpit-activities-multidroppable .draggable {
+    width: 165px;
+    height: 30px;
+    float: left;
+    margin: 0 1px 5px;
+}
+
+#ejecutables table .draggable.disabled {
+    cursor: default;
+}
+
+#ejecutables.jpit-activities-multidroppable .buttons {
+    text-align: center;
+    padding: 5px 0;
+    clear: both;
+}
+
+.receptor.ejec {
+    background-color: #6fabae;
+}
+
+.receptor.no_ejec {
+    background-color: #b3cf94;
+}
+
+.receptor.ejec .target {
+    background-color: #69a0a0;
+}
+
+.receptor.no_ejec .target {
+    background-color: #acc390;
+}
+
+.receptor.ejec h5 {
+    border: 5px solid #3a8d80;
+}
+
+.receptor.no_ejec h5 {
+    border: 5px solid #7eb363;
 }
