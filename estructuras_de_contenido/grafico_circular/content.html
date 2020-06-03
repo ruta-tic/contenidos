@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+<body class="loading" data-debug="true" data-model="scorm" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-obra" ptitle="Estrategias">
+                <div class="subpage">
+                    <div class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el mouse por</span> cada uno de los elementos del gráfico para ampliar la información<span class="onlymobile">, la cual se mostrará en la parte de abajo del gráfico.</span></div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="clasificacion mouse-over-one">
+                                <div class="seccion fondo"></div>
+                                <div class="seccion button escrita current" data-ref="#pag-obra .sec_escrita"></div>
+                                <div class="seccion button oral" data-ref="#pag-obra .sec_oral"></div>
+                                <div class="seccion button practica" data-ref="#pag-obra .sec_practica"></div>
+                                <div class="seccion centro"></div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="medios sec_escrita">
+                                <div class="nombre_seccion escrita">
+                                    <span>Medios con predominio de la expresión escrita</span>
+                                    <img src="content/05.png" alt="Imagen">
+                                    <img src="content/06.png" alt="Texto">
+                                </div>
+                                <div class="tabla">
+                                    <table class="datatable">
+                                        <tbody>
+                                            <tr>
+                                                <td>Examen</td>
+                                                <td>Conjunto de preguntas para contestar con precisión suficiente. Pueden ser abiertas de respuestas largas, abiertas de respuestas breves, objetivas sencillas (V/F) y objetivas complejas (selección simple, selección múltiple, elección combinada, selección de la mejor respuesta, entre otros).</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trabajo escrito</td>
+                                                <td>Documento que sigue un guión establecido y que aborda uno o varios temas relacionados. Se encuentra definido por partes como título, introducción, marco de fundamentación (o teórico) y bibliografía.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ensayo</td>
+                                                <td>Es un escrito para desarrollar uno o varios argumentos sin definir las exigencias como en el anterior, pero dando alto valor a la argumentación de las ideas propias.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Póster</td>
+                                                <td>Escrito mural mixto (texto e imágenes) para realizar ejercicios de síntesis.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Informe</td>
+                                                <td>Documento breve que describe las características de un tema específico, usualmente expresa cómo afrontar la situación.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Recensión</td>
+                                                <td>Materiales escritos sobre las lecturas realizadas. Tiene una estructura simple (resumen y análisis) o una estructura compleja (esquema, dudas, preguntas, conexión con otros conocimientos, análisis personal, crítica, relaciones espacio-tiempo, etc.)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Proyecto</td>
+                                                <td>Documento con las propuestas y diseño de un trabajo investigativo, y en el cual se manifiestan el procedimiento mediante objetivos, hipótesis, referencias teóricas y cronograma, etc.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cuaderno campo</td>
+                                                <td>Recoge datos de una situación específica, describe y analiza.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fichas</td>
+                                                <td>Pueden ser de lecturas referidas o de la práctica realizada.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Portafolio</td>
+                                                <td>Carpeta con la selección de evidencias sobre un proceso de aprendizaje. Requiere de especificar los autores, justificar la elección y presentar un hilo conductor o argumento que permita establecer un nexo entre los componentes.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Memoria</td>
+                                                <td>Documento con la disertación sobre un tema o materia específica que se entrega al final del acontecimiento y recapitula o contiene los hechos y aportes de la información relacionada que ilustra lo acontecido</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="medios sec_oral" style="display: none;">
+                                <div class="nombre_seccion oral">
+                                    <span>Medios con predominio de la expresión oral</span>
+                                    <img src="content/07.png" alt="Voz">
+                                </div>
+                                <div class="tabla">
+                                    <table class="datatable">
+                                        <tbody>
+                                            <tr>
+                                                <td>Exposición</td>
+                                                <td>Manifestación oral para explicar el sentido de una o varias ideas.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Debate</td>
+                                                <td>Controversia entre varias personas con puntos de vista diferentes sobre un tema. Puede estar orientado por preguntas.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Entrevista</td>
+                                                <td>Concurrencia de dos personas conversando sobre un tema específico, por ejemplo, asesorías entre profesor y estudiante.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Entrevista grupal</td>
+                                                <td>Debate en grupos (de 6 a 10 personas) a través de preguntas que se van ampliando en al medida que se introduce más información. Muy útil en grupos numerosos.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grupo discusión</td>
+                                                <td>Debate entre un grupo sobre un tema específico que los afecta. Las preguntas son elaboradas por los miembros.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mesa redonda</td>
+                                                <td>Tiene un tema específico y definido con antelación, los participantes hacen una breve exposición inicial a un auditorio (resto del grupo) y se da paso a las interpelaciones entre los integrantes de la mesa y del grupo. Al final, el moderador presenta una conclusión.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Panel de expertos</td>
+                                                <td>Se seleccionan con antelación “expertos” entre el grupo de alumnos, por ejemplo, después de trabajos grupales cada grupo selecciona el experto que los representará en el panel. Esto da paso a un debate con el grupo completo y el profesor.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ponencia</td>
+                                                <td>Información sobre un tema que es sometido a la aprobación de un grupo de personas.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Comunicación</td>
+                                                <td>Disertación breve para divulgar el conocimiento de un tema específico y discutirlo con otros.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="medios sec_practica" style="display: none;">
+                                <div class="nombre_seccion practica">
+                                    <span>Medios con predominio de la expresión práctica</span>
+                                    <img src="content/08.png" alt="Movimiento">
+                                </div>
+                                <div class="tabla">
+                                    <table class="datatable">
+                                        <tbody>
+                                            <tr>
+                                                <td>Representación, demostración o actuación</td>
+                                                <td>Actuaciones, roles, prototipos, obras plásticas, programas informáticos, maquetas, moldes, etc.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Simulación</td>
+                                                <td>Ponerse en una situación semejante a la realidad; algo ya hecho por otros se demuestra y se reproduce o se adecúa para ser presentando.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Búsquedas</td>
+                                                <td>Hallar, seleccionar y recoger materiales o información para otros asuntos (exposiciones, exámenes, trabajos, etc.)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Prácticas acompañadas</td>
+                                                <td>Campos de actuación con acompañamiento y supervisión del profesor.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="nota"><p>Tomado de: Salinas Salazar y Rodríguez Gómez, 2014.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
