@@ -1,0 +1,75 @@
+/********************************************************************************/
+/* Interactivo pirámide
+/********************************************************************************/
+#piramide-miller {
+    margin-bottom: 50px;
+}
+
+.titulo-piramide {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+}
+
+#piramide div {
+    text-align: center;
+}
+
+#piramide div img {
+    filter: grayscale(1);
+    max-width: 100%;
+}
+
+#piramide div img.active,
+#piramide div img.current {
+    filter: grayscale(0);
+}
+
+.info-piramide {
+    display: flex;
+}
+
+.info-piramide h5 {
+    font-size: x-large;
+    margin: 10px auto;
+}
+
+#piramide-hacer {
+    border: 2px solid #e49525;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-hacer h5 {
+    color: #e49525;
+}
+
+#piramide-mostrarcomo {
+    border: 2px solid #bd6a3c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-mostrarcomo h5 {
+    color: #bd6a3c;
+}
+
+#piramide-sabercomo {
+    border: 2px solid #28519e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-sabercomo h5 {
+    color: #28519e;
+}
+
+#piramide-saber {
+    border: 2px solid #3db3af;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#piramide-saber h5 {
+    color: #3db3af;
+}

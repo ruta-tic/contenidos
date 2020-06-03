@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/pit/jpit_api.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="top-decoration" class="not_print"></div>
+
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="">
+                <div id="piramide-miller" class="subpage">
+                    <p class="instruction"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor</span> sobre las casillas de la pirámide para desplegar la información<span class="onlymobile">, la cual se verá bajo la gráfica</span>.</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div id="piramide" class="mouse-over-one">
+                                <div><img src="content/piramide_de_miller-01.png" class="button current" data-ref="#piramide-hacer" /></div>
+                                <div><img src="content/piramide_de_miller-02.png" class="button" data-ref="#piramide-mostrarcomo" /></div>
+                                <div><img src="content/piramide_de_miller-03.png" class="button" data-ref="#piramide-sabercomo" /></div>
+                                <div><img src="content/piramide_de_miller-04.png" class="button" data-ref="#piramide-saber" /></div>
+                            </div>
+                        </div>
+                        <div class="col-2 info-piramide">
+                            <div id="piramide-hacer">
+                                <h5>Práctica profesional real</h5>
+                                <p>
+                                    La evaluación se hace en una situación o contexto real como el Mini-CEX (<em>Mini Clinical Evaluation Excercise</em>), OECP (Observación Estructurada de la Práctica Clínica), portafolio, el feedback 360o, las videograbaciones.
+                                </p>
+                                <ul class="data_list">
+                                    <li>Pruebas orales o escritas de respuesta múltiple</li>
+                                    <li>Pruebas de respuesta corta</li>
+                                    <li>Pruebas de respuesta simple y unívoca</li>
+                                    <li>Pruebas de identificación de componentes a través de figuras</li>
+                                    <li>Pruebas de ordenamiento o jerarquización</li>
+                                    <li>Pruebas de asociación de hechos</li>
+                                    <li>Pruebas de complementación de frases</li>
+                                </ul>
+                            </div>
+                            <div id="piramide-mostrarcomo" style="display: none;">
+                                <h5>Demostración como actuación del estudiante frente a una situación clínica específica</h5>
+                                <p>
+                                    Evaluación del desempeño con el paciente real o simulado, ECOE.
+                                </p>
+                                <p>Se pretende que el estudiante sea capaz de explicar el concepto en cada uno de sus componentes y emplearlo en la solución de  nuevos problemas. Algunas de las posibilidades evaluativas del manejo conceptual son:</p>
+                                <ul class="data_list">
+                                    <li>Observación indirecta con pruebas escritas</li>
+                                    <li>Casos clínicos o con entrevistas</li>
+                                    <li>Pruebas de libro abierto</li>
+                                    <li>Disertaciones orales</li>
+                                    <li>Ensayos</li>
+                                    <li>Mapas conceptuales</li>
+                                    <li>Redes semánticas</li>
+                                </ul>
+                            </div>
+                            <div id="piramide-sabercomo" style="display: none;">
+                                <h5>Saber cómo utilizar conocimientos para analizar e interpretar</h5>
+                                <p>
+                                    Evaluación por observación indirecta con pruebas escritas con casos clínicos o con entrevistas.
+                                </p>
+                                <ul class="data_list">
+                                    <li>Evaluación del desempeño con el paciente real o simulado</li>
+                                    <li>Experimentos tecnológicos</li>
+                                    <li>Métodos de creatividad</li>
+                                    <li>Estudios de caso</li>
+                                    <li>Juegos de roles y dramatización</li>
+                                    <li>Entrevistas</li>
+                                    <li>Observación</li>
+                                    <li>Métodos de simulación</li>
+                                </ul>
+                            </div>
+                            <div id="piramide-saber" style="display: none;">
+                                <h5>Recordar contenidos, teorías y datos</h5>
+                                <p>
+                                    Pruebas orales o escritas de respuesta múltiple, de respuesta corta.
+                                </p>
+                                <p>La práctica profesional real puede ser evaluada a través de una situación o contexto real como los siguientes:</p>
+                                <ul class="data_list">
+                                    <li>Portafolio</li>
+                                    <li>Feedback 360o</li>
+                                    <li>Videograbaciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
