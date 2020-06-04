@@ -30,24 +30,24 @@
     height: 30px;
 }
 
-.esquema .arquitectura div,
-.esquema .sql div {
+.esquema .sub1 div,
+.esquema .subu div {
     border-left: 3px solid #4ab060;
 }
 
-.esquema .navegacion div {
+.esquema .sub2 div {
     border-left: 3px solid #e67400;
 }
 
-.esquema .diccionario div {
+.esquema .sub3 div {
     border-left: 3px solid #fdc300;
 }
 
-.esquema .tipos div {
+.esquema .sub4 div {
     border-left: 3px solid #73c7dd;
 }
 
-.esquema .conceptos .preguntas ol {
+.esquema .conceptos .lista ol {
     padding-left: 15px;
 }
 
@@ -79,10 +79,10 @@
     border-top: 1px solid #c1c0c3;
 }
 
-.esquema .arquitectura .concepto:before {
+.esquema .sub1 .concepto:before {
     left: 50%;
 }
 
-.esquema .sql .concepto:before {
+.esquema .subu .concepto:before {
     right: 50%;
 }
