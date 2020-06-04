@@ -1,7 +1,7 @@
 /********************************************************************************/
 /* Diagrama circular
 /********************************************************************************/
-#pag-obra .clasificacion {
+#pag-obra .circular {
     position: relative;
     width: 450px;
     height: 450px;
@@ -11,29 +11,36 @@
     margin-top: 20px;
 }
 
-#pag-obra .clasificacion .seccion {
+#pag-obra .circular .seccion {
     position: absolute;
     background: url(../content/sprite-01.png) top left no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
 }
 
-#pag-obra .clasificacion .seccion.button {
+#pag-obra .circular .seccion.button {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
 
-#pag-obra .clasificacion .seccion.current,
-#pag-obra .clasificacion .seccion:hover {
+#pag-obra .circular .seccion.current,
+#pag-obra .circular .seccion:hover {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
 }
 
-#pag-obra .clasificacion .escrita {
+#pag-obra .circular .elemento1 {
     width: 350px;
     height: 160px;
     background-position: -19px -16px;
 }
 
-#pag-obra .clasificacion .oral {
+#pag-obra .circular .elemento2 {
     width: 195px;
     height: 314px;
     background-position: -561px -22px;
@@ -41,7 +48,7 @@
     left: 0;
 }
 
-#pag-obra .clasificacion .practica {
+#pag-obra .circular .elemento3 {
     width: 194px;
     height: 314px;
     background-position: -368px -22px;
@@ -49,21 +56,22 @@
     right: 0;
 }
 
-#pag-obra .clasificacion .fondo {
+#pag-obra .circular .fondo {
     width: 321px;
     height: 320px;
     background-position: -800px -21px;
     top: 60px;
 }
 
-#pag-obra .clasificacion .centro {
+#pag-obra .circular .centro {
     width: 161px;
     height: 166px;
     background-position: -1199px -20px;
     top: 134px;
+    color: #4b4b4b;
 }
 
-#pag-obra .medios{
+#pag-obra .contenido {
     width: 90%;
     margin: 0 auto;
     background-color: #f2f1f0;
@@ -76,45 +84,46 @@
     box-shadow: 10px 10px 5px 0px rgba(215,218,224,0.5);
 }
 
-#pag-obra .medios .nombre_seccion {
+#pag-obra .contenido .nombre_seccion {
     color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 5px;
+    height: 40px;
 }
 
-#pag-obra .medios .nombre_seccion.escrita {
+#pag-obra .contenido .nombre_seccion.elemento1 {
     background-color: #0056b4;
 }
 
-#pag-obra .medios .nombre_seccion.oral {
+#pag-obra .contenido .nombre_seccion.elemento2 {
     background-color: #00a7e7;
 }
 
-#pag-obra .medios .nombre_seccion.practica {
+#pag-obra .contenido .nombre_seccion.elemento3 {
     background-color: #fe8804;
 }
 
-#pag-obra .medios .datatable {
+#pag-obra .contenido .datatable {
     max-width: 100%;
     border: 0;
 }
 
-#pag-obra .medios .datatable td {
+#pag-obra .contenido .datatable td {
     border: 0;
     border-top: 1px solid #fff;
 }
 
-#pag-obra .medios .tabla {
+#pag-obra .contenido .tabla {
     height: 450px;
     overflow: auto;
 }
 
-#pag-obra .medios .tabla tr td:first-child {
+#pag-obra .contenido .tabla tr td:first-child {
     font-weight: bold;
 }
 
-#pag-obra .nota {
-    text-align: center;
+#pag-obra .contenido p {
+    padding: 5px 15px;
 }
