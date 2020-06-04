@@ -8,7 +8,7 @@
 /********************************************************************************/
 /* MENU
 /********************************************************************************/
-#pag-navegacion .contenedor {
+#id-pagina .contenedor {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -16,7 +16,7 @@
     min-height: 400px;
 }
 
-#pag-navegacion .contenedor .contenido:before {
+#id-pagina .contenedor .contenido:before {
     content: "";
     position: absolute;
     top: 0;
@@ -25,25 +25,25 @@
     border: 1px solid #878a90;
 }
 
-#pag-navegacion .contenedor .contenido:first-child:before {
+#id-pagina .contenedor .contenido:first-child:before {
     left: 50%;
 }
 
-#pag-navegacion .contenedor .contenido:last-child:before {
+#id-pagina .contenedor .contenido:last-child:before {
     right: 50%;
 }
 
-#pag-navegacion .contenedor .contenido {
+#id-pagina .contenedor .contenido {
     position: relative;
     width: 200px;
     text-align: center;
 }
 
-#pag-navegacion .contenedor .descarga .b1 {
+#id-pagina .contenedor .paso1 .b1 {
     border: solid 10px #009081;
 }
 
-#pag-navegacion .contenedor .numero {
+#id-pagina .contenedor .numero {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     left: 70px;
 }
 
-#pag-navegacion .contenedor .boton {
+#id-pagina .contenedor .boton {
     padding: 10px 15px;
     width: 80%;
     height: 40px;
@@ -68,87 +68,87 @@
     text-align: center;
 }
 
-#pag-navegacion .contenedor .descarga .boton {
+#id-pagina .contenedor .paso1 .boton {
     background-color: #78bdbf;
 }
 
-#pag-navegacion .contenedor .descarga .boton:hover {
+#id-pagina .contenedor .paso1 .boton:hover {
     background-color: #3a9d9e;
     cursor: pointer;
 }
 
-#pag-navegacion .contenedor .contenido .contenido_sobre {
+#id-pagina .contenedor .contenido .contenido_sobre {
     width: 200px;
     color: #fff;
     padding: 50px 20px 30px;
 }
 
-#pag-navegacion .contenedor .descarga .contenido_sobre {
+#id-pagina .contenedor .paso1 .contenido_sobre {
     background-color: #40adb0;
 }
 
-#pag-navegacion .contenedor .imagen .contenido_sobre {
+#id-pagina .contenedor .paso2 .contenido_sobre {
     background-color: #60a381;
 }
 
-#pag-navegacion .contenedor .imagen .numero {
+#id-pagina .contenedor .paso2 .numero {
     border: solid 10px #0b8053;
 }
 
-#pag-navegacion .imagen .more-less .icon_more {
+#id-pagina .paso2 .more-less .icon_more {
     background-color: #fff;
     border-radius: 50%;
     padding: 6px 13px 6px 12px;
 }
 
-#pag-navegacion .contenedor .imagen img {
+#id-pagina .contenedor .paso2 img {
     max-width: 600px;
 }
 
-#pag-navegacion .contenedor .udemy .contenido_sobre {
+#id-pagina .contenedor .paso3 .contenido_sobre {
     background-color: #a7d092;
     text-align: left;
     padding: 50px 20px 0px;
     color: #374051;
 }
 
-#pag-navegacion .contenedor .udemy .contenido_sobre > ul {
+#id-pagina .contenedor .paso3 .contenido_sobre > ul {
     padding-left: 5px;
 }
 
-#pag-navegacion .contenedor .udemy .contenido_sobre > ul ul {
+#id-pagina .contenedor .paso3 .contenido_sobre > ul ul {
     padding-left: 30px;
 }
 
-#pag-navegacion .contenedor .udemy .boton div {
+#id-pagina .contenedor .paso3 .boton div {
     background-color: #bbd9a9;
     padding: 10px 15px;
     color: #374051;
 }
 
-#pag-navegacion .contenedor .udemy .boton div:hover {
+#id-pagina .contenedor .paso3 .boton div:hover {
     background-color: #9bbc86;
     cursor: pointer;
 }
 
-#pag-navegacion .contenedor .udemy .numero {
+#id-pagina .contenedor .paso3 .numero {
     border: solid 10px #5eb55f;
 }
 
-#pag-navegacion .contenedor .datos .boton {
+#id-pagina .contenedor .paso4 .boton {
     background-color: #fcc253;
     padding: 10px 5px;
 }
 
-#pag-navegacion .contenedor .datos .boton:hover {
+#id-pagina .contenedor .paso4 .boton:hover {
     background-color: #dc9919;
     cursor: pointer;
 }
 
-#pag-navegacion .contenedor .datos .contenido_sobre {
+#id-pagina .contenedor .paso4 .contenido_sobre {
     background-color: #f9b21a;
 }
 
-#pag-navegacion .contenedor .datos .numero {
+#id-pagina .contenedor .paso4 .numero {
     border: solid 10px #f18501;
 }
