@@ -1,27 +1,59 @@
+#body {
+    min-width: 520px;
+}
 /********************************************************************************/
 /* Interactivo pirámide
 /********************************************************************************/
-#piramide-miller {
-    margin-bottom: 50px;
-}
-
 .titulo-piramide {
     text-align: center;
     font-size: 25px;
     color: #333;
 }
 
-#piramide div {
-    text-align: center;
+#piramide {min-width: 500px;}
+
+#piramide .button {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
 }
 
-#piramide div img {
+#piramide .nivel1 {
+    background: url(../content/piramide_de_miller-01.png) no-repeat center;   
+    height: 128px;
+}
+
+#piramide .nivel2 {
+    background: url(../content/piramide_de_miller-02.png) no-repeat center;   
+    height: 100px;
+}
+
+#piramide .nivel3 {
+    background: url(../content/piramide_de_miller-03.png) no-repeat center;   
+    height: 101px;
+}
+
+#piramide .nivel4 {
+    background: url(../content/piramide_de_miller-04.png) no-repeat center;   
+    height: 104px;
+}
+
+#piramide div {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    padding-bottom: 20px;
+}
+
+#piramide div {
     filter: grayscale(1);
     max-width: 100%;
 }
 
-#piramide div img.active,
-#piramide div img.current {
+#piramide div.active,
+#piramide div.current {
     filter: grayscale(0);
 }
 
@@ -34,42 +66,42 @@
     margin: 10px auto;
 }
 
-#piramide-hacer {
+#piramide-nivel1 {
     border: 2px solid #e49525;
     border-radius: 10px;
     padding: 10px;
 }
 
-#piramide-hacer h5 {
+#piramide-nivel1 h5 {
     color: #e49525;
 }
 
-#piramide-mostrarcomo {
+#piramide-nivel2 {
     border: 2px solid #bd6a3c;
     border-radius: 10px;
     padding: 10px;
 }
 
-#piramide-mostrarcomo h5 {
+#piramide-nivel2 h5 {
     color: #bd6a3c;
 }
 
-#piramide-sabercomo {
+#piramide-nivel3 {
     border: 2px solid #28519e;
     border-radius: 10px;
     padding: 10px;
 }
 
-#piramide-sabercomo h5 {
+#piramide-nivel3 h5 {
     color: #28519e;
 }
 
-#piramide-saber {
+#piramide-nivel4 {
     border: 2px solid #3db3af;
     border-radius: 10px;
     padding: 10px;
 }
 
-#piramide-saber h5 {
+#piramide-nivel4 h5 {
     color: #3db3af;
 }
