@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="">
+
+                <div class="subpage">
+
+                    <div class="instruction" type="info"><span class="onlymobile">Toque</span><span class="notmobile">Pase el cursor por</span> cada opción para conocer su descripción.</div>
+                    <div class="contenedor">
+                        <h1>Título del contenido</h1>
+                        <div class="mouse-over-one">
+                            <div class="titulo"><div>Menú</div></div>
+                            <div class="button b1 current" data-ref=".opc1">Opción<br />1</div>
+                            <div class="button b2" data-ref=".opc2">Opción<br />2</div>
+                            <img src="content/ojo.jpg" alt="Imagen de muestra" />
+                        </div>
+                        <div class="contenido_sobre">
+                            <div class="element opc1" style="display: none">
+                                <h4>Contenido 1</h4>
+                                <p>Quisque est lectus, tincidunt quis velit quis, condimentum laoreet est. Vestibulum tincidunt orci ut elementum tincidunt. Praesent faucibus leo non nisl blandit euismod. Sed aliquam, diam eu accumsan viverra, ante mi porttitor tortor, eget iaculis purus dui egestas ligula. Phasellus vel mauris erat. Suspendisse dui tortor, sollicitudin et cursus nec, efficitur ac purus. Ut porta leo magna, eget commodo libero facilisis eu. Proin non nulla ante. Pellentesque euismod ipsum a turpis sodales, id pharetra quam fringilla. Phasellus eget sollicitudin felis. Pellentesque pretium ornare sem, nec pellentesque sapien iaculis non. Nulla velit odio, lobortis ut rhoncus in, pellentesque vitae nisl. Maecenas ultrices interdum libero nec dignissim. Maecenas mollis, ante ut vehicula ultricies, orci dolor cursus leo, at viverra ligula lorem et arcu.</p>
+                            </div>
+                            <div class="element opc2" style="display: none">
+                                <h4>Contenido 2</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non aliquet metus. Quisque vestibulum ex ut lorem convallis, vitae tincidunt lorem ullamcorper. Vestibulum eu euismod nisl. Sed imperdiet ex in urna imperdiet, a volutpat lorem hendrerit. Proin vitae lacinia tellus. Vivamus convallis luctus lacus, non vulputate nisl facilisis a. Aliquam in tellus lacus. Aenean convallis mi at tortor sagittis pulvinar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>
