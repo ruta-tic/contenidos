@@ -1,0 +1,456 @@
+/* GENERAL */
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url('fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'),
+        url('fonts/Montserrat/Montserrat-Regular.woff') format('woff')
+}
+
+h1 {
+	font-size: 40px;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 21px;
+	font-weight: normal;
+	padding-left: 30px;
+}
+
+h2 strong {
+	background-color: #cce5e9;
+    width: 150px;
+    padding: 2px 15px 2px 30px;
+    margin-left: -30px;
+}
+
+p {
+	text-align: justify;
+	padding: 0 50px;
+}
+
+p.question {color: #37bbc8;}
+
+div.about {padding-left: 50px;}
+
+p.top {
+	padding-top: 60px;
+}
+
+.about {color: #efa01d;}
+
+.button a {
+	background-color: #efa01d;
+	padding: 10px 20px;
+	color: #fff;
+	width: 110px;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.box_media {
+	text-align: center;
+	padding: 40px 20px 0;
+}
+
+.box_media video {
+	width: 100%;
+    box-shadow: 10px 10px 10px 0px rgba(210,210,210,1);
+}
+
+.podcast {
+	display: flex;
+	justify-content: flex-end;
+    width: 60%;
+    height: 70px;
+    float: right;
+    background-color: #fff;
+    padding: 10px 0;
+    position: absolute;
+    right: 0;
+    bottom: 25%;
+}
+
+.podcast .audio {
+	border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+audio {
+	width: 100%;
+}
+
+.podcast .photo {
+	position: absolute;
+    right: 85%;
+    top: -10%;
+    height: 120%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.podcast.right {background-color: transparent;}
+
+.podcast.right .photo {right: 5%;}
+
+.podcast .photo img {
+	max-height: 100%;
+	margin-left: 10% !important;
+}
+
+.page.odd {
+	border-left: 1px solid rgb(215,215,215);
+    box-shadow: inset 10px 0px 10px 0px rgba(224,224,224,0.5) !important;
+}
+
+.page.even {
+	box-shadow: inset -10px 0px 10px 0px rgba(224,224,224,0.5) !important;
+}
+
+.page.odd.portada,
+.page.even.contraportada {
+	box-shadow: none !important;
+}
+/* STYLES */
+body{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13px;
+	color: #606a69;
+	overflow:hidden;
+	background-color:#fff;
+	margin:0;
+	padding:0;
+}
+
+.flipbook-viewport{
+	overflow:hidden;
+	width:100%;
+	height:100%;
+}
+
+.flipbook-viewport .container{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:auto;
+}
+
+.flipbook-viewport .flipbook{
+	width: 1020px;
+	height: 605px;
+	left: -510px;
+	top: -305px;
+}
+
+.flipbook-viewport .page{
+	width: 510px;
+	height: 605px;
+	background-color: #f6f6f6;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.flipbook .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin:0;
+}
+
+.flipbook-viewport .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 20px #ccc;
+	-moz-box-shadow:0 0 20px #ccc;
+	-o-box-shadow:0 0 20px #ccc;
+	-ms-box-shadow:0 0 20px #ccc;
+	box-shadow:0 0 20px #ccc;
+}
+
+.flipbook-viewport .double{
+	width: 1020px;
+	height: 605px;
+	background-size: 100% 100%;
+}
+
+.portada {background-image: url(../content/insumos_portada.png);}
+
+.p0 { 
+	background: url(../content/insumos_fondo-03.png) no-repeat left;
+	background-size: 60% !important;
+}
+
+.indice table {
+	width: 100%;
+    height: 100%;
+    border-spacing: 0;
+    padding-left: 5%;
+}
+
+.indice table td:nth-child(1) {
+	padding-right: 60px;
+}
+
+.indice table td:nth-child(2) {
+	background-color: #efa01d;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 20px;
+	color: #fff;
+	font-size: 24px;
+}
+
+.indice table th:nth-child(1) {
+	vertical-align: bottom;
+	text-align: left;
+}
+
+.indice table th:nth-child(2) {
+	background-color: #efa01d;
+	text-align: center;
+	color: #fff;
+	vertical-align: bottom;
+	padding-bottom: 20px;
+	font-weight: normal;
+	width: 15%;
+}
+
+.indice table th h1 {
+	padding-top: 60px;
+	margin-bottom: 10px;
+}
+
+.indice table tr:last-child {
+	height: 30px;
+}
+
+.links {
+	background-image: url(../content/insumos_nube-de-tags.png);
+}
+
+.pie {
+    bottom: 0;
+    position: absolute;
+    width: 200%;
+}
+
+.pie.right {
+    right: 0;
+}
+
+.pie.left {
+    left: 0;
+}
+
+.pie img {
+	width: 100%;
+}
+
+.last {
+	background: url(../content/insumos_figura-fondo.png) no-repeat left;
+	background-size: 60% !important;
+}
+
+.precontra {
+	background: url(../content/insumos_fondo-02.png) no-repeat right;
+	background-size: 60% !important;
+}
+
+.contraportada { 
+	background-image: url(../content/insumos_contraportada.png);
+	position: relative;
+	box-shadow: none
+}
+
+.contraportada p {
+	width: 45%;
+    text-align: center;
+    margin: auto;
+    padding-top: 5%;
+}
+
+.contraportada .link {
+	width: 43px;
+    height: 43px;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+	bottom: 10.5%;
+}
+
+.contraportada .link.tw {left: 5.9%;}
+.contraportada .link.lk {left: 16.8%;}
+.contraportada .link.yt {left: 27.5%;}
+.contraportada .link.fb {left: 37.9%;}
+
+.links-bar {
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    bottom: 12%;
+}
+
+.p17 .box_media {
+	padding-top: 0;
+}
+
+.page.presentacion .podcast {
+	bottom: 12%;
+}
+
+.page.apropiacion h2,
+.page.presentacion h2,
+.page.metodologia h2 {
+	padding: 30px 30px 20px;
+}
+
+.page.e-actividades h2 {
+	padding: 30px;
+}
+
+.page.creacion h2,
+.page.gamificacion h2 {
+	padding: 50px 30px 40px;
+}
+
+.page.apropiacion p.question,
+.page.metodologia p.question,
+.page.e-actividades p.question,
+.page.creacion p.question,
+.page.gamificacion p.question {
+	margin-bottom: 30px;
+}
+
+.page.metodologia div.about,
+.page.e-actividades div.about {
+	margin-top: 20px;
+}
+
+.page.creacion div.about,
+.page.gamificacion div.about {
+	margin-top: 40px;
+}
+
+.page.gamificacion div.box_media {
+	padding-top: 30px;
+}
+
+.page.gamificacion div.box_media img {
+	box-shadow: 10px 10px 10px 0px rgba(210,210,210,1);
+}
+
+.page.metodologia .box_media {
+	padding: 20px;
+}
+
+.page.publicacion p {
+	padding: 0 30px;
+}
+
+.page.publicacion div.about {
+	padding-left: 30px;
+}
+
+.page .pie {
+    background-size: 200% !important;
+    width: 100%;
+    padding-bottom: 127px;
+}
+
+.page.resultados .pie.left {
+	background: url(../content/insumos_pie-resultados.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.resultados .pie.right {
+	background: url(../content/insumos_pie-resultados.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.apropiacion .pie.left {
+	background: url(../content/insumos_pie-apropiacion.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.apropiacion .pie.right {
+	background: url(../content/insumos_pie-apropiacion.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.metodologia .pie.left {
+	background: url(../content/insumos_metodologia-pie.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(236,185,42,0.5) !important;
+}
+
+.page.metodologia .pie.right {
+	background: url(../content/insumos_metodologia-pie.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(236,185,42,0.5) !important;
+}
+
+.page.e-actividades .pie.left {
+	background: url(../content/insumos_pie-e-actividades.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(56,111,127,0.5) !important;
+}
+
+.page.e-actividades .pie.right {
+	background: url(../content/insumos_pie-e-actividades.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(56,111,127,0.5) !important;
+}
+
+.page.gamificacion .pie.left {
+	background: url(../content/insumos-21.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.gamificacion .pie.right {
+	background: url(../content/insumos-21.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(169,203,205,0.5) !important;
+}
+
+.page.creacion .pie.left {
+	background: url(../content/insumos_pie-creacion.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(236,185,42,0.5) !important;
+}
+
+.page.creacion .pie.right {
+	background: url(../content/insumos_pie-creacion.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(236,185,42,0.5) !important;
+}
+
+.page.publicacion .pie.left {
+	background: url(../content/insumos_pie-publicacion.png) no-repeat;
+	box-shadow: inset -10px 0px 10px 0px rgba(56,111,127,0.5) !important;
+}
+
+.page.publicacion .pie.right {
+	background: url(../content/insumos_pie-publicacion.png) no-repeat right;
+	box-shadow: inset 10px 0px 10px 0px rgba(56,111,127,0.5) !important;
+}
