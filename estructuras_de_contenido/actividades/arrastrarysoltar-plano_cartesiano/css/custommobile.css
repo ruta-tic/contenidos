@@ -1,0 +1,95 @@
+/********************************************************************************/
+/* ACTIVIDAD DROPPABLE
+/********************************************************************************/
+.jpit-activities-droppable {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.jpit-activities-droppable .plano {
+	background: transparent url(../content/planocartesiano.png) no-repeat;
+	background-size: 621px;
+	min-width: 621px;
+	height: 400px;
+	position: relative;
+	margin: 20px;
+}
+
+.jpit-activities-droppable .plano .receptor {
+	width: 22px;
+    height: 22px;
+    border-color: transparent;
+    position: absolute;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.jpit-activities-droppable .plano .receptor1 {
+	left: 199px;
+    top: 24px;
+}
+
+.jpit-activities-droppable .plano .receptor2 {
+	left: 405px;
+    bottom: -6px;
+}
+
+.jpit-activities-droppable .plano .receptor3 {
+	left: 339px;
+    top: 77px;
+}
+
+.jpit-activities-droppable .plano .receptor4 {
+	left: 292px;
+    top: 100px;
+}
+
+.jpit-activities-droppable .plano .receptor5 {
+	left: 129px;
+    top: 215px;
+}
+
+.jpit-activities-droppable .plano .receptor6 {
+	left: 214px;
+    top: 272px;
+}
+
+.jpit-activities-droppable .formulas {
+    width: 100%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.jpit-activities-droppable .formulas .titulo {
+	width: 100%;
+	text-align: center;
+}
+
+.jpit-activities-droppable .formulas .opcion {
+	display: flex;
+	width: 30%;
+}
+
+.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped,
+.jpit-activities-droppable .draggable {
+	width: 20px;
+    height: 20px;
+    border: 1px solid #22B573;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 2;
+    line-height: 20px;
+}
+
+.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+	background-color: #22B573;
+	color: #fff;
+}
+
+.jpit-activities-droppable .draggable.wrong {
+	border: 3px solid #D60C1B;
+}

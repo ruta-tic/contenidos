@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="single">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ejemplo de elementos para los cursos</title>
+    <link href="components/jquery/css/custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="components/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="components/jquery-mobile/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="components/interact/interact.min.js"></script>
+    <script src="components/pit/jpit_api.js"></script>
+    <script src="components/pit/utilities/jpit_utilities.js"></script>
+    <script src="components/pit/activity/jpit_activity.js"></script>
+    <script src="components/pit/resources/jpit_resource.js"></script>
+    <script src="components/pit/activity/droppable/jpit_activity_droppable.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/lang.es.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/mobilelib.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="components/scorm/SCORM_12_APIWrapper.js"> </script>
+    <script src="components/scorm/scorm_api.js"> </script>
+
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(img/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-debug="true" data-display-mode="onlypages" data-approve-limit="70" data-activities-percentaje="60" data-mobile-mode="512">
+    <div id="body" class="not_print">
+        <div id="not_scorm_msg" style="display: none;"></div>
+
+        <nav label="Características globales" class="globals">
+            <menu>
+                <menuitem data-global-id="return">
+                    <i title="Maximizar" class="ion-arrow-expand tooltip maximize" data-position-at="top"></i>
+                    <i title="Minimizar" class="ion-arrow-shrink tooltip minimize" data-position-at="top"></i>
+                </menuitem>
+                <menuitem data-global-id="close_all"><i title="Regresar" class="ion-close-circled tooltip" data-position-at="top"></i></menuitem>
+            </menu>
+        </nav>
+
+        <main style="display: none;">
+
+            <h2 class="page-title"></h2>
+
+            <section id="pag-inicio" ptitle="">
+
+                <div class="subpage">
+                    <div class="instruction" type="info">
+                        <span class="notmobile">Arrastra cada letra a su punto corresponiente en el plano cartesiano</span>
+                    </div>
+                    <div id="arrastrar" class="jpit-activities-droppable" data-verify-type="target" data-act-title="Plano cartesiano" data-act-id="1_plano_cartesiano" data-shuffle="false">
+                        
+                        <span class="onlymobile"><div class="instruction" type="info">Presiona durante dos segundos cada punto del plano cartesiano para ver la lista de posibles respuestas. Elije la correcta de acuerdo a sus coordenadas.</div></span>
+                        
+                        <div class="formulas"> 
+                            <div class="titulo"><h3>Puntos</h3></div>
+                            <div class="opcion">A. (-2.5, 5)<div data-group="1" class="item_1 item">A</div></div>
+                            <div class="opcion">B. (3, -4.5)<div data-group="2" class="item_2 item">B</div></div>
+                            <div class="opcion">C. (1.3, 7/2)<div data-group="3" class="item_3 item">C</div></div>
+                            <div class="opcion">D. (0,3)<div data-group="4" class="item_4 item">D</div></div>
+                            <div class="opcion">E. (-4.5, 0)<div data-group="5" class="item_5 item">E</div></div>
+                            <div class="opcion">F. (-2.1,-1.37)<div data-group="6" class="item_6 item">F</div></div>
+                        </div>
+                        <div class="plano">
+                            <div data-target-group="1" class="receptor receptor1"></div>
+                            <div data-target-group="2" class="receptor receptor2"></div>
+                            <div data-target-group="3" class="receptor receptor3"></div>
+                            <div data-target-group="4" class="receptor receptor4"></div>
+                            <div data-target-group="5" class="receptor receptor5"></div>
+                            <div data-target-group="6" class="receptor receptor6"></div>
+                        </div>
+                        <br class="clear" />
+                        <div class="box_end"></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <div id="printent_content" style="display:none;">
+        <div class="content"></div>
+        <div class="button_container">
+            <button class="general button" onclick="window.print();">Imprimir</button>
+            <button id="printent_back" class="general button" >Volver</button>
+        </div>
+    </div>
+
+</body>
+</html>

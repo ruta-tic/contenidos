@@ -1,0 +1,85 @@
+/********************************************************************************/
+/* ACTIVIDAD DROPPABLE
+/********************************************************************************/
+#arrastrar.jpit-activities-droppable {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#arrastrar.jpit-activities-droppable .plano {
+	background: transparent url(../content/planocartesiano.png) no-repeat;
+	background-size: 100%;
+	width: 621px;
+	height: 400px;
+	position: relative;
+	margin: 20px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor {
+	width: 22px;
+    height: 22px;
+    border-color: transparent;
+    position: absolute;
+    border-radius: 50%;
+    padding: 0;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor1 {
+	left: 199px;
+    top: 24px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor2 {
+	left: 405px;
+    bottom: -6px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor3 {
+	left: 339px;
+    top: 77px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor4 {
+	left: 292px;
+    top: 100px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor5 {
+	left: 129px;
+    top: 215px;
+}
+
+#arrastrar.jpit-activities-droppable .plano .receptor6 {
+	left: 214px;
+    top: 272px;
+}
+
+#arrastrar.jpit-activities-droppable .formulas {
+	position: relative;
+}
+
+#arrastrar.jpit-activities-droppable .formulas .opcion {
+	display: flex;
+}
+
+#arrastrar.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped,
+#arrastrar.jpit-activities-droppable .formulas .item {
+	width: 20px;
+    height: 20px;
+    border: 1px solid #22B573;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 2;
+    line-height: 20px;
+}
+
+#arrastrar.jpit-activities-droppable .jpit_activities_jpitdroppable_dropped {
+	background-color: #22B573;
+	color: #fff;
+}
+
+#arrastrar.jpit-activities-droppable .draggable.wrong {
+	border: 3px solid #D60C1B;
+}
