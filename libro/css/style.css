@@ -205,7 +205,7 @@ body{
 
 .portada {background-image: url(../content/insumos_portada.png);}
 
-.p0 { 
+.p0 {
 	background: url(../content/insumos_fondo-03.png) no-repeat left;
 	background-size: 60% !important;
 }
@@ -286,7 +286,7 @@ body{
 	background-size: 60% !important;
 }
 
-.contraportada { 
+.contraportada {
 	background-image: url(../content/insumos_contraportada.png);
 	position: relative;
 	box-shadow: none
