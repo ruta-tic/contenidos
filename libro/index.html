@@ -13,12 +13,37 @@
     <script type="text/javascript" src="lib/turn.html4.min.js"></script>
     <script type="text/javascript" src="lib/scissor.min.js"></script>
 
+    <style type='text/css'>
+
+        body {
+            background-color: rgba(242, 242, 242, 0.7);
+        }
+
+        body.loading {
+            text-align: center;
+        }
+
+        body.loading:after {
+            content: "";
+            background: url(content/loading.gif) no-repeat bottom center;
+            width: 130px;
+            height: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        body.loading #body {
+            display: none;
+        }
+    </style>
+
 </head>
-<body>
+<body class="loading">
 
 <div class="flipbook-viewport">
     <div class="container">
-        <div class="flipbook">
+        <div class="flipbook" style="display: none;">
             <div class="page hard portada"></div>
             <div class="page hard p0"></div>
             <div class="page indice">
@@ -94,7 +119,7 @@
             <div class="page links"></div>
             <div class="page">
                 <div class="box_media">
-                     <video controls>
+                     <video autoplay loop muted controls>
                         <source src="content/videos/video-gif-e-book.mp4" type="video/mp4">
                         Lo sentimos. Este vídeo no puede ser reproducido en tu navegador
                     </video>
@@ -322,13 +347,18 @@
             <div class="page last"></div>
             <div class="page hard precontra"></div>
             <div class="page hard contraportada">
-                <p>Ruta de apropiación de las TIC para cualificar las prácticas docentes en Educación Superior para la modalidad virtual.</p>
                 <a class="link tw" href="https://twitter.com/ruta_tic" target="_blank"></a>
                 <a class="link lk" href="https://rutatic.udea.edu.co/" target="_blank"></a>
                 <a class="link yt" href="https://www.youtube.com/channel/UCKpolHY4YReKGF1Yt2n2XaA" target="_blank"></a>
                 <a class="link fb" href="https://www.facebook.com/RutadeApropiacionenTIC" target="_blank"></a>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="bottom">
+    <div id="slider-bar" class="turnjs-slider">
+        <div id="slider"></div>
     </div>
 </div>
 
@@ -347,6 +377,10 @@ function loadApp() {
         setTimeout(loadApp, 10);
         return;
     }
+    
+    $('body').removeClass('loading');
+    flipbook.css("display", "block");
+    flipbook.css("transform", "scale(1)");
 
     $('.flipbook .double').scissor();
 
@@ -362,6 +396,7 @@ function loadApp() {
             // Auto center this flipbook
             autoCenter: true,
     });
+
 }
 
 // Load the HTML4 version if there's not CSS transform
@@ -374,7 +409,6 @@ $( document ).ready(function() {
         both: ['lib/scissor.min.js'],
         complete: loadApp
     });
-
 });
 
 $(document).keydown(function(e){

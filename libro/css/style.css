@@ -132,7 +132,13 @@ body{
 	background-color:#fff;
 	margin:0;
 	padding:0;
+	background: url(../content/bibliofondo.png) no-repeat;
+	background-size: 100vw 100vh;
 }
+
+.loading .flipbook {transform: scale(0.1);}
+
+.flipbook {transition: transform 1s;}
 
 .flipbook-viewport{
 	overflow: hidden;
@@ -305,13 +311,13 @@ body{
     position: absolute;
     border-radius: 50%;
     cursor: pointer;
-	bottom: 10.5%;
+	bottom: 10.9%;
 }
 
-.contraportada .link.tw {left: 5.9%;}
-.contraportada .link.lk {left: 16.8%;}
-.contraportada .link.yt {left: 27.5%;}
-.contraportada .link.fb {left: 37.9%;}
+.contraportada .link.tw {left: 54.1%;}
+.contraportada .link.lk {left: 64.8%;}
+.contraportada .link.yt {left: 75.5%;}
+.contraportada .link.fb {left: 85.9%;}
 
 .links-bar {
 	display: flex;
