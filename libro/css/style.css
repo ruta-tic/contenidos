@@ -8,7 +8,7 @@
     font-weight: 400;
     src: local('Montserrat Regular'), local('Montserrat-Regular'),
         url('fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'),
-        url('fonts/Montserrat/Montserrat-Regular.woff') format('woff')
+        url('fonts/Montserrat/Montserrat-Regular.woff') format('woff');
 }
 
 h1 {
@@ -113,15 +113,20 @@ audio {
 .page.odd {
 	border-left: 1px solid rgb(215,215,215);
     box-shadow: inset 10px 0px 10px 0px rgba(224,224,224,0.5) !important;
+	border-top-left-radius: 20px 10px;
+	border-bottom-left-radius: 20px 10px;
 }
 
 .page.even {
 	box-shadow: inset -10px 0px 10px 0px rgba(224,224,224,0.5) !important;
+    border-top-right-radius: 20px 10px;
+    border-bottom-right-radius: 20px 10px;
 }
 
 .page.odd.portada,
 .page.even.contraportada {
 	box-shadow: none !important;
+	border-radius: 0;
 }
 /* STYLES */
 body{
@@ -207,6 +212,7 @@ body{
 
 .page-wrapper {
 	width: 510px !important;
+	background-color: transparent;
 }
 
 .portada {background-image: url(../content/insumos_portada.png);}
@@ -393,6 +399,14 @@ body{
     background-size: 200% !important;
     width: 100%;
     padding-bottom: 127px;
+}
+
+.page .pie.right {
+	border-bottom-left-radius: 20px 10px;
+}
+
+.page .pie.left {
+	border-bottom-right-radius: 20px 10px;
 }
 
 .page.resultados .pie.left {
