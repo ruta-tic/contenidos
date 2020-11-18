@@ -437,6 +437,8 @@
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
+    max-height: 200px;
+    margin: auto;
 }
 
 .jpit-activities-droppable .cases_draggables_board .draggable {
@@ -449,6 +451,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 40px;
 }
 .jpit-activities-droppable .cases_droppables_board .dropzone.droppable.correct,
 .jpit-activities-droppable .cases_draggables_board .draggable.correct,
