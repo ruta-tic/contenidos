@@ -42,7 +42,7 @@
 /********************************************************************************/
 #fases-opciones {
     display: flex;
-    justify-content: center;
+    overflow: scroll;
 }
 
 #fases-opciones > div {
@@ -51,7 +51,6 @@
     align-items: center;
     border-radius: 50%;
     position: relative;
-    max-width: 25%;
 }
 
 #fases-opciones > div.current:after {
@@ -60,7 +59,7 @@
     background: url(../img/sprite.png) no-repeat -550px -15px;
     width: 34px;
     height: 25px;
-    bottom: -17px;
+    bottom: 0;
     left: calc(50% - 17px);
 }
 

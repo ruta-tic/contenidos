@@ -134,6 +134,7 @@
 #areas_disciplinares.jpit-activities-multidroppable .sources {
     width: 100%;
     margin: 10px auto 0;
+    position: relative;
 }
 
 #areas_disciplinares.jpit-activities-multidroppable .sources .draggable {

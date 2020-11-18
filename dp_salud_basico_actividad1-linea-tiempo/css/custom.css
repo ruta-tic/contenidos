@@ -101,6 +101,7 @@
     flex-direction: row;
     justify-content: center;
     max-width: 800px;
+    min-width: 735px;
     padding-top: 40px;
 }
 
@@ -112,7 +113,12 @@
     flex-direction: row-reverse;
     justify-content: center;
     max-width: 800px;
+    min-width: 735px;
     padding-top: 40px;
+}
+
+body {
+    min-width: 760px;
 }
 
 .jpit-activities-droppable .introductorio {
