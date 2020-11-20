@@ -137,7 +137,7 @@ body{
 	background-color:#fff;
 	margin:0;
 	padding:0;
-	background: url(../content/bibliofondo.png) no-repeat;
+	background: url(../content/fondo.png) no-repeat;
 	background-size: 100vw 100vh;
 }
 
@@ -197,11 +197,11 @@ body{
 	-o-transition: -webkit-box-shadow 0.5s;
 	-ms-transition: -ms-box-shadow 0.5s;
 
-	-webkit-box-shadow: 0 0 20px #ccc;
-	-moz-box-shadow: 0 0 20px #ccc;
-	-o-box-shadow: 0 0 20px #ccc;
-	-ms-box-shadow: 0 0 20px #ccc;
-	box-shadow: 0 0 20px #ccc;
+	-webkit-box-shadow: 0 0 10px #222;
+	-moz-box-shadow: 0 0 10px #222;
+	-o-box-shadow: 0 0 10px #222;
+	-ms-box-shadow: 0 0 10px #222;
+	box-shadow: 0 0 10px #222;
 }
 
 .flipbook-viewport .double{
